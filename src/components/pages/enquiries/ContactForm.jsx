@@ -17,6 +17,7 @@ import {
     Email as EmailIcon,
     LocationOn as LocationIcon
 } from '@mui/icons-material';
+import themeNeutral from '../../../themeNeutral';
 
 export default function ContactForm() {
     const theme = useTheme();
@@ -297,7 +298,7 @@ export default function ContactForm() {
                             maxWidth: 600,
                             width: '100%',
                             boxShadow: theme.shadows[6],
-                            background: 'transparent',
+                            background: themeNeutral.palette.secondary.main,
                             color: theme.palette.primary.contrastText
                         }}
                     >

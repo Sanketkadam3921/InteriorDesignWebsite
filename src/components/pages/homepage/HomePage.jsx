@@ -7,7 +7,7 @@ import HomeInspiration from './HomeInspiration';
 import WhyChooseUs from './WhyChoose'; // ✅ new component
 import Estimate from './Estimate';
 import ThemeTest from '../../common/ThemeTest';
-
+import FeaturedProjectsList from '../projects/FeaturedProjectsList';
 export default function HomePage() {
     return (
         <Box>

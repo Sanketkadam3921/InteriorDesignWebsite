@@ -10,8 +10,9 @@ const RenovationsPage = () => {
         <>
             <Hero />
             <RenovationSteps />
-            <HowItWorks />
             <WhatWeOffer />
+            <HowItWorks />
+
             <TypeOfHome />
         </>
     );

@@ -254,7 +254,7 @@ export default function DesignDetail() {
 
                 <Divider sx={{ my: 3 }} />
 
-                {/* Action Buttons */}
+                {/* Action Buttons 
                 <Box
                     sx={{
                         display: "flex",
@@ -305,7 +305,7 @@ export default function DesignDetail() {
                     >
                         Share
                     </Button>
-                </Box>
+                </Box>*/}
 
                 {/* CTA */}
                 <Card sx={{ p: 3, boxShadow: 2 }}>
