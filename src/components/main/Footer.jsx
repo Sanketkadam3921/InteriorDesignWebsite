@@ -207,7 +207,7 @@ export default function Footer() {
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                                 <Phone sx={{ fontSize: '1.3rem', opacity: 0.8 }} />
                                 <Link href="tel:+91-9876543210" sx={linkStyle(theme)}>
-                                    +91-9876543210
+                                    +91 9876543210
                                 </Link>
                             </Box>
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
