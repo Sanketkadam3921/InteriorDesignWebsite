@@ -234,10 +234,12 @@ export default function Footer() {
                                 color: theme.palette.secondary.contrastText,
                                 opacity: 0.8,
                                 fontSize: { xs: '0.9rem', md: '1rem' },
+                                mb: { xs: 3, md: 0 }, // 👈 Adds extra bottom margin on mobile only
                             }}
                         >
                             © 2025 Kalakruti Studio. All rights reserved.
                         </Typography>
+
                     </Box>
                 </Container>
             </Box>
