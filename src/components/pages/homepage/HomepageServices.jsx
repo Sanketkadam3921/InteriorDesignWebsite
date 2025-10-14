@@ -38,7 +38,7 @@ export default function HomeServices() {
             title: 'Renovations',
             description: 'Expert solutions to upgrade your home',
             image: 'https://images.unsplash.com/photo-1618832515490-e181c4794a45?q=80&w=1470&auto=format&fit=crop',
-            path: '/offerings/learn-more',
+            path: '/renovations',
         },
     ];
 
