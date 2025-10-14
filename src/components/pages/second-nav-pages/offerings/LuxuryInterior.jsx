@@ -16,41 +16,56 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 const HeroSection = styled(Box)(({ theme }) => ({
     position: 'relative',
     width: '100%',
+    maxWidth: '100vw',
     height: '100vh',
     minHeight: '600px',
     display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     overflow: 'hidden',
+    [theme.breakpoints.down('lg')]: {
+        height: '80vh',
+        minHeight: '500px'
+    },
     [theme.breakpoints.down('md')]: {
-        flexDirection: 'column',
-        height: 'auto'
+        height: '70vh',
+        minHeight: '400px'
     }
 }));
 
 const ImageSection = styled(Box)(({ theme }) => ({
-    flex: '2',
-    position: 'relative',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    width: '100%',
+    height: '100%',
     backgroundImage: `url('https://www.oppoliahome.com/wp-content/uploads/2023/06/australia-luxury-apartment-project-whole-house-solution-17.webp')`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
-    [theme.breakpoints.down('md')]: {
-        flex: '1',
-        height: '50vh'
-    }
+    zIndex: 1
 }));
 
 const TextSection = styled(Box)(({ theme }) => ({
-    flex: '1',
-    backgroundColor: theme.palette.secondary.main,
+    position: 'relative',
+    zIndex: 3,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    textAlign: 'center',
     padding: theme.spacing(4),
-    position: 'relative',
+    maxWidth: '800px',
+    margin: '0 auto',
+    [theme.breakpoints.down('lg')]: {
+        padding: theme.spacing(3),
+        maxWidth: '700px'
+    },
     [theme.breakpoints.down('md')]: {
-        flex: '1',
-        height: '50vh'
+        padding: theme.spacing(2),
+        maxWidth: '90%'
     }
 }));
 
@@ -60,7 +75,7 @@ const GoldenDivider = styled(Box)(({ theme }) => ({
     top: 0,
     bottom: 0,
     width: '2px',
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: '#B1B6B8', // Theme color
     zIndex: 2,
     [theme.breakpoints.down('md')]: {
         display: 'none'
@@ -69,17 +84,22 @@ const GoldenDivider = styled(Box)(({ theme }) => ({
 
 const LuxuryText = styled(Typography)(({ theme }) => ({
     fontFamily: 'serif',
-    color: 'black',
+    color: 'white',
     textAlign: 'center',
     lineHeight: 1.2,
     marginBottom: theme.spacing(4),
+    textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
+    [theme.breakpoints.down('lg')]: {
+        marginBottom: theme.spacing(3)
+    },
     [theme.breakpoints.down('md')]: {
-        fontSize: '2rem'
+        fontSize: '2rem',
+        marginBottom: theme.spacing(2)
     }
 }));
 
 const CTAButton = styled(Button)(({ theme }) => ({
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: '#6B7280',
     color: 'white',
     padding: theme.spacing(2, 4),
     borderRadius: '8px',
@@ -87,9 +107,9 @@ const CTAButton = styled(Button)(({ theme }) => ({
     fontWeight: 'bold',
     textTransform: 'none',
     '&:hover': {
-        backgroundColor: theme.palette.primary.dark,
+        backgroundColor: '#4B5563',
         transform: 'translateY(-2px)',
-        boxShadow: `0 4px 12px ${theme.palette.primary.main}30`
+        boxShadow: '0 4px 12px rgba(107, 114, 128, 0.3)'
     },
     transition: 'all 0.3s ease'
 }));
@@ -110,8 +130,8 @@ const ImageOverlay = styled(Box)(({ theme }) => ({
     left: 0,
     right: 0,
     bottom: 0,
-    background: 'linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%)',
-    zIndex: 1
+    background: 'linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%)',
+    zIndex: 2
 }));
 
 const FloatingElements = styled(Box)(({ theme }) => ({
@@ -147,6 +167,9 @@ const SecondSection = styled(Box)(({ theme }) => ({
     backgroundColor: 'white', // White background
     padding: theme.spacing(8, 0),
     position: 'relative',
+    [theme.breakpoints.down('lg')]: {
+        padding: theme.spacing(5, 0)
+    },
     [theme.breakpoints.down('md')]: {
         padding: theme.spacing(4, 0)
     }
@@ -270,6 +293,9 @@ const QuadrantSection = styled(Box)(({ theme }) => ({
     backgroundColor: '#B1B6B8', // Grey background
     padding: theme.spacing(8, 0),
     position: 'relative',
+    [theme.breakpoints.down('lg')]: {
+        padding: theme.spacing(5, 0)
+    },
     [theme.breakpoints.down('md')]: {
         padding: theme.spacing(4, 0)
     }
@@ -302,7 +328,7 @@ const QuadrantGrid = styled(Box)(({ theme }) => ({
     gridTemplateRows: '1fr 1fr',
     gap: 0,
     position: 'relative',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
         gridTemplateColumns: '1fr',
         gridTemplateRows: 'repeat(4, 1fr)'
     }
@@ -317,28 +343,36 @@ const QuadrantItem = styled(Box)(({ theme }) => ({
     textAlign: 'center',
     minHeight: '250px',
     position: 'relative',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('lg')]: {
         padding: theme.spacing(3),
-        minHeight: '200px'
+        minHeight: '220px'
+    },
+    [theme.breakpoints.down('sm')]: {
+        padding: theme.spacing(2),
+        minHeight: '180px'
     }
 }));
 
 const QuadrantTitle = styled(Typography)(({ theme }) => ({
     color: 'black',
     fontWeight: 'bold',
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(1),
     fontSize: '1.2rem',
     [theme.breakpoints.down('md')]: {
-        fontSize: '1.1rem'
+        fontSize: '1.1rem',
+        marginBottom: theme.spacing(0.5)
     }
 }));
 
 const QuadrantDescription = styled(Typography)(({ theme }) => ({
     color: 'black',
-    lineHeight: 1.6,
+    lineHeight: 1.4,
     fontSize: '0.95rem',
+    marginTop: theme.spacing(0.5),
     [theme.breakpoints.down('md')]: {
-        fontSize: '0.9rem'
+        fontSize: '0.9rem',
+        lineHeight: 1.3,
+        marginTop: theme.spacing(0.25)
     }
 }));
 
@@ -352,7 +386,7 @@ const QuadrantDivider = styled(Box)(({ theme }) => ({
         right: '5%',
         height: '1px',
         transform: 'translateY(-50%)',
-        [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down('sm')]: {
             display: 'none'
         }
     },
@@ -362,7 +396,7 @@ const QuadrantDivider = styled(Box)(({ theme }) => ({
         bottom: '5%',
         width: '1px',
         transform: 'translateX(-50%)',
-        [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down('sm')]: {
             display: 'none'
         }
     }
@@ -379,7 +413,7 @@ const GoldenDot = styled(Box)(({ theme }) => ({
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down('sm')]: {
             display: 'none'
         }
     },
@@ -387,7 +421,7 @@ const GoldenDot = styled(Box)(({ theme }) => ({
         top: '50%',
         left: '5%',
         transform: 'translateY(-50%)',
-        [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down('sm')]: {
             display: 'none'
         }
     },
@@ -395,7 +429,7 @@ const GoldenDot = styled(Box)(({ theme }) => ({
         top: '50%',
         right: '5%',
         transform: 'translateY(-50%)',
-        [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down('sm')]: {
             display: 'none'
         }
     },
@@ -403,7 +437,7 @@ const GoldenDot = styled(Box)(({ theme }) => ({
         left: '50%',
         top: '5%',
         transform: 'translateX(-50%)',
-        [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down('sm')]: {
             display: 'none'
         }
     },
@@ -411,7 +445,7 @@ const GoldenDot = styled(Box)(({ theme }) => ({
         left: '50%',
         bottom: '5%',
         transform: 'translateX(-50%)',
-        [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down('sm')]: {
             display: 'none'
         }
     }
@@ -438,6 +472,9 @@ const ConsultationButton = styled(Button)(({ theme }) => ({
 const CarouselSection = styled(Box)(({ theme }) => ({
     backgroundColor: 'white', // White background
     padding: theme.spacing(8, 0),
+    [theme.breakpoints.down('lg')]: {
+        padding: theme.spacing(5, 0)
+    },
     [theme.breakpoints.down('md')]: {
         padding: theme.spacing(4, 0)
     }
@@ -468,8 +505,11 @@ const CarouselContainer = styled(Box)(({ theme }) => ({
     maxWidth: '1200px',
     margin: '0 auto',
     padding: theme.spacing(0, 4),
+    width: '100%',
+    overflow: 'hidden',
     [theme.breakpoints.down('md')]: {
-        padding: theme.spacing(0, 2)
+        padding: theme.spacing(0, 2),
+        maxWidth: '100%'
     }
 }));
 
@@ -479,9 +519,17 @@ const CarouselWrapper = styled(Box)(({ theme }) => ({
     justifyContent: 'center',
     gap: theme.spacing(2),
     position: 'relative',
+    width: '100%',
+    maxWidth: '100%',
+    overflow: 'hidden',
+    [theme.breakpoints.down('lg')]: {
+        gap: theme.spacing(1.5)
+    },
     [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
-        gap: theme.spacing(1)
+        gap: theme.spacing(1),
+        width: '100%',
+        maxWidth: '100%'
     }
 }));
 
@@ -493,9 +541,18 @@ const SideImage = styled(Box)(({ theme }) => ({
     backgroundPosition: 'center',
     filter: 'blur(2px) brightness(0.7)',
     transition: 'all 0.3s ease',
+    flexShrink: 0,
+    [theme.breakpoints.down('lg')]: {
+        width: '160px',
+        height: '240px'
+    },
     [theme.breakpoints.down('md')]: {
         width: '150px',
         height: '200px'
+    },
+    [theme.breakpoints.down('sm')]: {
+        width: '120px',
+        height: '160px'
     }
 }));
 
@@ -508,9 +565,18 @@ const CentralImage = styled(Box)(({ theme }) => ({
     border: '3px solid #B1B6B8',
     boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)',
     transition: 'all 0.3s ease',
+    flexShrink: 0,
+    [theme.breakpoints.down('lg')]: {
+        width: '320px',
+        height: '400px'
+    },
     [theme.breakpoints.down('md')]: {
         width: '300px',
         height: '400px'
+    },
+    [theme.breakpoints.down('sm')]: {
+        width: '250px',
+        height: '320px'
     }
 }));
 
@@ -550,6 +616,9 @@ const NavigationArrow = styled(IconButton)(({ theme }) => ({
 const UniqueSection = styled(Box)(({ theme }) => ({
     backgroundColor: 'white', // White background as requested
     padding: theme.spacing(8, 0),
+    [theme.breakpoints.down('lg')]: {
+        padding: theme.spacing(5, 0)
+    },
     [theme.breakpoints.down('md')]: {
         padding: theme.spacing(4, 0)
     }
@@ -575,9 +644,13 @@ const FeaturesContainer = styled(Box)(({ theme }) => ({
     maxWidth: '1200px',
     margin: '0 auto',
     padding: theme.spacing(0, 4),
+    width: '100%',
+    overflow: 'hidden',
     [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
-        gap: theme.spacing(3)
+        gap: theme.spacing(3),
+        maxWidth: '100%',
+        padding: theme.spacing(0, 2)
     }
 }));
 
@@ -628,7 +701,7 @@ const IconWrapper = styled(Box)(({ theme }) => ({
     left: '50%',
     transform: 'translate(-50%, -50%)',
     zIndex: 3,
-    color: '#B1B6B8',
+    color: 'white',
     fontSize: '24px'
 }));
 
@@ -664,6 +737,9 @@ const ReferralSection = styled(Box)(({ theme }) => ({
     backgroundColor: '#E8E2D9', // Light beige background as per image
     padding: theme.spacing(8, 0),
     position: 'relative',
+    [theme.breakpoints.down('lg')]: {
+        padding: theme.spacing(5, 0)
+    },
     [theme.breakpoints.down('md')]: {
         padding: theme.spacing(4, 0)
     }
@@ -674,8 +750,11 @@ const ReferralContainer = styled(Box)(({ theme }) => ({
     margin: '0 auto',
     padding: theme.spacing(0, 4),
     position: 'relative',
+    width: '100%',
+    overflow: 'hidden',
     [theme.breakpoints.down('md')]: {
-        padding: theme.spacing(0, 2)
+        padding: theme.spacing(0, 2),
+        maxWidth: '100%'
     }
 }));
 
@@ -790,45 +869,19 @@ export default function LuxuryInterior() {
     };
 
     return (
-        <Box>
+        <Box sx={{
+            overflowX: 'hidden',
+            width: '100%',
+            minHeight: '100vh',
+            position: 'relative'
+        }}>
             {/* Hero Section */}
             <HeroSection>
-                {/* Image Section */}
-                <ImageSection>
-                    {/* Optional overlay for better text contrast if needed */}
-                    <ImageOverlay />
+                {/* Full Width Background Image */}
+                <ImageSection />
 
-                    {/* Floating 3D Elements */}
-                    {/* <FloatingElements>
-                        <FloatingCard elevation={8}>
-                            <Typography variant="h6" sx={{ color: '#2D1B3D', fontWeight: 'bold' }}>
-                                Premium Materials
-                            </Typography>
-                            <Typography variant="body2" sx={{ color: '#666' }}>
-                                Hand-selected luxury finishes
-                            </Typography>
-                        </FloatingCard>
-                        <FloatingCard elevation={8}>
-                            <Typography variant="h6" sx={{ color: '#2D1B3D', fontWeight: 'bold' }}>
-                                Custom Design
-                            </Typography>
-                            <Typography variant="body2" sx={{ color: '#666' }}>
-                                Tailored to your vision
-                            </Typography>
-                        </FloatingCard>
-                        <FloatingCard elevation={8}>
-                            <Typography variant="h6" sx={{ color: '#2D1B3D', fontWeight: 'bold' }}>
-                                Expert Craftsmanship
-                            </Typography>
-                            <Typography variant="body2" sx={{ color: '#666' }}>
-                                Master artisans at work
-                            </Typography>
-                        </FloatingCard>
-                    </FloatingElements> */}
-                </ImageSection>
-
-                {/* Golden Divider */}
-                <GoldenDivider />
+                {/* Dark Overlay */}
+                <ImageOverlay />
 
                 {/* Text Section */}
                 <TextSection>
@@ -839,9 +892,7 @@ export default function LuxuryInterior() {
                             fontWeight: '300'
                         }}
                     >
-                        Experience the<br />
-                        majesty of<br />
-                        bespoke homes
+                        Experience the majesty of bespoke homes
                     </LuxuryText>
 
                     <CTAButton
@@ -900,7 +951,7 @@ export default function LuxuryInterior() {
                 </Container>
             </SecondSection>
 
-            {/* Quadrant Section - How we bring luxurious homes to life */}
+            {/* Quadrant Section - iy */}
             <QuadrantSection>
                 <Container maxWidth="lg">
                     <SectionTitle
