@@ -54,6 +54,9 @@ import WardrobeCabinets from "../pages/wardrobe-components/WardrobeCabinets";
 import WardrobeHandles from "../pages/wardrobe-components/WardrobeHandles";
 import WardrobeFinishes from "../pages/wardrobe-components/WardrobeFinishes";
 
+// Renovations Components
+import RenovationsPage from "../pages/renovations/RenovationsPage";
+
 
 export default function AppRoutes() {
     return (
@@ -122,6 +125,10 @@ export default function AppRoutes() {
                     <Route path="offerings/book-online-consultation" element={<BookOnlineConsultation />} />
                     <Route path="offerings/learn-more" element={<LearnMore />} />
                     <Route path="enquiries/quote-form" element={<QuoteForm />} />
+
+                    {/* Renovations Routes */}
+                    <Route path="renovations" element={<RenovationsPage />} />
+
                     <Route path="*" element={<NotFound />} />
 
                 </Route>
