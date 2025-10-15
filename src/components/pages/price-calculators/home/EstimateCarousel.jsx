@@ -215,13 +215,13 @@ export default function EstimateCarousel() {
                             top: "50%",
                             left: isMobile ? "8px" : "-28px",
                             transform: "translateY(-50%)",
-                            backgroundColor: theme.palette.background.paper,
+                            backgroundColor: "rgba(255, 255, 255, 0.9)", // ✅ solid opaque white
                             boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
                             color: theme.palette.primary.main,
                             width: isMobile ? 36 : 44,
                             height: isMobile ? 36 : 44,
                             "&:hover": {
-                                backgroundColor: theme.palette.action.hover,
+                                backgroundColor: "rgba(255, 255, 255, 0.9)",
                                 color: theme.palette.primary.dark,
                             },
                         }}
@@ -236,13 +236,13 @@ export default function EstimateCarousel() {
                             top: "50%",
                             right: isMobile ? "8px" : "-28px",
                             transform: "translateY(-50%)",
-                            backgroundColor: theme.palette.background.paper,
+                            backgroundColor: "rgba(255, 255, 255, 0.9)", // ✅ solid opaque white
                             boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
                             color: theme.palette.primary.main,
                             width: isMobile ? 36 : 44,
                             height: isMobile ? 36 : 44,
                             "&:hover": {
-                                backgroundColor: theme.palette.action.hover,
+                                backgroundColor: "rgba(255, 255, 255, 0.9)",
                                 color: theme.palette.primary.dark,
                             },
                         }}
