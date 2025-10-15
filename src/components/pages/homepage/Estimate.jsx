@@ -10,40 +10,50 @@ import {
     useTheme,
 } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import { useNavigate } from "react-router-dom"; // ✅ Import navigation hook
 
 // ✅ Image icons (you can replace these with your brand ones later)
 const estimateOptions = [
     {
-        id: "fullhome",
+        id: "home", // ✅ changed from fullhome to match your route
         title: "Full Home Interior",
         description: "Know the estimate price for your full home interiors",
         icon: "https://cdn-icons-png.flaticon.com/128/263/263115.png", // 🏠 Home icon
+        path: "/price-calculators/home",
     },
     {
         id: "kitchen",
         title: "Kitchen",
         description: "Get an approximate costing for your kitchen interior.",
         icon: "https://cdn-icons-png.flaticon.com/128/2851/2851928.png", // 🍳 Kitchen icon
+        path: "/price-calculators/kitchen",
     },
     {
         id: "wardrobe",
         title: "Wardrobe",
         description: "Our estimate for your dream wardrobe",
         icon: "https://cdn-icons-png.flaticon.com/128/2337/2337984.png", // 🚪 Wardrobe icon
+        path: "/price-calculators/wardrobe",
     },
 ];
 
 export default function Estimate() {
     const theme = useTheme();
+    const navigate = useNavigate(); // ✅ Initialize navigation
 
     return (
         <Box sx={{ py: 8, backgroundColor: theme.palette.background.paper }}>
             <Container maxWidth="lg">
                 {/* Heading */}
                 <Box sx={{ textAlign: "center", mb: 2 }}>
-                    <Typography variant="h3" fontWeight={700} color="text.primary" sx={{
-                        fontSize: { xs: '1.8rem', md: '3rem' } // 👈 smaller text for mobile
-                    }}>
+                    <Typography
+                        variant="h3"
+                        fontWeight={700}
+                        color="text.primary"
+                        sx={{
+                            fontSize: { xs: "1.8rem", md: "3rem" }, // 👈 smaller text for mobile
+                        }}
+                    >
                         Calculate the estimate
                     </Typography>
                 </Box>
@@ -161,10 +171,11 @@ export default function Estimate() {
                                         {option.description}
                                     </Typography>
 
-                                    {/* Button */}
+                                    {/* Button with Navigation */}
                                     <Button
                                         variant="contained"
                                         endIcon={<ChevronRightIcon />}
+                                        onClick={() => navigate(option.path)} // ✅ Navigate to calculator
                                         sx={{
                                             backgroundColor: theme.palette.primary.main,
                                             color: theme.palette.primary.contrastText,
