@@ -28,6 +28,8 @@ const SectionWrapper = ({ children }) => (
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-start',
+            alignItems: 'flex-start', // ✅ always left-aligned
+            textAlign: 'left', // ✅ text left-aligned
         }}
     >
         {children}
@@ -37,7 +39,7 @@ const SectionWrapper = ({ children }) => (
 const LinkGroup = ({ title, children }) => {
     const theme = useTheme();
     return (
-        <Grid item xs={12} sm={6} md={2.25}>
+        <Grid item xs={12} md={2.25}>
             <SectionWrapper>
                 <Typography
                     variant="h6"
@@ -81,7 +83,7 @@ const NavLink = ({ to, label }) => {
 
 export default function Footer() {
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('md')); // ✅ stack for mobile + tablet
 
     return (
         <Box component="footer" sx={{ mt: 'auto', position: 'relative', overflow: 'hidden' }}>
@@ -124,18 +126,25 @@ export default function Footer() {
                     </svg>
                 </Box>
 
-                <Container maxWidth="xl" sx={{ position: 'relative', zIndex: 2 }}>
+                <Container
+                    maxWidth="xl"
+                    sx={{
+                        position: 'relative',
+                        zIndex: 2,
+                        px: { xs: 3, sm: 4, md: 6 },
+                    }}
+                >
                     <Grid
                         container
-                        spacing={{ xs: 4, md: 6 }}
-                        direction={isMobile ? 'column' : 'row'}
-                        alignItems="flex-start"
-                        textAlign="left"
+                        spacing={{ xs: 5, md: 6 }}
+                        direction={isSmallScreen ? 'column' : 'row'} // ✅ stack for mobile + tablet
+                        alignItems="flex-start" // ✅ keep all items left-aligned
+                        textAlign="left" // ✅ left text alignment everywhere
                     >
                         {/* Logo + Social Media */}
-                        <Grid item xs={12} sm={6} md={3}>
+                        <Grid item xs={12} md={3}>
                             <SectionWrapper>
-                                <Box sx={{ mb: 5, textAlign: 'left' }}>
+                                <Box sx={{ mb: 5 }}>
                                     <Typography
                                         variant="h4"
                                         sx={{
@@ -212,13 +221,13 @@ export default function Footer() {
 
                         {/* Contact */}
                         <LinkGroup title="CONTACT US">
-                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, justifyContent: 'flex-start' }}>
+                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                                 <Phone sx={{ fontSize: '1.3rem', opacity: 0.8 }} />
                                 <Link href="tel:+91-9876543210" sx={linkStyle(theme)}>
                                     +91 9876543210
                                 </Link>
                             </Box>
-                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, justifyContent: 'flex-start' }}>
+                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                                 <Email sx={{ fontSize: '1.3rem', opacity: 0.8 }} />
                                 <Link href="mailto:care@kalakruti.com" sx={linkStyle(theme)}>
                                     care@kalakruti.com
@@ -233,7 +242,7 @@ export default function Footer() {
                             borderTop: '1px solid rgba(255,255,255,0.2)',
                             mt: 6,
                             pt: 4,
-                            textAlign: 'center',
+                            textAlign: 'center', // ✅ left-aligned even in mobile/tablet
                         }}
                     >
                         <Typography
