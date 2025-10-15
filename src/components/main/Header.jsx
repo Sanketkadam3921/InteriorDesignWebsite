@@ -17,7 +17,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import logo from "../../assets/LogoKalaKruti.png";
 
-// ✅ Ant Design imports
+// Ant Design imports
 import { Dropdown, Button, Space } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 

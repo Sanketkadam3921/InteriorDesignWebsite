@@ -7,6 +7,7 @@ import {
     Link,
     IconButton,
     useTheme,
+    useMediaQuery,
 } from '@mui/material';
 import {
     Facebook,
@@ -18,7 +19,7 @@ import {
 } from '@mui/icons-material';
 import { Link as RouterLink } from 'react-router-dom';
 
-// Reusable section container with equal padding for alignment
+// Reusable section container
 const SectionWrapper = ({ children }) => (
     <Box
         sx={{
@@ -80,6 +81,7 @@ const NavLink = ({ to, label }) => {
 
 export default function Footer() {
     const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     return (
         <Box component="footer" sx={{ mt: 'auto', position: 'relative', overflow: 'hidden' }}>
@@ -91,7 +93,7 @@ export default function Footer() {
                     position: 'relative',
                 }}
             >
-                {/* Decorative SVG background */}
+                {/* Decorative SVG */}
                 <Box
                     sx={{
                         position: 'absolute',
@@ -123,11 +125,17 @@ export default function Footer() {
                 </Box>
 
                 <Container maxWidth="xl" sx={{ position: 'relative', zIndex: 2 }}>
-                    <Grid container spacing={{ xs: 4, md: 6 }}>
+                    <Grid
+                        container
+                        spacing={{ xs: 4, md: 6 }}
+                        direction={isMobile ? 'column' : 'row'}
+                        alignItems="flex-start"
+                        textAlign="left"
+                    >
                         {/* Logo + Social Media */}
                         <Grid item xs={12} sm={6} md={3}>
                             <SectionWrapper>
-                                <Box sx={{ mb: 5 }}>
+                                <Box sx={{ mb: 5, textAlign: 'left' }}>
                                     <Typography
                                         variant="h4"
                                         sx={{
@@ -152,7 +160,7 @@ export default function Footer() {
                                     </Typography>
                                 </Box>
 
-                                <Box sx={{ display: 'flex', gap: 2 }}>
+                                <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-start' }}>
                                     {[
                                         { icon: <Facebook />, href: 'https://facebook.com' },
                                         { icon: <Instagram />, href: 'https://www.instagram.com/_kalakruti_studio_/' },
@@ -204,13 +212,13 @@ export default function Footer() {
 
                         {/* Contact */}
                         <LinkGroup title="CONTACT US">
-                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, justifyContent: 'flex-start' }}>
                                 <Phone sx={{ fontSize: '1.3rem', opacity: 0.8 }} />
                                 <Link href="tel:+91-9876543210" sx={linkStyle(theme)}>
                                     +91 9876543210
                                 </Link>
                             </Box>
-                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, justifyContent: 'flex-start' }}>
                                 <Email sx={{ fontSize: '1.3rem', opacity: 0.8 }} />
                                 <Link href="mailto:care@kalakruti.com" sx={linkStyle(theme)}>
                                     care@kalakruti.com
@@ -234,12 +242,11 @@ export default function Footer() {
                                 color: theme.palette.secondary.contrastText,
                                 opacity: 0.8,
                                 fontSize: { xs: '0.9rem', md: '1rem' },
-                                mb: { xs: 3, md: 0 }, // 👈 Adds extra bottom margin on mobile only
+                                mb: { xs: 3, md: 0 },
                             }}
                         >
                             © 2025 Kalakruti Studio. All rights reserved.
                         </Typography>
-
                     </Box>
                 </Container>
             </Box>
