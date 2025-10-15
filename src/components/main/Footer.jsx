@@ -199,9 +199,9 @@ export default function Footer() {
                         </Grid>
 
                         {/* Offerings & Inspiration */}
-                        <LinkGroup title="OFFERINGS & INSPIRATION">
+                        <LinkGroup title="OFFERINGS ">
                             <NavLink to="/offerings" label="Interiors" />
-                            <NavLink to="/designs" label="Design Ideas" />
+                            <NavLink to="/designs" label="Designs" />
                         </LinkGroup>
 
                         {/* Tools */}
