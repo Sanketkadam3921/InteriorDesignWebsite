@@ -38,8 +38,10 @@ export default function ProjectsPage() {
                     sx={{
                         mb: 8,
                         mt: { xs: 0, sm: 0, md: 6 }, // ✅ 0 on mobile & small, 6 on medium and above
+                        px: { xs: 2, sm: 2, md: 2 }, // ✅ Add horizontal padding
                     }}
-                >                    <Breadcrumbs aria-label="breadcrumb" sx={{ mb: 2 }}>
+                >
+                    <Breadcrumbs aria-label="breadcrumb" sx={{ mb: 2 }}>
                         <Link
                             underline="hover"
                             color="inherit"
@@ -72,7 +74,6 @@ export default function ProjectsPage() {
                         your lifestyle.
                     </Typography>
                 </Box>
-
                 {/* 🧱 Project Categories Section */}
                 <Grid container spacing={6} sx={{ mb: { xs: 0, sm: 0, md: 12 }, justifyContent: "center" }}>
                     {[
@@ -178,7 +179,12 @@ export default function ProjectsPage() {
 
                 {/* ✨ Featured Projects */}
                 {/* ✨ Featured Projects */}
-                <Box sx={{ mb: 6 }}>
+                <Box
+                    sx={{
+                        mb: 6,
+                        px: { xs: 2, sm: 3, md: 4 }, // ✅ Adds a small left & right padding (2=16px, 3=24px, 4=32px)
+                    }}
+                >
                     <Box
                         sx={{
                             display: "flex",
@@ -209,7 +215,8 @@ export default function ProjectsPage() {
                                     lineHeight: 1.7,
                                 }}
                             >
-                                A glimpse of our best creations — blending design precision and aesthetic brilliance.
+                                A glimpse of our best creations — blending design precision and aesthetic
+                                brilliance.
                             </Typography>
                         </Box>
 
@@ -239,6 +246,7 @@ export default function ProjectsPage() {
                         </Box>
                     </Box>
                 </Box>
+
 
 
                 {/* Featured Projects Carousel */}
