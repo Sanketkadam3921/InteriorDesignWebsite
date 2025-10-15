@@ -86,7 +86,7 @@ export default function DeliveredProjectDetail() {
             <Button
                 startIcon={<ArrowBack />}
                 onClick={() => navigate("/projects/delivered")}
-                sx={{ mb: 4 }}
+                sx={{ mb: 4, px: 0 }}
             >
                 Back to Delivered Projects
             </Button>
