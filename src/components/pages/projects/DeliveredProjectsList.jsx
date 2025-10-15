@@ -24,12 +24,12 @@ export default function DeliveredProjectsList() {
     };
 
     return (
-        <Container maxWidth="xl" sx={{ py: 6 }}>
+        <Container maxWidth="xl" sx={{ py: 6, px: 0 }}>
             {/* Back Button */}
             <Button
                 startIcon={<ArrowBack />}
                 onClick={() => navigate("/projects")}
-                sx={{ mb: 4 }}
+                sx={{ mb: 4, px: 0 }}
             >
                 Back to Projects
             </Button>

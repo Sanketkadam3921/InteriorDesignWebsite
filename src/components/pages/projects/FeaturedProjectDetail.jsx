@@ -89,6 +89,7 @@ export default function FeaturedProjectDetail() {
                 startIcon={<ArrowBack />}
                 onClick={() => navigate("/projects/featured")}
                 sx={{
+                    px: 0,
                     py: 0,
                     mt: { xs: 0, sm: 0, md: 6 }, // 0 on mobile/small, 6 on medium and up
                 }}            >
@@ -373,20 +374,14 @@ export default function FeaturedProjectDetail() {
             </Box>
             {/* FAQs Section */}
             <Box sx={{ mt: 8 }}>
-                <Box sx={{ textAlign: 'center', mb: 4 }}>
+                <Box sx={{ textAlign: 'left', mb: 4 }}>
                     <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 600 }}>
                         Frequently Asked Questions
                     </Typography>
                     <Typography variant="h6" color="text.secondary" sx={{ mb: 3 }}>
                         Common questions about this featured project
                     </Typography>
-                    <Chip
-                        icon={<QuestionAnswer />}
-                        label="Project FAQs"
-                        color="primary"
-                        variant="outlined"
-                        sx={{ mb: 3 }}
-                    />
+
                 </Box>
 
                 <Box sx={{ width: '100%' }}>

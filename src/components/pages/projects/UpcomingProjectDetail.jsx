@@ -86,7 +86,7 @@ export default function UpcomingProjectDetail() {
             <Button
                 startIcon={<ArrowBack />}
                 onClick={() => navigate("/projects/upcoming")}
-                sx={{ mb: 4 }}
+                sx={{ mb: 4, px: 0 }}
             >
                 Back to Upcoming Projects
             </Button>

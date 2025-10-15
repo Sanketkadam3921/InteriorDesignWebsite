@@ -367,20 +367,14 @@ export default function DeliveredProjectDetail() {
             </Box>
             {/* FAQs Section */}
             <Box sx={{ mt: 8 }}>
-                <Box sx={{ textAlign: 'center', mb: 4 }}>
+                <Box sx={{ textAlign: 'left', mb: 4 }}>
                     <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 600 }}>
                         Frequently Asked Questions
                     </Typography>
                     <Typography variant="h6" color="text.secondary" sx={{ mb: 3 }}>
                         Common questions about this delivered project
                     </Typography>
-                    <Chip
-                        icon={<QuestionAnswer />}
-                        label="Project FAQs"
-                        color="primary"
-                        variant="outlined"
-                        sx={{ mb: 3 }}
-                    />
+
                 </Box>
 
                 <Box sx={{ width: '100%' }}>

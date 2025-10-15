@@ -28,7 +28,7 @@ export default function FeaturedProjectsList() {
             <Button
                 startIcon={<ArrowBack />}
                 onClick={() => navigate("/projects")}
-                sx={{ mb: 4 }}
+                sx={{ mb: 4, px: 0 }}
             >
                 Back to Projects
             </Button>
