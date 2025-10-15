@@ -168,7 +168,7 @@ export default function HomeInteriorEstimatorFAQs() {
                         borderColor: theme.palette.primary.main,
                         '&:hover': {
                             backgroundColor: theme.palette.primary.main,
-                            color: theme.palette.primary.contrastText
+                            color: theme.palette.primary.main
                         }
                     }}
                     variant="outlined"
