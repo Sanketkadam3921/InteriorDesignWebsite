@@ -71,7 +71,7 @@ export default function Headertwo() {
         ],
         kitchen: [
             { label: "Know Your Kitchen", path: "/kitchen/know-your-kitchen" },
-            { label: "Kitchen Price Calculator", path: "/kitchen/price-calculator" },
+            { label: "Kitchen Price Calculator", path: "/price-calculators/kitchen" },
             {
                 label: "Kitchen Components",
                 path: "/kitchen/components",
@@ -85,7 +85,7 @@ export default function Headertwo() {
         ],
         wardrobe: [
             { label: "Know Your Wardrobe", path: "/wardrobe/know-your-wardrobe" },
-            { label: "Wardrobe Price Calculator", path: "/wardrobe/price-calculator" },
+            { label: "Wardrobe Price Calculator", path: "/price-calculators/wardrobe" },
             {
                 label: "Wardrobe Components",
                 path: "/wardrobe/components",

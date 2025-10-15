@@ -8,17 +8,17 @@ export default function KitchenHero() {
 
     const steps = [
         {
-            icon: "https://cdn-icons-png.flaticon.com/512/1046/1046873.png", // Kitchen layout icon
+            icon: "https://cdn-icons-png.flaticon.com/128/2851/2851928.png", // Kitchen layout icon
             title: "Select the shape of your kitchen",
             description: "The kitchen layout lets us understand the scope of work and how we could design your kitchen based on your taste.",
         },
         {
-            icon: "https://cdn-icons-png.flaticon.com/512/1034/1034158.png", // Measurements icon
+            icon: "https://cdn-icons-png.flaticon.com/128/4228/4228950.png", // Measurements icon
             title: "Choose the measurements",
             description: "This helps us estimate the size of your kitchen and give you a more accurate pricing.",
         },
         {
-            icon: "https://cdn-icons-png.flaticon.com/512/992/992651.png", // Package icon
+            icon: "https://cdn-icons-png.flaticon.com/128/963/963883.png", // Package icon
             title: "Choose your kitchen package",
             description: "Select from our curated packages - Essentials, Premium, Luxe, or build your own custom package.",
         },
@@ -82,7 +82,7 @@ export default function KitchenHero() {
                                     alignItems: "center",
                                 }}
                             >
-                                {/* Step Number Circle */}
+                                {/* Step Number Circle 
                                 <Box
                                     sx={{
                                         width: 60,
@@ -101,7 +101,7 @@ export default function KitchenHero() {
                                     }}
                                 >
                                     {index + 1}
-                                </Box>
+                                </Box>*/}
 
                                 {/* Icon */}
                                 <Avatar
@@ -117,7 +117,7 @@ export default function KitchenHero() {
                                     }}
                                 />
 
-                                {/* Connecting Line (except for last step) */}
+                                {/* Connecting Line (except for last step) 
                                 {index < steps.length - 1 && (
                                     <Box
                                         sx={{
@@ -132,7 +132,7 @@ export default function KitchenHero() {
                                             display: { xs: "none", md: "block" },
                                         }}
                                     />
-                                )}
+                                )}*/}
                             </Box>
 
                             {/* Title */}
