@@ -9,6 +9,7 @@ import {
     CardContent,
     IconButton,
     useTheme,
+    useMediaQuery,
 } from "@mui/material";
 import useEmblaCarousel from "embla-carousel-react";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
@@ -23,7 +24,12 @@ export default function EstimateCarousel() {
         align: "start",
         skipSnaps: false,
     });
+
     const [selectedIndex, setSelectedIndex] = useState(0);
+
+    // ✅ Responsive breakpoints
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+    const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
 
     const items = [
         {
@@ -108,13 +114,15 @@ export default function EstimateCarousel() {
 
                     <Button
                         variant="contained"
-                        onClick={() => navigate("/price-calculators/home/calculator/bhk")}
+                        onClick={() =>
+                            navigate("/price-calculators/home/calculator/bhk")
+                        }
                         sx={{
                             backgroundColor: theme.palette.primary.main,
                             color: theme.palette.primary.contrastText,
                             textTransform: "none",
                             fontWeight: 600,
-                            borderRadius: 3, // ✅ rectangular look, not circular
+                            borderRadius: 3,
                             px: 4,
                             py: 1.5,
                             fontFamily: theme.typography.fontFamily,
@@ -137,18 +145,24 @@ export default function EstimateCarousel() {
                             className="embla__container"
                             style={{
                                 display: "flex",
-                                gap: "24px",
+                                gap: isMobile ? "12px" : "24px",
                             }}
                         >
                             {items.map((item, index) => (
                                 <div
                                     className="embla__slide"
                                     key={index}
-                                    style={{ flex: "0 0 33.333%" }}
+                                    style={{
+                                        flex: isMobile
+                                            ? "0 0 100%"
+                                            : isTablet
+                                                ? "0 0 50%"
+                                                : "0 0 33.333%",
+                                    }}
                                 >
                                     <Card
                                         sx={{
-                                            borderRadius: 4, // ✅ subtle rounded corners only
+                                            borderRadius: 4,
                                             boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
                                             overflow: "hidden",
                                             height: "100%",
@@ -193,24 +207,26 @@ export default function EstimateCarousel() {
                         </div>
                     </div>
 
-                    {/* Navigation Arrows */}
+                    {/* ✅ Navigation Arrows — visible & positioned dynamically */}
                     <IconButton
                         onClick={scrollPrev}
                         sx={{
                             position: "absolute",
                             top: "50%",
-                            left: "-28px",
+                            left: isMobile ? "8px" : "-28px",
                             transform: "translateY(-50%)",
                             backgroundColor: theme.palette.background.paper,
                             boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
                             color: theme.palette.primary.main,
+                            width: isMobile ? 36 : 44,
+                            height: isMobile ? 36 : 44,
                             "&:hover": {
                                 backgroundColor: theme.palette.action.hover,
                                 color: theme.palette.primary.dark,
                             },
                         }}
                     >
-                        <ChevronLeftIcon />
+                        <ChevronLeftIcon fontSize={isMobile ? "small" : "medium"} />
                     </IconButton>
 
                     <IconButton
@@ -218,18 +234,20 @@ export default function EstimateCarousel() {
                         sx={{
                             position: "absolute",
                             top: "50%",
-                            right: "-28px",
+                            right: isMobile ? "8px" : "-28px",
                             transform: "translateY(-50%)",
                             backgroundColor: theme.palette.background.paper,
                             boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
                             color: theme.palette.primary.main,
+                            width: isMobile ? 36 : 44,
+                            height: isMobile ? 36 : 44,
                             "&:hover": {
                                 backgroundColor: theme.palette.action.hover,
                                 color: theme.palette.primary.dark,
                             },
                         }}
                     >
-                        <ChevronRightIcon />
+                        <ChevronRightIcon fontSize={isMobile ? "small" : "medium"} />
                     </IconButton>
                 </Box>
             </Container>

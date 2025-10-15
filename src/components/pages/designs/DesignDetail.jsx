@@ -150,7 +150,7 @@ export default function DesignDetail() {
                 <Button
                     startIcon={<ArrowBack />}
                     onClick={() => navigate(`/designs/${category}`)}
-                    sx={{ mb: 2 }}
+                    sx={{ mb: 2, px: 0 }}
                 >
                     Back
                 </Button>

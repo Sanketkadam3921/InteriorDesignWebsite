@@ -146,7 +146,7 @@ export default function DesignCategory() {
             <Button
                 startIcon={<ArrowBack />}
                 onClick={() => navigate('/designs')}
-                sx={{ mb: 3 }}
+                sx={{ mb: 3, px: 0 }}
             >
                 Back to Designs
             </Button>
