@@ -6,7 +6,6 @@ import {
     Box,
     Grid,
     Typography,
-    Container,
     Card,
     CardMedia,
     useTheme,
@@ -16,9 +15,10 @@ import {
     AccordionSummary,
     AccordionDetails,
 } from "@mui/material";
-import { ArrowBack, LocationOn, ExpandMore, QuestionAnswer } from "@mui/icons-material";
+import { LocationOn, ExpandMore, QuestionAnswer } from "@mui/icons-material";
 import { useNavigate, useParams } from "react-router-dom";
 import { deliveredProjectsDetails } from "../../../data/projects/deliveredProjects";
+import ProjectPageLayout from "../../common/ProjectPageLayout";
 
 export default function DeliveredProjectDetail() {
     const { id } = useParams();
@@ -56,18 +56,18 @@ export default function DeliveredProjectDetail() {
 
     if (!project) {
         return (
-            <Container maxWidth="lg" sx={{ py: 6, textAlign: "center" }}>
-                <Typography variant="h4" color="error" gutterBottom>
-                    Project not found
-                </Typography>
-                <Button
-                    variant="contained"
-                    onClick={() => navigate("/projects/delivered")}
-                    startIcon={<ArrowBack />}
-                >
-                    Back to Delivered Projects
-                </Button>
-            </Container>
+            <ProjectPageLayout
+                title="Project Not Found"
+                subtitle="The requested project could not be found."
+                backButtonText="Back to Delivered Projects"
+                backButtonPath="/projects/delivered"
+            >
+                <Box sx={{ textAlign: 'center', py: 8 }}>
+                    <Typography variant="h6" color="text.secondary">
+                        This project does not exist or has been removed.
+                    </Typography>
+                </Box>
+            </ProjectPageLayout>
         );
     }
 
@@ -81,25 +81,12 @@ export default function DeliveredProjectDetail() {
     };
 
     return (
-        <Container maxWidth="xl" sx={{ py: 6 }}>
-            {/* Back Button */}
-            <Button
-                startIcon={<ArrowBack />}
-                onClick={() => navigate("/projects/delivered")}
-                sx={{ mb: 4, px: 0 }}
-            >
-                Back to Delivered Projects
-            </Button>
-
-            {/* Project Title */}
-            <Box sx={{ mb: 3 }}>
-                <Typography variant="h3" component="h1" sx={{ fontWeight: 700 }}>
-                    {project.title}
-                </Typography>
-                <Typography variant="h6" color="text.secondary">
-                    {project.description}
-                </Typography>
-            </Box>
+        <ProjectPageLayout
+            title={project.title}
+            subtitle={project.description}
+            backButtonText="Back to Delivered Projects"
+            backButtonPath="/projects/delivered"
+        >
 
             {/* ----------- ImageList Collage Section ----------- */}
             <Box sx={{ position: "relative", mb: 6 }}>
@@ -419,6 +406,6 @@ export default function DeliveredProjectDetail() {
                     ))}
                 </Box>
             </Box>
-        </Container>
+        </ProjectPageLayout>
     );
 }

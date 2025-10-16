@@ -10,6 +10,8 @@ import {
 } from '@mui/material';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const inspirationItems = [
     { title: 'Living Room', image: 'https://plus.unsplash.com/premium_photo-1676823547752-1d24e8597047?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
@@ -31,6 +33,7 @@ export default function HomeInspiration() {
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const [startIndex, setStartIndex] = useState(0);
+    const [currentInspirationIndex, setCurrentInspirationIndex] = useState(0);
     const itemsPerPage = 6;
 
     const handleNext = () => {
@@ -43,6 +46,18 @@ export default function HomeInspiration() {
         if (startIndex - itemsPerPage >= 0) {
             setStartIndex(startIndex - itemsPerPage);
         }
+    };
+
+    const handleMobileNext = () => {
+        setCurrentInspirationIndex((prevIndex) =>
+            prevIndex === inspirationItems.length - 1 ? 0 : prevIndex + 1
+        );
+    };
+
+    const handleMobilePrev = () => {
+        setCurrentInspirationIndex((prevIndex) =>
+            prevIndex === 0 ? inspirationItems.length - 1 : prevIndex - 1
+        );
     };
 
     const visibleItems = inspirationItems.slice(startIndex, startIndex + itemsPerPage);
@@ -60,28 +75,111 @@ export default function HomeInspiration() {
                 </Typography>
 
                 {isMobile ? (
-                    // Mobile: horizontal scroll
-                    <Box sx={{ display: 'flex', overflowX: 'auto', gap: 2, px: 2 }}>
-                        {inspirationItems.map((item, i) => (
-                            <Box key={i} sx={{
-                                minWidth: '70%',
-                                borderRadius: 3,
-                                overflow: 'hidden',
-                                boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
-                                flexShrink: 0,
-                                gap: 1,
+                    // Mobile: carousel
+                    <Box sx={{ position: 'relative', width: '100%' }}>
+                        {/* Inspiration Card */}
+                        <Box sx={{
+                            borderRadius: 3,
+                            overflow: 'hidden',
+                            boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+                            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                            '&:hover': {
+                                transform: 'translateY(-4px)',
+                                boxShadow: '0 6px 20px rgba(0,0,0,0.12)',
+                            },
+                        }}>
+                            <Box
+                                component="img"
+                                src={inspirationItems[currentInspirationIndex].image}
+                                alt={inspirationItems[currentInspirationIndex].title}
+                                sx={{
+                                    width: '100%',
+                                    height: 250,
+                                    objectFit: 'cover'
+                                }}
+                            />
+                            <Box sx={{
+                                p: 3,
+                                background: '#fff',
+                                textAlign: 'center'
                             }}>
-                                <Box
-                                    component="img"
-                                    src={item.image}
-                                    alt={item.title}
-                                    sx={{ width: '100%', height: 200, objectFit: 'cover' }}
-                                />
-                                <Box sx={{ p: 2, background: '#fff' }}>
-                                    <Typography fontWeight={600} sx={{ color: 'Black' }}>{item.title}</Typography>
-                                </Box>
+                                <Typography
+                                    variant="h6"
+                                    fontWeight={600}
+                                    sx={{
+                                        color: theme.palette.text.primary,
+                                        fontSize: '1.3rem'
+                                    }}
+                                >
+                                    {inspirationItems[currentInspirationIndex].title}
+                                </Typography>
                             </Box>
-                        ))}
+                        </Box>
+
+                        {/* Navigation Buttons */}
+                        <Box sx={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            mt: 3,
+                            gap: 2
+                        }}>
+                            <IconButton
+                                onClick={handleMobilePrev}
+                                sx={{
+                                    backgroundColor: theme.palette.primary.main,
+                                    color: 'white',
+                                    '&:hover': {
+                                        backgroundColor: theme.palette.primary.dark,
+                                    },
+                                }}
+                            >
+                                <ArrowBackIcon />
+                            </IconButton>
+
+                            {/* Dots indicator */}
+                            <Box sx={{ display: 'flex', gap: 1 }}>
+                                {inspirationItems.map((_, index) => (
+                                    <Box
+                                        key={index}
+                                        sx={{
+                                            width: 8,
+                                            height: 8,
+                                            borderRadius: '50%',
+                                            backgroundColor: index === currentInspirationIndex
+                                                ? theme.palette.primary.main
+                                                : theme.palette.grey[300],
+                                            cursor: 'pointer',
+                                            transition: 'all 0.3s ease',
+                                        }}
+                                        onClick={() => setCurrentInspirationIndex(index)}
+                                    />
+                                ))}
+                            </Box>
+
+                            <IconButton
+                                onClick={handleMobileNext}
+                                sx={{
+                                    backgroundColor: theme.palette.primary.main,
+                                    color: 'white',
+                                    '&:hover': {
+                                        backgroundColor: theme.palette.primary.dark,
+                                    },
+                                }}
+                            >
+                                <ArrowForwardIcon />
+                            </IconButton>
+                        </Box>
+
+                        {/* Inspiration counter */}
+                        <Typography
+                            variant="body2"
+                            color="text.secondary"
+                            textAlign="center"
+                            sx={{ mt: 1 }}
+                        >
+                            {currentInspirationIndex + 1} of {inspirationItems.length}
+                        </Typography>
                     </Box>
                 ) : (
                     // Desktop: Perfect fit container layout

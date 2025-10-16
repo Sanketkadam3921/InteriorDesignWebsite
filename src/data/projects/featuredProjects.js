@@ -74,6 +74,24 @@ export const featuredProjects = [
         ],
         status: "FEATURED",
         isCompleted: false
+    }, {
+        id: "featured-5",
+        title: "Heritage Bungalow Restoration with Modern Amenities",
+        location: "Whitefield Heritage",
+        scope: "Full Home, Kitchen, Heritage",
+        bhk: "3-BHK",
+        pricing: "35 - 45 Lakhs",
+        image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&h=400&fit=crop",
+        images: [
+            "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&fit=crop",
+            "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&fit=crop",
+            "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&fit=crop",
+            "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&fit=crop",
+            "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&fit=crop",
+            "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&fit=crop"
+        ],
+        status: "FEATURED",
+        isCompleted: false
     }
 ];
 

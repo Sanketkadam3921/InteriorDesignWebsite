@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Container,
     Typography,
@@ -8,12 +8,27 @@ import {
     useMediaQuery
 } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useNavigate } from 'react-router-dom';
 
 export default function HomeServices() {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const navigate = useNavigate();
+    const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
+
+    const handleNext = () => {
+        setCurrentServiceIndex((prevIndex) =>
+            prevIndex === services.length - 1 ? 0 : prevIndex + 1
+        );
+    };
+
+    const handlePrev = () => {
+        setCurrentServiceIndex((prevIndex) =>
+            prevIndex === 0 ? services.length - 1 : prevIndex - 1
+        );
+    };
 
     const services = [
         {
@@ -73,88 +88,140 @@ export default function HomeServices() {
 
                 {/* Service items */}
                 {isMobile ? (
-                    // Mobile view (horizontal scroll)
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            overflowX: 'auto',
-                            gap: 2,
-                            scrollSnapType: 'x mandatory',
-                            paddingBottom: 1,
-                            '&::-webkit-scrollbar': { display: 'none' },
-                        }}
-                    >
-                        {services.map((service, index) => (
+                    // Mobile view (carousel)
+                    <Box sx={{ position: 'relative', width: '100%' }}>
+                        {/* Service Card */}
+                        <Box
+                            onClick={() => navigate(services[currentServiceIndex].path)}
+                            sx={{
+                                backgroundColor: '#fff',
+                                borderRadius: 3,
+                                overflow: 'hidden',
+                                boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'space-between',
+                                cursor: 'pointer',
+                                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                                '&:hover': {
+                                    transform: 'translateY(-4px)',
+                                    boxShadow: '0 6px 20px rgba(0,0,0,0.12)',
+                                },
+                            }}
+                        >
                             <Box
-                                key={index}
-                                onClick={() => navigate(service.path)}
+                                component="img"
+                                src={services[currentServiceIndex].image}
+                                alt={services[currentServiceIndex].title}
                                 sx={{
-                                    flex: '0 0 75%',
-                                    scrollSnapAlign: 'start',
-                                    backgroundColor: '#fff',
-                                    borderRadius: 3,
-                                    overflow: 'hidden',
-                                    boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+                                    width: '100%',
+                                    height: 200,
+                                    objectFit: 'cover',
+                                }}
+                            />
+                            <Box
+                                sx={{
+                                    p: 3,
+                                    flexGrow: 1,
                                     display: 'flex',
                                     flexDirection: 'column',
                                     justifyContent: 'space-between',
-                                    cursor: 'pointer',
-                                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                                }}
+                            >
+                                <Typography variant="h6" fontWeight={600} gutterBottom>
+                                    {services[currentServiceIndex].title}
+                                </Typography>
+                                <Box
+                                    sx={{
+                                        display: 'flex',
+                                        justifyContent: 'space-between',
+                                        alignItems: 'center',
+                                    }}
+                                >
+                                    <Typography color="text.secondary" variant="body1">
+                                        {services[currentServiceIndex].description}
+                                    </Typography>
+                                    <IconButton
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            navigate(services[currentServiceIndex].path);
+                                        }}
+                                        sx={{
+                                            color: 'primary.main',
+                                            '&:hover': { backgroundColor: 'transparent' },
+                                            p: 0,
+                                        }}
+                                    >
+                                        <ChevronRightIcon fontSize="small" />
+                                    </IconButton>
+                                </Box>
+                            </Box>
+                        </Box>
+
+                        {/* Navigation Buttons */}
+                        <Box sx={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            mt: 3,
+                            gap: 2
+                        }}>
+                            <IconButton
+                                onClick={handlePrev}
+                                sx={{
+                                    backgroundColor: theme.palette.primary.main,
+                                    color: 'white',
                                     '&:hover': {
-                                        transform: 'translateY(-4px)',
-                                        boxShadow: '0 6px 20px rgba(0,0,0,0.12)',
+                                        backgroundColor: theme.palette.primary.dark,
                                     },
                                 }}
                             >
-                                <Box
-                                    component="img"
-                                    src={service.image}
-                                    alt={service.title}
-                                    sx={{
-                                        width: '100%',
-                                        height: 150,
-                                        objectFit: 'cover',
-                                    }}
-                                />
-                                <Box
-                                    sx={{
-                                        p: 2,
-                                        flexGrow: 1,
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        justifyContent: 'space-between',
-                                    }}
-                                >
-                                    <Typography variant="subtitle1" fontWeight={600} gutterBottom>
-                                        {service.title}
-                                    </Typography>
+                                <ArrowBackIcon />
+                            </IconButton>
+
+                            {/* Dots indicator */}
+                            <Box sx={{ display: 'flex', gap: 1 }}>
+                                {services.map((_, index) => (
                                     <Box
+                                        key={index}
                                         sx={{
-                                            display: 'flex',
-                                            justifyContent: 'space-between',
-                                            alignItems: 'center',
+                                            width: 8,
+                                            height: 8,
+                                            borderRadius: '50%',
+                                            backgroundColor: index === currentServiceIndex
+                                                ? theme.palette.primary.main
+                                                : theme.palette.grey[300],
+                                            cursor: 'pointer',
+                                            transition: 'all 0.3s ease',
                                         }}
-                                    >
-                                        <Typography color="text.secondary" variant="body2">
-                                            {service.description}
-                                        </Typography>
-                                        <IconButton
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                navigate(service.path);
-                                            }}
-                                            sx={{
-                                                color: 'primary.main',
-                                                '&:hover': { backgroundColor: 'transparent' },
-                                                p: 0,
-                                            }}
-                                        >
-                                            <ChevronRightIcon fontSize="small" />
-                                        </IconButton>
-                                    </Box>
-                                </Box>
+                                        onClick={() => setCurrentServiceIndex(index)}
+                                    />
+                                ))}
                             </Box>
-                        ))}
+
+                            <IconButton
+                                onClick={handleNext}
+                                sx={{
+                                    backgroundColor: theme.palette.primary.main,
+                                    color: 'white',
+                                    '&:hover': {
+                                        backgroundColor: theme.palette.primary.dark,
+                                    },
+                                }}
+                            >
+                                <ArrowForwardIcon />
+                            </IconButton>
+                        </Box>
+
+                        {/* Service counter */}
+                        <Typography
+                            variant="body2"
+                            color="text.secondary"
+                            textAlign="center"
+                            sx={{ mt: 1 }}
+                        >
+                            {currentServiceIndex + 1} of {services.length}
+                        </Typography>
                     </Box>
                 ) : (
                     // Desktop view (grid layout)

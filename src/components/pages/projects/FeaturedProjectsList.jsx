@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import {
-    Container,
     Typography,
     Box,
     Card,
@@ -11,8 +10,9 @@ import {
     Chip,
     useTheme,
 } from "@mui/material";
-import { ArrowBack, ArrowForward, Star } from "@mui/icons-material";
+import { ArrowForward } from "@mui/icons-material";
 import { featuredProjects } from "../../../data/projects/featuredProjects";
+import ProjectPageLayout from "../../common/ProjectPageLayout";
 
 export default function FeaturedProjectsList() {
     const navigate = useNavigate();
@@ -23,44 +23,10 @@ export default function FeaturedProjectsList() {
     };
 
     return (
-        <Container maxWidth="xl" sx={{ py: 6 }}>
-            {/* 🔙 Back Button */}
-            <Button
-                startIcon={<ArrowBack />}
-                onClick={() => navigate("/projects")}
-                sx={{ mb: 4, px: 0 }}
-            >
-                Back to Projects
-            </Button>
-
-            {/* 🧭 Page Title (Left-Aligned) */}
-            <Box sx={{ textAlign: "left", mb: 6 }}>
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 2 }}>
-                    <Typography
-                        variant="h3"
-                        component="h1"
-                        sx={{
-                            fontWeight: 700,
-                            color: theme.palette.text.primary,
-                        }}
-                    >
-                        Featured Projects
-                    </Typography>
-                </Box>
-
-                <Typography
-                    variant="h6"
-                    color="text.secondary"
-                    sx={{
-                        maxWidth: 600,
-                        lineHeight: 1.6,
-                        textAlign: "left",
-                    }}
-                >
-                    Our most exceptional projects showcasing the pinnacle of interior design
-                    excellence.
-                </Typography>
-            </Box>
+        <ProjectPageLayout
+            title="Featured Projects"
+            subtitle="Our most exceptional projects showcasing the pinnacle of interior design excellence."
+        >
 
             {/* 🧱 Projects Grid — matches Delivered & Upcoming layout */}
             <Box
@@ -226,6 +192,6 @@ export default function FeaturedProjectsList() {
                     </Card>
                 ))}
             </Box>
-        </Container>
+        </ProjectPageLayout>
     );
 }

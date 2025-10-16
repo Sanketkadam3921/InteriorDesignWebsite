@@ -6,7 +6,6 @@ import {
     Box,
     Grid,
     Typography,
-    Container,
     Card,
     CardMedia,
     useTheme,
@@ -16,9 +15,10 @@ import {
     AccordionSummary,
     AccordionDetails,
 } from "@mui/material";
-import { ArrowBack, LocationOn, ExpandMore, QuestionAnswer, Schedule } from "@mui/icons-material";
+import { LocationOn, ExpandMore, QuestionAnswer, Schedule } from "@mui/icons-material";
 import { useNavigate, useParams } from "react-router-dom";
 import { upcomingProjectsDetails } from "../../../data/projects/upcomingProjects";
+import ProjectPageLayout from "../../common/ProjectPageLayout";
 
 export default function UpcomingProjectDetail() {
     const { id } = useParams();
@@ -56,18 +56,18 @@ export default function UpcomingProjectDetail() {
 
     if (!project) {
         return (
-            <Container maxWidth="lg" sx={{ py: 6, textAlign: "center" }}>
-                <Typography variant="h4" color="error" gutterBottom>
-                    Project not found
-                </Typography>
-                <Button
-                    variant="contained"
-                    onClick={() => navigate("/projects/upcoming")}
-                    startIcon={<ArrowBack />}
-                >
-                    Back to Upcoming Projects
-                </Button>
-            </Container>
+            <ProjectPageLayout
+                title="Project Not Found"
+                subtitle="The requested project could not be found."
+                backButtonText="Back to Upcoming Projects"
+                backButtonPath="/projects/upcoming"
+            >
+                <Box sx={{ textAlign: 'center', py: 8 }}>
+                    <Typography variant="h6" color="text.secondary">
+                        This project does not exist or has been removed.
+                    </Typography>
+                </Box>
+            </ProjectPageLayout>
         );
     }
 
@@ -81,25 +81,12 @@ export default function UpcomingProjectDetail() {
     };
 
     return (
-        <Container maxWidth="xl" sx={{ py: 6 }}>
-            {/* Back Button */}
-            <Button
-                startIcon={<ArrowBack />}
-                onClick={() => navigate("/projects/upcoming")}
-                sx={{ mb: 4, px: 0 }}
-            >
-                Back to Upcoming Projects
-            </Button>
-
-            {/* Project Title */}
-            <Box sx={{ mb: 3 }}>
-                <Typography variant="h3" component="h1" sx={{ fontWeight: 700 }}>
-                    {project.title}
-                </Typography>
-                <Typography variant="h6" color="text.secondary">
-                    {project.description}
-                </Typography>
-            </Box>
+        <ProjectPageLayout
+            title={project.title}
+            subtitle={project.description}
+            backButtonText="Back to Upcoming Projects"
+            backButtonPath="/projects/upcoming"
+        >
 
             {/* ----------- ImageList Collage Section ----------- */}
             <Box sx={{ position: "relative", mb: 6 }}>
@@ -440,6 +427,6 @@ export default function UpcomingProjectDetail() {
                     ))}
                 </Box>
             </Box>
-        </Container>
+        </ProjectPageLayout>
     );
 }

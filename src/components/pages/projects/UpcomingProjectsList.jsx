@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import {
-    Container,
     Typography,
     Box,
     Card,
@@ -11,8 +10,9 @@ import {
     Chip,
     useTheme,
 } from "@mui/material";
-import { ArrowBack, ArrowForward, Schedule } from "@mui/icons-material";
+import { ArrowForward, Schedule } from "@mui/icons-material";
 import { upcomingProjects } from "../../../data/projects/upcomingProjects";
+import ProjectPageLayout from "../../common/ProjectPageLayout";
 
 export default function UpcomingProjectsList() {
     const navigate = useNavigate();
@@ -23,41 +23,10 @@ export default function UpcomingProjectsList() {
     };
 
     return (
-        <Container maxWidth="xl" sx={{ py: 6 }}>
-            {/* Back Button */}
-            <Button
-                startIcon={<ArrowBack />}
-                onClick={() => navigate("/projects")}
-                sx={{ mb: 4, px: 0 }}
-            >
-                Back to Projects
-            </Button>
-
-            {/* 🧭 Page Title (Left-Aligned) */}
-            <Box sx={{ textAlign: "left", mb: 6 }}>
-                <Typography
-                    variant="h3"
-                    component="h1"
-                    sx={{
-                        fontWeight: 700,
-                        mb: 2,
-                        color: theme.palette.text.primary,
-                    }}
-                >
-                    Upcoming Projects
-                </Typography>
-                <Typography
-                    variant="h6"
-                    color="text.secondary"
-                    sx={{
-                        maxWidth: 600,
-                        lineHeight: 1.6,
-                        textAlign: "left",
-                    }}
-                >
-                    Discover our upcoming projects featuring innovative designs and cutting-edge technology.
-                </Typography>
-            </Box>
+        <ProjectPageLayout
+            title="Upcoming Projects"
+            subtitle="Discover our upcoming projects featuring innovative designs and cutting-edge technology."
+        >
 
             {/* 🧱 Projects Grid — same style as Delivered Projects */}
             <Box
@@ -222,6 +191,6 @@ export default function UpcomingProjectsList() {
                     </Card>
                 ))}
             </Box>
-        </Container>
+        </ProjectPageLayout>
     );
 }

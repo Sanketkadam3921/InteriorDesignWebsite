@@ -31,16 +31,15 @@ export default function ProjectsPage() {
     const handleViewAllFeatured = () => navigate("/projects/featured");
 
     return (
-        <Box sx={{ overflowX: "hidden" }}>
-            <Container maxWidth="lg">
+        <Box sx={{
+            minHeight: '100vh',
+            backgroundColor: theme.palette.background.default,
+            pt: { xs: 2, sm: 3, md: 4 }, // Consistent top padding
+            pb: { xs: 4, sm: 6, md: 8 }   // Consistent bottom padding
+        }}>
+            <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
                 {/* 🧭 Breadcrumbs and Page Intro */}
-                <Box
-                    sx={{
-                        mb: 8,
-                        mt: { xs: 0, sm: 0, md: 6 }, // ✅ 0 on mobile & small, 6 on medium and above
-                        px: { xs: 2, sm: 2, md: 2 }, // ✅ Add horizontal padding
-                    }}
-                >
+                <Box sx={{ mb: 8 }}>
                     <Breadcrumbs aria-label="breadcrumb" sx={{ mb: 2 }}>
                         <Link
                             underline="hover"
@@ -58,7 +57,9 @@ export default function ProjectsPage() {
                         sx={{
                             fontWeight: 700,
                             color: theme.palette.text.primary,
-                            mb: 1,
+                            mb: 2,
+                            fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.5rem' },
+                            lineHeight: 1.2,
                         }}
                     >
                         KalaKruti Studio Interior Design Portfolio
@@ -67,7 +68,11 @@ export default function ProjectsPage() {
                     <Typography
                         variant="h6"
                         color="text.secondary"
-                        sx={{ maxWidth: 850, lineHeight: 1.7 }}
+                        sx={{
+                            maxWidth: 850,
+                            lineHeight: 1.6,
+                            fontSize: { xs: '1rem', sm: '1.1rem', md: '1.2rem' },
+                        }}
                     >
                         Proposed and completed residential projects by Livspace, featuring
                         innovative designs, latest trends, and personalized aesthetics to match
@@ -178,13 +183,7 @@ export default function ProjectsPage() {
                 <Divider sx={{ mb: 8 }} />
 
                 {/* ✨ Featured Projects */}
-                {/* ✨ Featured Projects */}
-                <Box
-                    sx={{
-                        mb: 6,
-                        px: { xs: 2, sm: 3, md: 4 }, // ✅ Adds a small left & right padding (2=16px, 3=24px, 4=32px)
-                    }}
-                >
+                <Box sx={{ mb: 6 }}>
                     <Box
                         sx={{
                             display: "flex",

@@ -35,7 +35,7 @@ export default function EstimateCarousel() {
         {
             title: "1 BHK",
             description: "Compact homes, cozy and stylish with smart interior designs.",
-            image: "https://images.unsplash.com/photo-1598300052625-0c19c4a6ef8e?w=1200",
+            image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200",
         },
         {
             title: "2 BHK",
@@ -55,7 +55,7 @@ export default function EstimateCarousel() {
         {
             title: "5 BHK+",
             description: "Give your beautiful 5 BHK+ home the interiors it deserves.",
-            image: "https://images.unsplash.com/photo-1617103902913-c9d5fd88047a?w=1200",
+            image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200",
         },
     ];
 

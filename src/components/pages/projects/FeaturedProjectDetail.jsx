@@ -6,7 +6,6 @@ import {
     Box,
     Grid,
     Typography,
-    Container,
     Card,
     CardMedia,
     useTheme,
@@ -16,9 +15,10 @@ import {
     AccordionSummary,
     AccordionDetails,
 } from "@mui/material";
-import { ArrowBack, LocationOn, ExpandMore, QuestionAnswer, Star } from "@mui/icons-material";
+import { LocationOn, ExpandMore, QuestionAnswer, Star } from "@mui/icons-material";
 import { useNavigate, useParams } from "react-router-dom";
 import { featuredProjectsDetails } from "../../../data/projects/featuredProjects";
+import ProjectPageLayout from "../../common/ProjectPageLayout";
 
 export default function FeaturedProjectDetail() {
     const { id } = useParams();
@@ -81,32 +81,13 @@ export default function FeaturedProjectDetail() {
     };
 
     return (
-        <Container maxWidth="xl" sx={{
-            py: 0,
-        }}>
-            {/* Back Button */}
-            <Button
-                startIcon={<ArrowBack />}
-                onClick={() => navigate("/projects/featured")}
-                sx={{
-                    px: 0,
-                    py: 0,
-                    mt: { xs: 0, sm: 0, md: 6 }, // 0 on mobile/small, 6 on medium and up
-                }}            >
-                Back to Featured Projects
-            </Button>
+        <ProjectPageLayout
+            title={project.title}
+            subtitle={project.description}
+            backButtonText="Back to Featured Projects"
+            backButtonPath="/projects/featured"
+        >
 
-            {/* Project Title */}
-            <Box sx={{ mb: 3 }}>
-                <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
-                    <Typography variant="h3" component="h1" sx={{ fontWeight: 700 }}>
-                        {project.title}
-                    </Typography>
-                </Box>
-                <Typography variant="h6" color="text.secondary">
-                    {project.description}
-                </Typography>
-            </Box>
 
             {/* ----------- ImageList Collage Section ----------- */}
             <Box sx={{ position: "relative", mb: 6 }}>
@@ -426,6 +407,6 @@ export default function FeaturedProjectDetail() {
                     ))}
                 </Box>
             </Box>
-        </Container>
+        </ProjectPageLayout>
     );
 }

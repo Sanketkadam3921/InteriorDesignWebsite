@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import {
-    Container,
     Typography,
     Box,
     Card,
@@ -9,11 +8,11 @@ import {
     CardContent,
     Button,
     Chip,
-    Grid,
     useTheme,
 } from "@mui/material";
-import { ArrowBack, ArrowForward } from "@mui/icons-material";
+import { ArrowForward } from "@mui/icons-material";
 import { deliveredProjects } from "../../../data/projects/deliveredProjects";
+import ProjectPageLayout from "../../common/ProjectPageLayout";
 
 export default function DeliveredProjectsList() {
     const navigate = useNavigate();
@@ -24,41 +23,10 @@ export default function DeliveredProjectsList() {
     };
 
     return (
-        <Container maxWidth="xl" sx={{ py: 6, px: 0 }}>
-            {/* Back Button */}
-            <Button
-                startIcon={<ArrowBack />}
-                onClick={() => navigate("/projects")}
-                sx={{ mb: 4, px: 0 }}
-            >
-                Back to Projects
-            </Button>
-            {/* 🧭 Page Title */}
-            <Box sx={{ textAlign: "left", mb: 6 }}>
-                <Typography
-                    variant="h3"
-                    component="h1"
-                    sx={{
-                        fontWeight: 700,
-                        mb: 2,
-                        color: theme.palette.text.primary,
-                    }}
-                >
-                    Delivered Projects
-                </Typography>
-
-                <Typography
-                    variant="h6"
-                    color="text.secondary"
-                    sx={{
-                        maxWidth: 600,
-                        lineHeight: 1.6,
-                        textAlign: "left", // ✅ ensures left alignment
-                    }}
-                >
-                    Explore our completed projects showcasing innovative designs and exceptional craftsmanship.
-                </Typography>
-            </Box>
+        <ProjectPageLayout
+            title="Delivered Projects"
+            subtitle="Explore our completed projects showcasing innovative designs and exceptional craftsmanship."
+        >
 
 
             {/* Projects Grid */}
@@ -210,7 +178,6 @@ export default function DeliveredProjectsList() {
                     </Card>
                 ))}
             </Box>
-
-        </Container>
+        </ProjectPageLayout>
     );
 }

@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
 import {
     Box,
     Card,
@@ -7,256 +6,385 @@ import {
     CardContent,
     Typography,
     Button,
-    Chip,
     IconButton,
     useTheme,
     useMediaQuery,
-} from "@mui/material";
-import { ChevronLeft, ChevronRight } from "@mui/icons-material";
+    Chip
+} from '@mui/material';
+import { ArrowBack, ArrowForward, Star } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
+import { featuredProjects } from '../../data/projects/featuredProjects';
 
-export default function FeaturedProjectsCarousel({ projects, onViewAll }) {
-    const navigate = useNavigate();
-    const theme = useTheme();
+export default function FeaturedProjectsCarousel() {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-    const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+    const navigate = useNavigate();
+
+    // Get first 5 featured projects
+    const displayProjects = featuredProjects.slice(0, 5);
+
+    const handleNext = () => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === displayProjects.length - 1 ? 0 : prevIndex + 1
+        );
+    };
+
+    const handlePrev = () => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === 0 ? displayProjects.length - 1 : prevIndex - 1
+        );
+    };
 
     const handleProjectClick = (projectId) => {
         navigate(`/projects/featured/${projectId}`);
     };
 
-    const handlePrevious = () => {
-        setCurrentIndex((prevIndex) =>
-            prevIndex === 0 ? projects.length - 1 : prevIndex - 1
+    if (isMobile) {
+        // Mobile carousel view - show one project at a time
+        return (
+            <Box sx={{ position: 'relative', width: '100%' }}>
+                {/* Project Card */}
+                <Card
+                    sx={{
+                        height: '100%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        minHeight: '450px',
+                        width: '100%',
+                        cursor: 'pointer',
+                        transition: 'all 0.3s ease-in-out',
+                        '&:hover': {
+                            transform: 'translateY(-4px)',
+                            boxShadow: theme.shadows[8],
+                        },
+                    }}
+                    onClick={() => handleProjectClick(displayProjects[currentIndex].id)}
+                >
+                    <Box sx={{ position: 'relative' }}>
+                        <CardMedia
+                            component="img"
+                            height="250"
+                            image={displayProjects[currentIndex].image}
+                            alt={displayProjects[currentIndex].title}
+                            sx={{ objectFit: 'cover' }}
+                        />
+                        {/* Image count chip */}
+                        <Chip
+                            label={`${displayProjects[currentIndex].images.length} Images`}
+                            size="small"
+                            sx={{
+                                position: 'absolute',
+                                bottom: 10,
+                                right: 10,
+                                backgroundColor: 'rgba(0,0,0,0.7)',
+                                color: 'white',
+                                fontWeight: 600,
+                            }}
+                        />
+                        {/* Project status */}
+                        <Chip
+                            label={displayProjects[currentIndex].status}
+                            size="small"
+                            color="primary"
+                            sx={{
+                                position: 'absolute',
+                                top: 10,
+                                left: 10,
+                                fontWeight: 600,
+                            }}
+                        />
+                        {/* Completed chip */}
+                        {displayProjects[currentIndex].isCompleted && (
+                            <Chip
+                                label="COMPLETED"
+                                size="small"
+                                color="success"
+                                sx={{
+                                    position: 'absolute',
+                                    top: 10,
+                                    right: 10,
+                                    fontWeight: 600,
+                                }}
+                            />
+                        )}
+                    </Box>
+
+                    <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                        <Typography
+                            variant="h6"
+                            component="h3"
+                            gutterBottom
+                            sx={{
+                                fontWeight: 600,
+                                color: theme.palette.text.primary,
+                                lineHeight: 1.3,
+                                minHeight: '48px',
+                                display: '-webkit-box',
+                                WebkitLineClamp: 2,
+                                WebkitBoxOrient: 'vertical',
+                                overflow: 'hidden',
+                            }}
+                        >
+                            {displayProjects[currentIndex].title}
+                        </Typography>
+
+                        <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                            {displayProjects[currentIndex].location}
+                        </Typography>
+
+                        <Typography variant="body2" color="text.secondary" sx={{ mb: 0.5 }}>
+                            {displayProjects[currentIndex].scope}
+                        </Typography>
+
+                        <Typography variant="body2" color="text.secondary" sx={{ mb: 0.5 }}>
+                            {displayProjects[currentIndex].bhk}
+                        </Typography>
+
+                        <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                            {displayProjects[currentIndex].pricing}
+                        </Typography>
+
+                        <Button
+                            variant="outlined"
+                            fullWidth
+                            endIcon={<ArrowForward />}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                handleProjectClick(displayProjects[currentIndex].id);
+                            }}
+                            sx={{
+                                mt: 'auto',
+                                borderColor: theme.palette.primary.main,
+                                color: theme.palette.primary.main,
+                                fontWeight: 600,
+                                py: 1.2,
+                                borderRadius: '20px',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.5px',
+                                '&:hover': {
+                                    borderColor: theme.palette.primary.dark,
+                                    backgroundColor: theme.palette.action.hover,
+                                },
+                            }}
+                        >
+                            View Details
+                        </Button>
+                    </CardContent>
+                </Card>
+
+                {/* Navigation Buttons */}
+                <Box sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    mt: 3,
+                    gap: 2
+                }}>
+                    <IconButton
+                        onClick={handlePrev}
+                        sx={{
+                            backgroundColor: theme.palette.primary.main,
+                            color: 'white',
+                            '&:hover': {
+                                backgroundColor: theme.palette.primary.dark,
+                            },
+                        }}
+                    >
+                        <ArrowBack />
+                    </IconButton>
+
+                    {/* Dots indicator */}
+                    <Box sx={{ display: 'flex', gap: 1 }}>
+                        {displayProjects.map((_, index) => (
+                            <Box
+                                key={index}
+                                sx={{
+                                    width: 8,
+                                    height: 8,
+                                    borderRadius: '50%',
+                                    backgroundColor: index === currentIndex
+                                        ? theme.palette.primary.main
+                                        : theme.palette.grey[300],
+                                    cursor: 'pointer',
+                                    transition: 'all 0.3s ease',
+                                }}
+                                onClick={() => setCurrentIndex(index)}
+                            />
+                        ))}
+                    </Box>
+
+                    <IconButton
+                        onClick={handleNext}
+                        sx={{
+                            backgroundColor: theme.palette.primary.main,
+                            color: 'white',
+                            '&:hover': {
+                                backgroundColor: theme.palette.primary.dark,
+                            },
+                        }}
+                    >
+                        <ArrowForward />
+                    </IconButton>
+                </Box>
+
+                {/* Project counter */}
+                <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    textAlign="center"
+                    sx={{ mt: 1 }}
+                >
+                    {currentIndex + 1} of {displayProjects.length}
+                </Typography>
+            </Box>
         );
-    };
+    }
 
-    const handleNext = () => {
-        setCurrentIndex((prevIndex) =>
-            prevIndex === projects.length - 1 ? 0 : prevIndex + 1
-        );
-    };
-
-    const getVisibleProjects = () => {
-        const visibleCount = isMobile ? 1 : isTablet ? 2 : 3;
-        const visible = [];
-        for (let i = 0; i < visibleCount; i++) {
-            const index = (currentIndex + i) % projects.length;
-            visible.push(projects[index]);
-        }
-        return visible;
-    };
-
+    // Desktop grid view - show all projects
     return (
         <Box
             sx={{
-                position: "relative",
-                width: "100%",
-                overflow: "hidden",
-                px: { xs: 1, sm: 2, md: 4 },
-                py: { xs: 2, sm: 3, md: 6 },
+                display: 'grid',
+                gridTemplateColumns: {
+                    xs: '1fr',
+                    sm: 'repeat(2, 1fr)',
+                    md: 'repeat(3, 1fr)',
+                    lg: 'repeat(5, 1fr)',
+                },
+                gap: 3,
+                width: '100%',
             }}
         >
-            {/* Navigation Arrows (visible on all screens) */}
-            <IconButton
-                onClick={handlePrevious}
-                sx={{
-                    position: "absolute",
-                    left: { xs: 6, sm: 10 },
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    zIndex: 2,
-                    backgroundColor: "white",
-                    boxShadow: theme.shadows[3],
-                    "&:hover": {
-                        backgroundColor: "grey.100",
-                    },
-                    width: { xs: 36, sm: 44 },
-                    height: { xs: 36, sm: 44 },
-                }}
-            >
-                <ChevronLeft fontSize={isMobile ? "small" : "medium"} />
-            </IconButton>
-
-            <IconButton
-                onClick={handleNext}
-                sx={{
-                    position: "absolute",
-                    right: { xs: 6, sm: 10 },
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    zIndex: 2,
-                    backgroundColor: "white",
-                    boxShadow: theme.shadows[3],
-                    "&:hover": {
-                        backgroundColor: "grey.100",
-                    },
-                    width: { xs: 36, sm: 44 },
-                    height: { xs: 36, sm: 44 },
-                }}
-            >
-                <ChevronRight fontSize={isMobile ? "small" : "medium"} />
-            </IconButton>
-
-            {/* Carousel Container */}
-            <Box
-                sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "stretch",
-                    gap: { xs: 2, sm: 3 },
-                    transition: "transform 0.5s ease",
-                }}
-            >
-                {getVisibleProjects().map((project, index) => (
-                    <Card
-                        key={`${project.id}-${currentIndex}-${index}`}
-                        onClick={() => handleProjectClick(project.id)}
-                        sx={{
-                            flex: isMobile ? "1 1 100%" : isTablet ? "1 1 45%" : "1 1 30%",
-                            cursor: "pointer",
-                            borderRadius: "16px",
-                            overflow: "hidden",
-                            boxShadow: theme.shadows[3],
-                            transition: "all 0.35s ease",
-                            "&:hover": {
-                                transform: "translateY(-6px)",
-                                boxShadow: theme.shadows[10],
-                            },
-                            height: { xs: 420, sm: 450, md: 500 },
-                            backgroundColor: theme.palette.background.paper,
-                        }}
-                    >
-                        <Box sx={{ position: "relative" }}>
-                            <CardMedia
-                                component="img"
-                                height={isMobile ? 200 : 250}
-                                image={project.image}
-                                alt={project.title}
-                                sx={{ objectFit: "cover" }}
-                            />
-
-                            {/* Overlay Chips */}
+            {displayProjects.map((project) => (
+                <Card
+                    key={project.id}
+                    sx={{
+                        height: '100%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        minHeight: '450px',
+                        cursor: 'pointer',
+                        transition: 'all 0.3s ease-in-out',
+                        '&:hover': {
+                            transform: 'translateY(-6px)',
+                            boxShadow: theme.shadows[8],
+                        },
+                    }}
+                    onClick={() => handleProjectClick(project.id)}
+                >
+                    <Box sx={{ position: 'relative' }}>
+                        <CardMedia
+                            component="img"
+                            height="200"
+                            image={project.image}
+                            alt={project.title}
+                            sx={{ objectFit: 'cover' }}
+                        />
+                        {/* Image count chip */}
+                        <Chip
+                            label={`${project.images.length} Images`}
+                            size="small"
+                            sx={{
+                                position: 'absolute',
+                                bottom: 10,
+                                right: 10,
+                                backgroundColor: 'rgba(0,0,0,0.7)',
+                                color: 'white',
+                                fontWeight: 600,
+                            }}
+                        />
+                        {/* Project status */}
+                        <Chip
+                            label={project.status}
+                            size="small"
+                            color="primary"
+                            sx={{
+                                position: 'absolute',
+                                top: 10,
+                                left: 10,
+                                fontWeight: 600,
+                            }}
+                        />
+                        {/* Completed chip */}
+                        {project.isCompleted && (
                             <Chip
-                                label={`${project.images.length} Images`}
+                                label="COMPLETED"
                                 size="small"
+                                color="success"
                                 sx={{
-                                    position: "absolute",
-                                    bottom: 12,
-                                    right: 12,
-                                    backgroundColor: "rgba(0,0,0,0.7)",
-                                    color: "white",
+                                    position: 'absolute',
+                                    top: 10,
+                                    right: 10,
                                     fontWeight: 600,
                                 }}
                             />
-                            <Chip
-                                label={project.status}
-                                size="small"
-                                color="primary"
-                                sx={{
-                                    position: "absolute",
-                                    top: 12,
-                                    left: 12,
-                                    fontWeight: 600,
-                                }}
-                            />
-                            {project.isCompleted && (
-                                <Chip
-                                    label="COMPLETED"
-                                    size="small"
-                                    color="success"
-                                    sx={{
-                                        position: "absolute",
-                                        top: 12,
-                                        right: 12,
-                                        fontWeight: 600,
-                                    }}
-                                />
-                            )}
-                        </Box>
+                        )}
+                    </Box>
 
-                        <CardContent sx={{ p: { xs: 2, sm: 3 } }}>
-                            <Typography
-                                variant="h6"
-                                sx={{
-                                    fontWeight: 700,
-                                    mb: 1,
-                                    display: "-webkit-box",
-                                    WebkitLineClamp: 2,
-                                    WebkitBoxOrient: "vertical",
-                                    overflow: "hidden",
-                                    textOverflow: "ellipsis",
-                                    height: "3.5rem",
-                                }}
-                            >
-                                {project.title}
-                            </Typography>
-                            <Typography
-                                variant="body2"
-                                color="text.secondary"
-                                sx={{ mb: 1.2 }}
-                            >
-                                {project.location}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                {project.scope} • {project.bhk}
-                            </Typography>
-                            <Typography
-                                variant="body2"
-                                color="text.secondary"
-                                sx={{ mb: 2 }}
-                            >
-                                {project.pricing}
-                            </Typography>
+                    <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                        <Typography
+                            variant="h6"
+                            component="h3"
+                            gutterBottom
+                            sx={{
+                                fontWeight: 600,
+                                color: theme.palette.text.primary,
+                                lineHeight: 1.3,
+                                minHeight: '48px',
+                                display: '-webkit-box',
+                                WebkitLineClamp: 2,
+                                WebkitBoxOrient: 'vertical',
+                                overflow: 'hidden',
+                            }}
+                        >
+                            {project.title}
+                        </Typography>
 
-                            <Button
-                                variant="outlined"
-                                fullWidth
-                                sx={{
-                                    fontWeight: 600,
-                                    py: 1.2,
-                                    borderRadius: "20px",
-                                    textTransform: "uppercase",
-                                    letterSpacing: "0.5px",
-                                }}
-                            >
-                                Get This Design
-                            </Button>
-                        </CardContent>
-                    </Card>
-                ))}
-            </Box>
+                        <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                            {project.location}
+                        </Typography>
 
-            {/* Dots Indicator */}
-            <Box
-                sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    gap: 1,
-                    mt: 3,
-                }}
-            >
-                {projects.map((_, index) => (
-                    <Box
-                        key={index}
-                        onClick={() => setCurrentIndex(index)}
-                        sx={{
-                            width: 8,
-                            height: 8,
-                            borderRadius: "50%",
-                            backgroundColor:
-                                index === currentIndex
-                                    ? theme.palette.primary.main
-                                    : theme.palette.grey[300],
-                            cursor: "pointer",
-                            transition: "all 0.3s ease",
-                            "&:hover": {
-                                backgroundColor: theme.palette.primary.main,
-                            },
-                        }}
-                    />
-                ))}
-            </Box>
+                        <Typography variant="body2" color="text.secondary" sx={{ mb: 0.5 }}>
+                            {project.scope}
+                        </Typography>
+
+                        <Typography variant="body2" color="text.secondary" sx={{ mb: 0.5 }}>
+                            {project.bhk}
+                        </Typography>
+
+                        <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                            {project.pricing}
+                        </Typography>
+
+                        <Button
+                            variant="outlined"
+                            fullWidth
+                            endIcon={<ArrowForward />}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                handleProjectClick(project.id);
+                            }}
+                            sx={{
+                                mt: 'auto',
+                                borderColor: theme.palette.primary.main,
+                                color: theme.palette.primary.main,
+                                fontWeight: 600,
+                                py: 1.2,
+                                borderRadius: '20px',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.5px',
+                                '&:hover': {
+                                    borderColor: theme.palette.primary.dark,
+                                    backgroundColor: theme.palette.action.hover,
+                                },
+                            }}
+                        >
+                            View Details
+                        </Button>
+                    </CardContent>
+                </Card>
+            ))}
         </Box>
     );
 }
