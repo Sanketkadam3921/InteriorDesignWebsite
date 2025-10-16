@@ -389,7 +389,7 @@ export default function FeaturedProjectDetail() {
                                     },
                                 }}
                             >
-                                <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                                <Typography variant="h6" sx={{ fontWeight: 500 }}>
                                     {faq.question}
                                 </Typography>
                             </AccordionSummary>

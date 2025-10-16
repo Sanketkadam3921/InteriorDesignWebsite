@@ -29,7 +29,7 @@ export default function CategoryFAQ({ category }) {
         <Container maxWidth="xl" sx={{ py: 6 }}>
             <Box>
                 <Typography
-                    variant="h"
+                    variant="h3"
                     component="h2"
                     gutterBottom
                     sx={{ mb: 3, fontWeight: 600 }}

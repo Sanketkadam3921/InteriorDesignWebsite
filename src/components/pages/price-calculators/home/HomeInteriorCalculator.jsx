@@ -10,7 +10,6 @@ export default function HomeInteriorCalculator() {
     return (
         <div style={{ overflowX: "hidden", width: "100%" }}>
             <Hero />
-            <PriceCalculatorIntro />
             <EstimateSteps />
             <EstimateCarousel />
             <CalculatorHowItWorks />
