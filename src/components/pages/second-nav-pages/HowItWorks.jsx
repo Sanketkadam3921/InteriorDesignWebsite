@@ -22,6 +22,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import HomeIcon from "@mui/icons-material/Home";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import QuoteForm from "../enquiries/QuoteForm";
 
 // Styled components for custom styling
@@ -152,11 +153,6 @@ const CTAButton = styled(Button)(({ theme }) => ({
     transition: "all 0.3s ease",
 }));
 
-const MeetDesignerSection = styled(Box)(({ theme }) => ({
-    backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(4, 0),
-    marginTop: theme.spacing(4),
-}));
 
 const ProcessStep = styled(Box)(({ theme }) => ({
     display: "flex",
@@ -247,7 +243,7 @@ export default function HowItWorks() {
     ];
 
     return (
-        <Box sx={{ position: "relative", minHeight: "100vh" }}>
+        <div style={{ overflowX: "hidden", width: "100%" }}>
             {/* Hero Section with Full-Width Image */}
             <HeroSection>
                 {/* Breadcrumb Navigation 
@@ -305,116 +301,147 @@ export default function HowItWorks() {
             </HeroSection>
 
             {/* Main Content Section */}
-            <Container maxWidth="lg" sx={{ py: 4 }}>
-                {/* Title Section */}
-                <Box sx={{ textAlign: "center", mb: 4 }}>
-                    <Typography
-                        variant="h2"
-                        component="h1"
+            <Box sx={{
+                py: { xs: 6, md: 10 },
+                textAlign: "left",
+                backgroundColor: theme.palette.background.paper,
+                px: { xs: 3, sm: 4, md: 6 }
+            }}>
+                <Container maxWidth="lg" sx={{ px: 0 }}>
+                    {/* Title Section */}
+                    <Box sx={{ textAlign: "center", mb: 4 }}>
+                        <Typography
+                            variant="h2"
+                            component="h1"
+                            sx={{
+                                fontSize: { xs: "2rem", md: "2.5rem" },
+                                fontWeight: 700,
+                                color: theme.palette.text.primary,
+                                mb: 2,
+                                fontFamily: theme.typography.fontFamily,
+                            }}
+                        >
+                            HOW IT WORKS
+                        </Typography>
+                    </Box>
+
+                    {/* Steps Section */}
+                    <Box
                         sx={{
-                            fontSize: { xs: "2rem", md: "2.5rem" },
-                            fontWeight: 700,
-                            color: theme.palette.text.primary,
-                            mb: 2,
-                            fontFamily: theme.typography.fontFamily,
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'stretch',
+                            flexWrap: 'wrap',
+                            gap: { xs: 3, md: 5 },
+                            mb: 4,
                         }}
                     >
-                        HOW IT WORKS
-                    </Typography>
-                </Box>
+                        {steps.map((step, index) => (
+                            <Box
+                                key={step.id}
+                                sx={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    textAlign: 'center',
+                                    flex: { xs: '1 1 40%', md: '1 1 15%' },
+                                    backgroundColor: theme.palette.background.paper,
+                                    borderRadius: 2,
+                                    boxShadow: '0 3px 8px rgba(0,0,0,0.08)',
+                                    p: 2.5,
+                                    position: 'relative',
+                                    transition: 'all 0.3s ease',
+                                    '&:hover': {
+                                        transform: 'translateY(-4px)',
+                                        boxShadow: '0 5px 14px rgba(0,0,0,0.12)',
+                                    },
+                                }}
+                            >
+                                {/* Step Number Badge */}
+                                <Box
+                                    sx={{
+                                        position: 'absolute',
+                                        top: 10,
+                                        left: 10,
+                                        width: 28,
+                                        height: 28,
+                                        borderRadius: '50%',
+                                        backgroundColor: theme.palette.primary.main,
+                                        color: theme.palette.primary.contrastText,
+                                        fontWeight: 600,
+                                        fontSize: '0.9rem',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
+                                    }}
+                                >
+                                    {index + 1}
+                                </Box>
 
-                {/* Steps Section */}
-                <Box
-                    sx={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'stretch',
-                        flexWrap: 'wrap',
-                        gap: { xs: 3, md: 5 },
-                        mb: 4,
-                    }}
-                >
-                    {steps.map((step, index) => (
-                        <Box
-                            key={step.id}
+                                {/* Icon */}
+                                <Avatar
+                                    src={step.icon}
+                                    alt={step.title}
+                                    sx={{
+                                        width: 65,
+                                        height: 65,
+                                        border: `2px solid ${theme.palette.primary.main}`,
+                                        backgroundColor: '#fff',
+                                        mb: 1.5,
+                                        boxShadow: '0 2px 6px rgba(0,0,0,0.08)',
+                                        p: 1.5,
+                                    }}
+                                />
+
+                                {/* Title */}
+                                <Typography
+                                    variant="subtitle1"
+                                    sx={{
+                                        fontWeight: 600,
+                                        color: theme.palette.text.primary,
+                                        fontFamily: theme.typography.fontFamily,
+                                        fontSize: { xs: '0.95rem', md: '1rem' },
+                                    }}
+                                >
+                                    {step.title}
+                                </Typography>
+                            </Box>
+                        ))}
+                    </Box>
+
+                    {/* Call to Action Button */}
+                    <Box sx={{ textAlign: "center" }}>
+                        <CTAButton
+                            variant="contained"
+                            size="large"
                             sx={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                textAlign: 'center',
-                                flex: { xs: '1 1 40%', md: '1 1 15%' },
-                                backgroundColor: theme.palette.background.paper,
-                                borderRadius: 2,
-                                boxShadow: '0 3px 8px rgba(0,0,0,0.08)',
-                                p: 2.5,
-                                position: 'relative',
-                                transition: 'all 0.3s ease',
+                                px: 6,
+                                py: 1.5,
+                                fontSize: '1rem',
+                                fontWeight: 600,
+                                borderRadius: 8,
+                                textTransform: 'none',
                                 '&:hover': {
-                                    transform: 'translateY(-4px)',
-                                    boxShadow: '0 5px 14px rgba(0,0,0,0.12)',
+                                    backgroundColor: theme.palette.primary.dark,
+                                    transform: 'translateY(-2px)',
                                 },
                             }}
                         >
-                            {/* Step Number Badge */}
-
-
-                            {/* Icon */}
-                            <Avatar
-                                src={step.icon}
-                                alt={step.title}
-                                sx={{
-                                    width: 65,
-                                    height: 65,
-                                    border: `2px solid ${theme.palette.primary.main}`,
-                                    backgroundColor: '#fff',
-                                    mb: 1.5,
-                                    boxShadow: '0 2px 6px rgba(0,0,0,0.08)',
-                                    p: 1.5,
-                                }}
-                            />
-
-                            {/* Title */}
-                            <Typography
-                                variant="subtitle1"
-                                sx={{
-                                    fontWeight: 600,
-                                    color: theme.palette.text.primary,
-                                    fontFamily: theme.typography.fontFamily,
-                                    fontSize: { xs: '0.95rem', md: '1rem' },
-                                }}
-                            >
-                                {step.title}
-                            </Typography>
-                        </Box>
-                    ))}
-                </Box>
-
-                {/* Call to Action Button */}
-                <Box sx={{ textAlign: "center" }}>
-                    <CTAButton
-                        variant="contained"
-                        size="large"
-                        sx={{
-                            px: 6,
-                            py: 1.5,
-                            fontSize: '1rem',
-                            fontWeight: 600,
-                            borderRadius: 8,
-                            textTransform: 'none',
-                            '&:hover': {
-                                backgroundColor: theme.palette.primary.dark,
-                                transform: 'translateY(-2px)',
-                            },
-                        }}
-                    >
-                        BOOK FREE CONSULTATION
-                    </CTAButton>
-                </Box>
-            </Container>
+                            BOOK FREE CONSULTATION
+                        </CTAButton>
+                    </Box>
+                </Container>
+            </Box>
 
             {/* Meet Your Designer Section */}
-            <MeetDesignerSection>
-                <Container maxWidth="lg">
+            <Box sx={{
+                py: { xs: 6, md: 10 },
+                backgroundColor: theme.palette.background.default,
+                textAlign: "left",
+                px: { xs: 3, sm: 4, md: 6 }
+            }}>
+                <Container maxWidth="lg" sx={{ px: 0 }}>
                     <Box
                         sx={{
                             display: "flex",
@@ -555,11 +582,16 @@ export default function HowItWorks() {
                         </Box>
                     </Box>
                 </Container>
-            </MeetDesignerSection>
+            </Box>
 
             {/* Book Kalakruti Section */}
-            <Box sx={{ backgroundColor: theme.palette.background.paper, padding: theme.spacing(8, 0) }}>
-                <Container maxWidth="lg">
+            <Box sx={{
+                py: { xs: 6, md: 10 },
+                backgroundColor: theme.palette.background.paper,
+                textAlign: "left",
+                px: { xs: 3, sm: 4, md: 6 }
+            }}>
+                <Container maxWidth="lg" sx={{ px: 0 }}>
                     <Box
                         sx={{
                             display: "flex",
@@ -716,8 +748,13 @@ export default function HowItWorks() {
             </Box>
 
             {/* Place the Order Section */}
-            <Box sx={{ backgroundColor: theme.palette.background.default, padding: theme.spacing(8, 0) }}>
-                <Container maxWidth="lg">
+            <Box sx={{
+                py: { xs: 6, md: 10 },
+                backgroundColor: theme.palette.background.default,
+                textAlign: "left",
+                px: { xs: 3, sm: 4, md: 6 }
+            }}>
+                <Container maxWidth="lg" sx={{ px: 0 }}>
                     <Box
                         sx={{
                             display: "flex",
@@ -893,48 +930,12 @@ export default function HowItWorks() {
                     }}
                 >
                     {/* Checkmark Icon */}
-                    <Box
+                    <CheckCircleIcon
                         sx={{
-                            width: "40px",
-                            height: "40px",
-                            borderRadius: "50%",
-                            border: "2px solid white",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            backgroundColor: "transparent",
+                            fontSize: "40px",
+                            color: "white",
                         }}
-                    >
-                        <Box
-                            sx={{
-                                width: "20px",
-                                height: "20px",
-                                position: "relative",
-                                "&::before": {
-                                    content: '""',
-                                    position: "absolute",
-                                    left: "6px",
-                                    top: "10px",
-                                    width: "8px",
-                                    height: "2px",
-                                    backgroundColor: theme.palette.background.paper,
-                                    transform: "rotate(45deg)",
-                                    transformOrigin: "left center",
-                                },
-                                "&::after": {
-                                    content: '""',
-                                    position: "absolute",
-                                    left: "6px",
-                                    top: "10px",
-                                    width: "12px",
-                                    height: "2px",
-                                    backgroundColor: theme.palette.background.paper,
-                                    transform: "rotate(-45deg)",
-                                    transformOrigin: "left center",
-                                },
-                            }}
-                        />
-                    </Box>
+                    />
 
                     {/* Success Message */}
                     <Typography
@@ -952,8 +953,13 @@ export default function HowItWorks() {
             </Box>
 
             {/* Final Installations Section */}
-            <Box sx={{ backgroundColor: theme.palette.background.paper, padding: theme.spacing(8, 0) }}>
-                <Container maxWidth="lg">
+            <Box sx={{
+                py: { xs: 6, md: 10 },
+                backgroundColor: theme.palette.background.paper,
+                textAlign: "left",
+                px: { xs: 3, sm: 4, md: 6 }
+            }}>
+                <Container maxWidth="lg" sx={{ px: 0 }}>
                     <Box
                         sx={{
                             display: "flex",
@@ -1128,48 +1134,12 @@ export default function HowItWorks() {
                     }}
                 >
                     {/* Checkmark Icon */}
-                    <Box
+                    <CheckCircleIcon
                         sx={{
-                            width: "40px",
-                            height: "40px",
-                            borderRadius: "50%",
-                            border: "2px solid white",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            backgroundColor: "transparent",
+                            fontSize: "40px",
+                            color: "white",
                         }}
-                    >
-                        <Box
-                            sx={{
-                                width: "20px",
-                                height: "20px",
-                                position: "relative",
-                                "&::before": {
-                                    content: '""',
-                                    position: "absolute",
-                                    left: "6px",
-                                    top: "10px",
-                                    width: "8px",
-                                    height: "2px",
-                                    backgroundColor: theme.palette.background.paper,
-                                    transform: "rotate(45deg)",
-                                    transformOrigin: "left center",
-                                },
-                                "&::after": {
-                                    content: '""',
-                                    position: "absolute",
-                                    left: "6px",
-                                    top: "10px",
-                                    width: "12px",
-                                    height: "2px",
-                                    backgroundColor: theme.palette.background.paper,
-                                    transform: "rotate(-45deg)",
-                                    transformOrigin: "left center",
-                                },
-                            }}
-                        />
-                    </Box>
+                    />
 
                     {/* Success Message */}
                     <Typography
@@ -1187,8 +1157,13 @@ export default function HowItWorks() {
             </Box>
 
             {/* Move In Section */}
-            <Box sx={{ backgroundColor: theme.palette.background.default, padding: theme.spacing(8, 0) }}>
-                <Container maxWidth="lg">
+            <Box sx={{
+                py: { xs: 6, md: 10 },
+                backgroundColor: theme.palette.background.default,
+                textAlign: "left",
+                px: { xs: 3, sm: 4, md: 6 }
+            }}>
+                <Container maxWidth="lg" sx={{ px: 0 }}>
                     <Box
                         sx={{
                             display: "flex",
@@ -1283,8 +1258,13 @@ export default function HowItWorks() {
             </Box>
 
             {/* Understand Your Order Types Section */}
-            <Box sx={{ backgroundColor: theme.palette.background.paper, padding: theme.spacing(8, 0) }}>
-                <Container maxWidth="lg">
+            <Box sx={{
+                py: { xs: 6, md: 10 },
+                backgroundColor: theme.palette.background.paper,
+                textAlign: "left",
+                px: { xs: 3, sm: 4, md: 6 }
+            }}>
+                <Container maxWidth="lg" sx={{ px: 0 }}>
                     <Box sx={{ textAlign: "center", mb: 6 }}>
                         <Typography
                             variant="h2"
@@ -1631,8 +1611,13 @@ export default function HowItWorks() {
             </Box>
 
             {/* The Team Section */}
-            <Box sx={{ backgroundColor: theme.palette.background.default, padding: theme.spacing(8, 0) }}>
-                <Container maxWidth="lg">
+            <Box sx={{
+                py: { xs: 6, md: 10 },
+                backgroundColor: theme.palette.background.default,
+                textAlign: "left",
+                px: { xs: 3, sm: 4, md: 6 }
+            }}>
+                <Container maxWidth="lg" sx={{ px: 0 }}>
                     <Box sx={{ textAlign: "center", mb: 6 }}>
                         <Typography
                             variant="h2"
@@ -1876,10 +1861,6 @@ export default function HowItWorks() {
 
             {/* Quote Form Section */}
             <QuoteForm />
-
-
-
-
-        </Box>
+        </div>
     );
 }
