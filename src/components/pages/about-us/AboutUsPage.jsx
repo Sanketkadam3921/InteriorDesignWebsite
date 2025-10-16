@@ -173,7 +173,7 @@ export default function AboutUsPage() {
                             <Grid item xs={12} md={6}>
                                 <Card sx={{ height: '100%', p: 3 }}>
                                     <CardContent>
-                                        <Typography variant="h5" gutterBottom sx={{ color: 'secondary.main', fontWeight: 'bold' }}>
+                                        <Typography variant="h5" gutterBottom sx={{ color: 'primary.main', fontWeight: 'bold' }}>
                                             Our Mission
                                         </Typography>
                                         <Typography variant="body1" sx={{ lineHeight: 1.7 }}>
@@ -495,17 +495,17 @@ export default function AboutUsPage() {
                                                     mb: 1
                                                 }}
                                             >
-                                                Rajesh Kumar
+                                                Rushikesh Bendal
                                             </Typography>
                                             <Typography
                                                 variant="h6"
                                                 sx={{
-                                                    color: 'secondary.main',
+                                                    color: 'primary.main',
                                                     fontWeight: 'medium',
                                                     mb: 2
                                                 }}
                                             >
-                                                Co-Founder & CEO
+                                                Co-Founder
                                             </Typography>
                                             <Typography
                                                 variant="body1"
@@ -515,9 +515,10 @@ export default function AboutUsPage() {
                                                     mb: 3
                                                 }}
                                             >
-                                                With over 15 years of experience in interior design and architecture,
-                                                Rajesh leads our vision of creating beautiful, functional spaces that
-                                                enhance the quality of life for our clients.
+                                                A dynamic co-founder with a passion for innovation and precision, Rushikesh
+                                                plays a key role in shaping the company’s direction and vision. His strong
+                                                leadership, problem-solving mindset, and commitment to excellence drive
+                                                the team toward achieving impactful and sustainable results.
                                             </Typography>
                                             <Box sx={{ display: 'flex', justifyContent: 'center', gap: 1 }}>
                                                 <IconButton size="small" sx={{ color: 'neutral.mediumGray' }}>
@@ -573,17 +574,17 @@ export default function AboutUsPage() {
                                                     mb: 1
                                                 }}
                                             >
-                                                Priya Sharma
+                                                Shubham Chavhan
                                             </Typography>
                                             <Typography
                                                 variant="h6"
                                                 sx={{
-                                                    color: 'secondary.main',
+                                                    color: 'primary.main',
                                                     fontWeight: 'medium',
                                                     mb: 2
                                                 }}
                                             >
-                                                Co-Founder & Creative Director
+                                                Chief - Management
                                             </Typography>
                                             <Typography
                                                 variant="body1"
@@ -593,9 +594,10 @@ export default function AboutUsPage() {
                                                     mb: 3
                                                 }}
                                             >
-                                                A creative visionary with expertise in modern interior design trends,
-                                                Priya brings innovative ideas and artistic flair to every project,
-                                                ensuring each space tells a unique story.
+                                                A strategic leader known for his exceptional organizational skills and
+                                                result-oriented mindset, Shubham ensures smooth coordination across
+                                                departments. His focus on efficiency, planning, and team growth drives
+                                                the company toward consistent excellence and long-term success.
                                             </Typography>
                                             <Box sx={{ display: 'flex', justifyContent: 'center', gap: 1 }}>
                                                 <IconButton size="small" sx={{ color: 'neutral.mediumGray' }}>

@@ -104,7 +104,7 @@ export default function ProjectGallery() {
             {/* Gallery Title */}
             <Box sx={{ textAlign: "center", mb: 6 }}>
                 <Typography
-                    variant="h2"
+                    variant="h3"
                     component="h1"
                     sx={{
                         fontWeight: 700,

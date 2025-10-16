@@ -11,24 +11,16 @@ import {
     Chip,
     Grid,
     useTheme,
-    Divider,
     Breadcrumbs,
     Link,
 } from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
-import { deliveredProjects } from "../../../data/projects/deliveredProjects";
-import { upcomingProjects as upcomingData } from "../../../data/projects/upcomingProjects";
-import { featuredProjects as featuredData } from "../../../data/projects/featuredProjects";
-import FeaturedProjectsCarousel from "../../common/FeaturedProjectsCarousel";
 
 export default function ProjectsPage() {
     const navigate = useNavigate();
     const theme = useTheme();
 
     const handleCardClick = (type) => navigate(`/projects/${type}`);
-    const handleFeaturedProjectClick = (projectId) =>
-        navigate(`/projects/featured/${projectId}`);
-    const handleViewAllFeatured = () => navigate("/projects/featured");
 
     return (
         <Box sx={{
@@ -180,81 +172,6 @@ export default function ProjectsPage() {
                     ))}
                 </Grid>
 
-                <Divider sx={{ mb: 8 }} />
-
-                {/* ✨ Featured Projects */}
-                <Box sx={{ mb: 6 }}>
-                    <Box
-                        sx={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            alignItems: "center",
-                            flexWrap: "wrap",
-                            rowGap: 2,
-                        }}
-                    >
-                        {/* Left Text Section */}
-                        <Box sx={{ textAlign: "left", flex: { xs: "1 1 100%", md: "1 1 70%" } }}>
-                            <Typography
-                                variant="h3"
-                                sx={{
-                                    fontWeight: 700,
-                                    mb: 2,
-                                    color: theme.palette.text.primary,
-                                }}
-                            >
-                                Featured Projects
-                            </Typography>
-
-                            <Typography
-                                variant="h6"
-                                color="text.secondary"
-                                sx={{
-                                    maxWidth: 700,
-                                    lineHeight: 1.7,
-                                }}
-                            >
-                                A glimpse of our best creations — blending design precision and aesthetic
-                                brilliance.
-                            </Typography>
-                        </Box>
-
-                        {/* Right Button Section */}
-                        <Box
-                            sx={{
-                                display: "flex",
-                                justifyContent: { xs: "flex-start", md: "flex-end" },
-                                flex: { xs: "1 1 100%", md: "1 1 30%" },
-                            }}
-                        >
-                            <Button
-                                variant="outlined"
-                                endIcon={<ArrowForward />}
-                                onClick={handleViewAllFeatured}
-                                sx={{
-                                    fontWeight: 600,
-                                    px: 3,
-                                    py: 1.5,
-                                    borderRadius: "25px",
-                                    textTransform: "uppercase",
-                                    letterSpacing: "0.5px",
-                                }}
-                            >
-                                View All
-                            </Button>
-                        </Box>
-                    </Box>
-                </Box>
-
-
-
-                {/* Featured Projects Carousel */}
-                <Box sx={{ mb: 8 }}>
-                    <FeaturedProjectsCarousel
-                        projects={featuredData}
-                        onViewAll={handleViewAllFeatured}
-                    />
-                </Box>
             </Container>
         </Box>
     );

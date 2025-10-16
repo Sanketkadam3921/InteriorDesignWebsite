@@ -36,13 +36,12 @@ import WardrobeCalculatorSteps from "../pages/price-calculators/wardrobe/Wardrob
 import ProjectsPage from "../pages/projects/ProjectsPage";
 import DeliveredProjectsList from "../pages/projects/DeliveredProjectsList";
 import UpcomingProjectsList from "../pages/projects/UpcomingProjectsList";
-import FeaturedProjectsList from "../pages/projects/FeaturedProjectsList";
 import DeliveredProjectDetail from "../pages/projects/DeliveredProjectDetail";
 import UpcomingProjectDetail from "../pages/projects/UpcomingProjectDetail";
-import FeaturedProjectDetail from "../pages/projects/FeaturedProjectDetail";
 import ProjectGallery from "../pages/projects/ProjectGallery";
 
 // Kitchen Components
+import KnowYourKitchen from "../pages/second-nav-pages/offerings/KnowYourKitchen";
 import KitchenCabinets from "../pages/kitchen-components/KitchenCabinets";
 import KitchenCabinetDetail from "../pages/kitchen-components/KitchenCabinetDetail";
 import KitchenHandles from "../pages/kitchen-components/KitchenHandles";
@@ -50,10 +49,11 @@ import KitchenHandlesDetails from "../pages/kitchen-components/KitchenHandlesDet
 import KitchenFinishes from "../pages/kitchen-components/KitchenFinishes";
 import KitchenFinishesDetails from "../pages/kitchen-components/KitchenFinishesDetails";
 // Wardrobe Components
+
 import WardrobeCabinets from "../pages/wardrobe-components/WardrobeCabinets";
 import WardrobeHandles from "../pages/wardrobe-components/WardrobeHandles";
 import WardrobeFinishes from "../pages/wardrobe-components/WardrobeFinishes";
-
+import KnowYourWardrobe from "../pages/second-nav-pages/offerings/KnowYourWardrobe";
 // Renovations Components
 import RenovationsPage from "../pages/renovations/RenovationsPage";
 
@@ -73,11 +73,9 @@ export default function AppRoutes() {
                     <Route path="projects/upcoming" element={<UpcomingProjectsList />} />
                     <Route path="projects/upcoming/:id" element={<UpcomingProjectDetail />} />
                     <Route path="projects/upcoming/:id/gallery" element={<ProjectGallery />} />
-                    <Route path="projects/featured" element={<FeaturedProjectsList />} />
-                    <Route path="projects/featured/:id" element={<FeaturedProjectDetail />} />
-                    <Route path="projects/featured/:id/gallery" element={<ProjectGallery />} />
                     <Route path="projects/old" element={<ProjectsList />} />
                     <Route path="projects/old/:id" element={<ProjectDetail />} />
+                    <Route path="wardrobe/know-your-wardrobe" element={<KnowYourWardrobe />} />
 
 
                     <Route path="designs" element={<AllDesigns />} />
@@ -88,6 +86,7 @@ export default function AppRoutes() {
                     <Route path="contact" element={<ContactForm />} />
                     <Route path="faq" element={<FAQ />} />
                     <Route path="aboutus" element={<AboutUsPage />} />
+                    <Route path="kitchen/know-your-kitchen" element={<KnowYourKitchen />} />
 
                     <Route path="magazine" element={<MagazinePage />} />
 
