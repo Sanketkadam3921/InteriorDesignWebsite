@@ -25,7 +25,7 @@ export default function WardrobeHeroSection() {
         >
             <Container maxWidth="md">
                 <Typography
-                    variant="h2"
+                    variant="h3"
                     component="h1"
                     gutterBottom
                     sx={{
