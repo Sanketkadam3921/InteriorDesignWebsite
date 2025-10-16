@@ -20,7 +20,7 @@ const inspirationItems = [
     { title: 'Homes by Livspace', image: 'https://i.pinimg.com/736x/a2/91/37/a2913749dfb96ac7cee1872003ffc77c.jpg' },
     { title: 'Kitchen', image: 'https://i.pinimg.com/1200x/85/17/d5/8517d53084ad0351019298eedab8fff3.jpg' },
     { title: 'Wardrobe', image: 'https://i.pinimg.com/1200x/f7/58/33/f75833d9a822a49b072636e894d8db30.jpg' },
-    { title: 'Kids Room', image: 'https://i.pinimg.com/1200x/18/e6/cf/18e6cf09e770662eda38fb7fcbe6cb04.jpg' },
+    { title: 'Kids Room', image: 'https://images.unsplash.com/photo-1554861148-57c68cd01604?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470' },
     { title: 'Home Office', image: 'https://i.pinimg.com/736x/a6/f7/3f/a6f73fbe18db7e69c26cab307f6685e3.jpg' },
     { title: 'Guest Bedroom', image: 'https://i.pinimg.com/736x/84/2e/d1/842ed1f7f89cc954a9deab56c05c9036.jpg' },
     { title: 'Foyer', image: 'https://i.pinimg.com/1200x/b2/5e/df/b25edffe956b4a0e6ed7f77444a79371.jpg' },

@@ -13,6 +13,7 @@ import {
     Stack,
     Grid,
     Divider,
+    Avatar,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
@@ -153,8 +154,8 @@ const CTAButton = styled(Button)(({ theme }) => ({
 
 const MeetDesignerSection = styled(Box)(({ theme }) => ({
     backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(8, 0),
-    marginTop: theme.spacing(8),
+    padding: theme.spacing(4, 0),
+    marginTop: theme.spacing(4),
 }));
 
 const ProcessStep = styled(Box)(({ theme }) => ({
@@ -215,32 +216,32 @@ export default function HowItWorks() {
     const steps = [
         {
             id: 1,
-            title: "Meet Designer",
-            icon: "👥",
+            title: "Meet a designer",
+            icon: "https://cdn-icons-png.flaticon.com/128/7164/7164002.png",
             description: "Connect with our expert designers",
         },
         {
             id: 2,
-            title: "Book KalaKruti",
-            icon: "📅",
+            title: "Book a renovation",
+            icon: "https://cdn-icons-png.flaticon.com/128/2910/2910768.png",
             description: "Schedule your consultation",
         },
         {
             id: 3,
             title: "Execution begins",
-            icon: "🔨",
+            icon: "https://cdn-icons-png.flaticon.com/128/9640/9640682.png",
             description: "Start the design process",
         },
         {
             id: 4,
             title: "Final installations",
-            icon: "🏠",
+            icon: "https://cdn-icons-png.flaticon.com/128/4961/4961619.png",
             description: "Complete your dream home",
         },
         {
             id: 5,
             title: "Move in",
-            icon: "🎉",
+            icon: "https://cdn-icons-png.flaticon.com/128/9320/9320557.png",
             description: "Enjoy your new space",
         },
     ];
@@ -304,129 +305,88 @@ export default function HowItWorks() {
             </HeroSection>
 
             {/* Main Content Section */}
-            <Container maxWidth="lg" sx={{ py: 8 }}>
+            <Container maxWidth="lg" sx={{ py: 4 }}>
                 {/* Title Section */}
-                <Box sx={{ textAlign: "center", mb: 6 }}>
+                <Box sx={{ textAlign: "center", mb: 4 }}>
                     <Typography
                         variant="h2"
                         component="h1"
                         sx={{
-                            fontSize: { xs: "2rem", md: "3rem" },
+                            fontSize: { xs: "2rem", md: "2.5rem" },
                             fontWeight: 700,
                             color: theme.palette.text.primary,
                             mb: 2,
-                            position: "relative",
-                            "&::before": {
-                                content: '"|"',
-                                color: theme.palette.primary.main,
-                                marginRight: 2,
-                                fontSize: "inherit",
-                            },
+                            fontFamily: theme.typography.fontFamily,
                         }}
                     >
-                        Your dream home in 5 steps!
-                    </Typography>
-                    <Typography
-                        variant="h6"
-                        sx={{
-                            color: theme.palette.text.secondary,
-                            maxWidth: "600px",
-                            mx: "auto",
-                            lineHeight: 1.6,
-                        }}
-                    >
-                        Looking to design your home interiors? Here's how you can get started.
+                        HOW IT WORKS
                     </Typography>
                 </Box>
 
                 {/* Steps Section */}
-                <Box sx={{ mb: 8 }}>
-                    {isMobile ? (
-                        // Mobile Layout - Vertical Stack
-                        <Stack spacing={4} alignItems="center">
-                            {steps.map((step, index) => (
-                                <Box key={step.id} sx={{ textAlign: "center" }}>
-                                    <StepCircle>
-                                        <Typography
-                                            sx={{
-                                                fontSize: "2rem",
-                                                fontWeight: 700,
-                                                color: theme.palette.grey[400],
-                                                position: "absolute",
-                                                bottom: "-15px",
-                                                left: "-15px",
-                                            }}
-                                        >
-                                            {step.id}
-                                        </Typography>
-                                        <Typography sx={{ fontSize: "2.5rem" }}>
-                                            {step.icon}
-                                        </Typography>
-                                    </StepCircle>
-                                    <Typography
-                                        variant="h6"
-                                        sx={{
-                                            mt: 2,
-                                            fontWeight: 600,
-                                            color: theme.palette.text.primary,
-                                        }}
-                                    >
-                                        {step.title}
-                                    </Typography>
-                                    <Typography
-                                        variant="body2"
-                                        sx={{
-                                            color: theme.palette.text.secondary,
-                                            mt: 1,
-                                        }}
-                                    >
-                                        {step.description}
-                                    </Typography>
-                                    {index < steps.length - 1 && (
-                                        <StepArrow className="step-arrow" />
-                                    )}
-                                </Box>
-                            ))}
-                        </Stack>
-                    ) : (
-                        // Desktop Layout - Horizontal Flow
-                        <StepContainer>
-                            {steps.map((step, index) => (
-                                <React.Fragment key={step.id}>
-                                    <Box sx={{ textAlign: "center" }}>
-                                        <StepCircle>
-                                            <StepNumber>{step.id}</StepNumber>
-                                            <Typography sx={{ fontSize: "2.5rem" }}>
-                                                {step.icon}
-                                            </Typography>
-                                        </StepCircle>
-                                        <Typography
-                                            variant="h6"
-                                            sx={{
-                                                mt: 2,
-                                                fontWeight: 600,
-                                                color: theme.palette.text.primary,
-                                            }}
-                                        >
-                                            {step.title}
-                                        </Typography>
-                                        <Typography
-                                            variant="body2"
-                                            sx={{
-                                                color: theme.palette.text.secondary,
-                                                mt: 1,
-                                                maxWidth: "150px",
-                                                mx: "auto",
-                                            }}
-                                        >
-                                            {step.description}
-                                        </Typography>
-                                    </Box>
-                                    {index < steps.length - 1 && <StepArrow />}
-                                </React.Fragment>
-                            ))}
-                        </StepContainer>
-                    )}
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'stretch',
+                        flexWrap: 'wrap',
+                        gap: { xs: 3, md: 5 },
+                        mb: 4,
+                    }}
+                >
+                    {steps.map((step, index) => (
+                        <Box
+                            key={step.id}
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                textAlign: 'center',
+                                flex: { xs: '1 1 40%', md: '1 1 15%' },
+                                backgroundColor: theme.palette.background.paper,
+                                borderRadius: 2,
+                                boxShadow: '0 3px 8px rgba(0,0,0,0.08)',
+                                p: 2.5,
+                                position: 'relative',
+                                transition: 'all 0.3s ease',
+                                '&:hover': {
+                                    transform: 'translateY(-4px)',
+                                    boxShadow: '0 5px 14px rgba(0,0,0,0.12)',
+                                },
+                            }}
+                        >
+                            {/* Step Number Badge */}
+
+
+                            {/* Icon */}
+                            <Avatar
+                                src={step.icon}
+                                alt={step.title}
+                                sx={{
+                                    width: 65,
+                                    height: 65,
+                                    border: `2px solid ${theme.palette.primary.main}`,
+                                    backgroundColor: '#fff',
+                                    mb: 1.5,
+                                    boxShadow: '0 2px 6px rgba(0,0,0,0.08)',
+                                    p: 1.5,
+                                }}
+                            />
+
+                            {/* Title */}
+                            <Typography
+                                variant="subtitle1"
+                                sx={{
+                                    fontWeight: 600,
+                                    color: theme.palette.text.primary,
+                                    fontFamily: theme.typography.fontFamily,
+                                    fontSize: { xs: '0.95rem', md: '1rem' },
+                                }}
+                            >
+                                {step.title}
+                            </Typography>
+                        </Box>
+                    ))}
                 </Box>
 
                 {/* Call to Action Button */}
@@ -434,14 +394,20 @@ export default function HowItWorks() {
                     <CTAButton
                         variant="contained"
                         size="large"
-                        endIcon={<ArrowForwardIcon />}
                         sx={{
-                            px: 4,
-                            py: 2,
-                            fontSize: { xs: "1rem", md: "1.1rem" },
+                            px: 6,
+                            py: 1.5,
+                            fontSize: '1rem',
+                            fontWeight: 600,
+                            borderRadius: 8,
+                            textTransform: 'none',
+                            '&:hover': {
+                                backgroundColor: theme.palette.primary.dark,
+                                transform: 'translateY(-2px)',
+                            },
                         }}
                     >
-                        START YOUR PROJECT NOW
+                        BOOK FREE CONSULTATION
                     </CTAButton>
                 </Box>
             </Container>
@@ -454,7 +420,7 @@ export default function HowItWorks() {
                             display: "flex",
                             alignItems: "center",
                             gap: { xs: 4, md: 6 },
-                            minHeight: "400px",
+                            minHeight: "300px",
                             [theme.breakpoints.down("md")]: {
                                 flexDirection: "column",
                                 textAlign: "center",
@@ -1911,78 +1877,9 @@ export default function HowItWorks() {
             {/* Quote Form Section */}
             <QuoteForm />
 
-            {/* Floating Support Widgets */}
-            {/* WhatsApp Widget */}
-            <FloatingWidget
-                sx={{
-                    top: "20px",
-                    right: "20px",
-                }}
-            >
-                <IconButton
-                    sx={{
-                        backgroundColor: "#25D366",
-                        color: "white",
-                        width: "60px",
-                        height: "60px",
-                        "&:hover": {
-                            backgroundColor: "#128C7E",
-                            transform: "scale(1.1)",
-                        },
-                        transition: "all 0.3s ease",
-                        boxShadow: "0 4px 12px rgba(37, 211, 102, 0.3)",
-                    }}
-                >
-                    <WhatsAppIcon sx={{ fontSize: "2rem" }} />
-                </IconButton>
-            </FloatingWidget>
 
-            {/* Chat Widget */}
-            <FloatingWidget
-                sx={{
-                    bottom: "20px",
-                    right: "20px",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 1,
-                }}
-            >
-                <Paper
-                    sx={{
-                        p: 2,
-                        backgroundColor: "white",
-                        borderRadius: 2,
-                        boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-                        maxWidth: "200px",
-                    }}
-                >
-                    <Typography
-                        variant="body2"
-                        sx={{
-                            color: theme.palette.text.primary,
-                            fontWeight: 500,
-                        }}
-                    >
-                        We're online. How may I assist you?
-                    </Typography>
-                </Paper>
-                <IconButton
-                    sx={{
-                        backgroundColor: theme.palette.primary.main,
-                        color: "white",
-                        width: "50px",
-                        height: "50px",
-                        "&:hover": {
-                            backgroundColor: theme.palette.primary.dark,
-                            transform: "scale(1.1)",
-                        },
-                        transition: "all 0.3s ease",
-                        boxShadow: "0 4px 12px rgba(80, 91, 95, 0.3)",
-                    }}
-                >
-                    <ChatIcon />
-                </IconButton>
-            </FloatingWidget>
+
+
         </Box>
     );
 }
