@@ -31,7 +31,7 @@ const TypeOfHome = () => {
         {
             title: '2 BHK',
             image:
-                'https://images.unsplash.com/photo-1592595896551-12b371d546d1?auto=format&fit=crop&w=900&q=80',
+                'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80',
             description: 'Perfect balance of space and functionality',
         },
         {
