@@ -1,53 +1,63 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import {
-    Box,
+    Container,
     Typography,
-    useTheme,
-    useMediaQuery,
-    IconButton,
-    Dialog,
-    DialogContent,
-    DialogActions,
+    Box,
     Button,
-    Chip
-} from '@mui/material';
-import { ArrowBack, Close, NavigateBefore, NavigateNext, ZoomIn } from '@mui/icons-material';
-import { useNavigate, useParams } from 'react-router-dom';
-import ProjectPageLayout from '../../common/ProjectPageLayout';
+    ImageList,
+    ImageListItem,
+    useTheme,
+    Modal,
+    Backdrop,
+    Fade,
+    IconButton,
+    Card,
+    CardMedia,
+} from "@mui/material";
+import { ArrowBack, Close, NavigateBefore, NavigateNext } from "@mui/icons-material";
+import { deliveredProjectsDetails } from "../../../data/projects/deliveredProjects";
+import { upcomingProjectsDetails } from "../../../data/projects/upcomingProjects";
+import { featuredProjectsDetails } from "../../../data/projects/featuredProjects";
 
-export default function ProjectGallery({ projectData, projectType, projectTitle }) {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-    const navigate = useNavigate();
+export default function ProjectGallery() {
     const { id } = useParams();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const theme = useTheme();
     const [selectedImage, setSelectedImage] = useState(null);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-    const project = projectData[id];
+    // Extract project type from the current path
+    const pathSegments = location.pathname.split('/');
+    const projectType = pathSegments[2]; // delivered, upcoming, or featured
 
-    if (!project) {
-        return (
-            <ProjectPageLayout
-                title="Project Not Found"
-                subtitle="The requested project could not be found."
-                backButtonText={`Back to ${projectType} Projects`}
-                backButtonPath={`/projects/${projectType}`}
-            >
-                <Box sx={{ textAlign: 'center', py: 8 }}>
-                    <Typography variant="h6" color="text.secondary">
-                        This project does not exist or has been removed.
-                    </Typography>
-                </Box>
-            </ProjectPageLayout>
-        );
+    let project = null;
+    let backPath = "";
+
+    switch (projectType) {
+        case "delivered":
+            project = deliveredProjectsDetails[id];
+            backPath = `/projects/delivered/${id}`;
+            break;
+        case "upcoming":
+            project = upcomingProjectsDetails[id];
+            backPath = `/projects/upcoming/${id}`;
+            break;
+        case "featured":
+            project = featuredProjectsDetails[id];
+            backPath = `/projects/featured/${id}`;
+            break;
+        default:
+            break;
     }
 
-    const handleImageClick = (imageIndex) => {
-        setSelectedImage(project.images[imageIndex]);
-        setCurrentImageIndex(imageIndex);
+    const handleImageClick = (image, index) => {
+        setSelectedImage(image);
+        setCurrentImageIndex(index);
     };
 
-    const handleCloseDialog = () => {
+    const handleCloseModal = () => {
         setSelectedImage(null);
     };
 
@@ -63,268 +73,208 @@ export default function ProjectGallery({ projectData, projectType, projectTitle 
         setSelectedImage(project.images[newIndex]);
     };
 
-    const getBackButtonText = () => {
-        switch (projectType) {
-            case 'featured':
-                return 'Back to Featured Project';
-            case 'delivered':
-                return 'Back to Delivered Project';
-            case 'upcoming':
-                return 'Back to Upcoming Project';
-            default:
-                return 'Back to Project';
-        }
-    };
-
-    const getBackButtonPath = () => {
-        return `/projects/${projectType}/${id}`;
-    };
+    if (!project) {
+        return (
+            <Container maxWidth="lg" sx={{ py: 6, textAlign: "center" }}>
+                <Typography variant="h4" color="error" gutterBottom>
+                    Project not found
+                </Typography>
+                <Button
+                    variant="contained"
+                    onClick={() => navigate("/projects")}
+                    startIcon={<ArrowBack />}
+                >
+                    Back to Projects
+                </Button>
+            </Container>
+        );
+    }
 
     return (
-        <ProjectPageLayout
-            title={`${project.title} - Gallery`}
-            subtitle={`View all ${project.images.length} images from this ${projectType} project`}
-            backButtonText={getBackButtonText()}
-            backButtonPath={getBackButtonPath()}
-        >
-            {/* Project Info Header */}
-            <Box sx={{
-                mb: 4,
-                p: 3,
-                backgroundColor: theme.palette.background.paper,
-                borderRadius: 2,
-                boxShadow: theme.shadows[1]
-            }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
-                    <Typography variant="h5" fontWeight={600}>
-                        {project.title}
-                    </Typography>
-                    <Chip
-                        label={projectType.toUpperCase()}
-                        color={projectType === 'featured' ? 'primary' : projectType === 'delivered' ? 'success' : 'warning'}
-                        size="small"
-                    />
-                </Box>
-                <Typography variant="body1" color="text.secondary">
-                    {project.description}
+        <Container maxWidth="xl" sx={{ py: 6 }}>
+            {/* Back Button */}
+            <Button
+                startIcon={<ArrowBack />}
+                onClick={() => navigate(backPath)}
+                sx={{ mb: 4 }}
+            >
+                Back to Project Details
+            </Button>
+
+            {/* Gallery Title */}
+            <Box sx={{ textAlign: "center", mb: 6 }}>
+                <Typography
+                    variant="h2"
+                    component="h1"
+                    sx={{
+                        fontWeight: 700,
+                        mb: 2,
+                        color: theme.palette.text.primary,
+                    }}
+                >
+                    {project.title} - Gallery
                 </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
-                    {project.images.length} images • Click on any image to view in full size
+                <Typography
+                    variant="h6"
+                    color="text.secondary"
+                    sx={{ maxWidth: 600, mx: "auto", lineHeight: 1.6 }}
+                >
+                    Explore all {project.images.length} images from this project
                 </Typography>
             </Box>
 
-            {/* Image Grid */}
-            <Box sx={{
-                display: 'grid',
-                gridTemplateColumns: {
-                    xs: '1fr',
-                    sm: 'repeat(2, 1fr)',
-                    md: 'repeat(3, 1fr)',
-                    lg: 'repeat(4, 1fr)'
-                },
-                gap: 2,
-                mb: 4
-            }}>
-                {project.images.map((image, index) => (
-                    <Box
-                        key={index}
+            {/* Image Gallery - Display images in large view one below another */}
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                {project.images.map((img, idx) => (
+                    <Card
+                        key={idx}
                         sx={{
-                            position: 'relative',
-                            aspectRatio: '4/3',
-                            borderRadius: 2,
-                            overflow: 'hidden',
-                            cursor: 'pointer',
-                            transition: 'all 0.3s ease',
-                            '&:hover': {
-                                transform: 'scale(1.02)',
-                                boxShadow: theme.shadows[8],
-                            }
+                            borderRadius: 3,
+                            overflow: "hidden",
+                            boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
+                            transition: "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
+                            cursor: "pointer",
+                            "&:hover": {
+                                transform: "translateY(-4px)",
+                                boxShadow: "0 12px 40px rgba(0,0,0,0.18)",
+                            },
                         }}
-                        onClick={() => handleImageClick(index)}
+                        onClick={() => handleImageClick(img, idx)}
                     >
-                        <Box
+                        <CardMedia
                             component="img"
-                            src={`${image}?w=600&fit=crop&auto=format`}
-                            alt={`${project.title} - Image ${index + 1}`}
+                            image={`${img}?w=1200&fit=crop&auto=format`}
+                            alt={`${project.title} - Image ${idx + 1}`}
                             sx={{
-                                width: '100%',
-                                height: '100%',
-                                objectFit: 'cover',
-                                transition: 'transform 0.3s ease',
+                                width: "100%",
+                                height: "auto",
+                                maxHeight: "80vh",
+                                objectFit: "contain",
                             }}
                         />
-
-                        {/* Image Number Overlay */}
-                        <Box
-                            sx={{
-                                position: 'absolute',
-                                top: 8,
-                                right: 8,
-                                backgroundColor: 'rgba(0,0,0,0.7)',
-                                color: 'white',
-                                borderRadius: '50%',
-                                width: 32,
-                                height: 32,
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                fontSize: '0.8rem',
-                                fontWeight: 600,
-                            }}
-                        >
-                            {index + 1}
+                        <Box sx={{ p: 2, textAlign: "center" }}>
+                            <Typography variant="body2" color="text.secondary">
+                                Image {idx + 1} of {project.images.length}
+                            </Typography>
                         </Box>
-
-                        {/* Zoom Icon Overlay */}
-                        <Box
-                            sx={{
-                                position: 'absolute',
-                                bottom: 8,
-                                right: 8,
-                                backgroundColor: 'rgba(0,0,0,0.7)',
-                                color: 'white',
-                                borderRadius: '50%',
-                                width: 32,
-                                height: 32,
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                opacity: 0,
-                                transition: 'opacity 0.3s ease',
-                                '&:hover': {
-                                    opacity: 1,
-                                }
-                            }}
-                        >
-                            <ZoomIn fontSize="small" />
-                        </Box>
-                    </Box>
+                    </Card>
                 ))}
             </Box>
 
-            {/* Image Counter */}
-            <Box sx={{ textAlign: 'center', mb: 4 }}>
-                <Typography variant="body2" color="text.secondary">
-                    Showing {project.images.length} images • Click any image to view in full size
-                </Typography>
-            </Box>
-
-            {/* Full Size Image Dialog */}
-            <Dialog
+            {/* Full Screen Image Modal */}
+            <Modal
                 open={!!selectedImage}
-                onClose={handleCloseDialog}
-                maxWidth="lg"
-                fullWidth
-                fullScreen={isMobile}
-                sx={{
-                    '& .MuiDialog-paper': {
-                        backgroundColor: 'rgba(0,0,0,0.9)',
-                        color: 'white',
-                    }
+                onClose={handleCloseModal}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    timeout: 500,
+                    sx: { backgroundColor: "rgba(0,0,0,0.9)" },
                 }}
             >
-                <DialogContent sx={{ p: 0, position: 'relative' }}>
-                    {/* Navigation Arrows */}
-                    <IconButton
-                        onClick={handlePreviousImage}
-                        sx={{
-                            position: 'absolute',
-                            left: 16,
-                            top: '50%',
-                            transform: 'translateY(-50%)',
-                            backgroundColor: 'rgba(255,255,255,0.2)',
-                            color: 'white',
-                            zIndex: 1,
-                            '&:hover': {
-                                backgroundColor: 'rgba(255,255,255,0.3)',
-                            }
-                        }}
-                    >
-                        <NavigateBefore />
-                    </IconButton>
-
-                    <IconButton
-                        onClick={handleNextImage}
-                        sx={{
-                            position: 'absolute',
-                            right: 16,
-                            top: '50%',
-                            transform: 'translateY(-50%)',
-                            backgroundColor: 'rgba(255,255,255,0.2)',
-                            color: 'white',
-                            zIndex: 1,
-                            '&:hover': {
-                                backgroundColor: 'rgba(255,255,255,0.3)',
-                            }
-                        }}
-                    >
-                        <NavigateNext />
-                    </IconButton>
-
-                    {/* Close Button */}
-                    <IconButton
-                        onClick={handleCloseDialog}
-                        sx={{
-                            position: 'absolute',
-                            top: 16,
-                            right: 16,
-                            backgroundColor: 'rgba(255,255,255,0.2)',
-                            color: 'white',
-                            zIndex: 1,
-                            '&:hover': {
-                                backgroundColor: 'rgba(255,255,255,0.3)',
-                            }
-                        }}
-                    >
-                        <Close />
-                    </IconButton>
-
-                    {/* Full Size Image */}
-                    {selectedImage && (
-                        <Box
-                            component="img"
-                            src={`${selectedImage}?w=1200&fit=crop&auto=format`}
-                            alt={`${project.title} - Full Size`}
-                            sx={{
-                                width: '100%',
-                                height: 'auto',
-                                maxHeight: '90vh',
-                                objectFit: 'contain',
-                                display: 'block',
-                            }}
-                        />
-                    )}
-
-                    {/* Image Counter in Dialog */}
+                <Fade in={!!selectedImage}>
                     <Box
                         sx={{
-                            position: 'absolute',
-                            bottom: 16,
-                            left: '50%',
-                            transform: 'translateX(-50%)',
-                            backgroundColor: 'rgba(0,0,0,0.7)',
-                            color: 'white',
-                            px: 2,
-                            py: 1,
-                            borderRadius: 2,
-                            fontSize: '0.9rem',
+                            position: "absolute",
+                            top: "50%",
+                            left: "50%",
+                            transform: "translate(-50%, -50%)",
+                            width: "90vw",
+                            height: "90vh",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
                         }}
                     >
-                        {currentImageIndex + 1} of {project.images.length}
-                    </Box>
-                </DialogContent>
-
-                {!isMobile && (
-                    <DialogActions sx={{ p: 2, backgroundColor: 'rgba(0,0,0,0.9)' }}>
-                        <Button
-                            onClick={handleCloseDialog}
-                            sx={{ color: 'white' }}
+                        {/* Close Button */}
+                        <IconButton
+                            onClick={handleCloseModal}
+                            sx={{
+                                position: "absolute",
+                                top: 20,
+                                right: 20,
+                                color: "white",
+                                backgroundColor: "rgba(0,0,0,0.5)",
+                                zIndex: 1,
+                                "&:hover": {
+                                    backgroundColor: "rgba(0,0,0,0.7)",
+                                },
+                            }}
                         >
-                            Close
-                        </Button>
-                    </DialogActions>
-                )}
-            </Dialog>
-        </ProjectPageLayout>
+                            <Close />
+                        </IconButton>
+
+                        {/* Previous Button */}
+                        <IconButton
+                            onClick={handlePreviousImage}
+                            sx={{
+                                position: "absolute",
+                                left: 20,
+                                top: "50%",
+                                transform: "translateY(-50%)",
+                                color: "white",
+                                backgroundColor: "rgba(0,0,0,0.5)",
+                                zIndex: 1,
+                                "&:hover": {
+                                    backgroundColor: "rgba(0,0,0,0.7)",
+                                },
+                            }}
+                        >
+                            <NavigateBefore />
+                        </IconButton>
+
+                        {/* Next Button */}
+                        <IconButton
+                            onClick={handleNextImage}
+                            sx={{
+                                position: "absolute",
+                                right: 20,
+                                top: "50%",
+                                transform: "translateY(-50%)",
+                                color: "white",
+                                backgroundColor: "rgba(0,0,0,0.5)",
+                                zIndex: 1,
+                                "&:hover": {
+                                    backgroundColor: "rgba(0,0,0,0.7)",
+                                },
+                            }}
+                        >
+                            <NavigateNext />
+                        </IconButton>
+
+                        {/* Image */}
+                        <img
+                            src={selectedImage}
+                            alt={`${project.title} - Full View`}
+                            style={{
+                                maxWidth: "100%",
+                                maxHeight: "100%",
+                                objectFit: "contain",
+                                borderRadius: "8px",
+                            }}
+                        />
+
+                        {/* Image Counter */}
+                        <Box
+                            sx={{
+                                position: "absolute",
+                                bottom: 20,
+                                left: "50%",
+                                transform: "translateX(-50%)",
+                                color: "white",
+                                backgroundColor: "rgba(0,0,0,0.5)",
+                                px: 2,
+                                py: 1,
+                                borderRadius: 2,
+                            }}
+                        >
+                            <Typography variant="body2">
+                                {currentImageIndex + 1} of {project.images.length}
+                            </Typography>
+                        </Box>
+                    </Box>
+                </Fade>
+            </Modal>
+        </Container>
     );
 }

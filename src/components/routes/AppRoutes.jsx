@@ -40,9 +40,7 @@ import FeaturedProjectsList from "../pages/projects/FeaturedProjectsList";
 import DeliveredProjectDetail from "../pages/projects/DeliveredProjectDetail";
 import UpcomingProjectDetail from "../pages/projects/UpcomingProjectDetail";
 import FeaturedProjectDetail from "../pages/projects/FeaturedProjectDetail";
-import FeaturedProjectGallery from "../pages/projects/FeaturedProjectGallery";
-import DeliveredProjectGallery from "../pages/projects/DeliveredProjectGallery";
-import UpcomingProjectGallery from "../pages/projects/UpcomingProjectGallery";
+import ProjectGallery from "../pages/projects/ProjectGallery";
 
 // Kitchen Components
 import KitchenCabinets from "../pages/kitchen-components/KitchenCabinets";
@@ -71,13 +69,13 @@ export default function AppRoutes() {
                     <Route path="projects" element={<ProjectsPage />} />
                     <Route path="projects/delivered" element={<DeliveredProjectsList />} />
                     <Route path="projects/delivered/:id" element={<DeliveredProjectDetail />} />
-                    <Route path="projects/delivered/:id/gallery" element={<DeliveredProjectGallery />} />
+                    <Route path="projects/delivered/:id/gallery" element={<ProjectGallery />} />
                     <Route path="projects/upcoming" element={<UpcomingProjectsList />} />
                     <Route path="projects/upcoming/:id" element={<UpcomingProjectDetail />} />
-                    <Route path="projects/upcoming/:id/gallery" element={<UpcomingProjectGallery />} />
+                    <Route path="projects/upcoming/:id/gallery" element={<ProjectGallery />} />
                     <Route path="projects/featured" element={<FeaturedProjectsList />} />
                     <Route path="projects/featured/:id" element={<FeaturedProjectDetail />} />
-                    <Route path="projects/featured/:id/gallery" element={<FeaturedProjectGallery />} />
+                    <Route path="projects/featured/:id/gallery" element={<ProjectGallery />} />
                     <Route path="projects/old" element={<ProjectsList />} />
                     <Route path="projects/old/:id" element={<ProjectDetail />} />
 
