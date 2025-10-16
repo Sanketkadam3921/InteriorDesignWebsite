@@ -205,7 +205,6 @@ export default function DeliveredProjectDetail() {
                             <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap", mb: 2 }}>
                                 <Chip label={project.style} color="success" variant="outlined" />
                                 <Chip label="Luxury" color="success" variant="outlined" />
-                                <Chip label="4BHK" color="success" variant="outlined" />
                             </Box>
 
                             {/* Location */}

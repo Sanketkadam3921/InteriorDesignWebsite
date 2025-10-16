@@ -205,7 +205,6 @@ export default function UpcomingProjectDetail() {
                             <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap", mb: 2 }}>
                                 <Chip label={project.style} color="warning" variant="outlined" />
                                 <Chip label="Upcoming" color="warning" variant="outlined" />
-                                <Chip label="4BHK" color="warning" variant="outlined" />
                             </Box>
 
                             {/* Location */}

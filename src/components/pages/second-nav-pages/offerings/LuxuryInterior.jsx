@@ -75,7 +75,7 @@ const GoldenDivider = styled(Box)(({ theme }) => ({
     top: 0,
     bottom: 0,
     width: '2px',
-    backgroundColor: '#B1B6B8', // Theme color
+    backgroundColor: theme.palette.secondary.main, // Using theme secondary color
     zIndex: 2,
     [theme.breakpoints.down('md')]: {
         display: 'none'
@@ -99,17 +99,17 @@ const LuxuryText = styled(Typography)(({ theme }) => ({
 }));
 
 const CTAButton = styled(Button)(({ theme }) => ({
-    backgroundColor: '#6B7280',
-    color: 'white',
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText,
     padding: theme.spacing(2, 4),
     borderRadius: '8px',
     fontSize: '1.1rem',
     fontWeight: 'bold',
     textTransform: 'none',
     '&:hover': {
-        backgroundColor: '#4B5563',
+        backgroundColor: theme.palette.primary.dark,
         transform: 'translateY(-2px)',
-        boxShadow: '0 4px 12px rgba(107, 114, 128, 0.3)'
+        boxShadow: `0 4px 12px ${theme.palette.primary.main}30`
     },
     transition: 'all 0.3s ease'
 }));
@@ -164,7 +164,7 @@ const FloatingCard = styled(Paper)(({ theme }) => ({
 
 // New styled components for the second section
 const SecondSection = styled(Box)(({ theme }) => ({
-    backgroundColor: 'white', // White background
+    backgroundColor: theme.palette.background.paper, // Using theme background paper
     padding: theme.spacing(8, 0),
     position: 'relative',
     [theme.breakpoints.down('lg')]: {
@@ -222,7 +222,7 @@ const ArchFrame = styled(Box)(({ theme }) => ({
         left: 0,
         right: 0,
         bottom: 0,
-        border: '8px solid #B1B6B8',
+        border: `8px solid ${theme.palette.secondary.main}`,
         borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
         clipPath: 'polygon(0% 0%, 100% 0%, 100% 85%, 50% 100%, 0% 85%)',
         zIndex: 2
@@ -255,7 +255,7 @@ const BedroomImage = styled(Box)(({ theme }) => ({
 
 const LuxuryHeadline = styled(Typography)(({ theme }) => ({
     fontFamily: 'serif',
-    color: 'black',
+    color: theme.palette.text.primary,
     lineHeight: 1.2,
     marginBottom: theme.spacing(3),
     [theme.breakpoints.down('md')]: {
@@ -264,7 +264,7 @@ const LuxuryHeadline = styled(Typography)(({ theme }) => ({
 }));
 
 const LuxuryDescription = styled(Typography)(({ theme }) => ({
-    color: 'black',
+    color: theme.palette.text.primary,
     lineHeight: 1.6,
     marginBottom: theme.spacing(4),
     [theme.breakpoints.down('md')]: {
@@ -273,24 +273,24 @@ const LuxuryDescription = styled(Typography)(({ theme }) => ({
 }));
 
 const ContactButton = styled(Button)(({ theme }) => ({
-    backgroundColor: '#6B7280',
-    color: 'white',
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText,
     padding: theme.spacing(2, 4),
     borderRadius: '8px',
     fontSize: '1rem',
     fontWeight: 'bold',
     textTransform: 'none',
     '&:hover': {
-        backgroundColor: '#4B5563',
+        backgroundColor: theme.palette.primary.dark,
         transform: 'translateY(-2px)',
-        boxShadow: '0 4px 12px rgba(107, 114, 128, 0.3)'
+        boxShadow: `0 4px 12px ${theme.palette.primary.main}30`
     },
     transition: 'all 0.3s ease'
 }));
 
 // New styled components for the quadrant section
 const QuadrantSection = styled(Box)(({ theme }) => ({
-    backgroundColor: '#B1B6B8', // Grey background
+    backgroundColor: theme.palette.background.default, // Light grey background as per project theme
     padding: theme.spacing(8, 0),
     position: 'relative',
     [theme.breakpoints.down('lg')]: {
@@ -303,7 +303,7 @@ const QuadrantSection = styled(Box)(({ theme }) => ({
 
 const SectionTitle = styled(Typography)(({ theme }) => ({
     fontFamily: 'serif',
-    color: 'black',
+    color: theme.palette.text.primary,
     textAlign: 'center',
     marginBottom: theme.spacing(6),
     [theme.breakpoints.down('md')]: {
@@ -354,7 +354,7 @@ const QuadrantItem = styled(Box)(({ theme }) => ({
 }));
 
 const QuadrantTitle = styled(Typography)(({ theme }) => ({
-    color: 'black',
+    color: theme.palette.text.primary,
     fontWeight: 'bold',
     marginBottom: theme.spacing(1),
     fontSize: '1.2rem',
@@ -365,7 +365,7 @@ const QuadrantTitle = styled(Typography)(({ theme }) => ({
 }));
 
 const QuadrantDescription = styled(Typography)(({ theme }) => ({
-    color: 'black',
+    color: theme.palette.text.primary,
     lineHeight: 1.4,
     fontSize: '0.95rem',
     marginTop: theme.spacing(0.5),
@@ -378,7 +378,7 @@ const QuadrantDescription = styled(Typography)(({ theme }) => ({
 
 const QuadrantDivider = styled(Box)(({ theme }) => ({
     position: 'absolute',
-    backgroundColor: '#6B7280',
+    backgroundColor: theme.palette.primary.main,
     zIndex: 2,
     '&.horizontal': {
         top: '50%',
@@ -406,7 +406,7 @@ const GoldenDot = styled(Box)(({ theme }) => ({
     position: 'absolute',
     width: '8px',
     height: '8px',
-    backgroundColor: '#6B7280',
+    backgroundColor: theme.palette.primary.main,
     borderRadius: '50%',
     zIndex: 3,
     '&.center': {
@@ -452,8 +452,8 @@ const GoldenDot = styled(Box)(({ theme }) => ({
 }));
 
 const ConsultationButton = styled(Button)(({ theme }) => ({
-    backgroundColor: '#6B7280',
-    color: 'white',
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText,
     padding: theme.spacing(2, 4),
     borderRadius: '8px',
     fontSize: '1rem',
@@ -461,16 +461,16 @@ const ConsultationButton = styled(Button)(({ theme }) => ({
     textTransform: 'none',
     marginTop: theme.spacing(4),
     '&:hover': {
-        backgroundColor: '#4B5563',
+        backgroundColor: theme.palette.primary.dark,
         transform: 'translateY(-2px)',
-        boxShadow: '0 4px 12px rgba(107, 114, 128, 0.3)'
+        boxShadow: `0 4px 12px ${theme.palette.primary.main}30`
     },
     transition: 'all 0.3s ease'
 }));
 
 // New styled components for the carousel section
 const CarouselSection = styled(Box)(({ theme }) => ({
-    backgroundColor: 'white', // White background
+    backgroundColor: theme.palette.background.paper, // Using theme background paper
     padding: theme.spacing(8, 0),
     [theme.breakpoints.down('lg')]: {
         padding: theme.spacing(5, 0)
@@ -482,7 +482,7 @@ const CarouselSection = styled(Box)(({ theme }) => ({
 
 const CarouselTitle = styled(Typography)(({ theme }) => ({
     fontFamily: 'serif',
-    color: 'black',
+    color: theme.palette.text.primary,
     textAlign: 'center',
     marginBottom: theme.spacing(2),
     [theme.breakpoints.down('md')]: {
@@ -491,7 +491,7 @@ const CarouselTitle = styled(Typography)(({ theme }) => ({
 }));
 
 const CarouselSubtitle = styled(Typography)(({ theme }) => ({
-    color: 'black',
+    color: theme.palette.text.primary,
     textAlign: 'center',
     marginBottom: theme.spacing(6),
     [theme.breakpoints.down('md')]: {
@@ -547,12 +547,7 @@ const SideImage = styled(Box)(({ theme }) => ({
         height: '240px'
     },
     [theme.breakpoints.down('md')]: {
-        width: '150px',
-        height: '200px'
-    },
-    [theme.breakpoints.down('sm')]: {
-        width: '120px',
-        height: '160px'
+        display: 'none' // Hide side images in mobile view
     }
 }));
 
@@ -562,7 +557,7 @@ const CentralImage = styled(Box)(({ theme }) => ({
     borderRadius: '12px',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    border: '3px solid #B1B6B8',
+    border: `3px solid ${theme.palette.secondary.main}`,
     boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)',
     transition: 'all 0.3s ease',
     flexShrink: 0,
@@ -571,25 +566,29 @@ const CentralImage = styled(Box)(({ theme }) => ({
         height: '400px'
     },
     [theme.breakpoints.down('md')]: {
-        width: '300px',
-        height: '400px'
+        width: '100%',
+        maxWidth: '350px',
+        height: '400px',
+        margin: '0 auto'
     },
     [theme.breakpoints.down('sm')]: {
-        width: '250px',
-        height: '320px'
+        width: '100%',
+        maxWidth: '300px',
+        height: '350px',
+        margin: '0 auto'
     }
 }));
 
 const NavigationArrow = styled(IconButton)(({ theme }) => ({
     position: 'absolute',
-    backgroundColor: '#F5F5DC',
-    color: '#666',
+    backgroundColor: theme.palette.background.default,
+    color: theme.palette.text.secondary,
     width: '48px',
     height: '48px',
     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
     zIndex: 3,
     '&:hover': {
-        backgroundColor: '#E8E8E8',
+        backgroundColor: theme.palette.action.hover,
         transform: 'scale(1.1)',
         boxShadow: '0 6px 16px rgba(0, 0, 0, 0.15)'
     },
@@ -599,7 +598,9 @@ const NavigationArrow = styled(IconButton)(({ theme }) => ({
         top: '50%',
         transform: 'translateY(-50%)',
         [theme.breakpoints.down('md')]: {
-            left: '5%'
+            left: '2%',
+            width: '40px',
+            height: '40px'
         }
     },
     '&.right': {
@@ -607,14 +608,16 @@ const NavigationArrow = styled(IconButton)(({ theme }) => ({
         top: '50%',
         transform: 'translateY(-50%)',
         [theme.breakpoints.down('md')]: {
-            right: '5%'
+            right: '2%',
+            width: '40px',
+            height: '40px'
         }
     }
 }));
 
 // New styled components for the unique features section
 const UniqueSection = styled(Box)(({ theme }) => ({
-    backgroundColor: 'white', // White background as requested
+    backgroundColor: theme.palette.background.paper, // Using theme background paper
     padding: theme.spacing(8, 0),
     [theme.breakpoints.down('lg')]: {
         padding: theme.spacing(5, 0)
@@ -626,7 +629,7 @@ const UniqueSection = styled(Box)(({ theme }) => ({
 
 const UniqueTitle = styled(Typography)(({ theme }) => ({
     fontFamily: 'serif',
-    color: 'black',
+    color: theme.palette.text.primary,
     textAlign: 'center',
     marginBottom: theme.spacing(6),
     [theme.breakpoints.down('md')]: {
@@ -677,9 +680,9 @@ const HexagonalIcon = styled(Box)(({ theme }) => ({
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: '#B1B6B8',
+        backgroundColor: theme.palette.secondary.main,
         clipPath: 'polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)',
-        border: '2px solid #92A3AB',
+        border: `2px solid ${theme.palette.secondary.dark}`,
         zIndex: 1
     },
     '&::after': {
@@ -689,7 +692,7 @@ const HexagonalIcon = styled(Box)(({ theme }) => ({
         left: '8px',
         right: '8px',
         bottom: '8px',
-        backgroundColor: '#92A3AB',
+        backgroundColor: theme.palette.secondary.dark,
         clipPath: 'polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)',
         zIndex: 2
     }
@@ -706,7 +709,7 @@ const IconWrapper = styled(Box)(({ theme }) => ({
 }));
 
 const FeatureText = styled(Typography)(({ theme }) => ({
-    color: 'black',
+    color: theme.palette.text.primary,
     fontSize: '0.9rem',
     fontWeight: '500',
     lineHeight: 1.4,
@@ -716,8 +719,8 @@ const FeatureText = styled(Typography)(({ theme }) => ({
 }));
 
 const UniqueButton = styled(Button)(({ theme }) => ({
-    backgroundColor: '#6B7280',
-    color: 'white',
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText,
     padding: theme.spacing(2, 4),
     borderRadius: '8px',
     fontSize: '1rem',
@@ -725,16 +728,16 @@ const UniqueButton = styled(Button)(({ theme }) => ({
     textTransform: 'none',
     marginTop: theme.spacing(4),
     '&:hover': {
-        backgroundColor: '#4B5563',
+        backgroundColor: theme.palette.primary.dark,
         transform: 'translateY(-2px)',
-        boxShadow: '0 4px 12px rgba(107, 114, 128, 0.3)'
+        boxShadow: `0 4px 12px ${theme.palette.primary.main}30`
     },
     transition: 'all 0.3s ease'
 }));
 
 // New styled components for the referral section
 const ReferralSection = styled(Box)(({ theme }) => ({
-    backgroundColor: '#E8E2D9', // Light beige background as per image
+    backgroundColor: theme.palette.background.default, // Light grey background as per project theme
     padding: theme.spacing(8, 0),
     position: 'relative',
     [theme.breakpoints.down('lg')]: {
@@ -766,7 +769,7 @@ const DecorativeBorder = styled(Box)(({ theme }) => ({
     zIndex: 1,
     '&.left': {
         left: 0,
-        background: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 100'%3E%3Cdefs%3E%3Cpattern id='diamond' x='0' y='0' width='20' height='20' patternUnits='userSpaceOnUse'%3E%3Cpath d='M10 0L20 10L10 20L0 10Z' fill='none' stroke='%236B7280' stroke-width='1'/%3E%3Ccircle cx='10' cy='10' r='2' fill='%236B7280'/%3E%3Cpath d='M10 2L12 6L10 10L8 6Z' fill='%236B7280'/%3E%3Cpath d='M10 10L12 14L10 18L8 14Z' fill='%236B7280'/%3E%3Cpath d='M2 10L6 8L10 10L6 12Z' fill='%236B7280'/%3E%3Cpath d='M18 10L14 8L10 10L14 12Z' fill='%236B7280'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23diamond)'/%3E%3C/svg%3E") repeat-y`,
+        background: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 100'%3E%3Cdefs%3E%3Cpattern id='diamond' x='0' y='0' width='20' height='20' patternUnits='userSpaceOnUse'%3E%3Cpath d='M10 0L20 10L10 20L0 10Z' fill='none' stroke='${theme.palette.primary.main.replace('#', '%23')}' stroke-width='1'/%3E%3Ccircle cx='10' cy='10' r='2' fill='${theme.palette.primary.main.replace('#', '%23')}'/%3E%3Cpath d='M10 2L12 6L10 10L8 6Z' fill='${theme.palette.primary.main.replace('#', '%23')}'/%3E%3Cpath d='M10 10L12 14L10 18L8 14Z' fill='${theme.palette.primary.main.replace('#', '%23')}'/%3E%3Cpath d='M2 10L6 8L10 10L6 12Z' fill='${theme.palette.primary.main.replace('#', '%23')}'/%3E%3Cpath d='M18 10L14 8L10 10L14 12Z' fill='${theme.palette.primary.main.replace('#', '%23')}'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23diamond)'/%3E%3C/svg%3E") repeat-y`,
         backgroundSize: '60px 20px',
         [theme.breakpoints.down('md')]: {
             display: 'none'
@@ -774,7 +777,7 @@ const DecorativeBorder = styled(Box)(({ theme }) => ({
     },
     '&.right': {
         right: 0,
-        background: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 100'%3E%3Cdefs%3E%3Cpattern id='diamond' x='0' y='0' width='20' height='20' patternUnits='userSpaceOnUse'%3E%3Cpath d='M10 0L20 10L10 20L0 10Z' fill='none' stroke='%236B7280' stroke-width='1'/%3E%3Ccircle cx='10' cy='10' r='2' fill='%236B7280'/%3E%3Cpath d='M10 2L12 6L10 10L8 6Z' fill='%236B7280'/%3E%3Cpath d='M10 10L12 14L10 18L8 14Z' fill='%236B7280'/%3E%3Cpath d='M2 10L6 8L10 10L6 12Z' fill='%236B7280'/%3E%3Cpath d='M18 10L14 8L10 10L14 12Z' fill='%236B7280'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23diamond)'/%3E%3C/svg%3E") repeat-y`,
+        background: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 100'%3E%3Cdefs%3E%3Cpattern id='diamond' x='0' y='0' width='20' height='20' patternUnits='userSpaceOnUse'%3E%3Cpath d='M10 0L20 10L10 20L0 10Z' fill='none' stroke='${theme.palette.primary.main.replace('#', '%23')}' stroke-width='1'/%3E%3Ccircle cx='10' cy='10' r='2' fill='${theme.palette.primary.main.replace('#', '%23')}'/%3E%3Cpath d='M10 2L12 6L10 10L8 6Z' fill='${theme.palette.primary.main.replace('#', '%23')}'/%3E%3Cpath d='M10 10L12 14L10 18L8 14Z' fill='${theme.palette.primary.main.replace('#', '%23')}'/%3E%3Cpath d='M2 10L6 8L10 10L6 12Z' fill='${theme.palette.primary.main.replace('#', '%23')}'/%3E%3Cpath d='M18 10L14 8L10 10L14 12Z' fill='${theme.palette.primary.main.replace('#', '%23')}'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23diamond)'/%3E%3C/svg%3E") repeat-y`,
         backgroundSize: '60px 20px',
         [theme.breakpoints.down('md')]: {
             display: 'none'
@@ -798,7 +801,7 @@ const ReferralContent = styled(Box)(({ theme }) => ({
 
 const ReferralText = styled(Typography)(({ theme }) => ({
     fontFamily: 'serif',
-    color: 'black',
+    color: theme.palette.text.primary,
     fontSize: '2.5rem',
     fontWeight: '400',
     lineHeight: 1.3,
@@ -812,8 +815,8 @@ const ReferralText = styled(Typography)(({ theme }) => ({
 }));
 
 const ReferralButton = styled(Button)(({ theme }) => ({
-    backgroundColor: '#6B7280', // Grey color
-    color: 'white',
+    backgroundColor: theme.palette.primary.main, // Using theme primary color
+    color: theme.palette.primary.contrastText,
     padding: theme.spacing(2, 4),
     borderRadius: '8px',
     fontSize: '1.1rem',
@@ -821,9 +824,9 @@ const ReferralButton = styled(Button)(({ theme }) => ({
     textTransform: 'none',
     fontFamily: 'sans-serif',
     '&:hover': {
-        backgroundColor: '#4B5563',
+        backgroundColor: theme.palette.primary.dark,
         transform: 'translateY(-2px)',
-        boxShadow: '0 4px 12px rgba(107, 114, 128, 0.3)'
+        boxShadow: `0 4px 12px ${theme.palette.primary.main}30`
     },
     transition: 'all 0.3s ease'
 }));
