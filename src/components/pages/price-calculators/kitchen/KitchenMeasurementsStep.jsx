@@ -610,7 +610,7 @@ export default function KitchenMeasurementsStep() {
                 </Grid>
             </Card>
 
-            {/* Info Tip */}
+            {/* Info Tip 
             <Box
                 sx={{
                     backgroundColor: theme.palette.info.light || "#e3f2fd",
@@ -627,7 +627,7 @@ export default function KitchenMeasurementsStep() {
                     {layout === 'u-shaped' && ' For U-shaped layouts, A, B, and C represent the three walls.'}
                     {layout === 'parallel' && ' For parallel layouts, A and B represent the two opposite walls.'}
                 </Typography>
-            </Box>
+            </Box>*/}
 
             {/* Navigation Buttons */}
             <Box
@@ -660,12 +660,7 @@ export default function KitchenMeasurementsStep() {
                         py: 1.5,
                         textTransform: "uppercase",
                         fontWeight: 600,
-                        borderRadius: 25,
-                        backgroundColor: "#FFB6C1",
-                        color: "#FFFFFF",
-                        "&:hover": {
-                            backgroundColor: "#FFA0B0",
-                        },
+
                     }}
                 >
                     NEXT

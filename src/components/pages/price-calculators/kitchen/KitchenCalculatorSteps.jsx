@@ -47,18 +47,7 @@ export default function KitchenCalculatorSteps() {
                         gap: { xs: 2, md: 0 }, // ✅ Adds spacing when wrapped
                     }}
                 >
-                    {/* Left Title */}
-                    <Typography
-                        variant="h5"
-                        sx={{
-                            fontWeight: "bold",
-                            color: theme.palette.text.primary,
-                            fontFamily: theme.typography.fontFamily,
-                            flexShrink: 0,
-                        }}
-                    >
-                        KALAKRUTI
-                    </Typography>
+
 
                     {/* Steps Section */}
                     <Box

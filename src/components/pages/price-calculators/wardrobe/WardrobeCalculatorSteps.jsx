@@ -42,16 +42,7 @@ export default function WardrobeCalculatorSteps() {
                     py: 3,
                     mb: 2
                 }}>
-                    <Typography
-                        variant="h5"
-                        sx={{
-                            fontWeight: 'bold',
-                            color: theme.palette.text.primary,
-                            fontFamily: theme.typography.fontFamily
-                        }}
-                    >
-                        KALAKRUTI
-                    </Typography>
+
 
                     <Box sx={{
                         display: 'flex',
