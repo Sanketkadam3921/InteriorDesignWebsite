@@ -95,19 +95,7 @@ export default function EstimateSteps() {
                                     display: "flex",
                                     justifyContent: "center",
                                     alignItems: "center",
-                                    "&::after": {
-                                        content:
-                                            index < steps.length - 1 ? '""' : "none",
-                                        position: "absolute",
-                                        top: "50%",
-                                        right: "-50%",
-                                        width: "100%",
-                                        height: "2px",
-                                        backgroundColor: theme.palette.neutral.lightGray,
-                                        transform: "translateY(-50%)",
-                                        zIndex: 0,
-                                        display: { xs: "none", md: "block" },
-                                    },
+
                                 }}
                             >
                                 <Avatar
