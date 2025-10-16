@@ -13,14 +13,12 @@ import {
     Card,
     CardMedia,
     CardContent,
-    Breadcrumbs,
     Stack,
     Divider
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import ChatIcon from '@mui/icons-material/Chat';
-import HomeIcon from '@mui/icons-material/Home';
 
 // Styled components for custom styling
 const HeroSection = styled(Box)(({ theme }) => ({
@@ -61,7 +59,7 @@ export default function FullHomeInteriorsPage() {
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
     return (
-        <Box>
+        <Box sx={{ overflowX: "hidden", width: "100%" }}>
             {/* Hero Section */}
             <HeroSection>
                 {/* Main Content */}
@@ -72,22 +70,23 @@ export default function FullHomeInteriorsPage() {
                         textAlign: 'center',
                         color: 'white',
                         maxWidth: '800px',
-                        px: { xs: 3, md: 4 },
+                        px: { xs: 2, sm: 3, md: 4 },
+                        mx: 'auto',
                     }}
                 >
                     <Typography
                         variant="h1"
                         component="h1"
                         sx={{
-                            fontSize: { xs: '1.8rem', md: '2.5rem', lg: '3rem' },
+                            fontSize: { xs: '1.5rem', sm: '1.8rem', md: '2.5rem', lg: '3rem' },
                             fontWeight: 'bold',
                             lineHeight: 1.2,
                             mb: 4,
                             color: 'white',
                             textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
-                            whiteSpace: 'nowrap',
-                            overflow: 'hidden',
-                            textOverflow: 'ellipsis',
+                            textAlign: 'center',
+                            wordWrap: 'break-word',
+                            hyphens: 'auto',
                         }}
                     >
                         Dream interiors made possible
@@ -116,34 +115,13 @@ export default function FullHomeInteriorsPage() {
                             transition: 'all 0.3s ease-in-out',
                         }}
                     >
-                        Book Free Consultation
+                        Book Online Consultation
                     </Button>
                 </Box>
             </HeroSection>
 
             {/* Main Content Section */}
-            <Container maxWidth="lg" sx={{ py: 4 }}>
-                {/* Breadcrumbs */}
-                <Breadcrumbs
-                    aria-label="breadcrumb"
-                    sx={{ mb: 4 }}
-                >
-                    <Link
-                        to="/"
-                        style={{
-                            textDecoration: 'none',
-                            color: theme.palette.primary.main,
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '4px'
-                        }}
-                    >
-                        <HomeIcon fontSize="small" />
-                        Home
-                    </Link>
-                    <Typography color="text.primary">Interiors</Typography>
-                    <Typography color="text.primary">Full Home Interiors</Typography>
-                </Breadcrumbs>
+            <Container maxWidth="lg" sx={{ py: 4, px: { xs: 2, md: 4 } }}>
 
                 {/* Main Heading */}
                 <Typography
@@ -179,7 +157,8 @@ export default function FullHomeInteriorsPage() {
                     mt: 8,
                     backgroundColor: theme.palette.background.default,
                     borderRadius: 2,
-                    p: 4
+                    p: { xs: 3, md: 4 },
+                    mx: { xs: -2, md: 0 }
                 }}>
                     <Typography
                         variant="h3"
@@ -197,14 +176,14 @@ export default function FullHomeInteriorsPage() {
                     <Box
                         sx={{
                             display: 'flex',
-                            gap: 3,
+                            gap: { xs: 2, md: 3 },
                             justifyContent: 'center',
                             alignItems: 'stretch',
                             flexWrap: { xs: 'wrap', md: 'nowrap' },
                             '& > *': {
-                                flex: '1 1 300px',
-                                maxWidth: '350px',
-                                minWidth: '280px'
+                                flex: { xs: '1 1 100%', md: '1 1 300px' },
+                                maxWidth: { xs: '100%', md: '350px' },
+                                minWidth: { xs: '280px', md: '280px' }
                             }
                         }}
                     >
@@ -350,12 +329,13 @@ export default function FullHomeInteriorsPage() {
             </Container>
 
             {/* How it works section */}
-            <Container maxWidth="lg" sx={{ py: 2 }}>
+            <Container maxWidth="lg" sx={{ py: 2, px: { xs: 2, md: 4 } }}>
                 <Box sx={{
                     backgroundColor: theme.palette.background.default,
                     borderRadius: 2,
-                    p: 4,
-                    mb: 3
+                    p: { xs: 3, md: 4 },
+                    mb: 3,
+                    mx: { xs: -2, md: 0 }
                 }}>
                     <Box sx={{ textAlign: 'left', mb: 6 }}>
                         <Typography
@@ -383,7 +363,7 @@ export default function FullHomeInteriorsPage() {
                         </Typography>
                     </Box>
 
-                    <Grid container spacing={6} sx={{ alignItems: 'flex-start' }}>
+                    <Grid container spacing={{ xs: 3, md: 6 }} sx={{ alignItems: 'flex-start' }}>
                         {/* Left Column - Process Steps */}
                         <Grid item xs={12} md={6}>
                             <Stack spacing={3}>
@@ -961,12 +941,13 @@ export default function FullHomeInteriorsPage() {
             </Container>
 
             {/* The team behind your dream section */}
-            <Container maxWidth="lg" sx={{ py: 4 }}>
+            <Container maxWidth="lg" sx={{ py: 4, px: { xs: 2, md: 4 } }}>
                 <Box sx={{
                     backgroundColor: theme.palette.background.default,
                     borderRadius: 2,
-                    p: 4,
-                    mb: 3
+                    p: { xs: 3, md: 4 },
+                    mb: 3,
+                    mx: { xs: -2, md: 0 }
                 }}>
                     <Box sx={{ textAlign: 'left', mb: 6 }}>
                         <Typography
@@ -997,14 +978,14 @@ export default function FullHomeInteriorsPage() {
                     <Box
                         sx={{
                             display: 'flex',
-                            gap: 4,
+                            gap: { xs: 3, md: 4 },
                             justifyContent: 'center',
                             alignItems: 'stretch',
                             flexWrap: { xs: 'wrap', md: 'nowrap' },
                             '& > *': {
-                                flex: '1 1 400px',
-                                maxWidth: '500px',
-                                minWidth: '350px'
+                                flex: { xs: '1 1 100%', md: '1 1 400px' },
+                                maxWidth: { xs: '100%', md: '500px' },
+                                minWidth: { xs: '300px', md: '350px' }
                             }
                         }}
                     >
@@ -1044,7 +1025,7 @@ export default function FullHomeInteriorsPage() {
                                             width: 60,
                                             height: 60,
                                             borderRadius: '50%',
-                                            backgroundColor: '#ff6b6b',
+                                            backgroundColor: theme.palette.primary.main,
                                             display: 'flex',
                                             alignItems: 'center',
                                             justifyContent: 'center',
@@ -1183,7 +1164,7 @@ export default function FullHomeInteriorsPage() {
                                             width: 60,
                                             height: 60,
                                             borderRadius: '50%',
-                                            backgroundColor: '#ff6b6b',
+                                            backgroundColor: theme.palette.primary.main,
                                             display: 'flex',
                                             alignItems: 'center',
                                             justifyContent: 'center',
@@ -1289,341 +1270,16 @@ export default function FullHomeInteriorsPage() {
                 </Box>
             </Container>
 
-            <Container maxWidth="lg" sx={{ py: 4 }}>
-                <Box sx={{
-                    backgroundColor: theme.palette.background.default,
-                    borderRadius: 2,
-                    p: 4,
-                    mb: 3
-                }}>
-                    <Box sx={{ textAlign: 'left', mb: 6 }}>
-                        <Typography
-                            variant="h2"
-                            component="h2"
-                            sx={{
-                                fontSize: { xs: '2rem', md: '2.5rem' },
-                                fontWeight: 'bold',
-                                color: theme.palette.text.primary,
-                                mb: 2
-                            }}
-                        >
-                            The team behind your dream
-                        </Typography>
-                        <Typography
-                            variant="body1"
-                            sx={{
-                                fontSize: { xs: '1rem', md: '1.1rem' },
-                                color: theme.palette.text.secondary,
-                                lineHeight: 1.6,
-                                maxWidth: '800px'
-                            }}
-                        >
-                            It takes having the right people to bring dreams to life - and we make sure you get the best.
-                        </Typography>
-                    </Box>
 
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            gap: 4,
-                            justifyContent: 'center',
-                            alignItems: 'stretch',
-                            flexWrap: { xs: 'wrap', md: 'nowrap' },
-                            '& > *': {
-                                flex: '1 1 400px',
-                                maxWidth: '500px',
-                                minWidth: '350px'
-                            }
-                        }}
-                    >
-                        {/* Your Designer Card */}
-                        <Card
-                            sx={{
-                                height: '100%',
-                                borderRadius: 2,
-                                overflow: 'hidden',
-                                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
-                                transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                                '&:hover': {
-                                    transform: 'translateY(-8px)',
-                                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)',
-                                },
-                            }}
-                        >
-                            <CardContent sx={{ p: 4, height: '100%', display: 'flex', flexDirection: 'column' }}>
-                                {/* Icon */}
-                                <Box
-                                    sx={{
-                                        width: 80,
-                                        height: 80,
-                                        borderRadius: '50%',
-                                        backgroundColor: '#f5f5f5',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        mb: 3,
-                                        mx: 'auto',
-                                        position: 'relative',
-                                        overflow: 'hidden'
-                                    }}
-                                >
-                                    <Box
-                                        sx={{
-                                            width: 60,
-                                            height: 60,
-                                            borderRadius: '50%',
-                                            backgroundColor: '#ff6b6b',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                            color: 'white',
-                                            fontSize: '1.5rem'
-                                        }}
-                                    >
-                                        👩‍🎨
-                                    </Box>
-                                </Box>
-
-                                {/* Title and Subtitle */}
-                                <Typography
-                                    variant="h5"
-                                    component="h3"
-                                    sx={{
-                                        fontWeight: 'bold',
-                                        color: theme.palette.text.primary,
-                                        mb: 1,
-                                        textAlign: 'center'
-                                    }}
-                                >
-                                    Your Designer
-                                </Typography>
-                                <Typography
-                                    variant="h6"
-                                    sx={{
-                                        color: theme.palette.text.secondary,
-                                        mb: 2,
-                                        textAlign: 'center',
-                                        fontSize: '1rem',
-                                        fontWeight: 'normal'
-                                    }}
-                                >
-                                    An expert in full home design
-                                </Typography>
-
-                                {/* Description */}
-                                <Typography
-                                    variant="body1"
-                                    sx={{
-                                        color: theme.palette.text.secondary,
-                                        lineHeight: 1.6,
-                                        mb: 3,
-                                        textAlign: 'center'
-                                    }}
-                                >
-                                    Your designer will translate your family's personality and needs into a wholesome design.
-                                </Typography>
-
-                                {/* Details */}
-                                <Box sx={{ flex: 1 }}>
-                                    <Box sx={{ mb: 2 }}>
-                                        <Typography variant="body2" sx={{ fontWeight: 'bold', color: '#505B5F', mb: 0.5 }}>
-                                            Education:
-                                        </Typography>
-                                        <Typography variant="body2" sx={{ color: '#666' }}>
-                                            Masters / Bachelors in Interior Design
-                                        </Typography>
-                                    </Box>
-
-                                    <Box sx={{ mb: 2 }}>
-                                        <Typography variant="body2" sx={{ fontWeight: 'bold', color: '#505B5F', mb: 0.5 }}>
-                                            Typical Experience:
-                                        </Typography>
-                                        <Typography variant="body2" sx={{ color: '#666' }}>
-                                            6+ years
-                                        </Typography>
-                                    </Box>
-
-                                    <Box sx={{ mb: 3 }}>
-                                        <Typography variant="body2" sx={{ fontWeight: 'bold', color: '#505B5F', mb: 0.5 }}>
-                                            Projects Managed:
-                                        </Typography>
-                                        <Typography variant="body2" sx={{ color: '#666' }}>
-                                            Over 15 homes
-                                        </Typography>
-                                    </Box>
-
-                                    <Box>
-                                        <Typography variant="body2" sx={{ fontWeight: 'bold', color: '#505B5F', mb: 1 }}>
-                                            Top Skills:
-                                        </Typography>
-                                        <Box component="ul" sx={{ pl: 2, m: 0 }}>
-                                            <Typography component="li" variant="body2" sx={{ color: '#666', mb: 0.5 }}>
-                                                Experienced in designing across styles & themes
-                                            </Typography>
-                                            <Typography component="li" variant="body2" sx={{ color: '#666', mb: 0.5 }}>
-                                                Space planning
-                                            </Typography>
-                                            <Typography component="li" variant="body2" sx={{ color: '#666', mb: 0.5 }}>
-                                                Civil/core materials know-how
-                                            </Typography>
-                                            <Typography component="li" variant="body2" sx={{ color: '#666' }}>
-                                                Furniture & furnishing
-                                            </Typography>
-                                        </Box>
-                                    </Box>
-                                </Box>
-                            </CardContent>
-                        </Card>
-
-                        {/* Your Operations Lead Card */}
-                        <Card
-                            sx={{
-                                height: '100%',
-                                borderRadius: 2,
-                                overflow: 'hidden',
-                                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
-                                transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                                '&:hover': {
-                                    transform: 'translateY(-8px)',
-                                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)',
-                                },
-                            }}
-                        >
-                            <CardContent sx={{ p: 4, height: '100%', display: 'flex', flexDirection: 'column' }}>
-                                {/* Icon */}
-                                <Box
-                                    sx={{
-                                        width: 80,
-                                        height: 80,
-                                        borderRadius: '50%',
-                                        backgroundColor: '#f5f5f5',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        mb: 3,
-                                        mx: 'auto',
-                                        position: 'relative',
-                                        overflow: 'hidden'
-                                    }}
-                                >
-                                    <Box
-                                        sx={{
-                                            width: 60,
-                                            height: 60,
-                                            borderRadius: '50%',
-                                            backgroundColor: '#ff6b6b',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                            color: 'white',
-                                            fontSize: '1.5rem'
-                                        }}
-                                    >
-                                        👷‍♂️
-                                    </Box>
-                                </Box>
-
-                                {/* Title and Subtitle */}
-                                <Typography
-                                    variant="h5"
-                                    component="h3"
-                                    sx={{
-                                        fontWeight: 'bold',
-                                        color: theme.palette.text.primary,
-                                        mb: 1,
-                                        textAlign: 'center'
-                                    }}
-                                >
-                                    Your Operations Lead
-                                </Typography>
-                                <Typography
-                                    variant="h6"
-                                    sx={{
-                                        color: theme.palette.text.secondary,
-                                        mb: 2,
-                                        textAlign: 'center',
-                                        fontSize: '1rem',
-                                        fontWeight: 'normal'
-                                    }}
-                                >
-                                    An expert in project management
-                                </Typography>
-
-                                {/* Description */}
-                                <Typography
-                                    variant="body1"
-                                    sx={{
-                                        color: theme.palette.text.secondary,
-                                        lineHeight: 1.6,
-                                        mb: 3,
-                                        textAlign: 'center'
-                                    }}
-                                >
-                                    Your rep on site, your operations lead will ensure a perfect and complete home transformation.
-                                </Typography>
-
-                                {/* Details */}
-                                <Box sx={{ flex: 1 }}>
-                                    <Box sx={{ mb: 2 }}>
-                                        <Typography variant="body2" sx={{ fontWeight: 'bold', color: '#505B5F', mb: 0.5 }}>
-                                            Education:
-                                        </Typography>
-                                        <Typography variant="body2" sx={{ color: '#666' }}>
-                                            Civil Engineer
-                                        </Typography>
-                                    </Box>
-
-                                    <Box sx={{ mb: 2 }}>
-                                        <Typography variant="body2" sx={{ fontWeight: 'bold', color: '#505B5F', mb: 0.5 }}>
-                                            Typical Experience:
-                                        </Typography>
-                                        <Typography variant="body2" sx={{ color: '#666' }}>
-                                            4+ years
-                                        </Typography>
-                                    </Box>
-
-                                    <Box sx={{ mb: 3 }}>
-                                        <Typography variant="body2" sx={{ fontWeight: 'bold', color: '#505B5F', mb: 0.5 }}>
-                                            Projects Managed:
-                                        </Typography>
-                                        <Typography variant="body2" sx={{ color: '#666' }}>
-                                            Over 40 homes
-                                        </Typography>
-                                    </Box>
-
-                                    <Box>
-                                        <Typography variant="body2" sx={{ fontWeight: 'bold', color: '#505B5F', mb: 1 }}>
-                                            Top Skills:
-                                        </Typography>
-                                        <Box component="ul" sx={{ pl: 2, m: 0 }}>
-                                            <Typography component="li" variant="body2" sx={{ color: '#666', mb: 0.5 }}>
-                                                Project planning
-                                            </Typography>
-                                            <Typography component="li" variant="body2" sx={{ color: '#666', mb: 0.5 }}>
-                                                Onsite progress & tracking
-                                            </Typography>
-                                            <Typography component="li" variant="body2" sx={{ color: '#666', mb: 0.5 }}>
-                                                Custom work/services audit
-                                            </Typography>
-                                            <Typography component="li" variant="body2" sx={{ color: '#666' }}>
-                                                Quality adherence
-                                            </Typography>
-                                        </Box>
-                                    </Box>
-                                </Box>
-                            </CardContent>
-                        </Card>
-                    </Box>
-                </Box>
-            </Container>
 
             {/* Testimonials Section */}
-            <Container maxWidth="lg" sx={{ py: 4 }}>
+            <Container maxWidth="lg" sx={{ py: 4, px: { xs: 2, md: 4 } }}>
                 <Box sx={{
                     backgroundColor: theme.palette.background.default,
                     borderRadius: 2,
-                    p: 4,
-                    mb: 3
+                    p: { xs: 3, md: 4 },
+                    mb: 3,
+                    mx: { xs: -2, md: 0 }
                 }}>
                     <Box sx={{ textAlign: 'center', mb: 6 }}>
                         <Typography
@@ -1643,14 +1299,14 @@ export default function FullHomeInteriorsPage() {
                     <Box
                         sx={{
                             display: 'flex',
-                            gap: 4,
+                            gap: { xs: 3, md: 4 },
                             justifyContent: 'center',
                             alignItems: 'stretch',
                             flexWrap: { xs: 'wrap', md: 'nowrap' },
                             '& > *': {
-                                flex: '1 1 300px',
-                                maxWidth: '400px',
-                                minWidth: '280px'
+                                flex: { xs: '1 1 100%', md: '1 1 300px' },
+                                maxWidth: { xs: '100%', md: '400px' },
+                                minWidth: { xs: '280px', md: '280px' }
                             }
                         }}
                     >
