@@ -59,7 +59,7 @@ export default function Header() {
                 { label: "Crockery Unit Designs", path: "/designs/crockery-unit" },
             ],
         },
-        { label: "FAQ", path: "/faq" },
+        { label: "FAQs", path: "/faq" },
         { label: "Contact", path: "/contact" },
         { label: "About Us", path: "/aboutus" },
     ];
