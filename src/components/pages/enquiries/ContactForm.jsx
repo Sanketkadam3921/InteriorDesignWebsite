@@ -128,17 +128,17 @@ export default function ContactForm() {
         {
             icon: <PhoneIcon sx={{ fontSize: 24, color: theme.palette.primary.contrastText }} />,
             title: 'Phone',
-            details: '+91 98765 43210'
+            details: '+91 8669868947'
         },
         {
             icon: <EmailIcon sx={{ fontSize: 24, color: theme.palette.primary.contrastText }} />,
             title: 'Email',
-            details: 'info@kalakruti.com'
+            details: 'care@kalakruti.com'
         },
         {
             icon: <LocationIcon sx={{ fontSize: 24, color: theme.palette.primary.contrastText }} />,
             title: 'Address',
-            details: '123 Design Street, Creative City, CC 12345'
+            details: 'Pune'
         }
     ];
 

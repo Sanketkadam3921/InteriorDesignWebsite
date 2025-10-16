@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Box, Container, Typography, Button, Card, CardMedia, CardContent, IconButton, useTheme } from "@mui/material";
+import { Box, Container, Typography, Button, Card, CardMedia, CardContent, IconButton, useTheme, useMediaQuery } from "@mui/material";
 import useEmblaCarousel from "embla-carousel-react";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -8,7 +8,17 @@ import { useNavigate } from "react-router-dom";
 export default function KitchenLayoutSelector() {
     const theme = useTheme();
     const navigate = useNavigate();
-    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start", skipSnaps: false });
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
+    // Configure carousel based on screen size
+    const carouselOptions = {
+        loop: true,
+        align: "start",
+        skipSnaps: false,
+        slidesToScroll: isMobile ? 1 : 1, // Show one slide at a time on mobile
+    };
+
+    const [emblaRef, emblaApi] = useEmblaCarousel(carouselOptions);
     const [selectedIndex, setSelectedIndex] = useState(0);
 
     const kitchenLayouts = [
@@ -90,9 +100,16 @@ export default function KitchenLayoutSelector() {
                 {/* Carousel */}
                 <Box sx={{ position: "relative" }}>
                     <div className="embla" ref={emblaRef}>
-                        <div className="embla__container" style={{ display: "flex", gap: "24px" }}>
+                        <div className="embla__container" style={{ display: "flex", gap: isMobile ? "16px" : "24px" }}>
                             {kitchenLayouts.map((layout, index) => (
-                                <div className="embla__slide" key={index} style={{ flex: "0 0 33.333%" }}>
+                                <div
+                                    className="embla__slide"
+                                    key={index}
+                                    style={{
+                                        flex: isMobile ? "0 0 100%" : "0 0 33.333%",
+                                        minWidth: isMobile ? "100%" : "33.333%"
+                                    }}
+                                >
                                     <Card
                                         sx={{
                                             borderRadius: 14,
@@ -172,13 +189,14 @@ export default function KitchenLayoutSelector() {
                         sx={{
                             position: "absolute",
                             top: "50%",
-                            left: "-30px",
+                            left: isMobile ? "10px" : "-30px",
                             transform: "translateY(-50%)",
                             backgroundColor: theme.palette.background.paper,
                             boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-                            width: 50,
-                            height: 50,
+                            width: isMobile ? 40 : 50,
+                            height: isMobile ? 40 : 50,
                             color: theme.palette.primary.main,
+                            zIndex: 2,
                             "&:hover": {
                                 backgroundColor: theme.palette.action.hover,
                                 transform: "translateY(-50%) scale(1.1)",
@@ -186,7 +204,7 @@ export default function KitchenLayoutSelector() {
                             },
                         }}
                     >
-                        <ChevronLeftIcon fontSize="large" />
+                        <ChevronLeftIcon fontSize={isMobile ? "medium" : "large"} />
                     </IconButton>
 
                     <IconButton
@@ -194,13 +212,14 @@ export default function KitchenLayoutSelector() {
                         sx={{
                             position: "absolute",
                             top: "50%",
-                            right: "-30px",
+                            right: isMobile ? "10px" : "-30px",
                             transform: "translateY(-50%)",
                             backgroundColor: theme.palette.background.paper,
                             boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-                            width: 50,
-                            height: 50,
+                            width: isMobile ? 40 : 50,
+                            height: isMobile ? 40 : 50,
                             color: theme.palette.primary.main,
+                            zIndex: 2,
                             "&:hover": {
                                 backgroundColor: theme.palette.action.hover,
                                 transform: "translateY(-50%) scale(1.1)",
@@ -208,8 +227,35 @@ export default function KitchenLayoutSelector() {
                             },
                         }}
                     >
-                        <ChevronRightIcon fontSize="large" />
+                        <ChevronRightIcon fontSize={isMobile ? "medium" : "large"} />
                     </IconButton>
+
+                    {/* Mobile Slide Indicators */}
+                    {isMobile && (
+                        <Box
+                            sx={{
+                                display: "flex",
+                                justifyContent: "center",
+                                gap: 1,
+                                mt: 3,
+                            }}
+                        >
+                            {kitchenLayouts.map((_, index) => (
+                                <Box
+                                    key={index}
+                                    sx={{
+                                        width: 8,
+                                        height: 8,
+                                        borderRadius: "50%",
+                                        backgroundColor: selectedIndex === index
+                                            ? theme.palette.primary.main
+                                            : theme.palette.grey[300],
+                                        transition: "background-color 0.3s ease",
+                                    }}
+                                />
+                            ))}
+                        </Box>
+                    )}
                 </Box>
             </Container>
         </Box>

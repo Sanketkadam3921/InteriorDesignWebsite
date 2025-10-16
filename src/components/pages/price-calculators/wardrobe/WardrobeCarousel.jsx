@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React from "react";
 import {
     Box,
     Container,
@@ -7,23 +7,14 @@ import {
     Card,
     CardMedia,
     CardContent,
-    IconButton,
+    Grid,
     useTheme,
 } from "@mui/material";
-import useEmblaCarousel from "embla-carousel-react";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { useNavigate } from "react-router-dom";
 
 export default function WardrobeCarousel() {
     const theme = useTheme();
     const navigate = useNavigate();
-    const [emblaRef, emblaApi] = useEmblaCarousel({
-        loop: true,
-        align: "center",
-        skipSnaps: false,
-    });
-    const [selectedIndex, setSelectedIndex] = useState(0);
 
     const items = [
         {
@@ -44,19 +35,6 @@ export default function WardrobeCarousel() {
         },
     ];
 
-    const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
-    const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
-
-    const onSelect = useCallback(() => {
-        if (!emblaApi) return;
-        setSelectedIndex(emblaApi.selectedScrollSnap());
-    }, [emblaApi]);
-
-    useEffect(() => {
-        if (!emblaApi) return;
-        onSelect();
-        emblaApi.on("select", onSelect);
-    }, [emblaApi, onSelect]);
 
     return (
         <Box sx={{ py: { xs: 6, md: 10 }, backgroundColor: theme.palette.background.paper }}>
@@ -119,133 +97,117 @@ export default function WardrobeCarousel() {
                     </Button>
                 </Box>
 
-                {/* Carousel */}
-                <Box sx={{ position: "relative" }}>
-                    <div className="embla" ref={emblaRef}>
-                        <div
-                            className="embla__container"
-                            style={{
-                                display: "flex",
-                                gap: "24px",
-                                justifyContent: "center",
-                            }}
-                        >
-                            {items.map((item, index) => (
-                                <div
-                                    className="embla__slide"
-                                    key={index}
-                                    style={{
-                                        flex: "0 0 50%", // show 2 slides in view
-                                        display: "flex",
-                                        justifyContent: "center",
-                                    }}
-                                >
-                                    <Card
-                                        sx={{
-                                            borderRadius: 14,
-                                            boxShadow: "0 6px 20px rgba(0,0,0,0.05)",
-                                            overflow: "hidden",
-                                            width: "90%",
-                                            height: 500,
-                                            backgroundColor: theme.palette.background.paper,
-                                            "&:hover": {
-                                                transform: "translateY(-6px)",
-                                                transition: "0.3s ease",
-                                                boxShadow: "0 10px 30px rgba(0,0,0,0.08)"
-                                            },
-                                        }}
-                                    >
+                {/* Wardrobe Options - Vertical Layout */}
+                <Grid container spacing={4}>
+                    {items.map((item, index) => (
+                        <Grid item xs={12} key={index}>
+                            <Card
+                                sx={{
+                                    borderRadius: 3,
+                                    boxShadow: "0 6px 20px rgba(0,0,0,0.05)",
+                                    overflow: "hidden",
+                                    backgroundColor: theme.palette.background.paper,
+                                    transition: "all 0.3s ease",
+                                    "&:hover": {
+                                        transform: "translateY(-4px)",
+                                        boxShadow: "0 10px 30px rgba(0,0,0,0.08)"
+                                    },
+                                }}
+                            >
+                                <Grid container>
+                                    {/* Image Section */}
+                                    <Grid item xs={12} md={6}>
                                         <CardMedia
                                             component="img"
                                             image={item.image}
                                             alt={item.title}
                                             sx={{
-                                                height: 350,
+                                                height: { xs: 250, md: 300 },
+                                                width: "100%",
                                                 objectFit: "cover",
                                             }}
                                         />
-                                        <CardContent sx={{ textAlign: "center", p: 3 }}>
+                                    </Grid>
+
+                                    {/* Content Section */}
+                                    <Grid item xs={12} md={6}>
+                                        <CardContent
+                                            sx={{
+                                                p: 4,
+                                                display: "flex",
+                                                flexDirection: "column",
+                                                justifyContent: "center",
+                                                height: { xs: "auto", md: 300 }
+                                            }}
+                                        >
                                             <Typography
-                                                variant="h6"
+                                                variant="h4"
                                                 sx={{
                                                     fontWeight: 700,
                                                     color: theme.palette.text.primary,
-                                                    mb: 0.5,
-                                                    fontSize: "1.25rem",
+                                                    mb: 1,
+                                                    fontSize: { xs: "1.5rem", md: "2rem" },
                                                     fontFamily: theme.typography.fontFamily
                                                 }}
                                             >
                                                 {item.title}
                                             </Typography>
+
                                             <Typography
-                                                variant="subtitle1"
+                                                variant="h6"
                                                 sx={{
                                                     fontWeight: 600,
-                                                    color: theme.palette.text.primary,
-                                                    mb: 1,
-                                                    opacity: 0.85,
+                                                    color: theme.palette.primary.main,
+                                                    mb: 2,
+                                                    fontSize: { xs: "1.1rem", md: "1.3rem" },
                                                     fontFamily: theme.typography.fontFamily
                                                 }}
                                             >
                                                 {item.subtitle}
                                             </Typography>
+
                                             <Typography
-                                                variant="body2"
+                                                variant="body1"
                                                 sx={{
                                                     color: theme.palette.text.secondary,
-                                                    fontSize: "1rem",
+                                                    fontSize: { xs: "1rem", md: "1.1rem" },
                                                     lineHeight: 1.6,
-                                                    fontFamily: theme.typography.fontFamily
+                                                    fontFamily: theme.typography.fontFamily,
+                                                    mb: 3
                                                 }}
                                             >
                                                 {item.description}
                                             </Typography>
+
+                                            <Button
+                                                variant="contained"
+                                                onClick={() => navigate("/price-calculators/wardrobe/calculator/length")}
+                                                sx={{
+                                                    backgroundColor: theme.palette.primary.main,
+                                                    color: theme.palette.primary.contrastText,
+                                                    textTransform: "none",
+                                                    fontWeight: 600,
+                                                    borderRadius: 2,
+                                                    px: 4,
+                                                    py: 1.5,
+                                                    fontSize: "1rem",
+                                                    fontFamily: theme.typography.fontFamily,
+                                                    alignSelf: "flex-start",
+                                                    "&:hover": {
+                                                        backgroundColor: theme.palette.primary.dark,
+                                                        transform: "translateY(-2px)"
+                                                    },
+                                                }}
+                                            >
+                                                Choose This Type
+                                            </Button>
                                         </CardContent>
-                                    </Card>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Navigation Arrows */}
-                    <IconButton
-                        onClick={scrollPrev}
-                        sx={{
-                            position: "absolute",
-                            top: "50%",
-                            left: "-25px",
-                            transform: "translateY(-50%)",
-                            backgroundColor: theme.palette.background.paper,
-                            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-                            color: theme.palette.primary.main,
-                            "&:hover": {
-                                backgroundColor: theme.palette.action.hover,
-                                color: theme.palette.primary.dark
-                            },
-                        }}
-                    >
-                        <ChevronLeftIcon />
-                    </IconButton>
-
-                    <IconButton
-                        onClick={scrollNext}
-                        sx={{
-                            position: "absolute",
-                            top: "50%",
-                            right: "-25px",
-                            transform: "translateY(-50%)",
-                            backgroundColor: theme.palette.background.paper,
-                            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-                            color: theme.palette.primary.main,
-                            "&:hover": {
-                                backgroundColor: theme.palette.action.hover,
-                                color: theme.palette.primary.dark
-                            },
-                        }}
-                    >
-                        <ChevronRightIcon />
-                    </IconButton>
-                </Box>
+                                    </Grid>
+                                </Grid>
+                            </Card>
+                        </Grid>
+                    ))}
+                </Grid>
             </Container>
         </Box>
     );

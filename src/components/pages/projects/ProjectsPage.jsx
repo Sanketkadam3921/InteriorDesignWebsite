@@ -32,17 +32,6 @@ export default function ProjectsPage() {
             <Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
                 {/* 🧭 Breadcrumbs and Page Intro */}
                 <Box sx={{ mb: 8 }}>
-                    <Breadcrumbs aria-label="breadcrumb" sx={{ mb: 2 }}>
-                        <Link
-                            underline="hover"
-                            color="inherit"
-                            onClick={() => navigate("/")}
-                            sx={{ cursor: "pointer" }}
-                        >
-                            Home
-                        </Link>
-                        <Typography color="text.primary">KalaKruti Studio Portfolio</Typography>
-                    </Breadcrumbs>
 
                     <Typography
                         variant="h3"
