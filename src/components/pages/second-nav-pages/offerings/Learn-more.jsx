@@ -147,7 +147,7 @@ export default function LearnMore() {
                     >
                         Everything You Need to Know
                     </Typography>
-                    
+
                     <Typography
                         variant="body1"
                         sx={{
@@ -158,15 +158,15 @@ export default function LearnMore() {
                             mb: 4,
                         }}
                     >
-                        At KalaKruti, we believe in creating spaces that reflect your personality and lifestyle. 
-                        Our comprehensive approach to interior design ensures that every project is completed 
+                        At KalaKruti, we believe in creating spaces that reflect your personality and lifestyle.
+                        Our comprehensive approach to interior design ensures that every project is completed
                         with attention to detail and quality craftsmanship.
                     </Typography>
                 </Box>
 
                 {/* What we offer section */}
-                <Box sx={{ 
-                    mt: 8, 
+                <Box sx={{
+                    mt: 8,
                     backgroundColor: '#f8f9fa',
                     borderRadius: 2,
                     p: 4
@@ -381,7 +381,7 @@ export default function LearnMore() {
                             </CardContent>
                         </Card>
                     </Box>
-                    
+
                     {/* Description below cards */}
                     <Typography
                         variant="body1"

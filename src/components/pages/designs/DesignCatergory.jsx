@@ -120,7 +120,7 @@ export default function DesignCategory() {
             py: { xs: 0, sm: 0, md: 4 },
         }}
         >
-            {/* Breadcrumbs */}
+            {/* Breadcrumbs 
             <Breadcrumbs sx={{ mb: 3 }}>
                 <Link
                     color="inherit"
@@ -140,7 +140,7 @@ export default function DesignCategory() {
                     Designs
                 </Link>
                 <Typography color="text.primary">{categoryTitle}</Typography>
-            </Breadcrumbs>
+            </Breadcrumbs>*/}
 
             {/* Back Button */}
             <Button

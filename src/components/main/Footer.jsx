@@ -200,7 +200,7 @@ export default function Footer() {
 
                         {/* Offerings & Inspiration */}
                         <LinkGroup title="OFFERINGS ">
-                            <NavLink to="/offerings" label="Interiors" />
+                            <NavLink to="/designs" label="Interiors" />
                             <NavLink to="/designs" label="Designs" />
                         </LinkGroup>
 
