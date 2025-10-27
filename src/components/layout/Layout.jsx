@@ -3,7 +3,6 @@ import { Outlet } from 'react-router-dom';
 import { Box, useMediaQuery, useTheme } from '@mui/material';
 import Header from '../main/Header';
 import Footer from '../main/Footer';
-import Headertwo from '../main/Headertwo';
 
 export default function Layout() {
     const theme = useTheme();
@@ -20,24 +19,21 @@ export default function Layout() {
             }}
         >
             <Header />
-            {!isMobile && <Headertwo />}
 
             <Box
                 component="main"
                 sx={{
                     flexGrow: 1,
-                    pt: isMobile ? '72px' : '170px',
+                    pt: isMobile ? '60px' : '70px', // ✅ Reduced to match new header height
                     pb: isMobile ? '0px' : 0,
-                    overflowX: 'hidden', // ✅ Protect main content as well
+                    overflowX: 'hidden',
                 }}
             >
+
                 <Outlet />
             </Box>
 
             <Footer />
-
-            {/* Headertwo at bottom for mobile */}
-            {isMobile && <Headertwo />}
         </Box>
     );
 }
