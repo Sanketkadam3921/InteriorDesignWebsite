@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     Box,
     Container,
@@ -23,7 +23,9 @@ import HomeIcon from "@mui/icons-material/Home";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CloseIcon from "@mui/icons-material/Close";
 import QuoteForm from "../enquiries/QuoteForm";
+import Modal from "@mui/material/Modal";
 
 // Styled components for custom styling
 const HeroSection = styled(Box)(({ theme }) => ({
@@ -208,6 +210,15 @@ export default function HowItWorks() {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     const isSmallMobile = useMediaQuery(theme.breakpoints.down("sm"));
+    const [isQuoteFormOpen, setIsQuoteFormOpen] = useState(false);
+
+    const handleOpenQuoteForm = () => {
+        setIsQuoteFormOpen(true);
+    };
+
+    const handleCloseQuoteForm = () => {
+        setIsQuoteFormOpen(false);
+    };
 
     const steps = [
         {
@@ -422,6 +433,7 @@ export default function HowItWorks() {
                                 fontWeight: 600,
                                 borderRadius: 8,
                                 textTransform: 'none',
+                                whiteSpace: 'nowrap',
                                 '&:hover': {
                                     backgroundColor: theme.palette.primary.dark,
                                     transform: 'translateY(-2px)',
@@ -546,7 +558,7 @@ export default function HowItWorks() {
                                     >
                                         Let's get acquainted. The more we learn about you, the better we can design your home.
                                     </Typography>
-                                    <FormButton variant="outlined">
+                                    <FormButton variant="outlined" onClick={handleOpenQuoteForm}>
                                         FILL YOUR FORM
                                     </FormButton>
                                 </Box>
@@ -1292,6 +1304,8 @@ export default function HowItWorks() {
                         </Typography>
                     </Box>
 
+
+
                     {/* Order Types Table */}
                     <Box
                         sx={{
@@ -1299,12 +1313,52 @@ export default function HowItWorks() {
                             borderRadius: "12px",
                             boxShadow: "0 4px 16px rgba(0, 0, 0, 0.08)",
                             border: "1px solid #e0e0e0",
+                            // Enhanced scrollbar styling for better visibility
+                            '&::-webkit-scrollbar': {
+                                height: '12px',
+                                width: '12px',
+                            },
+                            '&::-webkit-scrollbar-track': {
+                                backgroundColor: '#f1f1f1',
+                                borderRadius: '6px',
+                            },
+                            '&::-webkit-scrollbar-thumb': {
+                                backgroundColor: theme.palette.primary.main,
+                                borderRadius: '6px',
+                                border: '2px solid #f1f1f1',
+                                '&:hover': {
+                                    backgroundColor: theme.palette.primary.dark,
+                                },
+                            },
+                            '&::-webkit-scrollbar-corner': {
+                                backgroundColor: '#f1f1f1',
+                            },
+                            // Firefox scrollbar styling
+                            scrollbarWidth: 'thin',
+                            scrollbarColor: `${theme.palette.primary.main} #f1f1f1`,
+                            // Add visual indicator for mobile
+                            position: 'relative',
+                            '&::after': {
+                                content: '""',
+                                position: 'absolute',
+                                top: 0,
+                                right: 0,
+                                bottom: 0,
+                                width: '20px',
+                                background: 'linear-gradient(to left, rgba(0,0,0,0.1), transparent)',
+                                pointerEvents: 'none',
+                                zIndex: 1,
+                                [theme.breakpoints.up('md')]: {
+                                    display: 'none',
+                                },
+                            },
                         }}
                     >
                         <Box
                             component="table"
                             sx={{
                                 width: "100%",
+                                minWidth: "800px", // Ensure table has minimum width for horizontal scroll
                                 borderCollapse: "collapse",
                                 backgroundColor: theme.palette.background.paper,
                             }}
@@ -1861,6 +1915,59 @@ export default function HowItWorks() {
 
             {/* Quote Form Section */}
             <QuoteForm />
+
+            {/* Quote Form Modal */}
+            <Modal
+                open={isQuoteFormOpen}
+                onClose={handleCloseQuoteForm}
+                aria-labelledby="quote-form-modal"
+                sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    p: 2,
+                }}
+            >
+                <Box
+                    sx={{
+                        width: { xs: '95%', sm: '90%', md: '80%', lg: '70%' },
+                        maxWidth: '800px',
+                        maxHeight: '90vh',
+                        overflow: 'auto',
+                        backgroundColor: 'white',
+                        borderRadius: 2,
+                        boxShadow: 24,
+                        outline: 'none',
+                        position: 'relative',
+                    }}
+                >
+                    {/* Cancel Button */}
+                    <IconButton
+                        onClick={handleCloseQuoteForm}
+                        sx={{
+                            position: 'absolute',
+                            top: 8,
+                            right: 8,
+                            zIndex: 1,
+                            backgroundColor: theme.palette.primary.main,
+                            color: theme.palette.primary.contrastText,
+                            '&:hover': {
+                                backgroundColor: theme.palette.primary.dark,
+                                transform: 'scale(1.05)',
+                            },
+                            width: 36,
+                            height: 36,
+                            transition: 'all 0.2s ease-in-out',
+                            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
+                        }}
+                        aria-label="close"
+                    >
+                        <CloseIcon sx={{ fontSize: 20 }} />
+                    </IconButton>
+
+                    <QuoteForm />
+                </Box>
+            </Modal>
         </div>
     );
 }
