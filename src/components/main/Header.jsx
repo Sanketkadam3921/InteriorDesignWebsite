@@ -50,7 +50,6 @@ export default function Header() {
                 { label: "Foyer Designs", path: "/designs/foyer" },
                 { label: "Homes by Livspace", path: "/designs/homes-livspace" },
                 { label: "Home Office Designs", path: "/designs/home-office" },
-                { label: "Flooring Designs", path: "/designs/flooring" },
                 { label: "Home Wallpaper Designs", path: "/designs/wallpaper" },
                 { label: "Tile Designs", path: "/designs/tile" },
                 { label: "Study Room Designs", path: "/designs/study-room" },

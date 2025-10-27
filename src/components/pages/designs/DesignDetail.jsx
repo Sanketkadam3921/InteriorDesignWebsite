@@ -207,6 +207,8 @@ export default function DesignDetail() {
                     </>
                 )}
 
+
+                U
                 {/* Dynamic Sections */}
                 {design.sections?.map((section, i) => (
                     <Box key={i} sx={{ mb: 4 }}>

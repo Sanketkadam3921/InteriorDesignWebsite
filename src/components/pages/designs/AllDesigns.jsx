@@ -25,25 +25,22 @@ export default function AllDesigns() {
         { id: 'tv-unit', title: 'TV Unit Designs', description: 'Stylish TV units that enhance your entertainment area', image: 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=500', count: 14 },
         { id: 'false-ceiling', title: 'False Ceiling Designs', description: 'Modern ceiling designs that add dimension and style', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500', count: 16 },
         { id: 'kids-bedroom', title: 'Kids Bedroom Designs', description: 'Fun and functional spaces for children to grow and play', image: 'https://images.unsplash.com/photo-1586105449897-20b5efeb3c35?w=500', count: 11 },
-        { id: 'balcony', title: 'Balcony Designs', description: 'Transform your balcony into a relaxing outdoor retreat', image: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=500', count: 9 },
+
         { id: 'dining-room', title: 'Dining Room Designs', description: 'Elegant dining spaces for memorable meals and gatherings', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500', count: 10 },
         { id: 'foyer', title: 'Foyer Designs', description: 'Make a stunning first impression with elegant foyer designs', image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=500', count: 7 },
         { id: 'homes-livspace', title: 'Homes by Livspace', description: 'Complete home interior solutions from Livspace', image: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=500', count: 20 },
         { id: 'home-office', title: 'Home Office Designs', description: 'Productive workspaces designed for focus and creativity', image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=500', count: 13 },
-        { id: 'guest-bedroom', title: 'Guest Bedroom Designs', description: 'Comfortable guest rooms that welcome your visitors', image: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=500', count: 8 },
-        { id: 'window', title: 'Window Designs', description: 'Beautiful window treatments and designs for natural light', image: 'https://images.unsplash.com/photo-1556912173-46c336c7fd55?w=500', count: 12 },
-        { id: 'flooring', title: 'Flooring Designs', description: 'Explore various flooring options for every room', image: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=500', count: 15 },
-        { id: 'wall-decor', title: 'Wall Decor Designs', description: 'Creative wall decor ideas to personalize your space', image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=500', count: 18 },
-        { id: 'wall-paint', title: 'Wall Paint Designs', description: 'Color combinations and paint ideas for every room', image: 'https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=500', count: 22 },
+
+
         { id: 'wallpaper', title: 'Home Wallpaper Designs', description: 'Stunning wallpaper designs to transform your walls', image: 'https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?w=500', count: 16 },
         { id: 'tile', title: 'Tile Designs', description: 'Beautiful tile patterns for floors and walls', image: 'https://images.unsplash.com/photo-1604709177225-055f99402ea3?w=500', count: 14 },
         { id: 'study-room', title: 'Study Room Designs', description: 'Focused study spaces for learning and concentration', image: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=500', count: 9 },
-        { id: 'kitchen-sinks', title: 'Kitchen Sinks', description: 'Modern and functional kitchen sink designs', image: 'https://images.unsplash.com/photo-1585659722983-3a675dabf23d?w=500', count: 6 },
+
         { id: 'space-saving', title: 'Space Saving Designs', description: 'Smart solutions to maximize your living space', image: 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=500', count: 17 },
         { id: 'door', title: 'Door Designs', description: 'Stylish door designs for every room in your home', image: 'https://images.unsplash.com/photo-1600585152915-d208bec867a1?w=500', count: 11 },
-        { id: 'staircase', title: 'Staircase Designs', description: 'Elegant staircase designs that make a statement', image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500', count: 10 },
+
         { id: 'crockery-unit', title: 'Crockery Unit Designs', description: 'Display and storage solutions for your dinnerware', image: 'https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=500', count: 8 },
-        { id: 'home-bar', title: 'Home Bar Designs', description: 'Stylish home bar setups for entertaining guests', image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=500', count: 7 },
+
     ];
 
     return (

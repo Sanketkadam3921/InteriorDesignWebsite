@@ -57,7 +57,7 @@ export default function ProjectsPage() {
                     sx={{
                         fontWeight: 800,
                         mb: 2,
-                        fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
+                        fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" }, color: "white"
                     }}
                 >
                     Delivered Projects
@@ -71,6 +71,7 @@ export default function ProjectsPage() {
                         opacity: 0.9,
                         fontSize: { xs: "1rem", sm: "1.1rem" },
                         mb: 4,
+                        color: "white"
                     }}
                 >
                     Step inside our completed spaces — a blend of art, architecture, and
@@ -220,12 +221,12 @@ export default function ProjectsPage() {
                                 color={project.color}
                                 sx={{ mb: 1.5, fontWeight: 600 }}
                             />
-                            <Typography variant="h4" sx={{ fontWeight: 700, mb: 1 }}>
+                            <Typography variant="h4" sx={{ fontWeight: 700, mb: 1, color: "white" }}>
                                 {project.title}
                             </Typography>
                             <Typography
                                 variant="body1"
-                                sx={{ opacity: 0.9, maxWidth: "700px", mb: 3 }}
+                                sx={{ opacity: 0.9, maxWidth: "700px", mb: 3, color: "white" }}
                             >
                                 {project.subtitle}
                             </Typography>
