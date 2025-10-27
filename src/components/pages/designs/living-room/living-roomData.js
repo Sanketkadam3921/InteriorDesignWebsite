@@ -45,9 +45,14 @@ export const livingroomDesignDetails = {
         idealFor: "Large families and entertainers",
         images: [
             "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800",
-            "https://images.unsplash.com/photo-1598300053650-5d64f2c2c194?w=800",
-            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
-            "https://images.unsplash.com/photo-1600585153837-043ed84aa68e?w=800",
+            "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800",
+            "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800",
+            "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800",
+            "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800",
+            "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800",
+            "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800",
+            "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800",
+
         ],
     },
     "2": {

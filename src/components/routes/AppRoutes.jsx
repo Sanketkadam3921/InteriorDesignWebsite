@@ -7,6 +7,7 @@ import ProjectsList from "../pages/projects/ProjectsList";
 import DesignList from "../pages/designs/DesignList";
 import AllDesigns from "../pages/designs/AllDesigns";
 import DesignDetail from "../pages/designs/DesignDetail";
+import DesignGallery from "../pages/designs/DesignGallery";
 import DesignCategories from "../pages/designs/DesignCategories";
 import DesignCategory from "../pages/designs/DesignCatergory";
 import ContactForm from "../pages/enquiries/ContactForm";
@@ -82,6 +83,7 @@ export default function AppRoutes() {
                     <Route path="designs/categories" element={<DesignCategories />} />
                     <Route path="designs/:category" element={<DesignCategory />} />
                     <Route path="designs/:category/:id" element={<DesignDetail />} />
+                    <Route path="designs/:category/:id/gallery" element={<DesignGallery />} />
 
                     <Route path="contact" element={<ContactForm />} />
                     <Route path="faq" element={<FAQ />} />
