@@ -1,5 +1,16 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Box, Container, Typography, Button, Card, CardMedia, CardContent, IconButton, useTheme, useMediaQuery } from "@mui/material";
+import {
+    Box,
+    Container,
+    Typography,
+    Button,
+    Card,
+    CardMedia,
+    CardContent,
+    IconButton,
+    useTheme,
+    useMediaQuery,
+} from "@mui/material";
 import useEmblaCarousel from "embla-carousel-react";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -8,37 +19,50 @@ import { useNavigate } from "react-router-dom";
 export default function KitchenLayoutSelector() {
     const theme = useTheme();
     const navigate = useNavigate();
-    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-
-    // Configure carousel based on screen size
-    const carouselOptions = {
+    const [emblaRef, emblaApi] = useEmblaCarousel({
         loop: true,
         align: "start",
         skipSnaps: false,
-        slidesToScroll: isMobile ? 1 : 1, // Show one slide at a time on mobile
-    };
+    });
 
-    const [emblaRef, emblaApi] = useEmblaCarousel(carouselOptions);
     const [selectedIndex, setSelectedIndex] = useState(0);
 
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+    const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
+
+    // ✅ Added new Parallel Kitchen layout
     const kitchenLayouts = [
         {
             title: "Sleek L-shaped Kitchen",
-            description: "Featuring adjoining countertops with corner spaces.",
-            image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200",
+            description:
+                "Featuring adjoining countertops with corner spaces, ideal for medium spaces.",
+            image:
+                "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200",
             layout: "L-shaped",
         },
         {
             title: "Spacious U-shaped Kitchen",
-            description: "Comprising three connected walls of cabinets with a practical open entrance.",
-            image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200",
+            description:
+                "Three connected walls of cabinets with a practical open entrance for convenience.",
+            image:
+                "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200",
             layout: "U-shaped",
         },
         {
             title: "Essential Straight Kitchen",
-            description: "A convenient option with the countertop and cabinets placed in a straight line.",
-            image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200",
+            description:
+                "A compact, efficient layout with countertop and cabinets placed in a straight line.",
+            image:
+                "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200",
             layout: "Straight",
+        },
+        {
+            title: "Parallel Kitchen",
+            description:
+                "Two long countertops facing each other, perfect for maximizing workflow efficiency.",
+            image:
+                "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200",
+            layout: "Parallel",
         },
     ];
 
@@ -57,70 +81,107 @@ export default function KitchenLayoutSelector() {
     }, [emblaApi, onSelect]);
 
     const handleStartNow = (layout) => {
-        // Navigate to the next step with the selected layout
         navigate(`/price-calculators/kitchen/calculator/measurements?layout=${layout}`);
     };
 
     return (
-        <Box sx={{ py: { xs: 6, md: 10 }, backgroundColor: theme.palette.background.default }}>
+        <Box sx={{ py: { xs: 6, md: 10 }, background: theme.palette.background.default }}>
             <Container maxWidth="lg">
-                {/* Heading */}
+                {/* 🔹 Heading Section */}
                 <Box
                     sx={{
-                        textAlign: "center",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        flexWrap: "wrap",
                         mb: 6,
+                        gap: 2,
+                        textAlign: { xs: "center", md: "left" },
                     }}
                 >
-                    <Typography
-                        variant="h3"
+                    <Box>
+                        <Typography
+                            variant="h4"
+                            fontWeight={700}
+                            color="text.primary"
+                            sx={{
+                                mb: 1,
+                                fontSize: { xs: "1.8rem", md: "2.2rem" },
+                                fontFamily: theme.typography.fontFamily,
+                            }}
+                        >
+                            Estimates for every kitchen
+                        </Typography>
+                        <Typography
+                            variant="subtitle1"
+                            color="text.secondary"
+                            sx={{
+                                fontSize: "1.1rem",
+                                maxWidth: 600,
+                                fontFamily: theme.typography.fontFamily,
+                            }}
+                        >
+                            Choose your preferred kitchen layout and get instant design estimates.
+                        </Typography>
+                    </Box>
+
+                    <Button
+                        variant="contained"
+                        onClick={() => navigate("/price-calculators/kitchen")}
                         sx={{
-                            fontWeight: 700,
-                            color: theme.palette.text.primary,
-                            mb: 2,
-                            fontSize: { xs: "2rem", md: "3rem" },
-                            fontFamily: theme.typography.fontFamily
+                            backgroundColor: theme.palette.primary.main,
+                            color: theme.palette.primary.contrastText,
+                            textTransform: "none",
+                            fontWeight: 600,
+                            borderRadius: 3,
+                            px: 4,
+                            py: 1.5,
+                            fontFamily: theme.typography.fontFamily,
+                            boxShadow: `0 4px 12px ${theme.palette.primary.main}30`,
+                            "&:hover": {
+                                backgroundColor: theme.palette.primary.dark,
+                                transform: "translateY(-2px)",
+                                boxShadow: `0 6px 16px ${theme.palette.primary.main}40`,
+                            },
                         }}
                     >
-                        Estimates for every kitchen
-                    </Typography>
-                    <Typography
-                        variant="h6"
-                        sx={{
-                            color: theme.palette.text.secondary,
-                            fontSize: { xs: "1.1rem", md: "1.3rem" },
-                            maxWidth: 600,
-                            mx: "auto",
-                            fontFamily: theme.typography.fontFamily
-                        }}
-                    >
-                        Choose your preferred kitchen layout, and let our estimator work its magic.
-                    </Typography>
+                        Get Started
+                    </Button>
                 </Box>
 
-                {/* Carousel */}
+                {/* 🔹 Carousel Section */}
                 <Box sx={{ position: "relative" }}>
                     <div className="embla" ref={emblaRef}>
-                        <div className="embla__container" style={{ display: "flex", gap: isMobile ? "16px" : "24px" }}>
+                        <div
+                            className="embla__container"
+                            style={{
+                                display: "flex",
+                                gap: isMobile ? "12px" : "24px",
+                            }}
+                        >
                             {kitchenLayouts.map((layout, index) => (
                                 <div
                                     className="embla__slide"
                                     key={index}
                                     style={{
-                                        flex: isMobile ? "0 0 100%" : "0 0 33.333%",
-                                        minWidth: isMobile ? "100%" : "33.333%"
+                                        flex: isMobile
+                                            ? "0 0 100%"
+                                            : isTablet
+                                                ? "0 0 50%"
+                                                : "0 0 33.333%",
                                     }}
                                 >
                                     <Card
                                         sx={{
-                                            borderRadius: 14,
-                                            boxShadow: "0 6px 20px rgba(0,0,0,0.05)",
+                                            borderRadius: 4,
+                                            boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
                                             overflow: "hidden",
                                             height: "100%",
                                             backgroundColor: theme.palette.background.paper,
-                                            transition: "all 0.3s ease",
+                                            transition: "transform 0.3s ease, box-shadow 0.3s ease",
                                             "&:hover": {
-                                                transform: "translateY(-8px)",
-                                                boxShadow: "0 10px 30px rgba(0,0,0,0.08)"
+                                                transform: "translateY(-6px)",
+                                                boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
                                             },
                                         }}
                                     >
@@ -128,33 +189,29 @@ export default function KitchenLayoutSelector() {
                                             component="img"
                                             image={layout.image}
                                             alt={layout.title}
-                                            sx={{ height: 280, objectFit: "cover" }}
+                                            sx={{
+                                                height: 240,
+                                                objectFit: "cover",
+                                                width: "100%",
+                                            }}
                                         />
                                         <CardContent sx={{ p: 3 }}>
                                             <Typography
-                                                variant="h5"
-                                                sx={{
-                                                    fontWeight: 600,
-                                                    color: theme.palette.text.primary,
-                                                    mb: 2,
-                                                    fontSize: { xs: "1.2rem", md: "1.4rem" },
-                                                    fontFamily: theme.typography.fontFamily
-                                                }}
+                                                variant="h6"
+                                                fontWeight={600}
+                                                color="text.primary"
+                                                sx={{ mb: 1 }}
                                             >
                                                 {layout.title}
                                             </Typography>
                                             <Typography
-                                                variant="body1"
-                                                sx={{
-                                                    color: theme.palette.text.secondary,
-                                                    mb: 3,
-                                                    lineHeight: 1.6,
-                                                    fontSize: { xs: "0.95rem", md: "1rem" },
-                                                    fontFamily: theme.typography.fontFamily
-                                                }}
+                                                variant="body2"
+                                                color="text.secondary"
+                                                sx={{ lineHeight: 1.6, mb: 3 }}
                                             >
                                                 {layout.description}
                                             </Typography>
+
                                             <Button
                                                 variant="contained"
                                                 fullWidth
@@ -164,9 +221,8 @@ export default function KitchenLayoutSelector() {
                                                     color: theme.palette.primary.contrastText,
                                                     textTransform: "none",
                                                     fontWeight: 600,
-                                                    borderRadius: 10,
-                                                    py: 1.5,
-                                                    fontSize: "1rem",
+                                                    borderRadius: 3,
+                                                    py: 1.3,
                                                     fontFamily: theme.typography.fontFamily,
                                                     "&:hover": {
                                                         backgroundColor: theme.palette.primary.dark,
@@ -174,7 +230,7 @@ export default function KitchenLayoutSelector() {
                                                     },
                                                 }}
                                             >
-                                                START NOW
+                                                Start Now
                                             </Button>
                                         </CardContent>
                                     </Card>
@@ -183,28 +239,26 @@ export default function KitchenLayoutSelector() {
                         </div>
                     </div>
 
-                    {/* Navigation Arrows */}
+                    {/* 🔹 Navigation Arrows */}
                     <IconButton
                         onClick={scrollPrev}
                         sx={{
                             position: "absolute",
                             top: "50%",
-                            left: isMobile ? "10px" : "-30px",
+                            left: isMobile ? "8px" : "-28px",
                             transform: "translateY(-50%)",
-                            backgroundColor: theme.palette.background.paper,
-                            boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-                            width: isMobile ? 40 : 50,
-                            height: isMobile ? 40 : 50,
+                            backgroundColor: "rgba(255, 255, 255, 0.9)",
+                            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
                             color: theme.palette.primary.main,
-                            zIndex: 2,
+                            width: isMobile ? 36 : 44,
+                            height: isMobile ? 36 : 44,
                             "&:hover": {
-                                backgroundColor: theme.palette.action.hover,
-                                transform: "translateY(-50%) scale(1.1)",
-                                color: theme.palette.primary.dark
+                                backgroundColor: "rgba(255, 255, 255, 0.9)",
+                                color: theme.palette.primary.dark,
                             },
                         }}
                     >
-                        <ChevronLeftIcon fontSize={isMobile ? "medium" : "large"} />
+                        <ChevronLeftIcon fontSize={isMobile ? "small" : "medium"} />
                     </IconButton>
 
                     <IconButton
@@ -212,51 +266,50 @@ export default function KitchenLayoutSelector() {
                         sx={{
                             position: "absolute",
                             top: "50%",
-                            right: isMobile ? "10px" : "-30px",
+                            right: isMobile ? "8px" : "-28px",
                             transform: "translateY(-50%)",
-                            backgroundColor: theme.palette.background.paper,
-                            boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-                            width: isMobile ? 40 : 50,
-                            height: isMobile ? 40 : 50,
+                            backgroundColor: "rgba(255, 255, 255, 0.9)",
+                            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
                             color: theme.palette.primary.main,
-                            zIndex: 2,
+                            width: isMobile ? 36 : 44,
+                            height: isMobile ? 36 : 44,
                             "&:hover": {
-                                backgroundColor: theme.palette.action.hover,
-                                transform: "translateY(-50%) scale(1.1)",
-                                color: theme.palette.primary.dark
+                                backgroundColor: "rgba(255, 255, 255, 0.9)",
+                                color: theme.palette.primary.dark,
                             },
                         }}
                     >
-                        <ChevronRightIcon fontSize={isMobile ? "medium" : "large"} />
+                        <ChevronRightIcon fontSize={isMobile ? "small" : "medium"} />
                     </IconButton>
+                </Box>
 
-                    {/* Mobile Slide Indicators */}
-                    {isMobile && (
-                        <Box
-                            sx={{
-                                display: "flex",
-                                justifyContent: "center",
-                                gap: 1,
-                                mt: 3,
-                            }}
-                        >
-                            {kitchenLayouts.map((_, index) => (
-                                <Box
-                                    key={index}
-                                    sx={{
-                                        width: 8,
-                                        height: 8,
-                                        borderRadius: "50%",
-                                        backgroundColor: selectedIndex === index
+                {/* 🔹 Mobile Slide Indicators */}
+                {isMobile && (
+                    <Box
+                        sx={{
+                            display: "flex",
+                            justifyContent: "center",
+                            gap: 1,
+                            mt: 3,
+                        }}
+                    >
+                        {kitchenLayouts.map((_, index) => (
+                            <Box
+                                key={index}
+                                sx={{
+                                    width: 8,
+                                    height: 8,
+                                    borderRadius: "50%",
+                                    backgroundColor:
+                                        selectedIndex === index
                                             ? theme.palette.primary.main
                                             : theme.palette.grey[300],
-                                        transition: "background-color 0.3s ease",
-                                    }}
-                                />
-                            ))}
-                        </Box>
-                    )}
-                </Box>
+                                    transition: "background-color 0.3s ease",
+                                }}
+                            />
+                        ))}
+                    </Box>
+                )}
             </Container>
         </Box>
     );

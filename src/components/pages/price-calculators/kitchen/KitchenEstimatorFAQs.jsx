@@ -80,19 +80,7 @@ export default function KitchenEstimatorFAQs() {
                     FAQs
                 </Typography>
 
-                <Chip
-                    icon={<QuestionAnswer />}
-                    label="Kitchen Calculator FAQs"
-                    sx={{
-                        mb: 3,
-                        color: theme.palette.primary.main,
-                        borderColor: theme.palette.primary.main,
-                        '&:hover': {
-                            backgroundColor: theme.palette.primary.main + '10'
-                        }
-                    }}
-                    variant="outlined"
-                />
+
             </Box>
 
             {/* FAQ Accordions */}
