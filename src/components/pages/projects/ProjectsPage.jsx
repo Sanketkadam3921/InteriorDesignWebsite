@@ -6,15 +6,13 @@ import {
     Box,
     Card,
     CardMedia,
-    CardContent,
     Button,
     Chip,
     Grid,
     useTheme,
-    Stack,
     Paper,
 } from "@mui/material";
-import { ArrowForward, Star, Architecture, DesignServices } from "@mui/icons-material";
+import { ArrowForward, Star, Architecture } from "@mui/icons-material";
 
 export default function ProjectsPage() {
     const navigate = useNavigate();
@@ -42,7 +40,7 @@ export default function ProjectsPage() {
             {/* 🌟 Hero Section */}
             <Box
                 sx={{
-                    minHeight: "70vh",
+                    minHeight: "80vh",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
@@ -59,11 +57,12 @@ export default function ProjectsPage() {
                     sx={{
                         fontWeight: 800,
                         mb: 2,
-                        fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem", color: "white" },
+                        fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
                     }}
                 >
                     Delivered Projects
                 </Typography>
+
                 <Typography
                     variant="h6"
                     sx={{
@@ -71,12 +70,36 @@ export default function ProjectsPage() {
                         mx: "auto",
                         opacity: 0.9,
                         fontSize: { xs: "1rem", sm: "1.1rem" },
-                        color: "white"
+                        mb: 4,
                     }}
                 >
                     Step inside our completed spaces — a blend of art, architecture, and
                     precision that transforms homes into timeless living experiences.
                 </Typography>
+
+                {/* 🎯 View All Projects Button */}
+                <Button
+                    variant="contained"
+                    color="primary"
+                    endIcon={<ArrowForward />}
+                    onClick={handleCardClick}
+                    sx={{
+                        fontWeight: 700,
+                        px: 4,
+                        py: 1.5,
+                        borderRadius: "30px",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.5px",
+                        backgroundColor: "rgba(255,255,255,0.15)",
+                        border: "1px solid rgba(255,255,255,0.4)",
+                        backdropFilter: "blur(4px)",
+                        "&:hover": {
+                            backgroundColor: "rgba(255,255,255,0.25)",
+                        },
+                    }}
+                >
+                    View All Projects
+                </Button>
             </Box>
 
             <Container maxWidth="lg" sx={{ py: { xs: 8, md: 10 } }}>
@@ -107,21 +130,28 @@ export default function ProjectsPage() {
                 </Box>
 
                 {/* 💡 What Makes Us Special */}
-                <Grid container spacing={4} sx={{ mb: 10 }}>
+                <Grid container spacing={4} sx={{ mb: 10, justifyContent: "center" }}>
                     {[
                         {
-                            icon: <Architecture sx={{ fontSize: 40, color: theme.palette.primary.main }} />,
+                            icon: (
+                                <Architecture
+                                    sx={{ fontSize: 40, color: theme.palette.primary.main }}
+                                />
+                            ),
                             title: "Precision in Design",
                             desc: "Every inch is planned with a purpose — blending functionality with style.",
                         },
-
                         {
-                            icon: <Star sx={{ fontSize: 40, color: theme.palette.primary.main }} />,
+                            icon: (
+                                <Star
+                                    sx={{ fontSize: 40, color: theme.palette.primary.main }}
+                                />
+                            ),
                             title: "Quality Craftsmanship",
                             desc: "Delivered with superior materials and unmatched attention to detail.",
                         },
                     ].map((feature, i) => (
-                        <Grid item xs={12} sm={4} key={i}>
+                        <Grid item xs={12} sm={6} md={4} key={i}>
                             <Paper
                                 elevation={3}
                                 sx={{
@@ -134,7 +164,10 @@ export default function ProjectsPage() {
                                 }}
                             >
                                 {feature.icon}
-                                <Typography variant="h6" sx={{ fontWeight: 700, mt: 2, mb: 1 }}>
+                                <Typography
+                                    variant="h6"
+                                    sx={{ fontWeight: 700, mt: 2, mb: 1 }}
+                                >
                                     {feature.title}
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary">
@@ -187,12 +220,12 @@ export default function ProjectsPage() {
                                 color={project.color}
                                 sx={{ mb: 1.5, fontWeight: 600 }}
                             />
-                            <Typography variant="h4" sx={{ fontWeight: 700, mb: 1, color: "white" }}>
+                            <Typography variant="h4" sx={{ fontWeight: 700, mb: 1 }}>
                                 {project.title}
                             </Typography>
                             <Typography
                                 variant="body1"
-                                sx={{ opacity: 0.9, maxWidth: "700px", mb: 3, color: "white" }}
+                                sx={{ opacity: 0.9, maxWidth: "700px", mb: 3 }}
                             >
                                 {project.subtitle}
                             </Typography>
