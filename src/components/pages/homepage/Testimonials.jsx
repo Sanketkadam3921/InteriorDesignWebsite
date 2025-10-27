@@ -7,7 +7,6 @@ import {
     Typography,
     Card,
     CardContent,
-    Avatar,
     IconButton,
     useTheme,
     useMediaQuery,
@@ -23,28 +22,24 @@ export default function Testimonials() {
         {
             name: "Rohan & Priya Mehta",
             location: "Pune, Maharashtra",
-            image: "https://randomuser.me/api/portraits/men/32.jpg",
             quote:
                 "Livspace turned our small 2BHK into a luxurious and cozy home! The design team was professional, attentive, and incredibly creative. The estimation process was smooth and transparent.",
         },
         {
             name: "Aditi Sharma",
             location: "Bengaluru, Karnataka",
-            image: "https://randomuser.me/api/portraits/women/65.jpg",
             quote:
                 "The modular kitchen estimator helped us budget our renovation perfectly. The team executed the design beautifully — our kitchen is now the heart of our home!",
         },
         {
             name: "Vikram Desai",
             location: "Mumbai, Maharashtra",
-            image: "https://randomuser.me/api/portraits/men/41.jpg",
             quote:
                 "I was amazed by how precise the wardrobe estimator was! The final cost was nearly identical to the estimate. Great attention to detail and craftsmanship by the team.",
         },
         {
             name: "Sneha Patil",
             location: "Hyderabad, Telangana",
-            image: "https://randomuser.me/api/portraits/women/74.jpg",
             quote:
                 "From consultation to delivery, everything was perfectly managed. The designs are stunning, and the quality is top-notch. Highly recommend this team for modern interiors.",
         },
@@ -154,35 +149,24 @@ export default function Testimonials() {
                                                 “{t.quote}”
                                             </Typography>
 
-                                            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                                                <Avatar
-                                                    src={t.image}
-                                                    alt={t.name}
+                                            <Box>
+                                                <Typography
+                                                    variant="h6"
                                                     sx={{
-                                                        width: 56,
-                                                        height: 56,
-                                                        border: `2px solid ${theme.palette.primary.main}`,
+                                                        fontWeight: 600,
+                                                        color: theme.palette.text.primary,
                                                     }}
-                                                />
-                                                <Box>
-                                                    <Typography
-                                                        variant="h6"
-                                                        sx={{
-                                                            fontWeight: 600,
-                                                            color: theme.palette.text.primary,
-                                                        }}
-                                                    >
-                                                        {t.name}
-                                                    </Typography>
-                                                    <Typography
-                                                        variant="body2"
-                                                        sx={{
-                                                            color: theme.palette.text.secondary,
-                                                        }}
-                                                    >
-                                                        {t.location}
-                                                    </Typography>
-                                                </Box>
+                                                >
+                                                    {t.name}
+                                                </Typography>
+                                                <Typography
+                                                    variant="body2"
+                                                    sx={{
+                                                        color: theme.palette.text.secondary,
+                                                    }}
+                                                >
+                                                    {t.location}
+                                                </Typography>
                                             </Box>
                                         </CardContent>
                                     </Card>
