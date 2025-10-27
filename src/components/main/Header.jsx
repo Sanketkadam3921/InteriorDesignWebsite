@@ -48,7 +48,7 @@ export default function Header() {
                 { label: "Kids Bedroom Designs", path: "/designs/kids-bedroom" },
                 { label: "Dining Room Designs", path: "/designs/dining-room" },
                 { label: "Foyer Designs", path: "/designs/foyer" },
-                { label: "Homes by Livspace", path: "/designs/homes-livspace" },
+                { label: "Homes by KalaKruti Studio", path: "/designs/homes-livspace" },
                 { label: "Home Office Designs", path: "/designs/home-office" },
                 { label: "Home Wallpaper Designs", path: "/designs/wallpaper" },
                 { label: "Tile Designs", path: "/designs/tile" },

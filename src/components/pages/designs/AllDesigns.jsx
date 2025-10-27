@@ -28,7 +28,7 @@ export default function AllDesigns() {
 
         { id: 'dining-room', title: 'Dining Room Designs', description: 'Elegant dining spaces for memorable meals and gatherings', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500', count: 10 },
         { id: 'foyer', title: 'Foyer Designs', description: 'Make a stunning first impression with elegant foyer designs', image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=500', count: 7 },
-        { id: 'homes-livspace', title: 'Homes by Livspace', description: 'Complete home interior solutions from Livspace', image: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=500', count: 20 },
+        { id: 'homes-livspace', title: 'Homes by KalaKruti Studio', description: 'Complete home interior solutions from Livspace', image: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=500', count: 20 },
         { id: 'home-office', title: 'Home Office Designs', description: 'Productive workspaces designed for focus and creativity', image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=500', count: 13 },
 
 
