@@ -19,7 +19,7 @@ export const deliveredProjects = [
     },
     {
         id: "delivered-2",
-        title: "3BHK Independent House Design in Hyderabad with Parallel Kitchen",
+        title: "3BHK Independent House Design in Pune with Parallel Kitchen",
         location: "Ideal Blooms",
         scope: "Full Home, Kitchen, Modular",
         bhk: "3-BHK",
@@ -74,9 +74,9 @@ export const deliveredProjectsDetails = {
         longDescription: "This contemporary 3BHK apartment showcases the perfect blend of modern design and functionality. The living room features a stunning beige wall panel that serves as the focal point, complemented by carefully selected furniture and lighting. The open-plan kitchen with modular fittings provides ample storage and workspace, while the bedrooms are designed for comfort and style. Every corner of this home reflects our commitment to quality and attention to detail."
     },
     "delivered-2": {
-        title: "3BHK Independent House Design in Hyderabad with Parallel Kitchen",
+        title: "3BHK Independent House Design in Pune with Parallel Kitchen",
         description: "A spacious independent house featuring a parallel kitchen design and modern amenities",
-        location: "Ideal Blooms, Hyderabad",
+        location: "Ideal Blooms, Pune",
         budget: "₹30 Lakhs",
         area: "1500 sq ft",
         style: "Modern",
@@ -88,7 +88,7 @@ export const deliveredProjectsDetails = {
             "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&fit=crop",
             "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&fit=crop"
         ],
-        longDescription: "This independent house in Hyderabad features a unique parallel kitchen design that maximizes space and functionality. The open layout creates a seamless flow between the living, dining, and kitchen areas. The master bedroom includes a walk-in closet and en-suite bathroom, while the other bedrooms are designed with built-in wardrobes and study areas. The house incorporates sustainable materials and energy-efficient fixtures throughout."
+        longDescription: "This independent house in Pune features a unique parallel kitchen design that maximizes space and functionality. The open layout creates a seamless flow between the living, dining, and kitchen areas. The master bedroom includes a walk-in closet and en-suite bathroom, while the other bedrooms are designed with built-in wardrobes and study areas. The house incorporates sustainable materials and energy-efficient fixtures throughout."
     },
     "delivered-3": {
         title: "Contemporary 3BHK Apartment Design with Built-In TV Unit",

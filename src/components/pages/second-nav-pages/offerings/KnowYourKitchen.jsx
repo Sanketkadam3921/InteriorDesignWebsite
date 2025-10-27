@@ -127,7 +127,7 @@ const CardDescription = styled(Typography)(({ theme }) => ({
 const FeatureCard = styled(Card)(({ theme }) => ({
     backgroundColor: 'white',
     borderRadius: '12px',
-    padding: '24px',
+    padding: '20px',
     textAlign: 'center',
     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
     transition: 'transform 0.3s ease, box-shadow 0.3s ease',
@@ -137,7 +137,7 @@ const FeatureCard = styled(Card)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     '&:hover': {
         transform: 'translateY(-4px)',
         boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)',
@@ -152,7 +152,7 @@ const FeatureIconContainer = styled(Box)(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: '0 auto 20px',
+    margin: '0 auto 16px',
     position: 'relative',
     border: '1px solid #d1d5db',
     flexShrink: 0,
@@ -168,14 +168,14 @@ const FeatureTitle = styled(Typography)(({ theme }) => ({
     fontWeight: '600',
     color: theme.palette.text.primary,
     textAlign: 'center',
-    marginBottom: '8px',
+    marginBottom: '6px',
 }));
 
 const FeatureDescription = styled(Typography)(({ theme }) => ({
     fontSize: '0.9rem',
     color: theme.palette.text.secondary,
     textAlign: 'center',
-    lineHeight: 1.5,
+    lineHeight: 1.4,
 }));
 
 // Styled components for Kitchen Triangle section
@@ -496,28 +496,31 @@ function WhyChooseKitchen() {
                 </Typography>
 
                 {/* Feature Cards Grid */}
-                <Grid container spacing={3} justifyContent="center">
+                <Box sx={{
+                    display: "grid",
+                    gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)", md: "repeat(3, 1fr)" },
+                    gap: 1,
+                    justifyContent: "center"
+                }}>
                     {kitchenFeatures.map((feature) => {
                         const IconComponent = feature.icon;
                         return (
-                            <Grid item xs={12} sm={6} md={4} key={feature.id} sx={{ display: 'flex' }}>
-                                <FeatureCard sx={{ width: '100%' }}>
-                                    <FeatureIconContainer>
-                                        <FeatureIcon>
-                                            <IconComponent />
-                                        </FeatureIcon>
-                                    </FeatureIconContainer>
-                                    <FeatureTitle>
-                                        {feature.title}
-                                    </FeatureTitle>
-                                    <FeatureDescription>
-                                        {feature.description}
-                                    </FeatureDescription>
-                                </FeatureCard>
-                            </Grid>
+                            <FeatureCard key={feature.id} sx={{ width: '100%' }}>
+                                <FeatureIconContainer>
+                                    <FeatureIcon>
+                                        <IconComponent />
+                                    </FeatureIcon>
+                                </FeatureIconContainer>
+                                <FeatureTitle>
+                                    {feature.title}
+                                </FeatureTitle>
+                                <FeatureDescription>
+                                    {feature.description}
+                                </FeatureDescription>
+                            </FeatureCard>
                         );
                     })}
-                </Grid>
+                </Box>
             </Container>
         </Box>
     );
@@ -1090,7 +1093,7 @@ function AestheticsSection() {
                         </Typography>
                         <Button
                             variant="text"
-                            onClick={() => navigate("/kitchen-finishes")}
+                            onClick={() => navigate("/kitchen/components/finishes")}
                             sx={{
                                 color: theme.palette.primary.main,
                                 textTransform: "none",
@@ -1109,101 +1112,259 @@ function AestheticsSection() {
 
                     {/* Carousel Container */}
                     <Box sx={{ position: 'relative' }}>
+                        {/* Desktop Grid View */}
                         <Box sx={{
-                            display: 'flex',
-                            overflow: 'hidden',
-                            borderRadius: '12px'
+                            display: { xs: 'none', md: 'grid' },
+                            gridTemplateColumns: 'repeat(3, 1fr)',
+                            gap: 3,
+                            justifyContent: "center"
+                        }}>
+                            {shutterFinishes.map((finish) => (
+                                <Box
+                                    key={finish.id}
+                                    sx={{
+                                        borderRadius: 4,
+                                        boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+                                        overflow: "hidden",
+                                        backgroundColor: theme.palette.background.paper,
+                                        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                                        height: '400px',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        "&:hover": {
+                                            transform: "translateY(-6px)",
+                                            boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
+                                        },
+                                    }}
+                                >
+                                    <Box
+                                        component="img"
+                                        src={finish.image}
+                                        alt={finish.title}
+                                        sx={{
+                                            height: 240,
+                                            width: "100%",
+                                            objectFit: "cover",
+                                        }}
+                                    />
+                                    <Box sx={{
+                                        p: 3,
+                                        textAlign: "left",
+                                        flex: 1,
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        justifyContent: 'space-between'
+                                    }}>
+                                        <Typography
+                                            variant="h6"
+                                            fontWeight={600}
+                                            color="text.primary"
+                                            sx={{
+                                                mb: 1,
+                                                textAlign: "left",
+                                                fontSize: '1.1rem',
+                                                fontFamily: theme.typography.fontFamily,
+                                                wordWrap: 'break-word',
+                                                overflowWrap: 'break-word',
+                                                hyphens: 'auto',
+                                                lineHeight: 1.3
+                                            }}
+                                        >
+                                            {finish.title}
+                                        </Typography>
+                                        <Typography
+                                            variant="body2"
+                                            color="text.secondary"
+                                            sx={{
+                                                lineHeight: 1.6,
+                                                textAlign: "left",
+                                                fontSize: '0.95rem',
+                                                fontFamily: theme.typography.fontFamily,
+                                                wordWrap: 'break-word',
+                                                overflowWrap: 'break-word',
+                                                hyphens: 'auto',
+                                                flex: 1
+                                            }}
+                                        >
+                                            {finish.description}
+                                        </Typography>
+                                    </Box>
+                                </Box>
+                            ))}
+                        </Box>
+
+                        {/* Mobile Slider View */}
+                        <Box sx={{
+                            display: { xs: 'block', md: 'none' },
+                            position: 'relative'
                         }}>
                             <Box sx={{
                                 display: 'flex',
-                                transform: `translateX(-${currentSlide * 100}%)`,
-                                transition: 'transform 0.3s ease-in-out',
-                                width: `${shutterFinishes.length * 100}%`
+                                overflow: 'hidden',
+                                borderRadius: '12px'
                             }}>
-                                {shutterFinishes.map((finish) => (
-                                    <Box
-                                        key={finish.id}
-                                        sx={{
-                                            width: `${100 / shutterFinishes.length}%`,
-                                            flexShrink: 0,
-                                            px: 1
-                                        }}
-                                    >
+                                <Box sx={{
+                                    display: 'flex',
+                                    transform: `translateX(-${currentSlide * 100}%)`,
+                                    transition: 'transform 0.3s ease-in-out',
+                                    width: `${shutterFinishes.length * 100}%`
+                                }}>
+                                    {shutterFinishes.map((finish) => (
                                         <Box
+                                            key={finish.id}
                                             sx={{
-                                                borderRadius: 4,
-                                                boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
-                                                overflow: "hidden",
-                                                backgroundColor: theme.palette.background.paper,
-                                                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                                                height: '400px',
-                                                display: 'flex',
-                                                flexDirection: 'column',
-                                                "&:hover": {
-                                                    transform: "translateY(-6px)",
-                                                    boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
-                                                },
+                                                width: '100%',
+                                                flexShrink: 0,
+                                                px: 1
                                             }}
                                         >
                                             <Box
-                                                component="img"
-                                                src={finish.image}
-                                                alt={finish.title}
                                                 sx={{
-                                                    height: 240,
-                                                    width: "100%",
-                                                    objectFit: "cover",
+                                                    borderRadius: 4,
+                                                    boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+                                                    overflow: "hidden",
+                                                    backgroundColor: theme.palette.background.paper,
+                                                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                                                    height: '350px',
+                                                    display: 'flex',
+                                                    flexDirection: 'column',
+                                                    "&:hover": {
+                                                        transform: "translateY(-6px)",
+                                                        boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
+                                                    },
                                                 }}
-                                            />
-                                            <Box sx={{
-                                                p: 3,
-                                                textAlign: "left",
-                                                flex: 1,
-                                                display: 'flex',
-                                                flexDirection: 'column',
-                                                justifyContent: 'space-between'
-                                            }}>
-                                                <Typography
-                                                    variant="h6"
-                                                    fontWeight={600}
-                                                    color="text.primary"
+                                            >
+                                                <Box
+                                                    component="img"
+                                                    src={finish.image}
+                                                    alt={finish.title}
                                                     sx={{
-                                                        mb: 1,
-                                                        textAlign: "left",
-                                                        fontSize: '1.1rem',
-                                                        fontFamily: theme.typography.fontFamily,
-                                                        wordWrap: 'break-word',
-                                                        overflowWrap: 'break-word',
-                                                        hyphens: 'auto',
-                                                        lineHeight: 1.3
+                                                        height: 200,
+                                                        width: "100%",
+                                                        objectFit: "cover",
                                                     }}
-                                                >
-                                                    {finish.title}
-                                                </Typography>
-                                                <Typography
-                                                    variant="body2"
-                                                    color="text.secondary"
-                                                    sx={{
-                                                        lineHeight: 1.6,
-                                                        textAlign: "left",
-                                                        fontSize: '0.95rem',
-                                                        fontFamily: theme.typography.fontFamily,
-                                                        wordWrap: 'break-word',
-                                                        overflowWrap: 'break-word',
-                                                        hyphens: 'auto',
-                                                        flex: 1
-                                                    }}
-                                                >
-                                                    {finish.description}
-                                                </Typography>
+                                                />
+                                                <Box sx={{
+                                                    p: 2.5,
+                                                    textAlign: "left",
+                                                    flex: 1,
+                                                    display: 'flex',
+                                                    flexDirection: 'column',
+                                                    justifyContent: 'space-between'
+                                                }}>
+                                                    <Typography
+                                                        variant="h6"
+                                                        fontWeight={600}
+                                                        color="text.primary"
+                                                        sx={{
+                                                            mb: 1,
+                                                            textAlign: "left",
+                                                            fontSize: '1rem',
+                                                            fontFamily: theme.typography.fontFamily,
+                                                            wordWrap: 'break-word',
+                                                            overflowWrap: 'break-word',
+                                                            hyphens: 'auto',
+                                                            lineHeight: 1.3
+                                                        }}
+                                                    >
+                                                        {finish.title}
+                                                    </Typography>
+                                                    <Typography
+                                                        variant="body2"
+                                                        color="text.secondary"
+                                                        sx={{
+                                                            lineHeight: 1.5,
+                                                            textAlign: "left",
+                                                            fontSize: '0.9rem',
+                                                            fontFamily: theme.typography.fontFamily,
+                                                            wordWrap: 'break-word',
+                                                            overflowWrap: 'break-word',
+                                                            hyphens: 'auto',
+                                                            flex: 1
+                                                        }}
+                                                    >
+                                                        {finish.description}
+                                                    </Typography>
+                                                </Box>
                                             </Box>
                                         </Box>
-                                    </Box>
+                                    ))}
+                                </Box>
+                            </Box>
+
+                            {/* Mobile Navigation Arrows */}
+                            <IconButton
+                                onClick={handlePrevSlide}
+                                sx={{
+                                    position: 'absolute',
+                                    left: 8,
+                                    top: '50%',
+                                    transform: 'translateY(-50%)',
+                                    backgroundColor: 'white',
+                                    color: theme.palette.text.primary,
+                                    width: '40px',
+                                    height: '40px',
+                                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                                    zIndex: 3,
+                                    '&:hover': {
+                                        backgroundColor: '#f5f5f5',
+                                        transform: 'translateY(-50%) scale(1.05)',
+                                    },
+                                }}
+                            >
+                                <ArrowBackIosIcon fontSize="small" />
+                            </IconButton>
+
+                            <IconButton
+                                onClick={handleNextSlide}
+                                sx={{
+                                    position: 'absolute',
+                                    right: 8,
+                                    top: '50%',
+                                    transform: 'translateY(-50%)',
+                                    backgroundColor: 'white',
+                                    color: theme.palette.text.primary,
+                                    width: '40px',
+                                    height: '40px',
+                                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                                    zIndex: 3,
+                                    '&:hover': {
+                                        backgroundColor: '#f5f5f5',
+                                        transform: 'translateY(-50%) scale(1.05)',
+                                    },
+                                }}
+                            >
+                                <ArrowForwardIosIcon fontSize="small" />
+                            </IconButton>
+
+                            {/* Mobile Dots Indicator */}
+                            <Box sx={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                mt: 2,
+                                gap: 1
+                            }}>
+                                {shutterFinishes.map((_, index) => (
+                                    <Box
+                                        key={index}
+                                        onClick={() => setCurrentSlide(index)}
+                                        sx={{
+                                            width: 8,
+                                            height: 8,
+                                            borderRadius: '50%',
+                                            backgroundColor: index === currentSlide
+                                                ? theme.palette.primary.main
+                                                : theme.palette.grey[300],
+                                            cursor: 'pointer',
+                                            transition: 'background-color 0.3s ease',
+                                            '&:hover': {
+                                                backgroundColor: theme.palette.primary.main,
+                                            }
+                                        }}
+                                    />
                                 ))}
                             </Box>
                         </Box>
-
-
                     </Box>
                 </Box>
 
@@ -1230,7 +1391,7 @@ function AestheticsSection() {
                         </Typography>
                         <Button
                             variant="text"
-                            onClick={() => navigate("/kitchen-countertops")}
+                            onClick={() => navigate("/designs/kitchen")}
                             sx={{
                                 color: theme.palette.primary.main,
                                 textTransform: "none",
@@ -1249,101 +1410,259 @@ function AestheticsSection() {
 
                     {/* Carousel Container */}
                     <Box sx={{ position: 'relative' }}>
+                        {/* Desktop Grid View */}
                         <Box sx={{
-                            display: 'flex',
-                            overflow: 'hidden',
-                            borderRadius: '12px'
+                            display: { xs: 'none', md: 'grid' },
+                            gridTemplateColumns: 'repeat(3, 1fr)',
+                            gap: 3,
+                            justifyContent: "center"
+                        }}>
+                            {countertopsData.map((countertop) => (
+                                <Box
+                                    key={countertop.id}
+                                    sx={{
+                                        borderRadius: 4,
+                                        boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+                                        overflow: "hidden",
+                                        backgroundColor: theme.palette.background.paper,
+                                        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                                        height: '400px',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        "&:hover": {
+                                            transform: "translateY(-6px)",
+                                            boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
+                                        },
+                                    }}
+                                >
+                                    <Box
+                                        component="img"
+                                        src={countertop.image}
+                                        alt={countertop.title}
+                                        sx={{
+                                            height: 240,
+                                            width: "100%",
+                                            objectFit: "cover",
+                                        }}
+                                    />
+                                    <Box sx={{
+                                        p: 3,
+                                        textAlign: "left",
+                                        flex: 1,
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        justifyContent: 'space-between'
+                                    }}>
+                                        <Typography
+                                            variant="h6"
+                                            fontWeight={600}
+                                            color="text.primary"
+                                            sx={{
+                                                mb: 1,
+                                                textAlign: "left",
+                                                fontSize: '1.1rem',
+                                                fontFamily: theme.typography.fontFamily,
+                                                wordWrap: 'break-word',
+                                                overflowWrap: 'break-word',
+                                                hyphens: 'auto',
+                                                lineHeight: 1.3
+                                            }}
+                                        >
+                                            {countertop.title}
+                                        </Typography>
+                                        <Typography
+                                            variant="body2"
+                                            color="text.secondary"
+                                            sx={{
+                                                lineHeight: 1.6,
+                                                textAlign: "left",
+                                                fontSize: '0.95rem',
+                                                fontFamily: theme.typography.fontFamily,
+                                                wordWrap: 'break-word',
+                                                overflowWrap: 'break-word',
+                                                hyphens: 'auto',
+                                                flex: 1
+                                            }}
+                                        >
+                                            {countertop.description}
+                                        </Typography>
+                                    </Box>
+                                </Box>
+                            ))}
+                        </Box>
+
+                        {/* Mobile Slider View */}
+                        <Box sx={{
+                            display: { xs: 'block', md: 'none' },
+                            position: 'relative'
                         }}>
                             <Box sx={{
                                 display: 'flex',
-                                transform: `translateX(-${currentSlide * 100}%)`,
-                                transition: 'transform 0.3s ease-in-out',
-                                width: `${countertopsData.length * 100}%`
+                                overflow: 'hidden',
+                                borderRadius: '12px'
                             }}>
-                                {countertopsData.map((countertop) => (
-                                    <Box
-                                        key={countertop.id}
-                                        sx={{
-                                            width: `${100 / countertopsData.length}%`,
-                                            flexShrink: 0,
-                                            px: 1
-                                        }}
-                                    >
+                                <Box sx={{
+                                    display: 'flex',
+                                    transform: `translateX(-${currentSlide * 100}%)`,
+                                    transition: 'transform 0.3s ease-in-out',
+                                    width: `${countertopsData.length * 100}%`
+                                }}>
+                                    {countertopsData.map((countertop) => (
                                         <Box
+                                            key={countertop.id}
                                             sx={{
-                                                borderRadius: 4,
-                                                boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
-                                                overflow: "hidden",
-                                                backgroundColor: theme.palette.background.paper,
-                                                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                                                height: '400px',
-                                                display: 'flex',
-                                                flexDirection: 'column',
-                                                "&:hover": {
-                                                    transform: "translateY(-6px)",
-                                                    boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
-                                                },
+                                                width: '100%',
+                                                flexShrink: 0,
+                                                px: 1
                                             }}
                                         >
                                             <Box
-                                                component="img"
-                                                src={countertop.image}
-                                                alt={countertop.title}
                                                 sx={{
-                                                    height: 240,
-                                                    width: "100%",
-                                                    objectFit: "cover",
+                                                    borderRadius: 4,
+                                                    boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+                                                    overflow: "hidden",
+                                                    backgroundColor: theme.palette.background.paper,
+                                                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                                                    height: '350px',
+                                                    display: 'flex',
+                                                    flexDirection: 'column',
+                                                    "&:hover": {
+                                                        transform: "translateY(-6px)",
+                                                        boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
+                                                    },
                                                 }}
-                                            />
-                                            <Box sx={{
-                                                p: 3,
-                                                textAlign: "left",
-                                                flex: 1,
-                                                display: 'flex',
-                                                flexDirection: 'column',
-                                                justifyContent: 'space-between'
-                                            }}>
-                                                <Typography
-                                                    variant="h6"
-                                                    fontWeight={600}
-                                                    color="text.primary"
+                                            >
+                                                <Box
+                                                    component="img"
+                                                    src={countertop.image}
+                                                    alt={countertop.title}
                                                     sx={{
-                                                        mb: 1,
-                                                        textAlign: "left",
-                                                        fontSize: '1.1rem',
-                                                        fontFamily: theme.typography.fontFamily,
-                                                        wordWrap: 'break-word',
-                                                        overflowWrap: 'break-word',
-                                                        hyphens: 'auto',
-                                                        lineHeight: 1.3
+                                                        height: 200,
+                                                        width: "100%",
+                                                        objectFit: "cover",
                                                     }}
-                                                >
-                                                    {countertop.title}
-                                                </Typography>
-                                                <Typography
-                                                    variant="body2"
-                                                    color="text.secondary"
-                                                    sx={{
-                                                        lineHeight: 1.6,
-                                                        textAlign: "left",
-                                                        fontSize: '0.95rem',
-                                                        fontFamily: theme.typography.fontFamily,
-                                                        wordWrap: 'break-word',
-                                                        overflowWrap: 'break-word',
-                                                        hyphens: 'auto',
-                                                        flex: 1
-                                                    }}
-                                                >
-                                                    {countertop.description}
-                                                </Typography>
+                                                />
+                                                <Box sx={{
+                                                    p: 2.5,
+                                                    textAlign: "left",
+                                                    flex: 1,
+                                                    display: 'flex',
+                                                    flexDirection: 'column',
+                                                    justifyContent: 'space-between'
+                                                }}>
+                                                    <Typography
+                                                        variant="h6"
+                                                        fontWeight={600}
+                                                        color="text.primary"
+                                                        sx={{
+                                                            mb: 1,
+                                                            textAlign: "left",
+                                                            fontSize: '1rem',
+                                                            fontFamily: theme.typography.fontFamily,
+                                                            wordWrap: 'break-word',
+                                                            overflowWrap: 'break-word',
+                                                            hyphens: 'auto',
+                                                            lineHeight: 1.3
+                                                        }}
+                                                    >
+                                                        {countertop.title}
+                                                    </Typography>
+                                                    <Typography
+                                                        variant="body2"
+                                                        color="text.secondary"
+                                                        sx={{
+                                                            lineHeight: 1.5,
+                                                            textAlign: "left",
+                                                            fontSize: '0.9rem',
+                                                            fontFamily: theme.typography.fontFamily,
+                                                            wordWrap: 'break-word',
+                                                            overflowWrap: 'break-word',
+                                                            hyphens: 'auto',
+                                                            flex: 1
+                                                        }}
+                                                    >
+                                                        {countertop.description}
+                                                    </Typography>
+                                                </Box>
                                             </Box>
                                         </Box>
-                                    </Box>
+                                    ))}
+                                </Box>
+                            </Box>
+
+                            {/* Mobile Navigation Arrows */}
+                            <IconButton
+                                onClick={handlePrevSlide}
+                                sx={{
+                                    position: 'absolute',
+                                    left: 8,
+                                    top: '50%',
+                                    transform: 'translateY(-50%)',
+                                    backgroundColor: 'white',
+                                    color: theme.palette.text.primary,
+                                    width: '40px',
+                                    height: '40px',
+                                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                                    zIndex: 3,
+                                    '&:hover': {
+                                        backgroundColor: '#f5f5f5',
+                                        transform: 'translateY(-50%) scale(1.05)',
+                                    },
+                                }}
+                            >
+                                <ArrowBackIosIcon fontSize="small" />
+                            </IconButton>
+
+                            <IconButton
+                                onClick={handleNextSlide}
+                                sx={{
+                                    position: 'absolute',
+                                    right: 8,
+                                    top: '50%',
+                                    transform: 'translateY(-50%)',
+                                    backgroundColor: 'white',
+                                    color: theme.palette.text.primary,
+                                    width: '40px',
+                                    height: '40px',
+                                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                                    zIndex: 3,
+                                    '&:hover': {
+                                        backgroundColor: '#f5f5f5',
+                                        transform: 'translateY(-50%) scale(1.05)',
+                                    },
+                                }}
+                            >
+                                <ArrowForwardIosIcon fontSize="small" />
+                            </IconButton>
+
+                            {/* Mobile Dots Indicator */}
+                            <Box sx={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                mt: 2,
+                                gap: 1
+                            }}>
+                                {countertopsData.map((_, index) => (
+                                    <Box
+                                        key={index}
+                                        onClick={() => setCurrentSlide(index)}
+                                        sx={{
+                                            width: 8,
+                                            height: 8,
+                                            borderRadius: '50%',
+                                            backgroundColor: index === currentSlide
+                                                ? theme.palette.primary.main
+                                                : theme.palette.grey[300],
+                                            cursor: 'pointer',
+                                            transition: 'background-color 0.3s ease',
+                                            '&:hover': {
+                                                backgroundColor: theme.palette.primary.main,
+                                            }
+                                        }}
+                                    />
                                 ))}
                             </Box>
                         </Box>
-
-
                     </Box>
                 </Box>
 
@@ -1370,7 +1689,7 @@ function AestheticsSection() {
                         </Typography>
                         <Button
                             variant="text"
-                            onClick={() => navigate("/kitchen-handles")}
+                            onClick={() => navigate("/kitchen/components/handles")}
                             sx={{
                                 color: theme.palette.primary.main,
                                 textTransform: "none",
@@ -1389,101 +1708,259 @@ function AestheticsSection() {
 
                     {/* Carousel Container */}
                     <Box sx={{ position: 'relative' }}>
+                        {/* Desktop Grid View */}
                         <Box sx={{
-                            display: 'flex',
-                            overflow: 'hidden',
-                            borderRadius: '12px'
+                            display: { xs: 'none', md: 'grid' },
+                            gridTemplateColumns: 'repeat(3, 1fr)',
+                            gap: 3,
+                            justifyContent: "center"
+                        }}>
+                            {handlesData.map((handle) => (
+                                <Box
+                                    key={handle.id}
+                                    sx={{
+                                        borderRadius: 4,
+                                        boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+                                        overflow: "hidden",
+                                        backgroundColor: theme.palette.background.paper,
+                                        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                                        height: '400px',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        "&:hover": {
+                                            transform: "translateY(-6px)",
+                                            boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
+                                        },
+                                    }}
+                                >
+                                    <Box
+                                        component="img"
+                                        src={handle.image}
+                                        alt={handle.title}
+                                        sx={{
+                                            height: 240,
+                                            width: "100%",
+                                            objectFit: "cover",
+                                        }}
+                                    />
+                                    <Box sx={{
+                                        p: 3,
+                                        textAlign: "left",
+                                        flex: 1,
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        justifyContent: 'space-between'
+                                    }}>
+                                        <Typography
+                                            variant="h6"
+                                            fontWeight={600}
+                                            color="text.primary"
+                                            sx={{
+                                                mb: 1,
+                                                textAlign: "left",
+                                                fontSize: '1.1rem',
+                                                fontFamily: theme.typography.fontFamily,
+                                                wordWrap: 'break-word',
+                                                overflowWrap: 'break-word',
+                                                hyphens: 'auto',
+                                                lineHeight: 1.3
+                                            }}
+                                        >
+                                            {handle.title}
+                                        </Typography>
+                                        <Typography
+                                            variant="body2"
+                                            color="text.secondary"
+                                            sx={{
+                                                lineHeight: 1.6,
+                                                textAlign: "left",
+                                                fontSize: '0.95rem',
+                                                fontFamily: theme.typography.fontFamily,
+                                                wordWrap: 'break-word',
+                                                overflowWrap: 'break-word',
+                                                hyphens: 'auto',
+                                                flex: 1
+                                            }}
+                                        >
+                                            {handle.description}
+                                        </Typography>
+                                    </Box>
+                                </Box>
+                            ))}
+                        </Box>
+
+                        {/* Mobile Slider View */}
+                        <Box sx={{
+                            display: { xs: 'block', md: 'none' },
+                            position: 'relative'
                         }}>
                             <Box sx={{
                                 display: 'flex',
-                                transform: `translateX(-${currentSlide * 100}%)`,
-                                transition: 'transform 0.3s ease-in-out',
-                                width: `${handlesData.length * 100}%`
+                                overflow: 'hidden',
+                                borderRadius: '12px'
                             }}>
-                                {handlesData.map((handle) => (
-                                    <Box
-                                        key={handle.id}
-                                        sx={{
-                                            width: `${100 / handlesData.length}%`,
-                                            flexShrink: 0,
-                                            px: 1
-                                        }}
-                                    >
+                                <Box sx={{
+                                    display: 'flex',
+                                    transform: `translateX(-${currentSlide * 100}%)`,
+                                    transition: 'transform 0.3s ease-in-out',
+                                    width: `${handlesData.length * 100}%`
+                                }}>
+                                    {handlesData.map((handle) => (
                                         <Box
+                                            key={handle.id}
                                             sx={{
-                                                borderRadius: 4,
-                                                boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
-                                                overflow: "hidden",
-                                                backgroundColor: theme.palette.background.paper,
-                                                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                                                height: '400px',
-                                                display: 'flex',
-                                                flexDirection: 'column',
-                                                "&:hover": {
-                                                    transform: "translateY(-6px)",
-                                                    boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
-                                                },
+                                                width: '100%',
+                                                flexShrink: 0,
+                                                px: 1
                                             }}
                                         >
                                             <Box
-                                                component="img"
-                                                src={handle.image}
-                                                alt={handle.title}
                                                 sx={{
-                                                    height: 240,
-                                                    width: "100%",
-                                                    objectFit: "cover",
+                                                    borderRadius: 4,
+                                                    boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+                                                    overflow: "hidden",
+                                                    backgroundColor: theme.palette.background.paper,
+                                                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                                                    height: '350px',
+                                                    display: 'flex',
+                                                    flexDirection: 'column',
+                                                    "&:hover": {
+                                                        transform: "translateY(-6px)",
+                                                        boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
+                                                    },
                                                 }}
-                                            />
-                                            <Box sx={{
-                                                p: 3,
-                                                textAlign: "left",
-                                                flex: 1,
-                                                display: 'flex',
-                                                flexDirection: 'column',
-                                                justifyContent: 'space-between'
-                                            }}>
-                                                <Typography
-                                                    variant="h6"
-                                                    fontWeight={600}
-                                                    color="text.primary"
+                                            >
+                                                <Box
+                                                    component="img"
+                                                    src={handle.image}
+                                                    alt={handle.title}
                                                     sx={{
-                                                        mb: 1,
-                                                        textAlign: "left",
-                                                        fontSize: '1.1rem',
-                                                        fontFamily: theme.typography.fontFamily,
-                                                        wordWrap: 'break-word',
-                                                        overflowWrap: 'break-word',
-                                                        hyphens: 'auto',
-                                                        lineHeight: 1.3
+                                                        height: 200,
+                                                        width: "100%",
+                                                        objectFit: "cover",
                                                     }}
-                                                >
-                                                    {handle.title}
-                                                </Typography>
-                                                <Typography
-                                                    variant="body2"
-                                                    color="text.secondary"
-                                                    sx={{
-                                                        lineHeight: 1.6,
-                                                        textAlign: "left",
-                                                        fontSize: '0.95rem',
-                                                        fontFamily: theme.typography.fontFamily,
-                                                        wordWrap: 'break-word',
-                                                        overflowWrap: 'break-word',
-                                                        hyphens: 'auto',
-                                                        flex: 1
-                                                    }}
-                                                >
-                                                    {handle.description}
-                                                </Typography>
+                                                />
+                                                <Box sx={{
+                                                    p: 2.5,
+                                                    textAlign: "left",
+                                                    flex: 1,
+                                                    display: 'flex',
+                                                    flexDirection: 'column',
+                                                    justifyContent: 'space-between'
+                                                }}>
+                                                    <Typography
+                                                        variant="h6"
+                                                        fontWeight={600}
+                                                        color="text.primary"
+                                                        sx={{
+                                                            mb: 1,
+                                                            textAlign: "left",
+                                                            fontSize: '1rem',
+                                                            fontFamily: theme.typography.fontFamily,
+                                                            wordWrap: 'break-word',
+                                                            overflowWrap: 'break-word',
+                                                            hyphens: 'auto',
+                                                            lineHeight: 1.3
+                                                        }}
+                                                    >
+                                                        {handle.title}
+                                                    </Typography>
+                                                    <Typography
+                                                        variant="body2"
+                                                        color="text.secondary"
+                                                        sx={{
+                                                            lineHeight: 1.5,
+                                                            textAlign: "left",
+                                                            fontSize: '0.9rem',
+                                                            fontFamily: theme.typography.fontFamily,
+                                                            wordWrap: 'break-word',
+                                                            overflowWrap: 'break-word',
+                                                            hyphens: 'auto',
+                                                            flex: 1
+                                                        }}
+                                                    >
+                                                        {handle.description}
+                                                    </Typography>
+                                                </Box>
                                             </Box>
                                         </Box>
-                                    </Box>
+                                    ))}
+                                </Box>
+                            </Box>
+
+                            {/* Mobile Navigation Arrows */}
+                            <IconButton
+                                onClick={handlePrevSlide}
+                                sx={{
+                                    position: 'absolute',
+                                    left: 8,
+                                    top: '50%',
+                                    transform: 'translateY(-50%)',
+                                    backgroundColor: 'white',
+                                    color: theme.palette.text.primary,
+                                    width: '40px',
+                                    height: '40px',
+                                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                                    zIndex: 3,
+                                    '&:hover': {
+                                        backgroundColor: '#f5f5f5',
+                                        transform: 'translateY(-50%) scale(1.05)',
+                                    },
+                                }}
+                            >
+                                <ArrowBackIosIcon fontSize="small" />
+                            </IconButton>
+
+                            <IconButton
+                                onClick={handleNextSlide}
+                                sx={{
+                                    position: 'absolute',
+                                    right: 8,
+                                    top: '50%',
+                                    transform: 'translateY(-50%)',
+                                    backgroundColor: 'white',
+                                    color: theme.palette.text.primary,
+                                    width: '40px',
+                                    height: '40px',
+                                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                                    zIndex: 3,
+                                    '&:hover': {
+                                        backgroundColor: '#f5f5f5',
+                                        transform: 'translateY(-50%) scale(1.05)',
+                                    },
+                                }}
+                            >
+                                <ArrowForwardIosIcon fontSize="small" />
+                            </IconButton>
+
+                            {/* Mobile Dots Indicator */}
+                            <Box sx={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                mt: 2,
+                                gap: 1
+                            }}>
+                                {handlesData.map((_, index) => (
+                                    <Box
+                                        key={index}
+                                        onClick={() => setCurrentSlide(index)}
+                                        sx={{
+                                            width: 8,
+                                            height: 8,
+                                            borderRadius: '50%',
+                                            backgroundColor: index === currentSlide
+                                                ? theme.palette.primary.main
+                                                : theme.palette.grey[300],
+                                            cursor: 'pointer',
+                                            transition: 'background-color 0.3s ease',
+                                            '&:hover': {
+                                                backgroundColor: theme.palette.primary.main,
+                                            }
+                                        }}
+                                    />
                                 ))}
                             </Box>
                         </Box>
-
-
                     </Box>
                 </Box>
             </Container>
@@ -1533,7 +2010,7 @@ function KitchenDesignSteps() {
                     variant="h4"
                     sx={{
                         fontWeight: 700,
-                        mb: 1,
+                        mb: 5,
                         color: theme.palette.text.primary,
                         fontSize: { xs: "1.8rem", md: "2.2rem" },
                         fontFamily: theme.typography.fontFamily,
@@ -1543,18 +2020,7 @@ function KitchenDesignSteps() {
                     Design your kitchen in 4 simple steps
                 </Typography>
 
-                <Typography
-                    variant="subtitle1"
-                    sx={{
-                        color: theme.palette.text.secondary,
-                        mb: 6,
-                        fontSize: "1.1rem",
-                        fontFamily: theme.typography.fontFamily,
-                        textAlign: "left"
-                    }}
-                >
-                    It's that simple and convenient!
-                </Typography>
+
 
                 {/* Steps */}
                 <Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" }, gap: 4, justifyContent: "center", alignItems: "stretch" }}>
@@ -1627,28 +2093,29 @@ function KitchenDesignSteps() {
                 </Box>
 
                 {/* Button */}
-                <Button
-                    variant="contained"
-                    size="large"
-                    onClick={() => navigate("/price-calculators/kitchen")}
-                    sx={{
-                        backgroundColor: theme.palette.primary.main,
-                        color: theme.palette.primary.contrastText,
-                        textTransform: "none",
-                        fontWeight: 600,
-                        borderRadius: 10,
-                        px: 4,
-                        py: 1.5,
-                        mt: 6,
-                        fontFamily: theme.typography.fontFamily,
-                        "&:hover": {
-                            backgroundColor: theme.palette.primary.dark,
-                            transform: "translateY(-2px)",
-                        },
-                    }}
-                >
-                    Get Free Kitchen Estimate
-                </Button>
+                <Box sx={{ display: 'flex', justifyContent: 'center', mt: 6 }}>
+                    <Button
+                        variant="contained"
+                        size="large"
+                        onClick={() => navigate("/price-calculators/kitchen")}
+                        sx={{
+                            backgroundColor: theme.palette.primary.main,
+                            color: theme.palette.primary.contrastText,
+                            textTransform: "none",
+                            fontWeight: 600,
+                            borderRadius: 10,
+                            px: 4,
+                            py: 1.5,
+                            fontFamily: theme.typography.fontFamily,
+                            "&:hover": {
+                                backgroundColor: theme.palette.primary.dark,
+                                transform: "translateY(-2px)",
+                            },
+                        }}
+                    >
+                        Get Free Kitchen Estimate
+                    </Button>
+                </Box>
             </Container>
         </Box>
     );

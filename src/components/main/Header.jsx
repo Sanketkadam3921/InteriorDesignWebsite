@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
     AppBar,
@@ -13,11 +13,6 @@ import {
     List,
     ListItem,
     ListItemText,
-    Paper,
-    Grid,
-    Card,
-    CardContent,
-    CardMedia,
     Collapse,
     ListItemButton,
     Divider,
@@ -34,17 +29,15 @@ import { DownOutlined } from "@ant-design/icons";
 
 export default function Header() {
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [offeringsOpen, setOfferingsOpen] = useState(false);
-    const [expandedSections, setExpandedSections] = useState({});
     const [mobileOfferingsOpen, setMobileOfferingsOpen] = useState(false);
     const [mobilePriceCalcOpen, setMobilePriceCalcOpen] = useState(false);
+    const [expandedSections, setExpandedSections] = useState({});
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     const location = useLocation();
     const navigate = useNavigate();
 
     const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
-    const handleOfferingsToggle = () => setOfferingsOpen(!offeringsOpen);
 
     const handleSectionToggle = (section) => {
         setExpandedSections(prev => ({
@@ -145,14 +138,6 @@ export default function Header() {
         { label: "Contact", path: "/contact" },
         { label: "About Us", path: "/aboutus" },
     ];
-
-    useEffect(() => {
-        if (location.pathname === '/offerings') {
-            setOfferingsOpen(true);
-        } else {
-            setOfferingsOpen(false);
-        }
-    }, [location.pathname]);
 
     const handleMobileNavClick = (path) => {
         navigate(path);
@@ -264,22 +249,35 @@ export default function Header() {
                     <ListItemButton
                         onClick={() => setMobileOfferingsOpen(!mobileOfferingsOpen)}
                         sx={{
-                            borderRadius: 1,
                             mb: 0.5,
-                            backgroundColor: location.pathname === '/offerings' ? '#f0f0f0' : 'transparent',
-                            '&:hover': { backgroundColor: '#f5f5f5' }
+                            border: "none", // ✅ ensures no visible edge
+                            outline: "none", // ✅ removes focus outlines
+                            boxShadow: "none", // ✅ removes elevation shadows
+                            backgroundColor:
+                                location.pathname === "/offerings" ? "#f0f0f0" : "transparent",
+                            borderRadius: 1.5,
+                            "&:hover": {
+                                backgroundColor: "#f5f5f5",
+                                boxShadow: "none",
+                            },
+                            "&:focus": {
+                                outline: "none",
+                                boxShadow: "none",
+                            },
+                            "&::before": { display: "none" }, // ✅ in case ListItemButton adds pseudo-element borders
                         }}
                     >
                         <ListItemText
                             primary="Offerings"
                             primaryTypographyProps={{
-                                fontWeight: location.pathname === '/offerings' ? 'bold' : '500',
-                                color: location.pathname === '/offerings' ? '#1976d2' : '#333'
+                                fontWeight: location.pathname === "/offerings" ? "bold" : 500,
+                                color: location.pathname === "/offerings" ? "#1976d2" : "#333",
                             }}
                         />
                         {mobileOfferingsOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                     </ListItemButton>
                 </ListItem>
+
 
                 <Collapse in={mobileOfferingsOpen} timeout="auto" unmountOnExit>
                     <Box sx={{ pl: 2, pr: 1 }}>
@@ -287,7 +285,7 @@ export default function Header() {
                             EXPLORE OFFERINGS
                         </Typography>
                         {offeringsData.exploreOfferings.map((offering, index) => (
-                            <Card
+                            <Box
                                 key={index}
                                 onClick={() => handleMobileNavClick(offering.path)}
                                 sx={{
@@ -295,57 +293,149 @@ export default function Header() {
                                     cursor: 'pointer',
                                     display: 'flex',
                                     height: '70px',
+                                    borderRadius: 1,
+                                    backgroundColor: '#fff',
                                     boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
                                     '&:hover': { boxShadow: '0 4px 12px rgba(0,0,0,0.12)' }
                                 }}
                             >
-                                <CardMedia
+                                <Box
                                     component="img"
-                                    sx={{ width: '60px', objectFit: 'cover' }}
-                                    image={offering.image}
+                                    sx={{ width: '60px', height: '60px', objectFit: 'cover', borderRadius: '8px 0 0 8px' }}
+                                    src={offering.image}
                                     alt={offering.title}
                                 />
-                                <CardContent sx={{ p: 1.5, flex: 1 }}>
-                                    <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: '0.85rem' }}>
+                                <Box sx={{ p: 1.5, flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                                    <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: '0.85rem', mb: 0.5 }}>
                                         {offering.title}
                                     </Typography>
                                     <Typography variant="caption" sx={{ color: '#666', fontSize: '0.75rem' }}>
                                         {offering.subtitle}
                                     </Typography>
-                                </CardContent>
-                            </Card>
+                                </Box>
+                            </Box>
                         ))}
 
                         <Typography variant="caption" sx={{ color: '#666', fontWeight: 'bold', display: 'block', mb: 1, mt: 2 }}>
                             KITCHEN
                         </Typography>
                         {offeringsData.kitchen.map((item, index) => (
-                            <ListItemButton
-                                key={index}
-                                onClick={() => handleMobileNavClick(item.path)}
-                                sx={{ borderRadius: 1, py: 0.8, pl: 1 }}
-                            >
-                                <ListItemText
-                                    primary={item.label}
-                                    primaryTypographyProps={{ fontSize: '0.85rem' }}
-                                />
-                            </ListItemButton>
+                            <Box key={index} sx={{ mb: 0.5 }}>
+                                <ListItemButton
+                                    component={item.hasSubmenu ? 'div' : Link}
+                                    to={item.hasSubmenu ? undefined : item.path}
+                                    onClick={item.hasSubmenu ? () => handleSectionToggle(`mobile-kitchen-${index}`) : () => handleMobileNavClick(item.path)}
+                                    sx={{
+                                        borderRadius: 1,
+                                        py: 0.8,
+                                        pl: 1,
+                                        display: 'flex',
+                                        justifyContent: 'space-between',
+                                        alignItems: 'center'
+                                    }}
+                                >
+                                    <ListItemText
+                                        primary={item.label}
+                                        primaryTypographyProps={{ fontSize: '0.85rem' }}
+                                    />
+                                    {item.hasSubmenu && (
+                                        expandedSections[`mobile-kitchen-${index}`] ?
+                                            <ExpandLessIcon fontSize="small" /> :
+                                            <ExpandMoreIcon fontSize="small" />
+                                    )}
+                                </ListItemButton>
+
+                                {/* Suboptions */}
+                                {item.hasSubmenu && item.suboptions && (
+                                    <Collapse in={expandedSections[`mobile-kitchen-${index}`]} timeout="auto" unmountOnExit>
+                                        <Box sx={{ pl: 2 }}>
+                                            {item.suboptions.map((suboption, subIndex) => (
+                                                <ListItemButton
+                                                    key={subIndex}
+                                                    component={Link}
+                                                    to={suboption.path}
+                                                    onClick={() => handleMobileNavClick(suboption.path)}
+                                                    sx={{
+                                                        borderRadius: 1,
+                                                        py: 0.5,
+                                                        pl: 2,
+                                                        backgroundColor: location.pathname === suboption.path ? '#e3f2fd' : 'transparent'
+                                                    }}
+                                                >
+                                                    <ListItemText
+                                                        primary={suboption.label}
+                                                        primaryTypographyProps={{
+                                                            fontSize: '0.8rem',
+                                                            color: location.pathname === suboption.path ? '#1976d2' : '#666'
+                                                        }}
+                                                    />
+                                                </ListItemButton>
+                                            ))}
+                                        </Box>
+                                    </Collapse>
+                                )}
+                            </Box>
                         ))}
 
                         <Typography variant="caption" sx={{ color: '#666', fontWeight: 'bold', display: 'block', mb: 1, mt: 2 }}>
                             WARDROBE
                         </Typography>
                         {offeringsData.wardrobe.map((item, index) => (
-                            <ListItemButton
-                                key={index}
-                                onClick={() => handleMobileNavClick(item.path)}
-                                sx={{ borderRadius: 1, py: 0.8, pl: 1 }}
-                            >
-                                <ListItemText
-                                    primary={item.label}
-                                    primaryTypographyProps={{ fontSize: '0.85rem' }}
-                                />
-                            </ListItemButton>
+                            <Box key={index} sx={{ mb: 0.5 }}>
+                                <ListItemButton
+                                    component={item.hasSubmenu ? 'div' : Link}
+                                    to={item.hasSubmenu ? undefined : item.path}
+                                    onClick={item.hasSubmenu ? () => handleSectionToggle(`mobile-wardrobe-${index}`) : () => handleMobileNavClick(item.path)}
+                                    sx={{
+                                        borderRadius: 1,
+                                        py: 0.8,
+                                        pl: 1,
+                                        display: 'flex',
+                                        justifyContent: 'space-between',
+                                        alignItems: 'center'
+                                    }}
+                                >
+                                    <ListItemText
+                                        primary={item.label}
+                                        primaryTypographyProps={{ fontSize: '0.85rem' }}
+                                    />
+                                    {item.hasSubmenu && (
+                                        expandedSections[`mobile-wardrobe-${index}`] ?
+                                            <ExpandLessIcon fontSize="small" /> :
+                                            <ExpandMoreIcon fontSize="small" />
+                                    )}
+                                </ListItemButton>
+
+                                {/* Suboptions */}
+                                {item.hasSubmenu && item.suboptions && (
+                                    <Collapse in={expandedSections[`mobile-wardrobe-${index}`]} timeout="auto" unmountOnExit>
+                                        <Box sx={{ pl: 2 }}>
+                                            {item.suboptions.map((suboption, subIndex) => (
+                                                <ListItemButton
+                                                    key={subIndex}
+                                                    component={Link}
+                                                    to={suboption.path}
+                                                    onClick={() => handleMobileNavClick(suboption.path)}
+                                                    sx={{
+                                                        borderRadius: 1,
+                                                        py: 0.5,
+                                                        pl: 2,
+                                                        backgroundColor: location.pathname === suboption.path ? '#e3f2fd' : 'transparent'
+                                                    }}
+                                                >
+                                                    <ListItemText
+                                                        primary={suboption.label}
+                                                        primaryTypographyProps={{
+                                                            fontSize: '0.8rem',
+                                                            color: location.pathname === suboption.path ? '#1976d2' : '#666'
+                                                        }}
+                                                    />
+                                                </ListItemButton>
+                                            ))}
+                                        </Box>
+                                    </Collapse>
+                                )}
+                            </Box>
                         ))}
                     </Box>
                 </Collapse>
@@ -722,28 +812,247 @@ export default function Header() {
                                             </Button>
                                         </Dropdown>
                                     ) : item.hasDropdown ? (
-                                        <Button
+                                        <Dropdown
                                             key={item.label}
-                                            onClick={handleOfferingsToggle}
-                                            sx={{
-                                                color: location.pathname === item.path ? theme.palette.primary.main : theme.palette.text.primary,
-                                                fontWeight: location.pathname === item.path ? 'bold' : '500',
-                                                mx: 2,
-                                                textTransform: 'none',
-                                                fontSize: '1rem',
-                                                '&:hover': { backgroundColor: theme.palette.action.hover },
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                gap: 0.5
-                                            }}
-                                        >
-                                            {item.label}
-                                            {offeringsOpen ? (
-                                                <ExpandLessIcon fontSize="small" />
-                                            ) : (
-                                                <ExpandMoreIcon fontSize="small" />
+                                            trigger={["hover"]}
+                                            getPopupContainer={() => document.body}
+                                            overlayStyle={{ zIndex: 9999 }}
+                                            dropdownRender={() => (
+                                                <Box
+                                                    sx={{
+                                                        display: "grid",
+                                                        gridTemplateColumns: "repeat(3, 1fr)",
+                                                        gap: 1,
+                                                        p: 2,
+                                                        backgroundColor: "#fff",
+                                                        borderRadius: 2,
+                                                        boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
+                                                        minWidth: 600,
+                                                    }}
+                                                >
+                                                    {/* Explore Offerings Section */}
+                                                    <Box sx={{ gridColumn: "1 / 2" }}>
+                                                        <Typography variant="overline" sx={{ color: '#666', fontWeight: 'bold', fontSize: '0.7rem', mb: 1, display: 'block' }}>
+                                                            EXPLORE OFFERINGS
+                                                        </Typography>
+                                                        {offeringsData.exploreOfferings.map((offering, index) => (
+                                                            <Box
+                                                                key={index}
+                                                                component={Link}
+                                                                to={offering.path}
+                                                                sx={{
+                                                                    textDecoration: "none",
+                                                                    color: theme.palette.text.primary,
+                                                                    fontSize: "0.9rem",
+                                                                    fontWeight: 400,
+                                                                    py: 0.8,
+                                                                    px: 1.5,
+                                                                    borderRadius: 1,
+                                                                    transition: "all 0.2s ease",
+                                                                    display: 'flex',
+                                                                    alignItems: 'center',
+                                                                    gap: 1,
+                                                                    mb: 1,
+                                                                    "&:hover": {
+                                                                        color: theme.palette.primary.main,
+                                                                        backgroundColor: theme.palette.action.hover,
+                                                                    },
+                                                                }}
+                                                            >
+                                                                <Box
+                                                                    component="img"
+                                                                    src={offering.image}
+                                                                    alt={offering.title}
+                                                                    sx={{
+                                                                        width: 30,
+                                                                        height: 30,
+                                                                        borderRadius: 0.5,
+                                                                        objectFit: 'cover'
+                                                                    }}
+                                                                />
+                                                                <Box>
+                                                                    <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: '0.85rem', lineHeight: 1.2 }}>
+                                                                        {offering.title}
+                                                                    </Typography>
+                                                                    <Typography variant="caption" sx={{ color: '#666', fontSize: '0.7rem', lineHeight: 1.2 }}>
+                                                                        {offering.subtitle}
+                                                                    </Typography>
+                                                                </Box>
+                                                            </Box>
+                                                        ))}
+                                                    </Box>
+
+                                                    {/* Kitchen Section */}
+                                                    <Box sx={{ gridColumn: "2 / 3" }}>
+                                                        <Typography variant="overline" sx={{ color: '#666', fontWeight: 'bold', fontSize: '0.7rem', mb: 1, display: 'block' }}>
+                                                            KITCHEN
+                                                        </Typography>
+                                                        {offeringsData.kitchen.map((item, index) => (
+                                                            <Box key={index} sx={{ mb: 0.5 }}>
+                                                                <Box
+                                                                    component={item.hasSubmenu ? 'div' : Link}
+                                                                    to={item.hasSubmenu ? undefined : item.path}
+                                                                    onClick={item.hasSubmenu ? () => handleSectionToggle(`kitchen-${index}`) : undefined}
+                                                                    sx={{
+                                                                        textDecoration: "none",
+                                                                        color: theme.palette.text.primary,
+                                                                        fontSize: "0.9rem",
+                                                                        fontWeight: 400,
+                                                                        py: 0.8,
+                                                                        px: 1.5,
+                                                                        borderRadius: 1,
+                                                                        transition: "all 0.2s ease",
+                                                                        display: 'flex',
+                                                                        alignItems: 'center',
+                                                                        justifyContent: 'space-between',
+                                                                        cursor: item.hasSubmenu ? 'pointer' : 'default',
+                                                                        "&:hover": {
+                                                                            color: theme.palette.primary.main,
+                                                                            backgroundColor: theme.palette.action.hover,
+                                                                        },
+                                                                    }}
+                                                                >
+                                                                    <span>{item.label}</span>
+                                                                    {item.hasSubmenu && (
+                                                                        expandedSections[`kitchen-${index}`] ?
+                                                                            <ExpandLessIcon fontSize="small" /> :
+                                                                            <ExpandMoreIcon fontSize="small" />
+                                                                    )}
+                                                                </Box>
+
+                                                                {/* Suboptions */}
+                                                                {item.hasSubmenu && item.suboptions && (
+                                                                    <Collapse in={expandedSections[`kitchen-${index}`]} timeout="auto" unmountOnExit>
+                                                                        <Box sx={{ pl: 2 }}>
+                                                                            {item.suboptions.map((suboption, subIndex) => (
+                                                                                <Box
+                                                                                    key={subIndex}
+                                                                                    component={Link}
+                                                                                    to={suboption.path}
+                                                                                    sx={{
+                                                                                        textDecoration: "none",
+                                                                                        color: theme.palette.text.secondary,
+                                                                                        fontSize: "0.8rem",
+                                                                                        fontWeight: 400,
+                                                                                        py: 0.5,
+                                                                                        px: 1.5,
+                                                                                        borderRadius: 1,
+                                                                                        transition: "all 0.2s ease",
+                                                                                        display: 'block',
+                                                                                        mb: 0.3,
+                                                                                        "&:hover": {
+                                                                                            color: theme.palette.primary.main,
+                                                                                            backgroundColor: theme.palette.action.hover,
+                                                                                        },
+                                                                                    }}
+                                                                                >
+                                                                                    {suboption.label}
+                                                                                </Box>
+                                                                            ))}
+                                                                        </Box>
+                                                                    </Collapse>
+                                                                )}
+                                                            </Box>
+                                                        ))}
+                                                    </Box>
+
+                                                    {/* Wardrobe Section */}
+                                                    <Box sx={{ gridColumn: "3 / 4" }}>
+                                                        <Typography variant="overline" sx={{ color: '#666', fontWeight: 'bold', fontSize: '0.7rem', mb: 1, display: 'block' }}>
+                                                            WARDROBE
+                                                        </Typography>
+                                                        {offeringsData.wardrobe.map((item, index) => (
+                                                            <Box key={index} sx={{ mb: 0.5 }}>
+                                                                <Box
+                                                                    component={item.hasSubmenu ? 'div' : Link}
+                                                                    to={item.hasSubmenu ? undefined : item.path}
+                                                                    onClick={item.hasSubmenu ? () => handleSectionToggle(`wardrobe-${index}`) : undefined}
+                                                                    sx={{
+                                                                        textDecoration: "none",
+                                                                        color: theme.palette.text.primary,
+                                                                        fontSize: "0.9rem",
+                                                                        fontWeight: 400,
+                                                                        py: 0.8,
+                                                                        px: 1.5,
+                                                                        borderRadius: 1,
+                                                                        transition: "all 0.2s ease",
+                                                                        display: 'flex',
+                                                                        alignItems: 'center',
+                                                                        justifyContent: 'space-between',
+                                                                        cursor: item.hasSubmenu ? 'pointer' : 'default',
+                                                                        "&:hover": {
+                                                                            color: theme.palette.primary.main,
+                                                                            backgroundColor: theme.palette.action.hover,
+                                                                        },
+                                                                    }}
+                                                                >
+                                                                    <span>{item.label}</span>
+                                                                    {item.hasSubmenu && (
+                                                                        expandedSections[`wardrobe-${index}`] ?
+                                                                            <ExpandLessIcon fontSize="small" /> :
+                                                                            <ExpandMoreIcon fontSize="small" />
+                                                                    )}
+                                                                </Box>
+
+                                                                {/* Suboptions */}
+                                                                {item.hasSubmenu && item.suboptions && (
+                                                                    <Collapse in={expandedSections[`wardrobe-${index}`]} timeout="auto" unmountOnExit>
+                                                                        <Box sx={{ pl: 2 }}>
+                                                                            {item.suboptions.map((suboption, subIndex) => (
+                                                                                <Box
+                                                                                    key={subIndex}
+                                                                                    component={Link}
+                                                                                    to={suboption.path}
+                                                                                    sx={{
+                                                                                        textDecoration: "none",
+                                                                                        color: theme.palette.text.secondary,
+                                                                                        fontSize: "0.8rem",
+                                                                                        fontWeight: 400,
+                                                                                        py: 0.5,
+                                                                                        px: 1.5,
+                                                                                        borderRadius: 1,
+                                                                                        transition: "all 0.2s ease",
+                                                                                        display: 'block',
+                                                                                        mb: 0.3,
+                                                                                        "&:hover": {
+                                                                                            color: theme.palette.primary.main,
+                                                                                            backgroundColor: theme.palette.action.hover,
+                                                                                        },
+                                                                                    }}
+                                                                                >
+                                                                                    {suboption.label}
+                                                                                </Box>
+                                                                            ))}
+                                                                        </Box>
+                                                                    </Collapse>
+                                                                )}
+                                                            </Box>
+                                                        ))}
+                                                    </Box>
+                                                </Box>
                                             )}
-                                        </Button>
+                                        >
+                                            <Button
+                                                type="text"
+                                                onClick={() => navigate(item.path)}
+                                                style={{
+                                                    fontWeight: location.pathname.startsWith(item.path)
+                                                        ? "bold"
+                                                        : "500",
+                                                    color: location.pathname.startsWith(item.path)
+                                                        ? theme.palette.primary.main
+                                                        : theme.palette.text.primary,
+                                                    fontSize: "1rem",
+                                                    padding: "8px 16px",
+                                                    borderRadius: 4,
+                                                }}
+                                            >
+                                                <Space>
+                                                    {item.label}
+                                                    <DownOutlined style={{ fontSize: "12px", marginLeft: 4 }} />
+                                                </Space>
+                                            </Button>
+                                        </Dropdown>
                                     ) : (
                                         <Box
                                             key={item.label}
@@ -770,225 +1079,6 @@ export default function Header() {
                                     )
                                 )}
 
-                                {/* Offerings Dropdown - Desktop */}
-                                {offeringsOpen && (
-                                    <Paper
-                                        sx={{
-                                            position: 'absolute',
-                                            top: '100%',
-                                            left: '50%',
-                                            transform: 'translateX(-50%)',
-                                            mt: 1,
-                                            width: '90vw',
-                                            maxWidth: '1200px',
-                                            borderRadius: 2,
-                                            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
-                                            zIndex: 1300,
-                                            overflow: 'hidden'
-                                        }}
-                                        onMouseLeave={() => setOfferingsOpen(false)}
-                                    >
-                                        <Box sx={{ p: 4 }}>
-                                            <Grid container spacing={4}>
-                                                <Grid item xs={12} md={6}>
-                                                    <Typography variant="overline" sx={{ color: '#666', fontWeight: 'bold' }}>
-                                                        EXPLORE OFFERINGS
-                                                    </Typography>
-                                                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, mt: 1 }}>
-                                                        {offeringsData.exploreOfferings.map((offering, index) => (
-                                                            <Card
-                                                                key={index}
-                                                                component={Link}
-                                                                to={offering.path}
-                                                                sx={{
-                                                                    textDecoration: 'none',
-                                                                    height: '80px',
-                                                                    display: 'flex',
-                                                                    flexDirection: 'row',
-                                                                    alignItems: 'center',
-                                                                    transition: 'transform 0.2s ease-in-out',
-                                                                    '&:hover': {
-                                                                        transform: 'translateY(-2px)',
-                                                                        boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
-                                                                    }
-                                                                }}
-                                                            >
-                                                                <CardMedia
-                                                                    component="img"
-                                                                    sx={{
-                                                                        width: '60px',
-                                                                        height: '60px',
-                                                                        objectFit: 'cover',
-                                                                        borderRadius: 1,
-                                                                        ml: 1.5
-                                                                    }}
-                                                                    image={offering.image}
-                                                                    alt={offering.title}
-                                                                />
-                                                                <CardContent sx={{ p: 1.5, flex: 1 }}>
-                                                                    <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>
-                                                                        {offering.title}
-                                                                    </Typography>
-                                                                    <Typography variant="body2" sx={{ color: '#666' }}>
-                                                                        {offering.subtitle}
-                                                                    </Typography>
-                                                                </CardContent>
-                                                            </Card>
-                                                        ))}
-                                                    </Box>
-                                                </Grid>
-
-                                                <Grid item xs={12} md={3}>
-                                                    <Typography variant="overline" sx={{ color: '#666', fontWeight: 'bold' }}>
-                                                        KITCHEN
-                                                    </Typography>
-                                                    <List sx={{ p: 0 }}>
-                                                        {offeringsData.kitchen.map((item, index) => (
-                                                            <ListItem key={index} sx={{ p: 0, mb: 1 }}>
-                                                                <Box sx={{ width: '100%' }}>
-                                                                    <ListItemButton
-                                                                        component={item.hasSubmenu ? 'div' : Link}
-                                                                        to={item.hasSubmenu ? undefined : item.path}
-                                                                        onClick={item.hasSubmenu ? () => handleSectionToggle(`kitchen-${index}`) : undefined}
-                                                                        sx={{
-                                                                            borderRadius: 1,
-                                                                            '&:hover': {
-                                                                                backgroundColor: theme.palette.action.hover
-                                                                            }
-                                                                        }}
-                                                                    >
-                                                                        <ListItemText
-                                                                            primary={item.label}
-                                                                            sx={{
-                                                                                '& .MuiListItemText-primary': {
-                                                                                    fontSize: '0.9rem',
-                                                                                    color: 'text.primary'
-                                                                                }
-                                                                            }}
-                                                                        />
-                                                                        {item.hasSubmenu && (
-                                                                            expandedSections[`kitchen-${index}`] ?
-                                                                                <ExpandLessIcon fontSize="small" color="action" /> :
-                                                                                <ExpandMoreIcon fontSize="small" color="action" />
-                                                                        )}
-                                                                    </ListItemButton>
-
-                                                                    {/* Suboptions */}
-                                                                    {item.hasSubmenu && item.suboptions && (
-                                                                        <Collapse in={expandedSections[`kitchen-${index}`]} timeout="auto" unmountOnExit>
-                                                                            <List component="div" disablePadding sx={{ pl: 2 }}>
-                                                                                {item.suboptions.map((suboption, subIndex) => (
-                                                                                    <Box key={subIndex} sx={{ p: 0, mb: 0.5 }}>
-                                                                                        <ListItemButton
-                                                                                            component={Link}
-                                                                                            to={suboption.path}
-                                                                                            sx={{
-                                                                                                borderRadius: 1,
-                                                                                                py: 0.5,
-                                                                                                '&:hover': {
-                                                                                                    backgroundColor: theme.palette.action.hover
-                                                                                                }
-                                                                                            }}
-                                                                                        >
-                                                                                            <ListItemText
-                                                                                                primary={suboption.label}
-                                                                                                sx={{
-                                                                                                    '& .MuiListItemText-primary': {
-                                                                                                        fontSize: '0.8rem',
-                                                                                                        color: 'text.secondary',
-                                                                                                        pl: 1
-                                                                                                    }
-                                                                                                }}
-                                                                                            />
-                                                                                        </ListItemButton>
-                                                                                    </Box>
-                                                                                ))}
-                                                                            </List>
-                                                                        </Collapse>
-                                                                    )}
-                                                                </Box>
-                                                            </ListItem>
-                                                        ))}
-                                                    </List>
-                                                </Grid>
-
-                                                <Grid item xs={12} md={3}>
-                                                    <Typography variant="overline" sx={{ color: '#666', fontWeight: 'bold' }}>
-                                                        WARDROBE
-                                                    </Typography>
-                                                    <List sx={{ p: 0 }}>
-                                                        {offeringsData.wardrobe.map((item, index) => (
-                                                            <ListItem key={index} sx={{ p: 0, mb: 1 }}>
-                                                                <Box sx={{ width: '100%' }}>
-                                                                    <ListItemButton
-                                                                        component={item.hasSubmenu ? 'div' : Link}
-                                                                        to={item.hasSubmenu ? undefined : item.path}
-                                                                        onClick={item.hasSubmenu ? () => handleSectionToggle(`wardrobe-${index}`) : undefined}
-                                                                        sx={{
-                                                                            borderRadius: 1,
-                                                                            '&:hover': {
-                                                                                backgroundColor: theme.palette.action.hover
-                                                                            }
-                                                                        }}
-                                                                    >
-                                                                        <ListItemText
-                                                                            primary={item.label}
-                                                                            sx={{
-                                                                                '& .MuiListItemText-primary': {
-                                                                                    fontSize: '0.9rem',
-                                                                                    color: 'text.primary'
-                                                                                }
-                                                                            }}
-                                                                        />
-                                                                        {item.hasSubmenu && (
-                                                                            expandedSections[`wardrobe-${index}`] ?
-                                                                                <ExpandLessIcon fontSize="small" color="action" /> :
-                                                                                <ExpandMoreIcon fontSize="small" color="action" />
-                                                                        )}
-                                                                    </ListItemButton>
-
-                                                                    {/* Suboptions */}
-                                                                    {item.hasSubmenu && item.suboptions && (
-                                                                        <Collapse in={expandedSections[`wardrobe-${index}`]} timeout="auto" unmountOnExit>
-                                                                            <List component="div" disablePadding sx={{ pl: 2 }}>
-                                                                                {item.suboptions.map((suboption, subIndex) => (
-                                                                                    <Box key={subIndex} sx={{ p: 0, mb: 0.5 }}>
-                                                                                        <ListItemButton
-                                                                                            component={Link}
-                                                                                            to={suboption.path}
-                                                                                            sx={{
-                                                                                                borderRadius: 1,
-                                                                                                py: 0.5,
-                                                                                                '&:hover': {
-                                                                                                    backgroundColor: theme.palette.action.hover
-                                                                                                }
-                                                                                            }}
-                                                                                        >
-                                                                                            <ListItemText
-                                                                                                primary={suboption.label}
-                                                                                                sx={{
-                                                                                                    '& .MuiListItemText-primary': {
-                                                                                                        fontSize: '0.8rem',
-                                                                                                        color: 'text.secondary',
-                                                                                                        pl: 1
-                                                                                                    }
-                                                                                                }}
-                                                                                            />
-                                                                                        </ListItemButton>
-                                                                                    </Box>
-                                                                                ))}
-                                                                            </List>
-                                                                        </Collapse>
-                                                                    )}
-                                                                </Box>
-                                                            </ListItem>
-                                                        ))}
-                                                    </List>
-                                                </Grid>
-                                            </Grid>
-                                        </Box>
-                                    </Paper>
-                                )}
                             </Box>
                         </>
                     )}
