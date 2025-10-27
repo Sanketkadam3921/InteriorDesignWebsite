@@ -6,6 +6,7 @@ import HomeInspiration from './HomeInspiration';
 import WhyChooseUs from './WhyChoose'; // ✅ new component
 import Estimate from './Estimate';
 import ThemeTest from '../../common/ThemeTest';
+import Testimonials from './Testimonials';
 export default function HomePage() {
     return (
         <Box>
@@ -13,7 +14,10 @@ export default function HomePage() {
             <HomeServices />
             <HomeInspiration />
             <WhyChooseUs />   {/* ✅ add it here */}
+
             <Estimate />
+            <Testimonials />  {/* ✅ Add it here */}
+
         </Box>
     );
 }
