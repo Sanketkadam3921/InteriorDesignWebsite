@@ -15,26 +15,28 @@ import { useNavigate } from "react-router-dom"; // ✅ Import navigation hook
 // ✅ Image icons (you can replace these with your brand ones later)
 const estimateOptions = [
     {
-        id: "home", // ✅ changed from fullhome to match your route
+        id: "home",
         title: "Full Home Interior",
-        description: "Know the estimate price for your full home interiors",
+        description: "Know the estimated price for your full home interiors.",
         icon: "https://cdn-icons-png.flaticon.com/128/263/263115.png", // 🏠 Home icon
         path: "/price-calculators/home",
     },
     {
         id: "kitchen",
         title: "Kitchen",
-        description: "Get an approximate costing for your kitchen interior.",
+        description: "Get an approximate costing for your kitchen interior, tailored to your layout.",
         icon: "https://cdn-icons-png.flaticon.com/128/2851/2851928.png", // 🍳 Kitchen icon
         path: "/price-calculators/kitchen",
     },
     {
         id: "wardrobe",
         title: "Wardrobe",
-        description: "Our estimate for your dream wardrobe",
+        description: "Our estimate for your dream wardrobe design with modern storage options.",
         icon: "https://cdn-icons-png.flaticon.com/128/2337/2337984.png", // 🚪 Wardrobe icon
         path: "/price-calculators/wardrobe",
     },
+
+
 ];
 
 export default function Estimate() {
