@@ -10,152 +10,151 @@ export default function KitchenHowItWorks() {
         <Box
             sx={{
                 py: { xs: 6, md: 10 },
-                backgroundColor: theme.palette.background.paper,
-                textAlign: "center",
+                backgroundColor: theme.palette.background.default,
             }}
         >
-            <Container maxWidth="md">
-                {/* Title */}
-                <Typography
-                    variant="h3"
-                    sx={{
-                        fontWeight: 700,
-                        mb: 4,
-                        color: theme.palette.text.primary,
-                        fontSize: { xs: "2rem", md: "2.5rem" },
-                        fontFamily: theme.typography.fontFamily
-                    }}
-                >
-                    Here's how the modular kitchen price estimator works
-                </Typography>
-
-                {/* Description */}
-                <Typography
-                    variant="body1"
-                    sx={{
-                        color: theme.palette.text.secondary,
-                        mb: 6,
-                        lineHeight: 1.8,
-                        fontSize: { xs: "1rem", md: "1.2rem" },
-                        maxWidth: 800,
-                        mx: "auto",
-                        fontFamily: theme.typography.fontFamily
-                    }}
-                >
-                    Our modular kitchen price estimator considers the shape and area of your kitchen, materials,
-                    and the package you choose to check the pricing in real time. By answering these questions,
-                    we'll be able to understand the scope of work and provide you with an accurate estimate.
-                </Typography>
-
-                {/* Left-aligned details */}
+            <Container maxWidth="lg">
+                {/* Unified text block for consistent width */}
                 <Box
                     sx={{
-                        textAlign: "left",
-                        maxWidth: 800,
                         mx: "auto",
+                        textAlign: "left", // uniform alignment
                     }}
                 >
+                    {/* Title */}
                     <Typography
-                        variant="h5"
+                        variant="h4"
+                        sx={{
+                            fontWeight: 700,
+                            mb: 2,
+                            color: theme.palette.text.primary,
+                            fontSize: { xs: "1.8rem", md: "2.2rem" },
+                            fontFamily: theme.typography.fontFamily,
+                        }}
+                    >
+                        How Does The Modular Kitchen Price Estimator Work
+                    </Typography>
+
+                    {/* Description */}
+                    <Typography
+                        variant="body1"
+                        sx={{
+                            color: theme.palette.text.secondary,
+                            mb: 4,
+                            lineHeight: 1.8,
+                            fontSize: { xs: "1rem", md: "1.1rem" },
+                            fontFamily: theme.typography.fontFamily,
+                        }}
+                    >
+                        Our modular kitchen price estimator considers the shape and area of your kitchen,
+                        the materials used, and the package you choose to calculate real-time pricing.
+                        By answering these simple questions, we’ll understand the scope of work and provide
+                        an accurate estimate tailored to your needs.
+                    </Typography>
+
+                    {/* Section: Kitchen Shape & Layout */}
+                    <Typography
+                        variant="h6"
                         sx={{
                             fontWeight: 600,
                             color: theme.palette.text.primary,
-                            mb: 2,
-                            fontFamily: theme.typography.fontFamily
+                            mb: 0.5,
+                            fontFamily: theme.typography.fontFamily,
                         }}
                     >
                         Kitchen Shape & Layout
                     </Typography>
                     <Typography
-                        variant="body1"
+                        variant="body2"
                         sx={{
                             color: theme.palette.text.secondary,
-                            mb: 4,
+                            mb: 3,
                             lineHeight: 1.8,
-                            fontSize: "1.1rem",
-                            fontFamily: theme.typography.fontFamily
+                            fontFamily: theme.typography.fontFamily,
                         }}
                     >
-                        The shape of your kitchen (L-shaped, U-shaped, or Straight) helps us understand the
-                        configuration and workflow. This determines the number of cabinets, countertops, and
-                        storage solutions needed for your space.
+                        The shape of your kitchen (L-shaped, U-shaped, or Straight) helps us understand
+                        the layout and workflow. This determines the number of cabinets, countertops,
+                        and storage solutions required for your space.
                     </Typography>
 
+                    {/* Section: Measurements & Area */}
                     <Typography
-                        variant="h5"
+                        variant="h6"
                         sx={{
                             fontWeight: 600,
                             color: theme.palette.text.primary,
-                            mb: 2,
-                            fontFamily: theme.typography.fontFamily
+                            mb: 0.5,
+                            fontFamily: theme.typography.fontFamily,
                         }}
                     >
                         Measurements & Area
                     </Typography>
                     <Typography
-                        variant="body1"
+                        variant="body2"
                         sx={{
                             color: theme.palette.text.secondary,
-                            mb: 4,
+                            mb: 3,
                             lineHeight: 1.8,
-                            fontSize: "1.1rem",
-                            fontFamily: theme.typography.fontFamily
+                            fontFamily: theme.typography.fontFamily,
                         }}
                     >
-                        Based on the size of your kitchen, our calculator will determine the cost per sq ft.
-                        for the interior services. Accurate measurements ensure precise pricing for materials
-                        and labor.
+                        Based on the size of your kitchen, our calculator estimates the cost per sq. ft.
+                        for the selected materials and services. Accurate measurements ensure precise
+                        pricing for both materials and labor, minimizing any unexpected costs.
                     </Typography>
 
+                    {/* Section: Package Selection */}
                     <Typography
-                        variant="h5"
+                        variant="h6"
                         sx={{
                             fontWeight: 600,
                             color: theme.palette.text.primary,
-                            mb: 2,
-                            fontFamily: theme.typography.fontFamily
+                            mb: 0.5,
+                            fontFamily: theme.typography.fontFamily,
                         }}
                     >
                         Package Selection
                     </Typography>
                     <Typography
-                        variant="body1"
+                        variant="body2"
                         sx={{
                             color: theme.palette.text.secondary,
-                            mb: 6,
+                            mb: 5,
                             lineHeight: 1.8,
-                            fontSize: "1.1rem",
-                            fontFamily: theme.typography.fontFamily
+                            fontFamily: theme.typography.fontFamily,
                         }}
                     >
-                        Choose from our range of packages that include different materials, finishes, and
-                        accessories. Each package is designed to match different lifestyles and budgets,
-                        ensuring you get the best value for your investment.
+                        Choose from our curated range of packages that include various materials, finishes,
+                        and accessories. Each package is designed to fit different lifestyles and budgets —
+                        ensuring you receive the perfect balance of quality and value.
                     </Typography>
-                </Box>
 
-                {/* Calculate Now Link */}
-                <Link
-                    component="button"
-                    underline="none"
-                    onClick={() => navigate("/price-calculators/kitchen/calculator/layout")}
-                    sx={{
-                        color: theme.palette.primary.main,
-                        fontWeight: 600,
-                        fontSize: "1.2rem",
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: 1,
-                        transition: "color 0.2s ease",
-                        fontFamily: theme.typography.fontFamily,
-                        "&:hover": {
-                            color: theme.palette.primary.dark,
-                            textDecoration: "underline"
-                        },
-                    }}
-                >
-                    Calculate Now →
-                </Link>
+                    {/* Calculate Now Link */}
+                    <Link
+                        component="button"
+                        underline="none"
+                        onClick={() =>
+                            navigate("/price-calculators/kitchen/calculator/layout")
+                        }
+                        sx={{
+                            color: theme.palette.primary.main,
+                            fontWeight: 600,
+                            fontSize: "1rem",
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: 0.5,
+                            transition: "color 0.2s ease",
+                            fontFamily: theme.typography.fontFamily,
+                            "&:hover": {
+                                color: theme.palette.primary.dark,
+                                textDecoration: "underline",
+                            },
+                        }}
+                    >
+                        Calculate Now →
+                    </Link>
+                </Box>
             </Container>
         </Box>
     );

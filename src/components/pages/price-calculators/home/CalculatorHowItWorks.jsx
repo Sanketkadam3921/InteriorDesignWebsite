@@ -13,11 +13,10 @@ export default function CalculatorHowItWorks() {
                 backgroundColor: theme.palette.background.default,
             }}
         >
-            <Container maxWidth="md">
+            <Container maxWidth="lg">
                 {/* Unified text block for consistent width */}
                 <Box
                     sx={{
-                        maxWidth: 700,
                         mx: "auto",
                         textAlign: "left", // ensures everything aligns uniformly
                     }}

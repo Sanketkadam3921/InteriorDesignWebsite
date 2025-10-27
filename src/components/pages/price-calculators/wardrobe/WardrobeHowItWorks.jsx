@@ -11,58 +11,54 @@ export default function WardrobeHowItWorks() {
             sx={{
                 py: { xs: 6, md: 10 },
                 backgroundColor: theme.palette.background.default,
-                textAlign: "center",
             }}
         >
-            <Container maxWidth="md">
-                {/* Title */}
-                <Typography
-                    variant="h4"
-                    sx={{
-                        fontWeight: 700,
-                        mb: 2,
-                        color: theme.palette.text.primary,
-                        fontSize: { xs: "1.8rem", md: "2.2rem" },
-                        textAlign: "left",
-                        fontFamily: theme.typography.fontFamily
-                    }}
-                >
-                    Here's how the wardrobe price calculator works
-                </Typography>
-
-                {/* Description */}
-                <Typography
-                    variant="body1"
-                    sx={{
-                        color: theme.palette.text.secondary,
-                        mb: 4,
-                        lineHeight: 1.8,
-                        fontSize: { xs: "1rem", md: "1.1rem" },
-                        textAlign: "left",
-                        fontFamily: theme.typography.fontFamily
-                    }}
-                >
-                    The Livspace Wardrobe Price Calculator considers factors like dimension, type, material,
-                    finish, and accessories to generate the price estimate. By answering a few simple questions,
-                    the estimate for your wardrobe with price is calculated in real-time.
-                </Typography>
-
-                {/* Details */}
+            <Container maxWidth="lg">
+                {/* Unified text block for consistent width */}
                 <Box
                     sx={{
-                        textAlign: "left",
-                        maxWidth: 900,
                         mx: "auto",
+                        textAlign: "left", // aligns text consistently
                     }}
                 >
-                    {/* 1️⃣ Length */}
+                    {/* Title */}
+                    <Typography
+                        variant="h4"
+                        sx={{
+                            fontWeight: 700,
+                            mb: 2,
+                            color: theme.palette.text.primary,
+                            fontSize: { xs: "1.8rem", md: "2.2rem" },
+                            fontFamily: theme.typography.fontFamily,
+                        }}
+                    >
+                        How Does The Wardrobe Price Calculator Work
+                    </Typography>
+
+                    {/* Description */}
+                    <Typography
+                        variant="body1"
+                        sx={{
+                            color: theme.palette.text.secondary,
+                            mb: 4,
+                            lineHeight: 1.8,
+                            fontSize: { xs: "1rem", md: "1.1rem" },
+                            fontFamily: theme.typography.fontFamily,
+                        }}
+                    >
+                        The Livspace Wardrobe Price Calculator considers factors like dimension, type, material,
+                        finish, and accessories to generate the price estimate. By answering a few simple questions,
+                        you’ll receive an accurate wardrobe cost estimate in real time.
+                    </Typography>
+
+                    {/* Section: Length of Wardrobe */}
                     <Typography
                         variant="h6"
                         sx={{
                             fontWeight: 600,
                             color: theme.palette.text.primary,
-                            mb: 1,
-                            fontFamily: theme.typography.fontFamily
+                            mb: 0.5,
+                            fontFamily: theme.typography.fontFamily,
                         }}
                     >
                         Length of the wardrobe
@@ -73,22 +69,21 @@ export default function WardrobeHowItWorks() {
                             color: theme.palette.text.secondary,
                             mb: 3,
                             lineHeight: 1.8,
-                            fontFamily: theme.typography.fontFamily
+                            fontFamily: theme.typography.fontFamily,
                         }}
                     >
-                        The dimension of a wardrobe is a significant factor in calculating its price. The modular
-                        wardrobe cost calculator will make a few assumptions based on your input and will give
-                        an accurate wardrobe price.
+                        The dimensions of a wardrobe play a major role in determining its cost. Our calculator
+                        makes precise assumptions based on your input to estimate an accurate price for your wardrobe.
                     </Typography>
 
-                    {/* 2️⃣ Type */}
+                    {/* Section: Type of Wardrobe */}
                     <Typography
                         variant="h6"
                         sx={{
                             fontWeight: 600,
                             color: theme.palette.text.primary,
-                            mb: 1,
-                            fontFamily: theme.typography.fontFamily
+                            mb: 0.5,
+                            fontFamily: theme.typography.fontFamily,
                         }}
                     >
                         Type of the wardrobe
@@ -99,23 +94,22 @@ export default function WardrobeHowItWorks() {
                             color: theme.palette.text.secondary,
                             mb: 3,
                             lineHeight: 1.8,
-                            fontFamily: theme.typography.fontFamily
+                            fontFamily: theme.typography.fontFamily,
                         }}
                     >
-                        The make of a wardrobe is another contributing factor towards wardrobe price estimation.
-                        Based on your selection, the wardrobe price calculator will give you a wardrobe price.
-                        Depending on your need, you can choose between a sliding door wardrobe, which is suitable
-                        for small spaces, or a swing door wardrobe, which provides more storage space.
+                        The make and type of wardrobe — whether sliding or swing door — affects both cost and
+                        functionality. Sliding door wardrobes are ideal for smaller rooms, while swing door designs
+                        offer more space and storage flexibility.
                     </Typography>
 
-                    {/* 3️⃣ Material & Finishes */}
+                    {/* Section: Material & Finishes */}
                     <Typography
                         variant="h6"
                         sx={{
                             fontWeight: 600,
                             color: theme.palette.text.primary,
-                            mb: 1,
-                            fontFamily: theme.typography.fontFamily
+                            mb: 0.5,
+                            fontFamily: theme.typography.fontFamily,
                         }}
                     >
                         Material and finishes
@@ -126,22 +120,22 @@ export default function WardrobeHowItWorks() {
                             color: theme.palette.text.secondary,
                             mb: 3,
                             lineHeight: 1.8,
-                            fontFamily: theme.typography.fontFamily
+                            fontFamily: theme.typography.fontFamily,
                         }}
                     >
-                        The kind of material and the finish you pick determines not only the cost of a modular
-                        wardrobe but also the quality of your wardrobe. Our wardrobe price calculator will highlight
-                        popular materials and their features to ease the process of decision-making for you.
+                        The materials and finishes you choose determine not just the cost but also the longevity
+                        and aesthetic of your wardrobe. Our calculator helps you explore popular options and
+                        their pricing impact with clarity.
                     </Typography>
 
-                    {/* 4️⃣ Accessories */}
+                    {/* Section: Accessories */}
                     <Typography
                         variant="h6"
                         sx={{
                             fontWeight: 600,
                             color: theme.palette.text.primary,
-                            mb: 1,
-                            fontFamily: theme.typography.fontFamily
+                            mb: 0.5,
+                            fontFamily: theme.typography.fontFamily,
                         }}
                     >
                         Accessories
@@ -152,37 +146,39 @@ export default function WardrobeHowItWorks() {
                             color: theme.palette.text.secondary,
                             mb: 5,
                             lineHeight: 1.8,
-                            fontFamily: theme.typography.fontFamily
+                            fontFamily: theme.typography.fontFamily,
                         }}
                     >
-                        There's always scope for accessories, especially when you get to choose from our trendy
-                        options. Select accessories that suit your lifestyle and our wardrobe price calculator will
-                        add them while calculating the final wardrobe price.
+                        From pull-out drawers to organizers and hangers, accessories enhance the functionality
+                        of your wardrobe. Choose the ones that suit your lifestyle, and our calculator will
+                        factor them in while estimating your final cost.
                     </Typography>
-                </Box>
 
-                {/* Calculate Now Link */}
-                <Link
-                    component="button"
-                    underline="none"
-                    onClick={() => navigate("/price-calculators/wardrobe/calculator/length")}
-                    sx={{
-                        color: theme.palette.primary.main,
-                        fontWeight: 600,
-                        fontSize: "1rem",
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: 0.5,
-                        transition: "color 0.2s ease",
-                        fontFamily: theme.typography.fontFamily,
-                        "&:hover": {
-                            color: theme.palette.primary.dark,
-                            textDecoration: "underline"
-                        },
-                    }}
-                >
-                    Calculate Now →
-                </Link>
+                    {/* Calculate Now Link */}
+                    <Link
+                        component="button"
+                        underline="none"
+                        onClick={() =>
+                            navigate("/price-calculators/wardrobe/calculator/length")
+                        }
+                        sx={{
+                            color: theme.palette.primary.main,
+                            fontWeight: 600,
+                            fontSize: "1rem",
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: 0.5,
+                            transition: "color 0.2s ease",
+                            fontFamily: theme.typography.fontFamily,
+                            "&:hover": {
+                                color: theme.palette.primary.dark,
+                                textDecoration: "underline",
+                            },
+                        }}
+                    >
+                        Calculate Now →
+                    </Link>
+                </Box>
             </Container>
         </Box>
     );
