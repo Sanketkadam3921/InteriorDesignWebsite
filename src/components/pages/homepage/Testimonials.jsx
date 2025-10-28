@@ -13,10 +13,12 @@ import {
 } from "@mui/material";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 
 export default function Testimonials() {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+    const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
 
     const testimonials = [
         {
@@ -45,12 +47,14 @@ export default function Testimonials() {
         },
     ];
 
-    // ✅ Align start and containScroll to avoid half cuts
+    // ✅ Fixed configuration for consistent display
     const [emblaRef, emblaApi] = useEmblaCarousel(
         {
             loop: true,
             align: "start",
             containScroll: "trimSnaps",
+            slidesToScroll: 1,
+            skipSnaps: false,
         },
         [Autoplay({ delay: 5000, stopOnInteraction: false })]
     );
@@ -76,10 +80,11 @@ export default function Testimonials() {
             sx={{
                 py: { xs: 6, md: 10 },
                 backgroundColor: theme.palette.grey[50],
+                position: "relative",
             }}
         >
             <Container maxWidth="lg">
-                {/* 🔹 Title Section */}
+                {/* Title Section */}
                 <Box textAlign="center" mb={6}>
                     <Typography
                         variant="h3"
@@ -99,6 +104,7 @@ export default function Testimonials() {
                             maxWidth: 700,
                             mx: "auto",
                             lineHeight: 1.7,
+                            fontSize: { xs: "1rem", md: "1.1rem" },
                         }}
                     >
                         Hear from homeowners who transformed their spaces with our design
@@ -106,14 +112,27 @@ export default function Testimonials() {
                     </Typography>
                 </Box>
 
-                {/* 🔹 Carousel Section */}
-                <Box sx={{ position: "relative", overflow: "hidden" }}>
-                    <div className="embla" ref={emblaRef}>
+                {/* Carousel Section */}
+                <Box sx={{
+                    position: "relative",
+                    mx: { xs: 0, md: 6 },
+                }}>
+                    <div
+                        className="embla"
+                        ref={emblaRef}
+                        style={{
+                            overflow: "hidden", // Keep horizontal overflow hidden
+                            paddingTop: "8px", // Space for hover lift at top
+                            paddingBottom: "16px", // Space for hover lift at bottom
+                            marginTop: "-8px", // Compensate for padding
+                        }}
+                    >
                         <div
                             className="embla__container"
                             style={{
                                 display: "flex",
-                                gap: isMobile ? "16px" : "32px", // consistent spacing
+                                // ✅ Fixed gap using calc to prevent third card peek
+                                gap: isMobile ? "20px" : "24px",
                             }}
                         >
                             {testimonials.map((t, i) => (
@@ -121,47 +140,82 @@ export default function Testimonials() {
                                     key={i}
                                     className="embla__slide"
                                     style={{
-                                        flex: isMobile ? "0 0 100%" : "0 0 48%", // 👈 Exactly 2 visible cards on desktop
-                                        minWidth: isMobile ? "100%" : "48%",
+                                        // ✅ Use calc to account for gap precisely
+                                        flex: isMobile
+                                            ? "0 0 calc(100% - 20px)"
+                                            : isTablet
+                                                ? "0 0 calc(100% - 24px)"
+                                                : "0 0 calc(50% - 12px)", // 50% minus half the gap
+                                        minWidth: 0, // Important for proper flex behavior
                                     }}
                                 >
                                     <Card
+                                        elevation={0}
                                         sx={{
-                                            borderRadius: 4,
+                                            borderRadius: 3,
                                             p: { xs: 3, md: 4 },
                                             height: "100%",
                                             backgroundColor: theme.palette.background.paper,
-                                            boxShadow: "0 6px 20px rgba(0,0,0,0.05)",
+                                            border: `1px solid ${theme.palette.divider}`,
                                             display: "flex",
                                             flexDirection: "column",
                                             justifyContent: "space-between",
-                                            transition: "all 0.3s ease",
+                                            transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                                            position: "relative",
+                                            overflow: "visible",
                                             "&:hover": {
-                                                boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
-                                                transform: "translateY(-4px)",
+                                                boxShadow: "0 12px 40px rgba(0,0,0,0.08)",
+                                                transform: "translateY(-6px)",
+                                                borderColor: theme.palette.primary.light,
                                             },
                                         }}
                                     >
-                                        <CardContent>
+                                        {/* Quote Icon */}
+                                        <Box
+                                            sx={{
+                                                position: "absolute",
+                                                top: 16,
+                                                right: 16,
+                                                opacity: 0.1,
+                                            }}
+                                        >
+                                            <FormatQuoteIcon
+                                                sx={{
+                                                    fontSize: { xs: 48, md: 64 },
+                                                    color: theme.palette.primary.main,
+                                                }}
+                                            />
+                                        </Box>
+
+                                        <CardContent sx={{ p: 0 }}>
                                             <Typography
                                                 variant="body1"
                                                 sx={{
                                                     color: theme.palette.text.secondary,
                                                     lineHeight: 1.8,
-                                                    fontSize: "1.05rem",
+                                                    fontSize: { xs: "0.95rem", md: "1.05rem" },
                                                     fontStyle: "italic",
-                                                    mb: 3,
+                                                    mb: 4,
+                                                    position: "relative",
+                                                    zIndex: 1,
                                                 }}
                                             >
-                                                “{t.quote}”
+                                                "{t.quote}"
                                             </Typography>
 
-                                            <Box>
+                                            <Box
+                                                sx={{
+                                                    pt: 3,
+                                                    borderTop: `1px solid ${theme.palette.divider}`,
+                                                }}
+                                            >
                                                 <Typography
                                                     variant="h6"
                                                     sx={{
                                                         fontWeight: 600,
                                                         color: theme.palette.text.primary,
+                                                        fontSize: { xs: "1rem", md: "1.1rem" },
+                                                        mb: 0.5,
                                                     }}
                                                 >
                                                     {t.name}
@@ -170,6 +224,7 @@ export default function Testimonials() {
                                                     variant="body2"
                                                     sx={{
                                                         color: theme.palette.text.secondary,
+                                                        fontSize: "0.9rem",
                                                     }}
                                                 >
                                                     {t.location}
@@ -182,50 +237,92 @@ export default function Testimonials() {
                         </div>
                     </div>
 
-                    {/* 🔹 Navigation Arrows */}
+                    {/* Navigation Arrows */}
                     <IconButton
                         onClick={scrollPrev}
+                        aria-label="Previous testimonial"
                         sx={{
                             position: "absolute",
                             top: "50%",
-                            left: isMobile ? "8px" : "-2px",
+                            left: { xs: 0, md: -24 },
                             transform: "translateY(-50%)",
-                            backgroundColor: "rgba(255,255,255,0.95)",
-                            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-                            color: theme.palette.primary.main,
-                            width: isMobile ? 36 : 44,
-                            height: isMobile ? 36 : 44,
+                            backgroundColor: theme.palette.background.paper,
+                            border: `1px solid ${theme.palette.divider}`,
+                            color: theme.palette.text.primary,
+                            width: { xs: 40, md: 48 },
+                            height: { xs: 40, md: 48 },
                             zIndex: 10,
+                            transition: "all 0.2s ease",
                             "&:hover": {
-                                backgroundColor: "rgba(255,255,255,1)",
-                                color: theme.palette.primary.dark,
+                                backgroundColor: theme.palette.primary.main,
+                                color: theme.palette.primary.contrastText,
+                                borderColor: theme.palette.primary.main,
+                                transform: "translateY(-50%) scale(1.05)",
                             },
                         }}
                     >
-                        <ChevronLeftIcon fontSize={isMobile ? "small" : "medium"} />
+                        <ChevronLeftIcon fontSize="medium" />
                     </IconButton>
 
                     <IconButton
                         onClick={scrollNext}
+                        aria-label="Next testimonial"
                         sx={{
                             position: "absolute",
                             top: "50%",
-                            right: isMobile ? "8px" : "-2px",
+                            right: { xs: 0, md: -24 },
                             transform: "translateY(-50%)",
-                            backgroundColor: "rgba(255,255,255,0.95)",
-                            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-                            color: theme.palette.primary.main,
-                            width: isMobile ? 36 : 44,
-                            height: isMobile ? 36 : 44,
+                            backgroundColor: theme.palette.background.paper,
+                            border: `1px solid ${theme.palette.divider}`,
+                            color: theme.palette.text.primary,
+                            width: { xs: 40, md: 48 },
+                            height: { xs: 40, md: 48 },
                             zIndex: 10,
+                            transition: "all 0.2s ease",
                             "&:hover": {
-                                backgroundColor: "rgba(255,255,255,1)",
-                                color: theme.palette.primary.dark,
+                                backgroundColor: theme.palette.primary.main,
+                                color: theme.palette.primary.contrastText,
+                                borderColor: theme.palette.primary.main,
+                                transform: "translateY(-50%) scale(1.05)",
                             },
                         }}
                     >
-                        <ChevronRightIcon fontSize={isMobile ? "small" : "medium"} />
+                        <ChevronRightIcon fontSize="medium" />
                     </IconButton>
+                </Box>
+
+                {/* Pagination Dots */}
+                <Box
+                    sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        gap: 1,
+                        mt: 4,
+                    }}
+                >
+                    {testimonials.map((_, index) => (
+                        <Box
+                            key={index}
+                            onClick={() => emblaApi?.scrollTo(index)}
+                            sx={{
+                                width: selectedIndex === index ? 32 : 8,
+                                height: 8,
+                                borderRadius: 4,
+                                backgroundColor:
+                                    selectedIndex === index
+                                        ? theme.palette.primary.main
+                                        : theme.palette.grey[300],
+                                cursor: "pointer",
+                                transition: "all 0.3s ease",
+                                "&:hover": {
+                                    backgroundColor:
+                                        selectedIndex === index
+                                            ? theme.palette.primary.dark
+                                            : theme.palette.grey[400],
+                                },
+                            }}
+                        />
+                    ))}
                 </Box>
             </Container>
         </Box>

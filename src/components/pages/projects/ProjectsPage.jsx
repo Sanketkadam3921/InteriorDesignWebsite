@@ -14,6 +14,10 @@ import {
 } from "@mui/material";
 import { ArrowForward, Star, Architecture } from "@mui/icons-material";
 
+
+
+
+
 export default function ProjectsPage() {
     const navigate = useNavigate();
     const theme = useTheme();
