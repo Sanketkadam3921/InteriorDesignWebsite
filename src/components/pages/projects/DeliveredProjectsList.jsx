@@ -164,7 +164,7 @@ export default function DeliveredProjectsList() {
                                     fontWeight: 600,
                                     py: 1.2,
                                     borderRadius: "20px",
-                                    textTransform: "uppercase",
+                                    textTransform: "none",
                                     letterSpacing: "0.5px",
                                     "&:hover": {
                                         borderColor: theme.palette.primary.dark,

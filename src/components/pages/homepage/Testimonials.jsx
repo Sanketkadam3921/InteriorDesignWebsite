@@ -1,24 +1,19 @@
-import React, { useCallback, useEffect, useState } from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
+import React from "react";
 import {
     Box,
     Container,
     Typography,
     Card,
     CardContent,
-    IconButton,
     useTheme,
     useMediaQuery,
 } from "@mui/material";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
+import { keyframes } from "@mui/system";
 
 export default function Testimonials() {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-    const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
 
     const testimonials = [
         {
@@ -47,33 +42,18 @@ export default function Testimonials() {
         },
     ];
 
-    // ✅ Fixed configuration for consistent display
-    const [emblaRef, emblaApi] = useEmblaCarousel(
-        {
-            loop: true,
-            align: "start",
-            containScroll: "trimSnaps",
-            slidesToScroll: 1,
-            skipSnaps: false,
-        },
-        [Autoplay({ delay: 5000, stopOnInteraction: false })]
-    );
+    // Duplicate testimonials for seamless loop
+    const duplicatedTestimonials = [...testimonials, ...testimonials];
 
-    const [selectedIndex, setSelectedIndex] = useState(0);
-
-    const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
-    const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
-
-    const onSelect = useCallback(() => {
-        if (!emblaApi) return;
-        setSelectedIndex(emblaApi.selectedScrollSnap());
-    }, [emblaApi]);
-
-    useEffect(() => {
-        if (!emblaApi) return;
-        onSelect();
-        emblaApi.on("select", onSelect);
-    }, [emblaApi, onSelect]);
+    // Smooth scrolling animation
+    const scroll = keyframes`
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    `;
 
     return (
         <Box
@@ -81,6 +61,7 @@ export default function Testimonials() {
                 py: { xs: 6, md: 10 },
                 backgroundColor: theme.palette.grey[50],
                 position: "relative",
+                overflow: "hidden",
             }}
         >
             <Container maxWidth="lg">
@@ -112,217 +93,158 @@ export default function Testimonials() {
                     </Typography>
                 </Box>
 
-                {/* Carousel Section */}
-                <Box sx={{
-                    position: "relative",
-                    mx: { xs: 0, md: 6 },
-                }}>
-                    <div
-                        className="embla"
-                        ref={emblaRef}
-                        style={{
-                            overflow: "hidden", // Keep horizontal overflow hidden
-                            paddingTop: "8px", // Space for hover lift at top
-                            paddingBottom: "16px", // Space for hover lift at bottom
-                            marginTop: "-8px", // Compensate for padding
-                        }}
-                    >
-                        <div
-                            className="embla__container"
-                            style={{
-                                display: "flex",
-                                // ✅ Fixed gap using calc to prevent third card peek
-                                gap: isMobile ? "20px" : "24px",
-                            }}
-                        >
-                            {testimonials.map((t, i) => (
-                                <div
-                                    key={i}
-                                    className="embla__slide"
-                                    style={{
-                                        // ✅ Use calc to account for gap precisely
-                                        flex: isMobile
-                                            ? "0 0 calc(100% - 20px)"
-                                            : isTablet
-                                                ? "0 0 calc(100% - 24px)"
-                                                : "0 0 calc(50% - 12px)", // 50% minus half the gap
-                                        minWidth: 0, // Important for proper flex behavior
-                                    }}
-                                >
-                                    <Card
-                                        elevation={0}
-                                        sx={{
-                                            borderRadius: 3,
-                                            p: { xs: 3, md: 4 },
-                                            height: "100%",
-                                            backgroundColor: theme.palette.background.paper,
-                                            border: `1px solid ${theme.palette.divider}`,
-                                            display: "flex",
-                                            flexDirection: "column",
-                                            justifyContent: "space-between",
-                                            transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                                            position: "relative",
-                                            overflow: "visible",
-                                            "&:hover": {
-                                                boxShadow: "0 12px 40px rgba(0,0,0,0.08)",
-                                                transform: "translateY(-6px)",
-                                                borderColor: theme.palette.primary.light,
-                                            },
-                                        }}
-                                    >
-                                        {/* Quote Icon */}
-                                        <Box
-                                            sx={{
-                                                position: "absolute",
-                                                top: 16,
-                                                right: 16,
-                                                opacity: 0.1,
-                                            }}
-                                        >
-                                            <FormatQuoteIcon
-                                                sx={{
-                                                    fontSize: { xs: 48, md: 64 },
-                                                    color: theme.palette.primary.main,
-                                                }}
-                                            />
-                                        </Box>
-
-                                        <CardContent sx={{ p: 0 }}>
-                                            <Typography
-                                                variant="body1"
-                                                sx={{
-                                                    color: theme.palette.text.secondary,
-                                                    lineHeight: 1.8,
-                                                    fontSize: { xs: "0.95rem", md: "1.05rem" },
-                                                    fontStyle: "italic",
-                                                    mb: 4,
-                                                    position: "relative",
-                                                    zIndex: 1,
-                                                }}
-                                            >
-                                                "{t.quote}"
-                                            </Typography>
-
-                                            <Box
-                                                sx={{
-                                                    pt: 3,
-                                                    borderTop: `1px solid ${theme.palette.divider}`,
-                                                }}
-                                            >
-                                                <Typography
-                                                    variant="h6"
-                                                    sx={{
-                                                        fontWeight: 600,
-                                                        color: theme.palette.text.primary,
-                                                        fontSize: { xs: "1rem", md: "1.1rem" },
-                                                        mb: 0.5,
-                                                    }}
-                                                >
-                                                    {t.name}
-                                                </Typography>
-                                                <Typography
-                                                    variant="body2"
-                                                    sx={{
-                                                        color: theme.palette.text.secondary,
-                                                        fontSize: "0.9rem",
-                                                    }}
-                                                >
-                                                    {t.location}
-                                                </Typography>
-                                            </Box>
-                                        </CardContent>
-                                    </Card>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Navigation Arrows */}
-                    <IconButton
-                        onClick={scrollPrev}
-                        aria-label="Previous testimonial"
-                        sx={{
-                            position: "absolute",
-                            top: "50%",
-                            left: { xs: 0, md: -24 },
-                            transform: "translateY(-50%)",
-                            backgroundColor: theme.palette.background.paper,
-                            border: `1px solid ${theme.palette.divider}`,
-                            color: theme.palette.text.primary,
-                            width: { xs: 40, md: 48 },
-                            height: { xs: 40, md: 48 },
-                            zIndex: 10,
-                            transition: "all 0.2s ease",
-                            "&:hover": {
-                                backgroundColor: theme.palette.primary.main,
-                                color: theme.palette.primary.contrastText,
-                                borderColor: theme.palette.primary.main,
-                                transform: "translateY(-50%) scale(1.05)",
-                            },
-                        }}
-                    >
-                        <ChevronLeftIcon fontSize="medium" />
-                    </IconButton>
-
-                    <IconButton
-                        onClick={scrollNext}
-                        aria-label="Next testimonial"
-                        sx={{
-                            position: "absolute",
-                            top: "50%",
-                            right: { xs: 0, md: -24 },
-                            transform: "translateY(-50%)",
-                            backgroundColor: theme.palette.background.paper,
-                            border: `1px solid ${theme.palette.divider}`,
-                            color: theme.palette.text.primary,
-                            width: { xs: 40, md: 48 },
-                            height: { xs: 40, md: 48 },
-                            zIndex: 10,
-                            transition: "all 0.2s ease",
-                            "&:hover": {
-                                backgroundColor: theme.palette.primary.main,
-                                color: theme.palette.primary.contrastText,
-                                borderColor: theme.palette.primary.main,
-                                transform: "translateY(-50%) scale(1.05)",
-                            },
-                        }}
-                    >
-                        <ChevronRightIcon fontSize="medium" />
-                    </IconButton>
-                </Box>
-
-                {/* Pagination Dots */}
+                {/* Auto-scrolling Section */}
                 <Box
                     sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                        gap: 1,
-                        mt: 4,
+                        position: "relative",
+                        width: "100%",
+                        overflow: "hidden",
+                        py: 2,
                     }}
                 >
-                    {testimonials.map((_, index) => (
-                        <Box
-                            key={index}
-                            onClick={() => emblaApi?.scrollTo(index)}
-                            sx={{
-                                width: selectedIndex === index ? 32 : 8,
-                                height: 8,
-                                borderRadius: 4,
-                                backgroundColor:
-                                    selectedIndex === index
-                                        ? theme.palette.primary.main
-                                        : theme.palette.grey[300],
-                                cursor: "pointer",
-                                transition: "all 0.3s ease",
-                                "&:hover": {
-                                    backgroundColor:
-                                        selectedIndex === index
-                                            ? theme.palette.primary.dark
-                                            : theme.palette.grey[400],
-                                },
-                            }}
-                        />
-                    ))}
+                    <Box
+                        sx={{
+                            display: "flex",
+                            gap: 3,
+                            animation: `${scroll} ${isMobile ? "20s" : "30s"} linear infinite`,
+                            "&:hover": {
+                                animationPlayState: "paused",
+                            },
+                        }}
+                    >
+                        {duplicatedTestimonials.map((t, i) => (
+                            <Box
+                                key={i}
+                                sx={{
+                                    flex: "0 0 auto",
+                                    width: { xs: "280px", sm: "360px", md: "450px" },
+                                }}
+                            >
+                                <Card
+                                    elevation={0}
+                                    sx={{
+                                        borderRadius: 3,
+                                        p: { xs: 3, md: 4 },
+                                        height: "100%",
+                                        backgroundColor: theme.palette.background.paper,
+                                        border: `1px solid ${theme.palette.divider}`,
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        justifyContent: "space-between",
+                                        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                                        position: "relative",
+                                        "&:hover": {
+                                            boxShadow: "0 12px 40px rgba(0,0,0,0.08)",
+                                            transform: "translateY(-6px)",
+                                            borderColor: theme.palette.primary.light,
+                                        },
+                                    }}
+                                >
+                                    {/* Quote Icon */}
+                                    <Box
+                                        sx={{
+                                            position: "absolute",
+                                            top: 16,
+                                            right: 16,
+                                            opacity: 0.1,
+                                        }}
+                                    >
+                                        <FormatQuoteIcon
+                                            sx={{
+                                                fontSize: { xs: 48, md: 64 },
+                                                color: theme.palette.primary.main,
+                                            }}
+                                        />
+                                    </Box>
+
+                                    <CardContent sx={{ p: 0 }}>
+                                        <Typography
+                                            variant="body1"
+                                            sx={{
+                                                color: theme.palette.text.secondary,
+                                                lineHeight: 1.8,
+                                                fontSize: { xs: "0.95rem", md: "1.05rem" },
+                                                fontStyle: "italic",
+                                                mb: 4,
+                                                position: "relative",
+                                                zIndex: 1,
+                                            }}
+                                        >
+                                            "{t.quote}"
+                                        </Typography>
+
+                                        <Box
+                                            sx={{
+                                                pt: 3,
+                                                borderTop: `1px solid ${theme.palette.divider}`,
+                                            }}
+                                        >
+                                            <Typography
+                                                variant="h6"
+                                                sx={{
+                                                    fontWeight: 600,
+                                                    color: theme.palette.text.primary,
+                                                    fontSize: { xs: "1rem", md: "1.1rem" },
+                                                    mb: 0.5,
+                                                }}
+                                            >
+                                                {t.name}
+                                            </Typography>
+                                            <Typography
+                                                variant="body2"
+                                                sx={{
+                                                    color: theme.palette.text.secondary,
+                                                    fontSize: "0.9rem",
+                                                }}
+                                            >
+                                                {t.location}
+                                            </Typography>
+                                        </Box>
+                                    </CardContent>
+                                </Card>
+                            </Box>
+                        ))}
+                    </Box>
+
+                    {/* Gradient overlays for smooth edges */}
+                    <Box
+                        sx={{
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            width: { xs: "60px", md: "100px" },
+                            height: "100%",
+                            background: `linear-gradient(to right, ${theme.palette.grey[50]}, transparent)`,
+                            pointerEvents: "none",
+                            zIndex: 1,
+                        }}
+                    />
+                    <Box
+                        sx={{
+                            position: "absolute",
+                            top: 0,
+                            right: 0,
+                            width: { xs: "60px", md: "100px" },
+                            height: "100%",
+                            background: `linear-gradient(to left, ${theme.palette.grey[50]}, transparent)`,
+                            pointerEvents: "none",
+                            zIndex: 1,
+                        }}
+                    />
+                </Box>
+
+                {/* Instruction text */}
+                <Box textAlign="center" mt={4}>
+                    <Typography
+                        variant="body2"
+                        sx={{
+                            color: theme.palette.text.secondary,
+                            fontSize: "0.875rem",
+                            fontStyle: "italic",
+                        }}
+                    >
+                        Hover over any card to pause
+                    </Typography>
                 </Box>
             </Container>
         </Box>
