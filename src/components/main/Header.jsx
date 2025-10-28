@@ -131,7 +131,7 @@ export default function Header() {
                 { label: "Crockery Unit Designs", path: "/designs/crockery-unit" },
             ],
         },
-        { label: 'How it works', path: '/how-it-works' },
+        { label: 'How It Works', path: '/how-it-works' },
         { label: 'Offerings', hasDropdown: true },
         { label: 'Price Calculators', path: '/price-calculators', dropdown: priceCalculatorsDropdown },
         // { label: "FAQs", path: "/faq" },

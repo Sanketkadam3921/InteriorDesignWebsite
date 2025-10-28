@@ -5,15 +5,13 @@ import {
     Typography,
     Box,
     Button,
-    ImageList,
-    ImageListItem,
-    useTheme,
-    Modal,
-    Backdrop,
-    Fade,
     IconButton,
     Card,
     CardMedia,
+    Modal,
+    Backdrop,
+    Fade,
+    useTheme,
 } from "@mui/material";
 import { ArrowBack, Close, NavigateBefore, NavigateNext } from "@mui/icons-material";
 import { deliveredProjectsDetails } from "../../../data/projects/deliveredProjects";
@@ -25,11 +23,12 @@ export default function ProjectGallery() {
     const navigate = useNavigate();
     const location = useLocation();
     const theme = useTheme();
+
     const [selectedImage, setSelectedImage] = useState(null);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     // Extract project type from the current path
-    const pathSegments = location.pathname.split('/');
+    const pathSegments = location.pathname.split("/");
     const projectType = pathSegments[2]; // delivered, upcoming, or featured
 
     let project = null;
@@ -57,9 +56,7 @@ export default function ProjectGallery() {
         setCurrentImageIndex(index);
     };
 
-    const handleCloseModal = () => {
-        setSelectedImage(null);
-    };
+    const handleCloseModal = () => setSelectedImage(null);
 
     const handlePreviousImage = () => {
         const newIndex = currentImageIndex > 0 ? currentImageIndex - 1 : project.images.length - 1;
@@ -123,7 +120,7 @@ export default function ProjectGallery() {
                 </Typography>
             </Box>
 
-            {/* Image Gallery - Display images in large view one below another */}
+            {/* Image Gallery */}
             <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
                 {project.images.map((img, idx) => (
                     <Card
@@ -195,10 +192,8 @@ export default function ProjectGallery() {
                                 right: 20,
                                 color: "white",
                                 backgroundColor: "rgba(0,0,0,0.5)",
-                                zIndex: 1,
-                                "&:hover": {
-                                    backgroundColor: "rgba(0,0,0,0.7)",
-                                },
+                                zIndex: 2,
+                                "&:hover": { backgroundColor: "rgba(0,0,0,0.7)" },
                             }}
                         >
                             <Close />
@@ -214,10 +209,8 @@ export default function ProjectGallery() {
                                 transform: "translateY(-50%)",
                                 color: "white",
                                 backgroundColor: "rgba(0,0,0,0.5)",
-                                zIndex: 1,
-                                "&:hover": {
-                                    backgroundColor: "rgba(0,0,0,0.7)",
-                                },
+                                zIndex: 2,
+                                "&:hover": { backgroundColor: "rgba(0,0,0,0.7)" },
                             }}
                         >
                             <NavigateBefore />
@@ -233,10 +226,8 @@ export default function ProjectGallery() {
                                 transform: "translateY(-50%)",
                                 color: "white",
                                 backgroundColor: "rgba(0,0,0,0.5)",
-                                zIndex: 1,
-                                "&:hover": {
-                                    backgroundColor: "rgba(0,0,0,0.7)",
-                                },
+                                zIndex: 2,
+                                "&:hover": { backgroundColor: "rgba(0,0,0,0.7)" },
                             }}
                         >
                             <NavigateNext />
@@ -254,23 +245,42 @@ export default function ProjectGallery() {
                             }}
                         />
 
-                        {/* Image Counter */}
+                        {/* Improved Image Counter */}
                         <Box
                             sx={{
                                 position: "absolute",
-                                bottom: 20,
+                                bottom: 25,
                                 left: "50%",
                                 transform: "translateX(-50%)",
-                                color: "white",
-                                backgroundColor: "rgba(0,0,0,0.5)",
-                                px: 2,
-                                py: 1,
-                                borderRadius: 2,
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                color: "#fff",
+                                px: 4,
+                                py: 1.2,
+                                borderRadius: "20px",
+                                background: "linear-gradient(135deg, rgba(0,0,0,0.8), rgba(50,50,50,0.6))",
+                                border: "1px solid rgba(255,255,255,0.25)",
+                                boxShadow: "0 4px 12px rgba(0,0,0,0.5)",
+                                backdropFilter: "blur(8px)",
+                                fontSize: "1rem",
+                                fontWeight: 600,
+                                letterSpacing: "0.7px",
+                                zIndex: 2,
                             }}
                         >
-                            <Typography variant="body2">
-                                {currentImageIndex + 1} of {project.images.length}
+                            {currentImageIndex + 1} &nbsp;
+                            <Typography
+                                component="span"
+                                sx={{
+                                    fontWeight: 400,
+                                    opacity: 0.8,
+                                    mx: 0.5,
+                                }}
+                            >
+                                /
                             </Typography>
+                            &nbsp;{project.images.length}
                         </Box>
                     </Box>
                 </Fade>
