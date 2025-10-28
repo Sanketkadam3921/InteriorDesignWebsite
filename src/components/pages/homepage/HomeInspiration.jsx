@@ -286,6 +286,7 @@ export default function HomeInspiration() {
                                     boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
                                     width: 56,
                                     height: 56,
+                                    zIndex: 10, // 👈 keep arrows always on top
                                     transition: 'all 0.3s ease',
                                     '&:hover': {
                                         backgroundColor: 'rgba(255, 255, 255, 1)',
@@ -311,6 +312,7 @@ export default function HomeInspiration() {
                                     boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
                                     width: 56,
                                     height: 56,
+                                    zIndex: 10, // 👈 keep arrows above hovered images
                                     transition: 'all 0.3s ease',
                                     '&:hover': {
                                         backgroundColor: 'rgba(255, 255, 255, 1)',
