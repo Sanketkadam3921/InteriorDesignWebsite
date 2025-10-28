@@ -45,10 +45,16 @@ export default function Testimonials() {
         },
     ];
 
+    // ✅ Align start and containScroll to avoid half cuts
     const [emblaRef, emblaApi] = useEmblaCarousel(
-        { loop: true, align: "center", skipSnaps: false },
+        {
+            loop: true,
+            align: "start",
+            containScroll: "trimSnaps",
+        },
         [Autoplay({ delay: 5000, stopOnInteraction: false })]
     );
+
     const [selectedIndex, setSelectedIndex] = useState(0);
 
     const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
@@ -73,7 +79,7 @@ export default function Testimonials() {
             }}
         >
             <Container maxWidth="lg">
-                {/* 🔹 Title */}
+                {/* 🔹 Title Section */}
                 <Box textAlign="center" mb={6}>
                     <Typography
                         variant="h3"
@@ -95,18 +101,19 @@ export default function Testimonials() {
                             lineHeight: 1.7,
                         }}
                     >
-                        Hear from homeowners who transformed their spaces with our design expertise.
+                        Hear from homeowners who transformed their spaces with our design
+                        expertise.
                     </Typography>
                 </Box>
 
-                {/* 🔹 Carousel */}
-                <Box sx={{ position: "relative" }}>
+                {/* 🔹 Carousel Section */}
+                <Box sx={{ position: "relative", overflow: "hidden" }}>
                     <div className="embla" ref={emblaRef}>
                         <div
                             className="embla__container"
                             style={{
                                 display: "flex",
-                                gap: isMobile ? "16px" : "24px",
+                                gap: isMobile ? "16px" : "32px", // consistent spacing
                             }}
                         >
                             {testimonials.map((t, i) => (
@@ -114,8 +121,8 @@ export default function Testimonials() {
                                     key={i}
                                     className="embla__slide"
                                     style={{
-                                        flex: isMobile ? "0 0 100%" : "0 0 50%",
-                                        minWidth: isMobile ? "100%" : "50%",
+                                        flex: isMobile ? "0 0 100%" : "0 0 48%", // 👈 Exactly 2 visible cards on desktop
+                                        minWidth: isMobile ? "100%" : "48%",
                                     }}
                                 >
                                     <Card
@@ -181,13 +188,14 @@ export default function Testimonials() {
                         sx={{
                             position: "absolute",
                             top: "50%",
-                            left: isMobile ? "8px" : "-28px",
+                            left: isMobile ? "8px" : "-2px",
                             transform: "translateY(-50%)",
-                            backgroundColor: "rgba(255,255,255,0.9)",
+                            backgroundColor: "rgba(255,255,255,0.95)",
                             boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
                             color: theme.palette.primary.main,
                             width: isMobile ? 36 : 44,
                             height: isMobile ? 36 : 44,
+                            zIndex: 10,
                             "&:hover": {
                                 backgroundColor: "rgba(255,255,255,1)",
                                 color: theme.palette.primary.dark,
@@ -202,13 +210,14 @@ export default function Testimonials() {
                         sx={{
                             position: "absolute",
                             top: "50%",
-                            right: isMobile ? "8px" : "-28px",
+                            right: isMobile ? "8px" : "-2px",
                             transform: "translateY(-50%)",
-                            backgroundColor: "rgba(255,255,255,0.9)",
+                            backgroundColor: "rgba(255,255,255,0.95)",
                             boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
                             color: theme.palette.primary.main,
                             width: isMobile ? 36 : 44,
                             height: isMobile ? 36 : 44,
+                            zIndex: 10,
                             "&:hover": {
                                 backgroundColor: "rgba(255,255,255,1)",
                                 color: theme.palette.primary.dark,
