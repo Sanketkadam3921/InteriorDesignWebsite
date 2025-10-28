@@ -15,7 +15,7 @@ export const homeslivspaceDesigns = [
 export const homeslivspaceDesignDetails = {
     '1': {
         id: '1',
-        title: 'Modern Homes by Livspace Design',
+        title: 'Modern Homes by KalaKruti Studio',
         category: 'homes-livspace',
         style: 'Modern',
         price: '₹2,50,000',
@@ -46,6 +46,6 @@ export const homeslivspaceDesignDetails = {
 // Homes by Livspace Category Configuration
 export const homeslivspaceConfig = {
     categoryKey: 'homes-livspace',
-    displayName: 'Homes by Livspace',
-    description: 'Explore our curated collection of homes by livspace design concepts'
+    displayName: 'Homes by KalaKruti Studio',
+    description: 'Explore our curated collection of homes by KalaKruti Studio concepts'
 };
