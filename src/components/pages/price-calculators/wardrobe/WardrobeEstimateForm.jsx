@@ -8,9 +8,19 @@ import {
     TextField,
     FormControlLabel,
     Checkbox,
-    useTheme
+    useTheme,
+    Snackbar,
+    Alert,
+    styled,
 } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
+
+// 🔴 Red asterisk for required fields
+const RedAsteriskTextField = styled(TextField)({
+    '& .MuiFormLabel-asterisk': {
+        color: 'red',
+    },
+});
 
 export default function WardrobeEstimateForm() {
     const theme = useTheme();
@@ -22,13 +32,15 @@ export default function WardrobeEstimateForm() {
         email: '',
         phone: '',
         propertyName: '',
-        whatsappUpdates: false
+        whatsappUpdates: false,
     });
 
+    const [errors, setErrors] = useState({});
+    const [toast, setToast] = useState({ open: false, message: '', severity: 'success' });
     const [estimatedPrice, setEstimatedPrice] = useState(0);
 
+    // 💰 Calculate estimated price
     useEffect(() => {
-        // Calculate estimated price based on selections
         const searchParams = new URLSearchParams(location.search);
         const height = searchParams.get('height');
         const type = searchParams.get('type');
@@ -36,82 +48,144 @@ export default function WardrobeEstimateForm() {
         const material = searchParams.get('material');
         const accessories = searchParams.get('accessories');
 
-        // Base pricing
         const heightPrices = {
             '4ft': 80000,
             '6ft': 120000,
             '7ft': 150000,
-            '9ft': 200000
+            '9ft': 200000,
         };
 
         const typeMultipliers = {
-            'sliding': 1.0,
-            'swing': 0.9
+            sliding: 1.0,
+            swing: 0.9,
         };
 
         const finishMultipliers = {
-            'laminate': 1.0,
-            'membrane': 1.3,
-            'acrylic': 1.8
+            laminate: 1.0,
+            membrane: 1.3,
+            acrylic: 1.8,
         };
 
         const materialMultipliers = {
-            'mdf': 1.0,
-            'hdf': 1.2
+            mdf: 1.0,
+            hdf: 1.2,
         };
 
-        // Accessories pricing
         const accessoriesPrices = {
-            'loft': 15000,
+            loft: 15000,
             'single-drawer': 12000,
             'half-drawer-1': 8000,
             'half-drawer-2': 15000,
-            'wicker-pullout': 10000
+            'wicker-pullout': 10000,
         };
 
         let totalPrice = heightPrices[height] || 150000;
-
-        // Apply multipliers
         totalPrice *= typeMultipliers[type] || 1.0;
         totalPrice *= finishMultipliers[finish] || 1.0;
         totalPrice *= materialMultipliers[material] || 1.0;
 
-        // Add accessories
         if (accessories) {
             const selectedAccessories = accessories.split(',');
-            selectedAccessories.forEach(accessoryId => {
-                if (accessoriesPrices[accessoryId]) {
-                    totalPrice += accessoriesPrices[accessoryId];
-                }
+            selectedAccessories.forEach((a) => {
+                if (accessoriesPrices[a]) totalPrice += accessoriesPrices[a];
             });
         }
 
         setEstimatedPrice(Math.round(totalPrice));
     }, [location.search]);
 
-    const handleInputChange = (field) => (event) => {
-        const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
-        setFormData(prev => ({
-            ...prev,
-            [field]: value
-        }));
+    // 🧩 Validation rules
+    const validateField = (field, value) => {
+        let error = '';
+
+        switch (field) {
+            case 'name':
+                if (!value.trim()) error = 'Name is required';
+                else if (!/^[A-Za-z\s]+$/.test(value))
+                    error = 'Only letters and spaces allowed';
+                break;
+
+            case 'email':
+                if (!value.trim()) error = 'Email is required';
+                else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))
+                    error = 'Enter a valid email address';
+                break;
+
+            case 'phone':
+                if (!value.trim()) error = 'Phone number is required';
+                else if (!/^[6-9]\d{9}$/.test(value))
+                    error = 'Enter a valid 10-digit Indian number';
+                break;
+
+            case 'propertyName':
+                if (!value.trim()) error = 'Property name is required';
+                else if (!/^[A-Za-z0-9\s]+$/.test(value))
+                    error = 'Only letters and numbers allowed';
+                break;
+
+            default:
+                break;
+        }
+
+        setErrors((prev) => ({ ...prev, [field]: error }));
     };
 
+    // 🧠 Restrict invalid characters live
+    const handleInputChange = (field) => (event) => {
+        let value =
+            event.target.type === 'checkbox'
+                ? event.target.checked
+                : event.target.value;
+
+        switch (field) {
+            case 'name':
+                value = value.replace(/[^A-Za-z\s]/g, '');
+                break;
+            case 'phone':
+                value = value.replace(/\D/g, '').slice(0, 10);
+                break;
+            case 'propertyName':
+                value = value.replace(/[^A-Za-z0-9\s]/g, '');
+                break;
+            default:
+                break;
+        }
+
+        setFormData((prev) => ({ ...prev, [field]: value }));
+        validateField(field, value);
+    };
+
+    const isFormValid = () =>
+        Object.values(formData).every((v) =>
+            typeof v === 'boolean' ? true : v.trim() !== ''
+        ) && Object.values(errors).every((err) => !err);
+
+    // 📨 Handle Submit
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        // Here you would typically send the data to your backend
-        console.log('Form submitted:', {
-            ...formData,
-            estimatedPrice,
-            selections: Object.fromEntries(new URLSearchParams(location.search))
+        Object.entries(formData).forEach(([key, value]) =>
+            validateField(key, value)
+        );
+
+        if (!isFormValid()) {
+            setToast({
+                open: true,
+                message: 'Please fill all required fields correctly.',
+                severity: 'error',
+            });
+            return;
+        }
+
+        setToast({
+            open: true,
+            message: `Thank you ${formData.name}! Your wardrobe estimate is ₹${estimatedPrice.toLocaleString()}. We’ll contact you soon.`,
+            severity: 'success',
         });
 
-        // For now, just show an alert
-        alert(`Thank you ${formData.name}! Your estimated wardrobe price is ₹${estimatedPrice.toLocaleString()}. We'll contact you soon!`);
-
-        // Navigate back to wardrobe calculator
-        navigate('/price-calculators/wardrobe');
+        setTimeout(() => {
+            navigate('/price-calculators/wardrobe');
+        }, 2000);
     };
 
     const handleBack = () => {
@@ -121,16 +195,11 @@ export default function WardrobeEstimateForm() {
             type: searchParams.get('type'),
             finish: searchParams.get('finish'),
             material: searchParams.get('material'),
-            accessories: searchParams.get('accessories')
+            accessories: searchParams.get('accessories'),
         });
-        navigate(`/price-calculators/wardrobe/calculator/timeline?${queryParams.toString()}`);
-    };
-
-    const isFormValid = () => {
-        return formData.name.trim() &&
-            formData.email.trim() &&
-            formData.phone.trim() &&
-            formData.propertyName.trim();
+        navigate(
+            `/price-calculators/wardrobe/calculator/timeline?${queryParams.toString()}`
+        );
     };
 
     return (
@@ -141,7 +210,7 @@ export default function WardrobeEstimateForm() {
                     textAlign: 'center',
                     mb: 2,
                     fontWeight: 'bold',
-                    color: theme.palette.text.primary
+                    color: theme.palette.text.primary,
                 }}
             >
                 Your wardrobe estimate is almost ready
@@ -149,18 +218,20 @@ export default function WardrobeEstimateForm() {
 
             <Card sx={{ mb: 4 }}>
                 <CardContent sx={{ p: 3 }}>
-                    <form onSubmit={handleSubmit}>
-                        <TextField
+                    <form onSubmit={handleSubmit} noValidate>
+                        <RedAsteriskTextField
                             fullWidth
                             label="Name"
                             value={formData.name}
                             onChange={handleInputChange('name')}
                             margin="normal"
                             required
-                            sx={{ mb: 2 }}
+                            size="small"
+                            error={!!errors.name}
+                            helperText={errors.name}
                         />
 
-                        <TextField
+                        <RedAsteriskTextField
                             fullWidth
                             label="Email ID"
                             type="email"
@@ -168,143 +239,132 @@ export default function WardrobeEstimateForm() {
                             onChange={handleInputChange('email')}
                             margin="normal"
                             required
-                            sx={{ mb: 2 }}
+                            size="small"
+                            error={!!errors.email}
+                            helperText={errors.email}
                         />
 
-                        <TextField
+                        <RedAsteriskTextField
                             fullWidth
-                            label="Phone number"
+                            label="Phone Number"
                             type="tel"
                             value={formData.phone}
                             onChange={handleInputChange('phone')}
                             margin="normal"
                             required
-                            sx={{ mb: 2 }}
+                            size="small"
+                            error={!!errors.phone}
+                            helperText={errors.phone}
                         />
 
-                        <FormControlLabel
-                            control={
-                                <Checkbox
-                                    checked={formData.whatsappUpdates}
-                                    onChange={handleInputChange('whatsappUpdates')}
-                                    sx={{ color: theme.palette.primary.main }}
-                                />
-                            }
-                            label="Send me updates on WhatsApp"
-                            sx={{ mb: 2 }}
-                        />
 
-                        <TextField
+                        <RedAsteriskTextField
                             fullWidth
                             label="Property Name"
                             value={formData.propertyName}
                             onChange={handleInputChange('propertyName')}
                             margin="normal"
                             required
-                            sx={{ mb: 3 }}
+                            size="small"
+                            error={!!errors.propertyName}
+                            helperText={errors.propertyName}
                         />
 
-                        {/* Estimated Price Display */}
-                        <Box sx={{
-                            textAlign: 'center',
-                            p: 3,
-                            backgroundColor: theme.palette.primary.light + '20',
-                            borderRadius: 2,
-                            mb: 3
-                        }}>
-                            <Typography variant="h6" sx={{ color: theme.palette.text.secondary, mb: 1 }}>
+                        {/* 💰 Estimated Price */}
+                        <Box
+                            sx={{
+                                textAlign: 'center',
+                                p: 3,
+                                backgroundColor:
+                                    theme.palette.primary.light + '20',
+                                borderRadius: 2,
+                                mb: 3,
+                            }}
+                        >
+                            <Typography
+                                variant="h6"
+                                sx={{
+                                    color: theme.palette.text.secondary,
+                                    mb: 1,
+                                }}
+                            >
                                 Estimated Wardrobe Price
                             </Typography>
-                            <Typography variant="h3" sx={{
-                                fontWeight: 'bold',
-                                color: theme.palette.primary.main
-                            }}>
+                            <Typography
+                                variant="h3"
+                                sx={{
+                                    fontWeight: 'bold',
+                                    color: theme.palette.primary.main,
+                                }}
+                            >
                                 ₹{estimatedPrice.toLocaleString()}
                             </Typography>
-                            <Typography variant="body2" sx={{ color: theme.palette.text.secondary, mt: 1 }}>
-                                *Final price may vary based on specific requirements
+                            <Typography
+                                variant="body2"
+                                sx={{
+                                    color: theme.palette.text.secondary,
+                                    mt: 1,
+                                }}
+                            >
+                                *Final price may vary based on specific
+                                requirements
                             </Typography>
                         </Box>
 
                         {/* Legal Text */}
-                        <Typography variant="body2" sx={{
-                            color: theme.palette.text.secondary,
-                            mb: 2,
-                            textAlign: 'center'
-                        }}>
+                        <Typography
+                            variant="body2"
+                            sx={{
+                                color: theme.palette.text.secondary,
+                                mb: 2,
+                                textAlign: 'center',
+                            }}
+                        >
                             By submitting this form, you agree to the{' '}
                             <Typography
                                 component="span"
                                 sx={{
                                     color: theme.palette.primary.main,
                                     textDecoration: 'underline',
-                                    cursor: 'pointer'
+                                    cursor: 'pointer',
                                 }}
                             >
                                 privacy policy
-                            </Typography>
-                            {' '}&{' '}
+                            </Typography>{' '}
+                            &{' '}
                             <Typography
                                 component="span"
                                 sx={{
                                     color: theme.palette.primary.main,
                                     textDecoration: 'underline',
-                                    cursor: 'pointer'
+                                    cursor: 'pointer',
                                 }}
                             >
                                 terms and conditions
                             </Typography>
-                        </Typography>
-
-                        <Typography variant="body2" sx={{
-                            color: theme.palette.text.secondary,
-                            textAlign: 'center',
-                            mb: 3
-                        }}>
-                            This site is protected by reCAPTCHA and the Google{' '}
-                            <Typography
-                                component="span"
-                                sx={{
-                                    color: theme.palette.primary.main,
-                                    textDecoration: 'underline',
-                                    cursor: 'pointer'
-                                }}
-                            >
-                                Privacy Policy
-                            </Typography>
-                            {' '}and{' '}
-                            <Typography
-                                component="span"
-                                sx={{
-                                    color: theme.palette.primary.main,
-                                    textDecoration: 'underline',
-                                    cursor: 'pointer'
-                                }}
-                            >
-                                Terms of Service
-                            </Typography>
-                            {' '}apply.
                         </Typography>
                     </form>
                 </CardContent>
             </Card>
 
             {/* Navigation Buttons */}
-            <Box sx={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                mt: 4,
-                pt: 3,
-                borderTop: '1px solid',
-                borderColor: 'divider'
-            }}>
+            <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    mt: 4,
+                    pt: 3,
+                    borderTop: '1px solid',
+                    borderColor: 'divider',
+                }}
+            >
                 <Button
                     variant="text"
                     onClick={handleBack}
                     sx={{
                         color: theme.palette.primary.main,
                         textTransform: 'none',
-                        fontWeight: 600
+                        fontWeight: 600,
                     }}
                 >
                     BACK
@@ -317,12 +377,28 @@ export default function WardrobeEstimateForm() {
                     sx={{
                         px: 4,
                         textTransform: 'none',
-                        fontWeight: 600
+                        fontWeight: 600,
                     }}
                 >
                     SUBMIT
                 </Button>
             </Box>
+
+            {/* ✅ Toast Notification */}
+            <Snackbar
+                open={toast.open}
+                autoHideDuration={3000}
+                onClose={() => setToast({ ...toast, open: false })}
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+            >
+                <Alert
+                    onClose={() => setToast({ ...toast, open: false })}
+                    severity={toast.severity}
+                    sx={{ width: '100%' }}
+                >
+                    {toast.message}
+                </Alert>
+            </Snackbar>
         </Box>
     );
 }

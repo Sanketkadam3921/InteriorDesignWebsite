@@ -7,8 +7,18 @@ import {
     Button,
     TextField,
     useTheme,
+    Snackbar,
+    Alert,
+    styled,
 } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
+
+// 🔴 Styled TextField for red asterisk
+const RedAsteriskTextField = styled(TextField)({
+    '& .MuiFormLabel-asterisk': {
+        color: 'red',
+    },
+});
 
 export default function KitchenEstimateForm() {
     const theme = useTheme();
@@ -23,8 +33,11 @@ export default function KitchenEstimateForm() {
         message: '',
     });
 
+    const [errors, setErrors] = useState({});
     const [estimateData, setEstimateData] = useState(null);
+    const [toast, setToast] = useState({ open: false, message: '', severity: 'success' });
 
+    // Calculate base and total prices
     useEffect(() => {
         const searchParams = new URLSearchParams(location.search);
         const layout = searchParams.get('layout');
@@ -142,19 +155,87 @@ export default function KitchenEstimateForm() {
         return additionalCosts;
     };
 
-    const handleInputChange = (field) => (event) => {
-        setFormData((prev) => ({
-            ...prev,
-            [field]: event.target.value,
-        }));
+    // 🧩 Validation per field
+    const validateField = (field, value) => {
+        let error = '';
+
+        switch (field) {
+            case 'name':
+                if (!value.trim()) error = 'Full name is required';
+                else if (!/^[A-Za-z\s]+$/.test(value))
+                    error = 'Only letters and spaces allowed';
+                break;
+            case 'email':
+                if (!value.trim()) error = 'Email is required';
+                else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))
+                    error = 'Enter a valid email address';
+                break;
+            case 'phone':
+                if (!value.trim()) error = 'Phone number is required';
+                else if (!/^[6-9]\d{9}$/.test(value))
+                    error = 'Enter a valid 10-digit Indian number';
+                break;
+            case 'city':
+                if (!value.trim()) error = 'City is required';
+                else if (!/^[A-Za-z\s]+$/.test(value))
+                    error = 'Only letters and spaces allowed';
+                break;
+            default:
+                break;
+        }
+
+        setErrors((prev) => ({ ...prev, [field]: error }));
     };
+
+    // 🧠 Restrict invalid characters while typing
+    const handleInputChange = (field) => (event) => {
+        let value = event.target.value;
+
+        switch (field) {
+            case 'name':
+                value = value.replace(/[^A-Za-z\s]/g, '');
+                break;
+            case 'phone':
+                value = value.replace(/\D/g, '').slice(0, 10);
+                break;
+            case 'city':
+                value = value.replace(/[^A-Za-z\s]/g, '');
+                break;
+            default:
+                break;
+        }
+
+        setFormData((prev) => ({ ...prev, [field]: value }));
+        validateField(field, value);
+    };
+
+    const isFormValid = () =>
+        Object.values(formData).every((v) => v.trim() !== '') &&
+        Object.values(errors).every((e) => !e);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert(
-            `Thank you ${formData.name}! Your kitchen estimate is ₹${estimateData.totalPrice.toLocaleString()}. We’ll contact you soon.`
-        );
-        navigate('/price-calculators/kitchen');
+
+        Object.entries(formData).forEach(([key, value]) => validateField(key, value));
+
+        if (!isFormValid()) {
+            setToast({
+                open: true,
+                message: 'Please fill all fields correctly before submitting.',
+                severity: 'error',
+            });
+            return;
+        }
+
+        setToast({
+            open: true,
+            message: `Thank you ${formData.name}! Your kitchen estimate is ₹${estimateData.totalPrice.toLocaleString()}. We’ll contact you soon.`,
+            severity: 'success',
+        });
+
+        setTimeout(() => {
+            navigate('/price-calculators/kitchen');
+        }, 2000);
     };
 
     const handleBack = () => {
@@ -170,12 +251,6 @@ export default function KitchenEstimateForm() {
         });
         navigate(`/price-calculators/kitchen/calculator/package?${queryParams.toString()}`);
     };
-
-    const isFormValid = () =>
-        formData.name.trim() &&
-        formData.email.trim() &&
-        formData.phone.trim() &&
-        formData.city.trim();
 
     if (!estimateData) return <Box>Loading...</Box>;
 
@@ -213,8 +288,8 @@ export default function KitchenEstimateForm() {
                 }}
             >
                 <CardContent sx={{ p: 3 }}>
-                    <form onSubmit={handleSubmit}>
-                        <TextField
+                    <form onSubmit={handleSubmit} noValidate>
+                        <RedAsteriskTextField
                             fullWidth
                             label="Full Name"
                             value={formData.name}
@@ -222,9 +297,11 @@ export default function KitchenEstimateForm() {
                             margin="normal"
                             required
                             size="small"
+                            error={!!errors.name}
+                            helperText={errors.name}
                         />
 
-                        <TextField
+                        <RedAsteriskTextField
                             fullWidth
                             label="Email Address"
                             type="email"
@@ -233,9 +310,11 @@ export default function KitchenEstimateForm() {
                             margin="normal"
                             required
                             size="small"
+                            error={!!errors.email}
+                            helperText={errors.email}
                         />
 
-                        <TextField
+                        <RedAsteriskTextField
                             fullWidth
                             label="Phone Number"
                             type="tel"
@@ -244,9 +323,11 @@ export default function KitchenEstimateForm() {
                             margin="normal"
                             required
                             size="small"
+                            error={!!errors.phone}
+                            helperText={errors.phone}
                         />
 
-                        <TextField
+                        <RedAsteriskTextField
                             fullWidth
                             label="City"
                             value={formData.city}
@@ -254,6 +335,8 @@ export default function KitchenEstimateForm() {
                             margin="normal"
                             required
                             size="small"
+                            error={!!errors.city}
+                            helperText={errors.city}
                         />
 
                         <TextField
@@ -267,7 +350,7 @@ export default function KitchenEstimateForm() {
                             size="small"
                         />
 
-                        {/* Estimated Price Display */}
+                        {/* Estimated Price */}
                         <Box
                             sx={{
                                 textAlign: 'center',
@@ -341,6 +424,22 @@ export default function KitchenEstimateForm() {
                     Submit
                 </Button>
             </Box>
+
+            {/* ✅ Toast Notification */}
+            <Snackbar
+                open={toast.open}
+                autoHideDuration={3000}
+                onClose={() => setToast({ ...toast, open: false })}
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+            >
+                <Alert
+                    onClose={() => setToast({ ...toast, open: false })}
+                    severity={toast.severity}
+                    sx={{ width: '100%' }}
+                >
+                    {toast.message}
+                </Alert>
+            </Snackbar>
         </Box>
     );
 }
