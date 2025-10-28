@@ -54,17 +54,14 @@ export default function Hero() {
         if (!emblaApi) return;
         onSelect();
         emblaApi.on("select", onSelect);
-        return () => emblaApi.off("select", onSelect);
+
+        return () => {
+            emblaApi.off("select", onSelect);
+        };
     }, [emblaApi, onSelect]);
 
     return (
-        <Box
-            sx={{
-                position: "relative",
-                height: { xs: "94vh", md: "94vh" }, // Responsive height
-                overflow: "hidden"
-            }}
-        >
+        <Box sx={{ position: "relative", height: "80vh", overflow: "hidden" }}>
             {/* Embla Carousel */}
             <div className="embla" ref={emblaRef}>
                 <div className="embla__container" style={{ display: "flex" }}>
@@ -79,7 +76,7 @@ export default function Hero() {
                                     backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${slide.image})`,
                                     backgroundSize: "cover",
                                     backgroundPosition: "center",
-                                    height: { xs: "94vh", md: "94vh" },
+                                    height: "80vh",
                                     display: "flex",
                                     alignItems: "center",
                                     justifyContent: "center",
@@ -95,8 +92,7 @@ export default function Hero() {
                                         sx={{
                                             fontWeight: "bold",
                                             color: "#ffffff",
-                                            textShadow: "2px 2px 10px rgba(0,0,0,0.4)",
-                                            fontSize: { xs: "2rem", md: "3rem" }
+                                            textShadow: "2px 2px 10px rgba(0,0,0,0.4)"
                                         }}
                                     >
                                         {slide.title}
@@ -107,8 +103,7 @@ export default function Hero() {
                                         sx={{
                                             mb: 4,
                                             color: "#f5f5f5",
-                                            textShadow: "1px 1px 8px rgba(0,0,0,0.4)",
-                                            fontSize: { xs: "1rem", md: "1.25rem" }
+                                            textShadow: "1px 1px 8px rgba(0,0,0,0.4)"
                                         }}
                                     >
                                         {slide.subtitle}

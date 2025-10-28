@@ -40,7 +40,7 @@ export default function ProjectsPage() {
             {/* 🌟 Hero Section */}
             <Box
                 sx={{
-                    minHeight: "94vh",
+                    minHeight: "80vh",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
