@@ -36,6 +36,7 @@ import ElectricalServicesIcon from '@mui/icons-material/ElectricalServices';
 import PlumbingIcon from '@mui/icons-material/Plumbing';
 import PaletteIcon from '@mui/icons-material/Palette';
 import HandymanIcon from '@mui/icons-material/Handyman';
+import CloseIcon from '@mui/icons-material/Close';
 import themeNeutral from '../../../../themeNeutral';
 
 // Styled components for custom styling
@@ -124,6 +125,14 @@ const SliderCard = styled(Card)(({ theme }) => ({
   position: 'relative',
   cursor: 'pointer',
   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+  [theme.breakpoints.down('sm')]: {
+    minWidth: '280px',
+    height: '280px',
+  },
+  [theme.breakpoints.down('xs')]: {
+    minWidth: '260px',
+    height: '260px',
+  },
   '&:hover': {
     transform: 'translateY(-4px)',
     boxShadow: '0 12px 24px rgba(0, 0, 0, 0.15)',
@@ -134,7 +143,7 @@ const PriceBadge = styled(Box)(({ theme }) => ({
   position: 'absolute',
   top: '16px',
   left: '16px',
-  backgroundColor: 'rgba(139, 69, 19, 0.9)', // Dark purple/brown color
+  backgroundColor: themeNeutral.palette.primary.main, // Grey color to match other buttons
   color: 'white',
   padding: '8px 12px',
   borderRadius: '20px',
@@ -183,13 +192,33 @@ const SliderNavigationRight = styled(SliderNavigation)(({ theme }) => ({
 const ComparisonTable = styled(Box)(({ theme }) => ({
   backgroundColor: '#f8f9fa',
   borderRadius: '12px',
-  padding: '16px',
+  padding: { xs: '12px', md: '16px' },
   border: '1px solid #d1d5db',
+  overflowX: 'auto',
+  width: '100%',
+  '&::-webkit-scrollbar': {
+    height: '8px',
+  },
+  '&::-webkit-scrollbar-track': {
+    backgroundColor: '#f1f1f1',
+    borderRadius: '4px',
+  },
+  '&::-webkit-scrollbar-thumb': {
+    backgroundColor: themeNeutral.palette.primary.main,
+    borderRadius: '4px',
+    '&:hover': {
+      backgroundColor: themeNeutral.palette.primary.dark,
+    },
+  },
 }));
 
 const TableHeader = styled(Box)(({ theme }) => ({
   display: 'flex',
   marginBottom: '12px',
+  minWidth: '600px',
+  [theme.breakpoints.down('sm')]: {
+    minWidth: '500px',
+  },
 }));
 
 const HeaderCell = styled(Box)(({ theme }) => ({
@@ -200,11 +229,19 @@ const HeaderCell = styled(Box)(({ theme }) => ({
   fontSize: '1.1rem',
   borderRadius: '8px',
   margin: '0 6px',
+  minWidth: '180px',
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '0.9rem',
+    padding: '8px 6px',
+    minWidth: '140px',
+    margin: '0 4px',
+  },
 }));
 
 const KalaKrutiHeader = styled(HeaderCell)(({ theme }) => ({
-  backgroundColor: themeNeutral.palette.primary.main,
-  color: 'white',
+  backgroundColor: '#f8f9fa',
+  color: themeNeutral.palette.text.primary,
+  border: '1px solid #d1d5db',
 }));
 
 const TypicalHeader = styled(HeaderCell)(({ theme }) => ({
@@ -219,6 +256,11 @@ const ComparisonRow = styled(Box)(({ theme }) => ({
   marginBottom: '12px',
   padding: '12px 0',
   borderBottom: '1px dashed #d1d5db',
+  minWidth: '600px',
+  [theme.breakpoints.down('sm')]: {
+    minWidth: '500px',
+    padding: '8px 0',
+  },
   '&:last-child': {
     borderBottom: 'none',
   },
@@ -230,12 +272,28 @@ const CategoryCell = styled(Box)(({ theme }) => ({
   fontSize: '1rem',
   color: themeNeutral.palette.text.primary,
   textAlign: 'left',
-  paddingRight: '12px',
+  paddingLeft: '16px',
+  paddingRight: '20px',
+  marginRight: '12px',
+  minWidth: '180px',
+  [theme.breakpoints.down('sm')]: {
+    flex: '0 0 140px',
+    minWidth: '140px',
+    fontSize: '0.85rem',
+    paddingLeft: '12px',
+    paddingRight: '12px',
+    marginRight: '8px',
+  },
 }));
 
 const ContentCell = styled(Box)(({ theme }) => ({
   flex: 1,
   padding: '0 6px',
+  minWidth: '180px',
+  [theme.breakpoints.down('sm')]: {
+    minWidth: '140px',
+    padding: '0 3px',
+  },
 }));
 
 const BulletPoint = styled(Box)(({ theme }) => ({
@@ -271,6 +329,10 @@ const BulletText = styled(Typography)(({ theme }) => ({
   fontSize: '0.95rem',
   color: themeNeutral.palette.text.primary,
   lineHeight: 1.5,
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '0.85rem',
+    lineHeight: 1.4,
+  },
 }));
 
 const ServiceCard = styled(Card)(({ theme }) => ({
@@ -346,6 +408,10 @@ const CustomisedContent = styled(Box)(({ theme }) => ({
     textAlign: 'center',
     padding: '0 20px',
   },
+  [theme.breakpoints.down('sm')]: {
+    padding: '0 20px',
+    gap: '20px',
+  },
 }));
 
 const CustomisedText = styled(Box)(({ theme }) => ({
@@ -360,6 +426,12 @@ const CustomisedIllustration = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   minHeight: '400px',
   position: 'relative',
+  [theme.breakpoints.down('md')]: {
+    minHeight: '300px',
+    marginTop: '20px',
+    display: 'flex', // Ensure it's visible on mobile
+    width: '100%',
+  },
 }));
 
 const IdeasSection = styled(Box)(({ theme }) => ({
@@ -369,9 +441,16 @@ const IdeasSection = styled(Box)(({ theme }) => ({
 }));
 
 const IdeasContent = styled(Box)(({ theme }) => ({
-  maxWidth: '1200px',
-  margin: '0 auto',
+  width: '100%',
+  maxWidth: '100%',
+  margin: '0',
   padding: '0 20px',
+  [theme.breakpoints.down('sm')]: {
+    padding: '0 20px',
+  },
+  [theme.breakpoints.down('xs')]: {
+    padding: '0 20px',
+  },
 }));
 
 const IdeasHeader = styled(Box)(({ theme }) => ({
@@ -410,6 +489,14 @@ const GalleryCard = styled(Card)(({ theme }) => ({
   position: 'relative',
   cursor: 'pointer',
   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+  [theme.breakpoints.down('sm')]: {
+    minWidth: '280px',
+    height: '220px',
+  },
+  [theme.breakpoints.down('xs')]: {
+    minWidth: '260px',
+    height: '200px',
+  },
   '&:hover': {
     transform: 'translateY(-4px)',
     boxShadow: '0 12px 24px rgba(0, 0, 0, 0.15)',
@@ -613,6 +700,9 @@ export default function BookOnlineConsultation() {
     whatsappUpdates: true
   });
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   const handleNextSlide = () => {
     setCurrentSlide((prev) => {
       const nextSlide = prev + 1;
@@ -685,7 +775,12 @@ export default function BookOnlineConsultation() {
   };
 
   return (
-    <Box>
+    <Box sx={{
+      overflowX: 'hidden',
+      width: '100%',
+      minHeight: '100vh',
+      position: 'relative'
+    }}>
       {/* Hero Section */}
       <HeroSection>
         <Box
@@ -717,59 +812,19 @@ export default function BookOnlineConsultation() {
       </HeroSection>
 
       {/* Main Content Section */}
-      <Container maxWidth="lg" sx={{ py: 6 }}>
-        {/* Breadcrumb Navigation 
-        <Box sx={{ mb: 4 }}>
-          <Breadcrumbs
-            separator="/"
-            aria-label="breadcrumb"
-            sx={{
-              '& .MuiBreadcrumbs-separator': {
-                color: '#666',
-              },
-            }}
-          >
-            <Link
-              to="/"
-              style={{
-                textDecoration: 'none',
-                color: themeNeutral.palette.primary.main,
-                fontSize: '14px',
-                fontWeight: '500',
-              }}
-            >
-              Home
-            </Link>
-            <Link
-              to="/offerings/modular-interiors"
-              style={{
-                textDecoration: 'none',
-                color: themeNeutral.palette.primary.main,
-                fontSize: '14px',
-                fontWeight: '500',
-              }}
-            >
-              Modular Interiors
-            </Link>
-            <Typography
-              sx={{
-                color: themeNeutral.palette.text.primary,
-                fontSize: '14px',
-                fontWeight: '500',
-              }}
-            >
-              Hire a Designer
-            </Typography>
-          </Breadcrumbs>
-        </Box>*/}
-
+      <Container maxWidth="lg" sx={{
+        py: { xs: 4, md: 6 },
+        px: { xs: 2, sm: 3, md: 4 },
+        mx: { xs: 'auto', md: 'auto' },
+        width: { xs: '100%', sm: '90%', md: '85%', lg: '80%' }
+      }}>
         {/* Main Content */}
         <Box sx={{ maxWidth: '100%' }}>
           <Typography
             variant="h2"
             component="h1"
             sx={{
-              fontSize: { xs: '2rem', md: '2.5rem' },
+              fontSize: { xs: '1.8rem', md: '2.5rem' },
               fontWeight: 'bold',
               color: themeNeutral.palette.text.primary,
               lineHeight: 1.2,
@@ -789,7 +844,7 @@ export default function BookOnlineConsultation() {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '1.1rem',
+                fontSize: { xs: '1rem', md: '1.1rem' },
                 color: themeNeutral.palette.text.secondary,
                 lineHeight: 1.6,
                 flex: 1,
@@ -832,13 +887,21 @@ export default function BookOnlineConsultation() {
 
 
       {/* Home Configuration Slider Section */}
-      <Container maxWidth="lg" sx={{ py: 3 }}>
+      <Container maxWidth="lg" sx={{
+        py: { xs: 2, md: 3 },
+        px: { xs: 2, sm: 3, md: 4 },
+        mx: { xs: 'auto', md: 'auto' },
+        width: { xs: '100%', sm: '90%', md: '85%', lg: '80%' }
+      }}>
 
         <SliderContainer>
           <SliderTrack
             sx={{
-              transform: `translateX(-${(currentSlide + 2) * 370}px)`,
+              transform: `translateX(-${(currentSlide + 2) * (isMobile ? 300 : 370)}px)`,
               transition: currentSlide === sliderData.length ? 'none' : 'transform 0.3s ease-in-out',
+              [theme.breakpoints.down('xs')]: {
+                transform: `translateX(-${(currentSlide + 2) * 280}px)`,
+              },
             }}
           >
             {/* Multiple duplicate cards at the beginning to fill viewport */}
@@ -982,13 +1045,19 @@ export default function BookOnlineConsultation() {
 
 
       {/* The Livspace Edge Comparison Section */}
-      <Container maxWidth="md" sx={{ py: 6, backgroundColor: '#f8f9fa' }}>
+      <Container maxWidth="lg" sx={{
+        py: { xs: 4, md: 6 },
+        backgroundColor: '#f8f9fa',
+        px: { xs: 2, sm: 3, md: 4 },
+        mx: { xs: 'auto', md: 'auto' },
+        width: { xs: '100%', sm: '90%', md: '85%', lg: '80%' }
+      }}>
         <Box sx={{ mb: 4, textAlign: 'center' }}>
           <Typography
             variant="h3"
             component="h2"
             sx={{
-              fontSize: { xs: '2rem', md: '2.5rem' },
+              fontSize: { xs: '1.8rem', md: '2.5rem' },
               fontWeight: 'bold',
               color: themeNeutral.palette.text.primary,
               lineHeight: 1.3,
@@ -1001,7 +1070,7 @@ export default function BookOnlineConsultation() {
           <Typography
             variant="body1"
             sx={{
-              fontSize: '1.1rem',
+              fontSize: { xs: '1rem', md: '1.1rem' },
               color: themeNeutral.palette.text.secondary,
               lineHeight: 1.7,
               maxWidth: '600px',
@@ -1074,7 +1143,12 @@ export default function BookOnlineConsultation() {
       </Container>
 
       {/* Services Section */}
-      <Container maxWidth="md" sx={{ py: 6 }}>
+      <Container maxWidth="lg" sx={{
+        py: { xs: 4, md: 6 },
+        px: { xs: 2, sm: 3, md: 4 },
+        mx: { xs: 'auto', md: 'auto' },
+        width: { xs: '100%', sm: '90%', md: '85%', lg: '80%' }
+      }}>
         {/* Section Title with Button */}
         <Box sx={{ maxWidth: '100%', mb: 4 }}>
           <Box sx={{
@@ -1088,7 +1162,7 @@ export default function BookOnlineConsultation() {
               variant="h3"
               component="h2"
               sx={{
-                fontSize: { xs: '2rem', md: '2.5rem' },
+                fontSize: { xs: '1.8rem', md: '2.5rem' },
                 fontWeight: 'bold',
                 color: themeNeutral.palette.text.primary,
                 lineHeight: 1.3,
@@ -1130,11 +1204,11 @@ export default function BookOnlineConsultation() {
         </Box>
 
         {/* Service Cards */}
-        <Grid container spacing={3} justifyContent="center">
+        <Grid container spacing={{ xs: 2, md: 3 }} justifyContent="center">
           {serviceData.map((service) => {
             const IconComponent = service.icon;
             return (
-              <Grid item xs={12} sm={6} md={4} lg={4} key={service.id}>
+              <Grid item xs={6} sm={4} md={4} lg={4} key={service.id}>
                 <ServiceCard sx={{ height: '100%' }}>
                   <ServiceIconContainer>
                     <ServiceIcon>
@@ -1152,7 +1226,12 @@ export default function BookOnlineConsultation() {
       </Container>
 
       {/* Testimonials Section */}
-      <Container maxWidth="lg" sx={{ py: 4 }}>
+      <Container maxWidth="lg" sx={{
+        py: { xs: 3, md: 4 },
+        px: { xs: 2, sm: 3, md: 4 },
+        mx: { xs: 'auto', md: 'auto' },
+        width: { xs: '100%', sm: '90%', md: '85%', lg: '80%' }
+      }}>
         <Box sx={{
           backgroundColor: '#f8f9fa',
           borderRadius: 2,
@@ -1164,7 +1243,7 @@ export default function BookOnlineConsultation() {
               variant="h2"
               component="h2"
               sx={{
-                fontSize: { xs: '2rem', md: '2.5rem' },
+                fontSize: { xs: '1.8rem', md: '2.5rem' },
                 fontWeight: 'bold',
                 color: '#505B5F',
                 mb: 2
@@ -1177,14 +1256,14 @@ export default function BookOnlineConsultation() {
           <Box
             sx={{
               display: 'flex',
-              gap: 4,
+              gap: { xs: 2, md: 4 },
               justifyContent: 'center',
               alignItems: 'stretch',
               flexWrap: { xs: 'wrap', md: 'nowrap' },
               '& > *': {
-                flex: '1 1 300px',
-                maxWidth: '400px',
-                minWidth: '280px'
+                flex: { xs: '1 1 100%', sm: '1 1 300px', md: '1 1 300px' },
+                maxWidth: { xs: '100%', sm: '400px', md: '400px' },
+                minWidth: { xs: '280px', sm: '280px', md: '280px' }
               }
             }}
           >
@@ -1233,7 +1312,7 @@ export default function BookOnlineConsultation() {
                     sx={{
                       width: 0,
                       height: 0,
-                      borderLeft: '12px solid #B28E52',
+                      borderLeft: `12px solid ${themeNeutral.palette.primary.main}`,
                       borderTop: '8px solid transparent',
                       borderBottom: '8px solid transparent',
                       marginLeft: '3px'
@@ -1321,7 +1400,7 @@ export default function BookOnlineConsultation() {
                     sx={{
                       width: 0,
                       height: 0,
-                      borderLeft: '12px solid #B28E52',
+                      borderLeft: `12px solid ${themeNeutral.palette.primary.main}`,
                       borderTop: '8px solid transparent',
                       borderBottom: '8px solid transparent',
                       marginLeft: '3px'
@@ -1409,7 +1488,7 @@ export default function BookOnlineConsultation() {
                     sx={{
                       width: 0,
                       height: 0,
-                      borderLeft: '12px solid #B28E52',
+                      borderLeft: `12px solid ${themeNeutral.palette.primary.main}`,
                       borderTop: '8px solid transparent',
                       borderBottom: '8px solid transparent',
                       marginLeft: '3px'
@@ -1463,7 +1542,7 @@ export default function BookOnlineConsultation() {
               variant="h2"
               component="h2"
               sx={{
-                fontSize: { xs: '2rem', md: '2.5rem' },
+                fontSize: { xs: '1.8rem', md: '2.5rem' },
                 fontWeight: 'bold',
                 color: themeNeutral.palette.text.primary,
                 lineHeight: 1.2,
@@ -1476,7 +1555,7 @@ export default function BookOnlineConsultation() {
             <Typography
               variant="body1"
               sx={{
-                fontSize: '1.1rem',
+                fontSize: { xs: '1rem', md: '1.1rem' },
                 color: themeNeutral.palette.text.secondary,
                 lineHeight: 1.7,
                 mb: 4,
@@ -1516,8 +1595,9 @@ export default function BookOnlineConsultation() {
             <Box
               sx={{
                 width: '100%',
-                maxWidth: 'none',
-                height: '350px',
+                maxWidth: { xs: '100%', md: 'none' },
+                height: { xs: '250px', md: '350px' },
+                minHeight: { xs: '250px', md: '350px' },
                 backgroundImage: `url('https://img.freepik.com/premium-vector/business-scene-with-three-people-meeting_81698-5022.jpg')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
@@ -1525,6 +1605,12 @@ export default function BookOnlineConsultation() {
                 borderRadius: '12px',
                 boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
                 position: 'relative',
+                display: 'block',
+                [theme.breakpoints.down('md')]: {
+                  width: '100%',
+                  maxWidth: '100%',
+                  minWidth: '100%',
+                },
                 '&::before': {
                   content: '""',
                   position: 'absolute',
@@ -1550,7 +1636,7 @@ export default function BookOnlineConsultation() {
                 variant="h2"
                 component="h2"
                 sx={{
-                  fontSize: { xs: '2rem', md: '2.5rem', lg: '3rem' },
+                  fontSize: { xs: '1.8rem', md: '2.5rem' },
                   fontWeight: 'bold',
                   color: themeNeutral.palette.text.primary,
                   lineHeight: 1.2,
@@ -1563,7 +1649,7 @@ export default function BookOnlineConsultation() {
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: '1.1rem',
+                  fontSize: { xs: '1rem', md: '1.1rem' },
                   color: themeNeutral.palette.text.secondary,
                   lineHeight: 1.7,
                 }}
@@ -1603,8 +1689,11 @@ export default function BookOnlineConsultation() {
           <GalleryContainer>
             <GalleryTrack
               sx={{
-                transform: `translateX(-${(currentGallerySlide + 2) * 370}px)`,
+                transform: `translateX(-${(currentGallerySlide + 2) * (isMobile ? 300 : 370)}px)`,
                 transition: currentGallerySlide === galleryData.length ? 'none' : 'transform 0.3s ease-in-out',
+                [theme.breakpoints.down('xs')]: {
+                  transform: `translateX(-${(currentGallerySlide + 2) * 280}px)`,
+                },
               }}
             >
               {/* Multiple duplicate cards at the beginning to fill viewport */}
@@ -1704,10 +1793,34 @@ export default function BookOnlineConsultation() {
             borderRadius: 3,
             overflow: 'hidden',
             boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
-            backgroundColor: themeNeutral.palette.background.paper
+            backgroundColor: themeNeutral.palette.background.paper,
+            position: 'relative'
           }
         }}
       >
+        {/* Close Button */}
+        <IconButton
+          onClick={handleCloseQuoteDialog}
+          sx={{
+            position: 'absolute',
+            top: 8,
+            right: 8,
+            zIndex: 10,
+            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+            color: themeNeutral.palette.text.primary,
+            width: 36,
+            height: 36,
+            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
+            '&:hover': {
+              backgroundColor: 'white',
+              transform: 'scale(1.05)',
+            },
+            transition: 'all 0.2s ease-in-out'
+          }}
+        >
+          <CloseIcon sx={{ fontSize: '20px' }} />
+        </IconButton>
+
         <Box sx={{ display: 'flex', minHeight: '400px' }}>
           {/* Left Side - Form */}
           <Box
@@ -1726,9 +1839,10 @@ export default function BookOnlineConsultation() {
               sx={{
                 fontWeight: 'bold',
                 mb: 2,
-                fontSize: { xs: '1.8rem', md: '2.5rem' },
+                fontSize: { xs: '1.4rem', md: '1.8rem' },
                 lineHeight: 1.2,
-                color: themeNeutral.palette.text.primary
+                color: themeNeutral.palette.text.primary,
+                pr: 5 // Add right padding to avoid overlap with close button
               }}
             >
               Designs for Every Budget
@@ -1739,9 +1853,10 @@ export default function BookOnlineConsultation() {
               sx={{
                 mb: 4,
                 opacity: 0.9,
-                fontSize: { xs: '1rem', md: '1.1rem' },
+                fontSize: { xs: '0.9rem', md: '1rem' },
                 lineHeight: 1.4,
-                color: themeNeutral.palette.text.secondary
+                color: themeNeutral.palette.text.secondary,
+                pr: 5 // Add right padding to avoid overlap with close button
               }}
             >
               Get your dream home today. Let our experts help you
@@ -1845,7 +1960,7 @@ export default function BookOnlineConsultation() {
                       }}
                     />
                   </Box>
-                  <Typography variant="body2" sx={{ fontSize: '0.875rem', color: '#333' }}>
+                  <Typography variant="body2" sx={{ fontSize: '0.875rem', color: themeNeutral.palette.text.primary }}>
                     +91
                   </Typography>
                 </Box>
@@ -1868,7 +1983,7 @@ export default function BookOnlineConsultation() {
                         border: 'none'
                       },
                       '&.Mui-focused fieldset': {
-                        border: '2px solid #B28E52'
+                        border: `2px solid ${themeNeutral.palette.primary.main}`
                       }
                     },
                     '& .MuiInputBase-input': {
@@ -1890,6 +2005,10 @@ export default function BookOnlineConsultation() {
                       color: themeNeutral.palette.primary.main,
                       '&.Mui-checked': {
                         color: themeNeutral.palette.primary.main
+                      },
+                      padding: '4px',
+                      '& .MuiSvgIcon-root': {
+                        fontSize: '1.2rem'
                       }
                     }}
                   />
@@ -1897,9 +2016,15 @@ export default function BookOnlineConsultation() {
                 label="Send me updates on WhatsApp"
                 sx={{
                   color: themeNeutral.palette.text.primary,
-                  alignItems: 'flex-start',
+                  alignItems: 'center',
+                  margin: 0,
+                  marginTop: '4px',
                   '& .MuiFormControlLabel-label': {
-                    fontSize: '0.9rem'
+                    fontSize: '0.9rem',
+                    marginLeft: '8px',
+                    lineHeight: 1.4,
+                    color: themeNeutral.palette.text.secondary,
+                    marginTop: '2px'
                   }
                 }}
               />
