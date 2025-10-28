@@ -132,7 +132,7 @@ export default function Header() {
             ],
         },
         { label: 'How it works', path: '/how-it-works' },
-        { label: 'Offerings', path: '/offerings', hasDropdown: true },
+        { label: 'Offerings', hasDropdown: true },
         { label: 'Price Calculators', path: '/price-calculators', dropdown: priceCalculatorsDropdown },
         // { label: "FAQs", path: "/faq" },
         { label: "Contact", path: "/contact" },
