@@ -1095,7 +1095,7 @@ export default function Header() {
                 onClose={handleDrawerToggle}
                 ModalProps={{ keepMounted: true }}
                 sx={{
-                    display: { xs: 'block', md: 'none' },
+                    display: isMobile ? 'block' : 'none', // ← Use your custom breakpoint
                     '& .MuiDrawer-paper': {
                         boxSizing: 'border-box',
                         height: 'auto',
