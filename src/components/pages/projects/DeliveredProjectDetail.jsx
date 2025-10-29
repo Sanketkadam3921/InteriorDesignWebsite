@@ -15,6 +15,7 @@ import {
     Accordion,
     AccordionSummary,
     AccordionDetails,
+    CardContent
 } from "@mui/material";
 import { ArrowBack, LocationOn, ExpandMore, QuestionAnswer } from "@mui/icons-material";
 import { useNavigate, useParams } from "react-router-dom";
@@ -204,7 +205,6 @@ export default function DeliveredProjectDetail() {
                             {/* Chips */}
                             <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap", mb: 2 }}>
                                 <Chip label={project.style} color="success" variant="outlined" />
-                                <Chip label="Luxury" color="success" variant="outlined" />
                             </Box>
 
                             {/* Location */}
@@ -232,14 +232,7 @@ export default function DeliveredProjectDetail() {
                                         {project.budget}
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={6} sm={4}>
-                                    <Typography variant="body2" color="text.secondary">
-                                        Property Type
-                                    </Typography>
-                                    <Typography variant="body1" fontWeight={600}>
-                                        Villa
-                                    </Typography>
-                                </Grid>
+
                                 <Grid item xs={6} sm={4}>
                                     <Typography variant="body2" color="text.secondary">
                                         Size
@@ -251,112 +244,52 @@ export default function DeliveredProjectDetail() {
                             </Grid>
 
                             {/* CTA Button */}
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                sx={{
-                                    mb: 1,
-                                    fontWeight: 600,
-                                    px: 3,
-                                    borderRadius: "25px",
-                                    textTransform: "uppercase",
-                                }}
-                            >
-                                Get Started
-                            </Button>
+
                         </Card>
 
                         {/* Card 2 - Project Details */}
                         <Card
                             sx={{
-                                p: 4,
-                                borderRadius: 3,
-                                boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
+                                p: { xs: 3, md: 5 },
+                                borderRadius: 4,
+                                boxShadow: "0 6px 30px rgba(0,0,0,0.06)",
+                                backgroundColor: theme.palette.background.paper,
+                                transition: "all 0.3s ease",
+                                "&:hover": {
+                                    boxShadow: "0 10px 40px rgba(0,0,0,0.08)",
+                                    transform: "translateY(-4px)",
+                                },
                             }}
                         >
-                            <Typography
-                                variant="h5"
-                                fontWeight={700}
-                                sx={{ mb: 3, color: theme.palette.text.primary }}
-                            >
-                                Project Details
-                            </Typography>
+                            <CardContent sx={{ p: 0 }}>
+                                {/* Title */}
+                                <Typography
+                                    variant="h5"
+                                    fontWeight={700}
+                                    sx={{
+                                        mb: 3,
+                                        color: theme.palette.text.primary,
+                                        textAlign: "left",
+                                        letterSpacing: "0.5px",
+                                    }}
+                                >
+                                    Project Details
+                                </Typography>
 
-                            {/* Accordion 1 - Design Highlights */}
-                            <Accordion
-                                defaultExpanded
-                                sx={{
-                                    mb: 2,
-                                    borderRadius: 2,
-                                    boxShadow: "none",
-                                    border: "1px solid rgba(0,0,0,0.08)",
-                                    "&:before": { display: "none" },
-                                }}
-                            >
-                                <AccordionSummary expandIcon={<ExpandMore />}>
-                                    <Typography
-                                        variant="h6"
-                                        fontWeight={600}
-                                        sx={{ color: theme.palette.text.primary }}
-                                    >
-                                        Design Highlights
-                                    </Typography>
-                                </AccordionSummary>
-                                <AccordionDetails>
-                                    <Card sx={{ borderRadius: 2, overflow: "hidden", mb: 3 }}>
-                                        <CardMedia
-                                            component="img"
-                                            image={project.images[0]}
-                                            alt={project.title}
-                                            sx={{
-                                                width: "100%",
-                                                height: "400px",
-                                                objectFit: "cover",
-                                            }}
-                                        />
-                                        <Typography
-                                            variant="body2"
-                                            color="text.secondary"
-                                            sx={{ p: 2 }}
-                                        >
-                                            2-Door Matte Dark Green Sliding Wardrobe Design
-                                        </Typography>
-                                    </Card>
-                                </AccordionDetails>
-                            </Accordion>
-
-                            {/* Accordion 2 - About the Home */}
-                            <Accordion
-                                defaultExpanded
-                                sx={{
-                                    borderRadius: 2,
-                                    boxShadow: "none",
-                                    border: "1px solid rgba(0,0,0,0.08)",
-                                    "&:before": { display: "none" },
-                                }}
-                            >
-                                <AccordionSummary expandIcon={<ExpandMore />}>
-                                    <Typography
-                                        variant="h6"
-                                        fontWeight={600}
-                                        sx={{ color: theme.palette.text.primary }}
-                                    >
-                                        About the Home
-                                    </Typography>
-                                </AccordionSummary>
-                                <AccordionDetails>
-                                    <Typography
-                                        variant="body1"
-                                        sx={{
-                                            lineHeight: 1.8,
-                                            color: "text.secondary",
-                                            fontSize: "1.05rem",
-                                        }}
-                                    >
-                                        {project.longDescription}
-                                    </Typography>
-                                </AccordionDetails>
-                            </Accordion>
+                                {/* Long Description */}
+                                <Typography
+                                    variant="body1"
+                                    sx={{
+                                        lineHeight: 1.9,
+                                        fontSize: "1.05rem",
+                                        color: theme.palette.text.secondary,
+                                        textAlign: "justify",
+                                        whiteSpace: "pre-line",
+                                    }}
+                                >
+                                    {project.longDescription}
+                                </Typography>
+                            </CardContent>
                         </Card>
                     </Grid>
 
