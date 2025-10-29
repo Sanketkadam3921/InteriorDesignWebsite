@@ -17,7 +17,7 @@ const inspirationItems = [
     { title: 'Living Room', image: 'https://plus.unsplash.com/premium_photo-1676823547752-1d24e8597047?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
     { title: 'Master Bedroom', image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
     { title: 'False Ceiling', image: 'https://i.pinimg.com/736x/71/4b/17/714b1787c714501e64afb9df9d9b29b5.jpg' },
-    { title: 'Homes by Livspace', image: 'https://i.pinimg.com/736x/a2/91/37/a2913749dfb96ac7cee1872003ffc77c.jpg' },
+    { title: 'KalaKruti Studio Designs', image: 'https://i.pinimg.com/736x/a2/91/37/a2913749dfb96ac7cee1872003ffc77c.jpg' },
     { title: 'Kitchen', image: 'https://i.pinimg.com/1200x/85/17/d5/8517d53084ad0351019298eedab8fff3.jpg' },
     { title: 'Wardrobe', image: 'https://i.pinimg.com/1200x/f7/58/33/f75833d9a822a49b072636e894d8db30.jpg' },
     { title: 'Kids Room', image: 'https://images.unsplash.com/photo-1554861148-57c68cd01604?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470' },

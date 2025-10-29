@@ -214,7 +214,7 @@ export default function Footer() {
 
                         {/* Company */}
                         <LinkGroup title="COMPANY">
-                            <NavLink to="/how-it-works" label="How it works" />
+                            <NavLink to="/how-it-works" label="Process" />
                             <NavLink to="/faq" label="FAQs" />
                             <NavLink to="/aboutus" label="About Us" />
                             <NavLink to="/projects" label="Our Projects" />
