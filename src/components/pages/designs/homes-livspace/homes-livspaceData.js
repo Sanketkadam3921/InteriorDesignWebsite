@@ -2,7 +2,7 @@
 export const homeslivspaceDesigns = [
     {
         id: '1',
-        name: 'Modern Homes by Livspace Design',
+        name: 'Modern Homes by KalaKruti Studio',
         image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500',
         description: 'Beautiful and functional homes by livspace design with modern aesthetics',
         style: 'Modern',
@@ -11,7 +11,7 @@ export const homeslivspaceDesigns = [
     }
 ];
 
-// Homes by Livspace Design Details Data
+// Homes by Livspace Design Details Datas
 export const homeslivspaceDesignDetails = {
     '1': {
         id: '1',
@@ -46,6 +46,6 @@ export const homeslivspaceDesignDetails = {
 // Homes by Livspace Category Configuration
 export const homeslivspaceConfig = {
     categoryKey: 'homes-livspace',
-    displayName: 'Homes by KalaKruti Studio',
+    displayName: 'KalaKruti Studio',
     description: 'Explore our curated collection of homes by KalaKruti Studio concepts'
 };
