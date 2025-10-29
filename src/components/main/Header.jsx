@@ -236,7 +236,7 @@ export default function Header() {
                         }}
                     >
                         <ListItemText
-                            primary="How it works"
+                            primary="Process"
                             primaryTypographyProps={{
                                 fontWeight: location.pathname === '/how-it-works' ? 'bold' : '500',
                                 color: location.pathname === '/how-it-works' ? '#1976d2' : '#333'
