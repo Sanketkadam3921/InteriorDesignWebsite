@@ -83,7 +83,9 @@ const NavLink = ({ to, label }) => {
 
 export default function Footer() {
     const theme = useTheme();
-    const isSmallScreen = useMediaQuery(theme.breakpoints.down('md')); // ✅ stack for mobile + tablet
+
+    // ✅ Custom media query so iPad Pro (1024px) behaves like tablet/mobile
+    const isSmallScreen = useMediaQuery('(max-width:1100px)');
 
     return (
         <Box component="footer" sx={{ mt: 'auto', position: 'relative', overflow: 'hidden' }}>
@@ -137,9 +139,9 @@ export default function Footer() {
                     <Grid
                         container
                         spacing={{ xs: 5, md: 6 }}
-                        direction={isSmallScreen ? 'column' : 'row'} // ✅ stack for mobile + tablet
-                        alignItems="flex-start" // ✅ keep all items left-aligned
-                        textAlign="left" // ✅ left text alignment everywhere
+                        direction={isSmallScreen ? 'column' : 'row'} // ✅ stack for tablet/mobile up to 1100px
+                        alignItems="flex-start"
+                        textAlign="left"
                     >
                         {/* Logo + Social Media */}
                         <Grid item xs={12} md={3}>
@@ -242,7 +244,7 @@ export default function Footer() {
                             borderTop: '1px solid rgba(255,255,255,0.2)',
                             mt: 6,
                             pt: 4,
-                            textAlign: 'center', // ✅ left-aligned even in mobile/tablet
+                            textAlign: 'center',
                         }}
                     >
                         <Typography
