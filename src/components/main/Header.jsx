@@ -33,7 +33,8 @@ export default function Header() {
     const [mobilePriceCalcOpen, setMobilePriceCalcOpen] = useState(false);
     const [expandedSections, setExpandedSections] = useState({});
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+    // ✅ Treat anything up to 1100px (including iPad Pro) as mobile
+    const isMobile = useMediaQuery("(max-width:1100px)");
     const location = useLocation();
     const navigate = useNavigate();
 
