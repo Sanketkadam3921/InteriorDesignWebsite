@@ -250,6 +250,6 @@ export const masterBedroomDesignDetails = {
 // Master Bedroom Category Configuration
 export const masterBedroomConfig = {
     categoryKey: "master-bedroom",
-    displayName: "Master Bedrooms",
+    displayName: "Master Bedroom",
     description: "Explore our curated collection of master bedroom design concepts"
 };

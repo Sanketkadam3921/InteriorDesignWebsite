@@ -110,7 +110,7 @@ export default function Header() {
             label: "Designs",
             path: "/designs",
             dropdown: [
-                { label: "Modular Kitchen Designs", path: "/designs/kitchen" },
+                { label: "Kitchen Designs", path: "/designs/kitchen" },
                 { label: "Wardrobe Designs", path: "/designs/wardrobe" },
                 { label: "Bathroom Designs", path: "/designs/bathroom" },
                 { label: "Master Bedroom Designs", path: "/designs/master-bedroom" },
