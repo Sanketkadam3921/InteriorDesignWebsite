@@ -13,7 +13,6 @@ import {
 } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-// 🔴 Styled TextField for red asterisk
 const RedAsteriskTextField = styled(TextField)({
     '& .MuiFormLabel-asterisk': {
         color: 'red',
@@ -37,123 +36,85 @@ export default function KitchenEstimateForm() {
     const [estimateData, setEstimateData] = useState(null);
     const [toast, setToast] = useState({ open: false, message: '', severity: 'success' });
 
-    // Calculate base and total prices
-    useEffect(() => {
-        const searchParams = new URLSearchParams(location.search);
-        const layout = searchParams.get('layout');
-        const length = parseFloat(searchParams.get('length')) || 0;
-        const width = parseFloat(searchParams.get('width')) || 0;
-        const height = parseFloat(searchParams.get('height')) || 0;
-        const cabinetLength = parseFloat(searchParams.get('cabinetLength')) || 0;
-        const cabinetHeight = parseFloat(searchParams.get('cabinetHeight')) || 0;
-        const packageType = searchParams.get('package');
-        const material = searchParams.get('material');
-        const granite = searchParams.get('granite');
-        const loft = searchParams.get('loft');
-        const finish = searchParams.get('finish');
-        const accessories = searchParams.get('accessories');
-        const services = searchParams.get('services');
-        const appliances = searchParams.get('appliances');
-
-        const basePrice = calculateBasePrice(
-            layout,
-            length,
-            width,
-            cabinetLength,
-            cabinetHeight,
-            packageType
-        );
-        const additionalCosts = calculateAdditionalCosts(
-            granite,
-            loft,
-            services,
-            appliances
-        );
-        const totalPrice = basePrice + additionalCosts;
-
-        setEstimateData({
-            layout,
-            length,
-            width,
-            height,
-            cabinetLength,
-            cabinetHeight,
-            packageType,
-            material,
-            granite,
-            loft,
-            finish,
-            accessories,
-            services,
-            appliances,
-            basePrice,
-            additionalCosts,
-            totalPrice,
-        });
-    }, [location.search]);
-
+    // Calculate base price function
     const calculateBasePrice = (
         layout,
-        length,
-        width,
-        cabinetLength,
-        cabinetHeight,
+        A,
+        B,
+        C,
         packageType
     ) => {
         const packagePrices = {
             essentials: 1200,
             premium: 1800,
             luxe: 2500,
-            'build-your-own': 1500,
         };
 
-        const layoutPrices = {
+        const layoutMultipliers = {
             'l-shaped': 1.2,
             'u-shaped': 1.5,
             straight: 1.0,
-            galley: 1.1,
+            parallel: 1.1,
         };
 
-        const basePricePerSqFt = packagePrices[packageType] || 1200;
-        const layoutMultiplier = layoutPrices[layout] || 1.0;
-        const area = cabinetLength * cabinetHeight;
+        // Standard cabinet height in feet (approximately 2.5 feet)
+        const cabinetHeight = 2.5;
 
-        return Math.round(area * basePricePerSqFt * layoutMultiplier);
-    };
-
-    const calculateAdditionalCosts = (granite, loft, services, appliances) => {
-        let additionalCosts = 0;
-
-        if (granite === 'yes') additionalCosts += 25000;
-        if (loft === 'yes') additionalCosts += 15000;
-
-        if (services) {
-            const servicePrices = {
-                painting: 15000,
-                plumbing: 25000,
-                electrical: 20000,
-                platform: 30000,
-                dado: 18000,
-            };
-            services.split(',').forEach((s) => (additionalCosts += servicePrices[s] || 0));
+        // Calculate linear feet based on layout
+        let linearFeet = 0;
+        switch (layout) {
+            case 'straight':
+                linearFeet = A;
+                break;
+            case 'l-shaped':
+                linearFeet = A + B;
+                break;
+            case 'u-shaped':
+                linearFeet = A + B + C;
+                break;
+            case 'parallel':
+                linearFeet = A + B;
+                break;
+            default:
+                linearFeet = A;
         }
 
-        if (appliances) {
-            const appliancePrices = {
-                hob: 8000,
-                chimney: 12000,
-                'faucets-sink': 15000,
-                'built-in-microwave': 18000,
-                'built-in-oven': 25000,
-                refrigerator: 35000,
-            };
-            appliances.split(',').forEach(
-                (a) => (additionalCosts += appliancePrices[a] || 0)
-            );
-        }
+        const basePricePerSqFt = packagePrices[packageType] || 1800;
+        const layoutMultiplier = layoutMultipliers[layout] || 1.0;
 
-        return additionalCosts;
+        // Calculate area (linear feet * height) and then price
+        const area = linearFeet * cabinetHeight;
+        const price = area * basePricePerSqFt * layoutMultiplier;
+
+        return Math.round(price);
     };
+
+    // Calculate base and total prices
+    useEffect(() => {
+        const searchParams = new URLSearchParams(location.search);
+        const layout = searchParams.get('layout');
+        const A = parseFloat(searchParams.get('A')) || 0;
+        const B = parseFloat(searchParams.get('B')) || 0;
+        const C = parseFloat(searchParams.get('C')) || 0;
+        const packageType = searchParams.get('package');
+
+        const totalPrice = calculateBasePrice(
+            layout,
+            A,
+            B,
+            C,
+            packageType
+        );
+
+        setEstimateData({
+            layout,
+            A,
+            B,
+            C,
+            packageType,
+            totalPrice,
+        });
+    }, [location.search]);
 
     // 🧩 Validation per field
     const validateField = (field, value) => {
@@ -229,7 +190,7 @@ export default function KitchenEstimateForm() {
 
         setToast({
             open: true,
-            message: `Thank you ${formData.name}! Your kitchen estimate is ₹${estimateData.totalPrice.toLocaleString()}. We’ll contact you soon.`,
+            message: `Thank you ${formData.name}! Your kitchen estimate is ₹${estimateData.totalPrice.toLocaleString()}. We will contact you soon.`,
             severity: 'success',
         });
 
@@ -242,12 +203,9 @@ export default function KitchenEstimateForm() {
         const searchParams = new URLSearchParams(location.search);
         const queryParams = new URLSearchParams({
             layout: searchParams.get('layout'),
-            length: searchParams.get('length'),
-            width: searchParams.get('width'),
-            height: searchParams.get('height'),
-            cabinetLength: searchParams.get('cabinetLength'),
-            cabinetHeight: searchParams.get('cabinetHeight'),
-            package: searchParams.get('package'),
+            A: searchParams.get('A'),
+            B: searchParams.get('B'),
+            C: searchParams.get('C'),
         });
         navigate(`/price-calculators/kitchen/calculator/package?${queryParams.toString()}`);
     };

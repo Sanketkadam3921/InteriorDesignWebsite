@@ -69,11 +69,7 @@ export default function KitchenPackageSelection() {
             C: searchParams.get("C"),
             package: selectedPackage,
         });
-        if (selectedPackage === "build-your-own") {
-            navigate(`/price-calculators/kitchen/calculator/materials?${queryParams.toString()}`);
-        } else {
-            navigate(`/price-calculators/kitchen/calculator/estimate?${queryParams.toString()}`);
-        }
+        navigate(`/price-calculators/kitchen/calculator/estimate?${queryParams.toString()}`);
     };
 
     const handleBack = () => {

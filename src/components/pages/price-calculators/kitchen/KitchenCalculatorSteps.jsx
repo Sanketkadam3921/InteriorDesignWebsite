@@ -4,13 +4,6 @@ import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import KitchenLayoutStep from './KitchenLayoutStep';
 import KitchenMeasurementsStep from './KitchenMeasurementsStep';
 import KitchenPackageStep from './KitchenPackageStep';
-import KitchenMaterialsStep from './KitchenMaterialsStep';
-import KitchenGraniteStep from './KitchenGraniteStep';
-import KitchenLoftStep from './KitchenLoftStep';
-import KitchenFinishStep from './KitchenFinishStep';
-import KitchenAccessoriesStep from './KitchenAccessoriesStep';
-import KitchenServicesStep from './KitchenServicesStep';
-import KitchenAppliancesStep from './KitchenAppliancesStep';
 import KitchenEstimateForm from './KitchenEstimateForm';
 
 const steps = [
@@ -155,13 +148,6 @@ export default function KitchenCalculatorSteps() {
                         <Route path="layout" element={<KitchenLayoutStep />} />
                         <Route path="measurements" element={<KitchenMeasurementsStep />} />
                         <Route path="package" element={<KitchenPackageStep />} />
-                        <Route path="materials" element={<KitchenMaterialsStep />} />
-                        <Route path="granite" element={<KitchenGraniteStep />} />
-                        <Route path="loft" element={<KitchenLoftStep />} />
-                        <Route path="finish" element={<KitchenFinishStep />} />
-                        <Route path="accessories" element={<KitchenAccessoriesStep />} />
-                        <Route path="services" element={<KitchenServicesStep />} />
-                        <Route path="appliances" element={<KitchenAppliancesStep />} />
                         <Route path="estimate" element={<KitchenEstimateForm />} />
                     </Routes>
                 </Box>

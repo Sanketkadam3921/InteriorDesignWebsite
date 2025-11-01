@@ -15,7 +15,6 @@ const packages = [
     {
         id: 'essentials',
         title: 'Essentials',
-        price: '₹₹',
         description:
             'Affordable interior solutions that bring comfort and style to your home.',
         features: ['Affordable pricing', 'Convenient designs', 'Basic accessories'],
@@ -24,7 +23,6 @@ const packages = [
     {
         id: 'premium',
         title: 'Premium',
-        price: '₹₹₹',
         description:
             'Superior home interior solutions that will take your interiors to the next level.',
         features: ['Mid-range pricing', 'Premium designs', 'Wide range of accessories'],
@@ -33,7 +31,6 @@ const packages = [
     {
         id: 'luxe',
         title: 'Luxe',
-        price: '₹₹₹₹',
         description:
             'High-end interior solutions for the ultimate home interior experience you deserve.',
         features: [
@@ -151,17 +148,7 @@ export default function PackageSelection() {
                                         />
                                     </Box>
 
-                                    <Box sx={{ mb: 1.5 }}>
-                                        <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                                            {pkg.title}
-                                        </Typography>
-                                        <Typography
-                                            variant="subtitle1"
-                                            sx={{ color: theme.palette.primary.main }}
-                                        >
-                                            {pkg.price}
-                                        </Typography>
-                                    </Box>
+
 
                                     <Typography
                                         variant="body2"
