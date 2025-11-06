@@ -338,25 +338,7 @@ export default function Header() {
                 </Collapse>
 
                 {/* Modular Journey */}
-                <ListItem disablePadding>
-                    <ListItemButton
-                        onClick={() => handleMobileNavClick('/modular-journey')}
-                        sx={{
-                            borderRadius: 1,
-                            mb: 0.5,
-                            backgroundColor: location.pathname === '/modular-journey' ? '#f0f0f0' : 'transparent',
-                            '&:hover': { backgroundColor: '#f5f5f5' }
-                        }}
-                    >
-                        <ListItemText
-                            primary="Modular Journey"
-                            primaryTypographyProps={{
-                                fontWeight: location.pathname === '/modular-journey' ? 'bold' : '500',
-                                color: location.pathname === '/modular-journey' ? '#1976d2' : '#333'
-                            }}
-                        />
-                    </ListItemButton>
-                </ListItem>
+               
 
                 {/* FAQs */}
                 <ListItem disablePadding>
