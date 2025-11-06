@@ -461,6 +461,9 @@ export default function Header() {
 
                             {/* Name - Center */}
                             <Box
+                                component={Link}
+                                to="/"
+                                onClick={() => handleMobileNavClick('/')}
                                 sx={{
                                     display: "flex",
                                     flexDirection: "column",
@@ -468,6 +471,10 @@ export default function Header() {
                                     justifyContent: "center",
                                     textAlign: "center",
                                     flex: 1,
+                                    textDecoration: "none",
+                                    cursor: "pointer",
+                                    "&:hover": { transform: "scale(1.02)" },
+                                    transition: "transform 0.2s ease",
                                 }}
                             >
                                 <Typography
