@@ -241,7 +241,8 @@ export default function DesignDetail() {
                 </Container>
             )}
 
-            {/* 🧱 Design Details */}
+            {/* 🧱 Design Details 
+            
             {design.sections && design.sections.length > 0 && (
                 <Container {...consistentContainer}>
                     <Card
@@ -285,35 +286,11 @@ export default function DesignDetail() {
                     </Card>
                 </Container>
             )}
+            */}
+            
 
             {/* 💎 Trust Indicators */}
-            <Container {...consistentContainer}>
-                <Box textAlign="center">
-                    <Typography variant="h4" fontWeight={700} gutterBottom>
-                        Why Choose KalaKruti?
-                    </Typography>
-                    <Stack
-                        direction="row"
-                        spacing={3}
-                        flexWrap="wrap"
-                        justifyContent="center"
-                        sx={{ mt: 2 }}
-                    >
-                        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                            <CheckCircle color="success" fontSize="small" />
-                            <Typography variant="body2">5 Year Warranty</Typography>
-                        </Box>
-                        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                            <LocalShipping color="primary" fontSize="small" />
-                            <Typography variant="body2">Free Installation</Typography>
-                        </Box>
-                        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                            <Security color="info" fontSize="small" />
-                            <Typography variant="body2">Secure Payment</Typography>
-                        </Box>
-                    </Stack>
-                </Box>
-            </Container>
+            
 
             {/* 🧭 CTA Section */}
             <Container {...consistentContainer}>

@@ -11,7 +11,7 @@ const scroll = keyframes`
 // ✅ Authentic version for a Pune-based startup
 const items = [
     {
-        text: "Based in Pune",
+text: "Based in Pune and Mumbai",
         icon: "https://cdn-icons-png.flaticon.com/512/535/535239.png", // 🏙️ City icon
     },
     {

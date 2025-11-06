@@ -152,7 +152,7 @@ export default function Footer() {
                                         sx={{
                                             color: theme.palette.secondary.contrastText,
                                             fontWeight: 'bold',
-                                            fontSize: { xs: '2.2rem', md: '2.5rem' },
+                                            fontSize: { xs: '2.2rem', md: '2rem' },
                                             letterSpacing: '0.1em',
                                             mb: 1,
                                         }}
@@ -173,10 +173,7 @@ export default function Footer() {
 
                                 <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-start' }}>
                                     {[
-                                        { icon: <Facebook />, href: 'https://facebook.com' },
                                         { icon: <Instagram />, href: 'https://www.instagram.com/_kalakruti_studio_/' },
-                                        { icon: <LinkedIn />, href: 'https://linkedin.com' },
-                                        { icon: <YouTube />, href: 'https://youtube.com' },
                                     ].map((item, index) => (
                                         <IconButton
                                             key={index}

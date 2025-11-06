@@ -220,38 +220,38 @@ export default function HowItWorks() {
         setIsQuoteFormOpen(false);
     };
 
-    const steps = [
-        {
-            id: 1,
-            title: "Meet a designer",
-            icon: "https://cdn-icons-png.flaticon.com/128/7164/7164002.png",
-            description: "Connect with our expert designers",
-        },
-        {
-            id: 2,
-            title: "Book a renovation",
-            icon: "https://cdn-icons-png.flaticon.com/128/2910/2910768.png",
-            description: "Schedule your consultation",
-        },
-        {
-            id: 3,
-            title: "Execution begins",
-            icon: "https://cdn-icons-png.flaticon.com/128/9640/9640682.png",
-            description: "Start the design process",
-        },
-        {
-            id: 4,
-            title: "Final installations",
-            icon: "https://cdn-icons-png.flaticon.com/128/4961/4961619.png",
-            description: "Complete your dream home",
-        },
-        {
-            id: 5,
-            title: "Move in",
-            icon: "https://cdn-icons-png.flaticon.com/128/9320/9320557.png",
-            description: "Enjoy your new space",
-        },
-    ];
+   const steps = [
+  {
+    id: 1,
+    title: "Civil Work",
+    icon: "https://cdn-icons-png.flaticon.com/128/2965/2965680.png",
+    description: "Foundation, masonry, and structural tasks.",
+  },
+  {
+    id: 2,
+    title: "Electrical Work",
+    icon: "https://cdn-icons-png.flaticon.com/128/4238/4238773.png",
+    description: "Wiring, lighting, and power setup for your space.",
+  },
+  {
+    id: 3,
+    title: "Ceiling Work",
+    icon: "https://cdn-icons-png.flaticon.com/128/2965/2965680.png",
+    description: "False ceiling and lighting panel installations.",
+  },
+  {
+    id: 4,
+    title: "Furniture",
+    icon: "https://cdn-icons-png.flaticon.com/128/1067/1067566.png",
+    description: "Customized furniture built and installed with precision.",
+  },
+  {
+    id: 5,
+    title: "Hand Over",
+    icon: "https://cdn-icons-png.flaticon.com/128/4727/4727496.png",
+    description: "Final inspection and handover of your dream interior.",
+  },
+];
 
     return (
         <div style={{ overflowX: "hidden", width: "100%" }}>
@@ -923,47 +923,7 @@ export default function HowItWorks() {
                 </Container>
             </Box>
 
-            {/* Success Banner */}
-            <Box
-                sx={{
-                    width: "100%",
-                    backgroundColor: theme.palette.primary.main,
-                    padding: theme.spacing(4, 0),
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                }}
-            >
-                <Box
-                    sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 2,
-                    }}
-                >
-                    {/* Checkmark Icon */}
-                    <CheckCircleIcon
-                        sx={{
-                            fontSize: "40px",
-                            color: "white",
-                        }}
-                    />
-
-                    {/* Success Message */}
-                    <Typography
-                        variant="h5"
-                        sx={{
-                            color: "white",
-                            fontWeight: 700,
-                            fontSize: { xs: "1.2rem", md: "1.5rem" },
-                            textAlign: "center",
-                        }}
-                    >
-                        You're half way there. Your orders are raised!
-                    </Typography>
-                </Box>
-            </Box>
-
+           
             {/* Final Installations Section */}
             <Box sx={{
                 py: { xs: 6, md: 10 },
@@ -1128,541 +1088,155 @@ export default function HowItWorks() {
             </Box>
 
             {/* Success Banner */}
-            <Box
-                sx={{
-                    width: "100%",
-                    backgroundColor: theme.palette.primary.main,
-                    padding: theme.spacing(4, 0),
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                }}
-            >
-                <Box
-                    sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 2,
-                    }}
-                >
-                    {/* Checkmark Icon */}
-                    <CheckCircleIcon
-                        sx={{
-                            fontSize: "40px",
-                            color: "white",
-                        }}
-                    />
+           
 
-                    {/* Success Message */}
-                    <Typography
-                        variant="h5"
-                        sx={{
-                            color: "white",
-                            fontWeight: 700,
-                            fontSize: { xs: "1.2rem", md: "1.5rem" },
-                            textAlign: "center",
-                        }}
-                    >
-                        Hurrah! Complete payment has been made!
-                    </Typography>
-                </Box>
-            </Box>
+         {/* Main Content Section */}
+           <Box
+  sx={{
+    py: { xs: 6, md: 10 },
+    textAlign: "left",
+    backgroundColor: theme.palette.background.paper,
+    px: { xs: 3, sm: 4, md: 1 },
+  }}
+>
+  <Container maxWidth="lg" sx={{ px: 0 }}>
+    {/* Title Section */}
+    <Box sx={{ textAlign: "center", mb: 4 }}>
+      <Typography
+        variant="h2"
+        component="h1"
+        sx={{
+          fontSize: { xs: "2rem", md: "2.5rem" },
+          fontWeight: 700,
+          color: theme.palette.text.primary,
+          mb: 2,
+          fontFamily: theme.typography.fontFamily,
+        }}
+      >
+        HOW IT WORKS
+      </Typography>
+    </Box>
 
-            {/* Move In Section */}
-            <Box sx={{
-                py: { xs: 6, md: 10 },
-                backgroundColor: theme.palette.background.default,
-                textAlign: "left",
-                px: { xs: 3, sm: 4, md: 6 }
-            }}>
-                <Container maxWidth="lg" sx={{ px: 0 }}>
-                    <Box
-                        sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: { xs: 4, md: 6 },
-                            minHeight: "400px",
-                            [theme.breakpoints.down("md")]: {
-                                flexDirection: "column",
-                                textAlign: "center",
-                            },
-                        }}
-                    >
-                        {/* Left Side - Illustration */}
-                        <Box
-                            sx={{
-                                flex: "0 0 50%",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                [theme.breakpoints.down("md")]: {
-                                    flex: "none",
-                                    width: "100%",
-                                },
-                            }}
-                        >
-                            <Box
-                                sx={{
-                                    width: "100%",
-                                    maxWidth: "350px",
-                                    height: "250px",
-                                    borderRadius: "12px",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    position: "relative",
-                                    overflow: "hidden",
-                                    boxShadow: "0 4px 16px rgba(0, 0, 0, 0.08)",
-                                }}
-                            >
-                                <img
-                                    src="https://png.pngtree.com/thumb_back/fh260/background/20230705/pngtree-vibrant-nursery-interior-3d-render-of-front-view-image_3740158.jpg"
-                                    alt="Move in illustration"
-                                    style={{
-                                        width: "100%",
-                                        height: "100%",
-                                        objectFit: "cover",
-                                        borderRadius: "12px",
-                                    }}
-                                />
-                            </Box>
-                        </Box>
+    {/* Steps Section */}
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "stretch",
+        flexWrap: "wrap",
+        gap: { xs: 3, md: 5 },
+        mb: 4,
+      }}
+    >
+      {[
+        { id: 1, title: "Meeting", icon: "/icons/meeting.png" },
+        { id: 2, title: "Client Visit", icon: "/icons/visit.png" },
+        { id: 3, title: "Measurement", icon: "/icons/measurement.png" },
+        { id: 4, title: "Quotation", icon: "/icons/quotation.png" },
+        { id: 5, title: "Start the Work", icon: "/icons/work.png" },
+      ].map((step, index) => (
+        <Box
+          key={step.id}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            textAlign: "center",
+            flex: { xs: "1 1 40%", md: "1 1 15%" },
+            backgroundColor: theme.palette.background.paper,
+            borderRadius: 2,
+            boxShadow: "0 3px 8px rgba(0,0,0,0.08)",
+            p: 2.5,
+            position: "relative",
+            transition: "all 0.3s ease",
+            "&:hover": {
+              transform: "translateY(-4px)",
+              boxShadow: "0 5px 14px rgba(0,0,0,0.12)",
+            },
+          }}
+        >
+          {/* Step Number Badge */}
+          <Box
+            sx={{
+              position: "absolute",
+              top: 10,
+              left: 10,
+              width: 28,
+              height: 28,
+              borderRadius: "50%",
+              backgroundColor: theme.palette.primary.main,
+              color: theme.palette.primary.contrastText,
+              fontWeight: 600,
+              fontSize: "0.9rem",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
+            }}
+          >
+            {index + 1}
+          </Box>
 
-                        {/* Right Side - Content */}
-                        <Box
-                            sx={{
-                                flex: "0 0 50%",
-                                display: "flex",
-                                flexDirection: "column",
-                                justifyContent: "center",
-                                [theme.breakpoints.down("md")]: {
-                                    flex: "none",
-                                    width: "100%",
-                                },
-                            }}
-                        >
-                            <Typography
-                                variant="h3"
-                                component="h2"
-                                sx={{
-                                    fontSize: { xs: "1.5rem", md: "1.8rem" },
-                                    fontWeight: 700,
-                                    color: theme.palette.text.primary,
-                                    mb: 3,
-                                }}
-                            >
-                                Move in!
-                            </Typography>
+          {/* Icon */}
+          <Avatar
+            src={step.icon}
+            alt={step.title}
+            sx={{
+              width: 65,
+              height: 65,
+              border: `2px solid ${theme.palette.primary.main}`,
+              backgroundColor: "#fff",
+              mb: 1.5,
+              boxShadow: "0 2px 6px rgba(0,0,0,0.08)",
+              p: 1.5,
+            }}
+          />
 
-                            <Typography
-                                variant="body1"
-                                sx={{
-                                    color: theme.palette.text.secondary,
-                                    lineHeight: 1.6,
-                                    fontSize: { xs: "0.9rem", md: "1rem" },
-                                }}
-                            >
-                                Your dream home is now a reality! It's time to make new memories! Do avail the free professional photoshoot session of your #LivspaceHome.
-                            </Typography>
-                        </Box>
-                    </Box>
-                </Container>
-            </Box>
+          {/* Title */}
+          <Typography
+            variant="subtitle1"
+            sx={{
+              fontWeight: 600,
+              color: theme.palette.text.primary,
+              fontFamily: theme.typography.fontFamily,
+              fontSize: { xs: "0.95rem", md: "1rem" },
+            }}
+          >
+            {step.title}
+          </Typography>
+        </Box>
+      ))}
+    </Box>
+
+    {/* Call to Action Button */}
+    <Box sx={{ textAlign: "center" }}>
+      <CTAButton
+        variant="contained"
+        size="large"
+        sx={{
+          px: 6,
+          py: 1.5,
+          fontSize: "1rem",
+          fontWeight: 600,
+          borderRadius: 8,
+          textTransform: "none",
+          whiteSpace: "nowrap",
+          "&:hover": {
+            backgroundColor: theme.palette.primary.dark,
+            transform: "translateY(-2px)",
+          },
+        }}
+      >
+        BOOK FREE CONSULTATION
+      </CTAButton>
+    </Box>
+  </Container>
+</Box>
+
+
 
             {/* Understand Your Order Types Section */}
-            <Box sx={{
-                py: { xs: 6, md: 10 },
-                backgroundColor: theme.palette.background.paper,
-                textAlign: "left",
-                px: { xs: 3, sm: 4, md: 6 }
-            }}>
-                <Container maxWidth="lg" sx={{ px: 0 }}>
-                    <Box sx={{ textAlign: "center", mb: 6 }}>
-                        <Typography
-                            variant="h2"
-                            component="h2"
-                            sx={{
-                                fontSize: { xs: "1.8rem", md: "2.2rem" },
-                                fontWeight: 700,
-                                color: theme.palette.text.primary,
-                                mb: 3,
-                            }}
-                        >
-                            Understand your order types
-                        </Typography>
-                        <Typography
-                            variant="body1"
-                            sx={{
-                                color: theme.palette.text.secondary,
-                                fontSize: { xs: "0.9rem", md: "1rem" },
-                                lineHeight: 1.6,
-                                maxWidth: "800px",
-                                mx: "auto",
-                            }}
-                        >
-                            We know our payments can seem complex. But they're really not. We've staggered them through your home interiors journey, so that you make small payments depending on how your project has progressed.
-                        </Typography>
-                    </Box>
-
-
-
-                    {/* Order Types Table */}
-                    <Box
-                        sx={{
-                            overflow: "auto",
-                            borderRadius: "12px",
-                            boxShadow: "0 4px 16px rgba(0, 0, 0, 0.08)",
-                            border: "1px solid #e0e0e0",
-                            // Enhanced scrollbar styling for better visibility
-                            '&::-webkit-scrollbar': {
-                                height: '12px',
-                                width: '12px',
-                            },
-                            '&::-webkit-scrollbar-track': {
-                                backgroundColor: '#f1f1f1',
-                                borderRadius: '6px',
-                            },
-                            '&::-webkit-scrollbar-thumb': {
-                                backgroundColor: theme.palette.primary.main,
-                                borderRadius: '6px',
-                                border: '2px solid #f1f1f1',
-                                '&:hover': {
-                                    backgroundColor: theme.palette.primary.dark,
-                                },
-                            },
-                            '&::-webkit-scrollbar-corner': {
-                                backgroundColor: '#f1f1f1',
-                            },
-                            // Firefox scrollbar styling
-                            scrollbarWidth: 'thin',
-                            scrollbarColor: `${theme.palette.primary.main} #f1f1f1`,
-                            // Add visual indicator for mobile
-                            position: 'relative',
-                            '&::after': {
-                                content: '""',
-                                position: 'absolute',
-                                top: 0,
-                                right: 0,
-                                bottom: 0,
-                                width: '20px',
-                                background: 'linear-gradient(to left, rgba(0,0,0,0.1), transparent)',
-                                pointerEvents: 'none',
-                                zIndex: 1,
-                                [theme.breakpoints.up('md')]: {
-                                    display: 'none',
-                                },
-                            },
-                        }}
-                    >
-                        <Box
-                            component="table"
-                            sx={{
-                                width: "100%",
-                                minWidth: "800px", // Ensure table has minimum width for horizontal scroll
-                                borderCollapse: "collapse",
-                                backgroundColor: theme.palette.background.paper,
-                            }}
-                        >
-                            {/* Table Header */}
-                            <Box
-                                component="thead"
-                                sx={{
-                                    backgroundColor: "#f8f9fa",
-                                }}
-                            >
-                                <Box
-                                    component="tr"
-                                    sx={{
-                                        borderBottom: "2px solid #e0e0e0",
-                                    }}
-                                >
-                                    <Box
-                                        component="th"
-                                        sx={{
-                                            padding: theme.spacing(2),
-                                            textAlign: "left",
-                                            fontWeight: 600,
-                                            color: theme.palette.text.primary,
-                                            fontSize: { xs: "0.8rem", md: "0.9rem" },
-                                            borderRight: "1px solid #e0e0e0",
-                                            minWidth: "120px",
-                                        }}
-                                    >
-                                        Order type
-                                    </Box>
-                                    <Box
-                                        component="th"
-                                        sx={{
-                                            padding: theme.spacing(2),
-                                            textAlign: "left",
-                                            fontWeight: 600,
-                                            color: theme.palette.text.primary,
-                                            fontSize: { xs: "0.8rem", md: "0.9rem" },
-                                            borderRight: "1px solid #e0e0e0",
-                                            minWidth: "200px",
-                                        }}
-                                    >
-                                        Overview of work involved
-                                    </Box>
-                                    <Box
-                                        component="th"
-                                        sx={{
-                                            padding: theme.spacing(2),
-                                            textAlign: "left",
-                                            fontWeight: 600,
-                                            color: theme.palette.text.primary,
-                                            fontSize: { xs: "0.8rem", md: "0.9rem" },
-                                            borderRight: "1px solid #e0e0e0",
-                                            minWidth: "200px",
-                                        }}
-                                    >
-                                        Execution milestone (Make 100% payment)
-                                    </Box>
-                                    <Box
-                                        component="th"
-                                        sx={{
-                                            padding: theme.spacing(2),
-                                            textAlign: "left",
-                                            fontWeight: 600,
-                                            color: theme.palette.text.primary,
-                                            fontSize: { xs: "0.8rem", md: "0.9rem" },
-                                            minWidth: "200px",
-                                        }}
-                                    >
-                                        Handover
-                                    </Box>
-                                </Box>
-                            </Box>
-
-                            {/* Table Body */}
-                            <Box component="tbody">
-                                {/* Row 1 */}
-                                <Box
-                                    component="tr"
-                                    sx={{
-                                        borderBottom: "1px solid #e0e0e0",
-                                        "&:hover": {
-                                            backgroundColor: "#f8f9fa",
-                                        },
-                                    }}
-                                >
-                                    <Box
-                                        component="td"
-                                        sx={{
-                                            padding: theme.spacing(2),
-                                            fontWeight: 600,
-                                            color: theme.palette.text.primary,
-                                            fontSize: { xs: "0.8rem", md: "0.9rem" },
-                                            borderRight: "1px solid #e0e0e0",
-                                        }}
-                                    >
-                                        Order type 1
-                                    </Box>
-                                    <Box
-                                        component="td"
-                                        sx={{
-                                            padding: theme.spacing(2),
-                                            color: theme.palette.text.secondary,
-                                            fontSize: { xs: "0.8rem", md: "0.9rem" },
-                                            borderRight: "1px solid #e0e0e0",
-                                        }}
-                                    >
-                                        Civil & MEP (Mechanical, Electrical & Plumbing)
-                                    </Box>
-                                    <Box
-                                        component="td"
-                                        sx={{
-                                            padding: theme.spacing(2),
-                                            color: theme.palette.text.secondary,
-                                            fontSize: { xs: "0.8rem", md: "0.9rem" },
-                                            borderRight: "1px solid #e0e0e0",
-                                        }}
-                                    >
-                                        MEP base work & POP (Plaster Of Paris) completion
-                                    </Box>
-                                    <Box
-                                        component="td"
-                                        sx={{
-                                            padding: theme.spacing(2),
-                                            color: theme.palette.text.secondary,
-                                            fontSize: { xs: "0.8rem", md: "0.9rem" },
-                                        }}
-                                    >
-                                        MEP fixtures & fittings, final painting & handover
-                                    </Box>
-                                </Box>
-
-                                {/* Row 2 */}
-                                <Box
-                                    component="tr"
-                                    sx={{
-                                        borderBottom: "1px solid #e0e0e0",
-                                        "&:hover": {
-                                            backgroundColor: "#f8f9fa",
-                                        },
-                                    }}
-                                >
-                                    <Box
-                                        component="td"
-                                        sx={{
-                                            padding: theme.spacing(2),
-                                            fontWeight: 600,
-                                            color: theme.palette.text.primary,
-                                            fontSize: { xs: "0.8rem", md: "0.9rem" },
-                                            borderRight: "1px solid #e0e0e0",
-                                        }}
-                                    >
-                                        Order type 1
-                                    </Box>
-                                    <Box
-                                        component="td"
-                                        sx={{
-                                            padding: theme.spacing(2),
-                                            color: theme.palette.text.secondary,
-                                            fontSize: { xs: "0.8rem", md: "0.9rem" },
-                                            borderRight: "1px solid #e0e0e0",
-                                        }}
-                                    >
-                                        Custom furniture (workshop)
-                                    </Box>
-                                    <Box
-                                        component="td"
-                                        sx={{
-                                            padding: theme.spacing(2),
-                                            color: theme.palette.text.secondary,
-                                            fontSize: { xs: "0.8rem", md: "0.9rem" },
-                                            borderRight: "1px solid #e0e0e0",
-                                        }}
-                                    >
-                                        Carcass quality check completion
-                                    </Box>
-                                    <Box
-                                        component="td"
-                                        sx={{
-                                            padding: theme.spacing(2),
-                                            color: theme.palette.text.secondary,
-                                            fontSize: { xs: "0.8rem", md: "0.9rem" },
-                                        }}
-                                    >
-                                        Installation and handover
-                                    </Box>
-                                </Box>
-
-                                {/* Row 3 */}
-                                <Box
-                                    component="tr"
-                                    sx={{
-                                        borderBottom: "1px solid #e0e0e0",
-                                        "&:hover": {
-                                            backgroundColor: "#f8f9fa",
-                                        },
-                                    }}
-                                >
-                                    <Box
-                                        component="td"
-                                        sx={{
-                                            padding: theme.spacing(2),
-                                            fontWeight: 600,
-                                            color: theme.palette.text.primary,
-                                            fontSize: { xs: "0.8rem", md: "0.9rem" },
-                                            borderRight: "1px solid #e0e0e0",
-                                        }}
-                                    >
-                                        Order type 1
-                                    </Box>
-                                    <Box
-                                        component="td"
-                                        sx={{
-                                            padding: theme.spacing(2),
-                                            color: theme.palette.text.secondary,
-                                            fontSize: { xs: "0.8rem", md: "0.9rem" },
-                                            borderRight: "1px solid #e0e0e0",
-                                        }}
-                                    >
-                                        Custom furniture (on-site)
-                                    </Box>
-                                    <Box
-                                        component="td"
-                                        sx={{
-                                            padding: theme.spacing(2),
-                                            color: theme.palette.text.secondary,
-                                            fontSize: { xs: "0.8rem", md: "0.9rem" },
-                                            borderRight: "1px solid #e0e0e0",
-                                        }}
-                                    >
-                                        Wood framework completion
-                                    </Box>
-                                    <Box
-                                        component="td"
-                                        sx={{
-                                            padding: theme.spacing(2),
-                                            color: theme.palette.text.secondary,
-                                            fontSize: { xs: "0.8rem", md: "0.9rem" },
-                                        }}
-                                    >
-                                        Installation and handover
-                                    </Box>
-                                </Box>
-
-                                {/* Row 4 */}
-                                <Box
-                                    component="tr"
-                                    sx={{
-                                        "&:hover": {
-                                            backgroundColor: "#f8f9fa",
-                                        },
-                                    }}
-                                >
-                                    <Box
-                                        component="td"
-                                        sx={{
-                                            padding: theme.spacing(2),
-                                            fontWeight: 600,
-                                            color: theme.palette.text.primary,
-                                            fontSize: { xs: "0.8rem", md: "0.9rem" },
-                                            borderRight: "1px solid #e0e0e0",
-                                        }}
-                                    >
-                                        Order type 2
-                                    </Box>
-                                    <Box
-                                        component="td"
-                                        sx={{
-                                            padding: theme.spacing(2),
-                                            color: theme.palette.text.secondary,
-                                            fontSize: { xs: "0.8rem", md: "0.9rem" },
-                                            borderRight: "1px solid #e0e0e0",
-                                        }}
-                                    >
-                                        Catalogue products
-                                    </Box>
-                                    <Box
-                                        component="td"
-                                        sx={{
-                                            padding: theme.spacing(2),
-                                            color: theme.palette.text.secondary,
-                                            fontSize: { xs: "0.8rem", md: "0.9rem" },
-                                            borderRight: "1px solid #e0e0e0",
-                                        }}
-                                    >
-                                        NA
-                                    </Box>
-                                    <Box
-                                        component="td"
-                                        sx={{
-                                            padding: theme.spacing(2),
-                                            color: theme.palette.text.secondary,
-                                            fontSize: { xs: "0.8rem", md: "0.9rem" },
-                                        }}
-                                    >
-                                        Make 100% payment for door delivery & installation
-                                    </Box>
-                                </Box>
-                            </Box>
-                        </Box>
-                    </Box>
-                </Container>
-            </Box>
+          
 
             {/* The Team Section */}
             <Box sx={{
@@ -1914,7 +1488,6 @@ export default function HowItWorks() {
             </Box>
 
             {/* Quote Form Section */}
-            <QuoteForm />
 
             {/* Quote Form Modal */}
             <Modal

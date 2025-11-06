@@ -18,25 +18,25 @@ export default function Testimonials() {
     const testimonials = [
         {
             name: "Rohan & Priya Mehta",
-            location: "Pune, Maharashtra",
+            location: "Pune",
             quote:
                 "Livspace turned our small 2BHK into a luxurious and cozy home! The design team was professional, attentive, and incredibly creative. The estimation process was smooth and transparent.",
         },
         {
             name: "Aditi Sharma",
-            location: "Bengaluru, Karnataka",
+            location: "Mumbai",
             quote:
                 "The modular kitchen estimator helped us budget our renovation perfectly. The team executed the design beautifully — our kitchen is now the heart of our home!",
         },
         {
             name: "Vikram Desai",
-            location: "Mumbai, Maharashtra",
+            location: "Mumbai",
             quote:
                 "I was amazed by how precise the wardrobe estimator was! The final cost was nearly identical to the estimate. Great attention to detail and craftsmanship by the team.",
         },
         {
-            name: "Sneha Patil",
-            location: "Hyderabad, Telangana",
+            name: "Sneha Kadam",
+            location: "Pune",
             quote:
                 "From consultation to delivery, everything was perfectly managed. The designs are stunning, and the quality is top-notch. Highly recommend this team for modern interiors.",
         },
