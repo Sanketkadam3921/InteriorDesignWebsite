@@ -20,7 +20,7 @@ const steps = [
   },
   {
     id: "rooms",
-    label: "ROOMS TO DESIGN",
+    label: "ROOMS",
     path: "/price-calculators/home/calculator/rooms",
   },
   {
