@@ -162,7 +162,7 @@ export default function WardrobeLengthSelection() {
       >
         <Button
           variant="text"
-          onClick={() => navigate("/price-calculators/wardrobe")}
+          onClick={() => navigate("/")}
           sx={{
             color: theme.palette.primary.main,
             textTransform: "none",

@@ -135,7 +135,8 @@ export default function BHKSelection() {
                 "&:hover": { borderColor: theme.palette.primary.main },
                 // Center 5 BHK (last item in 2-column grid)
                 gridColumn: index === 4 ? { xs: "1", sm: "span 2" } : "auto",
-                justifySelf: index === 4 ? { xs: "stretch", sm: "center" } : "stretch",
+                justifySelf:
+                  index === 4 ? { xs: "stretch", sm: "center" } : "stretch",
                 maxWidth: index === 4 ? { xs: "100%", sm: "50%" } : "100%",
               }}
               onClick={() => setSelectedBHK(bhk.id)}
@@ -296,7 +297,7 @@ export default function BHKSelection() {
       >
         <Button
           variant="text"
-          onClick={() => navigate("/price-calculators/home")}
+          onClick={() => navigate("/")}
           sx={{
             color: theme.palette.primary.main,
             textTransform: "none",
