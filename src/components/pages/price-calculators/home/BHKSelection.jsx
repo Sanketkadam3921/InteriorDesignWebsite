@@ -91,6 +91,7 @@ export default function BHKSelection() {
         flexDirection: "column",
         minHeight: "calc(100vh - 200px)",
         pb: 10,
+        mb: 8,
       }}
     >
       <Typography
@@ -312,14 +313,20 @@ export default function BHKSelection() {
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          mt: "auto",
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          maxWidth: 700,
+          mx: "auto",
           pt: 2,
+          pb: 2,
+          px: 3,
           borderTop: "1px solid",
           borderColor: theme.palette.divider,
-          position: "sticky",
-          bottom: 0,
           backgroundColor: theme.palette.background.default,
-          pb: 2,
+          zIndex: 1000,
+          boxShadow: "0 -2px 8px rgba(0,0,0,0.1)",
         }}
       >
         <Button
