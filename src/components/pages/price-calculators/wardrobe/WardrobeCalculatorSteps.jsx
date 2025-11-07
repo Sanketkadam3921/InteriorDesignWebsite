@@ -33,8 +33,9 @@ export default function WardrobeCalculatorSteps() {
     return (
         <Box
             sx={{
-                minHeight: "100vh",
+                height: "100%",
                 backgroundColor: theme.palette.background.default,
+                overflowY: "auto",
             }}
         >
             <Container maxWidth="lg">
