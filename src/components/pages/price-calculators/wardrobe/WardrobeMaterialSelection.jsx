@@ -70,13 +70,21 @@ export default function WardrobeMaterialSelection() {
   };
 
   return (
-    <Box sx={{ maxWidth: 900, mx: "auto", p: 3 }}>
+    <Box sx={{ 
+      maxWidth: 700, 
+      mx: "auto", 
+      p: 3,
+      display: "flex",
+      flexDirection: "column",
+      minHeight: "calc(100vh - 200px)",
+      pb: 10,
+    }}>
       {/* Header */}
       <Typography
         variant="h5"
         sx={{
           textAlign: "center",
-          mb: 1.5,
+          mb: 1,
           fontWeight: 600,
           color: theme.palette.text.primary,
         }}
@@ -84,14 +92,35 @@ export default function WardrobeMaterialSelection() {
         Select Your Preferred Core Material
       </Typography>
 
-      {/* Material Options */}
-      <Box
+      <Typography
+        variant="body2"
         sx={{
-          display: "grid",
-          gridTemplateColumns: { xs: "1fr", md: "repeat(2, 1fr)" },
-          gap: 3,
+          textAlign: "center",
+          mb: 4,
+          color: theme.palette.text.secondary,
         }}
       >
+        Choose the material that best fits your needs and budget.
+      </Typography>
+
+      <Box
+        sx={{
+          backgroundColor: theme.palette.primary.light + '25',
+          borderRadius: 2,
+          p: 3,
+          mb: 2,
+          border: '1px solid',
+          borderColor: theme.palette.primary.light + '40',
+        }}
+      >
+        {/* Material Options */}
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", md: "repeat(2, 1fr)" },
+            gap: 3,
+          }}
+        >
         {materialOptions.map((material) => {
           const isSelected = selectedMaterial === material.id;
           return (
@@ -103,9 +132,7 @@ export default function WardrobeMaterialSelection() {
                 borderColor: isSelected
                   ? theme.palette.primary.main
                   : theme.palette.grey[300],
-                backgroundColor: isSelected
-                  ? theme.palette.primary.light + "10"
-                  : theme.palette.background.paper,
+                backgroundColor: theme.palette.background.paper,
                 borderRadius: 2,
                 cursor: "pointer",
                 transition: "none",
@@ -151,12 +178,12 @@ export default function WardrobeMaterialSelection() {
 
                   <Box
                     sx={{
-                      height: 160,
+                      height: 120,
                       backgroundImage: `url(${material.image})`,
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                       borderRadius: 2,
-                      mb: 2,
+                      mb: 1.5,
                     }}
                   />
 
@@ -186,17 +213,23 @@ export default function WardrobeMaterialSelection() {
             </Card>
           );
         })}
+        </Box>
       </Box>
+
+      <Box sx={{ flex: 1 }} />
 
       {/* Navigation Buttons */}
       <Box
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          mt: 4,
           pt: 2,
           borderTop: "1px solid",
           borderColor: "divider",
+          position: "sticky",
+          bottom: 0,
+          backgroundColor: theme.palette.background.default,
+          pb: 2,
         }}
       >
         <Button

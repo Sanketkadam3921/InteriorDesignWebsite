@@ -61,13 +61,21 @@ export default function WardrobeTypeSelection() {
     };
 
     return (
-        <Box sx={{ maxWidth: 900, mx: "auto", p: 3 }}>
+        <Box sx={{ 
+            maxWidth: 700, 
+            mx: "auto", 
+            p: 3,
+            display: "flex",
+            flexDirection: "column",
+            minHeight: "calc(100vh - 200px)",
+            pb: 10,
+        }}>
             {/* Header */}
             <Typography
                 variant="h5"
                 sx={{
                     textAlign: "center",
-                    mb: 1.5,
+                    mb: 1,
                     fontWeight: 600,
                     color: theme.palette.text.primary,
                 }}
@@ -81,16 +89,24 @@ export default function WardrobeTypeSelection() {
                     textAlign: "center",
                     mb: 4,
                     color: theme.palette.text.secondary,
-                    maxWidth: 600,
-                    mx: "auto",
                 }}
             >
-                Choose the wardrobe style that suits your room’s layout and storage
+                Choose the wardrobe style that suits your room's layout and storage
                 needs.
             </Typography>
 
-            {/* Wardrobe Type Options */}
-            <FormControl component="fieldset" sx={{ width: "100%" }}>
+            <Box
+                sx={{
+                    backgroundColor: theme.palette.primary.light + '25',
+                    borderRadius: 2,
+                    p: 3,
+                    mb: 2,
+                    border: '1px solid',
+                    borderColor: theme.palette.primary.light + '40',
+                }}
+            >
+                {/* Wardrobe Type Options */}
+                <FormControl component="fieldset" sx={{ width: "100%" }}>
                 <RadioGroup
                     value={selectedType}
                     onChange={(e) => setSelectedType(e.target.value)}
@@ -112,9 +128,7 @@ export default function WardrobeTypeSelection() {
                                     borderColor: isSelected
                                         ? theme.palette.primary.main
                                         : theme.palette.grey[300],
-                                    backgroundColor: isSelected
-                                        ? theme.palette.primary.light + "10"
-                                        : theme.palette.background.paper,
+                                    backgroundColor: theme.palette.background.paper,
                                     borderRadius: 2,
                                     transition: "none",
                                     cursor: "pointer",
@@ -145,28 +159,17 @@ export default function WardrobeTypeSelection() {
                                         }}
                                     />
 
-                                    <Box sx={{ p: 2.5 }}>
-                                        <Box
-                                            sx={{
-                                                display: "flex",
-                                                alignItems: "center",
-                                                justifyContent: "space-between",
+                                        <Box sx={{ p: 2.5 }}>
+                                        <Typography
+                                            variant="h6"
+                                            sx={{ 
+                                                fontWeight: 600, 
+                                                color: theme.palette.text.primary,
                                                 mb: 1.5,
                                             }}
                                         >
-                                            <Typography
-                                                variant="h6"
-                                                sx={{ fontWeight: 600, color: theme.palette.text.primary }}
-                                            >
-                                                {type.title}
-                                            </Typography>
-                                            <Typography
-                                                variant="subtitle1"
-                                                sx={{ color: theme.palette.primary.main }}
-                                            >
-                                                {type.price}
-                                            </Typography>
-                                        </Box>
+                                            {type.title}
+                                        </Typography>
 
                                         <Typography
                                             variant="body2"
@@ -181,7 +184,7 @@ export default function WardrobeTypeSelection() {
 
                                         <Box
                                             sx={{
-                                                height: 180,
+                                                height: 140,
                                                 backgroundImage: `url(${type.image})`,
                                                 backgroundSize: "cover",
                                                 backgroundPosition: "center",
@@ -195,16 +198,22 @@ export default function WardrobeTypeSelection() {
                     })}
                 </RadioGroup>
             </FormControl>
+            </Box>
+
+            <Box sx={{ flex: 1 }} />
 
             {/* Navigation */}
             <Box
                 sx={{
                     display: "flex",
                     justifyContent: "space-between",
-                    mt: 4,
                     pt: 2,
                     borderTop: "1px solid",
                     borderColor: "divider",
+                    position: "sticky",
+                    bottom: 0,
+                    backgroundColor: theme.palette.background.default,
+                    pb: 2,
                 }}
             >
                 <Button

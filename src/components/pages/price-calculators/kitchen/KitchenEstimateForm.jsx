@@ -210,12 +210,20 @@ export default function KitchenEstimateForm() {
   if (!estimateData) return <Box>Loading...</Box>;
 
   return (
-    <Box sx={{ maxWidth: 550, mx: "auto", p: 3 }}>
+    <Box sx={{ 
+      maxWidth: 700, 
+      mx: "auto", 
+      p: 3,
+      display: "flex",
+      flexDirection: "column",
+      minHeight: "calc(100vh - 200px)",
+      pb: 10,
+    }}>
       <Typography
         variant="h5"
         sx={{
           textAlign: "center",
-          mb: 1.5,
+          mb: 1,
           fontWeight: 600,
           color: theme.palette.text.primary,
         }}
@@ -227,21 +235,31 @@ export default function KitchenEstimateForm() {
         variant="body2"
         sx={{
           textAlign: "center",
-          mb: 3,
+          mb: 4,
           color: theme.palette.text.secondary,
         }}
       >
         Please fill out the details below to receive your estimate.
       </Typography>
 
-      <Card
+      <Box
         sx={{
+          backgroundColor: theme.palette.primary.light + '25',
           borderRadius: 2,
-          border: "1px solid",
-          borderColor: theme.palette.grey[300],
-          boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
+          p: 3,
+          mb: 2,
+          border: '1px solid',
+          borderColor: theme.palette.primary.light + '40',
         }}
       >
+        <Card
+          sx={{
+            borderRadius: 2,
+            border: "1px solid",
+            borderColor: theme.palette.grey[300],
+            boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
+          }}
+        >
         <CardContent sx={{ p: 3 }}>
           <form onSubmit={handleSubmit} noValidate>
             <RedAsteriskTextField
@@ -298,8 +316,8 @@ export default function KitchenEstimateForm() {
             <Box
               sx={{
                 textAlign: "center",
-                p: 2.5,
-                mt: 3,
+                p: 2,
+                mt: 2,
                 backgroundColor: theme.palette.primary.light + "20",
                 borderRadius: 2,
               }}
@@ -329,16 +347,22 @@ export default function KitchenEstimateForm() {
           </form>
         </CardContent>
       </Card>
+      </Box>
+
+      <Box sx={{ flex: 1 }} />
 
       {/* Navigation Buttons */}
       <Box
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          mt: 3,
           pt: 2,
           borderTop: "1px solid",
           borderColor: "divider",
+          position: "sticky",
+          bottom: 0,
+          backgroundColor: theme.palette.background.default,
+          pb: 2,
         }}
       >
         <Button

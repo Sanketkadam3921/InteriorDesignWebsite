@@ -88,7 +88,15 @@ export default function KitchenPackageSelection() {
   };
 
   return (
-    <Box sx={{ maxWidth: 700, mx: "auto", p: 3 }}>
+    <Box sx={{ 
+      maxWidth: 700, 
+      mx: "auto", 
+      p: 3,
+      display: "flex",
+      flexDirection: "column",
+      minHeight: "calc(100vh - 200px)",
+      pb: 10,
+    }}>
       {/* Header */}
       <Typography
         variant="h5"
@@ -113,8 +121,18 @@ export default function KitchenPackageSelection() {
         Choose the kitchen package that matches your needs and budget.
       </Typography>
 
-      {/* Package Cards */}
-      <FormControl fullWidth>
+      <Box
+        sx={{
+          backgroundColor: theme.palette.primary.light + '25',
+          borderRadius: 2,
+          p: 3,
+          mb: 2,
+          border: '1px solid',
+          borderColor: theme.palette.primary.light + '40',
+        }}
+      >
+        {/* Package Cards */}
+        <FormControl fullWidth>
         <Box
           sx={{
             display: "grid",
@@ -178,12 +196,12 @@ export default function KitchenPackageSelection() {
                   {/* Image */}
                   <Box
                     sx={{
-                      height: 180,
+                      height: 140,
                       backgroundImage: `url(${pkg.image})`,
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                       borderRadius: 2,
-                      mb: 2.5,
+                      mb: 2,
                     }}
                   />
 
@@ -224,16 +242,22 @@ export default function KitchenPackageSelection() {
           })}
         </Box>
       </FormControl>
+      </Box>
+
+      <Box sx={{ flex: 1 }} />
 
       {/* Navigation */}
       <Box
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          mt: 4,
           pt: 2,
           borderTop: "1px solid",
           borderColor: "divider",
+          position: "sticky",
+          bottom: 0,
+          backgroundColor: theme.palette.background.default,
+          pb: 2,
         }}
       >
         <Button

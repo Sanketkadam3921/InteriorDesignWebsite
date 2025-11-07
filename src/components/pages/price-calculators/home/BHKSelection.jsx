@@ -82,7 +82,17 @@ export default function BHKSelection() {
   const selectedOption = bhkOptions.find((b) => b.id === selectedBHK);
 
   return (
-    <Box sx={{ maxWidth: 700, mx: "auto", p: 3 }}>
+    <Box
+      sx={{
+        maxWidth: 700,
+        mx: "auto",
+        p: 3,
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "calc(100vh - 200px)",
+        pb: 10,
+      }}
+    >
       <Typography
         variant="h5"
         sx={{
@@ -106,7 +116,17 @@ export default function BHKSelection() {
         Choose the configuration of your home
       </Typography>
 
-      <FormControl fullWidth>
+      <Box
+        sx={{
+          backgroundColor: theme.palette.primary.light + '25',
+          borderRadius: 2,
+          p: 3,
+          mb: 2,
+          border: '1px solid',
+          borderColor: theme.palette.primary.light + '40',
+        }}
+      >
+        <FormControl fullWidth>
         <RadioGroup
           value={selectedBHK}
           onChange={handleBHKChange}
@@ -129,6 +149,7 @@ export default function BHKSelection() {
                   selectedBHK === bhk.id
                     ? theme.palette.primary.main
                     : theme.palette.grey[300],
+                backgroundColor: theme.palette.background.paper,
                 boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
                 cursor: "pointer",
                 transition: "none",
@@ -236,6 +257,7 @@ export default function BHKSelection() {
                               selectedSize === size.id
                                 ? theme.palette.primary.main
                                 : theme.palette.grey[300],
+                            backgroundColor: theme.palette.background.paper,
                             textAlign: "center",
                             boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
                             cursor: "pointer",
@@ -284,15 +306,20 @@ export default function BHKSelection() {
           ))}
         </RadioGroup>
       </FormControl>
+      </Box>
 
       <Box
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          mt: 4,
+          mt: "auto",
           pt: 2,
           borderTop: "1px solid",
           borderColor: theme.palette.divider,
+          position: "sticky",
+          bottom: 0,
+          backgroundColor: theme.palette.background.default,
+          pb: 2,
         }}
       >
         <Button

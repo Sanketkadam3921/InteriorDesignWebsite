@@ -53,13 +53,21 @@ export default function KitchenLayoutStep() {
   };
 
   return (
-    <Box sx={{ maxWidth: 800, mx: "auto", p: 3 }}>
+    <Box sx={{ 
+      maxWidth: 700, 
+      mx: "auto", 
+      p: 3,
+      display: "flex",
+      flexDirection: "column",
+      minHeight: "calc(100vh - 200px)",
+      pb: 10,
+    }}>
       {/* Title */}
       <Typography
         variant="h5"
         sx={{
           textAlign: "center",
-          mb: 1.5,
+          mb: 1,
           fontWeight: 600,
           color: theme.palette.text.primary,
         }}
@@ -71,21 +79,31 @@ export default function KitchenLayoutStep() {
         variant="body2"
         sx={{
           textAlign: "center",
-          mb: 3,
+          mb: 4,
           color: theme.palette.text.secondary,
         }}
       >
         Choose your kitchen layout to proceed with your estimate.
       </Typography>
 
-      {/* Layout Grid */}
       <Box
         sx={{
-          display: "grid",
-          gridTemplateColumns: { xs: "1fr", md: "repeat(2, 1fr)" },
-          gap: 2.5,
+          backgroundColor: theme.palette.primary.light + '25',
+          borderRadius: 2,
+          p: 3,
+          mb: 2,
+          border: '1px solid',
+          borderColor: theme.palette.primary.light + '40',
         }}
       >
+        {/* Layout Grid */}
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", md: "repeat(2, 1fr)" },
+            gap: 2.5,
+          }}
+        >
         {kitchenLayouts.map((layout) => {
           const isSelected = selectedLayout === layout.id;
           return (
@@ -100,9 +118,7 @@ export default function KitchenLayoutStep() {
                   ? theme.palette.primary.main
                   : theme.palette.grey[300],
                 boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
-                backgroundColor: isSelected
-                  ? theme.palette.primary.light + "10"
-                  : theme.palette.background.paper,
+                backgroundColor: theme.palette.background.paper,
                 cursor: "pointer",
                 transition: "none",
               }}
@@ -161,17 +177,23 @@ export default function KitchenLayoutStep() {
             </Card>
           );
         })}
+        </Box>
       </Box>
+
+      <Box sx={{ flex: 1 }} />
 
       {/* Navigation Buttons */}
       <Box
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          mt: 4,
           pt: 2,
           borderTop: "1px solid",
           borderColor: "divider",
+          position: "sticky",
+          bottom: 0,
+          backgroundColor: theme.palette.background.default,
+          pb: 2,
         }}
       >
         <Button

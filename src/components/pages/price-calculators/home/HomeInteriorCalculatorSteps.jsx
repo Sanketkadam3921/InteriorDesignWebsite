@@ -163,17 +163,6 @@ export default function HomeInteriorCalculatorSteps() {
           </Box>
 
           {/* Counter */}
-          <Typography
-            variant="body2"
-            sx={{
-              mt: 2,
-              textAlign: "center",
-              fontWeight: "bold",
-              color: theme.palette.text.secondary,
-            }}
-          >
-            {currentStepIndex + 1}/{steps.length}
-          </Typography>
         </Box>
 
         {/* Step Content */}

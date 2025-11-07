@@ -80,13 +80,21 @@ export default function WardrobeFinishSelection() {
     };
 
     return (
-        <Box sx={{ maxWidth: 900, mx: "auto", p: 3 }}>
+        <Box sx={{ 
+            maxWidth: 700, 
+            mx: "auto", 
+            p: 3,
+            display: "flex",
+            flexDirection: "column",
+            minHeight: "calc(100vh - 200px)",
+            pb: 10,
+        }}>
             {/* Header */}
             <Typography
                 variant="h5"
                 sx={{
                     textAlign: "center",
-                    mb: 1.5,
+                    mb: 1,
                     fontWeight: 600,
                     color: theme.palette.text.primary,
                 }}
@@ -100,21 +108,29 @@ export default function WardrobeFinishSelection() {
                     textAlign: "center",
                     mb: 4,
                     color: theme.palette.text.secondary,
-                    maxWidth: 600,
-                    mx: "auto",
                 }}
             >
                 Choose a wardrobe finish that matches your interior theme and budget.
             </Typography>
 
-            {/* Finish Options */}
             <Box
                 sx={{
-                    display: "grid",
-                    gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" },
-                    gap: 3,
+                    backgroundColor: theme.palette.primary.light + '25',
+                    borderRadius: 2,
+                    p: 3,
+                    mb: 2,
+                    border: '1px solid',
+                    borderColor: theme.palette.primary.light + '40',
                 }}
             >
+                {/* Finish Options */}
+                <Box
+                    sx={{
+                        display: "grid",
+                        gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" },
+                        gap: 3,
+                    }}
+                >
                 {finishOptions.map((finish) => {
                     const isSelected = selectedFinish === finish.id;
                     return (
@@ -127,9 +143,7 @@ export default function WardrobeFinishSelection() {
                                 borderColor: isSelected
                                     ? theme.palette.primary.main
                                     : theme.palette.grey[300],
-                                backgroundColor: isSelected
-                                    ? theme.palette.primary.light + "10"
-                                    : theme.palette.background.paper,
+                                backgroundColor: theme.palette.background.paper,
                                 borderRadius: 2,
                                 cursor: "pointer",
                                 transition: "none",
@@ -175,12 +189,12 @@ export default function WardrobeFinishSelection() {
 
                                     <Box
                                         sx={{
-                                            height: 160,
+                                            height: 120,
                                             backgroundImage: `url(${finish.image})`,
                                             backgroundSize: "cover",
                                             backgroundPosition: "center",
                                             borderRadius: 2,
-                                            mb: 2,
+                                            mb: 1.5,
                                         }}
                                     />
 
@@ -210,17 +224,23 @@ export default function WardrobeFinishSelection() {
                         </Card>
                     );
                 })}
+                </Box>
             </Box>
+
+            <Box sx={{ flex: 1 }} />
 
             {/* Navigation */}
             <Box
                 sx={{
                     display: "flex",
                     justifyContent: "space-between",
-                    mt: 4,
                     pt: 2,
                     borderTop: "1px solid",
                     borderColor: "divider",
+                    position: "sticky",
+                    bottom: 0,
+                    backgroundColor: theme.palette.background.default,
+                    pb: 2,
                 }}
             >
                 <Button

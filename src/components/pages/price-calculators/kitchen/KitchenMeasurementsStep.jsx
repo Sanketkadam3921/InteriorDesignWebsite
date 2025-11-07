@@ -552,13 +552,21 @@ export default function KitchenMeasurementsStep() {
     };
 
     return (
-        <Box sx={{ maxWidth: 900, mx: "auto", p: 3 }}>
+        <Box sx={{ 
+            maxWidth: 700, 
+            mx: "auto", 
+            p: 3,
+            display: "flex",
+            flexDirection: "column",
+            minHeight: "calc(100vh - 200px)",
+            pb: 10,
+        }}>
             {/* Title */}
             <Typography
-                variant="h4"
+                variant="h5"
                 sx={{
                     textAlign: "center",
-                    mb: 2,
+                    mb: 1,
                     fontWeight: 600,
                     color: theme.palette.text.primary,
                 }}
@@ -568,13 +576,11 @@ export default function KitchenMeasurementsStep() {
 
             {/* Subtitle */}
             <Typography
-                variant="body1"
+                variant="body2"
                 sx={{
                     textAlign: "center",
                     mb: 4,
                     color: theme.palette.text.secondary,
-                    maxWidth: 600,
-                    mx: "auto",
                 }}
             >
                 Based on your selected layout (
@@ -582,11 +588,21 @@ export default function KitchenMeasurementsStep() {
                 ), please provide the following dimensions in feet.
             </Typography>
 
-            {/* Layout Diagram */}
-            {layout && getLayoutDiagram()}
+            <Box
+                sx={{
+                    backgroundColor: theme.palette.primary.light + '25',
+                    borderRadius: 2,
+                    p: 3,
+                    mb: 2,
+                    border: '1px solid',
+                    borderColor: theme.palette.primary.light + '40',
+                }}
+            >
+                {/* Layout Diagram */}
+                {layout && getLayoutDiagram()}
 
-            {/* Dimension Inputs */}
-            <Card sx={{ mb: 4, p: 3, boxShadow: 2 }}>
+                {/* Dimension Inputs */}
+                <Card sx={{ mb: 0, mt: 3, p: 3, boxShadow: 2 }}>
                 <Grid container spacing={3} justifyContent="center">
                     {getDimensions().map((dim) => (
                         <Grid item xs={12} sm={6} md={4} key={dim}>
@@ -609,6 +625,7 @@ export default function KitchenMeasurementsStep() {
                     ))}
                 </Grid>
             </Card>
+            </Box>
 
             {/* Info Tip 
             <Box
@@ -629,15 +646,20 @@ export default function KitchenMeasurementsStep() {
                 </Typography>
             </Box>*/}
 
+            <Box sx={{ flex: 1 }} />
+
             {/* Navigation Buttons */}
             <Box
                 sx={{
                     display: "flex",
                     justifyContent: "space-between",
-                    mt: 4,
-                    pt: 3,
+                    pt: 2,
                     borderTop: "1px solid",
                     borderColor: "divider",
+                    position: "sticky",
+                    bottom: 0,
+                    backgroundColor: theme.palette.background.default,
+                    pb: 2,
                 }}
             >
                 <Button
@@ -645,25 +667,23 @@ export default function KitchenMeasurementsStep() {
                     onClick={handleBack}
                     sx={{
                         color: theme.palette.primary.main,
-                        textTransform: "uppercase",
+                        textTransform: "none",
                         fontWeight: 600,
                     }}
                 >
-                    BACK
+                    Back
                 </Button>
 
                 <Button
                     variant="contained"
                     onClick={handleNext}
                     sx={{
-                        px: 5,
-                        py: 1.5,
-                        textTransform: "uppercase",
+                        px: 4,
+                        textTransform: "none",
                         fontWeight: 600,
-
                     }}
                 >
-                    NEXT
+                    Next
                 </Button>
             </Box>
         </Box>

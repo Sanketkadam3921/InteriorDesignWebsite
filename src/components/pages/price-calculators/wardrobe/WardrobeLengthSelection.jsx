@@ -41,13 +41,21 @@ export default function WardrobeLengthSelection() {
   };
 
   return (
-    <Box sx={{ maxWidth: 800, mx: "auto", p: 3 }}>
+    <Box sx={{ 
+      maxWidth: 700, 
+      mx: "auto", 
+      p: 3,
+      display: "flex",
+      flexDirection: "column",
+      minHeight: "calc(100vh - 200px)",
+      pb: 10,
+    }}>
       {/* Header */}
       <Typography
         variant="h5"
         sx={{
           textAlign: "center",
-          mb: 1.5,
+          mb: 1,
           fontWeight: 600,
           color: theme.palette.text.primary,
         }}
@@ -61,7 +69,7 @@ export default function WardrobeLengthSelection() {
           backgroundColor: theme.palette.warning.light + "40",
           border: `1px solid ${theme.palette.warning.main}40`,
           borderRadius: 2,
-          p: 2,
+          p: 1.5,
           mb: 4,
           textAlign: "center",
         }}
@@ -77,8 +85,18 @@ export default function WardrobeLengthSelection() {
         </Typography>
       </Box>
 
-      {/* Height Options */}
-      <FormControl component="fieldset" sx={{ width: "100%" }}>
+      <Box
+        sx={{
+          backgroundColor: theme.palette.primary.light + '25',
+          borderRadius: 2,
+          p: 3,
+          mb: 2,
+          border: '1px solid',
+          borderColor: theme.palette.primary.light + '40',
+        }}
+      >
+        {/* Height Options */}
+        <FormControl component="fieldset" sx={{ width: "100%" }}>
         <RadioGroup
           value={selectedHeight}
           onChange={handleHeightChange}
@@ -102,9 +120,7 @@ export default function WardrobeLengthSelection() {
                   borderColor: isSelected
                     ? theme.palette.primary.main
                     : theme.palette.grey[300],
-                  backgroundColor: isSelected
-                    ? theme.palette.primary.light + "10"
-                    : theme.palette.background.paper,
+                  backgroundColor: theme.palette.background.paper,
                   borderRadius: 2,
                   cursor: "pointer",
                   transition: "none",
@@ -148,16 +164,22 @@ export default function WardrobeLengthSelection() {
           })}
         </RadioGroup>
       </FormControl>
+      </Box>
+
+      <Box sx={{ flex: 1 }} />
 
       {/* Navigation */}
       <Box
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          mt: 4,
           pt: 2,
           borderTop: "1px solid",
           borderColor: "divider",
+          position: "sticky",
+          bottom: 0,
+          backgroundColor: theme.palette.background.default,
+          pb: 2,
         }}
       >
         <Button

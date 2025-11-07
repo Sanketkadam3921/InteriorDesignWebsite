@@ -96,7 +96,15 @@ export default function RoomSelection() {
     };
 
     return (
-        <Box sx={{ maxWidth: 700, mx: 'auto', p: 3 }}>
+        <Box sx={{ 
+            maxWidth: 700, 
+            mx: 'auto', 
+            p: 3,
+            display: "flex",
+            flexDirection: "column",
+            minHeight: "calc(100vh - 200px)",
+            pb: 10,
+        }}>
             <Typography
                 variant="h5"
                 sx={{
@@ -120,6 +128,16 @@ export default function RoomSelection() {
                 Add or remove rooms based on your home configuration.
             </Typography>
 
+            <Box
+                sx={{
+                    backgroundColor: theme.palette.primary.light + '25',
+                    borderRadius: 2,
+                    p: 3,
+                    mb: 2,
+                    border: '1px solid',
+                    borderColor: theme.palette.primary.light + '40',
+                }}
+            >
             <Box sx={{ 
                 display: 'grid', 
                 gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' },
@@ -264,14 +282,21 @@ export default function RoomSelection() {
                     </Typography>
                 </CardContent>
             </Card>
+            </Box>
 
-            <Divider sx={{ mb: 3 }} />
+            <Box sx={{ flex: 1, minHeight: 20 }} />
 
             <Box
                 sx={{
                     display: 'flex',
                     justifyContent: 'space-between',
-                    pt: 1,
+                    pt: 2,
+                    borderTop: "1px solid",
+                    borderColor: theme.palette.divider,
+                    position: "sticky",
+                    bottom: 0,
+                    backgroundColor: theme.palette.background.default,
+                    pb: 2,
                 }}
             >
                 <Button

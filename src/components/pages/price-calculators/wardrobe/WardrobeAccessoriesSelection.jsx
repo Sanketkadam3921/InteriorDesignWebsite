@@ -90,31 +90,60 @@ export default function WardrobeAccessoriesSelection() {
   }, 0);
 
   return (
-    <Box sx={{ maxWidth: 1100, mx: "auto", p: 3 }}>
+    <Box sx={{ 
+      maxWidth: 700, 
+      mx: "auto", 
+      p: 3,
+      display: "flex",
+      flexDirection: "column",
+      minHeight: "calc(100vh - 200px)",
+      pb: 10,
+    }}>
       <Typography
-        variant="h4"
+        variant="h5"
         sx={{
           textAlign: "center",
-          mb: 2,
-          fontWeight: "bold",
+          mb: 1,
+          fontWeight: 600,
           color: theme.palette.text.primary,
         }}
       >
         Add Your Preferred Accessories (Optional)
       </Typography>
 
-      <Box
+      <Typography
+        variant="body2"
         sx={{
-          display: "grid",
-          gridTemplateColumns: {
-            xs: "1fr",
-            sm: "repeat(2, 1fr)",
-            md: "repeat(3, 1fr)",
-          },
-          gap: 2.5,
+          textAlign: "center",
           mb: 4,
+          color: theme.palette.text.secondary,
         }}
       >
+        Select any additional accessories for your wardrobe.
+      </Typography>
+
+      <Box
+        sx={{
+          backgroundColor: theme.palette.primary.light + '25',
+          borderRadius: 2,
+          p: 3,
+          mb: 2,
+          border: '1px solid',
+          borderColor: theme.palette.primary.light + '40',
+        }}
+      >
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "1fr",
+              sm: "repeat(2, 1fr)",
+              md: "repeat(3, 1fr)",
+            },
+            gap: 2,
+            mb: 0,
+          }}
+        >
         {accessoriesOptions.map((accessory) => {
           const isSelected = selectedAccessories.includes(accessory.id);
           return (
@@ -126,9 +155,7 @@ export default function WardrobeAccessoriesSelection() {
                 borderColor: isSelected
                   ? theme.palette.primary.main
                   : theme.palette.grey[300],
-                backgroundColor: isSelected
-                  ? theme.palette.primary.light + "10"
-                  : theme.palette.background.paper,
+                backgroundColor: theme.palette.background.paper,
                 borderRadius: 2,
                 cursor: "pointer",
                 position: "relative",
@@ -137,7 +164,7 @@ export default function WardrobeAccessoriesSelection() {
                   borderColor: theme.palette.primary.main,
                   boxShadow: "0 6px 16px rgba(0,0,0,0.08)",
                 },
-                height: 230,
+                minHeight: 200,
               }}
             >
               {isSelected && (
@@ -162,12 +189,12 @@ export default function WardrobeAccessoriesSelection() {
               <CardContent sx={{ p: 2 }}>
                 <Box
                   sx={{
-                    height: 150,
+                    height: 120,
                     backgroundImage: `url(${accessory.image})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     borderRadius: 2,
-                    mb: 2,
+                    mb: 1.5,
                   }}
                 />
 
@@ -197,6 +224,7 @@ export default function WardrobeAccessoriesSelection() {
             </Card>
           );
         })}
+        </Box>
       </Box>
 
       {/* ✅ Summary Section 
@@ -265,15 +293,20 @@ export default function WardrobeAccessoriesSelection() {
                 </Card>
             )}*/}
 
+      <Box sx={{ flex: 1 }} />
+
       {/* Navigation Buttons */}
       <Box
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          mt: 4,
-          pt: 3,
+          pt: 2,
           borderTop: "1px solid",
           borderColor: "divider",
+          position: "sticky",
+          bottom: 0,
+          backgroundColor: theme.palette.background.default,
+          pb: 2,
         }}
       >
         <Button
@@ -285,7 +318,7 @@ export default function WardrobeAccessoriesSelection() {
             fontWeight: 600,
           }}
         >
-          BACK
+          Back
         </Button>
 
         <Button
@@ -297,7 +330,7 @@ export default function WardrobeAccessoriesSelection() {
             fontWeight: 600,
           }}
         >
-          NEXT
+          Next
         </Button>
       </Box>
     </Box>
