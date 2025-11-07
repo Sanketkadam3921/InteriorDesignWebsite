@@ -120,10 +120,16 @@ export default function RoomSelection() {
                 Add or remove rooms based on your home configuration.
             </Typography>
 
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, mb: 3 }}>
-                {roomTypes.map((room) => {
+            <Box sx={{ 
+                display: 'grid', 
+                gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' },
+                gap: 1.5, 
+                mb: 3 
+            }}>
+                {roomTypes.map((room, index) => {
                     const isBathroom = room.id === 'bathroom';
                     const atLimit = totalMainRooms >= maxRoomsAllowed && !isBathroom;
+                    const isDining = room.id === 'dining'; // Last item (index 4)
 
                     return (
                         <Card
@@ -135,6 +141,10 @@ export default function RoomSelection() {
                                 boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
                                 transition: 'none',
                                 '&:hover': { borderColor: theme.palette.primary.main },
+                                // Center Dining (last item in 2-column grid) with same width as other cards
+                                gridColumn: isDining ? { xs: '1', sm: 'span 2' } : 'auto',
+                                justifySelf: isDining ? { xs: 'stretch', sm: 'center' } : 'stretch',
+                                width: isDining ? { xs: '100%', sm: 'calc((100% - 1.5rem) / 2)' } : '100%',
                             }}
                         >
                             <CardContent sx={{ p: 2 }}>

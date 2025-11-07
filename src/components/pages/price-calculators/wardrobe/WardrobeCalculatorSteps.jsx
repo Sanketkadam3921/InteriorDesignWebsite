@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Typography, LinearProgress, useTheme } from '@mui/material';
+import { Box, Container, Typography, useTheme } from '@mui/material';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import WardrobeLengthSelection from './WardrobeLengthSelection';
 import WardrobeTypeSelection from './WardrobeTypeSelection';
@@ -29,68 +29,113 @@ export default function WardrobeCalculatorSteps() {
     };
 
     const currentStepIndex = getCurrentStepIndex();
-    const progress = ((currentStepIndex + 1) / steps.length) * 100;
 
     return (
-        <Box sx={{ minHeight: '100vh', backgroundColor: theme.palette.background.default }}>
+        <Box
+            sx={{
+                minHeight: "100vh",
+                backgroundColor: theme.palette.background.default,
+            }}
+        >
             <Container maxWidth="lg">
                 {/* Progress Header */}
-                <Box sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    py: 3,
-                    mb: 2
-                }}>
-
-
-                    <Box sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 1,
-                        flex: 1,
-                        mx: 4,
-                        overflowX: 'auto'
-                    }}>
+                <Box
+                    sx={{
+                        pt: 3,
+                        pb: 0,
+                        position: "relative",
+                        width: "100%",
+                        maxWidth: 600,
+                        mx: "auto",
+                        mb: 0,
+                        px: 0,
+                    }}
+                >
+                    {/* Heading */}
+                    <Typography
+                        variant="h5"
+                        sx={{
+                            fontWeight: 700,
+                            mb: 2,
+                            textAlign: "center",
+                            color: theme.palette.text.primary,
+                        }}
+                    >
+                        Wardrobe Price Calculator
+                    </Typography>
+                    {/* Steps */}
+                    <Box
+                        sx={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            position: "relative",
+                        }}
+                    >
                         {steps.map((step, index) => (
                             <Box
                                 key={step.id}
                                 sx={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    flex: '0 0 auto',
-                                    minWidth: 'fit-content'
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "center",
+                                    position: "relative",
+                                    flex: 1,
                                 }}
                             >
+                                {/* Connector Line (except last step) */}
+                                {index < steps.length - 1 && (
+                                    <Box
+                                        sx={{
+                                            position: "absolute",
+                                            top: 16, // vertical center of circle
+                                            left: "50%",
+                                            width: "100%",
+                                            height: 2,
+                                            backgroundColor:
+                                                index < currentStepIndex
+                                                    ? theme.palette.primary.main
+                                                    : theme.palette.neutral.lightGray,
+                                            zIndex: 0,
+                                        }}
+                                    />
+                                )}
+
+                                {/* Step Circle */}
                                 <Box
                                     sx={{
-                                        width: 28,
-                                        height: 28,
-                                        borderRadius: '50%',
-                                        backgroundColor: index <= currentStepIndex
-                                            ? theme.palette.primary.main
-                                            : theme.palette.neutral.lightGray,
-                                        color: index <= currentStepIndex ? theme.palette.primary.contrastText : theme.palette.text.secondary,
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        fontSize: '12px',
-                                        fontWeight: 'bold',
-                                        mr: 1
+                                        width: 32,
+                                        height: 32,
+                                        borderRadius: "50%",
+                                        backgroundColor:
+                                            index <= currentStepIndex
+                                                ? theme.palette.primary.main
+                                                : theme.palette.neutral.lightGray,
+                                        color:
+                                            index <= currentStepIndex
+                                                ? theme.palette.primary.contrastText
+                                                : theme.palette.text.secondary,
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        fontSize: "14px",
+                                        fontWeight: "bold",
+                                        zIndex: 1,
                                     }}
                                 >
-                                    {index < currentStepIndex ? '✓' : index + 1}
+                                    {index < currentStepIndex ? "✓" : index + 1}
                                 </Box>
+
+                                {/* Step Label */}
                                 <Typography
-                                    variant="body2"
+                                    variant="caption"
                                     sx={{
-                                        fontWeight: index <= currentStepIndex ? 'bold' : 'normal',
-                                        color: index <= currentStepIndex
-                                            ? theme.palette.primary.main
-                                            : theme.palette.text.secondary,
-                                        fontSize: '11px',
-                                        whiteSpace: 'nowrap',
-                                        fontFamily: theme.typography.fontFamily
+                                        mt: 1,
+                                        color:
+                                            index <= currentStepIndex
+                                                ? theme.palette.primary.main
+                                                : theme.palette.text.secondary,
+                                        fontWeight: index <= currentStepIndex ? "bold" : "normal",
                                     }}
                                 >
                                     {step.label}
@@ -99,31 +144,19 @@ export default function WardrobeCalculatorSteps() {
                         ))}
                     </Box>
 
+                    {/* Counter */}
                     <Typography
                         variant="body2"
                         sx={{
-                            fontWeight: 'bold',
+                            mt: 2,
+                            textAlign: "center",
+                            fontWeight: "bold",
                             color: theme.palette.text.secondary,
-                            fontFamily: theme.typography.fontFamily
                         }}
                     >
-                        {currentStepIndex + 1}/7
+                        {currentStepIndex + 1}/{steps.length}
                     </Typography>
                 </Box>
-
-                {/* Progress Bar */}
-                <LinearProgress
-                    variant="determinate"
-                    value={progress}
-                    sx={{
-                        height: 4,
-                        borderRadius: 2,
-                        backgroundColor: theme.palette.neutral.lightGray,
-                        '& .MuiLinearProgress-bar': {
-                            backgroundColor: theme.palette.primary.main
-                        }
-                    }}
-                />
 
                 {/* Step Content */}
                 <Box sx={{ py: 4 }}>

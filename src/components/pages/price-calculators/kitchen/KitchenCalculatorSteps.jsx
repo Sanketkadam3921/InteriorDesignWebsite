@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Typography, LinearProgress, useTheme } from '@mui/material';
+import { Box, Container, Typography, useTheme } from '@mui/material';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import KitchenLayoutStep from './KitchenLayoutStep';
 import KitchenMeasurementsStep from './KitchenMeasurementsStep';
@@ -23,36 +23,47 @@ export default function KitchenCalculatorSteps() {
     };
 
     const currentStepIndex = getCurrentStepIndex();
-    const progress = ((currentStepIndex + 1) / steps.length) * 100;
 
     return (
-        <Box sx={{ minHeight: '100vh', backgroundColor: theme.palette.background.default }}>
+        <Box
+            sx={{
+                minHeight: "100vh",
+                backgroundColor: theme.palette.background.default,
+            }}
+        >
             <Container maxWidth="lg">
                 {/* Progress Header */}
                 <Box
                     sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                        py: 3,
-                        mb: 2,
-                        flexWrap: "wrap", // ✅ Allows stacking on smaller screens
-                        gap: { xs: 2, md: 0 }, // ✅ Adds spacing when wrapped
+                        pt: 3,
+                        pb: 0,
+                        position: "relative",
+                        width: "100%",
+                        maxWidth: 600,
+                        mx: "auto",
+                        mb: 0,
+                        px: 0,
                     }}
                 >
-
-
-                    {/* Steps Section */}
+                    {/* Heading */}
+                    <Typography
+                        variant="h5"
+                        sx={{
+                            fontWeight: 700,
+                            mb: 2,
+                            textAlign: "center",
+                            color: theme.palette.text.primary,
+                        }}
+                    >
+                        Kitchen Price Calculator
+                    </Typography>
+                    {/* Steps */}
                     <Box
                         sx={{
                             display: "flex",
+                            justifyContent: "space-between",
                             alignItems: "center",
-                            gap: 1,
-                            flex: 1,
-                            mx: { xs: 0, md: 4 },
-                            overflowX: { xs: "auto", md: "visible" }, // ✅ Enables scroll on mobile
-                            scrollbarWidth: "none", // ✅ Hide scrollbar (Firefox)
-                            "&::-webkit-scrollbar": { display: "none" }, // ✅ Hide scrollbar (Chrome/Safari)
+                            position: "relative",
                         }}
                     >
                         {steps.map((step, index) => (
@@ -60,16 +71,35 @@ export default function KitchenCalculatorSteps() {
                                 key={step.id}
                                 sx={{
                                     display: "flex",
+                                    flexDirection: "column",
                                     alignItems: "center",
-                                    flexShrink: 0,
-                                    pr: 2, // ✅ Keeps spacing between steps
-                                    minWidth: "fit-content",
+                                    position: "relative",
+                                    flex: 1,
                                 }}
                             >
+                                {/* Connector Line (except last step) */}
+                                {index < steps.length - 1 && (
+                                    <Box
+                                        sx={{
+                                            position: "absolute",
+                                            top: 16, // vertical center of circle
+                                            left: "50%",
+                                            width: "100%",
+                                            height: 2,
+                                            backgroundColor:
+                                                index < currentStepIndex
+                                                    ? theme.palette.primary.main
+                                                    : theme.palette.neutral.lightGray,
+                                            zIndex: 0,
+                                        }}
+                                    />
+                                )}
+
+                                {/* Step Circle */}
                                 <Box
                                     sx={{
-                                        width: 28,
-                                        height: 28,
+                                        width: 32,
+                                        height: 32,
                                         borderRadius: "50%",
                                         backgroundColor:
                                             index <= currentStepIndex
@@ -82,27 +112,24 @@ export default function KitchenCalculatorSteps() {
                                         display: "flex",
                                         alignItems: "center",
                                         justifyContent: "center",
-                                        fontSize: "12px",
+                                        fontSize: "14px",
                                         fontWeight: "bold",
-                                        mr: 1,
-                                        flexShrink: 0,
+                                        zIndex: 1,
                                     }}
                                 >
                                     {index < currentStepIndex ? "✓" : index + 1}
                                 </Box>
 
+                                {/* Step Label */}
                                 <Typography
-                                    variant="body2"
+                                    variant="caption"
                                     sx={{
-                                        fontWeight:
-                                            index <= currentStepIndex ? "bold" : "normal",
+                                        mt: 1,
                                         color:
                                             index <= currentStepIndex
                                                 ? theme.palette.primary.main
                                                 : theme.palette.text.secondary,
-                                        fontSize: "11px",
-                                        whiteSpace: "nowrap",
-                                        fontFamily: theme.typography.fontFamily,
+                                        fontWeight: index <= currentStepIndex ? "bold" : "normal",
                                     }}
                                 >
                                     {step.label}
@@ -111,35 +138,19 @@ export default function KitchenCalculatorSteps() {
                         ))}
                     </Box>
 
-                    {/* Right Counter */}
+                    {/* Counter */}
                     <Typography
                         variant="body2"
                         sx={{
+                            mt: 2,
+                            textAlign: "center",
                             fontWeight: "bold",
                             color: theme.palette.text.secondary,
-                            fontFamily: theme.typography.fontFamily,
-                            flexShrink: 0,
                         }}
                     >
-                        {currentStepIndex + 1}/4
+                        {currentStepIndex + 1}/{steps.length}
                     </Typography>
                 </Box>
-
-                {/* Progress Bar */}
-                <LinearProgress
-                    variant="determinate"
-                    value={progress}
-                    sx={{
-                        height: 4,
-                        borderRadius: 2,
-                        backgroundColor: theme.palette.neutral.lightGray,
-                        "& .MuiLinearProgress-bar": {
-                            backgroundColor: theme.palette.primary.main,
-                        },
-                    }}
-                />
-
-
 
                 {/* Step Content */}
                 <Box sx={{ py: 4 }}>

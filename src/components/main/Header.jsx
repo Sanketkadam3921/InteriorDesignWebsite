@@ -71,9 +71,9 @@ export default function Header() {
     };
 
     const priceCalculatorsDropdown = [
-        { label: 'Home Interior Calculator', path: '/price-calculators/home' },
-        { label: 'Kitchen Calculator', path: '/price-calculators/kitchen' },
-        { label: 'Wardrobe Calculator', path: '/price-calculators/wardrobe' },
+        { label: 'Home Interior Calculator', path: '/price-calculators/home/calculator/bhk' },
+        { label: 'Kitchen Calculator', path: '/price-calculators/kitchen/calculator/layout' },
+        { label: 'Wardrobe Calculator', path: '/price-calculators/wardrobe/calculator/length' },
     ];
 
     const navigationItems = [
@@ -590,45 +590,49 @@ export default function Header() {
                                             trigger={["hover"]}
                                             getPopupContainer={() => document.body}
                                             overlayStyle={{ zIndex: 9999 }}
-                                            dropdownRender={() => (
-                                                <Box
-                                                    sx={{
-                                                        display: "grid",
-                                                        gridTemplateColumns: "repeat(3, 1fr)",
-                                                        gap: 1,
-                                                        p: 2,
-                                                        backgroundColor: "#fff",
-                                                        borderRadius: 2,
-                                                        boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
-                                                        minWidth: 600,
-                                                    }}
-                                                >
-                                                    {item.dropdown.map((sub, index) => (
-                                                        <Box
-                                                            key={index}
-                                                            component={Link}
-                                                            to={sub.path}
-                                                            sx={{
-                                                                textDecoration: "none",
-                                                                color: theme.palette.text.primary,
-                                                                fontSize: "0.9rem",
-                                                                fontWeight: 400,
-                                                                py: 0.8,
-                                                                px: 1.5,
-                                                                borderRadius: 1,
-                                                                transition: "all 0.2s ease",
-                                                                "&:hover": {
-                                                                    color: theme.palette.primary.main,
-                                                                    backgroundColor:
-                                                                        theme.palette.action.hover,
-                                                                },
-                                                            }}
-                                                        >
-                                                            {sub.label}
-                                                        </Box>
-                                                    ))}
-                                                </Box>
-                                            )}
+                                            dropdownRender={() => {
+                                                const isPriceCalculator = item.label === 'Price Calculators';
+                                                return (
+                                                    <Box
+                                                        sx={{
+                                                            display: isPriceCalculator ? "flex" : "grid",
+                                                            flexDirection: isPriceCalculator ? "column" : "row",
+                                                            gridTemplateColumns: isPriceCalculator ? "none" : "repeat(3, 1fr)",
+                                                            gap: 1,
+                                                            p: 2,
+                                                            backgroundColor: "#fff",
+                                                            borderRadius: 2,
+                                                            boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
+                                                            minWidth: isPriceCalculator ? 250 : 600,
+                                                        }}
+                                                    >
+                                                        {item.dropdown.map((sub, index) => (
+                                                            <Box
+                                                                key={index}
+                                                                component={Link}
+                                                                to={sub.path}
+                                                                sx={{
+                                                                    textDecoration: "none",
+                                                                    color: theme.palette.text.primary,
+                                                                    fontSize: "0.9rem",
+                                                                    fontWeight: 400,
+                                                                    py: 0.8,
+                                                                    px: 1.5,
+                                                                    borderRadius: 1,
+                                                                    transition: "all 0.2s ease",
+                                                                    "&:hover": {
+                                                                        color: theme.palette.primary.main,
+                                                                        backgroundColor:
+                                                                            theme.palette.action.hover,
+                                                                    },
+                                                                }}
+                                                            >
+                                                                {sub.label}
+                                                            </Box>
+                                                        ))}
+                                                    </Box>
+                                                );
+                                            }}
                                         >
                                             <Button
                                                 type="text"
