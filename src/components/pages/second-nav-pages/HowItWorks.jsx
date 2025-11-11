@@ -223,47 +223,47 @@ export default function HowItWorks() {
     {
       id: 1,
       title: "Meeting",
-      icon: "/icons/meeting.png",
+      icon: "https://i.pinimg.com/736x/b8/1e/75/b81e750277ed829e23591d9645d408da.jpg",
       description:
         "Our journey begins with an in-depth consultation where we take the time to truly understand you — your vision, lifestyle, and aesthetic preferences. During this discussion, we explore your functional needs, budget expectations, and desired ambiance for the space. Whether you have a clear idea or are seeking expert guidance, our team helps you define your goals and design direction. This meeting sets the foundation for a smooth and successful design process, ensuring every decision aligns with your personality and comfort.",
       image:
-        "https://img.freepik.com/premium-vector/business-scene-with-three-people-meeting_81698-5022.jpg",
+        "https://plus.unsplash.com/premium_photo-1661503228332-03778ab6d6a1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470",
     },
     {
       id: 2,
       title: "Client Visit",
-      icon: "/icons/visit.png",
+      icon: "https://cdn-icons-png.flaticon.com/128/2196/2196647.png",
       description:
         "After understanding your vision, our design experts visit your location to experience the space firsthand. We carefully analyze your home or office layout, lighting conditions, wall structure, and existing décor elements. This visit helps us identify design opportunities, technical constraints, and creative possibilities unique to your space. We also discuss material options, color palettes, and potential layouts, ensuring that our design reflects both functionality and style. The goal is to turn your environment into a space that feels distinctly yours.",
       image:
-        "https://img.freepik.com/premium-vector/architect-visiting-client-home_23-2148614323.jpg",
+        "https://i.pinimg.com/1200x/ae/85/cb/ae85cbd92bb4e13215bcf2cd57920534.jpg",
     },
     {
       id: 3,
       title: "Measurement",
-      icon: "/icons/measurement.png",
+      icon: "https://cdn-icons-png.flaticon.com/128/335/335446.png",
       description:
         "Accuracy is key to a flawless design. Our team takes precise, on-site measurements of your space — from wall lengths and ceiling heights to window placements and utility points. These details allow us to create a technical blueprint that guides every step of design and execution. This meticulous process ensures that furniture, cabinetry, and décor elements fit perfectly within your space, eliminating errors and avoiding costly modifications later. It's the backbone of our promise for a seamless transformation.",
       image:
-        "https://img.freepik.com/premium-vector/architect-taking-measurements_23-2148614324.jpg",
+        "https://plus.unsplash.com/premium_photo-1672256330251-a0432595f9cc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1469",
     },
     {
       id: 4,
       title: "Quotation",
-      icon: "/icons/quotation.png",
+      icon: "https://cdn-icons-png.flaticon.com/128/12320/12320857.png",
       description:
         "Transparency and trust are at the heart of our process. Based on the finalized design plan and measurements, we provide a detailed quotation outlining costs, material choices, and a clear project timeline. Every aspect — from furniture and finishes to labor and installation — is itemized to help you make informed decisions. We walk you through the quotation, clarifying every detail so there are no hidden surprises. You'll have a complete understanding of how your investment translates into quality and craftsmanship.",
       image:
-        "https://img.freepik.com/vecteurs-libre/assurance-qualite-contrat-affaire-certificat-garantie_335657-3140.jpg?semt=ais_hybrid&w=740&q=80",
+        "https://plus.unsplash.com/premium_photo-1661375171387-a40f423f465d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470",
     },
     {
       id: 5,
       title: "Start the Work",
-      icon: "/icons/work.png",
+      icon: "https://cdn-icons-png.flaticon.com/128/2593/2593066.png",
       description:
         "Once you approve the quotation, our skilled design and execution team begins bringing your dream space to life. We manage every stage — from sourcing premium materials and coordinating with contractors to overseeing on-site work with precision. Our team ensures that each element aligns with the approved design plan while maintaining the highest standards of quality. Regular updates keep you informed at every milestone. The result? A beautifully crafted space that captures your vision, elevates your lifestyle, and feels like home the moment you step in.",
       image:
-        "https://img.freepik.com/premium-vector/construction-worker-installing-furniture_23-2148614322.jpg",
+        "https://plus.unsplash.com/premium_photo-1682086494580-e84624f7cb51?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
     },
   ];
 
@@ -624,33 +624,33 @@ export default function HowItWorks() {
               {
                 id: 1,
                 title: "Civil Work",
-                icon: "https://cdn-icons-png.flaticon.com/128/2965/2965680.png",
+                icon: "https://cdn-icons-png.flaticon.com/128/17059/17059652.png",
                 description: "Foundation, masonry, and structural tasks.",
               },
               {
                 id: 2,
                 title: "Electrical Work",
-                icon: "https://cdn-icons-png.flaticon.com/128/4238/4238773.png",
+                icon: "https://cdn-icons-png.flaticon.com/128/10396/10396674.png",
                 description:
                   "Wiring, lighting, and power setup for your space.",
               },
               {
                 id: 3,
                 title: "Ceiling Work",
-                icon: "https://cdn-icons-png.flaticon.com/128/2965/2965680.png",
+                icon: "https://cdn-icons-png.flaticon.com/128/7444/7444083.png",
                 description: "False ceiling and lighting panel installations.",
               },
               {
                 id: 4,
                 title: "Furniture",
-                icon: "https://cdn-icons-png.flaticon.com/128/1067/1067566.png",
+                icon: "https://cdn-icons-png.flaticon.com/128/2590/2590393.png",
                 description:
                   "Customized furniture built and installed with precision.",
               },
               {
                 id: 5,
                 title: "Hand Over",
-                icon: "https://cdn-icons-png.flaticon.com/128/4727/4727496.png",
+                icon: "https://cdn-icons-png.flaticon.com/128/8083/8083015.png",
                 description:
                   "Final inspection and handover of your dream interior.",
               },
