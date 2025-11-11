@@ -438,7 +438,7 @@ export default function HowItWorks() {
           </Box>
 
           {/* Call to Action Button */}
-          <Box sx={{ textAlign: "center" }}>
+          {/* <Box sx={{ textAlign: "center" }}>
             <CTAButton
               variant="contained"
               size="large"
@@ -458,7 +458,7 @@ export default function HowItWorks() {
             >
               BOOK FREE CONSULTATION
             </CTAButton>
-          </Box>
+          </Box> */}
         </Container>
       </Box>
 
