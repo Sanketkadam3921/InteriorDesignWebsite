@@ -253,7 +253,7 @@ export default function Testimonials() {
               fontStyle: "italic",
             }}
           >
-            Hover over any card to pause
+            {isMobile ? "Tap any card to pause" : ""}
           </Typography>
         </Box>
       </Container>
