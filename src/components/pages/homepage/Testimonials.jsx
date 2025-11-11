@@ -42,16 +42,23 @@ export default function Testimonials() {
     },
   ];
 
-  // Duplicate testimonials for seamless loop
-  const duplicatedTestimonials = [...testimonials, ...testimonials];
+  // Create multiple duplicates for truly endless seamless loop
+  // We create 3 sets so when animation moves 33.33%, it seamlessly loops
+  const duplicatedTestimonials = [
+    ...testimonials,
+    ...testimonials,
+    ...testimonials,
+  ];
 
-  // Smooth scrolling animation
+  // Smooth endless scrolling animation
+  // Moves exactly 33.33% (one set out of three), creating seamless infinite loop
+  // When it reaches 33.33% and loops back to 0%, the content is identical
   const scroll = keyframes`
         0% {
             transform: translateX(0);
         }
         100% {
-            transform: translateX(-50%);
+            transform: translateX(-33.333%);
         }
     `;
 
@@ -106,8 +113,9 @@ export default function Testimonials() {
             sx={{
               display: "flex",
               gap: 3,
+              width: "max-content",
               animation: `${scroll} ${
-                isMobile ? "10s" : "30s"
+                isMobile ? "40s" : "60s"
               } linear infinite`,
               "&:hover": {
                 animationPlayState: "paused",
