@@ -9,7 +9,8 @@ import {
   Alert,
   Snackbar,
   useTheme,
-  Divider
+  Divider,
+  styled
 } from '@mui/material';
 import {
   Send as SendIcon,
@@ -19,6 +20,13 @@ import {
 } from '@mui/icons-material';
 import themeNeutral from '../../../themeNeutral';
 import contactBg from '../../../assets/contact.jpg';
+
+// 🔴 Styled TextField — makes default required asterisk red
+const RedAsteriskTextField = styled(TextField)({
+  "& .MuiFormLabel-asterisk": {
+    color: "red",
+  },
+});
 
 export default function ContactForm() {
   const theme = useTheme();
@@ -163,26 +171,28 @@ export default function ContactForm() {
           </Typography>
 
           <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-            <TextField
-              label="Full Name*"
+            <RedAsteriskTextField
+              label="Full Name"
               name="name"
               value={formData.name}
               onChange={handleChange}
               error={!!errors.name}
               helperText={errors.name}
               fullWidth
+              required
             />
-            <TextField
-              label="Email*"
+            <RedAsteriskTextField
+              label="Email"
               name="email"
               value={formData.email}
               onChange={handleChange}
               error={!!errors.email}
               helperText={errors.email}
               fullWidth
+              required
             />
-            <TextField
-              label="Phone Number*"
+            <RedAsteriskTextField
+              label="Phone Number"
               name="phone"
               value={formData.phone}
               onChange={handleChange}
@@ -190,6 +200,7 @@ export default function ContactForm() {
               helperText={errors.phone}
               fullWidth
               inputProps={{ maxLength: 10 }}
+              required
             />
             <TextField
               label="Address"
@@ -198,8 +209,8 @@ export default function ContactForm() {
               onChange={handleChange}
               fullWidth
             />
-            <TextField
-              label="Your Message*"
+            <RedAsteriskTextField
+              label="Your Message"
               name="message"
               multiline
               rows={4}
@@ -208,6 +219,7 @@ export default function ContactForm() {
               error={!!errors.message}
               helperText={errors.message}
               fullWidth
+              required
             />
             <Button
               type="submit"
