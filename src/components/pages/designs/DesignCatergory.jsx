@@ -116,40 +116,54 @@ export default function DesignCategory() {
     const categoryTitle = categoryDisplayNames[category] || category.replace("-", " ").replace(/\b\w/g, l => l.toUpperCase());
 
     return (
-        <Container maxWidth="xl" sx={{
-            py: { xs: 0, sm: 0, md: 4 },
-        }}
-        >
-            {/* Breadcrumbs 
-            <Breadcrumbs sx={{ mb: 3 }}>
-                <Link
-                    color="inherit"
-                    href="/"
-                    onClick={(e) => { e.preventDefault(); navigate('/'); }}
-                    sx={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 0.5 }}
-                >
-                    <Home fontSize="small" />
-                    Home
-                </Link>
-                <Link
-                    color="inherit"
-                    href="/designs"
-                    onClick={(e) => { e.preventDefault(); navigate('/designs'); }}
-                    sx={{ cursor: 'pointer' }}
-                >
-                    Designs
-                </Link>
-                <Typography color="text.primary">{categoryTitle}</Typography>
-            </Breadcrumbs>*/}
+        <Box sx={{
+            minHeight: '100vh',
+            backgroundColor: theme.palette.background.default,
+            pt: { xs: 2, sm: 3, md: 4 },
+            pb: { xs: 4, sm: 6, md: 8 }
+        }}>
+            <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
+                {/* Breadcrumbs 
+                <Breadcrumbs sx={{ mb: 3 }}>
+                    <Link
+                        color="inherit"
+                        href="/"
+                        onClick={(e) => { e.preventDefault(); navigate('/'); }}
+                        sx={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 0.5 }}
+                    >
+                        <Home fontSize="small" />
+                        Home
+                    </Link>
+                    <Link
+                        color="inherit"
+                        href="/designs"
+                        onClick={(e) => { e.preventDefault(); navigate('/designs'); }}
+                        sx={{ cursor: 'pointer' }}
+                    >
+                        Designs
+                    </Link>
+                    <Typography color="text.primary">{categoryTitle}</Typography>
+                </Breadcrumbs>*/}
 
-            {/* Back Button */}
-            <Button
-                startIcon={<ArrowBack />}
-                onClick={() => navigate('/designs')}
-                sx={{ mb: 3, px: 0 }}
-            >
-                Back to Designs
-            </Button>
+                {/* Back Button */}
+                <Button
+                    startIcon={<ArrowBack />}
+                    onClick={() => navigate('/designs')}
+                    sx={{
+                        mb: 4,
+                        px: 0,
+                        color: theme.palette.text.secondary,
+                        '&:hover': {
+                            backgroundColor: theme.palette.action.hover,
+                            color: theme.palette.text.primary,
+                        },
+                        fontWeight: 500,
+                        textTransform: 'none',
+                        fontSize: '1rem'
+                    }}
+                >
+                    Back to Designs
+                </Button>
 
             {/* Category Header */}
             <Box sx={{ mb: 4, textAlign: 'flex-start' }}>
@@ -320,7 +334,8 @@ export default function DesignCategory() {
                     Request Custom Design
                 </Button>
             </Box>
-        </Container>
+            </Container>
+        </Box>
     );
 }
 

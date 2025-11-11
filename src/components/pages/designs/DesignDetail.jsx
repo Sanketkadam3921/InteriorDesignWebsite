@@ -104,35 +104,57 @@ export default function DesignDetail() {
         maxWidth: "xl",
         sx: {
             px: { xs: 2, sm: 3, md: 4 },
-            py: { xs: 5, md: 7 },
         },
     };
 
     if (design.title === "Design Not Found") {
         return (
-            <Container {...consistentContainer} sx={{ textAlign: "center" }}>
-                <Typography variant="h4" color="error" gutterBottom>
-                    Design not found
-                </Typography>
-                <Button
-                    variant="contained"
-                    onClick={() => navigate(`/designs/${category}`)}
-                    startIcon={<ArrowBack />}
-                >
-                    Back to Design Category
-                </Button>
-            </Container>
+            <Box sx={{
+                minHeight: '100vh',
+                backgroundColor: theme.palette.background.default,
+                pt: { xs: 2, sm: 3, md: 4 },
+                pb: { xs: 4, sm: 6, md: 8 }
+            }}>
+                <Container {...consistentContainer} sx={{ textAlign: "center" }}>
+                    <Typography variant="h4" color="error" gutterBottom>
+                        Design not found
+                    </Typography>
+                    <Button
+                        variant="contained"
+                        onClick={() => navigate(`/designs/${category}`)}
+                        startIcon={<ArrowBack />}
+                    >
+                        Back to Design Category
+                    </Button>
+                </Container>
+            </Box>
         );
     }
 
     return (
-        <Box sx={{ backgroundColor: theme.palette.background.default }}>
+        <Box sx={{
+            minHeight: '100vh',
+            backgroundColor: theme.palette.background.default,
+            pt: { xs: 2, sm: 3, md: 4 },
+            pb: { xs: 4, sm: 6, md: 8 }
+        }}>
             {/* 🧭 Back Button + Title */}
             <Container {...consistentContainer}>
                 <Button
                     startIcon={<ArrowBack />}
                     onClick={() => navigate(`/designs/${category}`)}
-                    sx={{ mb: 4, px: 0 }}
+                    sx={{
+                        mb: 4,
+                        px: 0,
+                        color: theme.palette.text.secondary,
+                        '&:hover': {
+                            backgroundColor: theme.palette.action.hover,
+                            color: theme.palette.text.primary,
+                        },
+                        fontWeight: 500,
+                        textTransform: 'none',
+                        fontSize: '1rem'
+                    }}
                 >
                     Back to Design Category
                 </Button>

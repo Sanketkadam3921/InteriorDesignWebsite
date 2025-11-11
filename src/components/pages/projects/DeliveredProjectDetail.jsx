@@ -82,15 +82,32 @@ export default function DeliveredProjectDetail() {
     };
 
     return (
-        <Container maxWidth="xl" sx={{ py: 6 }}>
-            {/* Back Button */}
-            <Button
-                startIcon={<ArrowBack />}
-                onClick={() => navigate("/projects/delivered")}
-                sx={{ mb: 4, px: 0 }}
-            >
-                Back to Delivered Projects
-            </Button>
+        <Box sx={{
+            minHeight: '100vh',
+            backgroundColor: theme.palette.background.default,
+            pt: { xs: 2, sm: 3, md: 4 },
+            pb: { xs: 4, sm: 6, md: 8 }
+        }}>
+            <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 } }}>
+                {/* Back Button */}
+                <Button
+                    startIcon={<ArrowBack />}
+                    onClick={() => navigate("/projects/delivered")}
+                    sx={{
+                        mb: 4,
+                        px: 0,
+                        color: theme.palette.text.secondary,
+                        '&:hover': {
+                            backgroundColor: theme.palette.action.hover,
+                            color: theme.palette.text.primary,
+                        },
+                        fontWeight: 500,
+                        textTransform: 'none',
+                        fontSize: '1rem'
+                    }}
+                >
+                    Back to Delivered Projects
+                </Button>
 
             {/* Project Title */}
             <Box sx={{ mb: 3 }}>
@@ -351,6 +368,7 @@ export default function DeliveredProjectDetail() {
                     ))}
                 </Box>
             </Box>
-        </Container>
+            </Container>
+        </Box>
     );
 }
