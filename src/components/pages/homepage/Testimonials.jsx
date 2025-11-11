@@ -20,7 +20,7 @@ export default function Testimonials() {
       name: "Rohan & Priya Mehta",
       location: "Pune",
       quote:
-        "Livspace turned our small 2BHK into a luxurious and cozy home! The design team was professional, attentive, and incredibly creative. The estimation process was smooth and transparent.",
+        "KalaKruti Studio turned our small 2BHK into a luxurious and cozy home! The design team was professional, attentive, and incredibly creative. The estimation process was smooth and transparent.",
     },
     {
       name: "Aditi Sharma",
