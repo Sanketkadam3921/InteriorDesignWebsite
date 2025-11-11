@@ -1,6 +1,13 @@
 import React from "react";
-import { Box, Container, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  Container,
+  Typography,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 import { Routes, Route, useLocation } from "react-router-dom";
+
 import WardrobeLengthSelection from "./WardrobeLengthSelection";
 import WardrobeTypeSelection from "./WardrobeTypeSelection";
 import WardrobeFinishSelection from "./WardrobeFinishSelection";
@@ -49,6 +56,7 @@ const steps = [
 
 export default function WardrobeCalculatorSteps() {
   const theme = useTheme();
+  const isMobile = useMediaQuery("(max-width:600px)");
   const location = useLocation();
 
   const getCurrentStepIndex = () => {
@@ -67,7 +75,6 @@ export default function WardrobeCalculatorSteps() {
       }}
     >
       <Container maxWidth="lg">
-        {/* Progress Header */}
         <Box
           sx={{
             pt: 3,
@@ -80,7 +87,6 @@ export default function WardrobeCalculatorSteps() {
             px: 0,
           }}
         >
-          {/* Heading */}
           <Typography
             variant="h5"
             sx={{
@@ -92,6 +98,7 @@ export default function WardrobeCalculatorSteps() {
           >
             Wardrobe Price Calculator
           </Typography>
+
           {/* Steps */}
           <Box
             sx={{
@@ -112,12 +119,12 @@ export default function WardrobeCalculatorSteps() {
                   flex: 1,
                 }}
               >
-                {/* Connector Line (except last step) */}
+                {/* Connector line */}
                 {index < steps.length - 1 && (
                   <Box
                     sx={{
                       position: "absolute",
-                      top: 16, // vertical center of circle
+                      top: 16, // <= Center of 32px circle — perfect alignment
                       left: "50%",
                       width: "100%",
                       height: 2,
@@ -130,7 +137,7 @@ export default function WardrobeCalculatorSteps() {
                   />
                 )}
 
-                {/* Step Circle */}
+                {/* Step circle */}
                 <Box
                   sx={{
                     width: 32,
@@ -155,11 +162,14 @@ export default function WardrobeCalculatorSteps() {
                   {index < currentStepIndex ? "✓" : index + 1}
                 </Box>
 
-                {/* Step Label */}
+                {/* Step label (mobile splitting) */}
                 <Typography
                   variant="caption"
                   sx={{
                     mt: 1,
+                    minHeight: isMobile ? "24px" : "auto",
+                    textAlign: "center",
+                    lineHeight: 1.1,
                     color:
                       index <= currentStepIndex
                         ? theme.palette.primary.main
@@ -167,14 +177,24 @@ export default function WardrobeCalculatorSteps() {
                     fontWeight: index <= currentStepIndex ? "bold" : "normal",
                   }}
                 >
-                  {step.label}
+                  {step.label === "ACCESSORIES" && isMobile ? (
+                    <>
+                      ACCES <br /> SORIES
+                    </>
+                  ) : step.label === "TIMELINE" && isMobile ? (
+                    <>
+                      TIME <br /> LINE
+                    </>
+                  ) : (
+                    step.label
+                  )}
                 </Typography>
               </Box>
             ))}
           </Box>
         </Box>
 
-        {/* Step Content */}
+        {/* Route Content */}
         <Box sx={{ py: 4 }}>
           <Routes>
             <Route path="length" element={<WardrobeLengthSelection />} />
