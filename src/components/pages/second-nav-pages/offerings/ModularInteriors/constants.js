@@ -116,37 +116,40 @@ export const FAQ_ITEMS = [
   {
     id: 1,
     question:
-      "What makes KalaKruti modular kitchens different from traditional kitchens?",
+      "What are modular interiors and how do they differ from traditional interiors?",
     answer:
-      "Our modular kitchens are precision-engineered with 4-sigma accuracy and come with a flat 10-year warranty. Unlike traditional kitchens, they feature pre-fabricated modules that are manufactured in controlled environments, ensuring consistent quality, faster installation, and better durability. Each module is designed to fit perfectly and can be easily replaced or modified as your needs change.",
+      "Modular interiors are made of factory-finished, pre-designed units such as wardrobes, TV units, storage systems, and study setups. Unlike traditional carpentry, modular interiors offer cleaner execution, consistent finish, faster installation, and the flexibility to reconfigure or expand later.",
   },
   {
     id: 2,
     question:
-      "How much does a modular kitchen cost and what factors affect the pricing?",
+      "What spaces can be designed with modular interior solutions?",
     answer:
-      "Modular kitchen pricing typically ranges from ₹2-8 lakhs depending on size, materials, and finishes. Key factors include kitchen dimensions, choice of shutters (laminates, acrylic, or solid wood), hardware quality, countertop material (granite, quartz, or marble), and additional features like soft-close mechanisms, LED lighting, and smart storage solutions. We provide transparent pricing with no hidden costs and detailed breakdowns.",
+      "Modular solutions can be used for bedrooms, living rooms, study rooms, workspaces, utility areas, wardrobes, TV units, bookshelves, crockery units, and smart storage solutions. Each module is designed to fit your space perfectly while maximizing functionality.",
   },
   {
     id: 3,
-    question: "How long does it take to install a modular kitchen?",
+    question:
+      "How long does it take to install modular interiors?",
     answer:
-      "Modular kitchen installation typically takes 3-7 days depending on the complexity and size. Since all modules are pre-fabricated in our factory, the on-site installation is much faster compared to traditional kitchens. Our skilled technicians ensure precise fitting and minimal disruption to your daily routine. We also provide a 45-day move-in guarantee for complete projects.",
+      "Since all components are pre-manufactured in a factory, modular interior installation typically takes 5–15 days depending on the scope of work. Full-home modular setups including wardrobes, TV units, and storage systems can be completed in under 3 weeks.",
   },
   {
     id: 4,
-    question: "What materials and finishes are available for modular kitchens?",
+    question:
+      "Can modular interiors be customized to match my home’s style?",
     answer:
-      "We offer a wide range of materials including laminates, acrylic, PVC, and solid wood shutters. For countertops, you can choose from granite, quartz, marble, or engineered stone. Our hardware includes premium brands with soft-close mechanisms, full-extension drawers, and ergonomic handles. All materials are sourced from certified suppliers and come with quality guarantees. We also offer custom color matching and texture options to match your home's aesthetic.",
+      "Yes. Modular interiors come with complete customization options including finishes, colors, materials, storage layouts, handle styles, and design patterns. You can choose from modern, minimalist, classic, or premium themes based on your preferences.",
   },
   {
     id: 5,
     question:
-      "Do you provide warranty and after-sales service for modular kitchens?",
+      "What materials and finishes are commonly used in modular interiors?",
     answer:
-      "Yes, we provide a comprehensive 10-year warranty on all our modular kitchen components including shutters, hardware, and structural elements. Our after-sales service includes free maintenance for the first year, repair services, and replacement of defective parts. We have a dedicated customer support team and service centers across major cities. All warranty terms are clearly documented and we ensure quick resolution of any issues that may arise.",
+      "Popular choices include laminates, acrylic, PU, veneers, and glass. Internal structures are typically made with high-quality engineered wood or plywood. Each material offers unique benefits in terms of durability, appearance, and maintenance.",
   },
 ];
+
 
 export const CLOSING_CTA = {
   title: "Transform Your Space with Intelligent Modular Design",

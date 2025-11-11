@@ -11,9 +11,9 @@ export default function FAQ() {
     <Box
       sx={{
         backgroundColor: theme.palette.background.paper,
-        py: { xs: 6, md: 10 },
-        mt: 1,
-        mb: 8,
+        py: { xs: 6, md: 5 },
+        mt: 0,
+        mb: 0,
       }}
     >
       <Container maxWidth="lg">

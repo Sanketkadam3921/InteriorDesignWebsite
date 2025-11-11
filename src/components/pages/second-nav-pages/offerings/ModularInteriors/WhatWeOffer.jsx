@@ -21,9 +21,19 @@ export default function WhatWeOffer() {
                 What We Offer
             </Typography>
 
-            <Grid container spacing={4}>
+            <Grid 
+                container 
+                spacing={4} 
+                justifyContent="center"     // ⭐ FIX: centers cards on mobile
+            >
                 {SERVICES.map((service) => (
-                    <Grid item xs={12} md={6} key={service.id}>
+                    <Grid 
+                        item 
+                        xs={12} 
+                        md={6} 
+                        key={service.id}
+                        sx={{ display: "flex", justifyContent: "center" }}  // ⭐ extra safety
+                    >
                         <ServiceCard
                             title={service.title}
                             image={service.image}
@@ -35,4 +45,3 @@ export default function WhatWeOffer() {
         </Box>
     );
 }
-

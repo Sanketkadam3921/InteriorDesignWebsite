@@ -25,7 +25,7 @@ export default function ModularInteriors() {
                 <ClosingCTA />
             </Container>
 
-            <Testimonials />
+            {/* <Testimonials /> */}
             <FAQ />
         </Box>
     );
