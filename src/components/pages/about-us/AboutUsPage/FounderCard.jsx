@@ -1,19 +1,36 @@
 import React from "react";
-import { Card, CardContent, Typography, Avatar, Box, IconButton } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  Typography,
+  Avatar,
+  Box,
+  IconButton,
+  useTheme,
+} from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
-export default function FounderCard({ name, role, description, image, borderColor }) {
+export default function FounderCard({
+  name,
+  role,
+  description,
+  image,
+  borderColor,
+}) {
+  const theme = useTheme();
+
   return (
     <Card
       sx={{
         height: "100%",
-        borderRadius: 3,
-        boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
-        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+        borderRadius: 4,
+        backgroundColor: theme.palette.background.paper,
+        boxShadow: theme.shadows[4],
+        transition: "0.3s ease",
         "&:hover": {
-          transform: "translateY(-4px)",
-          boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
+          transform: "translateY(-6px)",
+          boxShadow: theme.shadows[10],
         },
       }}
     >
@@ -25,57 +42,49 @@ export default function FounderCard({ name, role, description, image, borderColo
             height: 120,
             mx: "auto",
             mb: 3,
-            border: "4px solid",
-            borderColor: borderColor,
+            border: `4px solid ${borderColor || theme.palette.primary.main}`,
+            boxShadow: theme.shadows[3],
           }}
         />
+
         <Typography
           variant="h5"
           sx={{
-            color: "primary.main",
+            color: theme.palette.primary.main,
             fontWeight: "bold",
             mb: 1,
           }}
         >
           {name}
         </Typography>
+
         <Typography
           variant="h6"
           sx={{
-            color: "primary.main",
-            fontWeight: "medium",
+            color: theme.palette.secondary.main,
+            fontWeight: 500,
             mb: 2,
           }}
         >
           {role}
         </Typography>
+
         <Typography
           variant="body1"
           sx={{
-            color: "text.secondary",
-            lineHeight: 1.6,
+            color: theme.palette.text.secondary,
+            lineHeight: 1.7,
             mb: 3,
           }}
         >
           {description}
         </Typography>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            gap: 1,
-          }}
-        >
-          <IconButton
-            size="small"
-            sx={{ color: "neutral.darkGray" }}
-          >
+
+        <Box sx={{ display: "flex", justifyContent: "center", gap: 1 }}>
+          <IconButton size="small" sx={{ color: theme.palette.primary.main }}>
             <LinkedInIcon />
           </IconButton>
-          <IconButton
-            size="small"
-            sx={{ color: "neutral.darkGray" }}
-          >
+          <IconButton size="small" sx={{ color: theme.palette.primary.main }}>
             <InstagramIcon />
           </IconButton>
         </Box>
@@ -83,4 +92,3 @@ export default function FounderCard({ name, role, description, image, borderColo
     </Card>
   );
 }
-
