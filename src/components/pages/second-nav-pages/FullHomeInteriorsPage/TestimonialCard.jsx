@@ -91,3 +91,4 @@ export default function TestimonialCard({ quote, author, location, image }) {
   );
 }
 
+

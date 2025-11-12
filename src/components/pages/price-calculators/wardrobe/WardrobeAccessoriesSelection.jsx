@@ -67,7 +67,7 @@ export default function WardrobeAccessoriesSelection() {
       accessories: selectedAccessories.join(","),
     });
     navigate(
-      `/price-calculators/wardrobe/calculator/timeline?${queryParams.toString()}`
+      `/price-calculators/wardrobe/calculator/estimate?${queryParams.toString()}`
     );
   };
 

@@ -58,82 +58,169 @@ import KnowYourWardrobe from "../pages/second-nav-pages/offerings/KnowYourWardro
 // Renovations Components
 import RenovationsPage from "../pages/renovations/RenovationsPage";
 
-
 export default function AppRoutes() {
-    return (
-        <BrowserRouter>
-            <ScrollToTop />
-            <Routes>
-                <Route path="/" element={<Layout />}>
-                    <Route index element={<HomePage />} />
+  return (
+    <BrowserRouter>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
 
-                    <Route path="projects" element={<ProjectsPage />} />
-                    <Route path="projects/delivered" element={<DeliveredProjectsList />} />
-                    <Route path="projects/delivered/:id" element={<DeliveredProjectDetail />} />
-                    <Route path="projects/delivered/:id/gallery" element={<ProjectGallery />} />
-                    <Route path="projects/upcoming" element={<UpcomingProjectsList />} />
-                    <Route path="projects/upcoming/:id" element={<UpcomingProjectDetail />} />
-                    <Route path="projects/upcoming/:id/gallery" element={<ProjectGallery />} />
-                    <Route path="projects/old" element={<ProjectsList />} />
-                    <Route path="projects/old/:id" element={<ProjectDetail />} />
-                    <Route path="wardrobe/know-your-wardrobe" element={<KnowYourWardrobe />} />
+          <Route path="projects" element={<ProjectsPage />} />
+          <Route
+            path="projects/delivered"
+            element={<DeliveredProjectsList />}
+          />
+          <Route
+            path="projects/delivered/:id"
+            element={<DeliveredProjectDetail />}
+          />
+          <Route
+            path="projects/delivered/:id/gallery"
+            element={<ProjectGallery />}
+          />
+          <Route path="projects/upcoming" element={<UpcomingProjectsList />} />
+          <Route
+            path="projects/upcoming/:id"
+            element={<UpcomingProjectDetail />}
+          />
+          <Route
+            path="projects/upcoming/:id/gallery"
+            element={<ProjectGallery />}
+          />
+          <Route path="projects/old" element={<ProjectsList />} />
+          <Route path="projects/old/:id" element={<ProjectDetail />} />
+          <Route
+            path="wardrobe/know-your-wardrobe"
+            element={<KnowYourWardrobe />}
+          />
 
+          <Route path="designs" element={<AllDesigns />} />
+          <Route path="designs/categories" element={<DesignCategories />} />
+          <Route path="designs/:category" element={<DesignCategory />} />
+          <Route path="designs/:category/:id" element={<DesignDetail />} />
+          <Route
+            path="designs/:category/:id/gallery"
+            element={<DesignGallery />}
+          />
 
-                    <Route path="designs" element={<AllDesigns />} />
-                    <Route path="designs/categories" element={<DesignCategories />} />
-                    <Route path="designs/:category" element={<DesignCategory />} />
-                    <Route path="designs/:category/:id" element={<DesignDetail />} />
-                    <Route path="designs/:category/:id/gallery" element={<DesignGallery />} />
+          <Route path="contact" element={<ContactForm />} />
+          <Route path="faq" element={<FAQ />} />
+          <Route path="aboutus" element={<AboutUsPage />} />
+          <Route
+            path="kitchen/know-your-kitchen"
+            element={<KnowYourKitchen />}
+          />
 
-                    <Route path="contact" element={<ContactForm />} />
-                    <Route path="faq" element={<FAQ />} />
-                    <Route path="aboutus" element={<AboutUsPage />} />
-                    <Route path="kitchen/know-your-kitchen" element={<KnowYourKitchen />} />
+          <Route path="magazine" element={<MagazinePage />} />
 
-                    <Route path="magazine" element={<MagazinePage />} />
+          <Route path="how-it-works" element={<HowItWorks />} />
+          <Route path="offerings" element={<OfferingPage />} />
+          <Route
+            path="offerings/modular-interiors"
+            element={<ModularInteriorsPage />}
+          />
+          <Route
+            path="designs/full-home-interiors"
+            element={<FullHomeInteriorsPage />}
+          />
+          <Route
+            path="designs/modular-interiors"
+            element={<ModularInteriorsPage />}
+          />
+          <Route
+            path="price-calculators"
+            element={<HomeInteriorCalculator />}
+          />
+          <Route
+            path="price-calculators/home"
+            element={<HomeInteriorCalculator />}
+          />
+          <Route
+            path="price-calculators/home/calculator/*"
+            element={<HomeInteriorCalculatorSteps />}
+          />
+          <Route
+            path="price-calculators/kitchen"
+            element={<KitchenPriceCalculator />}
+          />
+          <Route
+            path="price-calculators/kitchen/calculator/*"
+            element={<KitchenCalculatorSteps />}
+          />
+          <Route
+            path="price-calculators/wardrobe"
+            element={<WardrobePriceCalculator />}
+          />
+          <Route
+            path="price-calculators/wardrobe/calculator/*"
+            element={<WardrobeCalculatorSteps />}
+          />
+          <Route path="modular-journey" element={<OfferingPage />} />
+          <Route path="kitchen/know-your-kitchen" element={<OfferingPage />} />
+          <Route path="kitchen/price-calculator" element={<OfferingPage />} />
+          <Route path="kitchen/components" element={<OfferingPage />} />
+          <Route
+            path="kitchen/components/cabinets"
+            element={<KitchenCabinets />}
+          />
+          <Route
+            path="kitchen/components/cabinets/:category/:id"
+            element={<KitchenCabinetDetail />}
+          />
 
-                    <Route path="how-it-works" element={<HowItWorks />} />
-                    <Route path="offerings" element={<OfferingPage />} />
-                    <Route path="offerings/modular-interiors" element={<ModularInteriorsPage />} />
-                    <Route path="designs/full-home-interiors" element={<FullHomeInteriorsPage />} />
-                    <Route path="designs/modular-interiors" element={<ModularInteriorsPage />} />
-                    <Route path="price-calculators" element={<HomeInteriorCalculator />} />
-                    <Route path="price-calculators/home" element={<HomeInteriorCalculator />} />
-                    <Route path="price-calculators/home/calculator/*" element={<HomeInteriorCalculatorSteps />} />
-                    <Route path="price-calculators/kitchen" element={<KitchenPriceCalculator />} />
-                    <Route path="price-calculators/kitchen/calculator/*" element={<KitchenCalculatorSteps />} />
-                    <Route path="price-calculators/wardrobe" element={<WardrobePriceCalculator />} />
-                    <Route path="price-calculators/wardrobe/calculator/*" element={<WardrobeCalculatorSteps />} />
-                    <Route path="modular-journey" element={<OfferingPage />} />
-                    <Route path="kitchen/know-your-kitchen" element={<OfferingPage />} />
-                    <Route path="kitchen/price-calculator" element={<OfferingPage />} />
-                    <Route path="kitchen/components" element={<OfferingPage />} />
-                    <Route path="kitchen/components/cabinets" element={<KitchenCabinets />} />
-                    <Route path="kitchen/components/cabinets/:category/:id" element={<KitchenCabinetDetail />} />
+          <Route
+            path="kitchen/components/handles"
+            element={<KitchenHandles />}
+          />
+          <Route
+            path="kitchen/components/finishes/:category/:id"
+            element={<KitchenFinishesDetails />}
+          />
+          <Route
+            path="kitchen/components/handles/:id"
+            element={<KitchenHandlesDetails />}
+          />
 
-                    <Route path="kitchen/components/handles" element={<KitchenHandles />} />
-                    <Route path="kitchen/components/finishes/:category/:id" element={<KitchenFinishesDetails />} />
-                    <Route path="kitchen/components/handles/:id" element={<KitchenHandlesDetails />} />
+          <Route
+            path="kitchen/components/finishes"
+            element={<KitchenFinishes />}
+          />
+          <Route
+            path="wardrobe/know-your-wardrobe"
+            element={<OfferingPage />}
+          />
+          <Route path="wardrobe/price-calculator" element={<OfferingPage />} />
+          <Route path="wardrobe/components" element={<OfferingPage />} />
+          <Route
+            path="wardrobe/components/cabinets"
+            element={<WardrobeCabinets />}
+          />
+          <Route
+            path="wardrobe/components/handles"
+            element={<WardrobeHandles />}
+          />
+          <Route
+            path="wardrobe/components/finishes"
+            element={<WardrobeFinishes />}
+          />
+          <Route
+            path="designs/luxury-interiors"
+            element={<LuxuryInteriorPage />}
+          />
+          <Route
+            path="offerings/book-online-consultation"
+            element={<ContactForm />}
+          />
+          <Route path="offerings/learn-more" element={<LearnMore />} />
+          <Route path="enquiries/quote-form" element={<QuoteForm />} />
 
-                    <Route path="kitchen/components/finishes" element={<KitchenFinishes />} />
-                    <Route path="wardrobe/know-your-wardrobe" element={<OfferingPage />} />
-                    <Route path="wardrobe/price-calculator" element={<OfferingPage />} />
-                    <Route path="wardrobe/components" element={<OfferingPage />} />
-                    <Route path="wardrobe/components/cabinets" element={<WardrobeCabinets />} />
-                    <Route path="wardrobe/components/handles" element={<WardrobeHandles />} />
-                    <Route path="wardrobe/components/finishes" element={<WardrobeFinishes />} />
-                    <Route path="designs/luxury-interiors" element={<LuxuryInteriorPage />} />
-                    <Route path="offerings/book-online-consultation" element={<BookOnlineConsultation />} />
-                    <Route path="offerings/learn-more" element={<LearnMore />} />
-                    <Route path="enquiries/quote-form" element={<QuoteForm />} />
+          {/* Renovations Routes */}
+          <Route path="renovations" element={<RenovationsPage />} />
 
-                    {/* Renovations Routes */}
-                    <Route path="renovations" element={<RenovationsPage />} />
-
-                    <Route path="*" element={<NotFound />} />
-
-                </Route>
-            </Routes>
-        </BrowserRouter>
-    );
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }

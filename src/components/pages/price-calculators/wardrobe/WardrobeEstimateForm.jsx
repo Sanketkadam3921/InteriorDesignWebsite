@@ -207,7 +207,7 @@ export default function WardrobeEstimateForm() {
       accessories: searchParams.get("accessories"),
     });
     navigate(
-      `/price-calculators/wardrobe/calculator/timeline?${queryParams.toString()}`
+      `/price-calculators/wardrobe/calculator/accessories?${queryParams.toString()}`
     );
   };
 

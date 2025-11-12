@@ -13,7 +13,6 @@ import WardrobeTypeSelection from "./WardrobeTypeSelection";
 import WardrobeFinishSelection from "./WardrobeFinishSelection";
 import WardrobeMaterialSelection from "./WardrobeMaterialSelection";
 import WardrobeAccessoriesSelection from "./WardrobeAccessoriesSelection";
-import WardrobeTimelineSelection from "./WardrobeTimelineSelection";
 import WardrobeEstimateForm from "./WardrobeEstimateForm";
 
 const steps = [
@@ -41,11 +40,6 @@ const steps = [
     id: "accessories",
     label: "ACCESSORIES",
     path: "/price-calculators/wardrobe/calculator/accessories",
-  },
-  {
-    id: "timeline",
-    label: "TIMELINE",
-    path: "/price-calculators/wardrobe/calculator/timeline",
   },
   {
     id: "estimate",
@@ -181,10 +175,6 @@ export default function WardrobeCalculatorSteps() {
                     <>
                       ACCES <br /> SORIES
                     </>
-                  ) : step.label === "TIMELINE" && isMobile ? (
-                    <>
-                      TIME <br /> LINE
-                    </>
                   ) : (
                     step.label
                   )}
@@ -205,7 +195,6 @@ export default function WardrobeCalculatorSteps() {
               path="accessories"
               element={<WardrobeAccessoriesSelection />}
             />
-            <Route path="timeline" element={<WardrobeTimelineSelection />} />
             <Route path="estimate" element={<WardrobeEstimateForm />} />
           </Routes>
         </Box>

@@ -157,6 +157,7 @@ export default function WardrobeFinishSelection() {
                                     control={
                                         <Radio
                                             checked={isSelected}
+                                            onChange={() => handleSelect(finish.id)}
                                             onClick={(e) => e.stopPropagation()}
                                             sx={{
                                                 color: theme.palette.primary.main,

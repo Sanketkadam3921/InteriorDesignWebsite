@@ -133,3 +133,4 @@ export const REFERRAL_DATA = {
   ctaText: "Refer now",
   ctaLink: "/contact",
 };
+
