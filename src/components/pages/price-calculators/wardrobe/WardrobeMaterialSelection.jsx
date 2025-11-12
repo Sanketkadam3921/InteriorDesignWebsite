@@ -146,6 +146,7 @@ export default function WardrobeMaterialSelection() {
                   control={
                     <Radio
                       checked={isSelected}
+                      onChange={() => handleSelect(material.id)}
                       onClick={(e) => e.stopPropagation()}
                       sx={{
                         color: theme.palette.primary.main,
