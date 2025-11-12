@@ -318,12 +318,17 @@ export default function WardrobeAccessoriesSelection() {
         }}
       >
         <Button
-          variant="text"
+          variant="outlined"
           onClick={handleBack}
           sx={{
             color: theme.palette.primary.main,
+            borderColor: theme.palette.primary.main,
             textTransform: "none",
             fontWeight: 600,
+            "&:hover": {
+              borderColor: theme.palette.primary.dark,
+              backgroundColor: theme.palette.primary.light + "15",
+            },
           }}
         >
           Back

@@ -374,13 +374,18 @@ export default function KitchenEstimateForm() {
         }}
       >
         <Button
-          variant="text"
+          variant="outlined"
           onClick={handleBack}
           sx={{
             color: theme.palette.primary.main,
+            borderColor: theme.palette.primary.main,
             textTransform: "none",
             fontWeight: 600,
             fontSize: "0.9rem",
+            "&:hover": {
+              borderColor: theme.palette.primary.dark,
+              backgroundColor: theme.palette.primary.light + "15",
+            },
           }}
         >
           Back
