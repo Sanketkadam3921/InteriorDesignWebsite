@@ -109,7 +109,7 @@ export default function AllDesigns() {
     },
     {
       id: "homes-livspace",
-      title: "Homes by KalaKruti Studio",
+      title: "KalaKruti Studio Designs",
       description: "Complete home interior solutions from Livspace",
       image:
         "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=500",
