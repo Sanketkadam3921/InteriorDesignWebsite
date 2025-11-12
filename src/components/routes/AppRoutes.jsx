@@ -212,8 +212,8 @@ export default function AppRoutes() {
             path="offerings/book-online-consultation"
             element={<ContactForm />}
           />
-          <Route path="offerings/learn-more" element={<LearnMore />} />
-          <Route path="enquiries/quote-form" element={<QuoteForm />} />
+          <Route path="offerings/learn-more" element={<ContactForm />} />
+          <Route path="enquiries/quote-form" element={<ContactForm />} />
 
           {/* Renovations Routes */}
           <Route path="renovations" element={<RenovationsPage />} />
