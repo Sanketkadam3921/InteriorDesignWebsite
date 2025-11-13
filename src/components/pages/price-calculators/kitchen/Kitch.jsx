@@ -6,13 +6,14 @@ import {
   CardContent,
   Button,
   TextField,
-  useTheme,
   Snackbar,
   Alert,
   styled,
+  useTheme,
 } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
 
+// 🔴 Required field styling
 const RedAsteriskTextField = styled(TextField)({
   "& .MuiFormLabel-asterisk": {
     color: "red",
@@ -20,9 +21,9 @@ const RedAsteriskTextField = styled(TextField)({
 });
 
 export default function KitchenEstimateForm() {
-  const theme = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
+  const theme = useTheme();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -33,13 +34,14 @@ export default function KitchenEstimateForm() {
 
   const [errors, setErrors] = useState({});
   const [estimateData, setEstimateData] = useState(null);
+
   const [toast, setToast] = useState({
     open: false,
     message: "",
     severity: "success",
   });
 
-  // Calculate base price function
+  // ⭐ Calculate modular kitchen price
   const calculateBasePrice = (layout, A, B, C, packageType) => {
     const packagePrices = {
       essentials: 1200,
@@ -54,10 +56,8 @@ export default function KitchenEstimateForm() {
       parallel: 1.1,
     };
 
-    // Standard cabinet height in feet (approximately 2.5 feet)
-    const cabinetHeight = 2.5;
+    const cabinetHeight = 2.5; // in feet
 
-    // Calculate linear feet based on layout
     let linearFeet = 0;
     switch (layout) {
       case "straight":
@@ -79,21 +79,21 @@ export default function KitchenEstimateForm() {
     const basePricePerSqFt = packagePrices[packageType] || 1800;
     const layoutMultiplier = layoutMultipliers[layout] || 1.0;
 
-    // Calculate area (linear feet * height) and then price
     const area = linearFeet * cabinetHeight;
     const price = area * basePricePerSqFt * layoutMultiplier;
 
     return Math.round(price);
   };
 
-  // Calculate base and total prices
+  // ⭐ Extract query params and calculate estimate
   useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
-    const layout = searchParams.get("layout");
-    const A = parseFloat(searchParams.get("A")) || 0;
-    const B = parseFloat(searchParams.get("B")) || 0;
-    const C = parseFloat(searchParams.get("C")) || 0;
-    const packageType = searchParams.get("package");
+    const params = new URLSearchParams(location.search);
+
+    const layout = params.get("layout");
+    const A = parseFloat(params.get("A")) || 0;
+    const B = parseFloat(params.get("B")) || 0;
+    const C = parseFloat(params.get("C")) || 0;
+    const packageType = params.get("package");
 
     const totalPrice = calculateBasePrice(layout, A, B, C, packageType);
 
@@ -107,7 +107,29 @@ export default function KitchenEstimateForm() {
     });
   }, [location.search]);
 
-  // 🧩 Validation per field
+  // ⭐ Pretty kitchen details formatting
+  const formatKitchenDetails = (details, price, propertyName) => {
+    return `
+ MODULAR KITCHEN ESTIMATE SUMMARY
+
+ CONFIGURATION
+• Layout: ${details.layout || "N/A"}
+• Package: ${details.packageType || "N/A"}
+
+ DIMENSIONS (in feet)
+• Side A: ${details.A || 0} ft
+• Side B: ${details.B || 0} ft
+• Side C: ${details.C || 0} ft
+
+ ESTIMATED PRICE
+• ₹${price.toLocaleString()}
+
+ PROPERTY
+• ${propertyName || "N/A"}
+`;
+  };
+
+  // ⭐ Validation
   const validateField = (field, value) => {
     let error = "";
 
@@ -117,45 +139,38 @@ export default function KitchenEstimateForm() {
         else if (!/^[A-Za-z\s]+$/.test(value))
           error = "Only letters and spaces allowed";
         break;
+
       case "email":
         if (!value.trim()) error = "Email is required";
         else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))
           error = "Enter a valid email address";
+
         break;
+
       case "phone":
         if (!value.trim()) error = "Phone number is required";
         else if (!/^[6-9]\d{9}$/.test(value))
           error = "Enter a valid 10-digit Indian number";
+
         break;
+
       case "propertyName":
         if (!value.trim()) error = "Property name is required";
         else if (!/^[A-Za-z0-9\s]+$/.test(value))
           error = "Only letters and numbers allowed";
-        break;
-      default:
         break;
     }
 
     setErrors((prev) => ({ ...prev, [field]: error }));
   };
 
-  // 🧠 Restrict invalid characters while typing
+  // ⭐ Controlled input handling
   const handleInputChange = (field) => (event) => {
     let value = event.target.value;
 
-    switch (field) {
-      case "name":
-        value = value.replace(/[^A-Za-z\s]/g, "");
-        break;
-      case "phone":
-        value = value.replace(/\D/g, "").slice(0, 10);
-        break;
-      case "propertyName":
-        value = value.replace(/[^A-Za-z0-9\s]/g, "");
-        break;
-      default:
-        break;
-    }
+    if (field === "name") value = value.replace(/[^A-Za-z\s]/g, "");
+    if (field === "phone") value = value.replace(/\D/g, "").slice(0, 10);
+    if (field === "propertyName") value = value.replace(/[^A-Za-z0-9\s]/g, "");
 
     setFormData((prev) => ({ ...prev, [field]: value }));
     validateField(field, value);
@@ -165,12 +180,12 @@ export default function KitchenEstimateForm() {
     Object.values(formData).every((v) => v.trim() !== "") &&
     Object.values(errors).every((e) => !e);
 
-  const handleSubmit = (event) => {
+  // ⭐ Web3Forms submission
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    Object.entries(formData).forEach(([key, value]) =>
-      validateField(key, value)
-    );
+    // validate all
+    Object.entries(formData).forEach(([k, v]) => validateField(k, v));
 
     if (!isFormValid()) {
       setToast({
@@ -181,30 +196,63 @@ export default function KitchenEstimateForm() {
       return;
     }
 
-    setToast({
-      open: true,
-      message: `Thank you ${
-        formData.name
-      }! Your kitchen estimate is ₹${estimateData.totalPrice.toLocaleString()}. We will contact you soon.`,
-      severity: "success",
-    });
+    try {
+      const fd = new FormData();
 
-    setTimeout(() => {
-      navigate("/");
-    }, 2000);
+      fd.append("access_key", "1c21fc37-1fc4-4734-a82f-0a647e166aef");
+      fd.append(
+        "subject",
+        `New Modular Kitchen Estimate from ${formData.name}`
+      );
+
+      // user info
+      fd.append("name", formData.name);
+      fd.append("email", formData.email);
+      fd.append("phone", formData.phone);
+      fd.append("property_name", formData.propertyName);
+
+      // price
+      fd.append("estimated_price", estimateData.totalPrice);
+
+      // formatted summary
+      fd.append(
+        "calculation_details",
+        formatKitchenDetails(
+          estimateData,
+          estimateData.totalPrice,
+          formData.propertyName
+        )
+      );
+
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: fd,
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setToast({
+          open: true,
+          message: "Your kitchen estimate has been submitted!",
+          severity: "success",
+        });
+
+        setTimeout(() => navigate("/"), 2000);
+      } else throw new Error("Submission failed");
+    } catch (err) {
+      setToast({
+        open: true,
+        message: "Something went wrong. Please try again.",
+        severity: "error",
+      });
+    }
   };
 
+  // ⭐ Navigate back
   const handleBack = () => {
-    const searchParams = new URLSearchParams(location.search);
-    const queryParams = new URLSearchParams({
-      layout: searchParams.get("layout"),
-      A: searchParams.get("A"),
-      B: searchParams.get("B"),
-      C: searchParams.get("C"),
-    });
-    navigate(
-      `/price-calculators/kitchen/calculator/package?${queryParams.toString()}`
-    );
+    const params = new URLSearchParams(location.search);
+    navigate(`/price-calculators/kitchen/calculator/package?${params}`);
   };
 
   if (!estimateData) return <Box>Loading...</Box>;
@@ -231,7 +279,7 @@ export default function KitchenEstimateForm() {
           color: theme.palette.text.primary,
         }}
       >
-        Your Estimate Is Almost Ready
+        Your Kitchen Estimate Is Ready
       </Typography>
 
       <Typography
@@ -245,6 +293,7 @@ export default function KitchenEstimateForm() {
         Please fill out the details below to receive your estimate.
       </Typography>
 
+      {/* Form Card */}
       <Box
         sx={{
           backgroundColor: theme.palette.primary.light + "25",
@@ -270,8 +319,8 @@ export default function KitchenEstimateForm() {
                 label="Name"
                 value={formData.name}
                 onChange={handleInputChange("name")}
-                margin="normal"
                 required
+                margin="normal"
                 size="small"
                 error={!!errors.name}
                 helperText={errors.name}
@@ -283,8 +332,8 @@ export default function KitchenEstimateForm() {
                 type="email"
                 value={formData.email}
                 onChange={handleInputChange("email")}
-                margin="normal"
                 required
+                margin="normal"
                 size="small"
                 error={!!errors.email}
                 helperText={errors.email}
@@ -296,8 +345,8 @@ export default function KitchenEstimateForm() {
                 type="tel"
                 value={formData.phone}
                 onChange={handleInputChange("phone")}
-                margin="normal"
                 required
+                margin="normal"
                 size="small"
                 error={!!errors.phone}
                 helperText={errors.phone}
@@ -308,14 +357,14 @@ export default function KitchenEstimateForm() {
                 label="Property Name"
                 value={formData.propertyName}
                 onChange={handleInputChange("propertyName")}
-                margin="normal"
                 required
+                margin="normal"
                 size="small"
                 error={!!errors.propertyName}
                 helperText={errors.propertyName}
               />
 
-              {/* Estimated Price */}
+              {/* Estimated Price Box */}
               <Box
                 sx={{
                   textAlign: "center",
@@ -327,22 +376,21 @@ export default function KitchenEstimateForm() {
               >
                 <Typography
                   variant="subtitle2"
-                  sx={{ color: theme.palette.text.secondary, mb: 0.5 }}
+                  sx={{ color: theme.palette.text.secondary }}
                 >
                   Estimated Price
                 </Typography>
+
                 <Typography
                   variant="h5"
-                  sx={{
-                    fontWeight: 700,
-                    color: theme.palette.primary.main,
-                  }}
+                  sx={{ fontWeight: 700, color: theme.palette.primary.main }}
                 >
                   ₹{estimateData.totalPrice.toLocaleString()}
                 </Typography>
+
                 <Typography
                   variant="caption"
-                  sx={{ color: theme.palette.text.secondary, mt: 0.5 }}
+                  sx={{ color: theme.palette.text.secondary }}
                 >
                   *Final price may vary based on requirements
                 </Typography>
@@ -384,10 +432,6 @@ export default function KitchenEstimateForm() {
             textTransform: "none",
             fontWeight: 600,
             fontSize: "0.9rem",
-            "&:hover": {
-              borderColor: theme.palette.primary.dark,
-              backgroundColor: theme.palette.primary.light + "15",
-            },
           }}
         >
           Back
@@ -408,18 +452,14 @@ export default function KitchenEstimateForm() {
         </Button>
       </Box>
 
-      {/* ✅ Toast Notification */}
+      {/* Toast */}
       <Snackbar
         open={toast.open}
         autoHideDuration={3000}
         onClose={() => setToast({ ...toast, open: false })}
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
       >
-        <Alert
-          onClose={() => setToast({ ...toast, open: false })}
-          severity={toast.severity}
-          sx={{ width: "100%" }}
-        >
+        <Alert severity={toast.severity} sx={{ width: "100%" }}>
           {toast.message}
         </Alert>
       </Snackbar>

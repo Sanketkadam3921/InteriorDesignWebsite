@@ -38,33 +38,12 @@ export default function WardrobeEstimateForm() {
     message: "",
     severity: "success",
   });
-
   const [estimatedPrice, setEstimatedPrice] = useState(0);
   const [estimateData, setEstimateData] = useState(null);
 
-  // ⭐ FORMAT FOR EMAIL MESSAGE
-  const formatCalculationDetails = (data) => {
-    const accessoriesList = data.accessories
-      ? data.accessories.split(",").join(", ")
-      : "None";
-
-    return `
-Wardrobe Estimate Details
-
-Height: ${data.height}
-Type: ${data.type}
-Finish: ${data.finish}
-Material: ${data.material}
-Accessories: ${accessoriesList}
-
-Final Price: ₹${data.totalPrice.toLocaleString()}
-    `;
-  };
-
-  // 💰 Calculate Estimated Price
+  // 💰 Calculate estimated price
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
-
     const height = searchParams.get("height");
     const type = searchParams.get("type");
     const finish = searchParams.get("finish");
@@ -108,26 +87,25 @@ Final Price: ₹${data.totalPrice.toLocaleString()}
     totalPrice *= materialMultipliers[material] || 1.0;
 
     if (accessories) {
-      const selected = accessories.split(",");
-      selected.forEach((a) => {
+      const selectedAccessories = accessories.split(",");
+      selectedAccessories.forEach((a) => {
         if (accessoriesPrices[a]) totalPrice += accessoriesPrices[a];
       });
     }
 
-    const finalAmount = Math.round(totalPrice);
-
-    setEstimatedPrice(finalAmount);
+    const finalPrice = Math.round(totalPrice);
+    setEstimatedPrice(finalPrice);
     setEstimateData({
       height,
       type,
       finish,
       material,
       accessories,
-      totalPrice: finalAmount,
+      totalPrice: finalPrice,
     });
   }, [location.search]);
 
-  // 🧩 FIELD VALIDATION
+  // 🧩 Validation rules
   const validateField = (field, value) => {
     let error = "";
 
@@ -163,7 +141,7 @@ Final Price: ₹${data.totalPrice.toLocaleString()}
     setErrors((prev) => ({ ...prev, [field]: error }));
   };
 
-  // Restrict invalid characters while typing
+  // 🧠 Restrict invalid characters while typing
   const handleInputChange = (field) => (event) => {
     let value = event.target.value;
 
@@ -177,6 +155,8 @@ Final Price: ₹${data.totalPrice.toLocaleString()}
       case "propertyName":
         value = value.replace(/[^A-Za-z0-9\s]/g, "");
         break;
+      default:
+        break;
     }
 
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -185,13 +165,12 @@ Final Price: ₹${data.totalPrice.toLocaleString()}
 
   const isFormValid = () =>
     Object.values(formData).every((v) => v.trim() !== "") &&
-    Object.values(errors).every((err) => !err);
+    Object.values(errors).every((e) => !e);
 
-  // 📨 SUBMIT TO WEB3FORMS
-  const handleSubmit = async (event) => {
+  // 📨 Handle Submit
+  const handleSubmit = (event) => {
     event.preventDefault();
 
-    // re-validate before submit
     Object.entries(formData).forEach(([key, value]) =>
       validateField(key, value)
     );
@@ -199,71 +178,36 @@ Final Price: ₹${data.totalPrice.toLocaleString()}
     if (!isFormValid()) {
       setToast({
         open: true,
-        message: "Please fill all fields correctly.",
+        message: "Please fill all fields correctly before submitting.",
         severity: "error",
       });
       return;
     }
 
-    try {
-      const formDataToSend = new FormData();
+    setToast({
+      open: true,
+      message: `Thank you ${
+        formData.name
+      }! Your wardrobe estimate is ₹${estimatedPrice.toLocaleString()}. We will contact you soon.`,
+      severity: "success",
+    });
 
-      formDataToSend.append(
-        "access_key",
-        "1c21fc37-1fc4-4734-a82f-0a647e166aef"
-      );
-
-      formDataToSend.append(
-        "subject",
-        `New Wardrobe Estimate from ${formData.name}`
-      );
-
-      // user details
-      formDataToSend.append("name", formData.name);
-      formDataToSend.append("email", formData.email);
-      formDataToSend.append("phone", formData.phone);
-      formDataToSend.append("property_name", formData.propertyName);
-
-      // price
-      formDataToSend.append("estimated_price", estimateData.totalPrice);
-
-      // details
-      formDataToSend.append(
-        "calculation_details",
-        formatCalculationDetails(estimateData)
-      );
-
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formDataToSend,
-      });
-
-      const data = await res.json();
-
-      if (data.success) {
-        setToast({
-          open: true,
-          message: "Your wardrobe estimate has been submitted successfully!",
-          severity: "success",
-        });
-
-        setTimeout(() => navigate("/"), 2000);
-      } else {
-        throw new Error("Submission failed");
-      }
-    } catch (error) {
-      setToast({
-        open: true,
-        message: "Something went wrong. Please try again.",
-        severity: "error",
-      });
-    }
+    setTimeout(() => {
+      navigate("/");
+    }, 2000);
   };
 
   const handleBack = () => {
-    const params = new URLSearchParams(location.search);
+    const searchParams = new URLSearchParams(location.search);
+    const queryParams = new URLSearchParams({
+      height: searchParams.get("height"),
+      type: searchParams.get("type"),
+      finish: searchParams.get("finish"),
+      material: searchParams.get("material"),
+      accessories: searchParams.get("accessories"),
+    });
     navigate(
-      `/price-calculators/wardrobe/calculator/accessories?${params.toString()}`
+      `/price-calculators/wardrobe/calculator/accessories?${queryParams.toString()}`
     );
   };
 
@@ -284,139 +228,204 @@ Final Price: ₹${data.totalPrice.toLocaleString()}
     >
       <Typography
         variant="h5"
-        sx={{ textAlign: "center", mb: 1, fontWeight: 600 }}
+        sx={{
+          textAlign: "center",
+          mb: 1,
+          fontWeight: 600,
+          color: theme.palette.text.primary,
+        }}
       >
         Your Estimate Is Almost Ready
       </Typography>
 
       <Typography
         variant="body2"
-        sx={{ textAlign: "center", mb: 4, color: "text.secondary" }}
-      >
-        Please fill out the details below.
-      </Typography>
-
-      <Card
         sx={{
-          borderRadius: 2,
-          border: "1px solid",
-          borderColor: theme.palette.grey[300],
+          textAlign: "center",
+          mb: 4,
+          color: theme.palette.text.secondary,
         }}
       >
-        <CardContent sx={{ p: 3 }}>
-          <form onSubmit={handleSubmit} noValidate>
-            {/* Name */}
-            <RedAsteriskTextField
-              fullWidth
-              label="Name"
-              value={formData.name}
-              onChange={handleInputChange("name")}
-              required
-              margin="normal"
-              size="small"
-              error={!!errors.name}
-              helperText={errors.name}
-            />
+        Please fill out the details below to receive your estimate.
+      </Typography>
 
-            {/* Email */}
-            <RedAsteriskTextField
-              fullWidth
-              label="Email ID"
-              type="email"
-              value={formData.email}
-              onChange={handleInputChange("email")}
-              required
-              margin="normal"
-              size="small"
-              error={!!errors.email}
-              helperText={errors.email}
-            />
-
-            {/* Phone */}
-            <RedAsteriskTextField
-              fullWidth
-              label="Phone Number"
-              type="tel"
-              value={formData.phone}
-              onChange={handleInputChange("phone")}
-              required
-              margin="normal"
-              size="small"
-              error={!!errors.phone}
-              helperText={errors.phone}
-            />
-
-            {/* Property */}
-            <RedAsteriskTextField
-              fullWidth
-              label="Property Name"
-              value={formData.propertyName}
-              onChange={handleInputChange("propertyName")}
-              required
-              margin="normal"
-              size="small"
-              error={!!errors.propertyName}
-              helperText={errors.propertyName}
-            />
-
-            {/* Price box */}
-            <Box
-              sx={{
-                textAlign: "center",
-                p: 2,
-                mt: 2,
-                backgroundColor: theme.palette.primary.light + "20",
-                borderRadius: 2,
-              }}
-            >
-              <Typography variant="subtitle2">Estimated Price</Typography>
-              <Typography variant="h5" sx={{ fontWeight: 700 }}>
-                ₹{estimatedPrice.toLocaleString()}
-              </Typography>
-              <Typography variant="caption" sx={{ color: "text.secondary" }}>
-                *Final price may vary based on requirements
-              </Typography>
-            </Box>
-          </form>
-        </CardContent>
-      </Card>
-
-      {/* Buttons */}
       <Box
         sx={{
+          backgroundColor: theme.palette.primary.light + "25",
+          borderRadius: 2,
+          p: 3,
+          mb: 2,
+          border: "1px solid",
+          borderColor: theme.palette.primary.light + "40",
+        }}
+      >
+        <Card
+          sx={{
+            borderRadius: 2,
+            border: "1px solid",
+            borderColor: theme.palette.grey[300],
+            boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
+          }}
+        >
+          <CardContent sx={{ p: 3 }}>
+            <form onSubmit={handleSubmit} noValidate>
+              <RedAsteriskTextField
+                fullWidth
+                label="Name"
+                value={formData.name}
+                onChange={handleInputChange("name")}
+                margin="normal"
+                required
+                size="small"
+                error={!!errors.name}
+                helperText={errors.name}
+              />
+
+              <RedAsteriskTextField
+                fullWidth
+                label="Email ID"
+                type="email"
+                value={formData.email}
+                onChange={handleInputChange("email")}
+                margin="normal"
+                required
+                size="small"
+                error={!!errors.email}
+                helperText={errors.email}
+              />
+
+              <RedAsteriskTextField
+                fullWidth
+                label="Phone Number"
+                type="tel"
+                value={formData.phone}
+                onChange={handleInputChange("phone")}
+                margin="normal"
+                required
+                size="small"
+                error={!!errors.phone}
+                helperText={errors.phone}
+              />
+
+              <RedAsteriskTextField
+                fullWidth
+                label="Property Name"
+                value={formData.propertyName}
+                onChange={handleInputChange("propertyName")}
+                margin="normal"
+                required
+                size="small"
+                error={!!errors.propertyName}
+                helperText={errors.propertyName}
+              />
+
+              {/* Estimated Price */}
+              <Box
+                sx={{
+                  textAlign: "center",
+                  p: 2,
+                  mt: 2,
+                  backgroundColor: theme.palette.primary.light + "20",
+                  borderRadius: 2,
+                }}
+              >
+                <Typography
+                  variant="subtitle2"
+                  sx={{ color: theme.palette.text.secondary, mb: 0.5 }}
+                >
+                  Estimated Price
+                </Typography>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    fontWeight: 700,
+                    color: theme.palette.primary.main,
+                  }}
+                >
+                  ₹{estimatedPrice.toLocaleString()}
+                </Typography>
+                <Typography
+                  variant="caption"
+                  sx={{ color: theme.palette.text.secondary, mt: 0.5 }}
+                >
+                  *Final price may vary based on requirements
+                </Typography>
+              </Box>
+            </form>
+          </CardContent>
+        </Card>
+      </Box>
+
+      <Box sx={{ flex: 1 }} />
+
+      {/* Navigation Buttons */}
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
           position: "fixed",
           bottom: 0,
           left: 0,
           right: 0,
           maxWidth: 700,
           mx: "auto",
-          display: "flex",
-          justifyContent: "space-between",
-          p: 3,
-          borderTop: "1px solid #ddd",
-          backgroundColor: "background.default",
+          pt: 2,
+          pb: 2,
+          px: 3,
+          borderTop: "1px solid",
+          borderColor: "divider",
+          backgroundColor: theme.palette.background.default,
+          zIndex: 1000,
+          boxShadow: "0 -2px 8px rgba(0,0,0,0.1)",
         }}
       >
-        <Button variant="outlined" onClick={handleBack}>
+        <Button
+          variant="outlined"
+          onClick={handleBack}
+          sx={{
+            color: theme.palette.primary.main,
+            borderColor: theme.palette.primary.main,
+            textTransform: "none",
+            fontWeight: 600,
+            fontSize: "0.9rem",
+            "&:hover": {
+              borderColor: theme.palette.primary.dark,
+              backgroundColor: theme.palette.primary.light + "15",
+            },
+          }}
+        >
           Back
         </Button>
 
         <Button
           variant="contained"
-          disabled={!isFormValid()}
           onClick={handleSubmit}
+          disabled={!isFormValid()}
+          sx={{
+            px: 3,
+            textTransform: "none",
+            fontWeight: 600,
+            fontSize: "0.9rem",
+          }}
         >
           Submit
         </Button>
       </Box>
 
-      {/* Toast */}
+      {/* ✅ Toast Notification */}
       <Snackbar
         open={toast.open}
         autoHideDuration={3000}
         onClose={() => setToast({ ...toast, open: false })}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
       >
-        <Alert severity={toast.severity}>{toast.message}</Alert>
+        <Alert
+          onClose={() => setToast({ ...toast, open: false })}
+          severity={toast.severity}
+          sx={{ width: "100%" }}
+        >
+          {toast.message}
+        </Alert>
       </Snackbar>
     </Box>
   );
