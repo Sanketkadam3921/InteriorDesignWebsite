@@ -1,9 +1,11 @@
 import React from 'react';
 import { Box, Typography, Button, Container } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
     const theme = useTheme();
+    const navigate = useNavigate();
 
     return (
         <Box
@@ -73,6 +75,7 @@ const Hero = () => {
                 <Button
                     variant="contained"
                     size="large"
+                    onClick={() => navigate('/contact')}
                     sx={{
                         backgroundColor: theme.palette.primary.main,
                         color: 'white',
