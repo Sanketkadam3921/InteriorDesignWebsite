@@ -369,7 +369,7 @@ export default function ContactForm() {
                   width: 45,
                   height: 45,
                   borderRadius: "50%",
-                  backgroundColor: "rgba(255,255,255,0.25)",
+                  backgroundColor: "rgba(255, 255, 255, 0.25)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -382,8 +382,12 @@ export default function ContactForm() {
               </Box>
 
               <Box>
-                <Typography sx={{ fontWeight: 600 }}>{info.title}</Typography>
-                <Typography sx={{ opacity: 0.85 }}>{info.details}</Typography>
+                <Typography sx={{ fontWeight: 600, color: "white" }}>
+                  {info.title}
+                </Typography>
+                <Typography sx={{ opacity: 0.85, color: "white" }}>
+                  {info.details}
+                </Typography>
               </Box>
             </Box>
           ))}
