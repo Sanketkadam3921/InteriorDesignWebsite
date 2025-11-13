@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
 
-// 🔴 Styled TextField — makes default required asterisk red
+// 🔴 Required field styling
 const RedAsteriskTextField = styled(TextField)({
   "& .MuiFormLabel-asterisk": {
     color: "red",
@@ -32,24 +32,32 @@ export default function EstimateForm() {
     propertyName: "",
   });
 
+  const [calcDetails, setCalcDetails] = useState({});
   const [errors, setErrors] = useState({});
   const [estimatedPrice, setEstimatedPrice] = useState(0);
+
   const [toast, setToast] = useState({
     open: false,
     message: "",
     severity: "success",
   });
 
-  // 🧮 Estimate calculation
+  // 🧮 FRONTEND ESTIMATE CALCULATION
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
-    const livingRoom = parseInt(searchParams.get("livingRoom")) || 0;
-    const kitchen = parseInt(searchParams.get("kitchen")) || 0;
-    const bedroom = parseInt(searchParams.get("bedroom")) || 0;
-    const bathroom = parseInt(searchParams.get("bathroom")) || 0;
-    const dining = parseInt(searchParams.get("dining")) || 0;
-    const packageType = searchParams.get("package");
-    const size = searchParams.get("size");
+
+    const data = {
+      livingRoom: parseInt(searchParams.get("livingRoom")) || 0,
+      kitchen: parseInt(searchParams.get("kitchen")) || 0,
+      bedroom: parseInt(searchParams.get("bedroom")) || 0,
+      bathroom: parseInt(searchParams.get("bathroom")) || 0,
+      dining: parseInt(searchParams.get("dining")) || 0,
+      packageType: searchParams.get("package"),
+      size: searchParams.get("size"),
+      bhk: searchParams.get("bhk"),
+    };
+
+    setCalcDetails(data);
 
     const roomPrices = {
       livingRoom: 150000,
@@ -71,19 +79,19 @@ export default function EstimateForm() {
     };
 
     let totalPrice =
-      livingRoom * roomPrices.livingRoom +
-      kitchen * roomPrices.kitchen +
-      bedroom * roomPrices.bedroom +
-      bathroom * roomPrices.bathroom +
-      dining * roomPrices.dining;
+      data.livingRoom * roomPrices.livingRoom +
+      data.kitchen * roomPrices.kitchen +
+      data.bedroom * roomPrices.bedroom +
+      data.bathroom * roomPrices.bathroom +
+      data.dining * roomPrices.dining;
 
-    totalPrice *= packageMultipliers[packageType] || 1.0;
-    totalPrice *= sizeMultipliers[size] || 1.0;
+    totalPrice *= packageMultipliers[data.packageType] || 1.0;
+    totalPrice *= sizeMultipliers[data.size] || 1.0;
 
     setEstimatedPrice(Math.round(totalPrice));
   }, [location.search]);
 
-  // 🧩 Field validation
+  // 🧩 FIELD VALIDATION
   const validateField = (field, value) => {
     let error = "";
 
@@ -119,11 +127,10 @@ export default function EstimateForm() {
     setErrors((prev) => ({ ...prev, [field]: error }));
   };
 
-  // 🧠 Input restriction + validation
+  // 🧠 Restrict input + validate
   const handleInputChange = (field) => (event) => {
     let value = event.target.value;
 
-    // Restrict invalid characters before setting state
     switch (field) {
       case "name":
         value = value.replace(/[^A-Za-z\s]/g, "");
@@ -133,8 +140,6 @@ export default function EstimateForm() {
         break;
       case "propertyName":
         value = value.replace(/[^A-Za-z0-9\s]/g, "");
-        break;
-      default:
         break;
     }
 
@@ -148,8 +153,23 @@ export default function EstimateForm() {
       Object.values(errors).every((err) => !err)
     );
   };
+  const formatCalculationDetails = (details) => {
+    return `
+BHK: ${details.bhk || "N/A"}
+Package: ${details.packageType || "N/A"}
+Size: ${details.size || "N/A"}
 
-  const handleSubmit = (e) => {
+Rooms:
+- Living Room: ${details.livingRoom}
+- Kitchen: ${details.kitchen}
+- Bedroom: ${details.bedroom}
+- Bathroom: ${details.bathroom}
+- Dining: ${details.dining}
+`;
+  };
+
+  // 🚀 WEB3FORMS SUBMISSION
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     Object.entries(formData).forEach(([key, value]) =>
@@ -159,53 +179,85 @@ export default function EstimateForm() {
     if (!isFormValid()) {
       setToast({
         open: true,
-        message: "Please fill all fields correctly before submitting.",
+        message: "Please fill all fields correctly.",
         severity: "error",
       });
       return;
     }
 
-    // ✅ Success toast
-    setToast({
-      open: true,
-      message: `Thank you ${
-        formData.name
-      }! Your estimated price is ₹${estimatedPrice.toLocaleString()}. We'll contact you soon!`,
-      severity: "success",
-    });
+    try {
+      const formDataToSend = new FormData();
 
-    setTimeout(() => {
-      navigate("/");
-    }, 2000);
+      formDataToSend.append(
+        "access_key",
+        "1c21fc37-1fc4-4734-a82f-0a647e166aef"
+      );
+      formDataToSend.append(
+        "subject",
+        `New Budget Estimate Enquiry from ${formData.name}`
+      );
+
+      // User info
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("phone", formData.phone);
+      formDataToSend.append("property_name", formData.propertyName);
+
+      // Estimate
+      formDataToSend.append("estimated_price", estimatedPrice);
+
+      // Calculator details
+      formDataToSend.append(
+        "calculation_details",
+        formatCalculationDetails(calcDetails)
+      );
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setToast({
+          open: true,
+          message: "Your estimate has been submitted successfully.",
+          severity: "success",
+        });
+
+        setTimeout(() => navigate("/"), 2000);
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (err) {
+      console.error(err);
+      setToast({
+        open: true,
+        message: "Something went wrong. Please try again.",
+        severity: "error",
+      });
+    }
   };
 
   const handleBack = () => {
     const searchParams = new URLSearchParams(location.search);
-    const queryParams = new URLSearchParams({
-      bhk: searchParams.get("bhk"),
-      size: searchParams.get("size"),
-      livingRoom: searchParams.get("livingRoom"),
-      kitchen: searchParams.get("kitchen"),
-      bedroom: searchParams.get("bedroom"),
-      bathroom: searchParams.get("bathroom"),
-      dining: searchParams.get("dining"),
-    });
-    navigate(
-      `/price-calculators/home/calculator/package?${queryParams.toString()}`
-    );
+    navigate(`/price-calculators/home/calculator/package?${searchParams}`);
   };
 
   return (
-    <Box sx={{ 
-      maxWidth: 700, 
-      mx: "auto", 
-      p: 3,
-      display: "flex",
-      flexDirection: "column",
-      minHeight: "calc(100vh - 200px)",
-      pb: 10,
-      mb: 8,
-    }}>
+    <Box
+      sx={{
+        maxWidth: 700,
+        mx: "auto",
+        p: 3,
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "calc(100vh - 200px)",
+        pb: 10,
+        mb: 8,
+      }}
+    >
       <Typography
         variant="h5"
         sx={{
@@ -231,12 +283,12 @@ export default function EstimateForm() {
 
       <Box
         sx={{
-          backgroundColor: theme.palette.primary.light + '25',
+          backgroundColor: theme.palette.primary.light + "25",
           borderRadius: 2,
           p: 3,
           mb: 2,
-          border: '1px solid',
-          borderColor: theme.palette.primary.light + '40',
+          border: "1px solid",
+          borderColor: theme.palette.primary.light + "40",
         }}
       >
         <Card
@@ -247,98 +299,100 @@ export default function EstimateForm() {
             boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
           }}
         >
-        <CardContent sx={{ p: 3 }}>
-          <form onSubmit={handleSubmit} noValidate>
-            <RedAsteriskTextField
-              fullWidth
-              label="Name"
-              value={formData.name}
-              onChange={handleInputChange("name")}
-              margin="normal"
-              required
-              size="small"
-              error={!!errors.name}
-              helperText={errors.name}
-            />
+          <CardContent sx={{ p: 3 }}>
+            <form onSubmit={handleSubmit} noValidate>
+              <RedAsteriskTextField
+                fullWidth
+                label="Name"
+                value={formData.name}
+                onChange={handleInputChange("name")}
+                margin="normal"
+                required
+                size="small"
+                error={!!errors.name}
+                helperText={errors.name}
+              />
 
-            <RedAsteriskTextField
-              fullWidth
-              label="Email ID"
-              type="email"
-              value={formData.email}
-              onChange={handleInputChange("email")}
-              margin="normal"
-              required
-              size="small"
-              error={!!errors.email}
-              helperText={errors.email}
-            />
+              <RedAsteriskTextField
+                fullWidth
+                label="Email ID"
+                type="email"
+                value={formData.email}
+                onChange={handleInputChange("email")}
+                margin="normal"
+                required
+                size="small"
+                error={!!errors.email}
+                helperText={errors.email}
+              />
 
-            <RedAsteriskTextField
-              fullWidth
-              label="Phone Number"
-              type="tel"
-              value={formData.phone}
-              onChange={handleInputChange("phone")}
-              margin="normal"
-              required
-              size="small"
-              error={!!errors.phone}
-              helperText={errors.phone}
-            />
+              <RedAsteriskTextField
+                fullWidth
+                label="Phone Number"
+                type="tel"
+                value={formData.phone}
+                onChange={handleInputChange("phone")}
+                margin="normal"
+                required
+                size="small"
+                error={!!errors.phone}
+                helperText={errors.phone}
+              />
 
-            <RedAsteriskTextField
-              fullWidth
-              label="Property Name"
-              value={formData.propertyName}
-              onChange={handleInputChange("propertyName")}
-              margin="normal"
-              required
-              size="small"
-              error={!!errors.propertyName}
-              helperText={errors.propertyName}
-            />
+              <RedAsteriskTextField
+                fullWidth
+                label="Property Name"
+                value={formData.propertyName}
+                onChange={handleInputChange("propertyName")}
+                margin="normal"
+                required
+                size="small"
+                error={!!errors.propertyName}
+                helperText={errors.propertyName}
+              />
 
-            {/* Estimated Price Display */}
-            <Box
-              sx={{
-                textAlign: "center",
-                p: 2,
-                mt: 2,
-                backgroundColor: theme.palette.primary.light + "20",
-                borderRadius: 2,
-              }}
-            >
-              <Typography
-                variant="subtitle2"
-                sx={{ color: theme.palette.text.secondary, mb: 0.5 }}
-              >
-                Estimated Price
-              </Typography>
-              <Typography
-                variant="h5"
+              {/* Estimated Price */}
+              <Box
                 sx={{
-                  fontWeight: 700,
-                  color: theme.palette.primary.main,
+                  textAlign: "center",
+                  p: 2,
+                  mt: 2,
+                  backgroundColor: theme.palette.primary.light + "20",
+                  borderRadius: 2,
                 }}
               >
-                ₹{estimatedPrice.toLocaleString()}
-              </Typography>
-              <Typography
-                variant="caption"
-                sx={{ color: theme.palette.text.secondary, mt: 0.5 }}
-              >
-                *Final price may vary based on requirements
-              </Typography>
-            </Box>
-          </form>
-        </CardContent>
-      </Card>
+                <Typography
+                  variant="subtitle2"
+                  sx={{ color: theme.palette.text.secondary, mb: 0.5 }}
+                >
+                  Estimated Price
+                </Typography>
+
+                <Typography
+                  variant="h5"
+                  sx={{
+                    fontWeight: 700,
+                    color: theme.palette.primary.main,
+                  }}
+                >
+                  ₹{estimatedPrice.toLocaleString()}
+                </Typography>
+
+                <Typography
+                  variant="caption"
+                  sx={{ color: theme.palette.text.secondary, mt: 0.5 }}
+                >
+                  *Final price may vary based on requirements
+                </Typography>
+              </Box>
+            </form>
+          </CardContent>
+        </Card>
       </Box>
 
       <Box sx={{ flex: 1 }} />
 
-      {/* Navigation Buttons */}
+      {/* Buttons */}
       <Box
         sx={{
           display: "flex",
@@ -368,10 +422,6 @@ export default function EstimateForm() {
             textTransform: "none",
             fontWeight: 600,
             fontSize: "0.9rem",
-            "&:hover": {
-              borderColor: theme.palette.primary.dark,
-              backgroundColor: theme.palette.primary.light + "15",
-            },
           }}
         >
           Back
@@ -392,7 +442,7 @@ export default function EstimateForm() {
         </Button>
       </Box>
 
-      {/* ✅ Toast Notification */}
+      {/* Toast */}
       <Snackbar
         open={toast.open}
         autoHideDuration={3000}

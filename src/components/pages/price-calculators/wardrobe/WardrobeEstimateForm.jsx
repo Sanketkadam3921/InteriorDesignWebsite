@@ -38,12 +38,33 @@ export default function WardrobeEstimateForm() {
     message: "",
     severity: "success",
   });
+
   const [estimatedPrice, setEstimatedPrice] = useState(0);
   const [estimateData, setEstimateData] = useState(null);
 
-  // 💰 Calculate estimated price
+  // ⭐ FORMAT FOR EMAIL MESSAGE
+  const formatCalculationDetails = (data) => {
+    const accessoriesList = data.accessories
+      ? data.accessories.split(",").join(", ")
+      : "None";
+
+    return `
+Wardrobe Estimate Details
+
+Height: ${data.height}
+Type: ${data.type}
+Finish: ${data.finish}
+Material: ${data.material}
+Accessories: ${accessoriesList}
+
+Final Price: ₹${data.totalPrice.toLocaleString()}
+    `;
+  };
+
+  // 💰 Calculate Estimated Price
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
+
     const height = searchParams.get("height");
     const type = searchParams.get("type");
     const finish = searchParams.get("finish");
@@ -87,25 +108,26 @@ export default function WardrobeEstimateForm() {
     totalPrice *= materialMultipliers[material] || 1.0;
 
     if (accessories) {
-      const selectedAccessories = accessories.split(",");
-      selectedAccessories.forEach((a) => {
+      const selected = accessories.split(",");
+      selected.forEach((a) => {
         if (accessoriesPrices[a]) totalPrice += accessoriesPrices[a];
       });
     }
 
-    const finalPrice = Math.round(totalPrice);
-    setEstimatedPrice(finalPrice);
+    const finalAmount = Math.round(totalPrice);
+
+    setEstimatedPrice(finalAmount);
     setEstimateData({
       height,
       type,
       finish,
       material,
       accessories,
-      totalPrice: finalPrice,
+      totalPrice: finalAmount,
     });
   }, [location.search]);
 
-  // 🧩 Validation rules
+  // 🧩 FIELD VALIDATION
   const validateField = (field, value) => {
     let error = "";
 
@@ -141,7 +163,7 @@ export default function WardrobeEstimateForm() {
     setErrors((prev) => ({ ...prev, [field]: error }));
   };
 
-  // 🧠 Restrict invalid characters while typing
+  // Restrict invalid characters while typing
   const handleInputChange = (field) => (event) => {
     let value = event.target.value;
 
@@ -155,8 +177,6 @@ export default function WardrobeEstimateForm() {
       case "propertyName":
         value = value.replace(/[^A-Za-z0-9\s]/g, "");
         break;
-      default:
-        break;
     }
 
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -165,12 +185,13 @@ export default function WardrobeEstimateForm() {
 
   const isFormValid = () =>
     Object.values(formData).every((v) => v.trim() !== "") &&
-    Object.values(errors).every((e) => !e);
+    Object.values(errors).every((err) => !err);
 
-  // 📨 Handle Submit
-  const handleSubmit = (event) => {
+  // 📨 SUBMIT TO WEB3FORMS
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
+    // re-validate before submit
     Object.entries(formData).forEach(([key, value]) =>
       validateField(key, value)
     );
@@ -178,146 +199,167 @@ export default function WardrobeEstimateForm() {
     if (!isFormValid()) {
       setToast({
         open: true,
-        message: "Please fill all fields correctly before submitting.",
+        message: "Please fill all fields correctly.",
         severity: "error",
       });
       return;
     }
 
-    setToast({
-      open: true,
-      message: `Thank you ${
-        formData.name
-      }! Your wardrobe estimate is ₹${estimatedPrice.toLocaleString()}. We will contact you soon.`,
-      severity: "success",
-    });
+    try {
+      const formDataToSend = new FormData();
 
-    setTimeout(() => {
-      navigate("/");
-    }, 2000);
+      formDataToSend.append(
+        "access_key",
+        "1c21fc37-1fc4-4734-a82f-0a647e166aef"
+      );
+
+      formDataToSend.append(
+        "subject",
+        `New Wardrobe Estimate from ${formData.name}`
+      );
+
+      // user details
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("phone", formData.phone);
+      formDataToSend.append("property_name", formData.propertyName);
+
+      // price
+      formDataToSend.append("estimated_price", estimateData.totalPrice);
+
+      // details
+      formDataToSend.append(
+        "calculation_details",
+        formatCalculationDetails(estimateData)
+      );
+
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend,
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setToast({
+          open: true,
+          message: "Your wardrobe estimate has been submitted successfully!",
+          severity: "success",
+        });
+
+        setTimeout(() => navigate("/"), 2000);
+      } else {
+        throw new Error("Submission failed");
+      }
+    } catch (error) {
+      setToast({
+        open: true,
+        message: "Something went wrong. Please try again.",
+        severity: "error",
+      });
+    }
   };
 
   const handleBack = () => {
-    const searchParams = new URLSearchParams(location.search);
-    const queryParams = new URLSearchParams({
-      height: searchParams.get("height"),
-      type: searchParams.get("type"),
-      finish: searchParams.get("finish"),
-      material: searchParams.get("material"),
-      accessories: searchParams.get("accessories"),
-    });
+    const params = new URLSearchParams(location.search);
     navigate(
-      `/price-calculators/wardrobe/calculator/accessories?${queryParams.toString()}`
+      `/price-calculators/wardrobe/calculator/accessories?${params.toString()}`
     );
   };
 
   if (!estimateData) return <Box>Loading...</Box>;
 
   return (
-    <Box sx={{ 
-      maxWidth: 700, 
-      mx: "auto", 
-      p: 3,
-      display: "flex",
-      flexDirection: "column",
-      minHeight: "calc(100vh - 200px)",
-      pb: 10,
-      mb: 8,
-    }}>
+    <Box
+      sx={{
+        maxWidth: 700,
+        mx: "auto",
+        p: 3,
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "calc(100vh - 200px)",
+        pb: 10,
+        mb: 8,
+      }}
+    >
       <Typography
         variant="h5"
-        sx={{
-          textAlign: "center",
-          mb: 1,
-          fontWeight: 600,
-          color: theme.palette.text.primary,
-        }}
+        sx={{ textAlign: "center", mb: 1, fontWeight: 600 }}
       >
         Your Estimate Is Almost Ready
       </Typography>
 
       <Typography
         variant="body2"
-        sx={{
-          textAlign: "center",
-          mb: 4,
-          color: theme.palette.text.secondary,
-        }}
+        sx={{ textAlign: "center", mb: 4, color: "text.secondary" }}
       >
-        Please fill out the details below to receive your estimate.
+        Please fill out the details below.
       </Typography>
 
-      <Box
+      <Card
         sx={{
-          backgroundColor: theme.palette.primary.light + '25',
           borderRadius: 2,
-          p: 3,
-          mb: 2,
-          border: '1px solid',
-          borderColor: theme.palette.primary.light + '40',
+          border: "1px solid",
+          borderColor: theme.palette.grey[300],
         }}
       >
-        <Card
-          sx={{
-            borderRadius: 2,
-            border: "1px solid",
-            borderColor: theme.palette.grey[300],
-            boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
-          }}
-        >
         <CardContent sx={{ p: 3 }}>
           <form onSubmit={handleSubmit} noValidate>
+            {/* Name */}
             <RedAsteriskTextField
               fullWidth
               label="Name"
               value={formData.name}
               onChange={handleInputChange("name")}
-              margin="normal"
               required
+              margin="normal"
               size="small"
               error={!!errors.name}
               helperText={errors.name}
             />
 
+            {/* Email */}
             <RedAsteriskTextField
               fullWidth
               label="Email ID"
               type="email"
               value={formData.email}
               onChange={handleInputChange("email")}
-              margin="normal"
               required
+              margin="normal"
               size="small"
               error={!!errors.email}
               helperText={errors.email}
             />
 
+            {/* Phone */}
             <RedAsteriskTextField
               fullWidth
               label="Phone Number"
               type="tel"
               value={formData.phone}
               onChange={handleInputChange("phone")}
-              margin="normal"
               required
+              margin="normal"
               size="small"
               error={!!errors.phone}
               helperText={errors.phone}
             />
 
+            {/* Property */}
             <RedAsteriskTextField
               fullWidth
               label="Property Name"
               value={formData.propertyName}
               onChange={handleInputChange("propertyName")}
-              margin="normal"
               required
+              margin="normal"
               size="small"
               error={!!errors.propertyName}
               helperText={errors.propertyName}
             />
 
-            {/* Estimated Price */}
+            {/* Price box */}
             <Box
               sx={{
                 textAlign: "center",
@@ -327,103 +369,54 @@ export default function WardrobeEstimateForm() {
                 borderRadius: 2,
               }}
             >
-              <Typography
-                variant="subtitle2"
-                sx={{ color: theme.palette.text.secondary, mb: 0.5 }}
-              >
-                Estimated Price
-              </Typography>
-              <Typography
-                variant="h5"
-                sx={{
-                  fontWeight: 700,
-                  color: theme.palette.primary.main,
-                }}
-              >
+              <Typography variant="subtitle2">Estimated Price</Typography>
+              <Typography variant="h5" sx={{ fontWeight: 700 }}>
                 ₹{estimatedPrice.toLocaleString()}
               </Typography>
-              <Typography
-                variant="caption"
-                sx={{ color: theme.palette.text.secondary, mt: 0.5 }}
-              >
+              <Typography variant="caption" sx={{ color: "text.secondary" }}>
                 *Final price may vary based on requirements
               </Typography>
             </Box>
           </form>
         </CardContent>
       </Card>
-      </Box>
 
-      <Box sx={{ flex: 1 }} />
-
-      {/* Navigation Buttons */}
+      {/* Buttons */}
       <Box
         sx={{
-          display: "flex",
-          justifyContent: "space-between",
           position: "fixed",
           bottom: 0,
           left: 0,
           right: 0,
           maxWidth: 700,
           mx: "auto",
-          pt: 2,
-          pb: 2,
-          px: 3,
-          borderTop: "1px solid",
-          borderColor: "divider",
-          backgroundColor: theme.palette.background.default,
-          zIndex: 1000,
-          boxShadow: "0 -2px 8px rgba(0,0,0,0.1)",
+          display: "flex",
+          justifyContent: "space-between",
+          p: 3,
+          borderTop: "1px solid #ddd",
+          backgroundColor: "background.default",
         }}
       >
-        <Button
-          variant="outlined"
-          onClick={handleBack}
-          sx={{
-            color: theme.palette.primary.main,
-            borderColor: theme.palette.primary.main,
-            textTransform: "none",
-            fontWeight: 600,
-            fontSize: "0.9rem",
-            "&:hover": {
-              borderColor: theme.palette.primary.dark,
-              backgroundColor: theme.palette.primary.light + "15",
-            },
-          }}
-        >
+        <Button variant="outlined" onClick={handleBack}>
           Back
         </Button>
 
         <Button
           variant="contained"
-          onClick={handleSubmit}
           disabled={!isFormValid()}
-          sx={{
-            px: 3,
-            textTransform: "none",
-            fontWeight: 600,
-            fontSize: "0.9rem",
-          }}
+          onClick={handleSubmit}
         >
           Submit
         </Button>
       </Box>
 
-      {/* ✅ Toast Notification */}
+      {/* Toast */}
       <Snackbar
         open={toast.open}
         autoHideDuration={3000}
         onClose={() => setToast({ ...toast, open: false })}
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
       >
-        <Alert
-          onClose={() => setToast({ ...toast, open: false })}
-          severity={toast.severity}
-          sx={{ width: "100%" }}
-        >
-          {toast.message}
-        </Alert>
+        <Alert severity={toast.severity}>{toast.message}</Alert>
       </Snackbar>
     </Box>
   );

@@ -5,7 +5,6 @@ import {
   TextField,
   Button,
   Card,
-  CardContent,
   Alert,
   Snackbar,
   useTheme,
@@ -20,7 +19,7 @@ import {
 } from "@mui/icons-material";
 import contactBg from "../../../assets/contact.jpg";
 
-// 🔴 Styled TextField — red required asterisk
+// 🔴 Styled TextField — red asterisk
 const RedAsteriskTextField = styled(TextField)({
   "& .MuiFormLabel-asterisk": {
     color: "red",
@@ -36,17 +35,19 @@ export default function ContactForm() {
     phone: "",
     address: "",
     message: "",
+    budgetRange: "",
   });
+
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [showError, setShowError] = useState(false);
 
-  // ---------------- Validation ----------------
+  // ---------------- VALIDATION ----------------
   const validateName = (name) => {
     if (!name.trim()) return "Full name is required";
     if (!/^[a-zA-Z\s]+$/.test(name.trim()))
-      return "Only letters and spaces are allowed";
+      return "Only letters and spaces allowed";
     if (name.trim().length < 2)
       return "Full name must be at least 2 characters";
     return "";
@@ -55,15 +56,14 @@ export default function ContactForm() {
   const validateEmail = (email) => {
     if (!email.trim()) return "Email is required";
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegex.test(email.trim()))
-      return "Please enter a valid email address";
+    if (!emailRegex.test(email.trim())) return "Enter a valid email";
     return "";
   };
 
   const validatePhone = (phone) => {
     if (!phone.trim()) return "Phone number is required";
     const phoneRegex = /^[6-9]\d{9}$/;
-    if (!phoneRegex.test(phone)) return "Enter a valid 10-digit phone number";
+    if (!phoneRegex.test(phone)) return "Enter a valid 10-digit number";
     return "";
   };
 
@@ -74,7 +74,7 @@ export default function ContactForm() {
     return "";
   };
 
-  // ---------------- Handle Inputs ----------------
+  // ---------------- HANDLE INPUT ----------------
   const handleChange = (e) => {
     const { name, value } = e.target;
     const processedValue = name === "phone" ? value.replace(/\D/g, "") : value;
@@ -90,7 +90,7 @@ export default function ContactForm() {
     setErrors({ ...errors, [name]: error });
   };
 
-  // ---------------- Handle Submit (Web3Forms) ----------------
+  // ---------------- HANDLE SUBMIT (Web3Forms) ----------------
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -99,6 +99,7 @@ export default function ContactForm() {
       email: validateEmail(formData.email),
       phone: validatePhone(formData.phone),
       message: validateMessage(formData.message),
+      budgetRange: formData.budgetRange ? "" : "Please select a budget range",
     };
 
     setErrors(newErrors);
@@ -121,6 +122,7 @@ export default function ContactForm() {
       formDataToSend.append("email", formData.email);
       formDataToSend.append("phone", formData.phone);
       formDataToSend.append("address", formData.address);
+      formDataToSend.append("budget_range", formData.budgetRange);
       formDataToSend.append("message", formData.message);
 
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -132,15 +134,14 @@ export default function ContactForm() {
 
       if (data.success) {
         setShowSuccess(true);
-
         setFormData({
           name: "",
           email: "",
           phone: "",
           address: "",
           message: "",
+          budgetRange: "",
         });
-
         setErrors({});
       } else {
         setShowError(true);
@@ -153,7 +154,7 @@ export default function ContactForm() {
     }
   };
 
-  // ---------------- Contact Info ----------------
+  // ---------------- CONTACT INFO ----------------
   const contactInfo = [
     { icon: <PhoneIcon />, title: "Phone", details: "+91 8669868947" },
     { icon: <EmailIcon />, title: "Email", details: "care@kalakruti.com" },
@@ -169,13 +170,13 @@ export default function ContactForm() {
         background: `linear-gradient(135deg, ${theme.palette.background.default}, #f9f9f9)`,
       }}
     >
-      {/* Left Section */}
+      {/* LEFT SIDE — FORM */}
       <Box
         sx={{
           flex: { xs: "none", lg: "0 0 55%" },
           display: "flex",
-          alignItems: "center",
           justifyContent: "center",
+          alignItems: "center",
           px: { xs: 2, sm: 4, md: 8 },
           py: { xs: 4, md: 6 },
         }}
@@ -203,10 +204,9 @@ export default function ContactForm() {
 
           <Typography
             variant="subtitle1"
-            sx={{ color: "text.secondary", textAlign: "center", mb: 4 }}
+            sx={{ textAlign: "center", color: "text.secondary", mb: 4 }}
           >
-            We’d love to discuss your design ideas and help you bring them to
-            life.
+            We'd love to discuss your ideas and help you bring them to life.
           </Typography>
 
           <Box
@@ -221,8 +221,8 @@ export default function ContactForm() {
               onChange={handleChange}
               error={!!errors.name}
               helperText={errors.name}
-              fullWidth
               required
+              fullWidth
             />
 
             <RedAsteriskTextField
@@ -232,8 +232,8 @@ export default function ContactForm() {
               onChange={handleChange}
               error={!!errors.email}
               helperText={errors.email}
-              fullWidth
               required
+              fullWidth
             />
 
             <RedAsteriskTextField
@@ -244,9 +244,31 @@ export default function ContactForm() {
               error={!!errors.phone}
               helperText={errors.phone}
               inputProps={{ maxLength: 10 }}
+              required
+              fullWidth
+            />
+
+            {/* BUDGET RANGE FIELD */}
+            <TextField
+              select
+              label="Budget Range"
+              name="budgetRange"
+              value={formData.budgetRange}
+              onChange={handleChange}
+              error={!!errors.budgetRange}
+              helperText={errors.budgetRange}
               fullWidth
               required
-            />
+              SelectProps={{ native: true }}
+            >
+              <option value=""></option>
+              <option value="1-3 Lakhs">₹1–3 Lakhs</option>
+              <option value="3-5 Lakhs">₹3–5 Lakhs</option>
+              <option value="5-10 Lakhs">₹5–10 Lakhs</option>
+              <option value="10-20 Lakhs">₹10–20 Lakhs</option>
+              <option value="20+ Lakhs">₹20 Lakhs+</option>
+              <option value="Not Sure">Not Sure Yet</option>
+            </TextField>
 
             <TextField
               label="Address"
@@ -259,14 +281,14 @@ export default function ContactForm() {
             <RedAsteriskTextField
               label="Your Message"
               name="message"
-              multiline
               rows={4}
+              multiline
               value={formData.message}
               onChange={handleChange}
               error={!!errors.message}
               helperText={errors.message}
-              fullWidth
               required
+              fullWidth
             />
 
             <Button
@@ -277,10 +299,9 @@ export default function ContactForm() {
               sx={{
                 py: 1.5,
                 borderRadius: 2,
-                textTransform: "none",
                 fontWeight: 600,
+                textTransform: "none",
                 background: `linear-gradient(135deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
-                "&:hover": { opacity: 0.9 },
               }}
             >
               {isSubmitting ? "Sending..." : "Send Message"}
@@ -289,7 +310,7 @@ export default function ContactForm() {
         </Card>
       </Box>
 
-      {/* Right Section */}
+      {/* RIGHT SIDE — IMAGE + INFO */}
       <Box
         sx={{
           flex: { xs: "none", lg: "0 0 45%" },
@@ -304,7 +325,6 @@ export default function ContactForm() {
           backgroundImage: `url(${contactBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
         }}
       >
         <Box
@@ -336,7 +356,7 @@ export default function ContactForm() {
             }}
           >
             A space where design meets creativity. Reach out for your next
-            renovation, interior project, or to discuss your dream home design.
+            renovation, interior project, or dream home design.
           </Typography>
 
           <Divider sx={{ mb: 3, bgcolor: "rgba(255,255,255,0.3)" }} />
@@ -360,13 +380,10 @@ export default function ContactForm() {
                   sx: { color: "#fff", fontSize: 22 },
                 })}
               </Box>
+
               <Box>
-                <Typography sx={{ fontWeight: 600, color: "#fff" }}>
-                  {info.title}
-                </Typography>
-                <Typography sx={{ opacity: 0.85, color: "#e0e0e0" }}>
-                  {info.details}
-                </Typography>
+                <Typography sx={{ fontWeight: 600 }}>{info.title}</Typography>
+                <Typography sx={{ opacity: 0.85 }}>{info.details}</Typography>
               </Box>
             </Box>
           ))}
@@ -383,7 +400,7 @@ export default function ContactForm() {
         />
       </Box>
 
-      {/* Snackbars */}
+      {/* SNACKBARS */}
       <Snackbar
         open={showSuccess}
         autoHideDuration={5000}
