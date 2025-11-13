@@ -369,7 +369,7 @@ export default function ContactForm() {
                   width: 45,
                   height: 45,
                   borderRadius: "50%",
-                  backgroundColor: "rgba(255, 255, 255, 0.25)",
+                  backgroundColor: "rgba(255,255,255,0.25)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
