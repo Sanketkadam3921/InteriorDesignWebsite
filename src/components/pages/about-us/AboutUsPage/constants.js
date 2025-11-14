@@ -12,21 +12,21 @@ export const INFO_CARDS = [
     id: 1,
     title: "Our Mission",
     description:
-      "At KalaKruti Studio, we believe that every space has the potential to tell a story. Our mission is to transform your vision into reality through innovative design, quality craftsmanship, and personalized attention to detail.",
+      "Our mission is to design functional, beautiful, and comfortable homes using smart layouts and quality materials, creating interiors that enhance daily living and perfectly complement each homeowner’s lifestyle.",
     titleColor: "primary.main",
   },
   {
     id: 2,
     title: "Our Vision",
     description:
-      "To be the leading interior design studio that creates spaces that not only look beautiful but also enhance the quality of life for our clients. We strive to push the boundaries of design while maintaining functionality and sustainability.",
+      "Our vision is to build modern, comfortable, and long-lasting home interiors through thoughtful planning, becoming a trusted design studio known for practical, durable, and well-planned residential spaces.",
     titleColor: "primary.main",
   },
   {
     id: 3,
     title: "Why Choose KalaKruti Studio?",
     description:
-      "With years of experience in interior design and a passion for creating exceptional spaces, we bring together creativity, functionality, and quality to deliver results that exceed expectations. Our team of skilled designers and craftsmen work closely with you to understand your needs and bring your dream space to life.",
+      "Choose KalaKruti Studio for functional, aesthetic, and well-planned interiors delivered with quality workmanship, clear communication, and a strong focus on client needs from concept to completion.",
     titleColor: "text.secondary",
   },
 ];
