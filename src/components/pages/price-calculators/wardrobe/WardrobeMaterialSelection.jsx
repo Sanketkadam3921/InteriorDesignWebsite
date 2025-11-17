@@ -52,7 +52,7 @@ export default function WardrobeMaterialSelection() {
         material: selectedMaterial,
       });
       navigate(
-        `/price-calculators/wardrobe/calculator/accessories?${queryParams.toString()}`
+        `/price-calculators/wardrobe/calculator/estimate?${queryParams.toString()}`
       );
     }
   };

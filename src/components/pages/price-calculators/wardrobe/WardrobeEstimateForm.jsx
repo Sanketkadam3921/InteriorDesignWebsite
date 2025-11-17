@@ -44,10 +44,6 @@ export default function WardrobeEstimateForm() {
 
   // ⭐ FORMAT FOR EMAIL MESSAGE
   const formatCalculationDetails = (data) => {
-    const accessoriesList = data.accessories
-      ? data.accessories.split(",").join(", ")
-      : "None";
-
     return `
 Wardrobe Estimate Details
 
@@ -55,7 +51,6 @@ Height: ${data.height}
 Type: ${data.type}
 Finish: ${data.finish}
 Material: ${data.material}
-Accessories: ${accessoriesList}
 
 Final Price: ₹${data.totalPrice.toLocaleString()}
     `;
@@ -69,7 +64,6 @@ Final Price: ₹${data.totalPrice.toLocaleString()}
     const type = searchParams.get("type");
     const finish = searchParams.get("finish");
     const material = searchParams.get("material");
-    const accessories = searchParams.get("accessories");
 
     const heightPrices = {
       "4ft": 80000,
@@ -94,25 +88,10 @@ Final Price: ₹${data.totalPrice.toLocaleString()}
       hdf: 1.2,
     };
 
-    const accessoriesPrices = {
-      loft: 15000,
-      "single-drawer": 12000,
-      "half-drawer-1": 8000,
-      "half-drawer-2": 15000,
-      "wicker-pullout": 10000,
-    };
-
     let totalPrice = heightPrices[height] || 150000;
     totalPrice *= typeMultipliers[type] || 1.0;
     totalPrice *= finishMultipliers[finish] || 1.0;
     totalPrice *= materialMultipliers[material] || 1.0;
-
-    if (accessories) {
-      const selected = accessories.split(",");
-      selected.forEach((a) => {
-        if (accessoriesPrices[a]) totalPrice += accessoriesPrices[a];
-      });
-    }
 
     const finalAmount = Math.round(totalPrice);
 
@@ -122,7 +101,6 @@ Final Price: ₹${data.totalPrice.toLocaleString()}
       type,
       finish,
       material,
-      accessories,
       totalPrice: finalAmount,
     });
   }, [location.search]);
@@ -263,7 +241,7 @@ Final Price: ₹${data.totalPrice.toLocaleString()}
   const handleBack = () => {
     const params = new URLSearchParams(location.search);
     navigate(
-      `/price-calculators/wardrobe/calculator/accessories?${params.toString()}`
+      `/price-calculators/wardrobe/calculator/material?${params.toString()}`
     );
   };
 

@@ -109,7 +109,6 @@ export default function Header() {
         { label: "KalaKruti Studio Designs", path: "/designs/homes-livspace" },
         { label: "Home Office Designs", path: "/designs/home-office" },
         { label: "Home Wallpaper Designs", path: "/designs/wallpaper" },
-        { label: "Tile Designs", path: "/designs/tile" },
         { label: "Study Room Designs", path: "/designs/study-room" },
         { label: "Space Saving Designs", path: "/designs/space-saving" },
         { label: "Door Designs", path: "/designs/door" },

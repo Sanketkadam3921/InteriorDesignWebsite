@@ -132,14 +132,7 @@ export default function AllDesigns() {
         "https://i.pinimg.com/1200x/c9/b7/3f/c9b73fa070844a55f2db06b8fc15d0fa.jpg",
       count: 16,
     },
-    {
-      id: "tile",
-      title: "Tile Designs",
-      description: "Beautiful tile patterns for floors and walls",
-      image:
-        "https://i.pinimg.com/1200x/b0/27/a0/b027a01c650dc23d932a438e5f0ac378.jpg",
-      count: 14,
-    },
+
     {
       id: "study-room",
       title: "Study Room Designs",
