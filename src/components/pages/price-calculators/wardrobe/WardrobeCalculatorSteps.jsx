@@ -36,11 +36,7 @@ const steps = [
     label: "MATERIAL",
     path: "/price-calculators/wardrobe/calculator/material",
   },
-  {
-    id: "accessories",
-    label: "ACCESSORIES",
-    path: "/price-calculators/wardrobe/calculator/accessories",
-  },
+
   {
     id: "estimate",
     label: "GET QUOTE",
