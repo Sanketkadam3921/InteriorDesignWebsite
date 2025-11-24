@@ -238,7 +238,7 @@ export default function BHKSelection() {
                       onChange={handleSizeChange}
                       sx={{
                         display: "flex",
-                        flexDirection: "row",
+                        flexDirection: { xs: "column", sm: "row" },
                         gap: 1.5,
                         flexWrap: "wrap",
                         pl: 1,
@@ -248,7 +248,8 @@ export default function BHKSelection() {
                         <Card
                           key={size.id}
                           sx={{
-                            flex: "1 1 45%",
+                            flex: { xs: "1 1 100%", sm: "1 1 45%" },
+                            minWidth: 0,
                             borderRadius: 1.5,
                             border:
                               selectedSize === size.id
@@ -269,7 +270,7 @@ export default function BHKSelection() {
                           }}
                           onClick={() => setSelectedSize(size.id)}
                         >
-                          <CardContent sx={{ p: 1.5 }}>
+                          <CardContent sx={{ p: { xs: 2, sm: 1.5 } }}>
                             <FormControlLabel
                               value={size.id}
                               control={
@@ -279,22 +280,37 @@ export default function BHKSelection() {
                                 />
                               }
                               label={
-                                <Box>
+                                <Box sx={{ minWidth: 0, flex: 1 }}>
                                   <Typography
                                     variant="body2"
-                                    sx={{ fontWeight: 600 }}
+                                    sx={{ 
+                                      fontWeight: 600,
+                                      wordWrap: "break-word",
+                                      overflowWrap: "break-word",
+                                    }}
                                   >
                                     {size.label}
                                   </Typography>
                                   <Typography
                                     variant="caption"
-                                    sx={{ color: theme.palette.text.secondary }}
+                                    sx={{ 
+                                      color: theme.palette.text.secondary,
+                                      wordWrap: "break-word",
+                                      overflowWrap: "break-word",
+                                    }}
                                   >
                                     {size.description}
                                   </Typography>
                                 </Box>
                               }
-                              sx={{ m: 0, width: "100%" }}
+                              sx={{ 
+                                m: 0, 
+                                width: "100%",
+                                "& .MuiFormControlLabel-label": {
+                                  width: "100%",
+                                  minWidth: 0,
+                                },
+                              }}
                             />
                           </CardContent>
                         </Card>
