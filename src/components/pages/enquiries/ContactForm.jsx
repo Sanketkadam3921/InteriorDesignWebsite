@@ -365,36 +365,38 @@ export default function ContactForm() {
 
           <Divider sx={{ mb: 3, bgcolor: "rgba(255,255,255,0.3)" }} />
 
-          {contactInfo.map((info, i) => (
-            <Box key={i} sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-              <Box
-                sx={{
-                  mr: 2,
-                  width: 45,
-                  height: 45,
-                  borderRadius: "50%",
-                  backgroundColor: "rgba(255,255,255,0.25)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  backdropFilter: "blur(4px)",
-                }}
-              >
-                {React.cloneElement(info.icon, {
-                  sx: { color: "#fff", fontSize: 22 },
-                })}
-              </Box>
+          <Box sx={{ textAlign: "left" }}>
+            {contactInfo.map((info, i) => (
+              <Box key={i} sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                <Box
+                  sx={{
+                    mr: 2,
+                    width: 45,
+                    height: 45,
+                    borderRadius: "50%",
+                    backgroundColor: "rgba(255,255,255,0.25)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backdropFilter: "blur(4px)",
+                  }}
+                >
+                  {React.cloneElement(info.icon, {
+                    sx: { color: "#fff", fontSize: 22 },
+                  })}
+                </Box>
 
-              <Box>
-                <Typography sx={{ fontWeight: 600, color: "white" }}>
-                  {info.title}
-                </Typography>
-                <Typography sx={{ opacity: 0.85, color: "white" }}>
-                  {info.details}
-                </Typography>
+                <Box>
+                  <Typography sx={{ fontWeight: 600, color: "white" }}>
+                    {info.title}
+                  </Typography>
+                  <Typography sx={{ opacity: 0.85, color: "white" }}>
+                    {info.details}
+                  </Typography>
+                </Box>
               </Box>
-            </Box>
-          ))}
+            ))}
+          </Box>
         </Box>
 
         <Box
