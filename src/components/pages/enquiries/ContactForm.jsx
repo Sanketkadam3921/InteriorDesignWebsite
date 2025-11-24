@@ -253,7 +253,7 @@ export default function ContactForm() {
             />
 
             {/* BUDGET RANGE FIELD */}
-            <TextField
+            <RedAsteriskTextField
               select
               label="Budget Range"
               name="budgetRange"
@@ -272,7 +272,7 @@ export default function ContactForm() {
               <option value="10-20 Lakhs">₹10–20 Lakhs</option>
               <option value="20+ Lakhs">₹20 Lakhs+</option>
               <option value="Not Sure">Not Sure Yet</option>
-            </TextField>
+            </RedAsteriskTextField>
 
             <TextField
               label="Address"
