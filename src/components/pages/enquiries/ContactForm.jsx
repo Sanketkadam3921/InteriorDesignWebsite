@@ -157,7 +157,11 @@ export default function ContactForm() {
   // ---------------- CONTACT INFO ----------------
   const contactInfo = [
     { icon: <PhoneIcon />, title: "Phone", details: "+91 8669868947" },
-    { icon: <EmailIcon />, title: "Email", details: "care@kalakruti.com" },
+    {
+      icon: <EmailIcon />,
+      title: "Email",
+      details: "kalakrutistudio.office@gmail.com",
+    },
     { icon: <LocationIcon />, title: "Address", details: "Pune, Maharashtra" },
   ];
 
