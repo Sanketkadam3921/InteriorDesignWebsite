@@ -34,31 +34,24 @@ export const INFO_CARDS = [
 export const TIMELINE_ITEMS = [
   {
     id: 1,
-    year: "2018",
-    title: "The Beginning",
+    year: "2022",
+    title: "Studio Foundation",
     description:
-      "Started as a small design studio with a vision to revolutionize interior design. Our first project was a modest 2BHK apartment that set the foundation for our design philosophy.",
+      "Started the studio and took on small, intimate projects to build a strong creative and technical foundation.",
   },
   {
     id: 2,
-    year: "2020",
-    title: "Digital Transformation",
+    year: "2023",
+    title: "Creative Collaborations",
     description:
-      "Launched our virtual design consultation services and 3D visualization platform. This innovation helped us serve clients across multiple cities during challenging times.",
+      "Began collaborating with talented designers in Mumbai, expanding our creative horizons and elevating our design process.",
   },
   {
     id: 3,
-    year: "2022",
-    title: "National Expansion",
-    description:
-      "Expanded our services to 3 major cities with a team of 50+ expert designers. Completed over 1000 projects and established ourselves as a trusted brand.",
-  },
-  {
-    id: 4,
     year: "2024",
-    title: "Innovation & Excellence",
+    title: "Growth & Larger Visions",
     description:
-      "Today, we're proud to have transformed over 75,000 homes with cutting-edge design solutions, sustainable practices, and an unwavering commitment to customer satisfaction.",
+      "Stepping into bigger design visions, blending diverse styles, and shaping unforgettable interiors for clients across different spaces.",
   },
 ];
 

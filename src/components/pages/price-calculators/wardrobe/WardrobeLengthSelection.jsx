@@ -5,34 +5,56 @@ import {
   Card,
   CardContent,
   Button,
-  FormControl,
-  FormControlLabel,
-  Radio,
-  RadioGroup,
+  TextField,
   useTheme,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const heightOptions = [
-  { id: "4ft", label: "4 ft", value: "4ft" },
-  { id: "6ft", label: "6 ft", value: "6ft" },
-  { id: "7ft", label: "7 ft", value: "7ft" },
-  { id: "9ft", label: "9 ft", value: "9ft" },
-];
-
 export default function WardrobeLengthSelection() {
   const theme = useTheme();
   const navigate = useNavigate();
-  const [selectedHeight, setSelectedHeight] = useState("7ft");
+  const [length, setLength] = useState("");
+  const [height, setHeight] = useState("");
+  const [errors, setErrors] = useState({});
+
+  const validateInput = (value, field) => {
+    const numValue = parseFloat(value);
+    if (!value || value.trim() === "") {
+      return `${field} is required`;
+    }
+    if (isNaN(numValue) || numValue <= 0) {
+      return `${field} must be a positive number`;
+    }
+    if (numValue > 50) {
+      return `${field} cannot exceed 50 feet`;
+    }
+    return "";
+  };
+
+  const handleLengthChange = (event) => {
+    const value = event.target.value;
+    setLength(value);
+    const error = validateInput(value, "Length");
+    setErrors((prev) => ({ ...prev, length: error }));
+  };
 
   const handleHeightChange = (event) => {
-    setSelectedHeight(event.target.value);
+    const value = event.target.value;
+    setHeight(value);
+    const error = validateInput(value, "Height");
+    setErrors((prev) => ({ ...prev, height: error }));
   };
 
   const handleNext = () => {
-    if (selectedHeight) {
+    const lengthError = validateInput(length, "Length");
+    const heightError = validateInput(height, "Height");
+    
+    setErrors({ length: lengthError, height: heightError });
+    
+    if (!lengthError && !heightError) {
       const queryParams = new URLSearchParams({
-        height: selectedHeight,
+        length: length,
+        height: height,
       });
       navigate(
         `/price-calculators/wardrobe/calculator/type?${queryParams.toString()}`
@@ -61,30 +83,19 @@ export default function WardrobeLengthSelection() {
           color: theme.palette.text.primary,
         }}
       >
-        What is the height of your wardrobe?
+        Enter Wardrobe Dimensions
       </Typography>
 
-      {/* Info Banner */}
-      <Box
+      <Typography
+        variant="body2"
         sx={{
-          backgroundColor: theme.palette.warning.light + "40",
-          border: `1px solid ${theme.palette.warning.main}40`,
-          borderRadius: 2,
-          p: 1.5,
-          mb: 4,
           textAlign: "center",
+          mb: 4,
+          color: theme.palette.text.secondary,
         }}
       >
-        <Typography
-          variant="body2"
-          sx={{
-            color: theme.palette.warning.dark,
-            fontWeight: 500,
-          }}
-        >
-          Standard height has been set for your convenience
-        </Typography>
-      </Box>
+        Please provide the length and height of your wardrobe in feet
+      </Typography>
 
       <Box
         sx={{
@@ -96,75 +107,41 @@ export default function WardrobeLengthSelection() {
           borderColor: theme.palette.primary.light + '40',
         }}
       >
-        {/* Height Options */}
-        <FormControl component="fieldset" sx={{ width: "100%" }}>
-        <RadioGroup
-          value={selectedHeight}
-          onChange={handleHeightChange}
+        <Card
           sx={{
-            display: "flex",
-            justifyContent: "center",
-            gap: 2,
-            flexWrap: "wrap",
+            borderRadius: 2,
+            border: "1px solid",
+            borderColor: theme.palette.grey[300],
+            mb: 2,
           }}
         >
-          {heightOptions.map((option) => {
-            const isSelected = selectedHeight === option.value;
-            return (
-              <Card
-                key={option.id}
-                onClick={() => setSelectedHeight(option.value)}
-                sx={{
-                  flex: "0 0 calc(25% - 12px)",
-                  minWidth: 130,
-                  border: "2px solid",
-                  borderColor: isSelected
-                    ? theme.palette.primary.main
-                    : theme.palette.grey[300],
-                  backgroundColor: theme.palette.background.paper,
-                  borderRadius: 2,
-                  cursor: "pointer",
-                  transition: "none",
-                  boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
-                }}
-              >
-                <CardContent sx={{ p: 2, textAlign: "center" }}>
-                  <FormControlLabel
-                    value={option.value}
-                    control={
-                      <Radio
-                        checked={isSelected}
-                        sx={{
-                          color: theme.palette.primary.main,
-                          "&.Mui-checked": {
-                            color: theme.palette.primary.main,
-                          },
-                        }}
-                      />
-                    }
-                    label={
-                      <Typography
-                        variant="subtitle1"
-                        sx={{
-                          fontWeight: 600,
-                          color: theme.palette.text.primary,
-                        }}
-                      >
-                        {option.label}
-                      </Typography>
-                    }
-                    sx={{
-                      justifyContent: "center",
-                      m: 0,
-                      width: "100%",
-                    }}
-                  />
-                </CardContent>
-              </Card>
-            );
-          })}
-        </RadioGroup>
-      </FormControl>
+          <CardContent sx={{ p: 3 }}>
+            {/* Length Input */}
+            <TextField
+              fullWidth
+              label="Length (feet)"
+              type="number"
+              value={length}
+              onChange={handleLengthChange}
+              error={!!errors.length}
+              helperText={errors.length || "Enter the width/length of your wardrobe"}
+              inputProps={{ min: 0.1, max: 50, step: 0.1 }}
+              sx={{ mb: 3 }}
+            />
+
+            {/* Height Input */}
+            <TextField
+              fullWidth
+              label="Height (feet)"
+              type="number"
+              value={height}
+              onChange={handleHeightChange}
+              error={!!errors.height}
+              helperText={errors.height || "Enter the height of your wardrobe"}
+              inputProps={{ min: 0.1, max: 50, step: 0.1 }}
+            />
+          </CardContent>
+        </Card>
       </Box>
 
       <Box sx={{ flex: 1 }} />
@@ -210,7 +187,7 @@ export default function WardrobeLengthSelection() {
         <Button
           variant="contained"
           onClick={handleNext}
-          disabled={!selectedHeight}
+          disabled={!length || !height || !!errors.length || !!errors.height}
           sx={{
             px: 4,
             textTransform: "none",

@@ -53,19 +53,25 @@ export default function WardrobeEstimateForm() {
         setCalculating(true);
         const searchParams = new URLSearchParams(location.search);
 
-        const height = searchParams.get("height");
+        const length = parseFloat(searchParams.get("length"));
+        const height = parseFloat(searchParams.get("height"));
         const type = searchParams.get("type");
+        const packageType = searchParams.get("package");
 
         const result = await calculateWardrobeEstimate({
+          length,
           height,
           type,
+          package: packageType,
         });
 
         const finalAmount = result.estimatedPrice || 0;
         setEstimatedPrice(finalAmount);
         setEstimateData({
+          length,
           height,
           type,
+          package: packageType,
           totalPrice: finalAmount,
         });
       } catch (error) {
@@ -166,8 +172,10 @@ export default function WardrobeEstimateForm() {
       const searchParams = new URLSearchParams(location.search);
 
       const estimatePayload = {
-        height: searchParams.get("height"),
+        length: parseFloat(searchParams.get("length")),
+        height: parseFloat(searchParams.get("height")),
         type: searchParams.get("type"),
+        package: searchParams.get("package"),
         estimatedPrice: estimateData.totalPrice,
       };
 
@@ -202,7 +210,7 @@ export default function WardrobeEstimateForm() {
   const handleBack = () => {
     const params = new URLSearchParams(location.search);
     navigate(
-      `/price-calculators/wardrobe/calculator/type?${params.toString()}`
+      `/price-calculators/wardrobe/calculator/package?${params.toString()}`
     );
   };
 

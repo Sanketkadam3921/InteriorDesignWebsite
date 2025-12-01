@@ -34,25 +34,25 @@ export default function HomeServices() {
         {
             title: 'Modular Interiors',
             description: 'Functional kitchen, wardrobe and storage',
-            image: 'https://images.unsplash.com/photo-1602028915047-37269d1a73f7?w=600&auto=format&fit=crop&q=60',
+            image: '/Home_Page/4_images/Modular_Interiors.jpg',
             path: '/offerings/modular-interiors',
         },
         {
             title: 'Full Home Interiors',
             description: 'Turnkey interior solutions for your home',
-            image: 'https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=500&auto=format&fit=crop&q=60',
+            image: '/Home_Page/4_images/Full_Home_Interior.jpg',
             path: '/designs/full-home-interiors',
         },
         {
             title: 'Luxury Interiors',
             description: 'Tailored interiors that redefine elegance',
-            image: 'https://plus.unsplash.com/premium_photo-1661902934269-17eaf4b04f9f?q=80&w=996&auto=format&fit=crop',
+            image: '/Home_Page/4_images/Luxury_Interior_Image.jpg',
             path: '/designs/luxury-interiors',
         },
         {
             title: 'Renovations',
             description: 'Expert solutions to upgrade your home',
-            image: 'https://images.unsplash.com/photo-1618832515490-e181c4794a45?q=80&w=1470&auto=format&fit=crop',
+            image: '/Home_Page/4_images/Renovation.jpg',
             path: '/renovations',
         },
     ];

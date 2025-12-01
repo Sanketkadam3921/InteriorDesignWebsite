@@ -14,19 +14,25 @@ import { useNavigate, useLocation } from "react-router-dom";
 const kitchenPackages = [
   {
     id: "essentials",
-    title: "Essentials",
+    title: "Basic",
+    priceRange: "₹1,500 - ₹2,500",
+    pricePerSqft: "per sqft",
     features: ["Affordable pricing", "Basic storage units"],
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
   },
   {
     id: "premium",
     title: "Premium",
+    priceRange: "₹2,500 - ₹4,000",
+    pricePerSqft: "per sqft",
     features: ["Mid-range pricing", "Premium finishes", "Optimized design"],
     image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800",
   },
   {
     id: "luxe",
-    title: "Luxe",
+    title: "Luxury",
+    priceRange: "₹4,000 - ₹6,000",
+    pricePerSqft: "per sqft",
     features: ["Premium pricing", "Luxury designs", "Personal designer"],
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
   },
@@ -166,12 +172,36 @@ export default function KitchenPackageSelection() {
                     <Typography
                       variant="body2"
                       sx={{
-                        mb: 2.5,
+                        mb: 1,
                         color: theme.palette.text.primary,
                         fontWeight: 600,
                       }}
                     >
                       {pkg.title}
+                    </Typography>
+
+                    {/* Price Range */}
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        mb: 0.5,
+                        color: theme.palette.primary.main,
+                        fontWeight: 700,
+                        fontSize: "1.1rem",
+                      }}
+                    >
+                      {pkg.priceRange}
+                    </Typography>
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        mb: 2.5,
+                        color: theme.palette.text.secondary,
+                        fontSize: "0.75rem",
+                        display: "block",
+                      }}
+                    >
+                      {pkg.pricePerSqft}
                     </Typography>
 
                     {/* Image */}

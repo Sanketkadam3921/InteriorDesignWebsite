@@ -10,18 +10,24 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 import WardrobeLengthSelection from "./WardrobeLengthSelection";
 import WardrobeTypeSelection from "./WardrobeTypeSelection";
+import WardrobePackageStep from "./WardrobePackageStep";
 import WardrobeEstimateForm from "./WardrobeEstimateForm";
 
 const steps = [
   {
     id: "length",
-    label: "LENGTH",
+    label: "DIMENSIONS",
     path: "/price-calculators/wardrobe/calculator/length",
   },
   {
     id: "type",
     label: "TYPE",
     path: "/price-calculators/wardrobe/calculator/type",
+  },
+  {
+    id: "package",
+    label: "PACKAGE",
+    path: "/price-calculators/wardrobe/calculator/package",
   },
   {
     id: "estimate",
@@ -165,6 +171,7 @@ export default function WardrobeCalculatorSteps() {
           <Routes>
             <Route path="length" element={<WardrobeLengthSelection />} />
             <Route path="type" element={<WardrobeTypeSelection />} />
+            <Route path="package" element={<WardrobePackageStep />} />
             <Route path="estimate" element={<WardrobeEstimateForm />} />
           </Routes>
         </Box>

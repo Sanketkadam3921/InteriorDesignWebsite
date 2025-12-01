@@ -41,11 +41,12 @@ export default function WardrobeTypeSelection() {
         if (selectedType) {
             const searchParams = new URLSearchParams(location.search);
             const queryParams = new URLSearchParams({
+                length: searchParams.get("length"),
                 height: searchParams.get("height"),
                 type: selectedType,
             });
             navigate(
-                `/price-calculators/wardrobe/calculator/estimate?${queryParams.toString()}`
+                `/price-calculators/wardrobe/calculator/package?${queryParams.toString()}`
             );
         }
     };
@@ -53,6 +54,7 @@ export default function WardrobeTypeSelection() {
     const handleBack = () => {
         const searchParams = new URLSearchParams(location.search);
         const queryParams = new URLSearchParams({
+            length: searchParams.get("length"),
             height: searchParams.get("height"),
         });
         navigate(

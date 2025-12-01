@@ -7,8 +7,10 @@ import { apiRequest } from './config';
 /**
  * Calculate wardrobe estimate
  * @param {Object} data - Calculation data
- * @param {String} data.height - Height ("4ft", "6ft", "7ft", "9ft")
+ * @param {Number} data.length - Length in feet
+ * @param {Number} data.height - Height in feet
  * @param {String} data.type - Type ("sliding", "swing")
+ * @param {String} data.package - Package type ("basic", "premium", "luxury")
  * @returns {Promise<Object>} Estimate result
  */
 export const calculateWardrobeEstimate = async (data) => {

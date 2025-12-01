@@ -14,18 +14,18 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const inspirationItems = [
-    { title: 'Living Room', image: 'https://plus.unsplash.com/premium_photo-1676823547752-1d24e8597047?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
-    { title: 'Master Bedroom', image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
-    { title: 'False Ceiling', image: 'https://i.pinimg.com/736x/71/4b/17/714b1787c714501e64afb9df9d9b29b5.jpg' },
-    { title: 'KalaKruti Studio Designs', image: 'https://i.pinimg.com/736x/a2/91/37/a2913749dfb96ac7cee1872003ffc77c.jpg' },
-    { title: 'Kitchen', image: 'https://i.pinimg.com/1200x/85/17/d5/8517d53084ad0351019298eedab8fff3.jpg' },
-    { title: 'Wardrobe', image: 'https://i.pinimg.com/1200x/f7/58/33/f75833d9a822a49b072636e894d8db30.jpg' },
-    { title: 'Kids Room', image: 'https://images.unsplash.com/photo-1554861148-57c68cd01604?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470' },
-    { title: 'Home Office', image: 'https://i.pinimg.com/736x/a6/f7/3f/a6f73fbe18db7e69c26cab307f6685e3.jpg' },
-    { title: 'Guest Bedroom', image: 'https://i.pinimg.com/736x/84/2e/d1/842ed1f7f89cc954a9deab56c05c9036.jpg' },
-    { title: 'Foyer', image: 'https://i.pinimg.com/1200x/b2/5e/df/b25edffe956b4a0e6ed7f77444a79371.jpg' },
-    { title: 'Dining Room', image: 'https://i.pinimg.com/736x/7b/e1/13/7be1132f8f1799d86cbb7fe4709f3bb2.jpg' },
-    { title: 'Bathroom', image: 'https://i.pinimg.com/736x/08/75/5e/08755ed10bf6b4a8741f8361d299f5fb.jpg' },
+    { title: 'Living Room', image: '/Home_Page/Inspiration/LivingRoom.jpg' },
+    { title: 'Master Bedroom', image: '/Home_Page/Inspiration/Master_Bedroom.jpg' },
+    { title: 'False Ceiling', image: '/Home_Page/Inspiration/False_Ceiling.jpeg' },
+    { title: 'KalaKruti Studio Designs', image: '/Home_Page/Inspiration/KalaKruti_Studio_Designs.jpg' },
+    { title: 'Kitchen', image: '/Home_Page/Inspiration/Kitchen.jpg' },
+    { title: 'Wardrobe', image: '/Home_Page/Inspiration/Wardrobe.jpeg' },
+    { title: 'Kids Room', image: '/Home_Page/Inspiration/Kids_Room.jpeg' },
+    { title: 'Home Office', image: '/Home_Page/Inspiration/Home_Office.jpeg' },
+    { title: 'Guest Bedroom', image: '/Home_Page/Inspiration/Guest_Bedroom.jpg' },
+    { title: 'Foyer', image: '/Home_Page/Inspiration/Foyer.jpeg' },
+    { title: 'Dining Room', image: '/Home_Page/Inspiration/Dinning_Room.jpeg' },
+    { title: 'Bathroom', image: '/Home_Page/Inspiration/Bathroom.jpeg' },
 ];
 
 export default function HomeInspiration() {
