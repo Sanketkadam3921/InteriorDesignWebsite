@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function KitchenHowItWorks() {
-    return null;
+  return null;
 }
 
 // import React from "react";
