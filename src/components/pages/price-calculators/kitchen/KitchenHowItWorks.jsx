@@ -1,3 +1,9 @@
+import React from "react";
+
+export default function KitchenHowItWorks() {
+    return null;
+}
+
 // import React from "react";
 // import { Box, Container, Typography, Link, useTheme } from "@mui/material";
 // import { useNavigate } from "react-router-dom";
