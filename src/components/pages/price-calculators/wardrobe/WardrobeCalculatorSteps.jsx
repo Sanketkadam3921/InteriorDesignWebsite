@@ -10,9 +10,6 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 import WardrobeLengthSelection from "./WardrobeLengthSelection";
 import WardrobeTypeSelection from "./WardrobeTypeSelection";
-import WardrobeFinishSelection from "./WardrobeFinishSelection";
-import WardrobeMaterialSelection from "./WardrobeMaterialSelection";
-import WardrobeAccessoriesSelection from "./WardrobeAccessoriesSelection";
 import WardrobeEstimateForm from "./WardrobeEstimateForm";
 
 const steps = [
@@ -26,17 +23,6 @@ const steps = [
     label: "TYPE",
     path: "/price-calculators/wardrobe/calculator/type",
   },
-  {
-    id: "finish",
-    label: "FINISH",
-    path: "/price-calculators/wardrobe/calculator/finish",
-  },
-  {
-    id: "material",
-    label: "MATERIAL",
-    path: "/price-calculators/wardrobe/calculator/material",
-  },
-
   {
     id: "estimate",
     label: "GET QUOTE",
@@ -152,7 +138,7 @@ export default function WardrobeCalculatorSteps() {
                   {index < currentStepIndex ? "✓" : index + 1}
                 </Box>
 
-                {/* Step label (mobile splitting) */}
+                {/* Step label */}
                 <Typography
                   variant="caption"
                   sx={{
@@ -167,13 +153,7 @@ export default function WardrobeCalculatorSteps() {
                     fontWeight: index <= currentStepIndex ? "bold" : "normal",
                   }}
                 >
-                  {step.label === "ACCESSORIES" && isMobile ? (
-                    <>
-                      ACCES <br /> SORIES
-                    </>
-                  ) : (
-                    step.label
-                  )}
+                  {step.label}
                 </Typography>
               </Box>
             ))}
@@ -185,12 +165,6 @@ export default function WardrobeCalculatorSteps() {
           <Routes>
             <Route path="length" element={<WardrobeLengthSelection />} />
             <Route path="type" element={<WardrobeTypeSelection />} />
-            <Route path="finish" element={<WardrobeFinishSelection />} />
-            <Route path="material" element={<WardrobeMaterialSelection />} />
-            <Route
-              path="accessories"
-              element={<WardrobeAccessoriesSelection />}
-            />
             <Route path="estimate" element={<WardrobeEstimateForm />} />
           </Routes>
         </Box>

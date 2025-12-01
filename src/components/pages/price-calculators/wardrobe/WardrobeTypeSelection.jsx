@@ -45,7 +45,7 @@ export default function WardrobeTypeSelection() {
                 type: selectedType,
             });
             navigate(
-                `/price-calculators/wardrobe/calculator/finish?${queryParams.toString()}`
+                `/price-calculators/wardrobe/calculator/estimate?${queryParams.toString()}`
             );
         }
     };

@@ -10,8 +10,10 @@ import {
   Alert,
   styled,
   useTheme,
+  CircularProgress,
 } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
+import { calculateKitchenEstimate, submitKitchenEstimate } from "../../../../services/api/kitchenCalculatorApi";
 
 // 🔴 Required field styling
 const RedAsteriskTextField = styled(TextField)({
@@ -34,6 +36,8 @@ export default function KitchenEstimateForm() {
 
   const [errors, setErrors] = useState({});
   const [estimateData, setEstimateData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [calculating, setCalculating] = useState(true);
 
   const [toast, setToast] = useState({
     open: false,
@@ -41,93 +45,49 @@ export default function KitchenEstimateForm() {
     severity: "success",
   });
 
-  // ⭐ Calculate modular kitchen price
-  const calculateBasePrice = (layout, A, B, C, packageType) => {
-    const packagePrices = {
-      essentials: 1200,
-      premium: 1800,
-      luxe: 2500,
-    };
-
-    const layoutMultipliers = {
-      "l-shaped": 1.2,
-      "u-shaped": 1.5,
-      straight: 1.0,
-      parallel: 1.1,
-    };
-
-    const cabinetHeight = 2.5; // in feet
-
-    let linearFeet = 0;
-    switch (layout) {
-      case "straight":
-        linearFeet = A;
-        break;
-      case "l-shaped":
-        linearFeet = A + B;
-        break;
-      case "u-shaped":
-        linearFeet = A + B + C;
-        break;
-      case "parallel":
-        linearFeet = A + B;
-        break;
-      default:
-        linearFeet = A;
-    }
-
-    const basePricePerSqFt = packagePrices[packageType] || 1800;
-    const layoutMultiplier = layoutMultipliers[layout] || 1.0;
-
-    const area = linearFeet * cabinetHeight;
-    const price = area * basePricePerSqFt * layoutMultiplier;
-
-    return Math.round(price);
-  };
-
-  // ⭐ Extract query params and calculate estimate
+  // ⭐ Extract query params and calculate estimate from API
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
+    const calculateEstimateFromAPI = async () => {
+      try {
+        setCalculating(true);
+        const params = new URLSearchParams(location.search);
 
-    const layout = params.get("layout");
-    const A = parseFloat(params.get("A")) || 0;
-    const B = parseFloat(params.get("B")) || 0;
-    const C = parseFloat(params.get("C")) || 0;
-    const packageType = params.get("package");
+        const layout = params.get("layout");
+        const A = parseFloat(params.get("A")) || 0;
+        const B = parseFloat(params.get("B")) || 0;
+        const C = parseFloat(params.get("C")) || 0;
+        const packageType = params.get("package");
 
-    const totalPrice = calculateBasePrice(layout, A, B, C, packageType);
+        const result = await calculateKitchenEstimate({
+          layout,
+          A,
+          B: B || 0,
+          C: C || 0,
+          package: packageType,
+        });
 
-    setEstimateData({
-      layout,
-      A,
-      B,
-      C,
-      packageType,
-      totalPrice,
-    });
+        setEstimateData({
+          layout,
+          A,
+          B,
+          C,
+          packageType,
+          totalPrice: result.estimatedPrice || 0,
+        });
+      } catch (error) {
+        console.error("Error calculating estimate:", error);
+        setToast({
+          open: true,
+          message: "Error calculating estimate. Please try again.",
+          severity: "error",
+        });
+      } finally {
+        setCalculating(false);
+      }
+    };
+
+    calculateEstimateFromAPI();
   }, [location.search]);
-
-  // ⭐ Pretty kitchen details formatting
-  const formatKitchenDetails = (details, price, propertyName) => {
-    return `
- MODULAR KITCHEN ESTIMATE SUMMARY
-
- CONFIGURATION
-• Layout: ${details.layout || "N/A"}
-• Package: ${details.packageType || "N/A"}
-
- DIMENSIONS (in feet)
-• Side A: ${details.A || 0} ft
-• Side B: ${details.B || 0} ft
-• Side C: ${details.C || 0} ft
-
- ESTIMATED PRICE
-• ₹${price.toLocaleString()}
-
- PROPERTY
-• ${propertyName || "N/A"}
-`;
-  };
 
   // ⭐ Validation
   const validateField = (field, value) => {
@@ -180,7 +140,7 @@ export default function KitchenEstimateForm() {
     Object.values(formData).every((v) => v.trim() !== "") &&
     Object.values(errors).every((e) => !e);
 
-  // ⭐ Web3Forms submission
+  // ⭐ API submission
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -197,55 +157,43 @@ export default function KitchenEstimateForm() {
     }
 
     try {
-      const fd = new FormData();
+      setLoading(true);
+      const params = new URLSearchParams(location.search);
 
-      fd.append("access_key", "1c21fc37-1fc4-4734-a82f-0a647e166aef");
-      fd.append(
-        "subject",
-        `New Modular Kitchen Estimate from ${formData.name}`
-      );
+      const estimatePayload = {
+        layout: params.get("layout"),
+        A: parseFloat(params.get("A")) || 0,
+        B: parseFloat(params.get("B")) || 0,
+        C: parseFloat(params.get("C")) || 0,
+        package: params.get("package"),
+        estimatedPrice: estimateData.totalPrice,
+      };
 
-      // user info
-      fd.append("name", formData.name);
-      fd.append("email", formData.email);
-      fd.append("phone", formData.phone);
-      fd.append("property_name", formData.propertyName);
-
-      // price
-      fd.append("estimated_price", estimateData.totalPrice);
-
-      // formatted summary
-      fd.append(
-        "calculation_details",
-        formatKitchenDetails(
-          estimateData,
-          estimateData.totalPrice,
-          formData.propertyName
-        )
-      );
-
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: fd,
+      const result = await submitKitchenEstimate({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        city: formData.propertyName, // Using propertyName as city
+        message: null,
+        estimate: estimatePayload,
       });
 
-      const data = await res.json();
-
-      if (data.success) {
-        setToast({
-          open: true,
-          message: "Your kitchen estimate has been submitted!",
-          severity: "success",
-        });
-
-        setTimeout(() => navigate("/"), 2000);
-      } else throw new Error("Submission failed");
-    } catch (err) {
       setToast({
         open: true,
-        message: "Something went wrong. Please try again.",
+        message: result.message || "Your kitchen estimate has been submitted!",
+        severity: "success",
+      });
+
+      setTimeout(() => navigate("/"), 2000);
+    } catch (err) {
+      console.error(err);
+      setToast({
+        open: true,
+        message: err.message || "Something went wrong. Please try again.",
         severity: "error",
       });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -254,6 +202,14 @@ export default function KitchenEstimateForm() {
     const params = new URLSearchParams(location.search);
     navigate(`/price-calculators/kitchen/calculator/package?${params}`);
   };
+
+  if (calculating) {
+    return (
+      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "50vh" }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
 
   if (!estimateData) return <Box>Loading...</Box>;
 
@@ -381,12 +337,16 @@ export default function KitchenEstimateForm() {
                   Estimated Price
                 </Typography>
 
-                <Typography
-                  variant="h5"
-                  sx={{ fontWeight: 700, color: theme.palette.primary.main }}
-                >
-                  ₹{estimateData.totalPrice.toLocaleString()}
-                </Typography>
+                {calculating ? (
+                  <CircularProgress size={24} sx={{ my: 1 }} />
+                ) : (
+                  <Typography
+                    variant="h5"
+                    sx={{ fontWeight: 700, color: theme.palette.primary.main }}
+                  >
+                    ₹{estimateData?.totalPrice?.toLocaleString() || 0}
+                  </Typography>
+                )}
 
                 <Typography
                   variant="caption"
@@ -440,7 +400,7 @@ export default function KitchenEstimateForm() {
         <Button
           variant="contained"
           onClick={handleSubmit}
-          disabled={!isFormValid()}
+          disabled={!isFormValid() || loading || calculating}
           sx={{
             px: 3,
             textTransform: "none",
@@ -448,7 +408,7 @@ export default function KitchenEstimateForm() {
             fontSize: "0.9rem",
           }}
         >
-          Submit
+          {loading ? <CircularProgress size={20} /> : "Submit"}
         </Button>
       </Box>
 

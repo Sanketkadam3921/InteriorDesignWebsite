@@ -10,8 +10,10 @@ import {
   styled,
   Snackbar,
   Alert,
+  CircularProgress,
 } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
+import { calculateHomeEstimate, submitHomeEstimate } from "../../../../services/api/homeCalculatorApi";
 
 // 🔴 Required field styling
 const RedAsteriskTextField = styled(TextField)({
@@ -35,6 +37,8 @@ export default function EstimateForm() {
   const [calcDetails, setCalcDetails] = useState({});
   const [errors, setErrors] = useState({});
   const [estimatedPrice, setEstimatedPrice] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [calculating, setCalculating] = useState(true);
 
   const [toast, setToast] = useState({
     open: false,
@@ -42,53 +46,52 @@ export default function EstimateForm() {
     severity: "success",
   });
 
-  // 🧮 FRONTEND ESTIMATE CALCULATION
+  // 🧮 API ESTIMATE CALCULATION
   useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
+    const calculateEstimateFromAPI = async () => {
+      try {
+        setCalculating(true);
+        const searchParams = new URLSearchParams(location.search);
 
-    const data = {
-      livingRoom: parseInt(searchParams.get("livingRoom")) || 0,
-      kitchen: parseInt(searchParams.get("kitchen")) || 0,
-      bedroom: parseInt(searchParams.get("bedroom")) || 0,
-      bathroom: parseInt(searchParams.get("bathroom")) || 0,
-      dining: parseInt(searchParams.get("dining")) || 0,
-      packageType: searchParams.get("package"),
-      size: searchParams.get("size"),
-      bhk: searchParams.get("bhk"),
+        const data = {
+          bhk: searchParams.get("bhk"),
+          size: searchParams.get("size") || null,
+          package: searchParams.get("package"),
+          rooms: {
+            livingRoom: parseInt(searchParams.get("livingRoom")) || 0,
+            kitchen: parseInt(searchParams.get("kitchen")) || 0,
+            bedroom: parseInt(searchParams.get("bedroom")) || 0,
+            bathroom: parseInt(searchParams.get("bathroom")) || 0,
+            dining: parseInt(searchParams.get("dining")) || 0,
+          },
+        };
+
+        setCalcDetails({
+          bhk: data.bhk,
+          size: data.size,
+          packageType: data.package,
+          livingRoom: data.rooms.livingRoom,
+          kitchen: data.rooms.kitchen,
+          bedroom: data.rooms.bedroom,
+          bathroom: data.rooms.bathroom,
+          dining: data.rooms.dining,
+        });
+
+        const result = await calculateHomeEstimate(data);
+        setEstimatedPrice(result.estimatedPrice || 0);
+      } catch (error) {
+        console.error("Error calculating estimate:", error);
+        setToast({
+          open: true,
+          message: "Error calculating estimate. Please try again.",
+          severity: "error",
+        });
+      } finally {
+        setCalculating(false);
+      }
     };
 
-    setCalcDetails(data);
-
-    const roomPrices = {
-      livingRoom: 150000,
-      kitchen: 200000,
-      bedroom: 120000,
-      bathroom: 80000,
-      dining: 100000,
-    };
-
-    const packageMultipliers = {
-      essentials: 1.0,
-      premium: 1.3,
-      luxe: 1.8,
-    };
-
-    const sizeMultipliers = {
-      small: 0.8,
-      large: 1.2,
-    };
-
-    let totalPrice =
-      data.livingRoom * roomPrices.livingRoom +
-      data.kitchen * roomPrices.kitchen +
-      data.bedroom * roomPrices.bedroom +
-      data.bathroom * roomPrices.bathroom +
-      data.dining * roomPrices.dining;
-
-    totalPrice *= packageMultipliers[data.packageType] || 1.0;
-    totalPrice *= sizeMultipliers[data.size] || 1.0;
-
-    setEstimatedPrice(Math.round(totalPrice));
+    calculateEstimateFromAPI();
   }, [location.search]);
 
   // 🧩 FIELD VALIDATION
@@ -153,22 +156,8 @@ export default function EstimateForm() {
       Object.values(errors).every((err) => !err)
     );
   };
-  const formatCalculationDetails = (details) => {
-    return `
-BHK: ${details.bhk || "N/A"}
-Package: ${details.packageType || "N/A"}
-Size: ${details.size || "N/A"}
 
-Rooms:
-- Living Room: ${details.livingRoom}
-- Kitchen: ${details.kitchen}
-- Bedroom: ${details.bedroom}
-- Bathroom: ${details.bathroom}
-- Dining: ${details.dining}
-`;
-  };
-
-  // 🚀 WEB3FORMS SUBMISSION
+  // 🚀 API SUBMISSION
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -186,57 +175,47 @@ Rooms:
     }
 
     try {
-      const formDataToSend = new FormData();
+      setLoading(true);
+      const searchParams = new URLSearchParams(location.search);
 
-      formDataToSend.append(
-        "access_key",
-        "1c21fc37-1fc4-4734-a82f-0a647e166aef"
-      );
-      formDataToSend.append(
-        "subject",
-        `New Budget Estimate Enquiry from ${formData.name}`
-      );
+      const estimateData = {
+        bhk: searchParams.get("bhk"),
+        size: searchParams.get("size") || null,
+        package: searchParams.get("package"),
+        rooms: {
+          livingRoom: parseInt(searchParams.get("livingRoom")) || 0,
+          kitchen: parseInt(searchParams.get("kitchen")) || 0,
+          bedroom: parseInt(searchParams.get("bedroom")) || 0,
+          bathroom: parseInt(searchParams.get("bathroom")) || 0,
+          dining: parseInt(searchParams.get("dining")) || 0,
+        },
+        estimatedPrice: estimatedPrice,
+      };
 
-      // User info
-      formDataToSend.append("name", formData.name);
-      formDataToSend.append("email", formData.email);
-      formDataToSend.append("phone", formData.phone);
-      formDataToSend.append("property_name", formData.propertyName);
-
-      // Estimate
-      formDataToSend.append("estimated_price", estimatedPrice);
-
-      // Calculator details
-      formDataToSend.append(
-        "calculation_details",
-        formatCalculationDetails(calcDetails)
-      );
-
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formDataToSend,
+      const result = await submitHomeEstimate({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        propertyName: formData.propertyName,
+        estimate: estimateData,
       });
 
-      const data = await response.json();
+      setToast({
+        open: true,
+        message: result.message || "Your estimate has been submitted successfully.",
+        severity: "success",
+      });
 
-      if (data.success) {
-        setToast({
-          open: true,
-          message: "Your estimate has been submitted successfully.",
-          severity: "success",
-        });
-
-        setTimeout(() => navigate("/"), 2000);
-      } else {
-        throw new Error("Form submission failed");
-      }
+      setTimeout(() => navigate("/"), 2000);
     } catch (err) {
       console.error(err);
       setToast({
         open: true,
-        message: "Something went wrong. Please try again.",
+        message: err.message || "Something went wrong. Please try again.",
         severity: "error",
       });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -368,15 +347,19 @@ Rooms:
                   Estimated Price
                 </Typography>
 
-                <Typography
-                  variant="h5"
-                  sx={{
-                    fontWeight: 700,
-                    color: theme.palette.primary.main,
-                  }}
-                >
-                  ₹{estimatedPrice.toLocaleString()}
-                </Typography>
+                {calculating ? (
+                  <CircularProgress size={24} sx={{ my: 1 }} />
+                ) : (
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      fontWeight: 700,
+                      color: theme.palette.primary.main,
+                    }}
+                  >
+                    ₹{estimatedPrice.toLocaleString()}
+                  </Typography>
+                )}
 
                 <Typography
                   variant="caption"
@@ -430,7 +413,7 @@ Rooms:
         <Button
           variant="contained"
           onClick={handleSubmit}
-          disabled={!isFormValid()}
+          disabled={!isFormValid() || loading || calculating}
           sx={{
             px: 3,
             textTransform: "none",
@@ -438,7 +421,7 @@ Rooms:
             fontSize: "0.9rem",
           }}
         >
-          Submit
+          {loading ? <CircularProgress size={20} /> : "Submit"}
         </Button>
       </Box>
 

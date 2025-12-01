@@ -10,8 +10,10 @@ import {
   Snackbar,
   Alert,
   styled,
+  CircularProgress,
 } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
+import { calculateWardrobeEstimate, submitWardrobeEstimate } from "../../../../services/api/wardrobeCalculatorApi";
 
 // 🔴 Red asterisk for required fields
 const RedAsteriskTextField = styled(TextField)({
@@ -41,68 +43,44 @@ export default function WardrobeEstimateForm() {
 
   const [estimatedPrice, setEstimatedPrice] = useState(0);
   const [estimateData, setEstimateData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [calculating, setCalculating] = useState(true);
 
-  // ⭐ FORMAT FOR EMAIL MESSAGE
-  const formatCalculationDetails = (data) => {
-    return `
-Wardrobe Estimate Details
-
-Height: ${data.height}
-Type: ${data.type}
-Finish: ${data.finish}
-Material: ${data.material}
-
-Final Price: ₹${data.totalPrice.toLocaleString()}
-    `;
-  };
-
-  // 💰 Calculate Estimated Price
+  // 💰 Calculate Estimated Price from API
   useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
+    const calculateEstimateFromAPI = async () => {
+      try {
+        setCalculating(true);
+        const searchParams = new URLSearchParams(location.search);
 
-    const height = searchParams.get("height");
-    const type = searchParams.get("type");
-    const finish = searchParams.get("finish");
-    const material = searchParams.get("material");
+        const height = searchParams.get("height");
+        const type = searchParams.get("type");
 
-    const heightPrices = {
-      "4ft": 80000,
-      "6ft": 120000,
-      "7ft": 150000,
-      "9ft": 200000,
+        const result = await calculateWardrobeEstimate({
+          height,
+          type,
+        });
+
+        const finalAmount = result.estimatedPrice || 0;
+        setEstimatedPrice(finalAmount);
+        setEstimateData({
+          height,
+          type,
+          totalPrice: finalAmount,
+        });
+      } catch (error) {
+        console.error("Error calculating estimate:", error);
+        setToast({
+          open: true,
+          message: "Error calculating estimate. Please try again.",
+          severity: "error",
+        });
+      } finally {
+        setCalculating(false);
+      }
     };
 
-    const typeMultipliers = {
-      sliding: 1.0,
-      swing: 0.9,
-    };
-
-    const finishMultipliers = {
-      laminate: 1.0,
-      membrane: 1.3,
-      acrylic: 1.8,
-    };
-
-    const materialMultipliers = {
-      mdf: 1.0,
-      hdf: 1.2,
-    };
-
-    let totalPrice = heightPrices[height] || 150000;
-    totalPrice *= typeMultipliers[type] || 1.0;
-    totalPrice *= finishMultipliers[finish] || 1.0;
-    totalPrice *= materialMultipliers[material] || 1.0;
-
-    const finalAmount = Math.round(totalPrice);
-
-    setEstimatedPrice(finalAmount);
-    setEstimateData({
-      height,
-      type,
-      finish,
-      material,
-      totalPrice: finalAmount,
-    });
+    calculateEstimateFromAPI();
   }, [location.search]);
 
   // 🧩 FIELD VALIDATION
@@ -165,7 +143,7 @@ Final Price: ₹${data.totalPrice.toLocaleString()}
     Object.values(formData).every((v) => v.trim() !== "") &&
     Object.values(errors).every((err) => !err);
 
-  // 📨 SUBMIT TO WEB3FORMS
+  // 📨 SUBMIT TO API
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -184,66 +162,57 @@ Final Price: ₹${data.totalPrice.toLocaleString()}
     }
 
     try {
-      const formDataToSend = new FormData();
+      setLoading(true);
+      const searchParams = new URLSearchParams(location.search);
 
-      formDataToSend.append(
-        "access_key",
-        "1c21fc37-1fc4-4734-a82f-0a647e166aef"
-      );
+      const estimatePayload = {
+        height: searchParams.get("height"),
+        type: searchParams.get("type"),
+        estimatedPrice: estimateData.totalPrice,
+      };
 
-      formDataToSend.append(
-        "subject",
-        `New Wardrobe Estimate from ${formData.name}`
-      );
-
-      // user details
-      formDataToSend.append("name", formData.name);
-      formDataToSend.append("email", formData.email);
-      formDataToSend.append("phone", formData.phone);
-      formDataToSend.append("property_name", formData.propertyName);
-
-      // price
-      formDataToSend.append("estimated_price", estimateData.totalPrice);
-
-      // details
-      formDataToSend.append(
-        "calculation_details",
-        formatCalculationDetails(estimateData)
-      );
-
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formDataToSend,
+      const result = await submitWardrobeEstimate({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        propertyName: formData.propertyName,
+        whatsappUpdates: false,
+        estimate: estimatePayload,
       });
 
-      const data = await res.json();
-
-      if (data.success) {
-        setToast({
-          open: true,
-          message: "Your wardrobe estimate has been submitted successfully!",
-          severity: "success",
-        });
-
-        setTimeout(() => navigate("/"), 2000);
-      } else {
-        throw new Error("Submission failed");
-      }
-    } catch (error) {
       setToast({
         open: true,
-        message: "Something went wrong. Please try again.",
+        message: result.message || "Your wardrobe estimate has been submitted successfully!",
+        severity: "success",
+      });
+
+      setTimeout(() => navigate("/"), 2000);
+    } catch (error) {
+      console.error(error);
+      setToast({
+        open: true,
+        message: error.message || "Something went wrong. Please try again.",
         severity: "error",
       });
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleBack = () => {
     const params = new URLSearchParams(location.search);
     navigate(
-      `/price-calculators/wardrobe/calculator/material?${params.toString()}`
+      `/price-calculators/wardrobe/calculator/type?${params.toString()}`
     );
   };
+
+  if (calculating) {
+    return (
+      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "50vh" }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
 
   if (!estimateData) return <Box>Loading...</Box>;
 
@@ -348,9 +317,13 @@ Final Price: ₹${data.totalPrice.toLocaleString()}
               }}
             >
               <Typography variant="subtitle2">Estimated Price</Typography>
-              <Typography variant="h5" sx={{ fontWeight: 700 }}>
-                ₹{estimatedPrice.toLocaleString()}
-              </Typography>
+              {calculating ? (
+                <CircularProgress size={24} sx={{ my: 1 }} />
+              ) : (
+                <Typography variant="h5" sx={{ fontWeight: 700 }}>
+                  ₹{estimatedPrice.toLocaleString()}
+                </Typography>
+              )}
               <Typography variant="caption" sx={{ color: "text.secondary" }}>
                 *Final price may vary based on requirements
               </Typography>
@@ -381,10 +354,10 @@ Final Price: ₹${data.totalPrice.toLocaleString()}
 
         <Button
           variant="contained"
-          disabled={!isFormValid()}
+          disabled={!isFormValid() || loading || calculating}
           onClick={handleSubmit}
         >
-          Submit
+          {loading ? <CircularProgress size={20} /> : "Submit"}
         </Button>
       </Box>
 
