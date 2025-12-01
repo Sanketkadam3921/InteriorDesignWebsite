@@ -10,12 +10,7 @@ import {
   Radio,
   RadioGroup,
   useTheme,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  Divider,
 } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useNavigate } from "react-router-dom";
 
 const bhkOptions = [
@@ -32,20 +27,12 @@ const bhkOptions = [
   {
     id: "3bhk",
     title: "3 BHK",
-    description: "Spacious home with size options available.",
-    sizes: [
-      { id: "small", label: "Small", description: "Below 1200 sq ft" },
-      { id: "large", label: "Large", description: "Above 1200 sq ft" },
-    ],
+    description: "Spacious home for medium-sized families.",
   },
   {
     id: "4bhk",
     title: "4 BHK",
-    description: "Luxury home with configurable size options.",
-    sizes: [
-      { id: "small", label: "Small", description: "Below 1800 sq ft" },
-      { id: "large", label: "Large", description: "Above 1800 sq ft" },
-    ],
+    description: "Luxury home for large families.",
   },
   {
     id: "5bhk",
@@ -58,28 +45,21 @@ export default function BHKSelection() {
   const theme = useTheme();
   const navigate = useNavigate();
   const [selectedBHK, setSelectedBHK] = useState("");
-  const [selectedSize, setSelectedSize] = useState("");
 
   const handleBHKChange = (event) => {
     setSelectedBHK(event.target.value);
-    setSelectedSize("");
   };
-
-  const handleSizeChange = (event) => setSelectedSize(event.target.value);
 
   const handleNext = () => {
     if (selectedBHK) {
       const queryParams = new URLSearchParams({
         bhk: selectedBHK,
-        size: selectedSize,
       });
       navigate(
-        `/price-calculators/home/calculator/rooms?${queryParams.toString()}`
+        `/price-calculators/home/calculator/package?${queryParams.toString()}`
       );
     }
   };
-
-  const selectedOption = bhkOptions.find((b) => b.id === selectedBHK);
 
   return (
     <Box
@@ -188,137 +168,6 @@ export default function BHKSelection() {
                   sx={{ m: 0, width: "100%" }}
                 />
               </CardContent>
-
-              {/* Accordion for 3BHK & 4BHK */}
-              {bhk.sizes && (
-                <Accordion
-                  disableGutters
-                  elevation={0}
-                  sx={{
-                    backgroundColor: "transparent",
-                    borderTop: "1px solid",
-                    borderColor: theme.palette.divider,
-                    "&:before": { display: "none" },
-                  }}
-                  expanded={selectedBHK === bhk.id && !!bhk.sizes}
-                  onChange={(event, isExpanded) => {
-                    // Prevent accordion from toggling - only controlled by selectedBHK
-                    event.stopPropagation();
-                    if (isExpanded && selectedBHK !== bhk.id) {
-                      setSelectedBHK(bhk.id);
-                    }
-                  }}
-                >
-                  <AccordionSummary
-                    expandIcon={
-                      <ExpandMoreIcon
-                        sx={{ color: theme.palette.text.secondary }}
-                      />
-                    }
-                    onClick={(e) => {
-                      // When clicking accordion header, select the BHK first
-                      if (selectedBHK !== bhk.id) {
-                        e.stopPropagation();
-                        setSelectedBHK(bhk.id);
-                      }
-                    }}
-                    sx={{
-                      minHeight: 0,
-                      "& .MuiAccordionSummary-content": { my: 0.5 },
-                    }}
-                  >
-                    <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                      Select Size
-                    </Typography>
-                  </AccordionSummary>
-
-                  <AccordionDetails sx={{ pt: 0 }}>
-                    <RadioGroup
-                      value={selectedSize}
-                      onChange={handleSizeChange}
-                      sx={{
-                        display: "flex",
-                        flexDirection: { xs: "column", sm: "row" },
-                        gap: 1.5,
-                        flexWrap: "wrap",
-                        pl: 1,
-                      }}
-                    >
-                      {bhk.sizes.map((size) => (
-                        <Card
-                          key={size.id}
-                          sx={{
-                            flex: { xs: "1 1 100%", sm: "1 1 45%" },
-                            minWidth: 0,
-                            borderRadius: 1.5,
-                            border:
-                              selectedSize === size.id
-                                ? `2px solid ${theme.palette.primary.main}`
-                                : "1px solid",
-                            borderColor:
-                              selectedSize === size.id
-                                ? theme.palette.primary.main
-                                : theme.palette.grey[300],
-                            backgroundColor: theme.palette.background.paper,
-                            textAlign: "center",
-                            boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
-                            cursor: "pointer",
-                            transition: "none",
-                            "&:hover": {
-                              borderColor: theme.palette.primary.main,
-                            },
-                          }}
-                          onClick={() => setSelectedSize(size.id)}
-                        >
-                          <CardContent sx={{ p: { xs: 2, sm: 1.5 } }}>
-                            <FormControlLabel
-                              value={size.id}
-                              control={
-                                <Radio
-                                  size="small"
-                                  sx={{ color: theme.palette.primary.main }}
-                                />
-                              }
-                              label={
-                                <Box sx={{ minWidth: 0, flex: 1 }}>
-                                  <Typography
-                                    variant="body2"
-                                    sx={{ 
-                                      fontWeight: 600,
-                                      wordWrap: "break-word",
-                                      overflowWrap: "break-word",
-                                    }}
-                                  >
-                                    {size.label}
-                                  </Typography>
-                                  <Typography
-                                    variant="caption"
-                                    sx={{ 
-                                      color: theme.palette.text.secondary,
-                                      wordWrap: "break-word",
-                                      overflowWrap: "break-word",
-                                    }}
-                                  >
-                                    {size.description}
-                                  </Typography>
-                                </Box>
-                              }
-                              sx={{ 
-                                m: 0, 
-                                width: "100%",
-                                "& .MuiFormControlLabel-label": {
-                                  width: "100%",
-                                  minWidth: 0,
-                                },
-                              }}
-                            />
-                          </CardContent>
-                        </Card>
-                      ))}
-                    </RadioGroup>
-                  </AccordionDetails>
-                </Accordion>
-              )}
             </Card>
           ))}
         </RadioGroup>
@@ -365,11 +214,7 @@ export default function BHKSelection() {
         <Button
           variant="contained"
           onClick={handleNext}
-          disabled={
-            !selectedBHK ||
-            ((selectedBHK === "3bhk" || selectedBHK === "4bhk") &&
-              !selectedSize)
-          }
+          disabled={!selectedBHK}
           sx={{
             px: 4,
             textTransform: "none",

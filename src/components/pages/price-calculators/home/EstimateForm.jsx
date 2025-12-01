@@ -37,6 +37,7 @@ export default function EstimateForm() {
   const [calcDetails, setCalcDetails] = useState({});
   const [errors, setErrors] = useState({});
   const [estimatedPrice, setEstimatedPrice] = useState(0);
+  const [priceRange, setPriceRange] = useState(null);
   const [loading, setLoading] = useState(false);
   const [calculating, setCalculating] = useState(true);
 
@@ -52,33 +53,40 @@ export default function EstimateForm() {
       try {
         setCalculating(true);
         const searchParams = new URLSearchParams(location.search);
+        const bhk = searchParams.get("bhk");
+
+        // Default room counts based on BHK type
+        const defaultRooms = {
+          "1bhk": { livingRoom: 1, kitchen: 1, bedroom: 1, bathroom: 1, dining: 0 },
+          "2bhk": { livingRoom: 1, kitchen: 1, bedroom: 2, bathroom: 2, dining: 0 },
+          "3bhk": { livingRoom: 1, kitchen: 1, bedroom: 3, bathroom: 2, dining: 1 },
+          "4bhk": { livingRoom: 1, kitchen: 1, bedroom: 4, bathroom: 3, dining: 1 },
+          "5bhk": { livingRoom: 1, kitchen: 1, bedroom: 5, bathroom: 4, dining: 1 },
+        };
+
+        const rooms = defaultRooms[bhk] || defaultRooms["2bhk"];
 
         const data = {
-          bhk: searchParams.get("bhk"),
-          size: searchParams.get("size") || null,
+          bhk: bhk,
+          size: null, // Size removed for 3BHK and 4BHK
           package: searchParams.get("package"),
-          rooms: {
-            livingRoom: parseInt(searchParams.get("livingRoom")) || 0,
-            kitchen: parseInt(searchParams.get("kitchen")) || 0,
-            bedroom: parseInt(searchParams.get("bedroom")) || 0,
-            bathroom: parseInt(searchParams.get("bathroom")) || 0,
-            dining: parseInt(searchParams.get("dining")) || 0,
-          },
+          rooms: rooms,
         };
 
         setCalcDetails({
           bhk: data.bhk,
           size: data.size,
           packageType: data.package,
-          livingRoom: data.rooms.livingRoom,
-          kitchen: data.rooms.kitchen,
-          bedroom: data.rooms.bedroom,
-          bathroom: data.rooms.bathroom,
-          dining: data.rooms.dining,
+          livingRoom: rooms.livingRoom,
+          kitchen: rooms.kitchen,
+          bedroom: rooms.bedroom,
+          bathroom: rooms.bathroom,
+          dining: rooms.dining,
         });
 
         const result = await calculateHomeEstimate(data);
         setEstimatedPrice(result.estimatedPrice || 0);
+        setPriceRange(result.priceRange || null);
       } catch (error) {
         console.error("Error calculating estimate:", error);
         setToast({
@@ -177,19 +185,26 @@ export default function EstimateForm() {
     try {
       setLoading(true);
       const searchParams = new URLSearchParams(location.search);
+      const bhk = searchParams.get("bhk");
+
+      // Default room counts based on BHK type
+      const defaultRooms = {
+        "1bhk": { livingRoom: 1, kitchen: 1, bedroom: 1, bathroom: 1, dining: 0 },
+        "2bhk": { livingRoom: 1, kitchen: 1, bedroom: 2, bathroom: 2, dining: 0 },
+        "3bhk": { livingRoom: 1, kitchen: 1, bedroom: 3, bathroom: 2, dining: 1 },
+        "4bhk": { livingRoom: 1, kitchen: 1, bedroom: 4, bathroom: 3, dining: 1 },
+        "5bhk": { livingRoom: 1, kitchen: 1, bedroom: 5, bathroom: 4, dining: 1 },
+      };
+
+      const rooms = defaultRooms[bhk] || defaultRooms["2bhk"];
 
       const estimateData = {
-        bhk: searchParams.get("bhk"),
-        size: searchParams.get("size") || null,
+        bhk: bhk,
+        size: null, // Size removed for 3BHK and 4BHK
         package: searchParams.get("package"),
-        rooms: {
-          livingRoom: parseInt(searchParams.get("livingRoom")) || 0,
-          kitchen: parseInt(searchParams.get("kitchen")) || 0,
-          bedroom: parseInt(searchParams.get("bedroom")) || 0,
-          bathroom: parseInt(searchParams.get("bathroom")) || 0,
-          dining: parseInt(searchParams.get("dining")) || 0,
-        },
+        rooms: rooms,
         estimatedPrice: estimatedPrice,
+        priceRange: priceRange,
       };
 
       const result = await submitHomeEstimate({
@@ -330,7 +345,7 @@ export default function EstimateForm() {
                 helperText={errors.propertyName}
               />
 
-              {/* Estimated Price */}
+              {/* Estimated Price Range */}
               <Box
                 sx={{
                   textAlign: "center",
@@ -344,11 +359,21 @@ export default function EstimateForm() {
                   variant="subtitle2"
                   sx={{ color: theme.palette.text.secondary, mb: 0.5 }}
                 >
-                  Estimated Price
+                  Estimated Price Range
                 </Typography>
 
                 {calculating ? (
                   <CircularProgress size={24} sx={{ my: 1 }} />
+                ) : priceRange && priceRange.displayRange ? (
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      fontWeight: 700,
+                      color: theme.palette.primary.main,
+                    }}
+                  >
+                    ₹{priceRange.displayRange}
+                  </Typography>
                 ) : (
                   <Typography
                     variant="h5"

@@ -45,12 +45,6 @@ export default function PackageSelection() {
     const searchParams = new URLSearchParams(location.search);
     const queryParams = new URLSearchParams({
       bhk: searchParams.get("bhk"),
-      size: searchParams.get("size"),
-      livingRoom: searchParams.get("livingRoom"),
-      kitchen: searchParams.get("kitchen"),
-      bedroom: searchParams.get("bedroom"),
-      bathroom: searchParams.get("bathroom"),
-      dining: searchParams.get("dining"),
       package: selectedPackage,
     });
     navigate(
@@ -62,15 +56,9 @@ export default function PackageSelection() {
     const searchParams = new URLSearchParams(location.search);
     const queryParams = new URLSearchParams({
       bhk: searchParams.get("bhk"),
-      size: searchParams.get("size"),
-      livingRoom: searchParams.get("livingRoom"),
-      kitchen: searchParams.get("kitchen"),
-      bedroom: searchParams.get("bedroom"),
-      bathroom: searchParams.get("bathroom"),
-      dining: searchParams.get("dining"),
     });
     navigate(
-      `/price-calculators/home/calculator/rooms?${queryParams.toString()}`
+      `/price-calculators/home/calculator/bhk?${queryParams.toString()}`
     );
   };
 

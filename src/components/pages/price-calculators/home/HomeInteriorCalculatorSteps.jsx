@@ -8,7 +8,6 @@ import {
 } from "@mui/material";
 import { Routes, Route, useLocation } from "react-router-dom";
 import BHKSelection from "./BHKSelection";
-import RoomSelection from "./RoomSelection";
 import PackageSelection from "./PackageSelection";
 import EstimateForm from "./EstimateForm";
 
@@ -17,11 +16,6 @@ const steps = [
     id: "bhk",
     label: "BHK TYPE",
     path: "/price-calculators/home/calculator/bhk",
-  },
-  {
-    id: "rooms",
-    label: "ROOMS",
-    path: "/price-calculators/home/calculator/rooms",
   },
   {
     id: "package",
@@ -169,7 +163,6 @@ export default function HomeInteriorCalculatorSteps() {
         <Box sx={{ py: 4 }}>
           <Routes>
             <Route path="bhk" element={<BHKSelection />} />
-            <Route path="rooms" element={<RoomSelection />} />
             <Route path="package" element={<PackageSelection />} />
             <Route path="estimate" element={<EstimateForm />} />
           </Routes>
