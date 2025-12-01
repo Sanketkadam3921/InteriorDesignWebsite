@@ -20,7 +20,13 @@ async function apiRequest(endpoint, options = {}) {
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(data.message || `API Error: ${response.status}`);
+      // Extract detailed error messages from validation errors
+      let errorMessage = data.message || `API Error: ${response.status}`;
+      if (data.errors && Array.isArray(data.errors) && data.errors.length > 0) {
+        const errorDetails = data.errors.map(err => err.msg || err.message).join(', ');
+        errorMessage = `${errorMessage}: ${errorDetails}`;
+      }
+      throw new Error(errorMessage);
     }
 
     return data;

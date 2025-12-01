@@ -53,18 +53,60 @@ export default function KitchenEstimateForm() {
         const params = new URLSearchParams(location.search);
 
         const layout = params.get("layout");
-        const A = parseFloat(params.get("A")) || 0;
-        const B = parseFloat(params.get("B")) || 0;
-        const C = parseFloat(params.get("C")) || 0;
+        const AStr = params.get("A");
+        const BStr = params.get("B");
+        const CStr = params.get("C");
         const packageType = params.get("package");
 
-        const result = await calculateKitchenEstimate({
+        // Validate required fields before making API call
+        if (!layout || !AStr || !packageType) {
+          setCalculating(false);
+          return;
+        }
+
+        const A = parseFloat(AStr);
+        const B = BStr ? parseFloat(BStr) : null;
+        const C = CStr ? parseFloat(CStr) : null;
+
+        // Validate A is a valid number
+        if (isNaN(A) || A <= 0) {
+          setCalculating(false);
+          return;
+        }
+
+        // Build request payload based on layout requirements
+        const requestData = {
           layout,
           A,
-          B: B || 0,
-          C: C || 0,
           package: packageType,
-        });
+        };
+
+        // Add B and C based on layout requirements
+        // For l-shaped and parallel: B is required
+        // For u-shaped: B and C are required
+        // For straight: only A is needed
+        if (layout === 'l-shaped' || layout === 'parallel') {
+          if (B && !isNaN(B) && B > 0) {
+            requestData.B = B;
+          } else {
+            // B is required for these layouts
+            setCalculating(false);
+            return;
+          }
+        } else if (layout === 'u-shaped') {
+          if (B && !isNaN(B) && B > 0 && C && !isNaN(C) && C > 0) {
+            requestData.B = B;
+            requestData.C = C;
+          } else {
+            // B and C are required for u-shaped
+            setCalculating(false);
+            return;
+          }
+        }
+        // For straight layout, we don't need to add B or C
+
+        console.log('Sending kitchen estimate request:', requestData);
+        const result = await calculateKitchenEstimate(requestData);
 
         setEstimateData({
           layout,
@@ -78,8 +120,17 @@ export default function KitchenEstimateForm() {
         console.error("Error calculating estimate:", error);
         setToast({
           open: true,
-          message: "Error calculating estimate. Please try again.",
+          message: error.message || "Error calculating estimate. Please try again.",
           severity: "error",
+        });
+        // Set default estimate data to prevent rendering issues
+        setEstimateData({
+          layout: params.get("layout") || "",
+          A: parseFloat(params.get("A")) || 0,
+          B: parseFloat(params.get("B")) || 0,
+          C: parseFloat(params.get("C")) || 0,
+          packageType: params.get("package") || "",
+          totalPrice: 0,
         });
       } finally {
         setCalculating(false);
