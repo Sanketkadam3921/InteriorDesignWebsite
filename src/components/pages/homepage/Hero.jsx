@@ -10,26 +10,22 @@ export default function Hero() {
 
     const slides = [
         {
-            image:
-                "https://images.unsplash.com/photo-1605774337664-7a846e9cdf17?q=80&w=1074&auto=format&fit=crop",
+            image: "/Home_Page/Hero/HomePage_Hero/3d-rendering-luxury-modern-living-room-with-fabric-sofa.jpg",
             title: "We Create Dream Spaces",
             subtitle: "Transform your home with elegant and functional design."
         },
         {
-            image:
-                "https://images.unsplash.com/photo-1591474200742-8e512e6f98f8?auto=format&fit=crop&q=80&w=1074",
+            image: "/Home_Page/Hero/HomePage_Hero/modern-comfortable-living-room-with-stylish-decor-furnishing.jpg",
             title: "Modern Designs for Modern Living",
             subtitle: "From concept to completion, we craft experiences that inspire."
         },
         {
-            image:
-                "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=1200",
+            image: "/Home_Page/Hero/HomePage_Hero/elegant-modern-living-room-with-gray-sofa.jpg",
             title: "Your Vision, Our Expertise",
             subtitle: "Collaborate with our experts to bring your dream interiors to life."
         },
         {
-            image:
-                "https://images.unsplash.com/photo-1600210491369-e753d80a41f3?q=80&w=1074&auto=format&fit=crop",
+            image: "/Home_Page/Hero/HomePage_Hero/cozy-lively-home-interior-design.jpg",
             title: "Luxury That Speaks for Itself",
             subtitle: "Every detail designed with precision, passion, and purpose."
         }
