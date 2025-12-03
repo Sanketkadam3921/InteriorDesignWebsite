@@ -15,35 +15,35 @@ export const SERVICES = [
     id: 1,
     title: "1. Modular Kitchens",
     image:
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://i.pinimg.com/1200x/b9/b9/bf/b9b9bf6728dadfab7c5a6a76cd00be68.jpg",
     alt: "Modular Kitchens",
   },
   {
     id: 2,
     title: "2. Modular Wardrobes",
     image:
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://i.pinimg.com/1200x/64/10/5f/64105ff3525512571dfafde39c77c494.jpg",
     alt: "Modular Wardrobes",
   },
   {
     id: 3,
     title: "3. TV & Entertainment Units",
     image:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://i.pinimg.com/736x/7f/78/34/7f78346332ee2650c40af369b63e902b.jpg",
     alt: "TV & Entertainment Units",
   },
   {
     id: 4,
     title: "4. Bedroom & Living Room ",
     image:
-      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://i.pinimg.com/1200x/21/3e/15/213e1598e30e08712a9db9462e65a3ed.jpg",
     alt: "Bedroom & Living Room Modular Furnitur",
   },
   {
     id: 5,
     title: "5. Modular Office Interiors",
     image:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://i.pinimg.com/736x/18/c2/89/18c289e53405a94816cf427da9d1fceb.jpg",
     alt: "Modular Office Interiors",
   },
 ];
@@ -122,22 +122,19 @@ export const FAQ_ITEMS = [
   },
   {
     id: 2,
-    question:
-      "What spaces can be designed with modular interior solutions?",
+    question: "What spaces can be designed with modular interior solutions?",
     answer:
       "Modular solutions can be used for bedrooms, living rooms, study rooms, workspaces, utility areas, wardrobes, TV units, bookshelves, crockery units, and smart storage solutions. Each module is designed to fit your space perfectly while maximizing functionality.",
   },
   {
     id: 3,
-    question:
-      "How long does it take to install modular interiors?",
+    question: "How long does it take to install modular interiors?",
     answer:
       "Since all components are pre-manufactured in a factory, modular interior installation typically takes 5–15 days depending on the scope of work. Full-home modular setups including wardrobes, TV units, and storage systems can be completed in under 3 weeks.",
   },
   {
     id: 4,
-    question:
-      "Can modular interiors be customized to match my home’s style?",
+    question: "Can modular interiors be customized to match my home’s style?",
     answer:
       "Yes. Modular interiors come with complete customization options including finishes, colors, materials, storage layouts, handle styles, and design patterns. You can choose from modern, minimalist, classic, or premium themes based on your preferences.",
   },
@@ -149,7 +146,6 @@ export const FAQ_ITEMS = [
       "Popular choices include laminates, acrylic, PU, veneers, and glass. Internal structures are typically made with high-quality engineered wood or plywood. Each material offers unique benefits in terms of durability, appearance, and maintenance.",
   },
 ];
-
 
 export const CLOSING_CTA = {
   title: "Transform Your Space with Intelligent Modular Design",

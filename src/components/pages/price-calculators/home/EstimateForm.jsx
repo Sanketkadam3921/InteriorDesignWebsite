@@ -40,6 +40,7 @@ export default function EstimateForm() {
   const [priceRange, setPriceRange] = useState(null);
   const [loading, setLoading] = useState(false);
   const [calculating, setCalculating] = useState(true);
+  const [submitted, setSubmitted] = useState(false);
 
   const [toast, setToast] = useState({
     open: false,
@@ -215,9 +216,15 @@ export default function EstimateForm() {
         estimate: estimateData,
       });
 
+      setSubmitted(true);
+      
+      const priceDisplay = priceRange && priceRange.displayRange 
+        ? priceRange.displayRange 
+        : `₹${estimatedPrice.toLocaleString()}`;
+      
       setToast({
         open: true,
-        message: result.message || "Your estimate has been submitted successfully.",
+        message: `${result.message || "Your estimate has been submitted successfully."} Estimated Price: ${priceDisplay}`,
         severity: "success",
       });
 
@@ -345,54 +352,54 @@ export default function EstimateForm() {
                 helperText={errors.propertyName}
               />
 
-              {/* Estimated Price Range */}
-              <Box
-                sx={{
-                  textAlign: "center",
-                  p: 2,
-                  mt: 2,
-                  backgroundColor: theme.palette.primary.light + "20",
-                  borderRadius: 2,
-                }}
-              >
-                <Typography
-                  variant="subtitle2"
-                  sx={{ color: theme.palette.text.secondary, mb: 0.5 }}
+              {/* Estimated Price Range - Only shown after submission */}
+              {submitted && (
+                <Box
+                  sx={{
+                    textAlign: "center",
+                    p: 2,
+                    mt: 2,
+                    backgroundColor: theme.palette.primary.light + "20",
+                    borderRadius: 2,
+                  }}
                 >
-                  Estimated Price Range
-                </Typography>
-
-                {calculating ? (
-                  <CircularProgress size={24} sx={{ my: 1 }} />
-                ) : priceRange && priceRange.displayRange ? (
                   <Typography
-                    variant="h5"
-                    sx={{
-                      fontWeight: 700,
-                      color: theme.palette.primary.main,
-                    }}
+                    variant="subtitle2"
+                    sx={{ color: theme.palette.text.secondary, mb: 0.5 }}
                   >
-                    ₹{priceRange.displayRange}
+                    Estimated Price Range
                   </Typography>
-                ) : (
-                  <Typography
-                    variant="h5"
-                    sx={{
-                      fontWeight: 700,
-                      color: theme.palette.primary.main,
-                    }}
-                  >
-                    ₹{estimatedPrice.toLocaleString()}
-                  </Typography>
-                )}
 
-                <Typography
-                  variant="caption"
-                  sx={{ color: theme.palette.text.secondary, mt: 0.5 }}
-                >
-                  *Final price may vary based on requirements
-                </Typography>
-              </Box>
+                  {priceRange && priceRange.displayRange ? (
+                    <Typography
+                      variant="h5"
+                      sx={{
+                        fontWeight: 700,
+                        color: theme.palette.primary.main,
+                      }}
+                    >
+                      ₹{priceRange.displayRange}
+                    </Typography>
+                  ) : (
+                    <Typography
+                      variant="h5"
+                      sx={{
+                        fontWeight: 700,
+                        color: theme.palette.primary.main,
+                      }}
+                    >
+                      ₹{estimatedPrice.toLocaleString()}
+                    </Typography>
+                  )}
+
+                  <Typography
+                    variant="caption"
+                    sx={{ color: theme.palette.text.secondary, mt: 0.5 }}
+                  >
+                    *Final price may vary based on requirements
+                  </Typography>
+                </Box>
+              )}
             </form>
           </CardContent>
         </Card>

@@ -38,6 +38,7 @@ export default function KitchenEstimateForm() {
   const [estimateData, setEstimateData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [calculating, setCalculating] = useState(true);
+  const [submitted, setSubmitted] = useState(false);
 
   const [toast, setToast] = useState({
     open: false,
@@ -229,9 +230,11 @@ export default function KitchenEstimateForm() {
         estimate: estimatePayload,
       });
 
+      setSubmitted(true);
+      
       setToast({
         open: true,
-        message: result.message || "Your kitchen estimate has been submitted!",
+        message: `${result.message || "Your kitchen estimate has been submitted!"} Estimated Price: ₹${estimateData.totalPrice.toLocaleString()}`,
         severity: "success",
       });
 
@@ -371,41 +374,39 @@ export default function KitchenEstimateForm() {
                 helperText={errors.propertyName}
               />
 
-              {/* Estimated Price Box */}
-              <Box
-                sx={{
-                  textAlign: "center",
-                  p: 2,
-                  mt: 2,
-                  backgroundColor: theme.palette.primary.light + "20",
-                  borderRadius: 2,
-                }}
-              >
-                <Typography
-                  variant="subtitle2"
-                  sx={{ color: theme.palette.text.secondary }}
+              {/* Estimated Price Box - Only shown after submission */}
+              {submitted && (
+                <Box
+                  sx={{
+                    textAlign: "center",
+                    p: 2,
+                    mt: 2,
+                    backgroundColor: theme.palette.primary.light + "20",
+                    borderRadius: 2,
+                  }}
                 >
-                  Estimated Price
-                </Typography>
+                  <Typography
+                    variant="subtitle2"
+                    sx={{ color: theme.palette.text.secondary }}
+                  >
+                    Estimated Price
+                  </Typography>
 
-                {calculating ? (
-                  <CircularProgress size={24} sx={{ my: 1 }} />
-                ) : (
                   <Typography
                     variant="h5"
                     sx={{ fontWeight: 700, color: theme.palette.primary.main }}
                   >
                     ₹{estimateData?.totalPrice?.toLocaleString() || 0}
                   </Typography>
-                )}
 
-                <Typography
-                  variant="caption"
-                  sx={{ color: theme.palette.text.secondary }}
-                >
-                  *Final price may vary based on requirements
-                </Typography>
-              </Box>
+                  <Typography
+                    variant="caption"
+                    sx={{ color: theme.palette.text.secondary }}
+                  >
+                    *Final price may vary based on requirements
+                  </Typography>
+                </Box>
+              )}
             </form>
           </CardContent>
         </Card>

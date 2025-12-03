@@ -1,7 +1,7 @@
 export const HERO_DATA = {
   title: "Dream interiors made possible",
   backgroundImage:
-    "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    "https://imgs.search.brave.com/Lhswb6QYBJ0OrK-BazS9IsRTCipyozTFvI9ZXfxJjv0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJhY2Nlc3Mu/Y29tL2Z1bGwvMjU5/NDg5NC5qcGc",
   ctaText: "Book Online Consultation",
   ctaLink: "/contact",
 };
@@ -16,9 +16,10 @@ export const SERVICES = [
   {
     id: 1,
     title: "Interior Design",
-    description: "Expert design consultation and space planning to create your dream home.",
+    description:
+      "Expert design consultation and space planning to create your dream home.",
     image:
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "https://i.pinimg.com/1200x/99/f8/7e/99f87e3b6e41038087b22d64f32eed30.jpg",
     alt: "Interior Design",
   },
   {
@@ -36,7 +37,7 @@ export const SERVICES = [
     description:
       "Modern kitchen designs with premium materials and smart storage solutions.",
     image:
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "https://i.pinimg.com/1200x/23/0f/eb/230febf95dcc2e52e903f0a1652dab3b.jpg",
     alt: "Kitchen Design",
   },
 ];
@@ -127,8 +128,7 @@ export const JOURNEY_SNAPSHOT_DATA = {
       {
         id: 7,
         title: "Revised quote",
-        description:
-          "Share your feedback and receive a revised proposal.",
+        description: "Share your feedback and receive a revised proposal.",
       },
       {
         id: 8,
@@ -215,13 +215,3 @@ export const TESTIMONIALS_DATA = {
     },
   ],
 };
-
-
-
-
-
-
-
-
-
-

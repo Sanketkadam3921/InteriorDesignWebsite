@@ -14,17 +14,6 @@ export default function FullHomeInteriorsPage() {
       <Introduction />
       <WhatWeOffer />
       <JourneySnapshot />
-      <TeamSection />
     </Box>
   );
 }
-
-
-
-
-
-
-
-
-
-

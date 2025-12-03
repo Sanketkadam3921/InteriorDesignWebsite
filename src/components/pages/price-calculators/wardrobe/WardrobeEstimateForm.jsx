@@ -45,6 +45,7 @@ export default function WardrobeEstimateForm() {
   const [estimateData, setEstimateData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [calculating, setCalculating] = useState(true);
+  const [submitted, setSubmitted] = useState(false);
 
   // 💰 Calculate Estimated Price from API
   useEffect(() => {
@@ -188,9 +189,11 @@ export default function WardrobeEstimateForm() {
         estimate: estimatePayload,
       });
 
+      setSubmitted(true);
+      
       setToast({
         open: true,
-        message: result.message || "Your wardrobe estimate has been submitted successfully!",
+        message: `${result.message || "Your wardrobe estimate has been submitted successfully!"} Estimated Price: ₹${estimatedPrice.toLocaleString()}`,
         severity: "success",
       });
 
@@ -314,28 +317,26 @@ export default function WardrobeEstimateForm() {
               helperText={errors.propertyName}
             />
 
-            {/* Price box */}
-            <Box
-              sx={{
-                textAlign: "center",
-                p: 2,
-                mt: 2,
-                backgroundColor: theme.palette.primary.light + "20",
-                borderRadius: 2,
-              }}
-            >
-              <Typography variant="subtitle2">Estimated Price</Typography>
-              {calculating ? (
-                <CircularProgress size={24} sx={{ my: 1 }} />
-              ) : (
+            {/* Price box - Only shown after submission */}
+            {submitted && (
+              <Box
+                sx={{
+                  textAlign: "center",
+                  p: 2,
+                  mt: 2,
+                  backgroundColor: theme.palette.primary.light + "20",
+                  borderRadius: 2,
+                }}
+              >
+                <Typography variant="subtitle2">Estimated Price</Typography>
                 <Typography variant="h5" sx={{ fontWeight: 700 }}>
                   ₹{estimatedPrice.toLocaleString()}
                 </Typography>
-              )}
-              <Typography variant="caption" sx={{ color: "text.secondary" }}>
-                *Final price may vary based on requirements
-              </Typography>
-            </Box>
+                <Typography variant="caption" sx={{ color: "text.secondary" }}>
+                  *Final price may vary based on requirements
+                </Typography>
+              </Box>
+            )}
           </form>
         </CardContent>
       </Card>

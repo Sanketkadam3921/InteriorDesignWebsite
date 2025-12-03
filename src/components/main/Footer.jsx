@@ -23,8 +23,8 @@ import { Link as RouterLink } from "react-router-dom";
 const SectionWrapper = ({ children }) => (
   <Box
     sx={{
-      pl: { xs: 0, md: 4, lg: 6 },
-      pr: { xs: 0, md: 2 },
+      pl: { xs: 0, md: 2, lg: 4 },
+      pr: { xs: 0, md: 1 },
       display: "flex",
       flexDirection: "column",
       justifyContent: "flex-start",
@@ -39,7 +39,7 @@ const SectionWrapper = ({ children }) => (
 const LinkGroup = ({ title, children }) => {
   const theme = useTheme();
   return (
-    <Grid item xs={12} md={2.25}>
+    <Grid item xs={12} md={2.4}>
       <SectionWrapper>
         <Typography
           variant="h6"
@@ -150,13 +150,14 @@ export default function Footer() {
         >
           <Grid
             container
-            spacing={{ xs: 5, md: 6 }}
+            spacing={{ xs: 5, md: 3 }}
             direction={isSmallScreen ? "column" : "row"} // ✅ stack for tablet/mobile up to 1100px
             alignItems="flex-start"
             textAlign="left"
+            sx={{ flexWrap: { xs: "wrap", md: "nowrap" } }} // ✅ prevent wrapping on laptop views
           >
             {/* Logo + Social Media */}
-            <Grid item xs={12} md={3}>
+            <Grid item xs={12} md={2.4}>
               <SectionWrapper>
                 <Box sx={{ mb: 5 }}>
                   <Typography
