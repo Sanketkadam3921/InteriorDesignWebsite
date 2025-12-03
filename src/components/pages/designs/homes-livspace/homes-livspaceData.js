@@ -3,7 +3,8 @@ export const homeslivspaceDesigns = [
   {
     id: "1",
     name: "Modern Homes by KalaKruti Studio",
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500",
+    image:
+      "https://imgs.search.brave.com/2YG4XztuzjcMk4d9ZRd_6E4mMjrmaRmDeNBl_Fo6dT0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTE0/OTUyMTE4Ny9waG90/by9mdWxsLWZ1cm5p/c2hlZC1saXZpbmct/cm9vbS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9MWgxVlZm/TnJ6X2duU2cyNEpt/Y2dkX204cGJGaC0t/dnc0b0dhOHBGdkIy/VT0",
     description:
       "Beautiful and functional homes by KalaKruti Studio with modern aesthetics",
     style: "Modern",
@@ -20,14 +21,14 @@ export const homeslivspaceDesignDetails = {
     category: "homes-livspace",
     style: "Modern",
     price: "₹2,50,000",
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800",
+    image:
+      "https://imgs.search.brave.com/2YG4XztuzjcMk4d9ZRd_6E4mMjrmaRmDeNBl_Fo6dT0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTE0/OTUyMTE4Ny9waG90/by9mdWxsLWZ1cm5p/c2hlZC1saXZpbmct/cm9vbS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9MWgxVlZm/TnJ6X2duU2cyNEpt/Y2dkX204cGJGaC0t/dnc0b0dhOHBGdkIy/VT0",
     description:
       "Beautiful and functional homes by KalaKruti Studio with modern aesthetics.",
     longDescription:
       "This modern homes by KalaKruti Studio features contemporary elements and functional layout.",
     images: [
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800",
-      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800",
+      "https://imgs.search.brave.com/2YG4XztuzjcMk4d9ZRd_6E4mMjrmaRmDeNBl_Fo6dT0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTE0/OTUyMTE4Ny9waG90/by9mdWxsLWZ1cm5p/c2hlZC1saXZpbmct/cm9vbS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9MWgxVlZm/TnJ6X2duU2cyNEpt/Y2dkX204cGJGaC0t/dnc0b0dhOHBGdkIy/VT0",
     ],
     features: [
       "Modern Design",
