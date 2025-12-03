@@ -1,6 +1,9 @@
-// API Configuration
+// Auto-select API URL
 const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api";
+  import.meta.env.VITE_API_BASE_URL ||
+  (import.meta.env.DEV
+    ? "http://localhost:5000/api" // Dev mode
+    : "https://kalakruti-backend.onrender.com/api"); // Production mode
 
 /**
  * Base fetch wrapper with error handling
@@ -18,17 +21,27 @@ async function apiRequest(endpoint, options = {}) {
 
   try {
     const response = await fetch(url, config);
-    const data = await response.json();
 
+    // Try to parse JSON safely
+    let data;
+    try {
+      data = await response.json();
+    } catch {
+      data = { message: "Invalid JSON response from server" };
+    }
+
+    // Handle non-OK responses
     if (!response.ok) {
-      // Extract detailed error messages from validation errors
       let errorMessage = data.message || `API Error: ${response.status}`;
+
+      // Collect express-validator error messages (if present)
       if (data.errors && Array.isArray(data.errors) && data.errors.length > 0) {
-        const errorDetails = data.errors
+        const details = data.errors
           .map((err) => err.msg || err.message)
           .join(", ");
-        errorMessage = `${errorMessage}: ${errorDetails}`;
+        errorMessage = `${errorMessage}: ${details}`;
       }
+
       throw new Error(errorMessage);
     }
 

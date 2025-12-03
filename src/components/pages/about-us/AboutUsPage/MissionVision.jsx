@@ -8,8 +8,6 @@ export default function MissionVision() {
     <Box
       sx={{
         py: 8,
-        backgroundImage:
-          "url('https://www.transparenttextures.com/patterns/gray-floral.png')",
         backgroundColor: "#f7f7f7",
         backgroundSize: "300px",
       }}

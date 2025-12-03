@@ -15,8 +15,6 @@ import {
 } from "@mui/material";
 import { ArrowBack, Close, NavigateBefore, NavigateNext } from "@mui/icons-material";
 import { deliveredProjectsDetails } from "../../../data/projects/deliveredProjects";
-import { upcomingProjectsDetails } from "../../../data/projects/upcomingProjects";
-import { featuredProjectsDetails } from "../../../data/projects/featuredProjects";
 
 export default function ProjectGallery() {
     const { id } = useParams();

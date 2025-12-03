@@ -31,29 +31,29 @@ export const INFO_CARDS = [
   },
 ];
 
-export const TIMELINE_ITEMS = [
-  {
-    id: 1,
-    year: "2022",
-    title: "Studio Foundation",
-    description:
-      "Started the studio and took on small, intimate projects to build a strong creative and technical foundation.",
-  },
-  {
-    id: 2,
-    year: "2023",
-    title: "Creative Collaborations",
-    description:
-      "Began collaborating with talented designers in Mumbai, expanding our creative horizons and elevating our design process.",
-  },
-  {
-    id: 3,
-    year: "2024",
-    title: "Growth & Larger Visions",
-    description:
-      "Stepping into bigger design visions, blending diverse styles, and shaping unforgettable interiors for clients across different spaces.",
-  },
-];
+  export const TIMELINE_ITEMS = [
+    {
+      id: 1,
+      year: "2022",
+      title: "Studio Foundation",
+      description:
+        "Started the studio and took on small, intimate projects to build a strong creative and technical foundation.",
+    },
+    {
+      id: 2,
+      year: "2023",
+      title: "Creative Collaborations",
+      description:
+        "Began collaborating with talented designers in Mumbai, expanding our creative horizons and elevating our design process.",
+    },
+    {
+      id: 3,
+      year: "2024",
+      title: "Growth & Larger Visions",
+      description:
+        "Stepping into bigger design visions, blending diverse styles, and shaping unforgettable interiors for clients across different spaces.",
+    },
+  ];
 
 export const FOUNDERS = [
   {
