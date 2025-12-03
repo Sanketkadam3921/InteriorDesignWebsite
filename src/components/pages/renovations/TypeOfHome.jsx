@@ -31,7 +31,7 @@ const TypeOfHome = () => {
     {
       title: "2 BHK",
       image:
-        "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80",
+        "https://imgs.search.brave.com/F5GNSNnRCxtCLGkwfS0b4gSykA_8Juy6fcX9Y8mlejQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM4/NjE2MjQxMy9waG90/by9vcGVuLXBsYW4t/bGl2aW5nLXNwYWNl/LWluLXJlc2lkZW50/aWFsLWhvdXNlLXdp/dGgtbmF0dXJhbC1s/aWdodC1hbmQtcmV0/cm8tZnVybml0dXJl/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz11RjFvMTdFazJt/OWktX0RpMVlVVHUt/Z3JuMU5fOEttM0d0/dzducnVaaGdnPQ",
       description: "Perfect balance of space and functionality",
     },
     {
@@ -43,13 +43,13 @@ const TypeOfHome = () => {
     {
       title: "4 BHK",
       image:
-        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=900&q=80",
       description: "Luxury living with premium finishes",
     },
     {
       title: "5+ BHK",
       image:
-        "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80",
+        "https://imgs.search.brave.com/nQS4MerwLK7hFX0gxBOCBxU2nzPjXxCvZix2vHVEUdc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTQ3/MDcxNzUzMi9waG90/by9tb2Rlcm4taG9t/ZS1pbnRlcmlvci5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/dS1iQ2FVVVc1MFpf/RnprUUo3SkJEbUxm/U05GdERIbGlEcGwx/ckcwTVhDQT0",
       description: "Ultimate luxury and personalized spaces",
     },
   ];

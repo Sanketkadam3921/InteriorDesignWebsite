@@ -110,13 +110,9 @@ export const UNIQUE_FEATURES_DATA = {
       icon: "Palette",
       text: "Modern and stylish designs",
     },
+
     {
       id: 4,
-      icon: "Star",
-      text: "Long-lasting materials",
-    },
-    {
-      id: 5,
       icon: "LocalShipping",
       text: "On-time project completion",
     },
