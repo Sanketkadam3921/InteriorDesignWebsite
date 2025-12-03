@@ -18,8 +18,13 @@ const wardrobePackages = [
     priceRange: "₹1,200 - ₹2,000",
     priceRangeSwing: "₹1,000 - ₹1,800",
     pricePerSqft: "per sqft",
-    features: ["Affordable pricing", "Basic storage units", "Standard finishes"],
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
+    features: [
+      "Affordable pricing",
+      "Basic storage units",
+      "Standard finishes",
+    ],
+    image:
+      "https://imgs.search.brave.com/LBx0oI-FT5sp6wRnDfiEGA4S1MOrAFyV_RSaY1Ui1PQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMubGl2c3BhY2Ut/Y2RuLmNvbS93OjM4/NDAvcGxhaW4vaHR0/cHM6Ly9kM2dxMm1l/cm9rOG41ci5jbG91/ZGZyb250Lm5ldC9h/YmhpbmF2L29uZC0x/NjM0MTIwMzk2LU9i/ZmRjLzEtMjAyNS0x/NzM2MDY4OTg4LU5E/UEQxL29uZC0xNzU5/NzM2MzA3LXJ2OVNW/L3dyLTE3NTk3NTEx/NzUtOU10alkvMTEt/MTc1OTc1MTE5NS1R/YUpqQy5qcGc",
   },
   {
     id: "premium",
@@ -28,7 +33,8 @@ const wardrobePackages = [
     priceRangeSwing: "₹1,800 - ₹3,000",
     pricePerSqft: "per sqft",
     features: ["Mid-range pricing", "Premium finishes", "Optimized design"],
-    image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800",
+    image:
+      "https://imgs.search.brave.com/5_H96dJeLodxy93Z_StLLSP6f5CWAD3F29KyNflbHd4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzE2LzMxLzAwLzQ0/LzM2MF9GXzE2MzEw/MDQ0NDNfYWZ0dVAw/UG1iUEtXcUZ3ejlw/Y3VZeklNeTFrSjhw/QVEuanBn",
   },
   {
     id: "luxury",
@@ -37,7 +43,8 @@ const wardrobePackages = [
     priceRangeSwing: "₹3,000 - ₹5,000",
     pricePerSqft: "per sqft",
     features: ["Premium pricing", "Luxury designs", "High-end materials"],
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
+    image:
+      "https://imgs.search.brave.com/NKRJVINVrf9rVjwHrUOMip2NfHXhKx_vm8lfLppKjug/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMjE1/NzA4MTc0NC9waG90/by9tb2Rlcm4tYnVp/bHQtaW4td2FyZHJv/YmUtY2xvc2V0LXdp/dGgtcGVyc29uYWwt/YWNjZXNzb3JpZXMu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PWZDNVozUzNjT211/ZGJUenZjOGZ2Szlw/aDE4TGxOQk9VWW5G/YzcwUXV5QkU9",
   },
 ];
 
@@ -131,10 +138,9 @@ export default function WardrobePackageSelection() {
           >
             {wardrobePackages.map((pkg) => {
               const isSelected = selectedPackage === pkg.id;
-              const priceRange = wardrobeType === "swing" 
-                ? pkg.priceRangeSwing 
-                : pkg.priceRange;
-              
+              const priceRange =
+                wardrobeType === "swing" ? pkg.priceRangeSwing : pkg.priceRange;
+
               return (
                 <Card
                   key={pkg.id}
@@ -316,6 +322,3 @@ export default function WardrobePackageSelection() {
     </Box>
   );
 }
-
-
-

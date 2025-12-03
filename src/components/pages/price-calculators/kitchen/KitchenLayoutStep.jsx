@@ -14,22 +14,26 @@ const kitchenLayouts = [
   {
     id: "l-shaped",
     title: "L-shaped",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600",
+    image:
+      "https://imgs.search.brave.com/JSJywiQSgS7fNjVsa24LXN1byZGT3b2dchVa_HTv7hE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/aG9tZS1kZXNpZ25p/bmcuY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDE4LzA2L1dv/b2QtYW5kLXdoaXRl/LUwtc2hhcGVkLWtp/dGNoZW4uanBn",
   },
   {
     id: "u-shaped",
     title: "U-shaped",
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600",
+    image:
+      "https://imgs.search.brave.com/DHSqXlbKiC6Xq9DE-8ceb4CbvUjNN4UYyhYaxDxUqr8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/aG9tZS1kZXNpZ25p/bmcuY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDE4LzA3L3Ut/c2hhcGVkLXNtYWxs/LWtpdGNoZW4uanBn",
   },
   {
     id: "straight",
     title: "Straight",
-    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600",
+    image:
+      "https://imgs.search.brave.com/5aMrhUUysZjXROFgxfNfX51opwin_UBBSiExTrs45qA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tY2Nv/eW1hcnQuY29tL3Bv/c3Qvd3AtY29udGVu/dC93ZWJwLWV4cHJl/c3Mvd2VicC1pbWFn/ZXMvdXBsb2Fkcy8y/MS1PY3QtMjQtQ29t/cGFjdC1TdHJhaWdo/dC1LaXRjaGVuMS5q/cGcud2VicA",
   },
   {
     id: "parallel",
     title: "Parallel",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600",
+    image:
+      "https://imgs.search.brave.com/uOSWwaxyBr_2sH2oDYtCBknACocJwaKdQUbfW1mPTFE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzhhLzdm/LzM2LzhhN2YzNjc5/ZTY2MzY2M2Y3YmIw/MGJhYzg5Y2QwMTMx/LmpwZw",
   },
 ];
 
@@ -53,16 +57,18 @@ export default function KitchenLayoutStep() {
   };
 
   return (
-    <Box sx={{ 
-      maxWidth: 700, 
-      mx: "auto", 
-      p: 3,
-      display: "flex",
-      flexDirection: "column",
-      minHeight: "calc(100vh - 200px)",
-      pb: 10,
-      mb: 8,
-    }}>
+    <Box
+      sx={{
+        maxWidth: 700,
+        mx: "auto",
+        p: 3,
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "calc(100vh - 200px)",
+        pb: 10,
+        mb: 8,
+      }}
+    >
       {/* Title */}
       <Typography
         variant="h5"
@@ -89,12 +95,12 @@ export default function KitchenLayoutStep() {
 
       <Box
         sx={{
-          backgroundColor: theme.palette.primary.light + '25',
+          backgroundColor: theme.palette.primary.light + "25",
           borderRadius: 2,
           p: 3,
           mb: 2,
-          border: '1px solid',
-          borderColor: theme.palette.primary.light + '40',
+          border: "1px solid",
+          borderColor: theme.palette.primary.light + "40",
         }}
       >
         {/* Layout Grid */}
@@ -105,79 +111,79 @@ export default function KitchenLayoutStep() {
             gap: 2.5,
           }}
         >
-        {kitchenLayouts.map((layout) => {
-          const isSelected = selectedLayout === layout.id;
-          return (
-            <Card
-              key={layout.id}
-              onClick={() => setSelectedLayout(layout.id)}
-              sx={{
-                position: "relative",
-                borderRadius: 2,
-                border: "2px solid",
-                borderColor: isSelected
-                  ? theme.palette.primary.main
-                  : theme.palette.grey[300],
-                boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
-                backgroundColor: theme.palette.background.paper,
-                cursor: "pointer",
-                transition: "none",
-              }}
-            >
-              <CardContent sx={{ p: 2 }}>
-                <Box
-                  sx={{
-                    height: 150,
-                    backgroundImage: `url(${layout.image})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    borderRadius: 1,
-                    border: "1px solid",
-                    borderColor: theme.palette.divider,
-                    mb: 1.5,
-                  }}
-                />
-
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    px: 1,
-                  }}
-                >
-                  <Typography
-                    variant="subtitle1"
-                    sx={{
-                      fontWeight: 600,
-                      color: theme.palette.text.primary,
-                    }}
-                  >
-                    {layout.title}
-                  </Typography>
-
-                  {/* Fixed-position radio (no jump issue) */}
+          {kitchenLayouts.map((layout) => {
+            const isSelected = selectedLayout === layout.id;
+            return (
+              <Card
+                key={layout.id}
+                onClick={() => setSelectedLayout(layout.id)}
+                sx={{
+                  position: "relative",
+                  borderRadius: 2,
+                  border: "2px solid",
+                  borderColor: isSelected
+                    ? theme.palette.primary.main
+                    : theme.palette.grey[300],
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
+                  backgroundColor: theme.palette.background.paper,
+                  cursor: "pointer",
+                  transition: "none",
+                }}
+              >
+                <CardContent sx={{ p: 2 }}>
                   <Box
                     sx={{
-                      minWidth: 36,
+                      height: 150,
+                      backgroundImage: `url(${layout.image})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      borderRadius: 1,
+                      border: "1px solid",
+                      borderColor: theme.palette.divider,
+                      mb: 1.5,
+                    }}
+                  />
+
+                  <Box
+                    sx={{
                       display: "flex",
-                      justifyContent: "center",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      px: 1,
                     }}
                   >
-                    <Radio
-                      checked={isSelected}
-                      onChange={() => setSelectedLayout(layout.id)}
-                      value={layout.id}
+                    <Typography
+                      variant="subtitle1"
                       sx={{
-                        color: theme.palette.primary.main,
+                        fontWeight: 600,
+                        color: theme.palette.text.primary,
                       }}
-                    />
+                    >
+                      {layout.title}
+                    </Typography>
+
+                    {/* Fixed-position radio (no jump issue) */}
+                    <Box
+                      sx={{
+                        minWidth: 36,
+                        display: "flex",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Radio
+                        checked={isSelected}
+                        onChange={() => setSelectedLayout(layout.id)}
+                        value={layout.id}
+                        sx={{
+                          color: theme.palette.primary.main,
+                        }}
+                      />
+                    </Box>
                   </Box>
-                </Box>
-              </CardContent>
-            </Card>
-          );
-        })}
+                </CardContent>
+              </Card>
+            );
+          })}
         </Box>
       </Box>
 
