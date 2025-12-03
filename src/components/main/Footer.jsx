@@ -150,7 +150,7 @@ export default function Footer() {
         >
           <Grid
             container
-            spacing={{ xs: 5, md: 3 }}
+            spacing={{ xs: 5, md: 8 }}
             direction={isSmallScreen ? "column" : "row"} // ✅ stack for tablet/mobile up to 1100px
             alignItems="flex-start"
             textAlign="left"
