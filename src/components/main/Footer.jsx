@@ -223,7 +223,7 @@ export default function Footer() {
 
             {/* Tools */}
             <LinkGroup title="TOOLS">
-              <NavLink to="/price-calculators" label="Price Calculator" />
+              <NavLink to="/#price-calculator" label="Price Calculator" />
               <NavLink to="/enquiries/quote-form" label="Get Quote" />
             </LinkGroup>
 

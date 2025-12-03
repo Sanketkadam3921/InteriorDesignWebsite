@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
   Typography,
@@ -10,7 +10,7 @@ import {
   useTheme,
 } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { useNavigate } from "react-router-dom"; // ✅ Import navigation hook
+import { useNavigate, useLocation } from "react-router-dom"; // ✅ Import navigation hook
 
 // ✅ Image icons (you can replace these with your brand ones later)
 const estimateOptions = [
@@ -42,9 +42,25 @@ const estimateOptions = [
 export default function Estimate() {
   const theme = useTheme();
   const navigate = useNavigate(); // ✅ Initialize navigation
+  const location = useLocation(); // ✅ Get current location
+
+  // ✅ Scroll to section when hash is present
+  useEffect(() => {
+    if (location.hash === "#price-calculator") {
+      const element = document.getElementById("price-calculator");
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 100);
+      }
+    }
+  }, [location.hash]);
 
   return (
-    <Box sx={{ py: 8, backgroundColor: theme.palette.background.paper }}>
+    <Box 
+      id="price-calculator"
+      sx={{ py: 8, backgroundColor: theme.palette.background.paper, scrollMarginTop: "80px" }}
+    >
       <Container maxWidth="lg">
         {/* Heading */}
         <Box sx={{ textAlign: "center", mb: 2 }}>
