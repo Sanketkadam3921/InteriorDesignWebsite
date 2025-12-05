@@ -33,7 +33,7 @@ const HeroSection = styled(Box)(({ theme }) => ({
   width: "100%",
   height: "60vh",
   minHeight: "400px",
-  backgroundImage: `url('https://images.unsplash.com/photo-1606744888344-493238951221?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1374')`,
+  backgroundImage: `url('https://ik.imagekit.io/bowr9614/Process/ProcessHeroSection.jpg')`,
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
