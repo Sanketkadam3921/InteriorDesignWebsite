@@ -15,7 +15,6 @@ import ProjectDetail from "../pages/projects/ProjectDetail";
 import FAQ from "../pages/faq/FAQ";
 import NotFound from "../pages/notfound/NotFound";
 import AboutUsPage from "../pages/about-us/AboutUsPage";
-import MagazinePage from "../pages/magazine/MagazinePage";
 import HowItWorks from "../pages/second-nav-pages/HowItWorks";
 import OfferingPage from "../pages/second-nav-pages/offering-page";
 import ModularInteriorsPage from "../pages/second-nav-pages/offerings/ModularInteriors";
@@ -36,24 +35,13 @@ import WardrobeCalculatorSteps from "../pages/price-calculators/wardrobe/Wardrob
 // New Project Components
 import ProjectsPage from "../pages/projects/ProjectsPage";
 import DeliveredProjectsList from "../pages/projects/DeliveredProjectsList";
-import UpcomingProjectsList from "../pages/projects/UpcomingProjectsList";
 import DeliveredProjectDetail from "../pages/projects/DeliveredProjectDetail";
-import UpcomingProjectDetail from "../pages/projects/UpcomingProjectDetail";
 import ProjectGallery from "../pages/projects/ProjectGallery";
 
 // Kitchen Components
 import KnowYourKitchen from "../pages/second-nav-pages/offerings/KnowYourKitchen";
-import KitchenCabinets from "../pages/kitchen-components/KitchenCabinets";
-import KitchenCabinetDetail from "../pages/kitchen-components/KitchenCabinetDetail";
-import KitchenHandles from "../pages/kitchen-components/KitchenHandles";
-import KitchenHandlesDetails from "../pages/kitchen-components/KitchenHandlesDetails";
-import KitchenFinishes from "../pages/kitchen-components/KitchenFinishes";
-import KitchenFinishesDetails from "../pages/kitchen-components/KitchenFinishesDetails";
 // Wardrobe Components
 
-import WardrobeCabinets from "../pages/wardrobe-components/WardrobeCabinets";
-import WardrobeHandles from "../pages/wardrobe-components/WardrobeHandles";
-import WardrobeFinishes from "../pages/wardrobe-components/WardrobeFinishes";
 import KnowYourWardrobe from "../pages/second-nav-pages/offerings/KnowYourWardrobe";
 // Renovations Components
 import RenovationsPage from "../pages/renovations/RenovationsPage";
@@ -79,15 +67,7 @@ export default function AppRoutes() {
             path="projects/delivered/:id/gallery"
             element={<ProjectGallery />}
           />
-          <Route path="projects/upcoming" element={<UpcomingProjectsList />} />
-          <Route
-            path="projects/upcoming/:id"
-            element={<UpcomingProjectDetail />}
-          />
-          <Route
-            path="projects/upcoming/:id/gallery"
-            element={<ProjectGallery />}
-          />
+
           <Route path="projects/old" element={<ProjectsList />} />
           <Route path="projects/old/:id" element={<ProjectDetail />} />
           <Route
@@ -111,8 +91,6 @@ export default function AppRoutes() {
             path="kitchen/know-your-kitchen"
             element={<KnowYourKitchen />}
           />
-
-          <Route path="magazine" element={<MagazinePage />} />
 
           <Route path="how-it-works" element={<HowItWorks />} />
           <Route path="offerings" element={<OfferingPage />} />
@@ -160,50 +138,14 @@ export default function AppRoutes() {
           <Route path="kitchen/know-your-kitchen" element={<OfferingPage />} />
           <Route path="kitchen/price-calculator" element={<OfferingPage />} />
           <Route path="kitchen/components" element={<OfferingPage />} />
-          <Route
-            path="kitchen/components/cabinets"
-            element={<KitchenCabinets />}
-          />
-          <Route
-            path="kitchen/components/cabinets/:category/:id"
-            element={<KitchenCabinetDetail />}
-          />
 
-          <Route
-            path="kitchen/components/handles"
-            element={<KitchenHandles />}
-          />
-          <Route
-            path="kitchen/components/finishes/:category/:id"
-            element={<KitchenFinishesDetails />}
-          />
-          <Route
-            path="kitchen/components/handles/:id"
-            element={<KitchenHandlesDetails />}
-          />
-
-          <Route
-            path="kitchen/components/finishes"
-            element={<KitchenFinishes />}
-          />
           <Route
             path="wardrobe/know-your-wardrobe"
             element={<OfferingPage />}
           />
           <Route path="wardrobe/price-calculator" element={<OfferingPage />} />
           <Route path="wardrobe/components" element={<OfferingPage />} />
-          <Route
-            path="wardrobe/components/cabinets"
-            element={<WardrobeCabinets />}
-          />
-          <Route
-            path="wardrobe/components/handles"
-            element={<WardrobeHandles />}
-          />
-          <Route
-            path="wardrobe/components/finishes"
-            element={<WardrobeFinishes />}
-          />
+
           <Route
             path="designs/luxury-interiors"
             element={<LuxuryInteriorPage />}
