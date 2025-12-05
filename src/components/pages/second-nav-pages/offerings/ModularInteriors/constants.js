@@ -4,7 +4,7 @@ export const HERO_DATA = {
   buttonText: "Book Online Consultation",
   buttonLink: "/offerings/book-online-consultation",
   backgroundImage:
-    "https://mydecomarketing.com/wp-content/uploads/2020/05/Living-Room-3D-Design-by-Anna-K-Studio.png",
+    "https://ik.imagekit.io/bowr9614/Modular%20Interiors/lissete-laverde-Op1TRxpm40o-unsplash.jpg",
 };
 
 export const INTRODUCTION_TEXT =

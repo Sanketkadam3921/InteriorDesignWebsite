@@ -22,19 +22,6 @@ export default function LuxuryInterior() {
       <QuadrantSection />
       <CarouselSection />
       <UniqueFeatures />
-      <ReferralSection />
     </Box>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-

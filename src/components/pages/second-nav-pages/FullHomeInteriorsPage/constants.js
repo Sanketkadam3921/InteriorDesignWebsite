@@ -1,7 +1,7 @@
 export const HERO_DATA = {
   title: "Dream interiors made possible",
   backgroundImage:
-    "https://imgs.search.brave.com/Lhswb6QYBJ0OrK-BazS9IsRTCipyozTFvI9ZXfxJjv0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJhY2Nlc3Mu/Y29tL2Z1bGwvMjU5/NDg5NC5qcGc",
+    "https://ik.imagekit.io/bowr9614/Modular%20Interiors/ModularHeroSection.jpg",
   ctaText: "Book Online Consultation",
   ctaLink: "/contact",
 };
@@ -215,5 +215,3 @@ export const TESTIMONIALS_DATA = {
     },
   ],
 };
-
-

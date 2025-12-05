@@ -326,7 +326,7 @@ export default function ContactForm() {
           px: { xs: 2, sm: 4, md: 6 },
           py: { xs: 6, md: 8 },
           overflow: "hidden",
-          backgroundImage: `url(${contactBg})`,
+          backgroundImage: `url(https://ik.imagekit.io/bowr9614/Modular%20Interiors/ContactPage.jpg)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -367,7 +367,10 @@ export default function ContactForm() {
 
           <Box sx={{ textAlign: "left" }}>
             {contactInfo.map((info, i) => (
-              <Box key={i} sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+              <Box
+                key={i}
+                sx={{ display: "flex", alignItems: "center", mb: 2 }}
+              >
                 <Box
                   sx={{
                     mr: 2,
