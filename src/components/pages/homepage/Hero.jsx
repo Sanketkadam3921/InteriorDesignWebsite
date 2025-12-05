@@ -33,7 +33,7 @@ export default function Hero() {
       subtitle:
         "Collaborate with our experts to bring your dream interiors to life.",
       buttonText: "About Us",
-      buttonPath: "/about",
+      buttonPath: "/aboutus",
     },
     {
       image:
