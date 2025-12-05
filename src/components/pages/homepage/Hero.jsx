@@ -41,7 +41,7 @@ export default function Hero() {
       title: "Luxury That Speaks for Itself",
       subtitle: "Every detail designed with precision, passion, and purpose.",
       buttonText: "Modular Interiors",
-      buttonPath: "/services/modular-interiors",
+      buttonPath: "/offerings/modular-interiors",
     },
   ];
 
