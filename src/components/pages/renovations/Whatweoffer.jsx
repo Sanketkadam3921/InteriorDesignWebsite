@@ -1,136 +1,108 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  Container,
-  Card,
-  CardContent,
-  Button,
-  Avatar,
-} from "@mui/material";
+import { Box, Typography, Container, Card, CardContent } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
 const WhatWeOffer = () => {
   const theme = useTheme();
 
   const services = [
-    {
-      icon: "https://cdn-icons-png.flaticon.com/128/12287/12287146.png", // Our Services
-      title: "Our Services",
-      items:
-        "1) Modular kitchens, 2) Modular wardrobes, 3) Lighting, 4) Flooring, 5) Electrical work, 6) Civil work, 7) False ceiling, 8) Wall design & painting",
-    },
-    {
-      icon: "https://cdn-icons-png.flaticon.com/128/4400/4400863.png", // Warranty
-      title: "Warranty",
-      items:
-        "Flat 10-year warranty¹ - Stay worry-free with our warranty policy on modular products. Up to 1-year on-site service warranty¹ - for painting, electrical, plumbing and more.",
-    },
-    {
-      icon: "https://cdn-icons-png.flaticon.com/128/4115/4115705.png", // Price Benefits
-      title: "Price Benefits",
-      items:
-        "Flexible payment options via EMI, No hidden costs with transparent pricing, and Value for money through superior quality at best prices.",
-    },
+    "Home Renovations",
+    "Kitchen Renovations",
+    "Modular Kitchens",
+    "Modular Wardrobes",
+    "Lighting Solutions",
+    "Flooring Work",
+    "Electrical Work",
+    "Civil Work",
+    "False Ceiling",
+    "Wall Design & Painting",
   ];
 
   return (
-    <Box sx={{ py: 8, backgroundColor: "white" }}>
-      <Container>
-        {/* Header Section */}
+    <Box sx={{ py: 8, backgroundColor: "#f8f9fa" }}>
+      <Container maxWidth="lg">
+        {/* Header */}
         <Box
           sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            flexWrap: "wrap",
+            textAlign: "center",
             mb: 6,
-            gap: 2,
           }}
         >
           <Typography
             variant="h2"
             sx={{
               color: theme.palette.text.primary,
-              fontSize: { xs: "2rem", md: "2.5rem" },
+              fontSize: { xs: "2rem", md: "2.75rem" },
               fontWeight: 700,
               fontFamily: theme.typography.fontFamily,
+              mb: 2,
             }}
           >
-            What we offer
+            What We Offer
+          </Typography>
+          <Typography
+            variant="subtitle1"
+            sx={{
+              color: theme.palette.text.secondary,
+              fontSize: { xs: "1rem", md: "1.125rem" },
+              maxWidth: "600px",
+              mx: "auto",
+            }}
+          >
+            Comprehensive interior solutions tailored to transform your space
           </Typography>
         </Box>
 
-        {/* Cards Section */}
+        {/* Grid Layout */}
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" },
-            gap: 4,
+            gridTemplateColumns: {
+              xs: "1fr",
+              sm: "repeat(2, 1fr)",
+              md: "repeat(3, 1fr)",
+              lg: "repeat(5, 1fr)",
+            },
+            gap: 3,
           }}
         >
           {services.map((service, index) => (
             <Card
               key={index}
               sx={{
-                height: "100%",
-                borderRadius: 3,
-                boxShadow: "0 4px 10px rgba(0,0,0,0.08)",
+                borderRadius: 2,
+                boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
                 transition: "all 0.3s ease",
-                textAlign: "center",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
+                cursor: "pointer",
+                border: "1px solid #e0e0e0",
                 "&:hover": {
-                  transform: "translateY(-5px)",
-                  boxShadow: "0 6px 18px rgba(0,0,0,0.12)",
+                  transform: "translateY(-8px)",
+                  boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
+                  borderColor: theme.palette.primary.main,
                 },
               }}
             >
-              <CardContent sx={{ p: 4 }}>
-                {/* Centered Icon */}
-                <Avatar
-                  src={service.icon}
-                  alt={service.title}
-                  sx={{
-                    width: 80,
-                    height: 80,
-                    backgroundColor: theme.palette.background.paper,
-                    border: `2px solid ${theme.palette.primary.main}`,
-                    boxShadow: "0 3px 8px rgba(0,0,0,0.08)",
-                    mb: 2.5,
-                    mx: "auto",
-                    p: 1.5,
-                  }}
-                />
-
-                {/* Title */}
+              <CardContent
+                sx={{
+                  p: 3,
+                  textAlign: "center",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  minHeight: "100px",
+                  justifyContent: "center",
+                }}
+              >
                 <Typography
-                  variant="h5"
+                  variant="body1"
                   sx={{
                     fontWeight: 600,
                     color: theme.palette.text.primary,
-                    mb: 2,
-                    fontFamily: theme.typography.fontFamily,
-                    textAlign: "center",
-                  }}
-                >
-                  {service.title}
-                </Typography>
-
-                {/* Single Line Items */}
-                <Typography
-                  variant="body2"
-                  sx={{
-                    color: theme.palette.text.secondary,
                     fontSize: "0.95rem",
-                    lineHeight: 1.6,
-                    textAlign: "center",
-                    fontFamily: theme.typography.fontFamily,
+                    lineHeight: 1.4,
                   }}
                 >
-                  {service.items}
+                  {service}
                 </Typography>
               </CardContent>
             </Card>
