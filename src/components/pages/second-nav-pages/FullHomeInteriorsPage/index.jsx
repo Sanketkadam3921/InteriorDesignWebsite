@@ -13,9 +13,6 @@ export default function FullHomeInteriorsPage() {
       <HeroSection />
       <Introduction />
       <WhatWeOffer />
-      <JourneySnapshot />
     </Box>
   );
 }
-
-

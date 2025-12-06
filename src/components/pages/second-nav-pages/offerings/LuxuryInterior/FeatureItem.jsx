@@ -1,10 +1,9 @@
 import React from "react";
 import { Box, Typography, styled } from "@mui/material";
-import SettingsIcon from "@mui/icons-material/Settings";
-import BuildIcon from "@mui/icons-material/Build";
-import PaletteIcon from "@mui/icons-material/Palette";
-import StarIcon from "@mui/icons-material/Star";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import homeIcon from "../../../../../assets/LuxuryInterior4Icons/home-1.svg";
+import qualityIcon from "../../../../../assets/LuxuryInterior4Icons/quality.svg";
+import modernDesignIcon from "../../../../../assets/LuxuryInterior4Icons/ModernAndStylishDesign.svg";
+import ontimeIcon from "../../../../../assets/LuxuryInterior4Icons/Ontime.svg";
 
 const FeatureItemStyled = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -53,8 +52,17 @@ const IconWrapper = styled(Box)({
   left: "50%",
   transform: "translate(-50%, -50%)",
   zIndex: 3,
-  color: "white",
-  fontSize: "24px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  width: "40px",
+  height: "40px",
+  "& img": {
+    width: "100%",
+    height: "100%",
+    objectFit: "contain",
+    filter: "brightness(0) invert(1)",
+  },
 });
 
 const FeatureText = styled(Typography)(({ theme }) => ({
@@ -68,21 +76,20 @@ const FeatureText = styled(Typography)(({ theme }) => ({
 }));
 
 const iconMap = {
-  Settings: SettingsIcon,
-  Build: BuildIcon,
-  Palette: PaletteIcon,
-  Star: StarIcon,
-  LocalShipping: LocalShippingIcon,
+  "home-1.svg": homeIcon,
+  "quality.svg": qualityIcon,
+  "ModernAndStylishDesign.svg": modernDesignIcon,
+  "Ontime.svg": ontimeIcon,
 };
 
 export default function FeatureItem({ icon, text }) {
-  const IconComponent = iconMap[icon] || SettingsIcon;
+  const iconSrc = iconMap[icon] || homeIcon;
 
   return (
     <FeatureItemStyled>
       <HexagonalIcon>
         <IconWrapper>
-          <IconComponent />
+          <img src={iconSrc} alt={text} />
         </IconWrapper>
       </HexagonalIcon>
       <FeatureText>{text}</FeatureText>

@@ -1,24 +1,21 @@
 import React from "react";
 import {
-    Box,
-    Container,
-    Typography,
-    Grid,
-    Card,
-    CardContent,
-    Button,
-    Chip,
-    useTheme,
-    Stack,
-    ImageList,
-    ImageListItem,
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Card,
+  CardContent,
+  Button,
+  Chip,
+  useTheme,
+  Stack,
 } from "@mui/material";
 import {
-    ArrowBack,
-    CheckCircle,
-    LocalShipping,
-    Security,
-    ArrowForward,
+  ArrowBack,
+  CheckCircle,
+  LocalShipping,
+  Security,
 } from "@mui/icons-material";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -52,218 +49,223 @@ import { crockeryunitDesignDetails } from "./crockery-unit";
 import { homebarDesignDetails } from "./home-bar";
 
 export default function DesignDetail() {
-    const { category, id } = useParams();
-    const navigate = useNavigate();
-    const theme = useTheme();
+  const { category, id } = useParams();
+  const navigate = useNavigate();
+  const theme = useTheme();
 
-    // Data source
-    const designsData = {
-        "master-bedroom": masterBedroomDesignDetails,
-        kitchen: kitchenDesignDetails,
-        bathroom: bathroomDesignDetails,
-        "living-room": livingroomDesignDetails,
-        wardrobe: wardrobeDesignDetails,
-        "pooja-room": poojaroomDesignDetails,
-        "tv-unit": tvunitDesignDetails,
-        "false-ceiling": falseceilingDesignDetails,
-        "kids-bedroom": kidsbedroomDesignDetails,
-        balcony: balconyDesignDetails,
-        "dining-room": diningroomDesignDetails,
-        foyer: foyerDesignDetails,
-        "homes-livspace": homeslivspaceDesignDetails,
-        "home-office": homeofficeDesignDetails,
-        "guest-bedroom": guestbedroomDesignDetails,
-        window: windowDesignDetails,
-        flooring: flooringDesignDetails,
-        "wall-decor": walldecorDesignDetails,
-        "wall-paint": wallpaintDesignDetails,
-        wallpaper: wallpaperDesignDetails,
-        tile: tileDesignDetails,
-        "study-room": studyroomDesignDetails,
-        "kitchen-sinks": kitchensinksDesignDetails,
-        "space-saving": spacesavingDesignDetails,
-        door: doorDesignDetails,
-        staircase: staircaseDesignDetails,
-        "crockery-unit": crockeryunitDesignDetails,
-        "home-bar": homebarDesignDetails,
-    };
+  // Data source
+  const designsData = {
+    "master-bedroom": masterBedroomDesignDetails,
+    kitchen: kitchenDesignDetails,
+    bathroom: bathroomDesignDetails,
+    "living-room": livingroomDesignDetails,
+    wardrobe: wardrobeDesignDetails,
+    "pooja-room": poojaroomDesignDetails,
+    "tv-unit": tvunitDesignDetails,
+    "false-ceiling": falseceilingDesignDetails,
+    "kids-bedroom": kidsbedroomDesignDetails,
+    balcony: balconyDesignDetails,
+    "dining-room": diningroomDesignDetails,
+    foyer: foyerDesignDetails,
+    "homes-livspace": homeslivspaceDesignDetails,
+    "home-office": homeofficeDesignDetails,
+    "guest-bedroom": guestbedroomDesignDetails,
+    window: windowDesignDetails,
+    flooring: flooringDesignDetails,
+    "wall-decor": walldecorDesignDetails,
+    "wall-paint": wallpaintDesignDetails,
+    wallpaper: wallpaperDesignDetails,
+    tile: tileDesignDetails,
+    "study-room": studyroomDesignDetails,
+    "kitchen-sinks": kitchensinksDesignDetails,
+    "space-saving": spacesavingDesignDetails,
+    door: doorDesignDetails,
+    staircase: staircaseDesignDetails,
+    "crockery-unit": crockeryunitDesignDetails,
+    "home-bar": homebarDesignDetails,
+  };
 
-    const design = designsData[category]?.[id] || {
-        id,
-        title: "Design Not Found",
-        description: "This design could not be found.",
-        image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800",
-        images: [
-            "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800",
-        ],
-        specifications: {},
-        sections: [],
-    };
+  const design = designsData[category]?.[id] || {
+    id,
+    title: "Design Not Found",
+    description: "This design could not be found.",
+    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800",
+    images: [
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800",
+    ],
+    specifications: {},
+    sections: [],
+  };
 
-    const consistentContainer = {
-        maxWidth: "xl",
-        sx: {
-            px: { xs: 2, sm: 3, md: 4 },
-        },
-    };
+  const consistentContainer = {
+    maxWidth: "xl",
+    sx: {
+      px: { xs: 2, sm: 3, md: 4 },
+    },
+  };
 
-    if (design.title === "Design Not Found") {
-        return (
-            <Box sx={{
-                minHeight: '100vh',
-                backgroundColor: theme.palette.background.default,
-                pt: { xs: 2, sm: 3, md: 4 },
-                pb: { xs: 4, sm: 6, md: 8 }
-            }}>
-                <Container {...consistentContainer} sx={{ textAlign: "center" }}>
-                    <Typography variant="h4" color="error" gutterBottom>
-                        Design not found
-                    </Typography>
-                    <Button
-                        variant="contained"
-                        onClick={() => navigate(`/designs/${category}`)}
-                        startIcon={<ArrowBack />}
-                    >
-                        Back to Design Category
-                    </Button>
-                </Container>
-            </Box>
-        );
-    }
-
+  if (design.title === "Design Not Found") {
     return (
-        <Box sx={{
-            minHeight: '100vh',
-            backgroundColor: theme.palette.background.default,
-            pt: { xs: 2, sm: 3, md: 4 },
-            pb: { xs: 4, sm: 6, md: 8 }
-        }}>
-            {/* 🧭 Back Button + Title */}
-            <Container {...consistentContainer}>
-                <Button
-                    startIcon={<ArrowBack />}
-                    onClick={() => navigate(`/designs/${category}`)}
-                    sx={{
-                        mb: 4,
-                        px: 0,
-                        color: theme.palette.text.secondary,
-                        '&:hover': {
-                            backgroundColor: theme.palette.action.hover,
-                            color: theme.palette.text.primary,
-                        },
-                        fontWeight: 500,
-                        textTransform: 'none',
-                        fontSize: '1rem'
-                    }}
-                >
-                    Back to Design Category
-                </Button>
+      <Box
+        sx={{
+          minHeight: "100vh",
+          backgroundColor: theme.palette.background.default,
+          pt: { xs: 2, sm: 3, md: 4 },
+          pb: { xs: 4, sm: 6, md: 8 },
+        }}
+      >
+        <Container {...consistentContainer} sx={{ textAlign: "center" }}>
+          <Typography variant="h4" color="error" gutterBottom>
+            Design not found
+          </Typography>
+          <Button
+            variant="contained"
+            onClick={() => navigate(`/designs/${category}`)}
+            startIcon={<ArrowBack />}
+          >
+            Back to Design Category
+          </Button>
+        </Container>
+      </Box>
+    );
+  }
 
-                <Typography variant="h3" fontWeight={700} gutterBottom>
-                    {design.title}
-                </Typography>
-                <Typography variant="h6" color="text.secondary">
-                    {design.description}
-                </Typography>
-            </Container>
+  return (
+    <Box
+      sx={{
+        minHeight: "100vh",
+        backgroundColor: theme.palette.background.default,
+        pt: { xs: 2, sm: 3, md: 4 },
+        pb: { xs: 4, sm: 6, md: 8 },
+      }}
+    >
+      {/* 🧭 Back Button */}
+      <Container {...consistentContainer}>
+        <Button
+          startIcon={<ArrowBack />}
+          onClick={() => navigate(`/designs/${category}`)}
+          sx={{
+            mb: 4,
+            px: 0,
+            color: theme.palette.text.secondary,
+            "&:hover": {
+              backgroundColor: theme.palette.action.hover,
+              color: theme.palette.text.primary,
+            },
+            fontWeight: 500,
+            textTransform: "none",
+            fontSize: "1rem",
+          }}
+        >
+          Back to Design Category
+        </Button>
+      </Container>
 
-            {/* 🖼️ Image Gallery */}
-            <Container {...consistentContainer}>
-                <Box sx={{ position: "relative" }}>
-                    <ImageList
-                        variant="masonry"
-                        cols={3}
-                        gap={8}
-                        sx={{
-                            borderRadius: 2,
-                            overflow: "hidden",
-                            boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
-                        }}
-                    >
-                        {(design.images || [design.image]).slice(0, 6).map((img, idx) => (
-                            <ImageListItem key={idx}>
-                                <img
-                                    src={`${img}?w=600&fit=crop&auto=format`}
-                                    alt={`${design.title}-${idx}`}
-                                    loading="lazy"
-                                    style={{
-                                        borderRadius: "10px",
-                                        cursor: "pointer",
-                                        transition: "transform 0.3s ease-in-out",
-                                    }}
-                                    onClick={() =>
-                                        navigate(`/designs/${category}/${id}/gallery`)
-                                    }
-                                    onMouseOver={(e) =>
-                                        (e.currentTarget.style.transform = "scale(1.02)")
-                                    }
-                                    onMouseOut={(e) =>
-                                        (e.currentTarget.style.transform = "scale(1)")
-                                    }
-                                />
-                            </ImageListItem>
-                        ))}
-                    </ImageList>
+      {/* 🖼️ Image and Content Layout */}
+      <Container {...consistentContainer}>
+        <Box
+          sx={{
+            mb: 6,
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            gap: 4,
+            alignItems: "stretch",
+          }}
+        >
+          {/* Left Side - Image */}
+          <Box
+            sx={{
+              width: { xs: "100%", md: "50%" },
+              flexShrink: 0,
+              order: { xs: 1, md: 1 },
+            }}
+          >
+            <Box
+              sx={{
+                position: "relative",
+                width: "100%",
+                height: { xs: "400px", md: "600px" },
+                minHeight: { xs: "400px", md: "600px" },
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                borderRadius: 2,
+                overflow: "hidden",
+                boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
+                backgroundColor: theme.palette.grey[100],
+              }}
+            >
+              <Box
+                component="img"
+                src={`${
+                  design.images?.[0] || design.image
+                }?w=1200&fit=crop&auto=format`}
+                alt={design.title}
+                loading="lazy"
+                sx={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  display: "block",
+                  transition: "transform 0.3s ease-in-out",
+                  "&:hover": {
+                    transform: "scale(1.02)",
+                  },
+                }}
+              />
+            </Box>
+          </Box>
 
-                    <Button
-                        variant="contained"
-                        endIcon={<ArrowForward />}
-                        onClick={() =>
-                            navigate(`/designs/${category}/${id}/gallery`)
-                        }
-                        sx={{
-                            position: "absolute",
-                            bottom: 20,
-                            right: 30,
-                            backgroundColor: "rgba(0,0,0,0.7)",
-                            color: "#fff",
-                            borderRadius: "25px",
-                            px: 3,
-                            py: 1,
-                            fontWeight: 600,
-                            textTransform: "uppercase",
-                            fontSize: "0.85rem",
-                            boxShadow: "0 2px 10px rgba(0,0,0,0.3)",
-                            "&:hover": { backgroundColor: "rgba(0,0,0,0.9)" },
-                        }}
-                    >
-                        See All
-                    </Button>
-                </Box>
-            </Container>
+          {/* Right Side - Title and Description */}
+          <Box
+            sx={{
+              width: { xs: "100%", md: "50%" },
+              flexShrink: 0,
+              order: { xs: 2, md: 2 },
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <Box
+              sx={{
+                height: "100%",
+                width: "100%",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: { xs: "flex-start", md: "center" },
+                py: { xs: 2, md: 0 },
+                pl: { xs: 0, md: 2 },
+              }}
+            >
+              <Typography
+                variant="h3"
+                fontWeight={700}
+                gutterBottom
+                sx={{
+                  fontSize: { xs: "1.8rem", sm: "2.2rem", md: "2.5rem" },
+                  color: theme.palette.text.primary,
+                  mb: 3,
+                }}
+              >
+                {design.title}
+              </Typography>
+              <Typography
+                variant="h6"
+                color="text.secondary"
+                sx={{
+                  fontSize: { xs: "1rem", md: "1.1rem" },
+                  lineHeight: 1.8,
+                  fontWeight: 400,
+                }}
+              >
+                {design.description}
+              </Typography>
+            </Box>
+          </Box>
+        </Box>
+      </Container>
 
-            {/* 📋 Specifications */}
-            {Object.keys(design.specifications || {}).length > 0 && (
-                <Container {...consistentContainer}>
-                    <Card
-                        sx={{
-                            p: { xs: 3, md: 4 },
-                            borderRadius: 3,
-                            boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
-                        }}
-                    >
-                        <Typography
-                            variant="h5"
-                            fontWeight={700}
-                            sx={{ mb: 3, color: theme.palette.text.primary }}
-                        >
-                            Specifications
-                        </Typography>
-                        {Object.entries(design.specifications).map(([key, value]) => (
-                            <Box key={key} sx={{ mb: 2 }}>
-                                <Typography variant="body2" color="text.secondary">
-                                    {key.charAt(0).toUpperCase() + key.slice(1)}:
-                                </Typography>
-                                <Typography variant="body1" fontWeight={500}>
-                                    {value}
-                                </Typography>
-                            </Box>
-                        ))}
-                    </Card>
-                </Container>
-            )}
-
-            {/* 🧱 Design Details 
+      {/* 🧱 Design Details 
             
             {design.sections && design.sections.length > 0 && (
                 <Container {...consistentContainer}>
@@ -309,48 +311,42 @@ export default function DesignDetail() {
                 </Container>
             )}
             */}
-            
 
-            {/* 💎 Trust Indicators */}
-            
+      {/* 💎 Trust Indicators */}
 
-            {/* 🧭 CTA Section */}
-            <Container {...consistentContainer}>
-                <Card
-                    sx={{
-                        p: 4,
-                        borderRadius: 3,
-                        boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
-                        textAlign: "center",
-                    }}
-                >
-                    <Typography variant="h6" gutterBottom fontWeight={700}>
-                        Want to customize this design?
-                    </Typography>
-                    <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        sx={{ mb: 3 }}
-                    >
-                        We can adapt this design to fit your space, preferences, and budget.
-                        Talk to our experts today.
-                    </Typography>
-                    <Button
-                        variant="contained"
-                        size="large"
-                        sx={{
-                            px: 4,
-                            py: 1.5,
-                            borderRadius: "30px",
-                            fontWeight: 700,
-                            textTransform: "uppercase",
-                        }}
-                        onClick={() => navigate("/contact")}
-                    >
-                        Request Customization
-                    </Button>
-                </Card>
-            </Container>
-        </Box>
-    );
+      {/* 🧭 CTA Section */}
+      <Container {...consistentContainer}>
+        <Card
+          sx={{
+            p: 4,
+            borderRadius: 3,
+            boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
+            textAlign: "center",
+          }}
+        >
+          <Typography variant="h6" gutterBottom fontWeight={700}>
+            Want to customize this design?
+          </Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
+            We can adapt this design to fit your space, preferences, and budget.
+            Talk to our experts today.
+          </Typography>
+          <Button
+            variant="contained"
+            size="large"
+            sx={{
+              px: 4,
+              py: 1.5,
+              borderRadius: "30px",
+              fontWeight: 700,
+              textTransform: "uppercase",
+            }}
+            onClick={() => navigate("/contact")}
+          >
+            Request Customization
+          </Button>
+        </Card>
+      </Container>
+    </Box>
+  );
 }

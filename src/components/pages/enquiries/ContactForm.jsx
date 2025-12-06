@@ -156,7 +156,7 @@ export default function ContactForm() {
 
   // ---------------- CONTACT INFO ----------------
   const contactInfo = [
-    { icon: <PhoneIcon />, title: "Phone", details: "+91 8669868947" },
+    { icon: <PhoneIcon />, title: "Phone", details: "+91 8767374324" },
     {
       icon: <EmailIcon />,
       title: "Email",

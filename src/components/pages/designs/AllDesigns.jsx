@@ -263,13 +263,6 @@ export default function AllDesigns() {
               >
                 {category.description}
               </Typography>
-              <Typography
-                variant="body2"
-                color="primary"
-                sx={{ fontWeight: 500, mb: 2 }}
-              >
-                {category.count} designs available
-              </Typography>
               <Button
                 variant="outlined"
                 fullWidth

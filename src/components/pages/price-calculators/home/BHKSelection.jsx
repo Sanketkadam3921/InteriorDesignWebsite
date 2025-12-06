@@ -99,79 +99,76 @@ export default function BHKSelection() {
 
       <Box
         sx={{
-          backgroundColor: theme.palette.primary.light + '25',
+          backgroundColor: theme.palette.primary.light + "25",
           borderRadius: 2,
           p: 3,
           mb: 2,
-          border: '1px solid',
-          borderColor: theme.palette.primary.light + '40',
+          border: "1px solid",
+          borderColor: theme.palette.primary.light + "40",
         }}
       >
         <FormControl fullWidth>
-        <RadioGroup
-          value={selectedBHK}
-          onChange={handleBHKChange}
-          sx={{
-            display: "grid",
-            gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)" },
-            gap: 1.5,
-          }}
-        >
-          {bhkOptions.map((bhk, index) => (
-            <Card
-              key={bhk.id}
-              sx={{
-                borderRadius: 2,
-                border:
-                  selectedBHK === bhk.id
-                    ? `2px solid ${theme.palette.primary.main}`
-                    : "1px solid",
-                borderColor:
-                  selectedBHK === bhk.id
-                    ? theme.palette.primary.main
-                    : theme.palette.grey[300],
-                backgroundColor: theme.palette.background.paper,
-                boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
-                cursor: "pointer",
-                transition: "none",
-                "&:hover": { borderColor: theme.palette.primary.main },
-                // Center 5 BHK (last item in 2-column grid)
-                gridColumn: index === 4 ? { xs: "1", sm: "span 2" } : "auto",
-                justifySelf:
-                  index === 4 ? { xs: "stretch", sm: "center" } : "stretch",
-                maxWidth: index === 4 ? { xs: "100%", sm: "50%" } : "100%",
-              }}
-              onClick={() => setSelectedBHK(bhk.id)}
-            >
-              <CardContent sx={{ p: 2 }}>
-                <FormControlLabel
-                  value={bhk.id}
-                  control={
-                    <Radio
-                      size="small"
-                      sx={{ color: theme.palette.primary.main }}
-                    />
-                  }
-                  label={
-                    <Box>
-                      <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-                        {bhk.title}
-                      </Typography>
-                      <Typography
-                        variant="caption"
-                        sx={{ color: theme.palette.text.secondary }}
-                      >
-                        {bhk.description}
-                      </Typography>
-                    </Box>
-                  }
-                  sx={{ m: 0, width: "100%" }}
-                />
-              </CardContent>
-            </Card>
-          ))}
-        </RadioGroup>
-      </FormControl>
+          <RadioGroup
+            value={selectedBHK}
+            onChange={handleBHKChange}
+            sx={{
+              display: "grid",
+              gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)" },
+              gap: 1.5,
+            }}
+          >
+            {bhkOptions.map((bhk, index) => (
+              <Card
+                key={bhk.id}
+                sx={{
+                  borderRadius: 2,
+                  border:
+                    selectedBHK === bhk.id
+                      ? `2px solid ${theme.palette.primary.main}`
+                      : "1px solid",
+                  borderColor:
+                    selectedBHK === bhk.id
+                      ? theme.palette.primary.main
+                      : theme.palette.grey[300],
+                  backgroundColor: theme.palette.background.paper,
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
+                  cursor: "pointer",
+                  transition: "none",
+                  "&:hover": { borderColor: theme.palette.primary.main },
+                  // Center 5 BHK (last item in 2-column grid)
+                  gridColumn: index === 4 ? { xs: "1", sm: "span 2" } : "auto",
+                  justifySelf:
+                    index === 4 ? { xs: "stretch", sm: "center" } : "stretch",
+                  maxWidth: index === 4 ? { xs: "100%", sm: "50%" } : "100%",
+                }}
+                onClick={() => setSelectedBHK(bhk.id)}
+              >
+                <CardContent sx={{ p: 2 }}>
+                  <FormControlLabel
+                    value={bhk.id}
+                    control={
+                      <Radio
+                        size="small"
+                        sx={{ color: theme.palette.primary.main }}
+                      />
+                    }
+                    label={
+                      <Box>
+                        <Typography
+                          variant="subtitle1"
+                          sx={{ fontWeight: 600 }}
+                        >
+                          {bhk.title}
+                        </Typography>
+                      </Box>
+                    }
+                    sx={{ m: 0, width: "100%" }}
+                  />
+                </CardContent>
+              </Card>
+            ))}
+          </RadioGroup>
+        </FormControl>
       </Box>
 
       <Box

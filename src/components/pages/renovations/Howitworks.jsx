@@ -7,24 +7,28 @@ const HowItWorks = () => {
 
   const steps = [
     {
-      icon: "https://cdn-icons-png.flaticon.com/128/7164/7164002.png",
-      title: "Meet a designer",
+      icon: "https://cdn-icons-png.flaticon.com/128/2910/2910768.png",
+      title: "Book Renovation",
     },
     {
-      icon: "https://cdn-icons-png.flaticon.com/128/2910/2910768.png",
-      title: "Book a renovation",
+      icon: "https://cdn-icons-png.flaticon.com/128/7164/7164002.png",
+      title: "Meet a Designer",
     },
     {
       icon: "https://cdn-icons-png.flaticon.com/128/9640/9640682.png",
-      title: "Execution begins",
+      title: "Execution Begins",
     },
     {
       icon: "https://cdn-icons-png.flaticon.com/128/4961/4961619.png",
-      title: "Final installations",
+      title: "Payments",
     },
     {
       icon: "https://cdn-icons-png.flaticon.com/128/9320/9320557.png",
-      title: "Move in and enjoy!",
+      title: "On-Site Work",
+    },
+    {
+      icon: "https://cdn-icons-png.flaticon.com/128/7164/7164002.png",
+      title: "Your Perfect Space is Ready",
     },
   ];
 

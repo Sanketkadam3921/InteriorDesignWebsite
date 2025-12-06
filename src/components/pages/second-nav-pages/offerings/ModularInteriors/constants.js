@@ -4,7 +4,7 @@ export const HERO_DATA = {
   buttonText: "Book Online Consultation",
   buttonLink: "/offerings/book-online-consultation",
   backgroundImage:
-    "https://ik.imagekit.io/bowr9614/Modular%20Interiors/lissete-laverde-Op1TRxpm40o-unsplash.jpg",
+    "https://ik.imagekit.io/bowr9614/Modular%20Interiors/small-kitchen-space-with-modern-design.jpg",
 };
 
 export const INTRODUCTION_TEXT =
@@ -52,33 +52,18 @@ export const WHY_CHOOSE_ITEMS = [
   {
     id: 1,
     title: "Tailor-Made Designs",
-    description:
-      "Every module is engineered to match your space dimensions, lifestyle, and aesthetic preferences.",
   },
   {
     id: 2,
-    title: "Premium Quality Materials",
-    description:
-      "We use long-lasting, moisture-resistant, and termite-proof materials with high-end hardware for unmatched durability.",
+    title: "Faster Installation",
   },
   {
     id: 3,
-    title: "Faster Installation",
-    description:
-      "Pre-engineered modules ensure clean, hassle-free, and rapid on-site installation.",
+    title: "Smart Space Utilization",
   },
   {
     id: 4,
-    title: "Smart Space Utilization",
-    description:
-      "Each design intelligently maximizes usable space without compromising beauty or comfort.",
-  },
-  {
-    id: 5,
     title: "Transparent Pricing",
-    description:
-      "No hidden charges. Every component is clearly detailed and costed.",
-    fullWidth: true,
   },
 ];
 

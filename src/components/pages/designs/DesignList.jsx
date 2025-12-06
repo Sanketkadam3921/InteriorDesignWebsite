@@ -152,7 +152,6 @@ export default function DesignList() {
                             <CardContent sx={{ flexGrow: 1 }}>
                                 <Box sx={{ display: 'flex', gap: 1, mb: 2 }}>
                                     <Chip label={design.style} size="small" color="primary" />
-                                    <Chip label={design.price} size="small" variant="outlined" />
                                 </Box>
                                 <Typography variant="h6" gutterBottom>
                                     {design.title}

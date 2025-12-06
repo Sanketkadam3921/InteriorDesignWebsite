@@ -16,7 +16,7 @@ const packages = [
     id: "essentials",
     title: "Essentials",
 
-    features: ["Affordable pricing", "Convenient designs", "Basic accessories"],
+    features: ["Low cost", "Basic design", "Standard finish"],
     image:
       "https://imgs.search.brave.com/FgCu5W68X1KDXkloC8Cc6lHj88IZvJKNU1v81I8Wpyg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5ob3VzZWFuZGdh/cmRlbi5jby51ay9w/aG90b3MvNjcyMjU2/YzE4NzlkZGNhNmRl/MmJkZGRhLzE6MS93/XzE2MDAsY19saW1p/dC9EU0NGMDExMC5q/cGc",
   },
@@ -24,7 +24,7 @@ const packages = [
     id: "premium",
     title: "Premium",
 
-    features: ["Mid-range pricing", "Premium designs"],
+    features: ["Mid cost", "Premium design", "Better finish"],
     image:
       "https://imgs.search.brave.com/OOMJsKZVrXWnzq1rLQreKmGT3NdH978BoLhwBtXkmLs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM4/Njk1MTkzMy9waG90/by8zZC1yZW5kZXJp/bmctb24tbHV4dXJp/b3VzLWFwYXJ0bWVu/dC1pbnRlcmlvci5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/MnFHSDRVOVRMLW1D/dExRLWVOTFdNWmJq/ejJ1NGh6YXpESWR1/NUdBdFFaUT0",
   },
@@ -32,7 +32,7 @@ const packages = [
     id: "luxe",
     title: "Luxe",
 
-    features: ["Premium pricing", "Luxury designs", "Personal designer"],
+    features: ["High cost", "Luxury design", "Elite finish"],
     image:
       "https://imgs.search.brave.com/IcpIYLAqujrM1W0prAmdJBI2S0xaSWbb8Zp6onJ6nDc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wbHVz/LnVuc3BsYXNoLmNv/bS9wcmVtaXVtX3Bo/b3RvLTE2NjE5MDI5/MzQyNjktMTdlYWY0/YjA0ZjlmP2ZtPWpw/ZyZxPTYwJnc9MzAw/MCZpeGxpYj1yYi00/LjEuMCZpeGlkPU0z/d3hNakEzZkRCOE1I/eHpaV0Z5WTJoOE1Y/eDhiSFY0ZFhKNUpU/SXdhVzUwWlhKcGIz/SjhaVzU4TUh4OE1I/eDhmREE9",
   },

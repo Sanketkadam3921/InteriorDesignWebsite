@@ -64,27 +64,21 @@ export const CAROUSEL_DATA = {
   images: [
     {
       id: 1,
-      central:
-        "https://imgs.search.brave.com/lGJ2MiLreUX6ww0PpTPIA04orJZ2NXo0GGMNVDvs0NY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA1Lzc3LzAwLzA4/LzM2MF9GXzU3NzAw/MDgwNl9FZkdZRWZy/d3VhNUJJQ3FlOXFU/UVhnN3ZsRW9ac09z/Ri5qcGc",
-      left: "https://imgs.search.brave.com/ME9SyprYwQtQ8bhbbWjLKCeX_EcXj3HtdGBTv_5Ndjw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzEyLzY2LzkzLzQz/LzM2MF9GXzEyNjY5/MzQzMzJfMGNGSTVr/c2NzdHprenA1Q3pB/VDlQUHhHWmVsZkcx/cDIuanBn",
-      right:
-        "https://imgs.search.brave.com/4K7BvDvwEQqdzUYUnIjdl_8VVTM_SaBI_6Ib3TG2DBw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA1LzM1Lzc1Lzk1/LzM2MF9GXzUzNTc1/OTU4N19VckI3RzJT/MDBBMUdOaHVnOUIy/emFPMVJ5dmlGRnkw/YS5qcGc",
+      central: "https://ik.imagekit.io/bowr9614/Luxury%20Interior/IMG_4447.JPG",
+      left: "https://ik.imagekit.io/bowr9614/Luxury%20Interior/IMG_4421.JPG",
+      right: "https://ik.imagekit.io/bowr9614/Luxury%20Interior/IMG_4411.JPG",
     },
     {
       id: 2,
-      central:
-        "https://imgs.search.brave.com/ME9SyprYwQtQ8bhbbWjLKCeX_EcXj3HtdGBTv_5Ndjw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzEyLzY2LzkzLzQz/LzM2MF9GXzEyNjY5/MzQzMzJfMGNGSTVr/c2NzdHprenA1Q3pB/VDlQUHhHWmVsZkcx/cDIuanBn",
-      left: "https://imgs.search.brave.com/4K7BvDvwEQqdzUYUnIjdl_8VVTM_SaBI_6Ib3TG2DBw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA1LzM1Lzc1Lzk1/LzM2MF9GXzUzNTc1/OTU4N19VckI3RzJT/MDBBMUdOaHVnOUIy/emFPMVJ5dmlGRnkw/YS5qcGc",
-      right:
-        "https://imgs.search.brave.com/lGJ2MiLreUX6ww0PpTPIA04orJZ2NXo0GGMNVDvs0NY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA1Lzc3LzAwLzA4/LzM2MF9GXzU3NzAw/MDgwNl9FZkdZRWZy/d3VhNUJJQ3FlOXFU/UVhnN3ZsRW9ac09z/Ri5qcGc",
+      central: "https://ik.imagekit.io/bowr9614/Luxury%20Interior/IMG_4421.JPG",
+      left: "https://ik.imagekit.io/bowr9614/Luxury%20Interior/IMG_4411.JPG",
+      right: "https://ik.imagekit.io/bowr9614/Luxury%20Interior/IMG_4447.JPG",
     },
     {
       id: 3,
-      central:
-        "https://imgs.search.brave.com/4K7BvDvwEQqdzUYUnIjdl_8VVTM_SaBI_6Ib3TG2DBw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA1LzM1Lzc1Lzk1/LzM2MF9GXzUzNTc1/OTU4N19VckI3RzJT/MDBBMUdOaHVnOUIy/emFPMVJ5dmlGRnkw/YS5qcGc",
-      left: "https://imgs.search.brave.com/lGJ2MiLreUX6ww0PpTPIA04orJZ2NXo0GGMNVDvs0NY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA1Lzc3LzAwLzA4/LzM2MF9GXzU3NzAw/MDgwNl9FZkdZRWZy/d3VhNUJJQ3FlOXFU/UVhnN3ZsRW9ac09z/Ri5qcGc",
-      right:
-        "https://imgs.search.brave.com/ME9SyprYwQtQ8bhbbWjLKCeX_EcXj3HtdGBTv_5Ndjw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzEyLzY2LzkzLzQz/LzM2MF9GXzEyNjY5/MzQzMzJfMGNGSTVr/c2NzdHprenA1Q3pB/VDlQUHhHWmVsZkcx/cDIuanBn",
+      central: "https://ik.imagekit.io/bowr9614/Luxury%20Interior/IMG_4411.JPG",
+      left: "https://ik.imagekit.io/bowr9614/Luxury%20Interior/IMG_4447.JPG",
+      right: "https://ik.imagekit.io/bowr9614/Luxury%20Interior/IMG_4421.JPG",
     },
   ],
 };
@@ -97,23 +91,23 @@ export const UNIQUE_FEATURES_DATA = {
   features: [
     {
       id: 1,
-      icon: "Settings",
+      icon: "home-1.svg",
       text: "Complete home interiors",
     },
     {
       id: 2,
-      icon: "Build",
+      icon: "quality.svg",
       text: "Quality workmanship",
     },
     {
       id: 3,
-      icon: "Palette",
+      icon: "ModernAndStylishDesign.svg",
       text: "Modern and stylish designs",
     },
 
     {
       id: 4,
-      icon: "LocalShipping",
+      icon: "Ontime.svg",
       text: "On-time project completion",
     },
   ],

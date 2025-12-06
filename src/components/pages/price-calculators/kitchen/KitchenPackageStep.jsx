@@ -17,7 +17,7 @@ const kitchenPackages = [
     title: "Basic",
     priceRange: "₹1,500 - ₹2,500",
     pricePerSqft: "per sqft",
-    features: ["Affordable pricing", "Basic storage units"],
+    features: ["Low cost", "Basic units", "Standard finish"],
     image:
       "https://imgs.search.brave.com/eC9Lrrw_wKXvJhggs2410QRm4xKZOlw2fdAUC6TICHU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5kZXNpZ25jYWZl/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAxOS8xMi8xNzA1/NTM1OS9wYXJhbGxl/bC1tb2R1bGFyLWtp/dGNoZW4tZGVzaWdu/LmpwZw",
   },
@@ -26,7 +26,7 @@ const kitchenPackages = [
     title: "Premium",
     priceRange: "₹2,500 - ₹4,000",
     pricePerSqft: "per sqft",
-    features: ["Mid-range pricing", "Premium finishes", "Optimized design"],
+    features: ["Mid cost", "Premium units", "Premium finish"],
     image:
       "https://imgs.search.brave.com/U3mqVbPs-e5pefy4R1ys-L1ZrZpKDKD4WRn7t87fMJQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9vbmdy/aWQuZGVzaWduL2Nk/bi9zaG9wL2ZpbGVz/LzAyQWRkb25fMzNl/OGNiNGItMDFlZi00/NTM3LTk1OTItNjg5/MGM4YzliMDdkLmpw/Zz92PTE2OTE0ODEy/MTYmd2lkdGg9MTA4/MA",
   },
@@ -35,7 +35,7 @@ const kitchenPackages = [
     title: "Luxury",
     priceRange: "₹4,000 - ₹6,000",
     pricePerSqft: "per sqft",
-    features: ["Premium pricing", "Luxury designs", "Personal designer"],
+    features: ["High cost", "Luxury units", "Elite finish"],
     image:
       "https://imgs.search.brave.com/nFBdhJr_uS0xT9HWUOPFmCyJ5-TcS56oZzGBGhd5YNY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5kZXNpZ25jYWZl/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAyMy8wOS8wNjEy/NTI0NS9wYXJhbGxl/bC1raXRjaGVuLWRl/c2lnbi1zYWdlLWdy/ZWVuLWFuZC13aGl0/ZS5qcGc",
   },
@@ -184,28 +184,6 @@ export default function KitchenPackageSelection() {
                     </Typography>
 
                     {/* Price Range */}
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        mb: 0.5,
-                        color: theme.palette.primary.main,
-                        fontWeight: 700,
-                        fontSize: "1.1rem",
-                      }}
-                    >
-                      {pkg.priceRange}
-                    </Typography>
-                    <Typography
-                      variant="caption"
-                      sx={{
-                        mb: 2.5,
-                        color: theme.palette.text.secondary,
-                        fontSize: "0.75rem",
-                        display: "block",
-                      }}
-                    >
-                      {pkg.pricePerSqft}
-                    </Typography>
 
                     {/* Image */}
                     <Box

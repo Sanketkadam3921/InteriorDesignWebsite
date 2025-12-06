@@ -18,11 +18,7 @@ const wardrobePackages = [
     priceRange: "₹1,200 - ₹2,000",
     priceRangeSwing: "₹1,000 - ₹1,800",
     pricePerSqft: "per sqft",
-    features: [
-      "Affordable pricing",
-      "Basic storage units",
-      "Standard finishes",
-    ],
+    features: ["Low cost", "Basic units", "Standard finish"],
     image:
       "https://imgs.search.brave.com/LBx0oI-FT5sp6wRnDfiEGA4S1MOrAFyV_RSaY1Ui1PQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMubGl2c3BhY2Ut/Y2RuLmNvbS93OjM4/NDAvcGxhaW4vaHR0/cHM6Ly9kM2dxMm1l/cm9rOG41ci5jbG91/ZGZyb250Lm5ldC9h/YmhpbmF2L29uZC0x/NjM0MTIwMzk2LU9i/ZmRjLzEtMjAyNS0x/NzM2MDY4OTg4LU5E/UEQxL29uZC0xNzU5/NzM2MzA3LXJ2OVNW/L3dyLTE3NTk3NTEx/NzUtOU10alkvMTEt/MTc1OTc1MTE5NS1R/YUpqQy5qcGc",
   },
@@ -32,7 +28,7 @@ const wardrobePackages = [
     priceRange: "₹2,000 - ₹3,500",
     priceRangeSwing: "₹1,800 - ₹3,000",
     pricePerSqft: "per sqft",
-    features: ["Mid-range pricing", "Premium finishes", "Optimized design"],
+    features: ["Mid cost", "Premium units", "Premium finish"],
     image:
       "https://imgs.search.brave.com/5_H96dJeLodxy93Z_StLLSP6f5CWAD3F29KyNflbHd4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzE2LzMxLzAwLzQ0/LzM2MF9GXzE2MzEw/MDQ0NDNfYWZ0dVAw/UG1iUEtXcUZ3ejlw/Y3VZeklNeTFrSjhw/QVEuanBn",
   },
@@ -42,7 +38,7 @@ const wardrobePackages = [
     priceRange: "₹3,500 - ₹5,500",
     priceRangeSwing: "₹3,000 - ₹5,000",
     pricePerSqft: "per sqft",
-    features: ["Premium pricing", "Luxury designs", "High-end materials"],
+    features: ["High cost", "Luxury units", "Elite finish"],
     image:
       "https://imgs.search.brave.com/NKRJVINVrf9rVjwHrUOMip2NfHXhKx_vm8lfLppKjug/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMjE1/NzA4MTc0NC9waG90/by9tb2Rlcm4tYnVp/bHQtaW4td2FyZHJv/YmUtY2xvc2V0LXdp/dGgtcGVyc29uYWwt/YWNjZXNzb3JpZXMu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PWZDNVozUzNjT211/ZGJUenZjOGZ2Szlw/aDE4TGxOQk9VWW5G/YzcwUXV5QkU9",
   },
@@ -193,28 +189,6 @@ export default function WardrobePackageSelection() {
                     </Typography>
 
                     {/* Price Range */}
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        mb: 0.5,
-                        color: theme.palette.primary.main,
-                        fontWeight: 700,
-                        fontSize: "1.1rem",
-                      }}
-                    >
-                      {priceRange}
-                    </Typography>
-                    <Typography
-                      variant="caption"
-                      sx={{
-                        mb: 2.5,
-                        color: theme.palette.text.secondary,
-                        fontSize: "0.75rem",
-                        display: "block",
-                      }}
-                    >
-                      {pkg.pricePerSqft}
-                    </Typography>
 
                     {/* Image */}
                     <Box

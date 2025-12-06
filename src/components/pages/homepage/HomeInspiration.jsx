@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -7,6 +7,7 @@ import {
   IconButton,
   Container,
   Grid,
+  Fade,
 } from "@mui/material";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -82,7 +83,24 @@ export default function HomeInspiration() {
 
   const [startIndex, setStartIndex] = useState(0);
   const [currentInspirationIndex, setCurrentInspirationIndex] = useState(0);
+  const [highlightImageIndex, setHighlightImageIndex] = useState(0);
+  const [fadeIn, setFadeIn] = useState(true);
   const itemsPerPage = 6;
+
+  // Auto-change the large highlight image
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFadeIn(false);
+      setTimeout(() => {
+        setHighlightImageIndex((prevIndex) =>
+          prevIndex === inspirationItems.length - 1 ? 0 : prevIndex + 1
+        );
+        setFadeIn(true);
+      }, 300); // Half of transition duration for smooth fade
+    }, 4000); // Change image every 4 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   const handleNext = () => {
     if (startIndex + itemsPerPage < inspirationItems.length) {
@@ -141,28 +159,33 @@ export default function HomeInspiration() {
           // Mobile: carousel
           <Box sx={{ position: "relative", width: "100%" }}>
             {/* Inspiration Card */}
-            <Box
-              sx={{
-                borderRadius: 3,
-                overflow: "hidden",
-                boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                "&:hover": {
-                  transform: "translateY(-4px)",
-                  boxShadow: "0 6px 20px rgba(0,0,0,0.12)",
-                },
-              }}
-            >
+            <Fade in={true} timeout={500} key={currentInspirationIndex}>
               <Box
-                component="img"
-                src={inspirationItems[currentInspirationIndex].image}
-                alt={inspirationItems[currentInspirationIndex].title}
                 sx={{
-                  width: "100%",
-                  height: 250,
-                  objectFit: "cover",
+                  borderRadius: 3,
+                  overflow: "hidden",
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  "&:hover": {
+                    transform: "translateY(-4px)",
+                    boxShadow: "0 6px 20px rgba(0,0,0,0.12)",
+                  },
                 }}
-              />
+              >
+                <Box
+                  component="img"
+                  src={inspirationItems[currentInspirationIndex].image}
+                  alt={inspirationItems[currentInspirationIndex].title}
+                  sx={{
+                    width: "100%",
+                    height: 250,
+                    objectFit: "cover",
+                    transition: "transform 0.5s ease",
+                    "&:hover": {
+                      transform: "scale(1.05)",
+                    },
+                  }}
+                />
               <Box
                 sx={{
                   p: 3,
@@ -182,6 +205,7 @@ export default function HomeInspiration() {
                 </Typography>
               </Box>
             </Box>
+            </Fade>
 
             {/* Navigation Buttons */}
             <Box
@@ -283,62 +307,84 @@ export default function HomeInspiration() {
                   gridArea = "2 / 5 / 3 / 6"; // Bottom row, last column
                 }
 
+                // For the large highlight image (i === 0), use auto-changing image
+                const displayItem = i === 0 ? inspirationItems[highlightImageIndex] : item;
+                const isHighlight = i === 0;
+
                 return (
-                  <Box
-                    key={`${startIndex}-${i}`}
-                    sx={{
-                      position: "relative",
-                      overflow: "hidden",
-                      gridArea: gridArea,
-                      width: "100%",
-                      height: "100%",
-                      transition: "all 0.5s ease-in-out",
-                      "&:hover": {
-                        transform: "scale(1.02)",
-                        zIndex: 2,
-                      },
-                    }}
-                  >
+                  <Fade in={isHighlight ? fadeIn : true} timeout={600} key={`${startIndex}-${i}-${isHighlight ? highlightImageIndex : ''}`}>
                     <Box
-                      component="img"
-                      src={item.image}
-                      alt={item.title}
                       sx={{
+                        position: "relative",
+                        overflow: "hidden",
+                        gridArea: gridArea,
                         width: "100%",
                         height: "100%",
-                        objectFit: "cover",
-                        objectPosition: "center",
-                        display: "block",
-                      }}
-                    />
-                    <Box
-                      sx={{
-                        position: "absolute",
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        background:
-                          "linear-gradient(transparent, rgba(0,0,0,0.8))",
-                        color: "white",
-                        p: 2,
-                        display: "flex",
-                        alignItems: "flex-end",
-                        minHeight: "50px",
+                        transition: "all 0.5s ease-in-out",
+                        animation: i > 0 ? "slideInUp 0.6s ease-out" : "none",
+                        animationDelay: `${i * 0.1}s`,
+                        "@keyframes slideInUp": {
+                          from: {
+                            opacity: 0,
+                            transform: "translateY(20px)",
+                          },
+                          to: {
+                            opacity: 1,
+                            transform: "translateY(0)",
+                          },
+                        },
+                        "&:hover": {
+                          transform: "scale(1.02)",
+                          zIndex: 2,
+                        },
                       }}
                     >
-                      <Typography
-                        fontWeight={600}
-                        variant={i === 0 ? "h5" : "h6"}
+                      <Box
+                        component="img"
+                        src={displayItem.image}
+                        alt={displayItem.title}
                         sx={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          objectPosition: "center",
+                          display: "block",
+                          transition: "transform 0.5s ease-in-out",
+                          "&:hover": {
+                            transform: "scale(1.05)",
+                          },
+                        }}
+                      />
+                      <Box
+                        sx={{
+                          position: "absolute",
+                          bottom: 0,
+                          left: 0,
+                          right: 0,
+                          background:
+                            "linear-gradient(transparent, rgba(0,0,0,0.8))",
                           color: "white",
-                          textShadow: "0 2px 4px rgba(0,0,0,0.8)",
-                          fontSize: i === 0 ? "1.4rem" : "1rem",
+                          p: 2,
+                          display: "flex",
+                          alignItems: "flex-end",
+                          minHeight: "50px",
+                          transition: "opacity 0.3s ease",
                         }}
                       >
-                        {item.title}
-                      </Typography>
+                        <Typography
+                          fontWeight={600}
+                          variant={i === 0 ? "h5" : "h6"}
+                          sx={{
+                            color: "white",
+                            textShadow: "0 2px 4px rgba(0,0,0,0.8)",
+                            fontSize: i === 0 ? "1.4rem" : "1rem",
+                          }}
+                        >
+                          {displayItem.title}
+                        </Typography>
+                      </Box>
                     </Box>
-                  </Box>
+                  </Fade>
                 );
               })}
             </Box>

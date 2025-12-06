@@ -27,14 +27,28 @@ export default function WhyChoose() {
                 Why Choose Our Modular Interiors?
             </Typography>
 
-            <Grid container spacing={3}>
+            <Grid 
+                container 
+                spacing={3} 
+                justifyContent="center"
+            >
                 {WHY_CHOOSE_ITEMS.map((item) => (
-                    <Grid item xs={12} md={item.fullWidth ? 12 : 6} key={item.id}>
-                        <WhyChooseItem
-                            title={item.title}
-                            description={item.description}
-                            fullWidth={item.fullWidth}
-                        />
+                    <Grid 
+                        item 
+                        xs={12} 
+                        sm={6} 
+                        md={3}
+                        key={item.id}
+                        sx={{ 
+                            display: "flex", 
+                            justifyContent: "center"
+                        }}
+                    >
+                        <Box sx={{ width: '100%', maxWidth: '100%' }}>
+                            <WhyChooseItem
+                                title={item.title}
+                            />
+                        </Box>
                     </Grid>
                 ))}
             </Grid>

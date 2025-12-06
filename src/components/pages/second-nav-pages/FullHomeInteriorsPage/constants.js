@@ -28,7 +28,7 @@ export const SERVICES = [
     description:
       "Professional construction and installation services for all your interior needs.",
     image:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      "https://ik.imagekit.io/bowr9614/Modular%20Interiors/view-modern-construction-site.jpg",
     alt: "Construction & Installation",
   },
   {

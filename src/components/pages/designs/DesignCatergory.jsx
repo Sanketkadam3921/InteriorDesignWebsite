@@ -229,26 +229,6 @@ export default function DesignCategory() {
                                         color: theme.palette.primary.contrastText,
                                     }}
                                 />
-                                <Chip
-                                    label={design.price}
-                                    size="small"
-                                    variant="outlined"
-                                    sx={{
-                                        borderColor: theme.palette.secondary.main,
-                                        color: theme.palette.secondary.main,
-                                    }}
-                                />
-                                {design.area && (
-                                    <Chip
-                                        label={design.area}
-                                        size="small"
-                                        variant="outlined"
-                                        sx={{
-                                            borderColor: theme.palette.neutral?.cadetGray || theme.palette.grey[400],
-                                            color: theme.palette.neutral?.cadetGray || theme.palette.grey[600],
-                                        }}
-                                    />
-                                )}
                             </Box>
                             <Typography
                                 variant="h6"
