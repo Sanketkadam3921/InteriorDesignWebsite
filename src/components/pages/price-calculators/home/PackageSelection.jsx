@@ -18,7 +18,7 @@ const packages = [
 
     features: ["Low cost", "Basic design", "Standard finish"],
     image:
-      "https://imgs.search.brave.com/FgCu5W68X1KDXkloC8Cc6lHj88IZvJKNU1v81I8Wpyg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5ob3VzZWFuZGdh/cmRlbi5jby51ay9w/aG90b3MvNjcyMjU2/YzE4NzlkZGNhNmRl/MmJkZGRhLzE6MS93/XzE2MDAsY19saW1p/dC9EU0NGMDExMC5q/cGc",
+      "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_2674.JPG?updatedAt=1765185683728",
   },
   {
     id: "premium",

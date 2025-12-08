@@ -7,7 +7,6 @@ import {
   Link,
   IconButton,
   useTheme,
-  useMediaQuery,
 } from "@mui/material";
 import {
   Facebook,
@@ -23,8 +22,18 @@ import { Link as RouterLink } from "react-router-dom";
 const SectionWrapper = ({ children }) => (
   <Box
     sx={{
-      pl: { xs: 0, md: 2, lg: 4 },
-      pr: { xs: 0, md: 1 },
+      pl: {
+        xs: 0, // Mobile: no padding
+        sm: 0, // iPad Air/Mini: no padding
+        md: 1, // iPad Pro: small padding
+        lg: 4, // Desktop: original padding
+      },
+      pr: {
+        xs: 0, // Mobile: no padding
+        sm: 0, // iPad Air/Mini: no padding
+        md: 1, // iPad Pro: small padding
+        lg: 1, // Desktop: original padding
+      },
       display: "flex",
       flexDirection: "column",
       justifyContent: "flex-start",
@@ -39,14 +48,20 @@ const SectionWrapper = ({ children }) => (
 const LinkGroup = ({ title, children }) => {
   const theme = useTheme();
   return (
-    <Grid item xs={12} md={2.4}>
+    <Grid
+      item
+      xs={12}
+      sm={6} // iPad Air/Mini: 2 columns per row (600px-1023px)
+      md={3} // iPad Pro: All 4 link columns in single row (1024px-1199px) - 3 * 4 = 12
+      lg={2.4} // Desktop: Original layout (1200px+)
+    >
       <SectionWrapper>
         <Typography
           variant="h6"
           sx={{
             color: theme.palette.secondary.contrastText,
             fontWeight: 600,
-            fontSize: { xs: "1.1rem", md: "1.2rem" },
+            fontSize: { xs: "1.1rem", sm: "1.15rem", md: "1.2rem" },
             mb: 3,
             letterSpacing: "0.05em",
           }}
@@ -84,9 +99,6 @@ const NavLink = ({ to, label }) => {
 export default function Footer() {
   const theme = useTheme();
 
-  // ✅ Custom media query so iPad Pro (1024px) behaves like tablet/mobile
-  const isSmallScreen = useMediaQuery("(max-width:1100px)");
-
   return (
     <Box
       component="footer"
@@ -96,7 +108,12 @@ export default function Footer() {
         sx={{
           backgroundColor: theme.palette.primary.dark,
           color: theme.palette.secondary.contrastText,
-          py: { xs: 8, md: 10 },
+          py: {
+            xs: 8, // Mobile: padding
+            sm: 8, // iPad Air/Mini: padding
+            md: 9, // iPad Pro: padding
+            lg: 10, // Desktop: original padding
+          },
           position: "relative",
         }}
       >
@@ -145,27 +162,60 @@ export default function Footer() {
           sx={{
             position: "relative",
             zIndex: 2,
-            px: { xs: 3, sm: 4, md: 6 },
+            px: {
+              xs: 3, // Mobile: padding
+              sm: 3, // iPad Air/Mini: padding
+              md: 4, // iPad Pro: padding
+              lg: 6, // Desktop: original padding
+            },
           }}
         >
           <Grid
             container
-            spacing={{ xs: 5, md: 8 }}
-            direction={isSmallScreen ? "column" : "row"} // ✅ stack for tablet/mobile up to 1100px
+            spacing={{
+              xs: 5, // Mobile: larger spacing
+              sm: 2.9, // iPad Air/Mini: medium spacing
+              md: 3, // iPad Pro: spacing for 4 columns in row
+              lg: 8, // Desktop: original spacing
+            }}
+            direction={{
+              xs: "column", // Mobile: stack vertically
+              sm: "row", // iPad Air/Mini: horizontal
+              md: "row", // iPad Pro: horizontal
+              lg: "row", // Desktop: horizontal
+            }}
             alignItems="flex-start"
             textAlign="left"
-            sx={{ flexWrap: { xs: "wrap", md: "nowrap" } }} // ✅ prevent wrapping on laptop views
+            sx={{
+              flexWrap: {
+                xs: "nowrap", // Mobile: no wrap (already column direction)
+                sm: "wrap", // iPad Air/Mini: wrap (2 columns)
+                md: "nowrap", // iPad Pro: no wrap (all in row)
+                lg: "nowrap", // Desktop: no wrap
+              },
+            }}
           >
             {/* Logo + Social Media */}
-            <Grid item xs={12} md={2.4}>
+            <Grid
+              item
+              xs={12}
+              sm={12} // iPad Air/Mini: Full width
+              md={12} // iPad Pro: Full width (4 link columns in row below)
+              lg={2.4} // Desktop: Original layout
+            >
               <SectionWrapper>
-                <Box sx={{ mb: 5 }}>
+                <Box sx={{ mb: 5, py: 0.5 }}>
                   <Typography
                     variant="h4"
                     sx={{
                       color: theme.palette.secondary.contrastText,
                       fontWeight: "bold",
-                      fontSize: { xs: "2.2rem", md: "2rem" },
+                      fontSize: {
+                        xs: "1 rem",
+                        sm: "1rem",
+                        md: "2rem",
+                        lg: "2rem",
+                      },
                       letterSpacing: "0.1em",
                       mb: 1,
                     }}
@@ -175,7 +225,12 @@ export default function Footer() {
                   <Typography
                     sx={{
                       color: theme.palette.secondary.contrastText,
-                      fontSize: { xs: "1.1rem", md: "1.2rem" },
+                      fontSize: {
+                        xs: "1.1rem",
+                        sm: "0.9rem",
+                        md: "1.2rem",
+                        lg: "1.2rem",
+                      },
                       letterSpacing: "0.2em",
                       opacity: 0.8,
                     }}
@@ -260,8 +315,18 @@ export default function Footer() {
           <Box
             sx={{
               borderTop: "1px solid rgba(255,255,255,0.2)",
-              mt: 6,
-              pt: 4,
+              mt: {
+                xs: 6, // Mobile: margin
+                sm: 6, // iPad Air/Mini: margin
+                md: 5, // iPad Pro: margin
+                lg: 6, // Desktop: original margin
+              },
+              pt: {
+                xs: 4, // Mobile: padding
+                sm: 4, // iPad Air/Mini: padding
+                md: 4, // iPad Pro: padding
+                lg: 4, // Desktop: original padding
+              },
               textAlign: "center",
             }}
           >
@@ -270,8 +335,18 @@ export default function Footer() {
               sx={{
                 color: theme.palette.secondary.contrastText,
                 opacity: 0.8,
-                fontSize: { xs: "0.9rem", md: "1rem" },
-                mb: { xs: -4, md: -6 },
+                fontSize: {
+                  xs: "0.9rem",
+                  sm: "0.95rem",
+                  md: "1rem",
+                  lg: "1rem",
+                },
+                mb: {
+                  xs: -4,
+                  sm: -4,
+                  md: -5,
+                  lg: -6,
+                },
               }}
             >
               © 2025 Kalakruti Studio. All rights reserved.

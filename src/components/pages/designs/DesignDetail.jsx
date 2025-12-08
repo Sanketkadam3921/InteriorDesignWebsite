@@ -345,41 +345,6 @@ export default function DesignDetail() {
               {design.specifications && Object.keys(design.specifications).length > 0 && (
                 <Box sx={{ mb: 3 }}>
                   <Stack spacing={2}>
-                    {/* Colors */}
-                    {(design.specifications.colorScheme || design.specifications.color) && (
-                      <Box>
-                        <Typography
-                          variant="subtitle2"
-                          sx={{
-                            fontWeight: 600,
-                            color: theme.palette.text.secondary,
-                            mb: 1,
-                            textTransform: "uppercase",
-                            letterSpacing: 0.5,
-                            fontSize: "0.75rem",
-                          }}
-                        >
-                          Colors
-                        </Typography>
-                        <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-                          {(design.specifications.colorScheme || design.specifications.color)
-                            .split(/[,&]/)
-                            .map((color, index) => (
-                              <Chip
-                                key={index}
-                                label={color.trim()}
-                                size="small"
-                                sx={{
-                                  backgroundColor: theme.palette.grey[100],
-                                  color: theme.palette.text.primary,
-                                  fontWeight: 500,
-                                }}
-                              />
-                            ))}
-                        </Box>
-                      </Box>
-                    )}
-
                     {/* Style */}
                     {design.specifications.style && (
                       <Box>
@@ -405,6 +370,41 @@ export default function DesignDetail() {
                         >
                           {design.specifications.style}
                         </Typography>
+                      </Box>
+                    )}
+
+                    {/* Color */}
+                    {(design.specifications.colorScheme || design.specifications.color) && (
+                      <Box>
+                        <Typography
+                          variant="subtitle2"
+                          sx={{
+                            fontWeight: 600,
+                            color: theme.palette.text.secondary,
+                            mb: 1,
+                            textTransform: "uppercase",
+                            letterSpacing: 0.5,
+                            fontSize: "0.75rem",
+                          }}
+                        >
+                          Color
+                        </Typography>
+                        <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+                          {(design.specifications.colorScheme || design.specifications.color)
+                            .split(/[,&]/)
+                            .map((color, index) => (
+                              <Chip
+                                key={index}
+                                label={color.trim()}
+                                size="small"
+                                sx={{
+                                  backgroundColor: theme.palette.grey[100],
+                                  color: theme.palette.text.primary,
+                                  fontWeight: 500,
+                                }}
+                              />
+                            ))}
+                        </Box>
                       </Box>
                     )}
 
@@ -436,35 +436,7 @@ export default function DesignDetail() {
                       </Box>
                     )}
 
-                    {/* Area */}
-                    {design.specifications.area && (
-                      <Box>
-                        <Typography
-                          variant="subtitle2"
-                          sx={{
-                            fontWeight: 600,
-                            color: theme.palette.text.secondary,
-                            mb: 1,
-                            textTransform: "uppercase",
-                            letterSpacing: 0.5,
-                            fontSize: "0.75rem",
-                          }}
-                        >
-                          Area
-                        </Typography>
-                        <Typography
-                          variant="body2"
-                          sx={{
-                            color: theme.palette.text.primary,
-                            fontWeight: 500,
-                          }}
-                        >
-                          {design.specifications.area}
-                        </Typography>
-                      </Box>
-                    )}
-
-                    {/* Lighting */}
+                    {/* Lightings */}
                     {design.specifications.lighting && (
                       <Box>
                         <Typography
@@ -478,7 +450,7 @@ export default function DesignDetail() {
                             fontSize: "0.75rem",
                           }}
                         >
-                          Lighting
+                          Lightings
                         </Typography>
                         <Typography
                           variant="body2"
@@ -516,6 +488,34 @@ export default function DesignDetail() {
                           }}
                         >
                           {design.specifications.furniture}
+                        </Typography>
+                      </Box>
+                    )}
+
+                    {/* Area - Additional field (if exists) */}
+                    {design.specifications.area && (
+                      <Box>
+                        <Typography
+                          variant="subtitle2"
+                          sx={{
+                            fontWeight: 600,
+                            color: theme.palette.text.secondary,
+                            mb: 1,
+                            textTransform: "uppercase",
+                            letterSpacing: 0.5,
+                            fontSize: "0.75rem",
+                          }}
+                        >
+                          Area
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            color: theme.palette.text.primary,
+                            fontWeight: 500,
+                          }}
+                        >
+                          {design.specifications.area}
                         </Typography>
                       </Box>
                     )}

@@ -47,6 +47,8 @@ export default function WhyChoose() {
                         <Box sx={{ width: '100%', maxWidth: '100%' }}>
                             <WhyChooseItem
                                 title={item.title}
+                                icon={item.icon}
+                                iconUrl={item.iconUrl}
                             />
                         </Box>
                     </Grid>

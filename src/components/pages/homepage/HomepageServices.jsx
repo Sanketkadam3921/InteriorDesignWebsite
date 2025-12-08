@@ -35,21 +35,20 @@ export default function HomeServices() {
       title: "Modular Interiors",
       description: "Functional kitchen, wardrobe and storage",
       image:
-        "https://ik.imagekit.io/bowr9614/HomePage_Hero/Home%20Page%204%20Images%20Below%20Hero%20Section/modern-black-white-kitchen-interior-with-wood-countertops.jpg",
+        "https://ik.imagekit.io/bowr9614/HomePage_Hero/Home%20Page%204%20Images%20Below%20Hero%20Section/small-kitchen-space-with-modern-design.jpg",
       path: "/offerings/modular-interiors",
     },
     {
       title: "Full Home Interiors",
       description: "Turnkey interior solutions for your home",
       image:
-        "https://ik.imagekit.io/bowr9614/HomePage_Hero/Home%20Page%204%20Images%20Below%20Hero%20Section/Living_Room.jpg",
+        "https://ik.imagekit.io/bowr9614/HomePage_Hero/Home%20Page%204%20Images%20Below%20Hero%20Section/4image.jpg",
       path: "/designs/full-home-interiors",
     },
     {
       title: "Luxury Interiors",
       description: "Tailored interiors that redefine elegance",
-      image:
-        "https://ik.imagekit.io/bowr9614/HomePage_Hero/Home%20Page%204%20Images%20Below%20Hero%20Section/luxurious-modern-living-room-with-dark-accents.jpg",
+      image: "https://ik.imagekit.io/bowr9614/Luxury%20Interior/lluuxxrryy.jpg",
       path: "/designs/luxury-interiors",
     },
     {

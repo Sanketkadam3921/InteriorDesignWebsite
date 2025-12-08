@@ -25,9 +25,24 @@ export default function WardrobeLengthSelection() {
     if (isNaN(numValue) || numValue <= 0) {
       return `${field} must be a positive number`;
     }
-    if (numValue > 50) {
-      return `${field} cannot exceed 50 feet`;
+    
+    // Field-specific validation
+    if (field === "Length") {
+      if (numValue < 3) {
+        return `Length must be at least 3 feet`;
+      }
+      if (numValue > 15) {
+        return `Length cannot exceed 15 feet`;
+      }
+    } else if (field === "Height") {
+      if (numValue < 7) {
+        return `Height must be at least 7 feet`;
+      }
+      if (numValue > 15) {
+        return `Height cannot exceed 15 feet`;
+      }
     }
+    
     return "";
   };
 
@@ -124,8 +139,8 @@ export default function WardrobeLengthSelection() {
               value={length}
               onChange={handleLengthChange}
               error={!!errors.length}
-              helperText={errors.length || "Enter the width/length of your wardrobe"}
-              inputProps={{ min: 0.1, max: 50, step: 0.1 }}
+              helperText={errors.length || "Enter the width/length of your wardrobe (Min: 3 ft, Max: 15 ft)"}
+              inputProps={{ min: 3, max: 15, step: 0.1 }}
               sx={{ mb: 3 }}
             />
 
@@ -137,8 +152,8 @@ export default function WardrobeLengthSelection() {
               value={height}
               onChange={handleHeightChange}
               error={!!errors.height}
-              helperText={errors.height || "Enter the height of your wardrobe"}
-              inputProps={{ min: 0.1, max: 50, step: 0.1 }}
+              helperText={errors.height || "Enter the height of your wardrobe (Min: 7 ft, Max: 15 ft)"}
+              inputProps={{ min: 7, max: 15, step: 0.1 }}
             />
           </CardContent>
         </Card>

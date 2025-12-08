@@ -52,18 +52,23 @@ export const WHY_CHOOSE_ITEMS = [
   {
     id: 1,
     title: "Tailor-Made Designs",
+    icon: "DesignServices", // Material-UI icon name
   },
   {
     id: 2,
     title: "Faster Installation",
+    icon: "Speed", // Material-UI icon name
   },
   {
     id: 3,
     title: "Smart Space Utilization",
+    icon: "SpaceDashboard", // Material-UI icon name
   },
   {
     id: 4,
     title: "Transparent Pricing",
+    icon: "PriceCheck", // Material-UI icon name
+    iconUrl: "https://cdn-icons-png.flaticon.com/128/1521/1521875.png", // Custom icon URL
   },
 ];
 

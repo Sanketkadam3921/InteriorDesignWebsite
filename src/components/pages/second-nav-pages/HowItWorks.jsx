@@ -462,127 +462,7 @@ export default function HowItWorks() {
         </Container>
       </Box>
 
-      {/* Process Steps Sections */}
-      {steps.map((step, index) => (
-        <Box
-          key={step.id}
-          sx={{
-            py: { xs: 6, md: 10 },
-            backgroundColor:
-              index % 2 === 0
-                ? theme.palette.background.default
-                : theme.palette.background.paper,
-            textAlign: "left",
-            px: { xs: 3, sm: 4, md: 6 },
-          }}
-        >
-          <Container maxWidth="lg" sx={{ px: 0 }}>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                gap: { xs: 4, md: 6 },
-                minHeight: "400px",
-                [theme.breakpoints.down("md")]: {
-                  flexDirection: "column",
-                  textAlign: "center",
-                },
-              }}
-            >
-              {/* Left Side - Illustration (alternates based on index) */}
-              <Box
-                sx={{
-                  flex: "0 0 50%",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  order: index % 2 === 0 ? 1 : 2,
-                  [theme.breakpoints.down("md")]: {
-                    flex: "none",
-                    width: "100%",
-                    order: 1,
-                  },
-                }}
-              >
-                <Box
-                  sx={{
-                    width: "100%",
-                    maxWidth: "350px",
-                    height: "250px",
-                    borderRadius: "12px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    position: "relative",
-                    overflow: "hidden",
-                    boxShadow: "0 4px 16px rgba(0, 0, 0, 0.08)",
-                  }}
-                >
-                  <img
-                    src={step.image}
-                    alt={`${step.title} illustration`}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      borderRadius: "12px",
-                    }}
-                  />
-                </Box>
-              </Box>
-
-              {/* Right Side - Process Step Content */}
-              <Box
-                sx={{
-                  flex: "0 0 50%",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  order: index % 2 === 0 ? 2 : 1,
-                  [theme.breakpoints.down("md")]: {
-                    flex: "none",
-                    width: "100%",
-                    order: 2,
-                  },
-                }}
-              >
-                <Typography
-                  variant="h3"
-                  component="h2"
-                  sx={{
-                    fontSize: { xs: "1.5rem", md: "1.8rem" },
-                    fontWeight: 700,
-                    color: theme.palette.text.primary,
-                    mb: 3,
-                  }}
-                >
-                  {step.title}
-                </Typography>
-
-                <ProcessStep>
-                  <StepBullet />
-                  <Box sx={{ flex: 1 }}>
-                    <Typography
-                      variant="body1"
-                      sx={{
-                        color: theme.palette.text.secondary,
-                        lineHeight: 1.6,
-                        fontSize: { xs: "0.9rem", md: "1rem" },
-                      }}
-                    >
-                      {step.description}
-                    </Typography>
-                  </Box>
-                </ProcessStep>
-              </Box>
-            </Box>
-          </Container>
-        </Box>
-      ))}
-
-      {/* Success Banner */}
-
-      {/* Main Content Section */}
+      {/* Working Process Section */}
       <Box
         sx={{
           py: { xs: 6, md: 10 },
@@ -732,6 +612,126 @@ export default function HowItWorks() {
           <Box sx={{ textAlign: "center" }}></Box>
         </Container>
       </Box>
+
+      {/* Process Steps Sections */}
+      {steps.map((step, index) => (
+        <Box
+          key={step.id}
+          sx={{
+            py: { xs: 6, md: 10 },
+            backgroundColor:
+              index % 2 === 0
+                ? theme.palette.background.default
+                : theme.palette.background.paper,
+            textAlign: "left",
+            px: { xs: 3, sm: 4, md: 6 },
+          }}
+        >
+          <Container maxWidth="lg" sx={{ px: 0 }}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: { xs: 4, md: 6 },
+                minHeight: "400px",
+                [theme.breakpoints.down("md")]: {
+                  flexDirection: "column",
+                  textAlign: "center",
+                },
+              }}
+            >
+              {/* Left Side - Illustration (alternates based on index) */}
+              <Box
+                sx={{
+                  flex: "0 0 50%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  order: index % 2 === 0 ? 1 : 2,
+                  [theme.breakpoints.down("md")]: {
+                    flex: "none",
+                    width: "100%",
+                    order: 1,
+                  },
+                }}
+              >
+                <Box
+                  sx={{
+                    width: "100%",
+                    maxWidth: "350px",
+                    height: "250px",
+                    borderRadius: "12px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    position: "relative",
+                    overflow: "hidden",
+                    boxShadow: "0 4px 16px rgba(0, 0, 0, 0.08)",
+                  }}
+                >
+                  <img
+                    src={step.image}
+                    alt={`${step.title} illustration`}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      borderRadius: "12px",
+                    }}
+                  />
+                </Box>
+              </Box>
+
+              {/* Right Side - Process Step Content */}
+              <Box
+                sx={{
+                  flex: "0 0 50%",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  order: index % 2 === 0 ? 2 : 1,
+                  [theme.breakpoints.down("md")]: {
+                    flex: "none",
+                    width: "100%",
+                    order: 2,
+                  },
+                }}
+              >
+                <Typography
+                  variant="h3"
+                  component="h2"
+                  sx={{
+                    fontSize: { xs: "1.5rem", md: "1.8rem" },
+                    fontWeight: 700,
+                    color: theme.palette.text.primary,
+                    mb: 3,
+                  }}
+                >
+                  {step.title}
+                </Typography>
+
+                <ProcessStep>
+                  <StepBullet />
+                  <Box sx={{ flex: 1 }}>
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        color: theme.palette.text.secondary,
+                        lineHeight: 1.6,
+                        fontSize: { xs: "0.9rem", md: "1rem" },
+                      }}
+                    >
+                      {step.description}
+                    </Typography>
+                  </Box>
+                </ProcessStep>
+              </Box>
+            </Box>
+          </Container>
+        </Box>
+      ))}
+
+      {/* Success Banner */}
 
       {/* Understand Your Order Types Section */}
 

@@ -14,7 +14,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 const kitchenPackages = [
   {
     id: "essentials",
-    title: "Basic",
+    title: "Essentials",
     priceRange: "₹1,500 - ₹2,500",
     pricePerSqft: "per sqft",
     features: ["Low cost", "Basic units", "Standard finish"],

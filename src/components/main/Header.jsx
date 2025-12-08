@@ -90,6 +90,7 @@ export default function Header() {
 
   const navigationItems = [
     { label: "Home", path: "/" },
+    { label: "About Us", path: "/aboutus" },
     { label: "Projects", path: "/projects" },
     {
       label: "Designs",
@@ -120,7 +121,6 @@ export default function Header() {
     { label: "Price Calculators", dropdown: priceCalculatorsDropdown },
     // { label: "FAQs", path: "/faq" },
     { label: "Contact", path: "/contact" },
-    { label: "About Us", path: "/aboutus" },
   ];
 
   const handleMobileNavClick = (path) => {
@@ -171,6 +171,28 @@ export default function Header() {
               primaryTypographyProps={{
                 fontWeight: location.pathname === "/" ? "bold" : "500",
                 color: location.pathname === "/" ? "#1976d2" : "#333",
+              }}
+            />
+          </ListItemButton>
+        </ListItem>
+
+        {/* About Us */}
+        <ListItem disablePadding>
+          <ListItemButton
+            onClick={() => handleMobileNavClick("/aboutus")}
+            sx={{
+              borderRadius: 1,
+              mb: 0.5,
+              backgroundColor:
+                location.pathname === "/aboutus" ? "#f0f0f0" : "transparent",
+              "&:hover": { backgroundColor: "#f5f5f5" },
+            }}
+          >
+            <ListItemText
+              primary="About Us"
+              primaryTypographyProps={{
+                fontWeight: location.pathname === "/aboutus" ? "bold" : "500",
+                color: location.pathname === "/aboutus" ? "#1976d2" : "#333",
               }}
             />
           </ListItemButton>
@@ -448,28 +470,6 @@ export default function Header() {
               primaryTypographyProps={{
                 fontWeight: location.pathname === "/contact" ? "bold" : "500",
                 color: location.pathname === "/contact" ? "#1976d2" : "#333",
-              }}
-            />
-          </ListItemButton>
-        </ListItem>
-
-        {/* About Us */}
-        <ListItem disablePadding>
-          <ListItemButton
-            onClick={() => handleMobileNavClick("/aboutus")}
-            sx={{
-              borderRadius: 1,
-              mb: 0.5,
-              backgroundColor:
-                location.pathname === "/aboutus" ? "#f0f0f0" : "transparent",
-              "&:hover": { backgroundColor: "#f5f5f5" },
-            }}
-          >
-            <ListItemText
-              primary="About Us"
-              primaryTypographyProps={{
-                fontWeight: location.pathname === "/aboutus" ? "bold" : "500",
-                color: location.pathname === "/aboutus" ? "#1976d2" : "#333",
               }}
             />
           </ListItemButton>
