@@ -14,7 +14,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 const wardrobePackages = [
   {
     id: "basic",
-    title: "Basic",
+    title: "Essentials",
     priceRange: "₹1,200 - ₹2,000",
     priceRangeSwing: "₹1,000 - ₹1,800",
     pricePerSqft: "per sqft",
@@ -128,10 +128,10 @@ export default function WardrobePackageSelection() {
           <Box
             sx={{
               display: "grid",
-              gridTemplateColumns: { 
-                xs: "1fr", 
-                sm: "repeat(2, 1fr)", 
-                md: "repeat(3, 1fr)" 
+              gridTemplateColumns: {
+                xs: "1fr",
+                sm: "repeat(2, 1fr)",
+                md: "repeat(3, 1fr)",
               },
               gap: 2,
             }}

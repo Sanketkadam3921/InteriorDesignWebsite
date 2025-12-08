@@ -13,7 +13,10 @@ import {
   CircularProgress,
 } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
-import { calculateWardrobeEstimate, submitWardrobeEstimate } from "../../../../services/api/wardrobeCalculatorApi";
+import {
+  calculateWardrobeEstimate,
+  submitWardrobeEstimate,
+} from "../../../../services/api/wardrobeCalculatorApi";
 
 // 🔴 Red asterisk for required fields
 const RedAsteriskTextField = styled(TextField)({
@@ -154,7 +157,6 @@ export default function WardrobeEstimateForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // re-validate before submit
     Object.entries(formData).forEach(([key, value]) =>
       validateField(key, value)
     );
@@ -170,6 +172,7 @@ export default function WardrobeEstimateForm() {
 
     try {
       setLoading(true);
+
       const searchParams = new URLSearchParams(location.search);
 
       const estimatePayload = {
@@ -180,29 +183,50 @@ export default function WardrobeEstimateForm() {
         estimatedPrice: estimateData.totalPrice,
       };
 
-      const result = await submitWardrobeEstimate({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        propertyName: formData.propertyName,
-        whatsappUpdates: false,
-        estimate: estimatePayload,
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "1c21fc37-1fc4-4734-a82f-0a647e166aef",
+
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          propertyName: formData.propertyName,
+
+          message: `
+Wardrobe Estimate Details:
+Length: ${estimatePayload.length}
+Height: ${estimatePayload.height}
+Type: ${estimatePayload.type}
+Package: ${estimatePayload.package}
+Estimated Price: ₹${estimatePayload.estimatedPrice}
+        `,
+        }),
       });
 
+      const result = await response.json();
+
+      if (!result.success) {
+        throw new Error("Form submission failed");
+      }
+
       setSubmitted(true);
-      
+
       setToast({
         open: true,
-        message: `${result.message || "Your wardrobe estimate has been submitted successfully!"} Estimated Price: ₹${estimatedPrice.toLocaleString()}`,
+        message: `Your estimate has been submitted successfully! Estimated Price: ₹${estimatedPrice.toLocaleString()}`,
         severity: "success",
       });
 
-      setTimeout(() => navigate("/"), 2000);
+      setTimeout(() => navigate("/"), 10000);
     } catch (error) {
       console.error(error);
       setToast({
         open: true,
-        message: error.message || "Something went wrong. Please try again.",
+        message: "Something went wrong. Please try again.",
         severity: "error",
       });
     } finally {
@@ -219,7 +243,14 @@ export default function WardrobeEstimateForm() {
 
   if (calculating) {
     return (
-      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "50vh" }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "50vh",
+        }}
+      >
         <CircularProgress />
       </Box>
     );

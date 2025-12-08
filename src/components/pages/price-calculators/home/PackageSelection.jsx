@@ -30,7 +30,7 @@ const packages = [
   },
   {
     id: "luxe",
-    title: "Luxe",
+    title: "Luxury",
 
     features: ["High cost", "Luxury design", "Elite finish"],
     image:
@@ -115,10 +115,10 @@ export default function PackageSelection() {
           <Box
             sx={{
               display: "grid",
-              gridTemplateColumns: { 
-                xs: "1fr", 
-                sm: "repeat(2, 1fr)", 
-                md: "repeat(3, 1fr)" 
+              gridTemplateColumns: {
+                xs: "1fr",
+                sm: "repeat(2, 1fr)",
+                md: "repeat(3, 1fr)",
               },
               gap: 2,
             }}

@@ -13,7 +13,7 @@ import {
   CircularProgress,
 } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
-import { calculateKitchenEstimate, submitKitchenEstimate } from "../../../../services/api/kitchenCalculatorApi";
+import { calculateKitchenEstimate } from "../../../../services/api/kitchenCalculatorApi";
 
 // 🔴 Required field styling
 const RedAsteriskTextField = styled(TextField)({
@@ -86,7 +86,7 @@ export default function KitchenEstimateForm() {
         // For l-shaped and parallel: B is required
         // For u-shaped: B and C are required
         // For straight: only A is needed
-        if (layout === 'l-shaped' || layout === 'parallel') {
+        if (layout === "l-shaped" || layout === "parallel") {
           if (B && !isNaN(B) && B > 0) {
             requestData.B = B;
           } else {
@@ -94,7 +94,7 @@ export default function KitchenEstimateForm() {
             setCalculating(false);
             return;
           }
-        } else if (layout === 'u-shaped') {
+        } else if (layout === "u-shaped") {
           if (B && !isNaN(B) && B > 0 && C && !isNaN(C) && C > 0) {
             requestData.B = B;
             requestData.C = C;
@@ -106,7 +106,7 @@ export default function KitchenEstimateForm() {
         }
         // For straight layout, we don't need to add B or C
 
-        console.log('Sending kitchen estimate request:', requestData);
+        console.log("Sending kitchen estimate request:", requestData);
         const result = await calculateKitchenEstimate(requestData);
 
         setEstimateData({
@@ -121,7 +121,8 @@ export default function KitchenEstimateForm() {
         console.error("Error calculating estimate:", error);
         setToast({
           open: true,
-          message: error.message || "Error calculating estimate. Please try again.",
+          message:
+            error.message || "Error calculating estimate. Please try again.",
           severity: "error",
         });
         // Set default estimate data to prevent rendering issues
@@ -196,7 +197,7 @@ export default function KitchenEstimateForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // validate all
+    // validate all fields again
     Object.entries(formData).forEach(([k, v]) => validateField(k, v));
 
     if (!isFormValid()) {
@@ -210,6 +211,7 @@ export default function KitchenEstimateForm() {
 
     try {
       setLoading(true);
+
       const params = new URLSearchParams(location.search);
 
       const estimatePayload = {
@@ -221,29 +223,53 @@ export default function KitchenEstimateForm() {
         estimatedPrice: estimateData.totalPrice,
       };
 
-      const result = await submitKitchenEstimate({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        city: formData.propertyName, // Using propertyName as city
-        message: null,
-        estimate: estimatePayload,
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "1c21fc37-1fc4-4734-a82f-0a647e166aef",
+
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          propertyName: formData.propertyName,
+
+          message: `
+Kitchen Estimate Details:
+
+Layout: ${estimatePayload.layout}
+A: ${estimatePayload.A}
+B: ${estimatePayload.B}
+C: ${estimatePayload.C}
+Package: ${estimatePayload.package}
+
+Estimated Price: ₹${estimatePayload.estimatedPrice}
+        `,
+        }),
       });
 
+      const result = await response.json();
+
+      if (!result.success) {
+        throw new Error("Web3Forms submission failed");
+      }
+
       setSubmitted(true);
-      
+
       setToast({
         open: true,
-        message: `${result.message || "Your kitchen estimate has been submitted!"} Estimated Price: ₹${estimateData.totalPrice.toLocaleString()}`,
+        message: `Your kitchen estimate has been submitted successfully! Estimated Price: ₹${estimateData.totalPrice.toLocaleString()}`,
         severity: "success",
       });
 
-      setTimeout(() => navigate("/"), 2000);
+      setTimeout(() => navigate("/"), 10000);
     } catch (err) {
       console.error(err);
       setToast({
         open: true,
-        message: err.message || "Something went wrong. Please try again.",
+        message: "Something went wrong. Please try again.",
         severity: "error",
       });
     } finally {
@@ -259,7 +285,14 @@ export default function KitchenEstimateForm() {
 
   if (calculating) {
     return (
-      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "50vh" }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "50vh",
+        }}
+      >
         <CircularProgress />
       </Box>
     );

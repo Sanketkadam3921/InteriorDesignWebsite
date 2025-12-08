@@ -13,7 +13,7 @@ import {
   CircularProgress,
 } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
-import { calculateHomeEstimate, submitHomeEstimate } from "../../../../services/api/homeCalculatorApi";
+import { calculateHomeEstimate } from "../../../../services/api/homeCalculatorApi";
 
 // 🔴 Required field styling
 const RedAsteriskTextField = styled(TextField)({
@@ -58,11 +58,41 @@ export default function EstimateForm() {
 
         // Default room counts based on BHK type
         const defaultRooms = {
-          "1bhk": { livingRoom: 1, kitchen: 1, bedroom: 1, bathroom: 1, dining: 0 },
-          "2bhk": { livingRoom: 1, kitchen: 1, bedroom: 2, bathroom: 2, dining: 0 },
-          "3bhk": { livingRoom: 1, kitchen: 1, bedroom: 3, bathroom: 2, dining: 1 },
-          "4bhk": { livingRoom: 1, kitchen: 1, bedroom: 4, bathroom: 3, dining: 1 },
-          "5bhk": { livingRoom: 1, kitchen: 1, bedroom: 5, bathroom: 4, dining: 1 },
+          "1bhk": {
+            livingRoom: 1,
+            kitchen: 1,
+            bedroom: 1,
+            bathroom: 1,
+            dining: 0,
+          },
+          "2bhk": {
+            livingRoom: 1,
+            kitchen: 1,
+            bedroom: 2,
+            bathroom: 2,
+            dining: 0,
+          },
+          "3bhk": {
+            livingRoom: 1,
+            kitchen: 1,
+            bedroom: 3,
+            bathroom: 2,
+            dining: 1,
+          },
+          "4bhk": {
+            livingRoom: 1,
+            kitchen: 1,
+            bedroom: 4,
+            bathroom: 3,
+            dining: 1,
+          },
+          "5bhk": {
+            livingRoom: 1,
+            kitchen: 1,
+            bedroom: 5,
+            bathroom: 4,
+            dining: 1,
+          },
         };
 
         const rooms = defaultRooms[bhk] || defaultRooms["2bhk"];
@@ -190,50 +220,113 @@ export default function EstimateForm() {
 
       // Default room counts based on BHK type
       const defaultRooms = {
-        "1bhk": { livingRoom: 1, kitchen: 1, bedroom: 1, bathroom: 1, dining: 0 },
-        "2bhk": { livingRoom: 1, kitchen: 1, bedroom: 2, bathroom: 2, dining: 0 },
-        "3bhk": { livingRoom: 1, kitchen: 1, bedroom: 3, bathroom: 2, dining: 1 },
-        "4bhk": { livingRoom: 1, kitchen: 1, bedroom: 4, bathroom: 3, dining: 1 },
-        "5bhk": { livingRoom: 1, kitchen: 1, bedroom: 5, bathroom: 4, dining: 1 },
+        "1bhk": {
+          livingRoom: 1,
+          kitchen: 1,
+          bedroom: 1,
+          bathroom: 1,
+          dining: 0,
+        },
+        "2bhk": {
+          livingRoom: 1,
+          kitchen: 1,
+          bedroom: 2,
+          bathroom: 2,
+          dining: 0,
+        },
+        "3bhk": {
+          livingRoom: 1,
+          kitchen: 1,
+          bedroom: 3,
+          bathroom: 2,
+          dining: 1,
+        },
+        "4bhk": {
+          livingRoom: 1,
+          kitchen: 1,
+          bedroom: 4,
+          bathroom: 3,
+          dining: 1,
+        },
+        "5bhk": {
+          livingRoom: 1,
+          kitchen: 1,
+          bedroom: 5,
+          bathroom: 4,
+          dining: 1,
+        },
       };
 
       const rooms = defaultRooms[bhk] || defaultRooms["2bhk"];
 
       const estimateData = {
         bhk: bhk,
-        size: null, // Size removed for 3BHK and 4BHK
         package: searchParams.get("package"),
-        rooms: rooms,
+        livingRoom: rooms.livingRoom,
+        kitchen: rooms.kitchen,
+        bedroom: rooms.bedroom,
+        bathroom: rooms.bathroom,
+        dining: rooms.dining,
         estimatedPrice: estimatedPrice,
         priceRange: priceRange,
       };
 
-      const result = await submitHomeEstimate({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        propertyName: formData.propertyName,
-        estimate: estimateData,
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "1c21fc37-1fc4-4734-a82f-0a647e166aef",
+
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          propertyName: formData.propertyName,
+
+          message: `
+Home Interior Estimate Details:
+
+BHK: ${estimateData.bhk}
+Package: ${estimateData.package}
+
+Rooms:
+Living Room: ${estimateData.livingRoom}
+Kitchen: ${estimateData.kitchen}
+Bedroom: ${estimateData.bedroom}
+Bathroom: ${estimateData.bathroom}
+Dining: ${estimateData.dining}
+
+Estimated Price: ₹${estimatedPrice.toLocaleString()}
+Price Range: ${priceRange?.displayRange || "N/A"}
+        `,
+        }),
       });
 
+      const result = await response.json();
+
+      if (!result.success) {
+        throw new Error("Web3Forms submission failed");
+      }
+
       setSubmitted(true);
-      
-      const priceDisplay = priceRange && priceRange.displayRange 
-        ? priceRange.displayRange 
+
+      const priceDisplay = priceRange?.displayRange
+        ? priceRange.displayRange
         : `₹${estimatedPrice.toLocaleString()}`;
-      
+
       setToast({
         open: true,
-        message: `${result.message || "Your estimate has been submitted successfully."} Estimated Price: ${priceDisplay}`,
+        message: `Your estimate has been submitted successfully! Estimated Price: ${priceDisplay}`,
         severity: "success",
       });
 
-      setTimeout(() => navigate("/"), 2000);
+      setTimeout(() => navigate("/"), 10000);
     } catch (err) {
       console.error(err);
       setToast({
         open: true,
-        message: err.message || "Something went wrong. Please try again.",
+        message: "Something went wrong. Please try again.",
         severity: "error",
       });
     } finally {
