@@ -4,11 +4,9 @@ import Layout from "../layout/Layout";
 import ScrollToTop from "../common/ScrollToTop";
 import HomePage from "../pages/homepage/HomePage";
 import ProjectsList from "../pages/projects/ProjectsList";
-import DesignList from "../pages/designs/DesignList";
 import AllDesigns from "../pages/designs/AllDesigns";
 import DesignDetail from "../pages/designs/DesignDetail";
 import DesignGallery from "../pages/designs/DesignGallery";
-import DesignCategories from "../pages/designs/DesignCategories";
 import DesignCategory from "../pages/designs/DesignCatergory";
 import ContactForm from "../pages/enquiries/ContactForm";
 import ProjectDetail from "../pages/projects/ProjectDetail";
@@ -76,7 +74,6 @@ export default function AppRoutes() {
           />
 
           <Route path="designs" element={<AllDesigns />} />
-          <Route path="designs/categories" element={<DesignCategories />} />
           <Route path="designs/:category" element={<DesignCategory />} />
           <Route path="designs/:category/:id" element={<DesignDetail />} />
           <Route

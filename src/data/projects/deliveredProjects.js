@@ -607,4 +607,210 @@ export const deliveredProjectsDetails = {
     longDescription:
       "This modern modular kitchen features a refreshing blend of mint-green lower cabinets with white high-gloss overhead storage...",
   },
+
+  "delivered-13": {
+    title: "Contemporary Living Room With Modern TV Unit & Ambient Design",
+    description:
+      "A sophisticated living room featuring a modern TV unit with ambient lighting, premium seating, and elegant décor elements.",
+    location: "Pune",
+    budget: "₹4 - ₹6 Lakhs",
+    area: "200 sq ft (Living Room)",
+    style: "Contemporary | Modern | Elegant",
+    images: [
+      "/INTERIOR_DESIGN_IMAGES/Project_13/IMG_4397.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_13/IMG_4398.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_13/IMG_4399.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_13/IMG_4400.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_13/IMG_4401.JPG",
+    ],
+    longDescription:
+      "This contemporary living room is designed to create a perfect balance of style and comfort. The space features a modern TV unit with integrated lighting, premium furniture, and carefully curated décor elements that enhance the overall ambiance.",
+  },
+
+  "delivered-14": {
+    title: "Elegant Master Bedroom With Premium Wardrobe & Luxe Finishes",
+    description:
+      "A luxurious master bedroom featuring a premium wardrobe with modern finishes, elegant furniture, and sophisticated design elements.",
+    location: "Pune",
+    budget: "₹4.5 - ₹6 Lakhs",
+    area: "160 sq ft (Master Bedroom)",
+    style: "Modern Luxury | Elegant | Premium",
+    images: [
+      "/INTERIOR_DESIGN_IMAGES/Project_14/IMG_4402.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_14/IMG_4403.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_14/IMG_4404.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_14/IMG_4405.JPG",
+    ],
+    longDescription:
+      "This elegant master bedroom showcases premium design with a sophisticated wardrobe, luxurious finishes, and carefully selected furniture pieces that create a serene and opulent retreat.",
+  },
+
+  "delivered-15": {
+    title: "Modern Modular Kitchen With Sleek Design & Premium Appliances",
+    description:
+      "A state-of-the-art modular kitchen featuring sleek cabinetry, premium appliances, and intelligent storage solutions for modern living.",
+    location: "Pune",
+    budget: "₹4.5 - ₹6.5 Lakhs",
+    area: "110 sq ft (Modular Kitchen)",
+    style: "Modern | Sleek | Premium",
+    images: [
+      "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4406.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4407.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4408.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4409.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4410.JPG",
+    ],
+    longDescription:
+      "This modern modular kitchen combines sleek design aesthetics with premium appliances and intelligent storage solutions. The space is designed for efficiency, functionality, and contemporary elegance.",
+  },
+
+  "delivered-16": {
+    title: "Luxurious Living Room With Marble TV Unit & Modern Décor",
+    description:
+      "A luxurious living room featuring a marble-finish TV unit, premium furniture, and modern décor elements that create an elegant ambiance.",
+    location: "Pune",
+    budget: "₹3.5 - ₹5 Lakhs",
+    area: "180 sq ft (Living Room)",
+    style: "Luxury | Modern | Marble Accents",
+    images: [
+      "/INTERIOR_DESIGN_IMAGES/Project_16/IMG_4411.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_16/IMG_4412.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_16/IMG_4413.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_16/IMG_4414.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_16/IMG_4415.JPG",
+    ],
+    longDescription:
+      "This luxurious living room features a stunning marble-finish TV unit as the centerpiece, complemented by premium furniture and modern décor elements that create an elegant and sophisticated living space.",
+  },
+
+  "delivered-17": {
+    title: "Contemporary Bedroom With Glossy Wardrobe & Neutral Palette",
+    description:
+      "A contemporary bedroom featuring a glossy wardrobe, neutral color palette, and modern furniture that creates a calm and elegant retreat.",
+    location: "Pune",
+    budget: "₹3.5 - ₹5 Lakhs",
+    area: "150 sq ft (Master Bedroom)",
+    style: "Contemporary | Neutral | Modern",
+    images: [
+      "/INTERIOR_DESIGN_IMAGES/Project_17/IMG_4416.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_17/IMG_4417.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_17/IMG_4418.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_17/IMG_4419.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_17/IMG_4420.JPG",
+    ],
+    longDescription:
+      "This contemporary bedroom features a sleek glossy wardrobe and a soothing neutral color palette that creates a serene and elegant atmosphere. The modern furniture and design elements enhance the overall aesthetic.",
+  },
+
+  "delivered-18": {
+    title: "Modern Kitchen Design With High-Gloss Finish & Smart Storage",
+    description:
+      "A modern modular kitchen featuring high-gloss finish, smart storage solutions, and premium countertops designed for efficiency and style.",
+    location: "Pune",
+    budget: "₹4 - ₹6 Lakhs",
+    area: "100 sq ft (Modular Kitchen)",
+    style: "Modern | High-Gloss | Smart Storage",
+    images: [
+      "/INTERIOR_DESIGN_IMAGES/Project_18/IMG_4421.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_18/IMG_4422.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_18/IMG_4423.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_18/IMG_4424.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_18/IMG_4425.JPG",
+    ],
+    longDescription:
+      "This modern kitchen design features a stunning high-gloss finish with intelligent storage solutions that maximize space efficiency. Premium countertops and modern appliances complete this contemporary culinary space.",
+  },
+
+  "delivered-19": {
+    title: "Elegant Bedroom Interior With Custom Wardrobe & Premium Finishes",
+    description:
+      "An elegant bedroom featuring a custom-designed wardrobe, premium finishes, and sophisticated furniture that creates a luxurious sleeping space.",
+    location: "Pune",
+    budget: "₹4 - ₹5.5 Lakhs",
+    area: "155 sq ft (Master Bedroom)",
+    style: "Elegant | Custom Design | Premium",
+    images: [
+      "/INTERIOR_DESIGN_IMAGES/Project_19/IMG_4429.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_19/IMG_4430.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_19/IMG_4431.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_19/IMG_4432.JPG",
+    ],
+    longDescription:
+      "This elegant bedroom interior showcases a custom-designed wardrobe with premium finishes and sophisticated furniture pieces. The design creates a luxurious and comfortable sleeping environment.",
+  },
+
+  "delivered-20": {
+    title: "Contemporary Living Space With Modern TV Unit & Ambient Lighting",
+    description:
+      "A contemporary living space featuring a modern TV unit with ambient lighting, comfortable seating, and stylish décor elements.",
+    location: "Pune",
+    budget: "₹3 - ₹4.5 Lakhs",
+    area: "170 sq ft (Living Room)",
+    style: "Contemporary | Modern | Ambient",
+    images: [
+      "/INTERIOR_DESIGN_IMAGES/Project_20/IMG_4443.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_20/IMG_4444.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_20/IMG_4445.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_20/IMG_4446.JPG",
+    ],
+    longDescription:
+      "This contemporary living space features a modern TV unit enhanced with ambient lighting, creating a warm and inviting atmosphere. Comfortable seating and stylish décor elements complete the design.",
+  },
+
+  "delivered-21": {
+    title: "Premium Modular Kitchen With Dual-Tone Design & Quartz Countertop",
+    description:
+      "A premium modular kitchen featuring a dual-tone design, quartz countertop, and high-end appliances for a luxurious cooking experience.",
+    location: "Pune",
+    budget: "₹5 - ₹7 Lakhs",
+    area: "120 sq ft (Modular Kitchen)",
+    style: "Premium | Dual-Tone | Luxury",
+    images: [
+      "/INTERIOR_DESIGN_IMAGES/Project_21/IMG_4447.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_21/IMG_4448.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_21/IMG_4449.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_21/IMG_4450.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_21/IMG_4451.JPG",
+    ],
+    longDescription:
+      "This premium modular kitchen features an elegant dual-tone design with a luxurious quartz countertop. High-end appliances and intelligent storage solutions make this a perfect culinary workspace.",
+  },
+
+  "delivered-22": {
+    title: "Modern Bedroom Design With Glossy Wardrobe & Cozy Ambiance",
+    description:
+      "A modern bedroom featuring a glossy wardrobe, cozy ambiance, and contemporary furniture that creates a comfortable and stylish retreat.",
+    location: "Pune",
+    budget: "₹3.5 - ₹5 Lakhs",
+    area: "145 sq ft (Master Bedroom)",
+    style: "Modern | Cozy | Contemporary",
+    images: [
+      "/INTERIOR_DESIGN_IMAGES/Project_22/IMG_4452.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_22/IMG_4453.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_22/IMG_4454.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_22/IMG_4455.JPG",
+    ],
+    longDescription:
+      "This modern bedroom design features a sleek glossy wardrobe and creates a cozy ambiance with contemporary furniture. The design balances style and comfort for the perfect sleeping space.",
+  },
+
+  "delivered-23": {
+    title: "Luxurious Living Room With Premium TV Unit & Modern Furnishings",
+    description:
+      "A luxurious living room featuring a premium TV unit, modern furnishings, and elegant décor that creates a sophisticated entertainment space.",
+    location: "Pune",
+    budget: "₹5 - ₹7 Lakhs",
+    area: "220 sq ft (Living Room)",
+    style: "Luxury | Premium | Modern",
+    images: [
+      "/INTERIOR_DESIGN_IMAGES/Project_23/IMG_4465.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_23/IMG_4466.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_23/IMG_4467.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_23/IMG_4468.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_23/IMG_4469.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_23/IMG_4470.JPG",
+    ],
+    longDescription:
+      "This luxurious living room features a premium TV unit as the focal point, complemented by modern furnishings and elegant décor elements. The design creates a sophisticated and inviting space for entertainment and relaxation.",
+  },
 };

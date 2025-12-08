@@ -23,7 +23,7 @@ export default function AllDesigns() {
         "Functional and beautiful kitchens with smart storage solutions",
       image:
         "https://plus.unsplash.com/premium_photo-1683141179507-734e6157ddba?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1631",
-      count: 15,
+      count: 10,
     },
     {
       id: "wardrobe",
@@ -31,7 +31,7 @@ export default function AllDesigns() {
       description: "Customized wardrobes with optimal storage and style",
       image:
         "https://images.unsplash.com/photo-1672137233327-37b0c1049e77?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1074",
-      count: 12,
+      count: 10,
     },
     {
       id: "bathroom",
@@ -47,7 +47,7 @@ export default function AllDesigns() {
       description: "Elegant master bedroom designs for peaceful rest",
       image:
         "https://plus.unsplash.com/premium_photo-1675616563084-eadb7ee3338f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470",
-      count: 18,
+      count: 10,
     },
     {
       id: "living-room",
@@ -55,7 +55,7 @@ export default function AllDesigns() {
       description: "Inviting living spaces for relaxation and entertainment",
       image:
         "https://images.unsplash.com/photo-1600121848594-d8644e57abab?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470",
-      count: 24,
+      count: 10,
     },
     {
       id: "pooja-room",
@@ -63,7 +63,7 @@ export default function AllDesigns() {
       description: "Sacred spaces designed with tradition and elegance",
       image:
         "https://i.pinimg.com/736x/c5/85/de/c585def942f5f23bc3001f1162a517de.jpg",
-      count: 8,
+      count: 10,
     },
     {
       id: "tv-unit",
@@ -71,7 +71,7 @@ export default function AllDesigns() {
       description: "Stylish TV units that enhance your entertainment area",
       image:
         "https://images.unsplash.com/photo-1586024486164-ce9b3d87e09f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=978",
-      count: 14,
+      count: 10,
     },
     {
       id: "false-ceiling",
@@ -79,7 +79,7 @@ export default function AllDesigns() {
       description: "Modern ceiling designs that add dimension and style",
       image:
         "https://i.pinimg.com/736x/e6/f4/ee/e6f4ee2fdb627f5b60d3e3ce6edd6419.jpg",
-      count: 16,
+      count: 10,
     },
     {
       id: "kids-bedroom",
@@ -87,7 +87,7 @@ export default function AllDesigns() {
       description: "Fun and functional spaces for children to grow and play",
       image:
         "https://plus.unsplash.com/premium_photo-1684164600683-6ecb6c9c0eb7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470",
-      count: 11,
+      count: 10,
     },
 
     {
@@ -121,7 +121,7 @@ export default function AllDesigns() {
       description: "Productive workspaces designed for focus and creativity",
       image:
         "https://images.unsplash.com/photo-1497366216548-37526070297c?w=500",
-      count: 13,
+      count: 10,
     },
 
     {
@@ -130,7 +130,7 @@ export default function AllDesigns() {
       description: "Stunning wallpaper designs to transform your walls",
       image:
         "https://i.pinimg.com/1200x/c9/b7/3f/c9b73fa070844a55f2db06b8fc15d0fa.jpg",
-      count: 16,
+      count: 10,
     },
 
     {
@@ -139,7 +139,7 @@ export default function AllDesigns() {
       description: "Focused study spaces for learning and concentration",
       image:
         "https://plus.unsplash.com/premium_photo-1720707755672-fa44f1711954?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1074",
-      count: 9,
+      count: 10,
     },
 
     {
@@ -148,7 +148,7 @@ export default function AllDesigns() {
       description: "Smart solutions to maximize your living space",
       image:
         "https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=500",
-      count: 17,
+      count: 10,
     },
     {
       id: "door",
@@ -156,7 +156,7 @@ export default function AllDesigns() {
       description: "Stylish door designs for every room in your home",
       image:
         "https://i.pinimg.com/736x/ce/27/6d/ce276d9ec8bb0f071f070dbc34ca4ac7.jpg",
-      count: 11,
+      count: 10,
     },
 
     {
@@ -165,7 +165,7 @@ export default function AllDesigns() {
       description: "Display and storage solutions for your dinnerware",
       image:
         "https://i.pinimg.com/736x/24/e0/f6/24e0f640fb8d889590458d05cdf68184.jpg",
-      count: 8,
+      count: 10,
     },
   ];
 

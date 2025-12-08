@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Container,
@@ -10,12 +10,18 @@ import {
   Chip,
   useTheme,
   Stack,
+  Modal,
+  IconButton,
 } from "@mui/material";
 import {
   ArrowBack,
   CheckCircle,
   LocalShipping,
   Security,
+  Close,
+  ZoomIn,
+  ZoomOut,
+  FitScreen,
 } from "@mui/icons-material";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -52,6 +58,86 @@ export default function DesignDetail() {
   const { category, id } = useParams();
   const navigate = useNavigate();
   const theme = useTheme();
+  const [imagePreviewOpen, setImagePreviewOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [zoom, setZoom] = useState(1);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+
+  const handleZoomIn = () => {
+    setZoom((prev) => Math.min(prev + 0.25, 3));
+  };
+
+  const handleZoomOut = () => {
+    setZoom((prev) => Math.max(prev - 0.25, 0.5));
+  };
+
+  const handleResetZoom = () => {
+    setZoom(1);
+    setPosition({ x: 0, y: 0 });
+  };
+
+  const handleMouseDown = (e) => {
+    if (zoom > 1) {
+      e.preventDefault();
+      setIsDragging(true);
+      setDragStart({
+        x: e.clientX - position.x,
+        y: e.clientY - position.y,
+      });
+    }
+  };
+
+  const handleMouseMove = (e) => {
+    if (isDragging && zoom > 1) {
+      e.preventDefault();
+      setPosition({
+        x: e.clientX - dragStart.x,
+        y: e.clientY - dragStart.y,
+      });
+    }
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleWheel = (e) => {
+    e.preventDefault();
+    const delta = e.deltaY > 0 ? -0.1 : 0.1;
+    setZoom((prev) => Math.max(0.5, Math.min(3, prev + delta)));
+  };
+
+  const handleTouchStart = (e) => {
+    if (zoom > 1 && e.touches.length === 1) {
+      setIsDragging(true);
+      setDragStart({
+        x: e.touches[0].clientX - position.x,
+        y: e.touches[0].clientY - position.y,
+      });
+    }
+  };
+
+  const handleTouchMove = (e) => {
+    if (isDragging && zoom > 1 && e.touches.length === 1) {
+      e.preventDefault();
+      setPosition({
+        x: e.touches[0].clientX - dragStart.x,
+        y: e.touches[0].clientY - dragStart.y,
+      });
+    }
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+  };
+
+  const handleCloseModal = () => {
+    setImagePreviewOpen(false);
+    setZoom(1);
+    setPosition({ x: 0, y: 0 });
+  };
 
   // Data source
   const designsData = {
@@ -193,6 +279,11 @@ export default function DesignDetail() {
                 overflow: "hidden",
                 boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
                 backgroundColor: theme.palette.grey[100],
+                cursor: "pointer",
+              }}
+              onClick={() => {
+                setSelectedImage(design.images?.[0] || design.image);
+                setImagePreviewOpen(true);
               }}
             >
               <Box
@@ -496,6 +587,176 @@ export default function DesignDetail() {
             */}
 
       {/* 💎 Trust Indicators */}
+
+      {/* 🖼️ Image Preview Modal with Zoom */}
+      <Modal
+        open={imagePreviewOpen}
+        onClose={handleCloseModal}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          p: 2,
+        }}
+      >
+        <Box
+          sx={{
+            position: "relative",
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            outline: "none",
+            overflow: "hidden",
+            backgroundColor: "rgba(0, 0, 0, 0.9)",
+            cursor: zoom > 1 ? (isDragging ? "grabbing" : "grab") : "default",
+          }}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+          onWheel={handleWheel}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          {/* Close Button */}
+          <IconButton
+            onClick={handleCloseModal}
+            sx={{
+              position: "absolute",
+              top: 16,
+              right: 16,
+              zIndex: 10,
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              color: "white",
+              "&:hover": {
+                backgroundColor: "rgba(0, 0, 0, 0.7)",
+              },
+            }}
+          >
+            <Close />
+          </IconButton>
+
+          {/* Zoom Controls */}
+          <Box
+            sx={{
+              position: "absolute",
+              top: 16,
+              left: 16,
+              zIndex: 10,
+              display: "flex",
+              flexDirection: "column",
+              gap: 1,
+            }}
+          >
+            <IconButton
+              onClick={handleZoomIn}
+              disabled={zoom >= 3}
+              sx={{
+                backgroundColor: "rgba(0, 0, 0, 0.5)",
+                color: "white",
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.7)",
+                },
+                "&:disabled": {
+                  backgroundColor: "rgba(0, 0, 0, 0.3)",
+                  color: "rgba(255, 255, 255, 0.5)",
+                },
+              }}
+            >
+              <ZoomIn />
+            </IconButton>
+            <IconButton
+              onClick={handleZoomOut}
+              disabled={zoom <= 0.5}
+              sx={{
+                backgroundColor: "rgba(0, 0, 0, 0.5)",
+                color: "white",
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.7)",
+                },
+                "&:disabled": {
+                  backgroundColor: "rgba(0, 0, 0, 0.3)",
+                  color: "rgba(255, 255, 255, 0.5)",
+                },
+              }}
+            >
+              <ZoomOut />
+            </IconButton>
+            <IconButton
+              onClick={handleResetZoom}
+              disabled={zoom === 1}
+              sx={{
+                backgroundColor: "rgba(0, 0, 0, 0.5)",
+                color: "white",
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.7)",
+                },
+                "&:disabled": {
+                  backgroundColor: "rgba(0, 0, 0, 0.3)",
+                  color: "rgba(255, 255, 255, 0.5)",
+                },
+              }}
+            >
+              <FitScreen />
+            </IconButton>
+          </Box>
+
+          {/* Zoom Indicator */}
+          {zoom !== 1 && (
+            <Box
+              sx={{
+                position: "absolute",
+                bottom: 16,
+                left: "50%",
+                transform: "translateX(-50%)",
+                zIndex: 10,
+                backgroundColor: "rgba(0, 0, 0, 0.5)",
+                color: "white",
+                px: 2,
+                py: 1,
+                borderRadius: 1,
+                fontSize: "0.875rem",
+              }}
+            >
+              {Math.round(zoom * 100)}%
+            </Box>
+          )}
+
+          {/* Image Container */}
+          <Box
+            sx={{
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              overflow: "hidden",
+            }}
+          >
+            <Box
+              component="img"
+              src={selectedImage || design.images?.[0] || design.image}
+              alt={design.title}
+              sx={{
+                maxWidth: "90vw",
+                maxHeight: "90vh",
+                width: "auto",
+                height: "auto",
+                display: "block",
+                objectFit: "contain",
+                transform: `scale(${zoom}) translate(${position.x}px, ${position.y}px)`,
+                transformOrigin: "center center",
+                transition: isDragging ? "none" : "transform 0.1s ease-out",
+                userSelect: "none",
+                WebkitUserDrag: "none",
+              }}
+            />
+          </Box>
+        </Box>
+      </Modal>
 
       {/* 🧭 CTA Section */}
       <Container {...consistentContainer}>
