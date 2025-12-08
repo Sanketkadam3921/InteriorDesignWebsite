@@ -232,7 +232,7 @@ export default function DesignDetail() {
                 width: "100%",
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: { xs: "flex-start", md: "center" },
+                justifyContent: "flex-start",
                 py: { xs: 2, md: 0 },
                 pl: { xs: 0, md: 2 },
               }}
@@ -249,6 +249,189 @@ export default function DesignDetail() {
               >
                 {design.title}
               </Typography>
+
+              {/* Design Points Section */}
+              {design.specifications && Object.keys(design.specifications).length > 0 && (
+                <Box sx={{ mb: 3 }}>
+                  <Stack spacing={2}>
+                    {/* Colors */}
+                    {(design.specifications.colorScheme || design.specifications.color) && (
+                      <Box>
+                        <Typography
+                          variant="subtitle2"
+                          sx={{
+                            fontWeight: 600,
+                            color: theme.palette.text.secondary,
+                            mb: 1,
+                            textTransform: "uppercase",
+                            letterSpacing: 0.5,
+                            fontSize: "0.75rem",
+                          }}
+                        >
+                          Colors
+                        </Typography>
+                        <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+                          {(design.specifications.colorScheme || design.specifications.color)
+                            .split(/[,&]/)
+                            .map((color, index) => (
+                              <Chip
+                                key={index}
+                                label={color.trim()}
+                                size="small"
+                                sx={{
+                                  backgroundColor: theme.palette.grey[100],
+                                  color: theme.palette.text.primary,
+                                  fontWeight: 500,
+                                }}
+                              />
+                            ))}
+                        </Box>
+                      </Box>
+                    )}
+
+                    {/* Style */}
+                    {design.specifications.style && (
+                      <Box>
+                        <Typography
+                          variant="subtitle2"
+                          sx={{
+                            fontWeight: 600,
+                            color: theme.palette.text.secondary,
+                            mb: 1,
+                            textTransform: "uppercase",
+                            letterSpacing: 0.5,
+                            fontSize: "0.75rem",
+                          }}
+                        >
+                          Style
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            color: theme.palette.text.primary,
+                            fontWeight: 500,
+                          }}
+                        >
+                          {design.specifications.style}
+                        </Typography>
+                      </Box>
+                    )}
+
+                    {/* Materials */}
+                    {design.specifications.materials && (
+                      <Box>
+                        <Typography
+                          variant="subtitle2"
+                          sx={{
+                            fontWeight: 600,
+                            color: theme.palette.text.secondary,
+                            mb: 1,
+                            textTransform: "uppercase",
+                            letterSpacing: 0.5,
+                            fontSize: "0.75rem",
+                          }}
+                        >
+                          Materials
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            color: theme.palette.text.primary,
+                            fontWeight: 500,
+                          }}
+                        >
+                          {design.specifications.materials}
+                        </Typography>
+                      </Box>
+                    )}
+
+                    {/* Area */}
+                    {design.specifications.area && (
+                      <Box>
+                        <Typography
+                          variant="subtitle2"
+                          sx={{
+                            fontWeight: 600,
+                            color: theme.palette.text.secondary,
+                            mb: 1,
+                            textTransform: "uppercase",
+                            letterSpacing: 0.5,
+                            fontSize: "0.75rem",
+                          }}
+                        >
+                          Area
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            color: theme.palette.text.primary,
+                            fontWeight: 500,
+                          }}
+                        >
+                          {design.specifications.area}
+                        </Typography>
+                      </Box>
+                    )}
+
+                    {/* Lighting */}
+                    {design.specifications.lighting && (
+                      <Box>
+                        <Typography
+                          variant="subtitle2"
+                          sx={{
+                            fontWeight: 600,
+                            color: theme.palette.text.secondary,
+                            mb: 1,
+                            textTransform: "uppercase",
+                            letterSpacing: 0.5,
+                            fontSize: "0.75rem",
+                          }}
+                        >
+                          Lighting
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            color: theme.palette.text.primary,
+                            fontWeight: 500,
+                          }}
+                        >
+                          {design.specifications.lighting}
+                        </Typography>
+                      </Box>
+                    )}
+
+                    {/* Furniture */}
+                    {design.specifications.furniture && (
+                      <Box>
+                        <Typography
+                          variant="subtitle2"
+                          sx={{
+                            fontWeight: 600,
+                            color: theme.palette.text.secondary,
+                            mb: 1,
+                            textTransform: "uppercase",
+                            letterSpacing: 0.5,
+                            fontSize: "0.75rem",
+                          }}
+                        >
+                          Furniture
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            color: theme.palette.text.primary,
+                            fontWeight: 500,
+                          }}
+                        >
+                          {design.specifications.furniture}
+                        </Typography>
+                      </Box>
+                    )}
+                  </Stack>
+                </Box>
+              )}
+
               <Typography
                 variant="h6"
                 color="text.secondary"
