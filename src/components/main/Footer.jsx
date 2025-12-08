@@ -174,7 +174,7 @@ export default function Footer() {
             container
             spacing={{
               xs: 5, // Mobile: larger spacing
-              sm: 2.9, // iPad Air/Mini: medium spacing
+              sm: 2.7, // iPad Air/Mini: medium spacing
               md: 3, // iPad Pro: spacing for 4 columns in row
               lg: 8, // Desktop: original spacing
             }}
@@ -189,7 +189,7 @@ export default function Footer() {
             sx={{
               flexWrap: {
                 xs: "nowrap", // Mobile: no wrap (already column direction)
-                sm: "wrap", // iPad Air/Mini: wrap (2 columns)
+                sm: "nowrap", // iPad Air/Mini: wrap (2 columns)
                 md: "nowrap", // iPad Pro: no wrap (all in row)
                 lg: "nowrap", // Desktop: no wrap
               },

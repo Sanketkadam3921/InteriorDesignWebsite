@@ -11,8 +11,15 @@ const FeatureItemStyled = styled(Box)(({ theme }) => ({
   alignItems: "center",
   textAlign: "center",
   minWidth: "180px",
-  [theme.breakpoints.down("md")]: {
+  flex: "1 1 auto",
+  [theme.breakpoints.between("sm", "md")]: {
+    minWidth: "140px",
+    flex: "1 1 calc(25% - 16px)",
+    maxWidth: "200px",
+  },
+  [theme.breakpoints.down("sm")]: {
     minWidth: "150px",
+    flex: "1 1 100%",
   },
 }));
 

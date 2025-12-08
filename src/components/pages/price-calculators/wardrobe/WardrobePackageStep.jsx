@@ -128,7 +128,11 @@ export default function WardrobePackageSelection() {
           <Box
             sx={{
               display: "grid",
-              gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" },
+              gridTemplateColumns: { 
+                xs: "1fr", 
+                sm: "repeat(2, 1fr)", 
+                md: "repeat(3, 1fr)" 
+              },
               gap: 2,
             }}
           >

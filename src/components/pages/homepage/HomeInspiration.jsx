@@ -25,11 +25,7 @@ const inspirationItems = [
     image:
       "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/Master_Bedroom.jpg",
   },
-  {
-    title: "False Ceiling",
-    image:
-      "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/False_Ceiling.jpeg",
-  },
+
   {
     title: "KalaKruti Studio Designs",
     image:
@@ -64,6 +60,11 @@ const inspirationItems = [
     title: "Foyer",
     image:
       "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/Foyer.jpeg",
+  },
+  {
+    title: "False Ceiling",
+    image:
+      "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/False_Ceiling.jpeg",
   },
   {
     title: "Dining Room",
@@ -186,25 +187,25 @@ export default function HomeInspiration() {
                     },
                   }}
                 />
-              <Box
-                sx={{
-                  p: 3,
-                  background: "#fff",
-                  textAlign: "center",
-                }}
-              >
-                <Typography
-                  variant="h6"
-                  fontWeight={600}
+                <Box
                   sx={{
-                    color: theme.palette.text.primary,
-                    fontSize: "1.3rem",
+                    p: 3,
+                    background: "#fff",
+                    textAlign: "center",
                   }}
                 >
-                  {inspirationItems[currentInspirationIndex].title}
-                </Typography>
+                  <Typography
+                    variant="h6"
+                    fontWeight={600}
+                    sx={{
+                      color: theme.palette.text.primary,
+                      fontSize: "1.3rem",
+                    }}
+                  >
+                    {inspirationItems[currentInspirationIndex].title}
+                  </Typography>
+                </Box>
               </Box>
-            </Box>
             </Fade>
 
             {/* Navigation Buttons */}
@@ -308,11 +309,18 @@ export default function HomeInspiration() {
                 }
 
                 // For the large highlight image (i === 0), use auto-changing image
-                const displayItem = i === 0 ? inspirationItems[highlightImageIndex] : item;
+                const displayItem =
+                  i === 0 ? inspirationItems[highlightImageIndex] : item;
                 const isHighlight = i === 0;
 
                 return (
-                  <Fade in={isHighlight ? fadeIn : true} timeout={600} key={`${startIndex}-${i}-${isHighlight ? highlightImageIndex : ''}`}>
+                  <Fade
+                    in={isHighlight ? fadeIn : true}
+                    timeout={600}
+                    key={`${startIndex}-${i}-${
+                      isHighlight ? highlightImageIndex : ""
+                    }`}
+                  >
                     <Box
                       sx={{
                         position: "relative",

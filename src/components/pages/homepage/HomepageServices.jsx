@@ -33,27 +33,23 @@ export default function HomeServices() {
   const services = [
     {
       title: "Modular Interiors",
-      description: "Functional kitchen, wardrobe and storage",
       image:
         "https://ik.imagekit.io/bowr9614/HomePage_Hero/Home%20Page%204%20Images%20Below%20Hero%20Section/small-kitchen-space-with-modern-design.jpg",
       path: "/offerings/modular-interiors",
     },
     {
       title: "Full Home Interiors",
-      description: "Turnkey interior solutions for your home",
       image:
         "https://ik.imagekit.io/bowr9614/HomePage_Hero/Home%20Page%204%20Images%20Below%20Hero%20Section/4image.jpg",
       path: "/designs/full-home-interiors",
     },
     {
       title: "Luxury Interiors",
-      description: "Tailored interiors that redefine elegance",
       image: "https://ik.imagekit.io/bowr9614/Luxury%20Interior/lluuxxrryy.jpg",
       path: "/designs/luxury-interiors",
     },
     {
       title: "Renovations",
-      description: "Expert solutions to upgrade your home",
       image:
         "https://ik.imagekit.io/bowr9614/HomePage_Hero/Home%20Page%204%20Images%20Below%20Hero%20Section/Renovations.jpg",
       path: "/renovations",
@@ -119,7 +115,7 @@ export default function HomeServices() {
                 alt={services[currentServiceIndex].title}
                 sx={{
                   width: "100%",
-                  height: 200,
+                  height: 250,
                   objectFit: "cover",
                 }}
               />
@@ -132,9 +128,6 @@ export default function HomeServices() {
                   justifyContent: "space-between",
                 }}
               >
-                <Typography variant="h6" fontWeight={600} gutterBottom>
-                  {services[currentServiceIndex].title}
-                </Typography>
                 <Box
                   sx={{
                     display: "flex",
@@ -142,8 +135,8 @@ export default function HomeServices() {
                     alignItems: "center",
                   }}
                 >
-                  <Typography color="text.secondary" variant="body1">
-                    {services[currentServiceIndex].description}
+                  <Typography variant="h6" fontWeight={600}>
+                    {services[currentServiceIndex].title}
                   </Typography>
                   <IconButton
                     onClick={(e) => {
@@ -262,7 +255,7 @@ export default function HomeServices() {
                   alt={service.title}
                   sx={{
                     width: "100%",
-                    height: 200,
+                    height: 250,
                     objectFit: "cover",
                   }}
                 />
@@ -275,9 +268,6 @@ export default function HomeServices() {
                     justifyContent: "space-between",
                   }}
                 >
-                  <Typography variant="subtitle1" fontWeight={600} gutterBottom>
-                    {service.title}
-                  </Typography>
                   <Box
                     sx={{
                       display: "flex",
@@ -285,8 +275,8 @@ export default function HomeServices() {
                       alignItems: "center",
                     }}
                   >
-                    <Typography color="text.secondary">
-                      {service.description}
+                    <Typography variant="subtitle1" fontWeight={600}>
+                      {service.title}
                     </Typography>
                     <IconButton
                       onClick={(e) => {

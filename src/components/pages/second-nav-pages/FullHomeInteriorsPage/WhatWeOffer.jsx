@@ -33,14 +33,26 @@ export default function WhatWeOffer() {
         <Box
           sx={{
             display: "flex",
-            gap: { xs: 2, md: 3 },
+            gap: { xs: 2, sm: 2.5, md: 3 },
             justifyContent: "center",
             alignItems: "stretch",
-            flexWrap: { xs: "wrap", md: "nowrap" },
+            flexWrap: { xs: "wrap", sm: "wrap", md: "nowrap" },
             "& > *": {
-              flex: { xs: "1 1 100%", md: "1 1 300px" },
-              maxWidth: { xs: "100%", md: "350px" },
-              minWidth: { xs: "280px", md: "280px" },
+              flex: { 
+                xs: "1 1 100%", 
+                sm: "1 1 calc(50% - 10px)", 
+                md: "1 1 300px" 
+              },
+              maxWidth: { 
+                xs: "100%", 
+                sm: "calc(50% - 10px)", 
+                md: "350px" 
+              },
+              minWidth: { 
+                xs: "280px", 
+                sm: "280px", 
+                md: "280px" 
+              },
             },
           }}
         >

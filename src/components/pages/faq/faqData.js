@@ -82,14 +82,6 @@ export const faqData = {
         }
     ],
 
-    "balcony": [
-        {
-            id: "balcony-1",
-            question: "How can I transform my small balcony into a functional space?",
-            answer: "We use vertical gardening, foldable furniture, weather-resistant materials, and smart storage solutions to maximize your balcony's potential while creating a beautiful outdoor retreat."
-        }
-    ],
-
     "dining-room": [
         {
             id: "dining-room-1",
@@ -122,46 +114,6 @@ export const faqData = {
         }
     ],
 
-    "guest-bedroom": [
-        {
-            id: "guest-bedroom-1",
-            question: "What essentials should a guest bedroom have?",
-            answer: "A guest bedroom should include comfortable bedding, adequate storage, good lighting, privacy, and thoughtful touches like fresh towels and reading materials. We create welcoming spaces for your guests."
-        }
-    ],
-
-    "window": [
-        {
-            id: "window-1",
-            question: "What window treatments work best for different rooms?",
-            answer: "Window treatments depend on room function, privacy needs, and light control. We recommend appropriate solutions like curtains, blinds, or shutters that enhance both functionality and aesthetics."
-        }
-    ],
-
-    "flooring": [
-        {
-            id: "flooring-1",
-            question: "What flooring material is best for high-traffic areas?",
-            answer: "For high-traffic areas, we recommend durable materials like ceramic tiles, luxury vinyl, or engineered hardwood. We consider your lifestyle, maintenance preferences, and design goals."
-        }
-    ],
-
-    "wall-decor": [
-        {
-            id: "wall-decor-1",
-            question: "How do I choose the right wall decor for my space?",
-            answer: "Wall decor should complement your room's style, color scheme, and proportions. We help you select artwork, mirrors, and decorative elements that enhance your space's character."
-        }
-    ],
-
-    "wall-paint": [
-        {
-            id: "wall-paint-1",
-            question: "What paint colors work best for small rooms?",
-            answer: "Light colors like whites, creams, and soft pastels make small rooms feel larger and brighter. We can also use accent walls and strategic color placement to create visual interest."
-        }
-    ],
-
     "wallpaper": [
         {
             id: "wallpaper-1",
@@ -170,27 +122,11 @@ export const faqData = {
         }
     ],
 
-    "tile": [
-        {
-            id: "tile-1",
-            question: "What tile size is best for my bathroom?",
-            answer: "Tile size depends on your bathroom size and style preference. Large tiles can make small bathrooms feel bigger, while smaller tiles offer more design flexibility. We help you choose the perfect size and pattern."
-        }
-    ],
-
     "study-room": [
         {
             id: "study-room-1",
             question: "How do I design a study room that promotes focus?",
             answer: "A focused study room needs good lighting, comfortable seating, minimal distractions, organized storage, and a quiet environment. We create spaces that enhance concentration and productivity."
-        }
-    ],
-
-    "kitchen-sinks": [
-        {
-            id: "kitchen-sinks-1",
-            question: "What type of kitchen sink is most practical?",
-            answer: "The most practical sink depends on your cooking habits and kitchen size. We consider factors like material durability, size, number of bowls, and installation type to recommend the best option."
         }
     ],
 
@@ -210,27 +146,11 @@ export const faqData = {
         }
     ],
 
-    "staircase": [
-        {
-            id: "staircase-1",
-            question: "How do I make my staircase a design feature?",
-            answer: "We can transform your staircase with modern railings, lighting, materials, and storage solutions. A well-designed staircase becomes a focal point that enhances your home's overall aesthetic."
-        }
-    ],
-
     "crockery-unit": [
         {
             id: "crockery-unit-1",
             question: "What should I consider when designing a crockery unit?",
             answer: "Consider your collection size, display preferences, storage needs, and room layout. We design units that showcase your items beautifully while providing practical storage and easy access."
-        }
-    ],
-
-    "home-bar": [
-        {
-            id: "home-bar-1",
-            question: "How do I design a functional home bar?",
-            answer: "A functional home bar needs proper storage for bottles and glassware, adequate counter space, good lighting, and easy access to utilities. We create bars that are both stylish and practical for entertaining."
         }
     ]
 };
@@ -250,24 +170,14 @@ export const faqConfig = {
         { key: "tv-unit", name: "TV Unit", displayName: "TV Unit" },
         { key: "false-ceiling", name: "False Ceiling", displayName: "False Ceiling" },
         { key: "kids-bedroom", name: "Kids Bedroom", displayName: "Kids Bedroom" },
-        { key: "balcony", name: "Balcony", displayName: "Balcony" },
         { key: "dining-room", name: "Dining Room", displayName: "Dining Room" },
         { key: "foyer", name: "Foyer", displayName: "Foyer" },
         { key: "homes-livspace", name: "Homes by Livspace", displayName: "Homes by Livspace" },
         { key: "home-office", name: "Home Office", displayName: "Home Office" },
-        { key: "guest-bedroom", name: "Guest Bedroom", displayName: "Guest Bedroom" },
-        { key: "window", name: "Window", displayName: "Window" },
-        { key: "flooring", name: "Flooring", displayName: "Flooring" },
-        { key: "wall-decor", name: "Wall Decor", displayName: "Wall Decor" },
-        { key: "wall-paint", name: "Wall Paint", displayName: "Wall Paint" },
         { key: "wallpaper", name: "Home Wallpaper", displayName: "Home Wallpaper" },
-        { key: "tile", name: "Tile", displayName: "Tile" },
         { key: "study-room", name: "Study Room", displayName: "Study Room" },
-        { key: "kitchen-sinks", name: "Kitchen Sinks", displayName: "Kitchen Sinks" },
         { key: "space-saving", name: "Space Saving", displayName: "Space Saving" },
         { key: "door", name: "Door", displayName: "Door" },
-        { key: "staircase", name: "Staircase", displayName: "Staircase" },
-        { key: "crockery-unit", name: "Crockery Unit", displayName: "Crockery Unit" },
-        { key: "home-bar", name: "Home Bar", displayName: "Home Bar" }
+        { key: "crockery-unit", name: "Crockery Unit", displayName: "Crockery Unit" }
     ]
 };

@@ -37,10 +37,16 @@ const FeaturesContainer = styled(Box)(({ theme }) => ({
   padding: theme.spacing(0, 4),
   width: "100%",
   overflow: "hidden",
-  [theme.breakpoints.down("md")]: {
+  [theme.breakpoints.down("sm")]: {
     flexDirection: "column",
     gap: theme.spacing(3),
     maxWidth: "100%",
+    padding: theme.spacing(0, 2),
+  },
+  [theme.breakpoints.between("sm", "md")]: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    gap: theme.spacing(2),
     padding: theme.spacing(0, 2),
   },
 }));

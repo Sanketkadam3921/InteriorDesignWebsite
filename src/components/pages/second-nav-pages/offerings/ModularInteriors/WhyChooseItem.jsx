@@ -18,19 +18,24 @@ export default function WhyChooseItem({ title, icon, iconUrl }) {
     const IconComponent = iconMap[icon] || DesignServicesIcon;
     const isImageIcon = !!iconUrl;
 
+    // Split title after first word
+    const splitTitle = title.split(' ');
+    const firstWord = splitTitle[0];
+    const restOfTitle = splitTitle.slice(1).join(' ');
+
     return (
         <Card
             sx={{
-                height: '100%',
-                minHeight: { xs: '180px', sm: '200px', md: '220px' },
-                maxHeight: { xs: '180px', sm: '200px', md: '220px' },
-                width: '100%',
+                height: { xs: '200px', sm: '220px', md: '240px' },
+                width: { xs: '100%', sm: '280px', md: '300px' },
+                maxWidth: { xs: '100%', sm: '280px', md: '300px' },
                 borderRadius: 3,
                 overflow: 'hidden',
                 boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                 display: 'flex',
                 flexDirection: 'column',
+                mx: 'auto',
                 '&:hover': {
                     transform: 'translateY(-8px)',
                     boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)',
@@ -39,13 +44,15 @@ export default function WhyChooseItem({ title, icon, iconUrl }) {
         >
             <CardContent 
                 sx={{ 
-                    p: { xs: 3, sm: 3.5, md: 4 },
+                    p: { xs: 2.5, sm: 3, md: 3.5 },
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    flex: 1,
                     height: '100%',
+                    width: '100%',
+                    boxSizing: 'border-box',
+                    overflow: 'hidden',
                 }}
             >
                 <Box
@@ -83,11 +90,20 @@ export default function WhyChooseItem({ title, icon, iconUrl }) {
                         fontWeight: 'bold',
                         color: themeNeutral.palette.text.primary,
                         textAlign: 'center',
-                        fontSize: { xs: '1rem', sm: '1.1rem', md: '1.2rem' },
-                        lineHeight: 1.4,
+                        fontSize: { xs: '0.95rem', sm: '1.05rem', md: '1.15rem' },
+                        lineHeight: 1.3,
+                        width: '100%',
+                        overflow: 'hidden',
+                        wordBreak: 'break-word',
                     }}
                 >
-                    {title}
+                    {firstWord}
+                    {restOfTitle && (
+                        <>
+                            <br />
+                            {restOfTitle}
+                        </>
+                    )}
                 </Typography>
             </CardContent>
         </Card>

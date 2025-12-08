@@ -60,7 +60,10 @@ const CarouselWrapper = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("lg")]: {
     gap: theme.spacing(1.5),
   },
-  [theme.breakpoints.down("md")]: {
+  [theme.breakpoints.between("sm", "md")]: {
+    gap: theme.spacing(1),
+  },
+  [theme.breakpoints.down("sm")]: {
     flexDirection: "column",
     gap: theme.spacing(1),
     width: "100%",
@@ -81,7 +84,11 @@ const SideImage = styled(Box)(({ theme }) => ({
     width: "160px",
     height: "240px",
   },
-  [theme.breakpoints.down("md")]: {
+  [theme.breakpoints.between("sm", "md")]: {
+    width: "140px",
+    height: "220px",
+  },
+  [theme.breakpoints.down("sm")]: {
     display: "none",
   },
 }));
@@ -100,11 +107,9 @@ const CentralImage = styled(Box)(({ theme }) => ({
     width: "320px",
     height: "400px",
   },
-  [theme.breakpoints.down("md")]: {
-    width: "100%",
-    maxWidth: "350px",
-    height: "400px",
-    margin: "0 auto",
+  [theme.breakpoints.between("sm", "md")]: {
+    width: "280px",
+    height: "360px",
   },
   [theme.breakpoints.down("sm")]: {
     width: "100%",
@@ -132,7 +137,12 @@ const NavigationArrow = styled(IconButton)(({ theme }) => ({
     left: "10%",
     top: "50%",
     transform: "translateY(-50%)",
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.between("sm", "md")]: {
+      left: "5%",
+      width: "44px",
+      height: "44px",
+    },
+    [theme.breakpoints.down("sm")]: {
       left: "2%",
       width: "40px",
       height: "40px",
@@ -142,7 +152,12 @@ const NavigationArrow = styled(IconButton)(({ theme }) => ({
     right: "10%",
     top: "50%",
     transform: "translateY(-50%)",
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.between("sm", "md")]: {
+      right: "5%",
+      width: "44px",
+      height: "44px",
+    },
+    [theme.breakpoints.down("sm")]: {
       right: "2%",
       width: "40px",
       height: "40px",
