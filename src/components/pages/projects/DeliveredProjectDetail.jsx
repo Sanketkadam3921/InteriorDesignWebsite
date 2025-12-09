@@ -126,7 +126,11 @@ export default function DeliveredProjectDetail() {
 
         {/* Project Title */}
         <Box sx={{ mb: 3 }}>
-          <Typography variant="h3" component="h1" sx={{ fontWeight: 700 }}>
+          <Typography
+            variant="h3"
+            component="h1"
+            sx={{ fontWeight: 700, mb: 1.3 }}
+          >
             {project.title}
           </Typography>
           <Typography variant="h6" color="text.secondary">
@@ -244,27 +248,6 @@ export default function DeliveredProjectDetail() {
                 <LocationOn sx={{ mr: 1 }} fontSize="small" />
                 <Typography variant="body1">{project.location}</Typography>
               </Box>
-
-              {/* Property Info Grid */}
-              <Grid container spacing={2} sx={{ mb: 3 }}>
-                <Grid item xs={6} sm={4}>
-                  <Typography variant="body2" color="text.secondary">
-                    Pricing
-                  </Typography>
-                  <Typography variant="body1" fontWeight={600}>
-                    {project.budget}
-                  </Typography>
-                </Grid>
-
-                <Grid item xs={6} sm={4}>
-                  <Typography variant="body2" color="text.secondary">
-                    Size
-                  </Typography>
-                  <Typography variant="body1" fontWeight={600}>
-                    {project.area}
-                  </Typography>
-                </Grid>
-              </Grid>
 
               {/* CTA Button */}
             </Card>

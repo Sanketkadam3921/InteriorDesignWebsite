@@ -381,14 +381,12 @@ export default function DesignDetail() {
                       {design.specifications.style && (
                         <Box>
                           <Typography
-                            variant="subtitle2"
+                            variant="subtitle1"
                             sx={{
-                              fontWeight: 600,
-                              color: theme.palette.text.secondary,
+                              fontWeight: 700,
+                              color: theme.palette.text.primary,
                               mb: 1,
-                              textTransform: "uppercase",
-                              letterSpacing: 0.5,
-                              fontSize: "0.75rem",
+                              fontSize: { xs: "1rem", md: "1.1rem" },
                             }}
                           >
                             Style
@@ -397,7 +395,8 @@ export default function DesignDetail() {
                             variant="body2"
                             sx={{
                               color: theme.palette.text.primary,
-                              fontWeight: 500,
+                              fontWeight: 400,
+                              fontSize: { xs: "0.875rem", md: "0.9375rem" },
                             }}
                           >
                             {design.specifications.style}
@@ -410,20 +409,23 @@ export default function DesignDetail() {
                         design.specifications.color) && (
                         <Box>
                           <Typography
-                            variant="subtitle2"
+                            variant="subtitle1"
                             sx={{
-                              fontWeight: 600,
-                              color: theme.palette.text.secondary,
+                              fontWeight: 700,
+                              color: theme.palette.text.primary,
                               mb: 1,
-                              textTransform: "uppercase",
-                              letterSpacing: 0.5,
-                              fontSize: "0.75rem",
+                              fontSize: { xs: "1rem", md: "1.1rem" },
                             }}
                           >
-                            Color
+                            Colors
                           </Typography>
                           <Box
-                            sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}
+                            sx={{ 
+                              display: "flex", 
+                              flexWrap: "wrap", 
+                              gap: 1,
+                              alignItems: "flex-start",
+                            }}
                           >
                             {(
                               design.specifications.colorScheme ||
@@ -438,7 +440,8 @@ export default function DesignDetail() {
                                   sx={{
                                     backgroundColor: theme.palette.grey[100],
                                     color: theme.palette.text.primary,
-                                    fontWeight: 500,
+                                    fontWeight: 400,
+                                    fontSize: { xs: "0.75rem", md: "0.8125rem" },
                                   }}
                                 />
                               ))}
@@ -450,14 +453,12 @@ export default function DesignDetail() {
                       {design.specifications.materials && (
                         <Box>
                           <Typography
-                            variant="subtitle2"
+                            variant="subtitle1"
                             sx={{
-                              fontWeight: 600,
-                              color: theme.palette.text.secondary,
+                              fontWeight: 700,
+                              color: theme.palette.text.primary,
                               mb: 1,
-                              textTransform: "uppercase",
-                              letterSpacing: 0.5,
-                              fontSize: "0.75rem",
+                              fontSize: { xs: "1rem", md: "1.1rem" },
                             }}
                           >
                             Materials
@@ -466,7 +467,8 @@ export default function DesignDetail() {
                             variant="body2"
                             sx={{
                               color: theme.palette.text.primary,
-                              fontWeight: 500,
+                              fontWeight: 400,
+                              fontSize: { xs: "0.875rem", md: "0.9375rem" },
                             }}
                           >
                             {design.specifications.materials}
@@ -478,14 +480,12 @@ export default function DesignDetail() {
                       {design.specifications.lighting && (
                         <Box>
                           <Typography
-                            variant="subtitle2"
+                            variant="subtitle1"
                             sx={{
-                              fontWeight: 600,
-                              color: theme.palette.text.secondary,
+                              fontWeight: 700,
+                              color: theme.palette.text.primary,
                               mb: 1,
-                              textTransform: "uppercase",
-                              letterSpacing: 0.5,
-                              fontSize: "0.75rem",
+                              fontSize: { xs: "1rem", md: "1.1rem" },
                             }}
                           >
                             Lightings
@@ -494,7 +494,8 @@ export default function DesignDetail() {
                             variant="body2"
                             sx={{
                               color: theme.palette.text.primary,
-                              fontWeight: 500,
+                              fontWeight: 400,
+                              fontSize: { xs: "0.875rem", md: "0.9375rem" },
                             }}
                           >
                             {design.specifications.lighting}
@@ -506,14 +507,12 @@ export default function DesignDetail() {
                       {design.specifications.furniture && (
                         <Box>
                           <Typography
-                            variant="subtitle2"
+                            variant="subtitle1"
                             sx={{
-                              fontWeight: 600,
-                              color: theme.palette.text.secondary,
+                              fontWeight: 700,
+                              color: theme.palette.text.primary,
                               mb: 1,
-                              textTransform: "uppercase",
-                              letterSpacing: 0.5,
-                              fontSize: "0.75rem",
+                              fontSize: { xs: "1rem", md: "1.1rem" },
                             }}
                           >
                             Furniture
@@ -522,7 +521,8 @@ export default function DesignDetail() {
                             variant="body2"
                             sx={{
                               color: theme.palette.text.primary,
-                              fontWeight: 500,
+                              fontWeight: 400,
+                              fontSize: { xs: "0.875rem", md: "0.9375rem" },
                             }}
                           >
                             {design.specifications.furniture}
