@@ -173,7 +173,7 @@ export default function AllDesigns() {
     <Container
       maxWidth="xl"
       sx={{
-        py: { xs: 4, sm: 0, md: 4 },
+        py: { xs: 4, sm: 3, md: 4 },
       }}
     >
       {/* Header Section */}
