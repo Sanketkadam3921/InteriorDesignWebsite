@@ -144,7 +144,7 @@ export default function HomeInspiration() {
             fontSize: { xs: "1.8rem", md: "3rem" }, // 👈 smaller text for mobile
           }}
         >
-          Design ideas to reimagine your space
+          Inspiration for home interior designs
         </Typography>
         <Typography
           variant="h6"
@@ -152,8 +152,8 @@ export default function HomeInspiration() {
           color="text.secondary"
           mb={6}
         >
-          Explore a curated collection of interiors crafted to spark creativity
-          and elevate everyday living.
+          Give your home a new look with these interior design ideas curated for
+          you
         </Typography>
 
         {isMobile ? (
