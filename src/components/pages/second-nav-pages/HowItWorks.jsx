@@ -328,10 +328,10 @@ export default function HowItWorks() {
       {/* Main Content Section */}
       <Box
         sx={{
-          py: { xs: 6, md: 10 },
+          py: { xs: 3, md: 5 },
           textAlign: "left",
           backgroundColor: theme.palette.background.paper,
-          px: { xs: 3, sm: 4, md: 6 },
+          px: { xs: 3, sm: 4, md: 3 },
         }}
       >
         <Container maxWidth="lg" sx={{ px: 0 }}>
@@ -465,7 +465,7 @@ export default function HowItWorks() {
       {/* Working Process Section */}
       <Box
         sx={{
-          py: { xs: 6, md: 10 },
+          py: { xs: 4, md: 2 },
           textAlign: "left",
           backgroundColor: theme.palette.background.paper,
           px: { xs: 3, sm: 4, md: 1 },
@@ -618,13 +618,13 @@ export default function HowItWorks() {
         <Box
           key={step.id}
           sx={{
-            py: { xs: 6, md: 10 },
+            py: { xs: 3, md: 4 },
             backgroundColor:
               index % 2 === 0
                 ? theme.palette.background.default
                 : theme.palette.background.paper,
             textAlign: "left",
-            px: { xs: 3, sm: 4, md: 6 },
+            px: { xs: 1, sm: 2, md: 4 },
           }}
         >
           <Container maxWidth="lg" sx={{ px: 0 }}>
@@ -632,7 +632,7 @@ export default function HowItWorks() {
               sx={{
                 display: "flex",
                 alignItems: "center",
-                gap: { xs: 4, md: 6 },
+                gap: { xs: 2, md: 2 },
                 minHeight: "400px",
                 [theme.breakpoints.down("md")]: {
                   flexDirection: "column",
@@ -711,7 +711,6 @@ export default function HowItWorks() {
                 </Typography>
 
                 <ProcessStep>
-                  <StepBullet />
                   <Box sx={{ flex: 1 }}>
                     <Typography
                       variant="body1"
