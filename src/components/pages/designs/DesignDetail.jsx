@@ -223,6 +223,10 @@ export default function DesignDetail() {
         backgroundColor: theme.palette.background.default,
         pt: { xs: 2, sm: 3, md: 4 },
         pb: { xs: 4, sm: 6, md: 8 },
+        // Reduce bottom padding for iPad Pro (1024px width)
+        "@media (min-width: 900px) and (max-width: 1200px)": {
+          pb: 0,
+        },
       }}
     >
       {/* 🧭 Back Button */}
@@ -256,6 +260,15 @@ export default function DesignDetail() {
             flexDirection: { xs: "column", md: "row" },
             gap: 4,
             alignItems: "stretch",
+            // Use column layout for iPad Pro (same as iPad Mini/Air)
+            "@media (min-width: 900px) and (max-width: 1200px)": {
+              mb: 2,
+              flexDirection: "column",
+            },
+            // Use row layout for larger desktop screens
+            "@media (min-width: 1200px)": {
+              flexDirection: "row",
+            },
           }}
         >
           {/* Left Side - Image */}
@@ -264,6 +277,10 @@ export default function DesignDetail() {
               width: { xs: "100%", md: "50%" },
               flexShrink: 0,
               order: { xs: 1, md: 1 },
+              // Full width for iPad Pro
+              "@media (min-width: 900px) and (max-width: 1200px)": {
+                width: "100%",
+              },
             }}
           >
             <Box
@@ -280,6 +297,11 @@ export default function DesignDetail() {
                 boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
                 backgroundColor: theme.palette.grey[100],
                 cursor: "pointer",
+                // Adjust height for iPad Pro
+                "@media (min-width: 900px) and (max-width: 1200px)": {
+                  height: "500px",
+                  minHeight: "500px",
+                },
               }}
               onClick={() => {
                 setSelectedImage(design.images?.[0] || design.image);
@@ -315,6 +337,10 @@ export default function DesignDetail() {
               order: { xs: 2, md: 2 },
               display: "flex",
               flexDirection: "column",
+              // Full width for iPad Pro
+              "@media (min-width: 900px) and (max-width: 1200px)": {
+                width: "100%",
+              },
             }}
           >
             <Box
@@ -326,6 +352,11 @@ export default function DesignDetail() {
                 justifyContent: "flex-start",
                 py: { xs: 2, md: 0 },
                 pl: { xs: 0, md: 2 },
+                // Remove left padding for iPad Pro
+                "@media (min-width: 900px) and (max-width: 1200px)": {
+                  pl: 0,
+                  py: 2,
+                },
               }}
             >
               <Typography
@@ -342,159 +373,165 @@ export default function DesignDetail() {
               </Typography>
 
               {/* Design Points Section */}
-              {design.specifications && Object.keys(design.specifications).length > 0 && (
-                <Box sx={{ mb: 3 }}>
-                  <Stack spacing={2}>
-                    {/* Style */}
-                    {design.specifications.style && (
-                      <Box>
-                        <Typography
-                          variant="subtitle2"
-                          sx={{
-                            fontWeight: 600,
-                            color: theme.palette.text.secondary,
-                            mb: 1,
-                            textTransform: "uppercase",
-                            letterSpacing: 0.5,
-                            fontSize: "0.75rem",
-                          }}
-                        >
-                          Style
-                        </Typography>
-                        <Typography
-                          variant="body2"
-                          sx={{
-                            color: theme.palette.text.primary,
-                            fontWeight: 500,
-                          }}
-                        >
-                          {design.specifications.style}
-                        </Typography>
-                      </Box>
-                    )}
-
-                    {/* Color */}
-                    {(design.specifications.colorScheme || design.specifications.color) && (
-                      <Box>
-                        <Typography
-                          variant="subtitle2"
-                          sx={{
-                            fontWeight: 600,
-                            color: theme.palette.text.secondary,
-                            mb: 1,
-                            textTransform: "uppercase",
-                            letterSpacing: 0.5,
-                            fontSize: "0.75rem",
-                          }}
-                        >
-                          Color
-                        </Typography>
-                        <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-                          {(design.specifications.colorScheme || design.specifications.color)
-                            .split(/[,&]/)
-                            .map((color, index) => (
-                              <Chip
-                                key={index}
-                                label={color.trim()}
-                                size="small"
-                                sx={{
-                                  backgroundColor: theme.palette.grey[100],
-                                  color: theme.palette.text.primary,
-                                  fontWeight: 500,
-                                }}
-                              />
-                            ))}
+              {design.specifications &&
+                Object.keys(design.specifications).length > 0 && (
+                  <Box sx={{ mb: 3 }}>
+                    <Stack spacing={2}>
+                      {/* Style */}
+                      {design.specifications.style && (
+                        <Box>
+                          <Typography
+                            variant="subtitle2"
+                            sx={{
+                              fontWeight: 600,
+                              color: theme.palette.text.secondary,
+                              mb: 1,
+                              textTransform: "uppercase",
+                              letterSpacing: 0.5,
+                              fontSize: "0.75rem",
+                            }}
+                          >
+                            Style
+                          </Typography>
+                          <Typography
+                            variant="body2"
+                            sx={{
+                              color: theme.palette.text.primary,
+                              fontWeight: 500,
+                            }}
+                          >
+                            {design.specifications.style}
+                          </Typography>
                         </Box>
-                      </Box>
-                    )}
+                      )}
 
-                    {/* Materials */}
-                    {design.specifications.materials && (
-                      <Box>
-                        <Typography
-                          variant="subtitle2"
-                          sx={{
-                            fontWeight: 600,
-                            color: theme.palette.text.secondary,
-                            mb: 1,
-                            textTransform: "uppercase",
-                            letterSpacing: 0.5,
-                            fontSize: "0.75rem",
-                          }}
-                        >
-                          Materials
-                        </Typography>
-                        <Typography
-                          variant="body2"
-                          sx={{
-                            color: theme.palette.text.primary,
-                            fontWeight: 500,
-                          }}
-                        >
-                          {design.specifications.materials}
-                        </Typography>
-                      </Box>
-                    )}
+                      {/* Color */}
+                      {(design.specifications.colorScheme ||
+                        design.specifications.color) && (
+                        <Box>
+                          <Typography
+                            variant="subtitle2"
+                            sx={{
+                              fontWeight: 600,
+                              color: theme.palette.text.secondary,
+                              mb: 1,
+                              textTransform: "uppercase",
+                              letterSpacing: 0.5,
+                              fontSize: "0.75rem",
+                            }}
+                          >
+                            Color
+                          </Typography>
+                          <Box
+                            sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}
+                          >
+                            {(
+                              design.specifications.colorScheme ||
+                              design.specifications.color
+                            )
+                              .split(/[,&]/)
+                              .map((color, index) => (
+                                <Chip
+                                  key={index}
+                                  label={color.trim()}
+                                  size="small"
+                                  sx={{
+                                    backgroundColor: theme.palette.grey[100],
+                                    color: theme.palette.text.primary,
+                                    fontWeight: 500,
+                                  }}
+                                />
+                              ))}
+                          </Box>
+                        </Box>
+                      )}
 
-                    {/* Lightings */}
-                    {design.specifications.lighting && (
-                      <Box>
-                        <Typography
-                          variant="subtitle2"
-                          sx={{
-                            fontWeight: 600,
-                            color: theme.palette.text.secondary,
-                            mb: 1,
-                            textTransform: "uppercase",
-                            letterSpacing: 0.5,
-                            fontSize: "0.75rem",
-                          }}
-                        >
-                          Lightings
-                        </Typography>
-                        <Typography
-                          variant="body2"
-                          sx={{
-                            color: theme.palette.text.primary,
-                            fontWeight: 500,
-                          }}
-                        >
-                          {design.specifications.lighting}
-                        </Typography>
-                      </Box>
-                    )}
+                      {/* Materials */}
+                      {design.specifications.materials && (
+                        <Box>
+                          <Typography
+                            variant="subtitle2"
+                            sx={{
+                              fontWeight: 600,
+                              color: theme.palette.text.secondary,
+                              mb: 1,
+                              textTransform: "uppercase",
+                              letterSpacing: 0.5,
+                              fontSize: "0.75rem",
+                            }}
+                          >
+                            Materials
+                          </Typography>
+                          <Typography
+                            variant="body2"
+                            sx={{
+                              color: theme.palette.text.primary,
+                              fontWeight: 500,
+                            }}
+                          >
+                            {design.specifications.materials}
+                          </Typography>
+                        </Box>
+                      )}
 
-                    {/* Furniture */}
-                    {design.specifications.furniture && (
-                      <Box>
-                        <Typography
-                          variant="subtitle2"
-                          sx={{
-                            fontWeight: 600,
-                            color: theme.palette.text.secondary,
-                            mb: 1,
-                            textTransform: "uppercase",
-                            letterSpacing: 0.5,
-                            fontSize: "0.75rem",
-                          }}
-                        >
-                          Furniture
-                        </Typography>
-                        <Typography
-                          variant="body2"
-                          sx={{
-                            color: theme.palette.text.primary,
-                            fontWeight: 500,
-                          }}
-                        >
-                          {design.specifications.furniture}
-                        </Typography>
-                      </Box>
-                    )}
+                      {/* Lightings */}
+                      {design.specifications.lighting && (
+                        <Box>
+                          <Typography
+                            variant="subtitle2"
+                            sx={{
+                              fontWeight: 600,
+                              color: theme.palette.text.secondary,
+                              mb: 1,
+                              textTransform: "uppercase",
+                              letterSpacing: 0.5,
+                              fontSize: "0.75rem",
+                            }}
+                          >
+                            Lightings
+                          </Typography>
+                          <Typography
+                            variant="body2"
+                            sx={{
+                              color: theme.palette.text.primary,
+                              fontWeight: 500,
+                            }}
+                          >
+                            {design.specifications.lighting}
+                          </Typography>
+                        </Box>
+                      )}
 
-                  </Stack>
-                </Box>
-              )}
+                      {/* Furniture */}
+                      {design.specifications.furniture && (
+                        <Box>
+                          <Typography
+                            variant="subtitle2"
+                            sx={{
+                              fontWeight: 600,
+                              color: theme.palette.text.secondary,
+                              mb: 1,
+                              textTransform: "uppercase",
+                              letterSpacing: 0.5,
+                              fontSize: "0.75rem",
+                            }}
+                          >
+                            Furniture
+                          </Typography>
+                          <Typography
+                            variant="body2"
+                            sx={{
+                              color: theme.palette.text.primary,
+                              fontWeight: 500,
+                            }}
+                          >
+                            {design.specifications.furniture}
+                          </Typography>
+                        </Box>
+                      )}
+                    </Stack>
+                  </Box>
+                )}
 
               <Typography
                 variant="h6"
@@ -732,13 +769,28 @@ export default function DesignDetail() {
       </Modal>
 
       {/* 🧭 CTA Section */}
-      <Container {...consistentContainer}>
+      <Container
+        {...consistentContainer}
+        sx={{
+          // Reduce margin bottom for iPad Pro (1024px width)
+          "@media (min-width: 900px) and (max-width: 1200px)": {
+            mb: 0,
+            mt: 1,
+            pb: 0,
+          },
+        }}
+      >
         <Card
           sx={{
             p: 4,
             borderRadius: 3,
             boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
             textAlign: "center",
+            // Reduce padding for iPad Pro
+            "@media (min-width: 900px) and (max-width: 1200px)": {
+              p: 3,
+              mb: 0,
+            },
           }}
         >
           <Typography variant="h6" gutterBottom fontWeight={700}>
