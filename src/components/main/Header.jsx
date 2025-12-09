@@ -52,23 +52,22 @@ export default function Header() {
       {
         title: "Modular Interiors",
         subtitle: "Kitchens, wardrobes and storage",
-        image:
-          "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=500&q=80",
         path: "/designs/modular-interiors",
       },
       {
         title: "Full Home Interiors",
         subtitle: "End-to-end home interiors",
-        image:
-          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=500&q=80",
         path: "/designs/full-home-interiors",
       },
       {
         title: "Luxury interiors",
         subtitle: "Homes that redefine elegance",
-        image:
-          "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=500&q=80",
         path: "/designs/luxury-interiors",
+      },
+      {
+        title: "Renovations",
+        subtitle: "Transform your existing spaces",
+        path: "/renovations",
       },
     ],
   };
@@ -322,54 +321,38 @@ export default function Header() {
               EXPLORE OFFERINGS
             </Typography>
             {offeringsData.exploreOfferings.map((offering, index) => (
-              <Box
+              <ListItemButton
                 key={index}
                 onClick={() => handleMobileNavClick(offering.path)}
                 sx={{
-                  mb: 1.5,
-                  cursor: "pointer",
-                  display: "flex",
-                  height: "70px",
                   borderRadius: 1,
-                  backgroundColor: "#fff",
-                  boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-                  "&:hover": { boxShadow: "0 4px 12px rgba(0,0,0,0.12)" },
+                  py: 1.5,
+                  mb: 0.5,
+                  backgroundColor: "transparent",
+                  "&:hover": { backgroundColor: "#f5f5f5" },
                 }}
               >
                 <Box
-                  component="img"
                   sx={{
-                    width: "60px",
-                    height: "60px",
-                    objectFit: "cover",
-                    borderRadius: "8px 0 0 8px",
-                  }}
-                  src={offering.image}
-                  alt={offering.title}
-                />
-                <Box
-                  sx={{
-                    p: 1.5,
-                    flex: 1,
                     display: "flex",
                     flexDirection: "column",
-                    justifyContent: "center",
+                    alignItems: "flex-start",
                   }}
                 >
                   <Typography
                     variant="body2"
-                    sx={{ fontWeight: "bold", fontSize: "0.85rem", mb: 0.5 }}
+                    sx={{ fontWeight: "bold", fontSize: "0.9rem", mb: 0.5 }}
                   >
                     {offering.title}
                   </Typography>
                   <Typography
                     variant="caption"
-                    sx={{ color: "#666", fontSize: "0.75rem" }}
+                    sx={{ color: "#666", fontSize: "0.8rem" }}
                   >
                     {offering.subtitle}
                   </Typography>
                 </Box>
-              </Box>
+              </ListItemButton>
             ))}
           </Box>
         </Collapse>
@@ -778,8 +761,8 @@ export default function Header() {
                                   borderRadius: 1,
                                   transition: "all 0.2s ease",
                                   display: "flex",
-                                  alignItems: "center",
-                                  gap: 1,
+                                  flexDirection: "column",
+                                  alignItems: "flex-start",
                                   mb: 1,
                                   "&:hover": {
                                     color: theme.palette.primary.main,
@@ -787,39 +770,27 @@ export default function Header() {
                                   },
                                 }}
                               >
-                                <Box
-                                  component="img"
-                                  src={offering.image}
-                                  alt={offering.title}
+                                <Typography
+                                  variant="body2"
                                   sx={{
-                                    width: 30,
-                                    height: 30,
-                                    borderRadius: 0.5,
-                                    objectFit: "cover",
+                                    fontWeight: "bold",
+                                    fontSize: "0.9rem",
+                                    lineHeight: 1.2,
+                                    mb: 0.5,
                                   }}
-                                />
-                                <Box>
-                                  <Typography
-                                    variant="body2"
-                                    sx={{
-                                      fontWeight: "bold",
-                                      fontSize: "0.85rem",
-                                      lineHeight: 1.2,
-                                    }}
-                                  >
-                                    {offering.title}
-                                  </Typography>
-                                  <Typography
-                                    variant="caption"
-                                    sx={{
-                                      color: "#666",
-                                      fontSize: "0.7rem",
-                                      lineHeight: 1.2,
-                                    }}
-                                  >
-                                    {offering.subtitle}
-                                  </Typography>
-                                </Box>
+                                >
+                                  {offering.title}
+                                </Typography>
+                                <Typography
+                                  variant="caption"
+                                  sx={{
+                                    color: "#666",
+                                    fontSize: "0.8rem",
+                                    lineHeight: 1.2,
+                                  }}
+                                >
+                                  {offering.subtitle}
+                                </Typography>
                               </Box>
                             )
                           )}
