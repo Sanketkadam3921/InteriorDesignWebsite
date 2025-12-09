@@ -492,33 +492,6 @@ export default function DesignDetail() {
                       </Box>
                     )}
 
-                    {/* Area - Additional field (if exists) */}
-                    {design.specifications.area && (
-                      <Box>
-                        <Typography
-                          variant="subtitle2"
-                          sx={{
-                            fontWeight: 600,
-                            color: theme.palette.text.secondary,
-                            mb: 1,
-                            textTransform: "uppercase",
-                            letterSpacing: 0.5,
-                            fontSize: "0.75rem",
-                          }}
-                        >
-                          Area
-                        </Typography>
-                        <Typography
-                          variant="body2"
-                          sx={{
-                            color: theme.palette.text.primary,
-                            fontWeight: 500,
-                          }}
-                        >
-                          {design.specifications.area}
-                        </Typography>
-                      </Box>
-                    )}
                   </Stack>
                 </Box>
               )}

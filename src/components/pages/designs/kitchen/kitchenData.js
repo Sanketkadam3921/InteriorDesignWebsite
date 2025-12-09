@@ -125,11 +125,11 @@ export const kitchenDesignDetails = {
     description:
       "Modern modular kitchen with sleek design and premium finishes for the perfect cooking experience.",
     specifications: {
-      dimension: "12x10 feet",
-      color: "White, Gray, Modern",
-      furniture: "Modular Cabinets, Premium Appliances",
-      lighting: "LED Under-cabinet, Modern Lighting",
-      materials: "Premium Laminate, Granite, Stainless Steel",
+      style: "Modern luxury",
+      colorScheme: "Warm wood tones, beige, white marble, black accents",
+      materials: "Wood laminate, quartz/marble countertop, glass shelves",
+      lighting: "Recessed lights, under-cabinet LEDs, spotlights",
+      furniture: "High-back leather bar stools",
     },
     sections: [
       {
@@ -176,11 +176,11 @@ export const kitchenDesignDetails = {
     description:
       "Luxury modular kitchen featuring premium appliances and opulent design.",
     specifications: {
-      dimension: "13x10 feet",
-      color: "Luxury Tones, Premium",
-      furniture: "Luxury Modular Cabinets, Premium Appliances",
-      lighting: "Luxury LED, Premium Lighting",
-      materials: "Premium Materials, Luxury Finishes",
+      style: "Minimal modern",
+      colorScheme: "Grey + pastel green",
+      materials: "Matte laminate, terrazzo backsplash",
+      lighting: "Under-cabinet warm LEDs, recessed lights",
+      furniture: "None",
     },
     sections: [
       {
@@ -218,11 +218,11 @@ export const kitchenDesignDetails = {
     description:
       "Contemporary kitchen with modern elements and elegant styling.",
     specifications: {
-      dimension: "12.5x10 feet",
-      color: "Contemporary, Modern",
-      furniture: "Contemporary Cabinets, Modern Appliances",
-      lighting: "Contemporary LED, Modern Lighting",
-      materials: "Premium Materials, Contemporary Finishes",
+      style: "Warm contemporary",
+      colorScheme: "Taupe-beige + wood",
+      materials: "Matte laminate, wood shelves",
+      lighting: "Track lights + shelf LEDs",
+      furniture: "None",
     },
     sections: [
       {
@@ -251,11 +251,11 @@ export const kitchenDesignDetails = {
     description:
       "Premium modular kitchen featuring elegant design and high-end finishes.",
     specifications: {
-      dimension: "13.5x10 feet",
-      color: "Premium Tones, Elegant",
-      furniture: "Premium Cabinets, High-End Appliances",
-      lighting: "Premium LED, Elegant Lighting",
-      materials: "High-End Materials, Premium Finishes",
+      style: "Modern Scandinavian",
+      colorScheme: "Powder blue, white, teal backsplash, black accents",
+      materials: "Matte laminate cabinets, quartz countertop, ceramic herringbone tiles, wood shelves",
+      lighting: "Recessed ceiling lights, natural window light, subtle under-cabinet illumination",
+      furniture: "Built-in gas hob, black chimney hood, wooden open shelves, minimal counter accessories",
     },
     sections: [
       {
@@ -284,11 +284,11 @@ export const kitchenDesignDetails = {
     description:
       "Clean minimalist kitchen with sleek design and modern appeal.",
     specifications: {
-      dimension: "11.5x10 feet",
-      color: "Neutral, Minimal",
-      furniture: "Minimalist Cabinets, Modern Appliances",
-      lighting: "Minimal LED, Clean Lighting",
-      materials: "Premium Materials, Minimal Finishes",
+      style: "Scandinavian modern",
+      colorScheme: "Mint green, white, natural wood",
+      materials: "Gloss laminate, wood shelves, ceramic tiles",
+      lighting: "Natural + ceiling lights",
+      furniture: "None",
     },
     sections: [
       {
@@ -317,11 +317,11 @@ export const kitchenDesignDetails = {
     description:
       "Elegant modular kitchen with sophisticated design and premium fixtures.",
     specifications: {
-      dimension: "12.8x10 feet",
-      color: "Elegant, Refined",
-      furniture: "Elegant Cabinets, Premium Appliances",
-      lighting: "Elegant LED, Sophisticated Lighting",
-      materials: "Premium Materials, Elegant Finishes",
+      style: "Warm luxury",
+      colorScheme: "Beige-grey + wood + black trim",
+      materials: "Matte laminate, stone countertop",
+      lighting: "Pendant + LED shelf lights",
+      furniture: "Beige bar stools",
     },
     sections: [
       {
@@ -350,11 +350,11 @@ export const kitchenDesignDetails = {
     description:
       "Modern kitchen featuring central island and contemporary design.",
     specifications: {
-      dimension: "13.2x10 feet",
-      color: "Modern, Contemporary",
-      furniture: "Modern Cabinets, Island, Premium Appliances",
-      lighting: "Modern LED, Island Lighting",
-      materials: "Premium Materials, Modern Finishes",
+      style: "Ultra-modern luxury",
+      colorScheme: "Aqua/teal gloss, white marble backsplash, black linear accents, warm beige glass",
+      materials: "High-gloss acrylic/PU cabinets, quartz countertop, frosted/tinted glass cabinets",
+      lighting: "Recessed spotlights, internal glass-cabinet lighting, under-cabinet LEDs",
+      furniture: "Built-in cooktop, black sink & faucet, appliance shutter unit, handle-less drawers",
     },
     sections: [
       {
@@ -383,11 +383,11 @@ export const kitchenDesignDetails = {
     description:
       "Contemporary luxury kitchen combining modern design with opulent touches.",
     specifications: {
-      dimension: "14x10 feet",
-      color: "Luxury, Contemporary",
-      furniture: "Luxury Cabinets, Premium Appliances",
-      lighting: "Luxury LED, Premium Lighting",
-      materials: "Premium Materials, Luxury Finishes",
+      style: "Contemporary",
+      colorScheme: "Rose-mauve + white",
+      materials: "Gloss laminate, glass cabinets",
+      lighting: "LED strip + recessed lights",
+      furniture: "None",
     },
     sections: [
       {
@@ -416,11 +416,11 @@ export const kitchenDesignDetails = {
     description:
       "Premium kitchen with sophisticated design and high-end appliances.",
     specifications: {
-      dimension: "13.8x10 feet",
-      color: "Premium Tones, Sophisticated",
-      furniture: "Premium Cabinets, High-End Appliances",
-      lighting: "Premium LED, Sophisticated Lighting",
-      materials: "High-End Materials, Premium Finishes",
+      style: "Modern luxe",
+      colorScheme: "Beige, oak wood, black",
+      materials: "Wood veneer, matte laminate",
+      lighting: "Warm LEDs + shelf lighting",
+      furniture: "Upholstered bar stools",
     },
     sections: [
       {
@@ -449,11 +449,11 @@ export const kitchenDesignDetails = {
     description:
       "Modern elegant kitchen with premium fixtures and refined aesthetics.",
     specifications: {
-      dimension: "12.2x10 feet",
-      color: "Elegant, Modern",
-      furniture: "Elegant Cabinets, Premium Appliances",
-      lighting: "Elegant LED, Modern Lighting",
-      materials: "Premium Materials, Elegant Finishes",
+      style: "Modern chic",
+      colorScheme: "Mauve + white",
+      materials: "Gloss laminate, marble backsplash",
+      lighting: "Warm LED strips",
+      furniture: "None",
     },
     sections: [
       {
