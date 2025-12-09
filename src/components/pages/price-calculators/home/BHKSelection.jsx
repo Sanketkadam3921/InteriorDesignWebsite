@@ -139,7 +139,7 @@ export default function BHKSelection() {
                   gridColumn: index === 4 ? { xs: "1", sm: "span 2" } : "auto",
                   justifySelf:
                     index === 4 ? { xs: "stretch", sm: "center" } : "stretch",
-                  maxWidth: index === 4 ? { xs: "100%", sm: "50%" } : "100%",
+                  width: index === 4 ? { xs: "100%", sm: "calc(50% - 6px)" } : "100%",
                 }}
                 onClick={() => setSelectedBHK(bhk.id)}
               >
