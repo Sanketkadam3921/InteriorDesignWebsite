@@ -219,9 +219,9 @@ export const deliveredProjects = [
 
   {
     id: "delivered-14",
-    title: "Elegant Master Bedroom With Premium Wardrobe & Luxe Finishes",
+    title: "Modern Master Bedroom With Built-In Wardrobe & Study Nook",
     location: "Pune",
-    scope: "Master Bedroom",
+    scope: "Master Bedroom Interior",
     bhk: "3-BHK",
     pricing: "4.5 - 6 Lakhs",
     image: "/INTERIOR_DESIGN_IMAGES/Project_14/IMG_4402.JPG",
@@ -236,9 +236,9 @@ export const deliveredProjects = [
 
   {
     id: "delivered-15",
-    title: "Modern Modular Kitchen With Sleek Design & Premium Appliances",
+    title: "Modern Living Room With TV Unit, Study & Wardrobe Design",
     location: "Pune",
-    scope: "Modular Kitchen",
+    scope: "Living Room + Study Interior",
     bhk: "3-BHK",
     pricing: "4.5 - 6.5 Lakhs",
     image: "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4406.JPG",
@@ -254,9 +254,10 @@ export const deliveredProjects = [
 
   {
     id: "delivered-16",
-    title: "Luxurious Living Room With Marble TV Unit & Modern Décor",
+    title:
+      "Modern Master Bedroom With Sliding Wardrobe & Soft Ambient Lighting",
     location: "Pune",
-    scope: "Living Room Interior",
+    scope: "Master Bedroom Interior",
     bhk: "2-BHK",
     pricing: "3.5 - 5 Lakhs",
     image: "/INTERIOR_DESIGN_IMAGES/Project_16/IMG_4411.JPG",
@@ -272,9 +273,10 @@ export const deliveredProjects = [
 
   {
     id: "delivered-17",
-    title: "Contemporary Bedroom With Glossy Wardrobe & Neutral Palette",
+    title:
+      "Modern Modular Kitchen With Glossy Grey Cabinets & Black Countertop",
     location: "Pune",
-    scope: "Master Bedroom",
+    scope: "Modular Kitchen",
     bhk: "2-BHK",
     pricing: "3.5 - 5 Lakhs",
     image: "/INTERIOR_DESIGN_IMAGES/Project_17/IMG_4416.JPG",
@@ -308,9 +310,9 @@ export const deliveredProjects = [
 
   {
     id: "delivered-19",
-    title: "Elegant Bedroom Interior With Custom Wardrobe & Premium Finishes",
+    title: "Modern TV Unit With Marble Panel, Display Shelves & Mandir",
     location: "Pune",
-    scope: "Master Bedroom",
+    scope: "Living Room TV Unit + Mandir",
     bhk: "3-BHK",
     pricing: "4 - 5.5 Lakhs",
     image: "/INTERIOR_DESIGN_IMAGES/Project_19/IMG_4429.JPG",
@@ -325,9 +327,10 @@ export const deliveredProjects = [
 
   {
     id: "delivered-20",
-    title: "Contemporary Living Space With Modern TV Unit & Ambient Lighting",
+    title:
+      "Modern Modular Kitchen With Pastel Green Finish & Open Display Shelves",
     location: "Pune",
-    scope: "Living Room Interior",
+    scope: "Modular Kitchen",
     bhk: "2-BHK",
     pricing: "3 - 4.5 Lakhs",
     image: "/INTERIOR_DESIGN_IMAGES/Project_20/IMG_4443.JPG",
@@ -342,9 +345,10 @@ export const deliveredProjects = [
 
   {
     id: "delivered-21",
-    title: "Premium Modular Kitchen With Dual-Tone Design & Quartz Countertop",
+    title:
+      "Modern Living–Dining Space With Decorative Divider & Designer TV Unit",
     location: "Pune",
-    scope: "Modular Kitchen",
+    scope: "Living Room + Dining Area",
     bhk: "3-BHK",
     pricing: "5 - 7 Lakhs",
     image: "/INTERIOR_DESIGN_IMAGES/Project_21/IMG_4447.JPG",
@@ -360,9 +364,10 @@ export const deliveredProjects = [
 
   {
     id: "delivered-22",
-    title: "Modern Bedroom Design With Glossy Wardrobe & Cozy Ambiance",
+    title:
+      "Modern Wardrobe & Study With Pastel Green Accents & Balcony Storage",
     location: "Pune",
-    scope: "Master Bedroom",
+    scope: "Bedroom Wardrobe + Study + Balcony Storage",
     bhk: "2-BHK",
     pricing: "3.5 - 5 Lakhs",
     image: "/INTERIOR_DESIGN_IMAGES/Project_22/IMG_4452.JPG",
@@ -377,9 +382,9 @@ export const deliveredProjects = [
 
   {
     id: "delivered-23",
-    title: "Luxurious Living Room With Premium TV Unit & Modern Furnishings",
+    title: "Playful Kids Bedroom With Pastel Wardrobe & Study Unit",
     location: "Pune",
-    scope: "Living Room Interior",
+    scope: "Kids Bedroom Interior",
     bhk: "3-BHK",
     pricing: "5 - 7 Lakhs",
     image: "/INTERIOR_DESIGN_IMAGES/Project_23/IMG_4465.JPG",
@@ -628,13 +633,13 @@ export const deliveredProjectsDetails = {
   },
 
   "delivered-14": {
-    title: "Elegant Master Bedroom With Premium Wardrobe & Luxe Finishes",
+    title: "Modern Master Bedroom With Built-In Wardrobe & Study Nook",
     description:
-      "A luxurious master bedroom featuring a premium wardrobe with modern finishes, elegant furniture, and sophisticated design elements.",
+      "A calm and modern master bedroom featuring a soft upholstered bed, full-height textured wardrobe, and a compact study nook with warm ambient lighting.",
     location: "Pune",
     budget: "₹4.5 - ₹6 Lakhs",
     area: "160 sq ft (Master Bedroom)",
-    style: "Modern Luxury | Elegant | Premium",
+    style: "Modern | Minimal | Warm Neutrals",
     images: [
       "/INTERIOR_DESIGN_IMAGES/Project_14/IMG_4402.JPG",
       "/INTERIOR_DESIGN_IMAGES/Project_14/IMG_4403.JPG",
@@ -642,17 +647,17 @@ export const deliveredProjectsDetails = {
       "/INTERIOR_DESIGN_IMAGES/Project_14/IMG_4405.JPG",
     ],
     longDescription:
-      "This elegant master bedroom showcases premium design with a sophisticated wardrobe, luxurious finishes, and carefully selected furniture pieces that create a serene and opulent retreat.",
+      "This modern master bedroom is designed around comfort, functionality, and soft neutral aesthetics. The upholstered bed with layered cushions creates a cozy focal point, while the full-height wardrobe with patterned shutters offers ample storage without visual heaviness. A thoughtfully integrated study nook with overhead cabinets and warm lighting adds utility without disturbing the calm ambiance. Soft ceiling cove lighting, textured finishes, and balanced tones complete the serene and refined bedroom experience.",
   },
 
   "delivered-15": {
-    title: "Modern Modular Kitchen With Sleek Design & Premium Appliances",
+    title: "Modern Living Room With TV Unit, Study & Wardrobe Design",
     description:
-      "A state-of-the-art modular kitchen featuring sleek cabinetry, premium appliances, and intelligent storage solutions for modern living.",
+      "A thoughtfully designed modern interior featuring a wall-mounted TV unit, compact study area, functional wardrobe, and decorative wall niches in warm wood and neutral tones.",
     location: "Pune",
     budget: "₹4.5 - ₹6.5 Lakhs",
-    area: "110 sq ft (Modular Kitchen)",
-    style: "Modern | Sleek | Premium",
+    area: "200 sq ft (Living Room + Study)",
+    style: "Modern | Minimal | Warm Wood",
     images: [
       "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4406.JPG",
       "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4407.JPG",
@@ -661,17 +666,18 @@ export const deliveredProjectsDetails = {
       "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4410.JPG",
     ],
     longDescription:
-      "This modern modular kitchen combines sleek design aesthetics with premium appliances and intelligent storage solutions. The space is designed for efficiency, functionality, and contemporary elegance.",
+      "This modern living and study interior is crafted with a perfect balance of elegance and functionality. The living area features a sleek wall-mounted TV unit with a floating wooden console and integrated ambient lighting. A compact yet efficient study workspace with overhead cabinets is designed near the window for natural light. The full-height wardrobe adds ample storage while maintaining visual harmony. Decorative wall niches add a subtle design highlight, making the overall space clean, warm, and highly functional.",
   },
 
   "delivered-16": {
-    title: "Luxurious Living Room With Marble TV Unit & Modern Décor",
+    title:
+      "Modern Master Bedroom With Sliding Wardrobe & Soft Ambient Lighting",
     description:
-      "A luxurious living room featuring a marble-finish TV unit, premium furniture, and modern décor elements that create an elegant ambiance.",
+      "A calm and elegant master bedroom featuring a padded upholstered headboard, full-height sliding wardrobe, warm wooden tones, and soft ambient cove lighting.",
     location: "Pune",
     budget: "₹3.5 - ₹5 Lakhs",
-    area: "180 sq ft (Living Room)",
-    style: "Luxury | Modern | Marble Accents",
+    area: "180 sq ft (Master Bedroom)",
+    style: "Modern | Minimal | Warm Neutrals",
     images: [
       "/INTERIOR_DESIGN_IMAGES/Project_16/IMG_4411.JPG",
       "/INTERIOR_DESIGN_IMAGES/Project_16/IMG_4412.JPG",
@@ -680,17 +686,18 @@ export const deliveredProjectsDetails = {
       "/INTERIOR_DESIGN_IMAGES/Project_16/IMG_4415.JPG",
     ],
     longDescription:
-      "This luxurious living room features a stunning marble-finish TV unit as the centerpiece, complemented by premium furniture and modern décor elements that create an elegant and sophisticated living space.",
+      "This modern master bedroom is designed to offer a tranquil and refined living experience. The space features a plush upholstered headboard wall with subtle backlighting that enhances the room’s warmth. A full-height sliding wardrobe with a soft two-tone finish maximizes storage while maintaining a clean visual flow. The integrated study niche with overhead cabinetry adds functionality without clutter. Soft cove lighting, neutral textures, and warm finishes together create a serene and contemporary bedroom ambiance.",
   },
 
   "delivered-17": {
-    title: "Contemporary Bedroom With Glossy Wardrobe & Neutral Palette",
+    title:
+      "Modern Modular Kitchen With Glossy Grey Cabinets & Black Countertop",
     description:
-      "A contemporary bedroom featuring a glossy wardrobe, neutral color palette, and modern furniture that creates a calm and elegant retreat.",
+      "A sleek modern modular kitchen featuring glossy grey cabinetry, black granite worktops, geometric tiled backsplash, and efficient L-shaped layout for maximum functionality.",
     location: "Pune",
     budget: "₹3.5 - ₹5 Lakhs",
-    area: "150 sq ft (Master Bedroom)",
-    style: "Contemporary | Neutral | Modern",
+    area: "140 sq ft (Modular Kitchen)",
+    style: "Modern | Glossy | Minimal",
     images: [
       "/INTERIOR_DESIGN_IMAGES/Project_17/IMG_4416.JPG",
       "/INTERIOR_DESIGN_IMAGES/Project_17/IMG_4417.JPG",
@@ -699,7 +706,7 @@ export const deliveredProjectsDetails = {
       "/INTERIOR_DESIGN_IMAGES/Project_17/IMG_4420.JPG",
     ],
     longDescription:
-      "This contemporary bedroom features a sleek glossy wardrobe and a soothing neutral color palette that creates a serene and elegant atmosphere. The modern furniture and design elements enhance the overall aesthetic.",
+      "This modern modular kitchen is designed with a clean and efficient L-shaped layout that enhances workflow and space utilization. The glossy grey overhead and base cabinets create a sleek contemporary look, while the black granite countertop adds durability and contrast. A geometric patterned backsplash elevates the design with subtle visual interest. Ample overhead storage, integrated sink space, and well-planned work zones make this kitchen both stylish and highly functional for everyday use.",
   },
 
   "delivered-18": {
@@ -722,13 +729,13 @@ export const deliveredProjectsDetails = {
   },
 
   "delivered-19": {
-    title: "Elegant Bedroom Interior With Custom Wardrobe & Premium Finishes",
+    title: "Modern TV Unit With Marble Panel, Display Shelves & Mandir",
     description:
-      "An elegant bedroom featuring a custom-designed wardrobe, premium finishes, and sophisticated furniture that creates a luxurious sleeping space.",
+      "A sleek modern living room feature wall showcasing a marble-finish TV unit with vertical fluted wood panels, integrated display shelves, and a beautifully designed compact mandir unit.",
     location: "Pune",
     budget: "₹4 - ₹5.5 Lakhs",
-    area: "155 sq ft (Master Bedroom)",
-    style: "Elegant | Custom Design | Premium",
+    area: "170 sq ft (Living Room Feature Wall)",
+    style: "Modern | Contemporary | Warm Wood",
     images: [
       "/INTERIOR_DESIGN_IMAGES/Project_19/IMG_4429.JPG",
       "/INTERIOR_DESIGN_IMAGES/Project_19/IMG_4430.JPG",
@@ -736,17 +743,18 @@ export const deliveredProjectsDetails = {
       "/INTERIOR_DESIGN_IMAGES/Project_19/IMG_4432.JPG",
     ],
     longDescription:
-      "This elegant bedroom interior showcases a custom-designed wardrobe with premium finishes and sophisticated furniture pieces. The design creates a luxurious and comfortable sleeping environment.",
+      "This modern living room feature wall is designed as a perfect blend of elegance and functionality. The TV unit is highlighted by a large marble-finish back panel contrasted with vertical fluted wooden cladding for a rich visual balance. Integrated open display shelves with warm LED lighting add both storage and decorative appeal. Alongside the TV unit, a thoughtfully crafted compact mandir with carved detailing and soft internal lighting creates a serene spiritual corner without overpowering the modern aesthetic.",
   },
 
   "delivered-20": {
-    title: "Contemporary Living Space With Modern TV Unit & Ambient Lighting",
+    title:
+      "Modern Modular Kitchen With Pastel Green Finish & Open Display Shelves",
     description:
-      "A contemporary living space featuring a modern TV unit with ambient lighting, comfortable seating, and stylish décor elements.",
+      "A bright and modern modular kitchen featuring pastel green glossy cabinets, white marble backsplash, integrated appliances, and open wooden display shelves with warm lighting.",
     location: "Pune",
     budget: "₹3 - ₹4.5 Lakhs",
-    area: "170 sq ft (Living Room)",
-    style: "Contemporary | Modern | Ambient",
+    area: "125 sq ft (Modular Kitchen)",
+    style: "Modern | Pastel | Contemporary",
     images: [
       "/INTERIOR_DESIGN_IMAGES/Project_20/IMG_4443.JPG",
       "/INTERIOR_DESIGN_IMAGES/Project_20/IMG_4444.JPG",
@@ -754,17 +762,18 @@ export const deliveredProjectsDetails = {
       "/INTERIOR_DESIGN_IMAGES/Project_20/IMG_4446.JPG",
     ],
     longDescription:
-      "This contemporary living space features a modern TV unit enhanced with ambient lighting, creating a warm and inviting atmosphere. Comfortable seating and stylish décor elements complete the design.",
+      "This modern modular kitchen is designed with a refreshing pastel green color palette that adds brightness and freshness to the space. The glossy cabinetry pairs beautifully with the white marble backsplash and black cooking hob, creating a clean contemporary contrast. Open wooden display shelves with integrated warm LED lighting add both decorative and functional value. The layout incorporates intelligent storage, integrated microwave and chimney units, and a dedicated utility partition with planter shelves, making this kitchen stylish, practical, and highly efficient for everyday cooking.",
   },
 
   "delivered-21": {
-    title: "Premium Modular Kitchen With Dual-Tone Design & Quartz Countertop",
+    title:
+      "Modern Living–Dining Space With Decorative Divider & Designer TV Unit",
     description:
-      "A premium modular kitchen featuring a dual-tone design, quartz countertop, and high-end appliances for a luxurious cooking experience.",
+      "A spacious modern living–dining interior featuring a sculptural vertical slat divider, designer TV unit with marble accent, and layered linear LED ceiling lighting.",
     location: "Pune",
     budget: "₹5 - ₹7 Lakhs",
-    area: "120 sq ft (Modular Kitchen)",
-    style: "Premium | Dual-Tone | Luxury",
+    area: "260 sq ft (Living + Dining)",
+    style: "Modern | Minimal | Contemporary Luxury",
     images: [
       "/INTERIOR_DESIGN_IMAGES/Project_21/IMG_4447.JPG",
       "/INTERIOR_DESIGN_IMAGES/Project_21/IMG_4448.JPG",
@@ -773,17 +782,18 @@ export const deliveredProjectsDetails = {
       "/INTERIOR_DESIGN_IMAGES/Project_21/IMG_4451.JPG",
     ],
     longDescription:
-      "This premium modular kitchen features an elegant dual-tone design with a luxurious quartz countertop. High-end appliances and intelligent storage solutions make this a perfect culinary workspace.",
+      "This modern living–dining space is designed as a seamless open-plan layout that balances functionality with elegance. A sculptural vertical slat partition subtly separates zones while maintaining visual openness. The living area is anchored by a sleek designer TV unit with marble-finish back panel and integrated storage. Layered linear LED ceiling lighting, recessed spotlights, and soft ambient illumination enhance the architectural depth of the space. Neutral tones, glossy flooring, and clean-lined cabinetry together create a refined, contemporary interior ideal for modern urban living.",
   },
 
   "delivered-22": {
-    title: "Modern Bedroom Design With Glossy Wardrobe & Cozy Ambiance",
+    title:
+      "Modern Wardrobe & Study With Pastel Green Accents & Balcony Storage",
     description:
-      "A modern bedroom featuring a glossy wardrobe, cozy ambiance, and contemporary furniture that creates a comfortable and stylish retreat.",
+      "A bright and modern storage design featuring a full-height glossy wardrobe, integrated study unit, and balcony-side storage in refreshing pastel green and white finishes.",
     location: "Pune",
     budget: "₹3.5 - ₹5 Lakhs",
-    area: "145 sq ft (Master Bedroom)",
-    style: "Modern | Cozy | Contemporary",
+    area: "150 sq ft (Wardrobe + Study + Balcony)",
+    style: "Modern | Pastel | Contemporary",
     images: [
       "/INTERIOR_DESIGN_IMAGES/Project_22/IMG_4452.JPG",
       "/INTERIOR_DESIGN_IMAGES/Project_22/IMG_4453.JPG",
@@ -791,17 +801,17 @@ export const deliveredProjectsDetails = {
       "/INTERIOR_DESIGN_IMAGES/Project_22/IMG_4455.JPG",
     ],
     longDescription:
-      "This modern bedroom design features a sleek glossy wardrobe and creates a cozy ambiance with contemporary furniture. The design balances style and comfort for the perfect sleeping space.",
+      "This modern wardrobe and study space is designed with a fresh pastel green and glossy white color palette that enhances brightness and openness. The full-height wardrobe provides ample storage with sleek black handles for a sharp contrast. An integrated study unit with drawers and open shelves offers a compact yet highly functional workspace near the balcony for natural light. The balcony-side storage and overhead cabinets maximize utility without adding visual clutter, resulting in a clean, contemporary, and highly functional layout ideal for modern urban homes.",
   },
 
   "delivered-23": {
-    title: "Luxurious Living Room With Premium TV Unit & Modern Furnishings",
+    title: "Playful Kids Bedroom With Pastel Wardrobe & Study Unit",
     description:
-      "A luxurious living room featuring a premium TV unit, modern furnishings, and elegant décor that creates a sophisticated entertainment space.",
+      "A cheerful kids bedroom featuring a colorful pastel wardrobe, butterfly-themed headboard wall, integrated study desk, and warm accent lighting for a fun and cozy atmosphere.",
     location: "Pune",
     budget: "₹5 - ₹7 Lakhs",
-    area: "220 sq ft (Living Room)",
-    style: "Luxury | Premium | Modern",
+    area: "180 sq ft (Kids Bedroom)",
+    style: "Modern | Playful | Pastel",
     images: [
       "/INTERIOR_DESIGN_IMAGES/Project_23/IMG_4465.JPG",
       "/INTERIOR_DESIGN_IMAGES/Project_23/IMG_4466.JPG",
@@ -811,6 +821,6 @@ export const deliveredProjectsDetails = {
       "/INTERIOR_DESIGN_IMAGES/Project_23/IMG_4470.JPG",
     ],
     longDescription:
-      "This luxurious living room features a premium TV unit as the focal point, complemented by modern furnishings and elegant décor elements. The design creates a sophisticated and inviting space for entertainment and relaxation.",
+      "This kids bedroom is designed to create a joyful and comfortable personal space using soft pastel tones and playful design elements. The highlight of the room is the butterfly-themed padded headboard wall that adds a charming and imaginative touch. A vibrant full-height wardrobe in pastel colors provides ample storage while keeping the space visually lively. The integrated study desk with open shelves and warm LED backlighting encourages focus and creativity. Soft curved ceiling detailing with cove lighting, combined with functional storage and cozy finishes, makes this bedroom both playful and practical for growing children.",
   },
 };

@@ -371,6 +371,18 @@ export default function DesignDetail() {
               >
                 {design.title}
               </Typography>
+              <Typography
+                variant="h6"
+                color="text.secondary"
+                sx={{
+                  fontSize: { xs: "1rem", md: "1.1rem" },
+                  lineHeight: 1.8,
+                  fontWeight: 400,
+                  mb: 2,
+                }}
+              >
+                {design.description}
+              </Typography>
 
               {/* Design Points Section */}
               {design.specifications &&
@@ -420,9 +432,9 @@ export default function DesignDetail() {
                             Colors
                           </Typography>
                           <Box
-                            sx={{ 
-                              display: "flex", 
-                              flexWrap: "wrap", 
+                            sx={{
+                              display: "flex",
+                              flexWrap: "wrap",
                               gap: 1,
                               alignItems: "flex-start",
                             }}
@@ -441,7 +453,10 @@ export default function DesignDetail() {
                                     backgroundColor: theme.palette.grey[100],
                                     color: theme.palette.text.primary,
                                     fontWeight: 400,
-                                    fontSize: { xs: "0.75rem", md: "0.8125rem" },
+                                    fontSize: {
+                                      xs: "0.75rem",
+                                      md: "0.8125rem",
+                                    },
                                   }}
                                 />
                               ))}
@@ -532,18 +547,6 @@ export default function DesignDetail() {
                     </Stack>
                   </Box>
                 )}
-
-              <Typography
-                variant="h6"
-                color="text.secondary"
-                sx={{
-                  fontSize: { xs: "1rem", md: "1.1rem" },
-                  lineHeight: 1.8,
-                  fontWeight: 400,
-                }}
-              >
-                {design.description}
-              </Typography>
             </Box>
           </Box>
         </Box>
