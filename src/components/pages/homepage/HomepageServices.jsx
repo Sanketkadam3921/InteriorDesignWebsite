@@ -71,7 +71,7 @@ export default function HomeServices() {
             fontSize: { xs: "1.8rem", md: "2.5rem" },
           }}
         >
-          One-stop shop for all things interiors
+          Complete design solutions for homes & workspaces
         </Typography>
 
         {/* Subheading */}
@@ -81,9 +81,9 @@ export default function HomeServices() {
           color="text.secondary"
           sx={{ mb: { xs: 4, md: 8 }, px: { xs: 2, md: 0 } }}
         >
-          Be it end-to-end interiors, renovation or modular solutions, we have
-          it all for your home or office. With a wide range of furniture &
-          decor, we have your back from start to finish.
+          From residential interiors to professional commercial spaces, we
+          manage everything from layout planning to final styling with quality
+          and consistency.
         </Typography>
 
         {/* Service items */}
