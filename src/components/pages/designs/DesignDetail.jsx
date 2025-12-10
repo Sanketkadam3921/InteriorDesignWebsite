@@ -472,6 +472,118 @@ export default function DesignDetail() {
                         </Box>
                       )}
 
+                      {/* Area of Application - Only for Wallpaper */}
+                      {design.category === "wallpaper" &&
+                        design.specifications.areaOfApplication && (
+                          <Box>
+                            <Typography
+                              variant="subtitle1"
+                              sx={{
+                                fontWeight: 700,
+                                color: theme.palette.text.primary,
+                                mb: 1,
+                                fontSize: { xs: "1rem", md: "1.1rem" },
+                              }}
+                            >
+                              Area of Application
+                            </Typography>
+                            <Typography
+                              variant="body2"
+                              sx={{
+                                color: theme.palette.text.primary,
+                                fontWeight: 400,
+                                fontSize: { xs: "0.875rem", md: "0.9375rem" },
+                              }}
+                            >
+                              {design.specifications.areaOfApplication}
+                            </Typography>
+                          </Box>
+                        )}
+
+                      {/* Hardware - Only for Door */}
+                      {design.category === "door" &&
+                        design.specifications.hardware && (
+                          <Box>
+                            <Typography
+                              variant="subtitle1"
+                              sx={{
+                                fontWeight: 700,
+                                color: theme.palette.text.primary,
+                                mb: 1,
+                                fontSize: { xs: "1rem", md: "1.1rem" },
+                              }}
+                            >
+                              Hardware
+                            </Typography>
+                            <Typography
+                              variant="body2"
+                              sx={{
+                                color: theme.palette.text.primary,
+                                fontWeight: 400,
+                                fontSize: { xs: "0.875rem", md: "0.9375rem" },
+                              }}
+                            >
+                              {design.specifications.hardware}
+                            </Typography>
+                          </Box>
+                        )}
+
+                      {/* Finish - Only for Door */}
+                      {design.category === "door" &&
+                        design.specifications.finish && (
+                          <Box>
+                            <Typography
+                              variant="subtitle1"
+                              sx={{
+                                fontWeight: 700,
+                                color: theme.palette.text.primary,
+                                mb: 1,
+                                fontSize: { xs: "1rem", md: "1.1rem" },
+                              }}
+                            >
+                              Finish
+                            </Typography>
+                            <Typography
+                              variant="body2"
+                              sx={{
+                                color: theme.palette.text.primary,
+                                fontWeight: 400,
+                                fontSize: { xs: "0.875rem", md: "0.9375rem" },
+                              }}
+                            >
+                              {design.specifications.finish}
+                            </Typography>
+                          </Box>
+                        )}
+
+                      {/* Panel Finish - Only for False Ceiling */}
+                      {design.category === "false-ceiling" &&
+                        design.specifications.panelFinish && (
+                          <Box>
+                            <Typography
+                              variant="subtitle1"
+                              sx={{
+                                fontWeight: 700,
+                                color: theme.palette.text.primary,
+                                mb: 1,
+                                fontSize: { xs: "1rem", md: "1.1rem" },
+                              }}
+                            >
+                              Panel Finish
+                            </Typography>
+                            <Typography
+                              variant="body2"
+                              sx={{
+                                color: theme.palette.text.primary,
+                                fontWeight: 400,
+                                fontSize: { xs: "0.875rem", md: "0.9375rem" },
+                              }}
+                            >
+                              {design.specifications.panelFinish}
+                            </Typography>
+                          </Box>
+                        )}
+
                       {/* Lightings */}
                       {design.specifications.lighting && (
                         <Box>

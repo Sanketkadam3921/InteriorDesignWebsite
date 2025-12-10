@@ -23,7 +23,7 @@ const inspirationItems = [
   {
     title: "Master Bedroom",
     image:
-      "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/Master_Bedroom.jpg",
+      "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/masterbedroomniceone.JPG?updatedAt=1765360380587",
   },
 
   {

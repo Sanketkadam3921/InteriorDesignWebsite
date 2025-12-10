@@ -325,7 +325,7 @@ Estimated Price: ₹${estimatePayload.estimatedPrice}
             <RedAsteriskTextField
               fullWidth
               label="Phone Number"
-              type="tel"  
+              type="tel"
               value={formData.phone}
               onChange={handleInputChange("phone")}
               required

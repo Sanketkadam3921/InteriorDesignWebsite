@@ -326,7 +326,7 @@ export default function ContactForm() {
           px: { xs: 2, sm: 4, md: 6 },
           py: { xs: 6, md: 8 },
           overflow: "hidden",
-          backgroundImage: `url(https://ik.imagekit.io/bowr9614/Contact%20/contact.jpg)`,
+          backgroundImage: `url(https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/IMG_5825.JPG)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

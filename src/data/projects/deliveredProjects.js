@@ -236,22 +236,19 @@ export const deliveredProjects = [
 
   {
     id: "delivered-15",
-    title: "Modern Living Room With TV Unit, Study & Wardrobe Design",
+    title: "Modern Living Room With TV Unit Design",
     location: "Pune",
-    scope: "Living Room + Study Interior",
+    scope: "Living Room Interior",
     bhk: "3-BHK",
     pricing: "4.5 - 6.5 Lakhs",
     image: "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4406.JPG",
     images: [
       "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4406.JPG",
       "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4407.JPG",
-      "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4408.JPG",
-      "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4409.JPG",
       "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4410.JPG",
     ],
     status: "COMPLETED",
   },
-
   {
     id: "delivered-16",
     title:
@@ -395,6 +392,20 @@ export const deliveredProjects = [
       "/INTERIOR_DESIGN_IMAGES/Project_23/IMG_4468.JPG",
       "/INTERIOR_DESIGN_IMAGES/Project_23/IMG_4469.JPG",
       "/INTERIOR_DESIGN_IMAGES/Project_23/IMG_4470.JPG",
+    ],
+    status: "COMPLETED",
+  },
+  {
+    id: "delivered-24",
+    title: "Modern Study & Wardrobe Interior Design",
+    location: "Pune",
+    scope: "Study Room Interior",
+    bhk: "3-BHK",
+    pricing: "1.2 - 1.8 Lakhs",
+    image: "/INTERIOR_DESIGN_IMAGES/Project_24/IMG_4408.JPG",
+    images: [
+      "/INTERIOR_DESIGN_IMAGES/Project_24/IMG_4408.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_24/IMG_4409.JPG",
     ],
     status: "COMPLETED",
   },
@@ -651,22 +662,20 @@ export const deliveredProjectsDetails = {
   },
 
   "delivered-15": {
-    title: "Modern Living Room With TV Unit, Study & Wardrobe Design",
+    title: "Modern Living Room With TV Unit Design",
     description:
-      "A thoughtfully designed modern interior featuring a wall-mounted TV unit, compact study area, functional wardrobe, and decorative wall niches in warm wood and neutral tones.",
+      "A sleek modern living room interior featuring a wall-mounted TV unit, floating wooden console, decorative wall niches, and warm ambient lighting in neutral tones.",
     location: "Pune",
     budget: "₹4.5 - ₹6.5 Lakhs",
-    area: "200 sq ft (Living Room + Study)",
+    area: "200 sq ft (Living Room)",
     style: "Modern | Minimal | Warm Wood",
     images: [
       "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4406.JPG",
       "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4407.JPG",
-      "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4408.JPG",
-      "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4409.JPG",
       "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4410.JPG",
     ],
     longDescription:
-      "This modern living and study interior is crafted with a perfect balance of elegance and functionality. The living area features a sleek wall-mounted TV unit with a floating wooden console and integrated ambient lighting. A compact yet efficient study workspace with overhead cabinets is designed near the window for natural light. The full-height wardrobe adds ample storage while maintaining visual harmony. Decorative wall niches add a subtle design highlight, making the overall space clean, warm, and highly functional.",
+      "This modern living room interior is designed with a perfect blend of elegance and functionality. The space features a sleek wall-mounted TV unit paired with a floating wooden console and integrated ambient lighting. Decorative wall niches add visual depth and character. The neutral color palette with warm wood finishes creates a calm, inviting atmosphere while keeping the design contemporary and clutter-free.",
   },
 
   "delivered-16": {
@@ -822,5 +831,20 @@ export const deliveredProjectsDetails = {
     ],
     longDescription:
       "This kids bedroom is designed to create a joyful and comfortable personal space using soft pastel tones and playful design elements. The highlight of the room is the butterfly-themed padded headboard wall that adds a charming and imaginative touch. A vibrant full-height wardrobe in pastel colors provides ample storage while keeping the space visually lively. The integrated study desk with open shelves and warm LED backlighting encourages focus and creativity. Soft curved ceiling detailing with cove lighting, combined with functional storage and cozy finishes, makes this bedroom both playful and practical for growing children.",
+  },
+  "delivered-24": {
+    title: "Modern Study & Wardrobe Interior Design",
+    description:
+      "A smartly planned modern interior featuring a compact study workspace with overhead storage and a full-height wardrobe with optimized internal organization.",
+    location: "Pune",
+    budget: "₹1.2 - ₹1.8 Lakhs",
+    area: "60 sq ft (Study Room)",
+    style: "Modern | Functional | Minimal",
+    images: [
+      "/INTERIOR_DESIGN_IMAGES/Project_24/IMG_4408.JPG",
+      "/INTERIOR_DESIGN_IMAGES/Project_24/IMG_4409.JPG",
+    ],
+    longDescription:
+      "This modern study and wardrobe interior is designed to maximize space efficiency while maintaining a clean and elegant visual appeal. The study area features a wall-mounted working desk with overhead cabinets and is placed strategically near natural light for an energetic workspace. The adjacent full-height wardrobe offers ample storage with internal organizers, drawers, and soft-close shutters. The consistent warm wood finish ties both spaces together, creating a seamless and highly functional design.",
   },
 };

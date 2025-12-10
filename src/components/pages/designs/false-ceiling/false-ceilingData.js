@@ -2,111 +2,113 @@
 export const falseceilingDesigns = [
   {
     id: "1",
-    name: "Modern Geometric False Ceiling",
+    name: "Modern Minimalist Geometric LED Ceiling",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5619.JPG?updatedAt=1765174342732",
     description:
-      "Modern geometric false ceiling design with LED lighting and contemporary appeal",
-    style: "Modern",
+      "Modern minimalist ceiling with geometric linear LED design in soft matte white",
+    style: "Modern Minimalist Ceiling with Geometric Linear LED Design",
     price: "₹1,80,000",
     area: "Ceiling Coverage",
   },
   {
     id: "2",
-    name: "Elegant False Ceiling with Chandelier",
+    name: "Modern Minimalist Geometric LED Ceiling",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5620.JPG?updatedAt=1765174342707",
     description:
-      "Elegant false ceiling design featuring chandelier and sophisticated lighting",
-    style: "Elegant",
+      "Modern minimalist ceiling with geometric linear LED design in soft warm white",
+    style: "Modern Minimalist Ceiling with Geometric Linear LED Design",
     price: "₹2,50,000",
     area: "Ceiling Coverage",
   },
   {
     id: "3",
-    name: "Contemporary False Ceiling Design",
+    name: "Modern Minimalistic Recessed Center Ceiling",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5623.JPG?updatedAt=1765174342614",
     description:
-      "Contemporary false ceiling with modern patterns and ambient lighting",
-    style: "Contemporary",
+      "Modern minimalistic false ceiling with recessed center and clean geometric layout",
+    style:
+      "Modern Minimalistic False Ceiling with Recessed Center and Clean Geometric Layout",
     price: "₹2,20,000",
     area: "Ceiling Coverage",
   },
   {
     id: "4",
-    name: "Luxury False Ceiling with Premium Finishes",
+    name: "Elegant Recessed False Ceiling",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5618.JPG?updatedAt=1765174342449",
     description:
-      "Luxury false ceiling featuring premium finishes and opulent design",
-    style: "Luxury",
+      "Elegant recessed false ceiling with classic trim borders in warm beige/cream",
+    style: "Elegant Recessed False Ceiling with Classic Trim Borders",
     price: "₹3,00,000",
     area: "Ceiling Coverage",
   },
   {
     id: "5",
-    name: "Modern Minimalist False Ceiling",
+    name: "Modern Accent Ceiling with Extended Drop",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5622.JPG?updatedAt=1765174342345",
     description:
-      "Clean minimalist false ceiling with sleek lines and subtle lighting",
-    style: "Minimalist",
+      "Modern accent ceiling with extended drop design flowing onto the wall",
+    style:
+      "Modern Accent Ceiling with Extended Drop Design Flowing onto the Wall",
     price: "₹1,60,000",
     area: "Ceiling Coverage",
   },
   {
     id: "6",
-    name: "Classic False Ceiling Design",
+    name: "Modern Layered False Ceiling",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5617.JPG?updatedAt=1765174342274",
     description:
-      "Classic false ceiling with traditional patterns and elegant styling",
-    style: "Classic",
+      "Modern layered false ceiling with recessed geometric contours and wooden slat paneling",
+    style: "Modern Layered False Ceiling with Recessed Geometric Contours",
     price: "₹2,40,000",
     area: "Ceiling Coverage",
   },
   {
     id: "7",
-    name: "Modern LED False Ceiling",
+    name: "Modern Minimalist Recessed Ceiling",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5621.JPG?updatedAt=1765174341859",
     description:
-      "Modern false ceiling with integrated LED lighting and contemporary design",
-    style: "Modern",
+      "Modern minimalist recessed ceiling with sleek perimeter lighting accents",
+    style:
+      "Modern Minimalist Recessed Ceiling with Sleek Perimeter Lighting Accents",
     price: "₹2,00,000",
     area: "Ceiling Coverage",
   },
   {
     id: "8",
-    name: "Premium False Ceiling Design",
+    name: "Modern Linear False Ceiling",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5624.JPG?updatedAt=1765174341845",
-    description:
-      "Premium false ceiling with sophisticated design and high-end finishes",
-    style: "Premium",
+    description: "Modern linear false ceiling with clean, streamlined design",
+    style: "Modern Linear False Ceiling with Clean, Streamlined Design",
     price: "₹2,80,000",
     area: "Ceiling Coverage",
   },
   {
     id: "9",
-    name: "Elegant False Ceiling Pattern",
+    name: "Modern Recessed Stepped Tray Ceiling",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5625.JPG?updatedAt=1765174341847",
-    description:
-      "Elegant false ceiling with intricate patterns and refined aesthetics",
-    style: "Elegant",
+    description: "Modern recessed false ceiling with stepped tray design",
+    style: "Modern Recessed False Ceiling with Stepped Tray Design",
     price: "₹2,60,000",
     area: "Ceiling Coverage",
   },
   {
     id: "10",
-    name: "Contemporary Luxury False Ceiling",
+    name: "Classic Tray Ceiling",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5626.JPG?updatedAt=1765174341735",
     description:
-      "Contemporary luxury false ceiling combining modern design with opulent touches",
-    style: "Luxury",
+      "Classic tray ceiling with layered moulding and recessed perimeter design",
+    style:
+      "Classic Tray Ceiling with Layered Moulding and Recessed Perimeter Design",
     price: "₹3,20,000",
     area: "Ceiling Coverage",
   },
@@ -116,302 +118,331 @@ export const falseceilingDesigns = [
 export const falseceilingDesignDetails = {
   1: {
     id: "1",
-    title: "Modern Geometric False Ceiling",
+    title: "Modern Minimalist Geometric LED Ceiling",
     category: "false-ceiling",
-    style: "Modern",
+    style: "Modern Minimalist Ceiling with Geometric Linear LED Design",
     price: "₹1,80,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5619.JPG?updatedAt=1765174342732",
     description:
-      "Modern geometric false ceiling design with LED lighting and contemporary appeal.",
+      "Modern minimalist ceiling with geometric linear LED design in soft matte white.",
     longDescription:
-      "This modern geometric false ceiling design features contemporary geometric patterns with integrated LED lighting. The design adds dimension and style to any space while providing functional lighting solutions.",
+      "This modern minimalist ceiling features a geometric linear LED design that creates a contemporary and sophisticated look. The soft matte white finish provides a clean and seamless appearance. The gypsum false ceiling with integrated LED channels ensures a smooth, seamless finish with clean recessed line detailing. Continuous linear LED strip lighting arranged in a geometric pattern provides bright and even illumination throughout the space.",
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5619.JPG?updatedAt=1765174342732",
     ],
     features: [
-      "Geometric Patterns",
-      "LED Lighting",
-      "Modern Design",
-      "Contemporary Appeal",
+      "Geometric Linear LED Design",
+      "Integrated LED Channels",
+      "Smooth Seamless Finish",
+      "Clean Recessed Line Detailing",
     ],
     specifications: {
       area: "Ceiling Coverage",
-      style: "Modern",
-      colorScheme: "Neutral, Modern",
-      materials: "Premium Gypsum, LED",
-      lighting: "Integrated LED",
-      furniture: "Modern + Functional",
+      style: "Modern Minimalist Ceiling with Geometric Linear LED Design",
+      colorScheme: "Soft Matte White",
+      materials: "Gypsum False Ceiling with Integrated LED Channels",
+      panelFinish: "Smooth, Seamless Finish with Clean Recessed Line Detailing",
+      lighting:
+        "Continuous Linear LED Strip Lighting Arranged in a Geometric Pattern, Providing Bright and Even Illumination",
     },
   },
   2: {
     id: "2",
-    title: "Elegant False Ceiling with Chandelier",
+    title: "Modern Minimalist Geometric LED Ceiling",
     category: "false-ceiling",
-    style: "Elegant",
+    style: "Modern Minimalist Ceiling with Geometric Linear LED Design",
     price: "₹2,50,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5620.JPG?updatedAt=1765174342707",
     description:
-      "Elegant false ceiling design featuring chandelier and sophisticated lighting.",
+      "Modern minimalist ceiling with geometric linear LED design in soft warm white.",
     longDescription:
-      "This elegant false ceiling design features a stunning chandelier and sophisticated lighting arrangement. The design creates a luxurious and refined atmosphere that enhances the overall aesthetic of the space.",
+      "This modern minimalist ceiling features a geometric linear LED design with a soft warm white finish and subtle matte texture. The gypsum false ceiling with embedded LED channels creates a sophisticated look. The smooth, seamless finish with crisp recessed lines adds refinement. Warm LED strip lighting outlines the ceiling geometry, combined with recessed LED spotlights for ambient illumination, creating a warm and inviting atmosphere.",
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5620.JPG?updatedAt=1765174342707",
     ],
     features: [
-      "Chandelier",
-      "Elegant Design",
-      "Sophisticated Lighting",
-      "Luxurious Atmosphere",
+      "Geometric Linear LED Design",
+      "Embedded LED Channels",
+      "Crisp Recessed Lines",
+      "Warm LED Strip Lighting",
     ],
     specifications: {
       area: "Ceiling Coverage",
-      style: "Elegant",
-      colorScheme: "Elegant, Luxurious",
-      materials: "Premium Gypsum, Chandelier",
-      lighting: "Chandelier + LED",
-      furniture: "Elegant + Luxurious",
+      style: "Modern Minimalist Ceiling with Geometric Linear LED Design",
+      colorScheme: "Soft Warm White with a Subtle Matte Finish",
+      materials: "Gypsum False Ceiling with Embedded LED Channels",
+      panelFinish: "Smooth, Seamless Finish with Crisp Recessed Lines",
+      lighting:
+        "Warm LED Strip Lighting Outlining the Ceiling Geometry, Combined with Recessed LED Spotlights for Ambient Illumination",
     },
   },
   3: {
     id: "3",
-    title: "Contemporary False Ceiling Design",
+    title: "Modern Minimalistic Recessed Center Ceiling",
     category: "false-ceiling",
-    style: "Contemporary",
+    style:
+      "Modern Minimalistic False Ceiling with a Recessed Center and Clean Geometric Layout",
     price: "₹2,20,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5623.JPG?updatedAt=1765174342614",
     description:
-      "Contemporary false ceiling with modern patterns and ambient lighting.",
+      "Modern minimalistic false ceiling with recessed center and clean geometric layout in soft matte white.",
     longDescription:
-      "This contemporary false ceiling features modern patterns and ambient lighting that create a dynamic and stylish look. The design adds visual interest while maintaining a clean and modern aesthetic.",
+      "This modern minimalistic false ceiling features a recessed center with a clean geometric layout in soft matte white. The gypsum board false ceiling with smooth putty finish provides a plain, seamless finish with a subtle recessed rectangular border. Continuous LED strip lighting outlines the inner rectangle, while multiple small recessed LED spotlights placed symmetrically create a warm ambient lighting effect around the edges, providing both functional and decorative illumination.",
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5623.JPG?updatedAt=1765174342614",
     ],
     features: [
-      "Modern Patterns",
-      "Ambient Lighting",
-      "Contemporary Design",
-      "Dynamic Look",
+      "Recessed Center Design",
+      "Clean Geometric Layout",
+      "Smooth Putty Finish",
+      "Subtle Recessed Rectangular Border",
     ],
     specifications: {
       area: "Ceiling Coverage",
-      style: "Contemporary",
-      colorScheme: "Modern, Neutral",
-      materials: "Premium Gypsum, LED",
-      lighting: "Ambient LED",
-      furniture: "Contemporary + Modern",
+      style:
+        "Modern Minimalistic False Ceiling with a Recessed Center and Clean Geometric Layout",
+      colorScheme: "Soft Matte White",
+      materials: "Gypsum Board False Ceiling with Smooth Putty Finish",
+      panelFinish:
+        "Plain, Seamless Finish with a Subtle Recessed Rectangular Border",
+      lighting:
+        "Continuous LED Strip Lighting Outlining the Inner Rectangle, Multiple Small Recessed LED Spotlights Placed Symmetrically, Warm Ambient Lighting Effect Around the Edges",
     },
   },
   4: {
     id: "4",
-    title: "Luxury False Ceiling with Premium Finishes",
+    title: "Elegant Recessed False Ceiling",
     category: "false-ceiling",
-    style: "Luxury",
+    style: "Elegant Recessed False Ceiling with Classic Trim Borders",
     price: "₹3,00,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5618.JPG?updatedAt=1765174342449",
     description:
-      "Luxury false ceiling featuring premium finishes and opulent design.",
+      "Elegant recessed false ceiling with classic trim borders in warm beige/cream tone.",
     longDescription:
-      "This luxury false ceiling features premium finishes and opulent design elements that create an extravagant atmosphere. The design showcases luxury craftsmanship and sophisticated styling.",
+      "This elegant recessed false ceiling features classic trim borders in a warm beige/cream tone with a soft matte finish. The gypsum board false ceiling with molded edge detailing creates a sophisticated look. The smooth, seamless finish with fine decorative trim outlining the recessed area adds refinement. Warm LED cove lighting around the inner perimeter and recessed LED spotlights provide uniform illumination, creating an elegant and inviting atmosphere.",
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5618.JPG?updatedAt=1765174342449",
     ],
     features: [
-      "Premium Finishes",
-      "Luxury Design",
-      "Opulent Elements",
-      "Extravagant Atmosphere",
+      "Classic Trim Borders",
+      "Molded Edge Detailing",
+      "Fine Decorative Trim",
+      "Warm LED Cove Lighting",
     ],
     specifications: {
       area: "Ceiling Coverage",
-      style: "Luxury",
-      colorScheme: "Luxury Tones",
-      materials: "Premium Materials",
-      lighting: "Luxury LED",
-      furniture: "Luxury + Premium",
+      style: "Elegant Recessed False Ceiling with Classic Trim Borders",
+      colorScheme: "Warm Beige/Cream Tone with a Soft Matte Finish",
+      materials: "Gypsum Board False Ceiling with Molded Edge Detailing",
+      panelFinish:
+        "Smooth, Seamless Finish with Fine Decorative Trim Outlining the Recessed Area",
+      lighting:
+        "Warm LED Cove Lighting Around the Inner Perimeter and Recessed LED Spotlights for Uniform Illumination",
     },
   },
   5: {
     id: "5",
-    title: "Modern Minimalist False Ceiling",
+    title: "Modern Accent Ceiling with Extended Drop",
     category: "false-ceiling",
-    style: "Minimalist",
+    style:
+      "Modern Accent Ceiling with an Extended Drop Design Flowing onto the Wall",
     price: "₹1,60,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5622.JPG?updatedAt=1765174342345",
     description:
-      "Clean minimalist false ceiling with sleek lines and subtle lighting.",
+      "Modern accent ceiling with extended drop design flowing onto the wall in soft warm white.",
     longDescription:
-      "This modern minimalist false ceiling embraces clean lines and simplicity. The sleek design with subtle lighting creates a calm and uncluttered atmosphere that promotes a sense of peace.",
+      "This modern accent ceiling features an extended drop design that flows seamlessly onto the wall, creating a dramatic architectural statement. The soft warm white with subtle matte texture provides a sophisticated backdrop. The gypsum false ceiling with integrated 3D textured wall-ceiling panel creates an intricate embossed floral/leaf-style texture with a smooth surrounding ceiling surface. Warm concealed LED cove lighting running along the edges of the accent panel creates a soft halo effect, adding depth and visual interest.",
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5622.JPG?updatedAt=1765174342345",
     ],
     features: [
-      "Minimalist Design",
-      "Clean Lines",
-      "Subtle Lighting",
-      "Calm Atmosphere",
+      "Extended Drop Design",
+      "3D Textured Wall-Ceiling Panel",
+      "Intricate Embossed Texture",
+      "Soft Halo Effect Lighting",
     ],
     specifications: {
       area: "Ceiling Coverage",
-      style: "Minimalist",
-      colorScheme: "Neutral, Minimal",
-      materials: "Premium Gypsum",
-      lighting: "Subtle LED",
-      furniture: "Minimalist + Clean",
+      style:
+        "Modern Accent Ceiling with an Extended Drop Design Flowing onto the Wall",
+      colorScheme: "Soft Warm White with a Subtle Matte Texture",
+      materials:
+        "Gypsum False Ceiling with Integrated 3D Textured Wall-Ceiling Panel",
+      panelFinish:
+        "Intricate Embossed Floral/Leaf-Style Texture with a Smooth Surrounding Ceiling Surface",
+      lighting:
+        "Warm Concealed LED Cove Lighting Running Along the Edges of the Accent Panel, Creating a Soft Halo Effect",
     },
   },
   6: {
     id: "6",
-    title: "Classic False Ceiling Design",
+    title: "Modern Layered False Ceiling",
     category: "false-ceiling",
-    style: "Classic",
+    style: "Modern Layered False Ceiling with Recessed Geometric Contours",
     price: "₹2,40,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5617.JPG?updatedAt=1765174342274",
     description:
-      "Classic false ceiling with traditional patterns and elegant styling.",
+      "Modern layered false ceiling with recessed geometric contours and wooden slat paneling.",
     longDescription:
-      "This classic false ceiling features traditional patterns and elegant styling that never go out of style. The design adds timeless charm and sophistication to any space.",
+      "This modern layered false ceiling features recessed geometric contours with matte white ceiling and warm wooden tones in the central panel. The gypsum board for the layered structure combined with wooden slat paneling in the center creates a sophisticated contrast. The gypsum features a smooth painted finish, while the wood showcases vertical slatted panel with natural wood grain texture. Warm LED cove lighting outlines each recessed layer, slim linear LED strips on the surrounding ceiling provide accent illumination, and hidden indirect lighting creates a soft ambient glow.",
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5617.JPG?updatedAt=1765174342274",
     ],
     features: [
-      "Classic Design",
-      "Traditional Patterns",
-      "Elegant Styling",
-      "Timeless Charm",
+      "Recessed Geometric Contours",
+      "Wooden Slat Paneling",
+      "Natural Wood Grain Texture",
+      "Layered Lighting Design",
     ],
     specifications: {
       area: "Ceiling Coverage",
-      style: "Classic",
-      colorScheme: "Classic, Elegant",
-      materials: "Premium Gypsum",
-      lighting: "Classic LED",
-      furniture: "Classic + Traditional",
+      style: "Modern Layered False Ceiling with Recessed Geometric Contours",
+      colorScheme:
+        "Matte White Ceiling with Warm Wooden Tones in the Central Panel",
+      materials:
+        "Gypsum Board for the Layered Structure + Wooden Slat Paneling in the Center",
+      panelFinish:
+        "Gypsum: Smooth Painted Finish, Wood: Vertical Slatted Panel with Natural Wood Grain Texture",
+      lighting:
+        "Warm LED Cove Lighting Outlining Each Recessed Layer, Slim Linear LED Strips on Surrounding Ceiling for Accent Illumination, Hidden Indirect Lighting Creating a Soft Ambient Glow",
     },
   },
   7: {
     id: "7",
-    title: "Modern LED False Ceiling",
+    title: "Modern Minimalist Recessed Ceiling",
     category: "false-ceiling",
-    style: "Modern",
+    style:
+      "Modern Minimalist Recessed Ceiling with Sleek Perimeter Lighting Accents",
     price: "₹2,00,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5621.JPG?updatedAt=1765174341859",
     description:
-      "Modern false ceiling with integrated LED lighting and contemporary design.",
+      "Modern minimalist recessed ceiling with sleek perimeter lighting accents in soft warm white.",
     longDescription:
-      "This modern false ceiling features integrated LED lighting and contemporary design elements. The LED lighting provides both functional illumination and aesthetic appeal, creating a modern and energy-efficient solution.",
+      "This modern minimalist recessed ceiling features sleek perimeter lighting accents in soft warm white with a subtle matte finish. The gypsum false ceiling with concealed LED channels and trimmed borders creates a sophisticated look. The smooth, seamless ceiling surface with clean recessed detailing and slim black channel lines adds contemporary refinement. Warm ambient LED cove lighting runs along the perimeter, integrated linear lighting within black channels creates a contemporary layered glow, providing both functional and decorative illumination.",
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5621.JPG?updatedAt=1765174341859",
     ],
     features: [
-      "Integrated LED",
-      "Modern Design",
-      "Contemporary Style",
-      "Energy Efficient",
+      "Sleek Perimeter Lighting",
+      "Concealed LED Channels",
+      "Slim Black Channel Lines",
+      "Contemporary Layered Glow",
     ],
     specifications: {
       area: "Ceiling Coverage",
-      style: "Modern",
-      colorScheme: "Modern, Neutral",
-      materials: "Premium Gypsum, LED",
-      lighting: "Integrated LED",
-      furniture: "Modern + Contemporary",
+      style:
+        "Modern Minimalist Recessed Ceiling with Sleek Perimeter Lighting Accents",
+      colorScheme: "Soft Warm White with a Subtle Matte Finish",
+      materials:
+        "Gypsum False Ceiling with Concealed LED Channels and Trimmed Borders",
+      panelFinish:
+        "Smooth, Seamless Ceiling Surface with Clean Recessed Detailing and Slim Black Channel Lines",
+      lighting:
+        "Warm Ambient LED Cove Lighting Running Along the Perimeter, Integrated Linear Lighting Within Black Channels for a Contemporary Layered Glow",
     },
   },
   8: {
     id: "8",
-    title: "Premium False Ceiling Design",
+    title: "Modern Linear False Ceiling",
     category: "false-ceiling",
-    style: "Premium",
+    style: "Modern Linear False Ceiling with Clean, Streamlined Design",
     price: "₹2,80,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5624.JPG?updatedAt=1765174341845",
     description:
-      "Premium false ceiling with sophisticated design and high-end finishes.",
+      "Modern linear false ceiling with clean, streamlined design in soft matte white.",
     longDescription:
-      "This premium false ceiling features sophisticated design and high-end finishes that create a refined atmosphere. The design showcases premium craftsmanship and elegant aesthetics.",
+      "This modern linear false ceiling features a clean, streamlined design in soft matte white. The gypsum board false ceiling with smooth putty finish provides a plain seamless finish with integrated recessed channels for lighting. Dual linear LED strip lights run across the ceiling, multiple recessed spotlights placed symmetrically provide focused illumination, and concealed warm cove lighting near the wall edges creates an ambient glow, providing comprehensive lighting solutions.",
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5624.JPG?updatedAt=1765174341845",
     ],
     features: [
-      "Premium Design",
-      "Sophisticated Style",
-      "High-End Finishes",
-      "Refined Atmosphere",
+      "Clean Streamlined Design",
+      "Integrated Recessed Channels",
+      "Dual Linear LED Strips",
+      "Concealed Cove Lighting",
     ],
     specifications: {
       area: "Ceiling Coverage",
-      style: "Premium",
-      colorScheme: "Premium Tones",
-      materials: "High-End Materials",
-      lighting: "Premium LED",
-      furniture: "Premium + Sophisticated",
+      style: "Modern Linear False Ceiling with Clean, Streamlined Design",
+      colorScheme: "Soft Matte White",
+      materials: "Gypsum Board False Ceiling with Smooth Putty Finish",
+      panelFinish:
+        "Plain Seamless Finish with Integrated Recessed Channels for Lighting",
+      lighting:
+        "Dual Linear LED Strip Lights Running Across the Ceiling, Multiple Recessed Spotlights Placed Symmetrically, Concealed Warm Cove Lighting Near the Wall Edges for Ambient Glow",
     },
   },
   9: {
     id: "9",
-    title: "Elegant False Ceiling Pattern",
+    title: "Modern Recessed Stepped Tray Ceiling",
     category: "false-ceiling",
-    style: "Elegant",
+    style: "Modern Recessed False Ceiling with a Stepped Tray Design",
     price: "₹2,60,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5625.JPG?updatedAt=1765174341847",
     description:
-      "Elegant false ceiling with intricate patterns and refined aesthetics.",
+      "Modern recessed false ceiling with stepped tray design in soft matte white.",
     longDescription:
-      "This elegant false ceiling features intricate patterns and refined aesthetics that create a sophisticated atmosphere. The design adds elegance and visual interest to any space.",
+      "This modern recessed false ceiling features a stepped tray design in soft matte white. The gypsum board false ceiling with smooth putty and paint finish provides a clean, seamless tray panel with sleek edges and no visible joints. Warm concealed LED cove lighting around the recessed tray perimeter creates ambient illumination, recessed LED downlights placed symmetrically provide focused lighting, and a central ceiling fan mounted on the flat inner panel adds functionality and style.",
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5625.JPG?updatedAt=1765174341847",
     ],
     features: [
-      "Intricate Patterns",
-      "Elegant Design",
-      "Refined Aesthetics",
-      "Sophisticated Atmosphere",
+      "Stepped Tray Design",
+      "Sleek Edges",
+      "No Visible Joints",
+      "Central Ceiling Fan",
     ],
     specifications: {
       area: "Ceiling Coverage",
-      style: "Elegant",
-      colorScheme: "Elegant, Refined",
-      materials: "Premium Gypsum",
-      lighting: "Elegant LED",
-      furniture: "Elegant + Sophisticated",
+      style: "Modern Recessed False Ceiling with a Stepped Tray Design",
+      colorScheme: "Soft Matte White",
+      materials: "Gypsum Board False Ceiling with Smooth Putty + Paint Finish",
+      panelFinish:
+        "Clean, Seamless Tray Panel with Sleek Edges and No Visible Joints",
+      lighting:
+        "Warm Concealed LED Cove Lighting Around the Recessed Tray Perimeter, Recessed LED Downlights Placed Symmetrically, Central Ceiling Fan Mounted on the Flat Inner Panel",
     },
   },
   10: {
     id: "10",
-    title: "Contemporary Luxury False Ceiling",
+    title: "Classic Tray Ceiling",
     category: "false-ceiling",
-    style: "Luxury",
+    style:
+      "Classic Tray Ceiling with Layered Moulding and Recessed Perimeter Design",
     price: "₹3,20,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5626.JPG?updatedAt=1765174341735",
     description:
-      "Contemporary luxury false ceiling combining modern design with opulent touches.",
+      "Classic tray ceiling with layered moulding and recessed perimeter design in soft matte white.",
     longDescription:
-      "This contemporary luxury false ceiling seamlessly combines modern design elements with opulent touches. The design creates a grand and sophisticated atmosphere that blends contemporary aesthetics with luxury finishes.",
+      "This classic tray ceiling features layered moulding and recessed perimeter design in soft matte white with a warm undertone. The gypsum board false ceiling with decorative moulding details creates an elegant look. The smooth painted finish with elegant stepped borders adds refinement. Warm LED cove lighting hidden inside the tray perimeter provides ambient illumination, recessed downlights placed near the edges offer focused illumination, and a central pendant light provides ambient decorative lighting, creating a classic and sophisticated atmosphere.",
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5626.JPG?updatedAt=1765174341735",
     ],
     features: [
-      "Contemporary Luxury",
-      "Modern Design",
-      "Opulent Touches",
-      "Grand Atmosphere",
+      "Layered Moulding",
+      "Decorative Moulding Details",
+      "Elegant Stepped Borders",
+      "Central Pendant Light",
     ],
     specifications: {
       area: "Ceiling Coverage",
-      style: "Luxury",
-      colorScheme: "Luxury, Contemporary",
-      materials: "Premium Materials",
-      lighting: "Luxury LED",
-      furniture: "Luxury + Contemporary",
+      style:
+        "Classic Tray Ceiling with Layered Moulding and Recessed Perimeter Design",
+      colorScheme: "Soft Matte White with a Warm Undertone",
+      materials: "Gypsum Board False Ceiling with Decorative Moulding Details",
+      panelFinish: "Smooth Painted Finish with Elegant Stepped Borders",
+      lighting:
+        "Warm LED Cove Lighting Hidden Inside the Tray Perimeter, Recessed Downlights Placed Near the Edges for Focused Illumination, Central Pendant Light Providing Ambient Decorative Lighting",
     },
   },
 };
