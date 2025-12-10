@@ -431,36 +431,17 @@ export default function DesignDetail() {
                           >
                             Colors
                           </Typography>
-                          <Box
+                          <Typography
+                            variant="body2"
                             sx={{
-                              display: "flex",
-                              flexWrap: "wrap",
-                              gap: 1,
-                              alignItems: "flex-start",
+                              color: theme.palette.text.primary,
+                              fontWeight: 400,
+                              fontSize: { xs: "0.875rem", md: "0.9375rem" },
                             }}
                           >
-                            {(
-                              design.specifications.colorScheme ||
-                              design.specifications.color
-                            )
-                              .split(/[,&]/)
-                              .map((color, index) => (
-                                <Chip
-                                  key={index}
-                                  label={color.trim()}
-                                  size="small"
-                                  sx={{
-                                    backgroundColor: theme.palette.grey[100],
-                                    color: theme.palette.text.primary,
-                                    fontWeight: 400,
-                                    fontSize: {
-                                      xs: "0.75rem",
-                                      md: "0.8125rem",
-                                    },
-                                  }}
-                                />
-                              ))}
-                          </Box>
+                            {design.specifications.colorScheme ||
+                              design.specifications.color}
+                          </Typography>
                         </Box>
                       )}
 

@@ -34,24 +34,24 @@ export default function HomeServices() {
     {
       title: "Modular Interiors",
       image:
-        "https://ik.imagekit.io/bowr9614/HomePage_Hero/Home%20Page%204%20Images%20Below%20Hero%20Section/small-kitchen-space-with-modern-design.jpg",
+        "https://ik.imagekit.io/bowr9614/4ImagesBelowHero/Modular%20Interiors.JPG",
       path: "/offerings/modular-interiors",
     },
     {
       title: "Full Home Interiors",
       image:
-        "https://ik.imagekit.io/bowr9614/HomePage_Hero/Home%20Page%204%20Images%20Below%20Hero%20Section/4image.jpg",
+        "https://ik.imagekit.io/bowr9614/4ImagesBelowHero/Full%20Home%20Interiors.JPG",
       path: "/designs/full-home-interiors",
     },
     {
       title: "Luxury Interiors",
-      image: "https://ik.imagekit.io/bowr9614/Luxury%20Interior/lluuxxrryy.jpg",
+      image:
+        "https://ik.imagekit.io/bowr9614/4ImagesBelowHero/Luxury%20Interiors.JPG",
       path: "/designs/luxury-interiors",
     },
     {
       title: "Renovations",
-      image:
-        "https://ik.imagekit.io/bowr9614/HomePage_Hero/Home%20Page%204%20Images%20Below%20Hero%20Section/Renovations.jpg",
+      image: "https://ik.imagekit.io/bowr9614/4ImagesBelowHero/Renovation.JPG",
       path: "/renovations",
     },
   ];

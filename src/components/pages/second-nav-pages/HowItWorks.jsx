@@ -263,7 +263,7 @@ export default function HowItWorks() {
       description:
         "Once you approve the quotation, our skilled design and execution team begins bringing your dream space to life. We manage every stage — from sourcing premium materials and coordinating with contractors to overseeing on-site work with precision. Our team ensures that each element aligns with the approved design plan while maintaining the highest standards of quality. Regular updates keep you informed at every milestone. The result? A beautifully crafted space that captures your vision, elevates your lifestyle, and feels like home the moment you step in.",
       image:
-        "https://plus.unsplash.com/premium_photo-1682086494580-e84624f7cb51?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+        "https://ik.imagekit.io/bowr9614/Process/vecteezy_online-payment-internet-banking-and-online-shopping_7389841.jpg",
     },
   ];
 
