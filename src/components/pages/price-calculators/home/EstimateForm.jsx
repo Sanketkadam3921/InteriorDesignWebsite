@@ -409,7 +409,7 @@ Price Range: ${priceRange?.displayRange || "N/A"}
 
               <RedAsteriskTextField
                 fullWidth
-                label="Email ID"
+                label="Email Address"
                 type="email"
                 value={formData.email}
                 onChange={handleInputChange("email")}

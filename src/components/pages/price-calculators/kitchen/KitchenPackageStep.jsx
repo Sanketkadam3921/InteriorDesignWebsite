@@ -19,7 +19,7 @@ const kitchenPackages = [
     pricePerSqft: "per sqft",
     features: ["Low cost", "Basic units", "Standard finish"],
     image:
-      "https://imgs.search.brave.com/eC9Lrrw_wKXvJhggs2410QRm4xKZOlw2fdAUC6TICHU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5kZXNpZ25jYWZl/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAxOS8xMi8xNzA1/NTM1OS9wYXJhbGxl/bC1tb2R1bGFyLWtp/dGNoZW4tZGVzaWdu/LmpwZw",
+      "https://ik.imagekit.io/bowr9614/Packages/Kitchen/Basic%20Kitchen.jpg?updatedAt=1765347608500",
   },
   {
     id: "premium",
@@ -28,7 +28,7 @@ const kitchenPackages = [
     pricePerSqft: "per sqft",
     features: ["Mid cost", "Premium units", "Premium finish"],
     image:
-      "https://imgs.search.brave.com/U3mqVbPs-e5pefy4R1ys-L1ZrZpKDKD4WRn7t87fMJQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9vbmdy/aWQuZGVzaWduL2Nk/bi9zaG9wL2ZpbGVz/LzAyQWRkb25fMzNl/OGNiNGItMDFlZi00/NTM3LTk1OTItNjg5/MGM4YzliMDdkLmpw/Zz92PTE2OTE0ODEy/MTYmd2lkdGg9MTA4/MA",
+      "https://ik.imagekit.io/bowr9614/Packages/Kitchen/Premium%20KItchen.jpg?updatedAt=1765347608878",
   },
   {
     id: "luxe",
@@ -37,7 +37,7 @@ const kitchenPackages = [
     pricePerSqft: "per sqft",
     features: ["High cost", "Luxury units", "Elite finish"],
     image:
-      "https://imgs.search.brave.com/nFBdhJr_uS0xT9HWUOPFmCyJ5-TcS56oZzGBGhd5YNY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5kZXNpZ25jYWZl/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAyMy8wOS8wNjEy/NTI0NS9wYXJhbGxl/bC1raXRjaGVuLWRl/c2lnbi1zYWdlLWdy/ZWVuLWFuZC13aGl0/ZS5qcGc",
+      "https://ik.imagekit.io/bowr9614/Packages/Kitchen/Luxery%20Kitchen.jpg?updatedAt=1765347608880",
   },
 ];
 

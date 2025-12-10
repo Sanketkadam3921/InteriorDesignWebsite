@@ -15,25 +15,25 @@ const kitchenLayouts = [
     id: "l-shaped",
     title: "L-shaped",
     image:
-      "https://imgs.search.brave.com/JSJywiQSgS7fNjVsa24LXN1byZGT3b2dchVa_HTv7hE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/aG9tZS1kZXNpZ25p/bmcuY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDE4LzA2L1dv/b2QtYW5kLXdoaXRl/LUwtc2hhcGVkLWtp/dGNoZW4uanBn",
+      "https://ik.imagekit.io/bowr9614/Packages/Kitchen/L%20Shaped%20Modern%20Modular%20Kitchen%20Delights%20for%20Stylish%20Living%20_%20333k+%20Inspiring%20Lifestyle%20Ideas.jpg?updatedAt=1765347628621",
   },
   {
     id: "u-shaped",
     title: "U-shaped",
     image:
-      "https://imgs.search.brave.com/DHSqXlbKiC6Xq9DE-8ceb4CbvUjNN4UYyhYaxDxUqr8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/aG9tZS1kZXNpZ25p/bmcuY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDE4LzA3L3Ut/c2hhcGVkLXNtYWxs/LWtpdGNoZW4uanBn",
+      "https://ik.imagekit.io/bowr9614/Packages/Kitchen/U%20shaped%20KItchen.jpg?updatedAt=1765347608975",
   },
   {
     id: "straight",
     title: "Straight",
     image:
-      "https://imgs.search.brave.com/5aMrhUUysZjXROFgxfNfX51opwin_UBBSiExTrs45qA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tY2Nv/eW1hcnQuY29tL3Bv/c3Qvd3AtY29udGVu/dC93ZWJwLWV4cHJl/c3Mvd2VicC1pbWFn/ZXMvdXBsb2Fkcy8y/MS1PY3QtMjQtQ29t/cGFjdC1TdHJhaWdo/dC1LaXRjaGVuMS5q/cGcud2VicA",
+      "https://ik.imagekit.io/bowr9614/Packages/Kitchen/Straight%20Kitc%20hen.jpg?updatedAt=1765347608712",
   },
   {
     id: "parallel",
     title: "Parallel",
     image:
-      "https://imgs.search.brave.com/uOSWwaxyBr_2sH2oDYtCBknACocJwaKdQUbfW1mPTFE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzhhLzdm/LzM2LzhhN2YzNjc5/ZTY2MzY2M2Y3YmIw/MGJhYzg5Y2QwMTMx/LmpwZw",
+      "https://ik.imagekit.io/bowr9614/Packages/Kitchen/Parallel%20Kitchen.jpg?updatedAt=1765347609057",
   },
 ];
 

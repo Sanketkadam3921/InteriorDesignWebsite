@@ -371,7 +371,7 @@ Estimated Price: ₹${estimatePayload.estimatedPrice}
 
               <RedAsteriskTextField
                 fullWidth
-                label="Email ID"
+                label="Email Address"
                 type="email"
                 value={formData.email}
                 onChange={handleInputChange("email")}

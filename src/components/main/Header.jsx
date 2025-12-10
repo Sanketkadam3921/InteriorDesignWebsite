@@ -834,7 +834,7 @@ export default function Header() {
                         fontWeight:
                           location.pathname === item.path ? "bold" : "500",
                         fontSize: "1rem",
-                        padding: "8px 16px",
+                        padding: "3px 16px",
                         borderRadius: 1,
                         "&:hover": {
                           backgroundColor: theme.palette.action.hover,

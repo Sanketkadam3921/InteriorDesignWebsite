@@ -20,7 +20,7 @@ const wardrobeTypes = [
     description:
       "Movable doors that slide horizontally along a metal rail and save floor space. Ideal for compact rooms that still want a sleek, modern look.",
     image:
-      "https://imgs.search.brave.com/mbnux6cQIQBhVBYHhGugU8Q7zwqWGj_8dcPeyGDHQiQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvODcx/NzY4MTUwL3Bob3Rv/L3dhcmRyb2JlLXdp/dGgtc2xpZGluZy1k/b29ycy1mdXJuaXR1/cmUtaW50ZXJpb3It/ZGVzaWduLTNkLXJl/bmRlci5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9Sm5OdlJ4/X1F2LUVoRHEzVHlO/NzNEQWVnRVJPVkx0/SDBNWG1LazI5UFRh/dz0",
+      "https://ik.imagekit.io/bowr9614/Packages/Wardrobe/Sliding%20Wardrobe.jpg?updatedAt=1765347575346",
   },
   {
     id: "swing",
@@ -28,7 +28,7 @@ const wardrobeTypes = [
     description:
       "Doors that swing out to open, giving better visibility and storage space. A classic, cost-effective choice that’s easy to maintain.",
     image:
-      "https://imgs.search.brave.com/i4G3fQSgnl2v5QbjXICZQUItZHbEjyPbdW3ULhlYQT0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/aW50ZXJpb3Jjb21w/YW55LmNvbS9pbnRl/cmlvci93ZWJwcm9k/dWN0LzU4NDYzODU4/MjkzNDM0MTU1ODU4/MS5wbmc_YWlvPXct/NzY4Ow",
+      "https://ik.imagekit.io/bowr9614/Packages/Wardrobe/Swing%20Wardrobe.jpg?updatedAt=1765347575336",
   },
 ];
 
