@@ -26,7 +26,7 @@ export default function WhyChooseItem({ title, icon, iconUrl }) {
     <Card
       sx={{
         height: { xs: 220, sm: 240, md: 260 }, // consistent height
-        width: { xs: "100%", sm: 280, md: 300 },
+        width: { xs: 220, sm: 280, md: 300 },
         maxWidth: { xs: "100%", sm: 280, md: 300 },
         borderRadius: 3,
         overflow: "hidden",
