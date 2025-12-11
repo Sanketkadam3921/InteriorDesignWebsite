@@ -141,7 +141,7 @@ export default function FounderIntroduction() {
                   sm: 550,
                   md: 450,
                   lg: 550,
-                  xl: 650,
+                  xl: 610,
                 },
                 width: {
                   xs: "100%",
