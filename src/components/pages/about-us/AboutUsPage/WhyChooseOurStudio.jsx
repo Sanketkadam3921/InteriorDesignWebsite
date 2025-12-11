@@ -15,7 +15,7 @@ export default function WhyChooseOurStudio() {
 
   return (
     <Box sx={{ py: { xs: 6, md: 10 }, backgroundColor: "background.default" }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Typography
           variant="h3"
           component="h2"
@@ -108,4 +108,3 @@ export default function WhyChooseOurStudio() {
     </Box>
   );
 }
-

@@ -24,6 +24,12 @@ export default function FounderCard({
     <Card
       sx={{
         height: "100%",
+        width: {
+          xs: "100%",
+          sm: "335px",
+          md: "450px",
+          lg: "550px",
+        },
         borderRadius: 4,
         backgroundColor: theme.palette.background.paper,
         boxShadow: theme.shadows[4],

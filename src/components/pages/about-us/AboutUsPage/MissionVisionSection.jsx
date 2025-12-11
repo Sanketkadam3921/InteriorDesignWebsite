@@ -9,7 +9,7 @@ export default function MissionVisionSection() {
   return (
     <Box
       sx={{
-        py: { xs: 6, md: 8 },
+        py: { xs: 6, md: 1 },
         backgroundColor: "#f7f7f7",
       }}
     >
@@ -34,4 +34,3 @@ export default function MissionVisionSection() {
     </Box>
   );
 }
-

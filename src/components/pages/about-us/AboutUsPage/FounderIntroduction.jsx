@@ -12,7 +12,13 @@ export default function FounderIntroduction() {
         background: `linear-gradient(180deg, ${theme.palette.background.default} 0%, ${theme.palette.grey[100]} 100%)`,
       }}
     >
-      <Container maxWidth="lg">
+      <Container
+        maxWidth="lg"
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <Grid
           container
           spacing={{ xs: 4, md: 6, lg: 6 }}

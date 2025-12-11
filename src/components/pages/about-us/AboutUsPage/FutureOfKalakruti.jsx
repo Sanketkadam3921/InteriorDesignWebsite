@@ -12,7 +12,7 @@ export default function FutureOfKalakruti() {
         background: `linear-gradient(180deg, ${theme.palette.grey[100]} 0%, ${theme.palette.background.default} 100%)`,
       }}
     >
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
         {/* Section Title */}
         <Box
           sx={{
@@ -79,6 +79,7 @@ export default function FutureOfKalakruti() {
               whiteSpace: "pre-line",
               textAlign: "center",
               fontWeight: 400,
+              display: "flex",
             }}
           >
             {FUTURE_DATA.description}
