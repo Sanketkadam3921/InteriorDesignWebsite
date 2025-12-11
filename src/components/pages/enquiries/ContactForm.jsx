@@ -67,10 +67,10 @@ export default function ContactForm() {
     return "";
   };
 
-  const validateMessage = (message) => {
-    if (!message.trim()) return "Message is required";
-    if (message.trim().length < 10)
-      return "Message must be at least 10 characters";
+  const validateAddress = (address) => {
+    if (!address.trim()) return "Address is required";
+    if (address.trim().length < 5)
+      return "Address must be at least 5 characters";
     return "";
   };
 
@@ -85,7 +85,7 @@ export default function ContactForm() {
     if (name === "name") error = validateName(processedValue);
     if (name === "email") error = validateEmail(processedValue);
     if (name === "phone") error = validatePhone(processedValue);
-    if (name === "message") error = validateMessage(processedValue);
+    if (name === "address") error = validateAddress(processedValue);
 
     setErrors({ ...errors, [name]: error });
   };
@@ -98,7 +98,7 @@ export default function ContactForm() {
       name: validateName(formData.name),
       email: validateEmail(formData.email),
       phone: validatePhone(formData.phone),
-      message: validateMessage(formData.message),
+      address: validateAddress(formData.address),
       budgetRange: formData.budgetRange ? "" : "Please select a budget range",
     };
 
@@ -274,24 +274,24 @@ export default function ContactForm() {
               <option value="Not Sure">Not Sure Yet</option>
             </RedAsteriskTextField>
 
-            <TextField
+            <RedAsteriskTextField
               label="Address"
               name="address"
               value={formData.address}
               onChange={handleChange}
+              error={!!errors.address}
+              helperText={errors.address}
+              required
               fullWidth
             />
 
-            <RedAsteriskTextField
+            <TextField
               label="Your Message"
               name="message"
               rows={4}
               multiline
               value={formData.message}
               onChange={handleChange}
-              error={!!errors.message}
-              helperText={errors.message}
-              required
               fullWidth
             />
 
