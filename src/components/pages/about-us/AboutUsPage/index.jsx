@@ -1,20 +1,25 @@
 import React from "react";
-import { Box, Container } from "@mui/material";
+import { Box } from "@mui/material";
 import HeroSection from "./HeroSection";
-import MissionVision from "./MissionVision";
+import FounderIntroduction from "./FounderIntroduction";
+import MissionVisionSection from "./MissionVisionSection";
+import WhyChooseOurStudio from "./WhyChooseOurStudio";
+import Statistics from "./Statistics";
 import GrowthJourney from "./GrowthJourney";
+import FutureOfKalakruti from "./FutureOfKalakruti";
 import Founders from "./Founders";
 
 export default function AboutUsPage() {
   return (
-    <Box sx={{ minHeight: "100vh" }}>
+    <Box sx={{ minHeight: "100vh", overflowX: "hidden" }}>
       <HeroSection />
-
-      <Box sx={{ py: 8, backgroundColor: "background.default" }}>
-        <MissionVision />
-        <GrowthJourney />
-        <Founders />
-      </Box>
+      <FounderIntroduction />
+      <MissionVisionSection />
+      <WhyChooseOurStudio />
+      <Statistics />
+      <GrowthJourney />
+      <FutureOfKalakruti />
+      <Founders />
     </Box>
   );
 }

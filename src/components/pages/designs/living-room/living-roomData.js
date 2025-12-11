@@ -1,155 +1,414 @@
+// Living Room Designs Data
+export const livingroomDesigns = [
+  {
+    id: "1",
+    name: "Elegant Modern Living Room",
+    image:
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5594.JPG?updatedAt=1765174415005",
+    description:
+      "Elegant modern living room with contemporary furniture and sophisticated design",
+    style: "Modern",
+    price: "₹4,20,000",
+    area: "220 sq ft",
+  },
+  {
+    id: "2",
+    name: "Luxury Living Room Design",
+    image:
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5588.JPG?updatedAt=1765174414911",
+    description:
+      "Luxurious living room featuring premium furniture and opulent finishes",
+    style: "Luxury",
+    price: "₹5,00,000",
+    area: "240 sq ft",
+  },
+  {
+    id: "3",
+    name: "Contemporary Living Space",
+    image:
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5590.JPG?updatedAt=1765174414841",
+    description:
+      "Contemporary living space with modern elements and elegant styling",
+    style: "Contemporary",
+    price: "₹4,50,000",
+    area: "210 sq ft",
+  },
+  {
+    id: "4",
+    name: "Classic Elegant Living Room",
+    image:
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5595.JPG?updatedAt=1765174414463",
+    description:
+      "Classic elegant living room with timeless design and refined aesthetics",
+    style: "Classic",
+    price: "₹4,80,000",
+    area: "230 sq ft",
+  },
+  {
+    id: "5",
+    name: "Modern Minimalist Living Room",
+    image:
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5593.JPG?updatedAt=1765174414323",
+    description:
+      "Clean minimalist living room with sleek design and modern appeal",
+    style: "Minimalist",
+    price: "₹3,80,000",
+    area: "200 sq ft",
+  },
+  {
+    id: "6",
+    name: "Premium Living Room Design",
+    image:
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5587.JPG?updatedAt=1765174414168",
+    description:
+      "Premium living room featuring elegant design and high-end finishes",
+    style: "Premium",
+    price: "₹4,90,000",
+    area: "235 sq ft",
+  },
+  {
+    id: "7",
+    name: "Sophisticated Living Space",
+    image:
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5589.JPG?updatedAt=1765174414088",
+    description:
+      "Sophisticated living space with elegant elements and premium styling",
+    style: "Elegant",
+    price: "₹4,60,000",
+    area: "225 sq ft",
+  },
+  {
+    id: "8",
+    name: "Traditional Living Room",
+    image:
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5596.JPG?updatedAt=1765174413832",
+    description:
+      "Traditional living room with classic design and warm ambiance",
+    style: "Traditional",
+    price: "₹4,40,000",
+    area: "215 sq ft",
+  },
+  {
+    id: "9",
+    name: "Modern Luxury Living Room",
+    image:
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5591.JPG?updatedAt=1765174413809",
+    description:
+      "Modern luxury living room combining contemporary design with opulent touches",
+    style: "Luxury",
+    price: "₹5,20,000",
+    area: "245 sq ft",
+  },
+  {
+    id: "10",
+    name: "Elegant Contemporary Living Room",
+    image:
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5592.JPG?updatedAt=1765174413210",
+    description:
+      "Elegant contemporary living room with modern furniture and sophisticated design",
+    style: "Contemporary",
+    price: "₹4,70,000",
+    area: "228 sq ft",
+  },
+];
+
+// Living Room Design Details Data
 export const livingroomDesignDetails = {
   1: {
     id: "1",
-    title:
-      "Classic Living Room Design with Blue Leather Sofas and Marble Table",
+    title: "Elegant Modern Living Room",
     category: "living-room",
-    style: "Classic",
-    price: "₹3,80,000",
-    image: "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800",
+    style: "Modern",
+    price: "₹4,20,000",
+    image:
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5594.JPG?updatedAt=1765174415005",
     description:
-      "A luxurious classic living room that blends comfort and sophistication with deep blue leather sofas, a marble coffee table, and elegant lighting.",
-    specifications: {
-      dimension: "14x12 feet",
-      color: "Blue, White, Beige",
-      furniture: "Leather Sofas, Marble Coffee Table, Side Tables",
-      lighting: "Chandelier and soft ambient lights",
-      materials: "Leather, Marble, Wood, Glass",
-    },
-    sections: [
-      {
-        title: "Furniture Highlights",
-        items: [
-          "Dark blue leather sofas — one 3-seater and one 2-seater for flexible seating.",
-          "Contemporary round dual-tone coffee tables with a white marble top and glossy black base.",
-          "Side tables with a vintage-style rotary telephone as a décor accent.",
-        ],
-      },
-      {
-        title: "Storage Features",
-        items: [
-          "Coffee table doubles as concealed storage for daily clutter.",
-          "Side tables with additional drawers for remotes and essentials.",
-          "Multi-functional furniture maintains a clean, organized setup.",
-        ],
-      },
-      {
-        title: "Room Highlights",
-        items: [
-          "Deep blue sofas contrast beautifully with light walls and flooring.",
-          "Decorative throw pillows add comfort and color.",
-          "Mirrored wall panels and soft lighting enhance warmth and spaciousness.",
-          "Modern chandelier with organic shapes completes the upscale aesthetic.",
-          "Perfect blend of comfort, style, and function — ideal for both relaxing and entertaining.",
-        ],
-      },
+      "Elegant modern living room with contemporary furniture and sophisticated design.",
+    longDescription:
+      "This elegant modern living room features contemporary furniture and sophisticated design elements that create the perfect setting for relaxation and entertainment. The space combines modern aesthetics with timeless elegance.",
+    images: [
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5594.JPG?updatedAt=1765174415005",
     ],
-    idealFor: "Large families and entertainers",
-    images: ["https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800"],
+    features: [
+      "Contemporary Furniture",
+      "Elegant Design",
+      "Sophisticated Style",
+      "Relaxing Atmosphere",
+    ],
+    specifications: {
+      style: "Scandinavian modern",
+      colorScheme: "Grey, mustard, black",
+      materials: "Fabric sofa, matte black TV panel",
+      lighting: "Pendant, ceiling LEDs",
+      furniture: "L-shape sofa, dining set, round table",
+    },
   },
   2: {
     id: "2",
-    title: "Modern Minimalist Living Room with Neutral Tones",
+    title: "Luxury Living Room Design",
     category: "living-room",
-    style: "Modern Minimalist",
-    price: "₹2,50,000",
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800",
+    style: "Luxury",
+    price: "₹5,00,000",
+    image:
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5588.JPG?updatedAt=1765174414911",
     description:
-      "A clean and contemporary living space featuring neutral colors, sleek furniture, and minimalist design principles for a sophisticated look.",
-    specifications: {
-      dimension: "12x10 feet",
-      color: "White, Beige, Gray",
-      furniture: "Modular Sofa, Glass Coffee Table, Floating Shelves",
-      lighting: "LED Strip Lights, Pendant Lights",
-      materials: "Glass, Metal, Fabric, Wood",
-    },
-    sections: [
-      {
-        title: "Design Philosophy",
-        items: [
-          "Clean lines and uncluttered spaces create a sense of calm.",
-          "Neutral color palette promotes relaxation and versatility.",
-          "Minimalist approach focuses on functionality over decoration.",
-        ],
-      },
-      {
-        title: "Key Elements",
-        items: [
-          "Large modular sofa in neutral beige provides comfortable seating.",
-          "Glass coffee table with metal legs adds modern elegance.",
-          "Floating shelves display curated items without visual clutter.",
-          "Soft area rug defines the seating area and adds warmth.",
-        ],
-      },
-      {
-        title: "Lighting Design",
-        items: [
-          "LED strip lights create ambient lighting along the walls.",
-          "Pendant lights provide focused illumination over the coffee table.",
-          "Natural light from large windows enhances the airy feel.",
-          "Dimmable lighting allows for mood adjustment throughout the day.",
-        ],
-      },
-    ],
-    idealFor: "Young professionals and minimalism enthusiasts",
+      "Luxurious living room featuring premium furniture and opulent finishes.",
+    longDescription:
+      "This luxury living room features premium furniture and opulent finishes that create an extravagant entertainment space. The design showcases luxury craftsmanship and sophisticated styling.",
     images: [
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800",
-      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800",
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5588.JPG?updatedAt=1765174414911",
     ],
+    features: [
+      "Premium Furniture",
+      "Luxury Design",
+      "Opulent Finishes",
+      "Extravagant Space",
+    ],
+    specifications: {
+      style: "Artistic modern",
+      colorScheme: "Beige, teal, gold",
+      materials: "Textured mural, curved panels",
+      lighting: "Sculptural chandelier, spotlights",
+      furniture: "Sofas, center table, decor",
+    },
   },
   3: {
     id: "3",
-    title: "Scandinavian Living Room with Natural Wood Elements",
+    title: "Contemporary Living Space",
     category: "living-room",
-    style: "Scandinavian",
-    price: "₹3,20,000",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800",
+    style: "Contemporary",
+    price: "₹4,50,000",
+    image:
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5590.JPG?updatedAt=1765174414841",
     description:
-      "A cozy Scandinavian-inspired living room featuring natural wood, light colors, and hygge elements for ultimate comfort and warmth.",
-    specifications: {
-      dimension: "15x13 feet",
-      color: "White, Light Wood, Soft Pastels",
-      furniture: "Wooden Sofa, Oak Coffee Table, Woven Chairs",
-      lighting: "Natural Light, Warm LED Bulbs, Candles",
-      materials: "Oak Wood, Cotton, Wool, Ceramic",
-    },
-    sections: [
-      {
-        title: "Scandinavian Elements",
-        items: [
-          "Light oak wood furniture brings nature indoors.",
-          "White walls and light flooring create a bright, airy atmosphere.",
-          "Soft pastel accents add gentle color without overwhelming.",
-          "Natural textures like wool and cotton enhance coziness.",
-        ],
-      },
-      {
-        title: "Hygge Features",
-        items: [
-          "Plush throw blankets and cushions for ultimate comfort.",
-          "Soft area rugs create warm, inviting spaces.",
-          "Candle holders and warm lighting promote relaxation.",
-          "Plants and natural elements connect with nature.",
-        ],
-      },
-      {
-        title: "Functional Design",
-        items: [
-          "Multi-purpose furniture maximizes space efficiency.",
-          "Built-in storage solutions keep the space organized.",
-          "Flexible seating arrangements accommodate different activities.",
-          "Easy-to-clean surfaces maintain the minimalist aesthetic.",
-        ],
-      },
-    ],
-    idealFor: "Families seeking comfort and natural aesthetics",
+      "Contemporary living space with modern elements and elegant styling.",
+    longDescription:
+      "This contemporary living space combines modern elements with elegant styling to create a welcoming atmosphere. The design balances contemporary aesthetics with comfort and functionality.",
     images: [
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800",
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
-      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800",
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5590.JPG?updatedAt=1765174414841",
     ],
+    features: [
+      "Contemporary Design",
+      "Modern Elements",
+      "Elegant Styling",
+      "Welcoming Atmosphere",
+    ],
+    specifications: {
+      style: "Ultra modern elegant",
+      colorScheme: "Beige, black, gold",
+      materials: "Marble floor, wood panels",
+      lighting: "LED strips, chandelier",
+      furniture: "Sofas, round table, TV console",
+    },
   },
+  4: {
+    id: "4",
+    title: "Classic Elegant Living Room",
+    category: "living-room",
+    style: "Classic",
+    price: "₹4,80,000",
+    image:
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5595.JPG?updatedAt=1765174414463",
+    description:
+      "Classic elegant living room with timeless design and refined aesthetics.",
+    longDescription:
+      "This classic elegant living room features timeless design elements and refined aesthetics. The traditional styling creates a warm and inviting atmosphere perfect for family gatherings and formal entertaining.",
+    images: [
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5595.JPG?updatedAt=1765174414463",
+    ],
+    features: [
+      "Classic Design",
+      "Timeless Appeal",
+      "Refined Aesthetics",
+      "Warm Atmosphere",
+    ],
+    specifications: {
+      style: "Modern warm contemporary",
+      colorScheme: "Brown, beige, olive",
+      materials: "Wood fluted panels, leather seating",
+      lighting: "Pendant light, cove lights",
+      furniture: "Modular sofa, lounge chair, tables",
+    },
+  },
+  5: {
+    id: "5",
+    title: "Modern Minimalist Living Room",
+    category: "living-room",
+    style: "Minimalist",
+    price: "₹3,80,000",
+    image:
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5593.JPG?updatedAt=1765174414323",
+    description:
+      "Clean minimalist living room with sleek design and modern appeal.",
+    longDescription:
+      "This modern minimalist living room embraces clean lines and simplicity. The sleek design creates a calm and uncluttered space that focuses attention on essential elements while maintaining modern appeal.",
+    images: [
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5593.JPG?updatedAt=1765174414323",
+    ],
+    features: [
+      "Minimalist Design",
+      "Clean Lines",
+      "Sleek Style",
+      "Uncluttered Space",
+    ],
+    specifications: {
+      style: "Classic modern",
+      colorScheme: "Beige, blue, gold",
+      materials: "Wood flooring, velvet accents",
+      lighting: "Crystal chandelier, cove lighting",
+      furniture: "Sofa set, round table, console",
+    },
+  },
+  6: {
+    id: "6",
+    title: "Premium Living Room Design",
+    category: "living-room",
+    style: "Premium",
+    price: "₹4,90,000",
+    image:
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5587.JPG?updatedAt=1765174414168",
+    description:
+      "Premium living room featuring elegant design and high-end finishes.",
+    longDescription:
+      "This premium living room features elegant design and high-end finishes that create a sophisticated entertainment environment. The design showcases premium craftsmanship and refined aesthetics.",
+    images: [
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5587.JPG?updatedAt=1765174414168",
+    ],
+    features: [
+      "Premium Design",
+      "Elegant Style",
+      "High-End Finishes",
+      "Sophisticated Environment",
+    ],
+    specifications: {
+      style: "Minimal modern",
+      colorScheme: "White, beige, grey",
+      materials: "Fluted wall, fabric sofa",
+      lighting: "LED strips, recessed spots",
+      furniture: "Sofa, coffee table, decor unit",
+    },
+  },
+  7: {
+    id: "7",
+    title: "Sophisticated Living Space",
+    category: "living-room",
+    style: "Elegant",
+    price: "₹4,60,000",
+    image:
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5589.JPG?updatedAt=1765174414088",
+    description:
+      "Sophisticated living space with elegant elements and premium styling.",
+    longDescription:
+      "This sophisticated living space features elegant elements and premium styling that create a refined atmosphere. The design combines sophistication with comfort for memorable entertainment experiences.",
+    images: [
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5589.JPG?updatedAt=1765174414088",
+    ],
+    features: [
+      "Sophisticated Design",
+      "Elegant Elements",
+      "Premium Styling",
+      "Refined Atmosphere",
+    ],
+    specifications: {
+      style: "Contemporary luxury",
+      colorScheme: "Beige, taupe, silver",
+      materials: "3D panel, metallic decor",
+      lighting: "Pendant lights, LED cove",
+      furniture: "Sofas, black table, console",
+    },
+  },
+  8: {
+    id: "8",
+    title: "Traditional Living Room",
+    category: "living-room",
+    style: "Traditional",
+    price: "₹4,40,000",
+    image:
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5596.JPG?updatedAt=1765174413832",
+    description:
+      "Traditional living room with classic design and warm ambiance.",
+    longDescription:
+      "This traditional living room features classic design elements and warm ambiance that create a cozy and inviting space. The traditional styling brings warmth and character to family gatherings.",
+    images: [
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5596.JPG?updatedAt=1765174413832",
+    ],
+    features: [
+      "Traditional Design",
+      "Classic Elements",
+      "Warm Ambiance",
+      "Cozy Atmosphere",
+    ],
+    specifications: {
+      style: "Minimal luxury",
+      colorScheme: "Beige, wood, cream",
+      materials: "Marble panels, fluted wood, fabric sofa",
+      lighting: "Cove lighting, recessed LEDs",
+      furniture: "Sofa, wooden chairs, TV unit, center table",
+    },
+  },
+  9: {
+    id: "9",
+    title: "Modern Luxury Living Room",
+    category: "living-room",
+    style: "Luxury",
+    price: "₹5,20,000",
+    image:
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5591.JPG?updatedAt=1765174413809",
+    description:
+      "Modern luxury living room combining contemporary design with opulent touches.",
+    longDescription:
+      "This modern luxury living room seamlessly combines contemporary design elements with opulent touches. The design creates a grand entertainment experience that blends modern aesthetics with luxury finishes.",
+    images: [
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5591.JPG?updatedAt=1765174413809",
+    ],
+    features: [
+      "Modern Luxury",
+      "Contemporary Design",
+      "Opulent Touches",
+      "Grand Experience",
+    ],
+    specifications: {
+      style: "Warm modern luxury",
+      colorScheme: "Cream, gold, taupe",
+      materials: "Soft sofa, illuminated panels",
+      lighting: "Linear LEDs, spots",
+      furniture: "Sofa set, armchairs, center table",
+    },
+  },
+  10: {
+    id: "10",
+    title: "Elegant Contemporary Living Room",
+    category: "living-room",
+    style: "Contemporary",
+    price: "₹4,70,000",
+    image:
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5592.JPG?updatedAt=1765174413210",
+    description:
+      "Elegant contemporary living room with modern furniture and sophisticated design.",
+    longDescription:
+      "This elegant contemporary living room features modern furniture and sophisticated design that creates a perfect balance of style and comfort. The space is ideal for both casual family time and formal entertaining.",
+    images: [
+      "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5592.JPG?updatedAt=1765174413210",
+    ],
+    features: [
+      "Elegant Contemporary",
+      "Modern Furniture",
+      "Sophisticated Design",
+      "Versatile Space",
+    ],
+    specifications: {
+      style: "Premium modern luxury",
+      colorScheme: "Beige, brown, gold",
+      materials: "Marble wall, fluted wood, fabric sofa",
+      lighting: "Chandelier, LEDs, wall sconces",
+      furniture: "Sectional sofa, accent chair, marble table",
+    },
+  },
+};
+
+// Living Room Category Configuration
+export const livingroomConfig = {
+  categoryKey: "living-room",
+  displayName: "Living Room",
+  description: "Explore our curated collection of living room design concepts",
 };

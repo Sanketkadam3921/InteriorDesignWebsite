@@ -5,6 +5,16 @@ export default function InfoCard({ title, description, titleColor }) {
     <Paper
       elevation={0}
       sx={{
+        width: {
+          sm: "325px",
+          md: "450px",
+          xl: "100%",
+        },
+        height: {
+          sm: "355px",
+          md: "320px",
+          xl: "100%",
+        },
         p: 4,
         borderRadius: 3,
         background: "linear-gradient(135deg, #ffffff, #fafafa)",

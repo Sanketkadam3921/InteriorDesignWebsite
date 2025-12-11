@@ -29,8 +29,10 @@ export default function TimelineItem({ year, title, description }) {
         <CardContent
           sx={{
             display: "flex",
-            alignItems: "flex-start",
-            p: 3,
+            flexDirection: { xs: "column", md: "row" }, // 🔥 Mobile = column, Desktop = row
+            alignItems: { xs: "center", md: "flex-start" },
+            textAlign: { xs: "center", md: "left" },
+            p: 1,
           }}
         >
           {/* YEAR BADGE */}
@@ -43,7 +45,8 @@ export default function TimelineItem({ year, title, description }) {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              mr: 3,
+              mb: { xs: 2, md: 0 }, // 🔥 Add margin only on mobile
+              mr: { xs: 0, md: 3 }, // 🔥 Desktop spacing
               flexShrink: 0,
               boxShadow: `0 6px 16px rgba(0,0,0,0.25)`,
             }}

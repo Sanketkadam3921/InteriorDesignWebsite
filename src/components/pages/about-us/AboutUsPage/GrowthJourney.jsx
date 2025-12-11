@@ -1,5 +1,12 @@
 import React from "react";
-import { Box, Container, Card, CardContent, Typography, Grid } from "@mui/material";
+import {
+  Box,
+  Container,
+  Card,
+  CardContent,
+  Typography,
+  Grid,
+} from "@mui/material";
 import { TIMELINE_ITEMS } from "./constants";
 import TimelineItem from "./TimelineItem";
 
@@ -18,7 +25,7 @@ export default function GrowthJourney() {
             },
           }}
         >
-          <CardContent sx={{ p: 6 }}>
+          <CardContent sx={{ p: 4 }}>
             <Typography
               variant="h4"
               component="h2"
@@ -49,4 +56,3 @@ export default function GrowthJourney() {
     </Box>
   );
 }
-
