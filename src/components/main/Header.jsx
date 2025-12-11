@@ -626,9 +626,10 @@ export default function Header() {
                   <Typography
                     sx={{
                       color: theme.palette.primary.dark,
-                      fontSize: "0.8rem",
+                      fontSize: "1rem",
                       letterSpacing: "0.2em",
                       lineHeight: 1.1,
+                      pt: 0.7,
                     }}
                   >
                     STUDIO

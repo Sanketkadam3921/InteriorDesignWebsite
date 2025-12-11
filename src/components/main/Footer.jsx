@@ -204,7 +204,7 @@ export default function Footer() {
               lg={2.4} // Desktop: Original layout
             >
               <SectionWrapper>
-                <Box sx={{ mb: 5, py: 0.5 }}>
+                <Box sx={{ mb: 5, py: 0.5 }} textAlign="center">
                   <Typography
                     variant="h4"
                     sx={{
