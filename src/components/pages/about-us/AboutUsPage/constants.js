@@ -22,21 +22,21 @@ export const INFO_CARDS = [
     id: 1,
     title: "Our Mission",
     description:
-      "Our mission is to design functional, beautiful, and comfortable homes using smart layouts and quality materials, creating interiors that enhance daily living and perfectly complement each homeowner’s lifestyle.",
+      "Our mission is to design functional, beautiful, and long-lasting home interiors that make everyday living easier and more enjoyable. We focus on smart layouts, quality materials, and thoughtful styling to create interiors that match every homeowner’s lifestyle and bring comfort to daily life.",
     titleColor: "primary.main",
   },
   {
     id: 2,
     title: "Our Vision",
     description:
-      "Our vision is to build modern, comfortable, and long-lasting home interiors through thoughtful planning, becoming a trusted design studio known for practical, durable, and well-planned residential spaces.",
+      "Our vision is to become a trusted interior design studio known for modern, comfortable, and well-planned living spaces. We aim to deliver interiors that are practical, durable, and stylish, helping families build homes that stay beautiful for years to come.",
     titleColor: "primary.main",
   },
   {
     id: 3,
     title: "Why Choose KalaKruti Studio?",
     description:
-      "Choose KalaKruti Studio for functional, aesthetic, and well-planned interiors delivered with quality workmanship, clear communication, and a strong focus on client needs from concept to completion.",
+      "At KalaKruti Studio, we blend creative vision with strategic thinking to transform every space into a meaningful interior design story. Here’s what sets us apart:",
     titleColor: "text.secondary",
   },
 ];
@@ -52,7 +52,6 @@ export const VISION_DATA = {
   description:
     "Our vision is to become a trusted interior design studio known for modern, comfortable, and well-planned living spaces. We aim to deliver interiors that are practical, durable, and stylish, helping families build homes that stay beautiful for years to come.",
 };
-
 export const WHY_CHOOSE_ITEMS = [
   {
     id: 1,
@@ -64,7 +63,7 @@ export const WHY_CHOOSE_ITEMS = [
     id: 2,
     title: "Expertise Across Scales",
     description:
-      "Whether it's a cozy home, a luxury apartment, or a complete commercial interior, our team brings strong experience in residential interiors, commercial design, space planning, and architectural coordination.",
+      "Whether it’s a cozy home, a luxury apartment, or a complete commercial interior, our team brings strong experience in residential interiors, commercial design, space planning, and architectural coordination.",
   },
   {
     id: 3,
@@ -84,21 +83,20 @@ export const WHY_CHOOSE_ITEMS = [
     description:
       "Our designs use eco-friendly materials, energy-efficient layouts, low-VOC finishes, and sustainable interior solutions wherever possible.",
   },
-
   {
-    id: 7,
+    id: 6,
     title: "Client-Centric Service",
     description:
       "From the initial consultation to final handover, you receive a dedicated project manager who ensures smooth execution, provides timely updates, maintains budget clarity, and offers complete support even after project completion.",
   },
   {
-    id: 8,
+    id: 7,
     title: "Holistic Vision",
     description:
       "We focus on more than just beautiful looks. Our interiors combine functionality, smart space planning, ergonomics, lighting design, and user comfort to create spaces that not only look stunning but also work effortlessly for your lifestyle or business.",
   },
   {
-    id: 9,
+    id: 8,
     title: "Seamless Project Management",
     description:
       "We streamline every step of the design and execution journey to make your experience smooth and stress-free. With clear timelines, organized workflows, and reliable on-site coordination, we ensure your interior project progresses efficiently and delivers the results you expect.",
