@@ -1,16 +1,14 @@
 export const HERO_DATA = {
   title: "Dream interiors made possible",
+  subtitle: "Transform your home with beautifully designed spaces crafted to match your lifestyle.",
+  buttonText: "Book Online Consultation",
+  buttonLink: "/contact",
   backgroundImage:
     "https://ik.imagekit.io/bowr9614/Modular%20Interiors/ModularHeroSection.jpg",
-  ctaText: "Book Online Consultation",
-  ctaLink: "/contact",
 };
 
-export const INTRODUCTION_DATA = {
-  title: "The complete home interiors experience",
-  description:
-    "No more dreaming about your interiors. KalaKruti brings together award-winning designers, service partners and brands, to help you take your home interiors from dream to reality.",
-};
+export const INTRODUCTION_TEXT =
+  "Transform your home with beautifully designed spaces crafted to match your lifestyle, taste and everyday needs. At KalaKruti, we help you bring your interior vision to life with thoughtful planning and seamless execution.";
 
 export const SERVICES = [
   {

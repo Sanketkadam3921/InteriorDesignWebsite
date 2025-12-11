@@ -245,7 +245,6 @@ export const deliveredProjects = [
     images: [
       "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4406.JPG",
       "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4407.JPG",
-      "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4410.JPG",
     ],
     status: "COMPLETED",
   },
@@ -672,7 +671,6 @@ export const deliveredProjectsDetails = {
     images: [
       "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4406.JPG",
       "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4407.JPG",
-      "/INTERIOR_DESIGN_IMAGES/Project_15/IMG_4410.JPG",
     ],
     longDescription:
       "This modern living room interior is designed with a perfect blend of elegance and functionality. The space features a sleek wall-mounted TV unit paired with a floating wooden console and integrated ambient lighting. Decorative wall niches add visual depth and character. The neutral color palette with warm wood finishes creates a calm, inviting atmosphere while keeping the design contemporary and clutter-free.",
