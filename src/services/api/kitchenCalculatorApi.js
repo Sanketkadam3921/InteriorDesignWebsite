@@ -1,4 +1,4 @@
-import { apiRequest } from './config';
+import { apiRequest } from "./config";
 
 /**
  * Kitchen Calculator API Service
@@ -15,8 +15,8 @@ import { apiRequest } from './config';
  * @returns {Promise<Object>} Estimate result
  */
 export const calculateKitchenEstimate = async (data) => {
-  return apiRequest('/price-calculators/kitchen/calculator/estimate', {
-    method: 'POST',
+  return apiRequest("/price-calculators/kitchen/calculator/estimate", {
+    method: "POST",
     body: JSON.stringify(data),
   });
 };
@@ -33,13 +33,8 @@ export const calculateKitchenEstimate = async (data) => {
  * @returns {Promise<Object>} Submission result
  */
 export const submitKitchenEstimate = async (data) => {
-  return apiRequest('/price-calculators/kitchen/calculator/submit', {
-    method: 'POST',
+  return apiRequest("/price-calculators/kitchen/calculator/submit", {
+    method: "POST",
     body: JSON.stringify(data),
   });
 };
-
-
-
-
-

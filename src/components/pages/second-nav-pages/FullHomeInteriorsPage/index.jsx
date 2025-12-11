@@ -3,9 +3,11 @@ import { Box } from "@mui/material";
 import HeroSection from "./HeroSection";
 import Introduction from "./Introduction";
 import WhatWeOffer from "./WhatWeOffer";
+import WhyChoose from "./WhyChoose";
 import JourneySnapshot from "./JourneySnapshot";
 import TeamSection from "./TeamSection";
 import Testimonials from "./Testimonials";
+import FAQ from "./FAQ";
 
 export default function FullHomeInteriorsPage() {
   return (
@@ -13,6 +15,8 @@ export default function FullHomeInteriorsPage() {
       <HeroSection />
       <Introduction />
       <WhatWeOffer />
+      <WhyChoose />
+      <FAQ />
     </Box>
   );
 }

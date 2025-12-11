@@ -182,6 +182,39 @@ export const TEAM_DATA = {
   ],
 };
 
+export const WHY_CHOOSE_ITEMS = [
+  {
+    id: 1,
+    title: "End-to-End Solutions",
+    icon: "Home", // Material-UI icon name
+  },
+  {
+    id: 2,
+    title: "Expert Design Team",
+    icon: "DesignServices", // Material-UI icon name
+  },
+  {
+    id: 3,
+    title: "Premium Quality Materials",
+    icon: "VerifiedUser", // Material-UI icon name
+  },
+  {
+    id: 4,
+    title: "Timely Project Delivery",
+    icon: "Schedule", // Material-UI icon name
+  },
+  {
+    id: 5,
+    title: "Transparent Pricing",
+    iconUrl: "https://cdn-icons-png.flaticon.com/128/1521/1521875.png", // Custom icon URL
+  },
+  {
+    id: 6,
+    title: "Comprehensive Service",
+    icon: "Build", // Material-UI icon name
+  },
+];
+
 export const TESTIMONIALS_DATA = {
   title: "Here's what our homeowners have to say",
   testimonials: [
@@ -214,3 +247,56 @@ export const TESTIMONIALS_DATA = {
     },
   ],
 };
+
+export const FAQ_ITEMS = [
+  {
+    id: 1,
+    question: "What is included in a full home interior design package?",
+    answer:
+      "A full home interior design package typically includes design consultation, space planning, 3D visualizations, material selection, furniture and fixture sourcing, project management, installation supervision, and post-completion support. At KalaKruti, we provide end-to-end solutions covering all aspects from design to execution.",
+  },
+  {
+    id: 2,
+    question: "How long does a full home interior project take to complete?",
+    answer:
+      "The timeline for a full home interior project typically ranges from 3-6 months, depending on the size of your home, scope of work, and customization requirements. A 2 BHK may take 3-4 months, while a 4 BHK or larger home may take 4-6 months. Our team provides a detailed timeline during the design phase.",
+  },
+  {
+    id: 3,
+    question: "What is the typical cost range for full home interiors?",
+    answer:
+      "The cost for full home interiors varies based on property size, design complexity, material choices, and customization level. Generally, it ranges from ₹800-₹2,500 per square foot. We provide transparent pricing with detailed quotes after understanding your requirements and budget. Payment is structured across booking, design approval, and project milestones.",
+  },
+  {
+    id: 4,
+    question:
+      "Can I customize the design to match my personal style and preferences?",
+    answer:
+      "Absolutely! Our expert designers work closely with you to understand your lifestyle, preferences, and functional needs. We offer complete customization across design styles (modern, contemporary, traditional, minimalist), color schemes, materials, furniture, lighting, and decor. Your home will reflect your unique personality and requirements.",
+  },
+  {
+    id: 5,
+    question:
+      "Do you handle both design and execution, or do I need separate contractors?",
+    answer:
+      "KalaKruti provides end-to-end services, handling both design and execution. Our team includes expert designers, project managers, and skilled craftsmen. We manage everything from civil work, electrical, plumbing, carpentry, painting, to final installations. You don't need to coordinate with multiple contractors - we take care of it all.",
+  },
+  {
+    id: 6,
+    question: "What materials and brands do you use for full home interiors?",
+    answer:
+      "We use premium, quality-assured materials from trusted brands. This includes high-grade plywood, laminates, hardware, paints, tiles, sanitaryware, lighting, and furniture. We offer a range of options across different price points and can source specific brands based on your preferences and budget.",
+  },
+  {
+    id: 7,
+    question: "Will I be able to see 3D designs before the project starts?",
+    answer:
+      "Yes, we provide detailed 3D visualizations of your entire home before starting execution. This includes room-by-room designs, furniture layouts, color schemes, and material finishes. You can review, provide feedback, and request modifications until you're completely satisfied with the design.",
+  },
+  {
+    id: 8,
+    question: "What happens if there are delays or issues during the project?",
+    answer:
+      "We have dedicated project managers who closely monitor progress and ensure timely completion. In case of any delays due to unforeseen circumstances, we communicate transparently and work to minimize impact. Our team is committed to quality and timely delivery, with regular updates throughout the project lifecycle.",
+  },
+];

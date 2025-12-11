@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, Grid, Container } from "@mui/material";
-import themeNeutral from "../../../../../themeNeutral";
+import themeNeutral from "../../../../themeNeutral";
 import { WHY_CHOOSE_ITEMS } from "./constants";
 import WhyChooseItem from "./WhyChooseItem";
 
@@ -27,16 +27,16 @@ export default function WhyChoose() {
             textAlign: "center",
           }}
         >
-          Why Choose Our Modular Interiors?
+          Why Choose Us for Full Home Interiors?
         </Typography>
 
         <Grid container spacing={3} justifyContent="center">
           {WHY_CHOOSE_ITEMS.map((item) => (
             <Grid
               item
-              xs={12} // 1 card per row on mobile
+              xs={12}
               sm={6}
-              md={3}
+              md={4}
               key={item.id}
               sx={{
                 display: "flex",

@@ -348,7 +348,7 @@ export default function HowItWorks() {
                 fontFamily: theme.typography.fontFamily,
               }}
             >
-              HOW IT WORKS
+              Your Journey With Us{" "}
             </Typography>
           </Box>
 

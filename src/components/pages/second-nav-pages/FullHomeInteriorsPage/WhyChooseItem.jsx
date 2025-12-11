@@ -1,17 +1,21 @@
 import React from "react";
 import { Card, CardContent, Typography, Box } from "@mui/material";
-import themeNeutral from "../../../../../themeNeutral";
+import themeNeutral from "../../../../themeNeutral";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
-import SpeedIcon from "@mui/icons-material/Speed";
-import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
+import HomeIcon from "@mui/icons-material/Home";
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
+import ScheduleIcon from "@mui/icons-material/Schedule";
 import PriceCheckIcon from "@mui/icons-material/PriceCheck";
+import BuildIcon from "@mui/icons-material/Build";
 
 // Icon mapping
 const iconMap = {
+  Home: HomeIcon,
   DesignServices: DesignServicesIcon,
-  Speed: SpeedIcon,
-  SpaceDashboard: SpaceDashboardIcon,
+  VerifiedUser: VerifiedUserIcon,
+  Schedule: ScheduleIcon,
   PriceCheck: PriceCheckIcon,
+  Build: BuildIcon,
 };
 
 export default function WhyChooseItem({ title, icon, iconUrl }) {

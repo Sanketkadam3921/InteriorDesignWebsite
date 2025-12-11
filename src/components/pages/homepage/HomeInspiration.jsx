@@ -9,77 +9,85 @@ import {
   Grid,
   Fade,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
+// Only include categories that exist in AllDesigns.jsx
 const inspirationItems = [
   {
-    title: "Living Room",
-    image:
-      "https://ik.imagekit.io/bowr9614/HomePage_Hero/elegant-modern-living-room-with-gray-sofa.jpg?updatedAt=1764590990093",
-  },
-  {
-    title: "Master Bedroom",
-    image:
-      "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/masterbedroomniceone.JPG?updatedAt=1765360380587",
-  },
-
-  {
-    title: "KalaKruti Studio Designs",
-    image:
-      "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/KalaKruti_Studio_Designs.jpg",
-  },
-  {
     title: "Kitchen",
+    categoryId: "kitchen",
     image:
       "https://ik.imagekit.io/bowr9614/HomePage_Hero/Home%20Page%204%20Images%20Below%20Hero%20Section/modern-black-white-kitchen-interior-with-wood-countertops.jpg?updatedAt=1764912728700",
   },
   {
     title: "Wardrobe",
+    categoryId: "wardrobe",
     image:
       "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/Wardrobe.jpeg",
   },
   {
-    title: "Kids Room",
+    title: "Bathroom",
+    categoryId: "bathroom",
+    image:
+      "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/Bathroom.jpeg",
+  },
+  {
+    title: "Master Bedroom",
+    categoryId: "master-bedroom",
+    image:
+      "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/masterbedroomniceone.JPG?updatedAt=1765360380587",
+  },
+  {
+    title: "Living Room",
+    categoryId: "living-room",
+    image:
+      "https://ik.imagekit.io/bowr9614/HomePage_Hero/elegant-modern-living-room-with-gray-sofa.jpg?updatedAt=1764590990093",
+  },
+  {
+    title: "KalaKruti Studio Designs",
+    categoryId: "homes-livspace",
+    image:
+      "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/KalaKruti_Studio_Designs.jpg",
+  },
+  {
+    title: "Kids Bedroom",
+    categoryId: "kids-bedroom",
     image:
       "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/Kids_Room.jpeg",
   },
   {
     title: "Home Office",
+    categoryId: "home-office",
     image:
       "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/Home_Office.jpeg",
   },
   {
-    title: "Guest Bedroom",
-    image:
-      "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/Guest_Bedroom.jpg",
-  },
-  {
     title: "Foyer",
+    categoryId: "foyer",
     image:
       "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/Foyer.jpeg",
   },
   {
     title: "False Ceiling",
+    categoryId: "false-ceiling",
     image:
       "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/False_Ceiling.jpeg",
   },
   {
     title: "Dining Room",
+    categoryId: "dining-room",
     image:
       "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/Dinning_Room.jpeg",
-  },
-  {
-    title: "Bathroom",
-    image:
-      "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/Bathroom.jpeg",
   },
 ];
 
 export default function HomeInspiration() {
   const theme = useTheme();
+  const navigate = useNavigate();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [startIndex, setStartIndex] = useState(0);
@@ -87,6 +95,18 @@ export default function HomeInspiration() {
   const [highlightImageIndex, setHighlightImageIndex] = useState(0);
   const [fadeIn, setFadeIn] = useState(true);
   const itemsPerPage = 6;
+
+  // Get category slug from item
+  const getCategorySlug = (item) => {
+    return item?.categoryId || null;
+  };
+
+  const handleItemClick = (item) => {
+    const categorySlug = getCategorySlug(item);
+    if (categorySlug) {
+      navigate(`/designs/${categorySlug}`);
+    }
+  };
 
   // Auto-change the large highlight image
   useEffect(() => {
@@ -162,14 +182,30 @@ export default function HomeInspiration() {
             {/* Inspiration Card */}
             <Fade in={true} timeout={500} key={currentInspirationIndex}>
               <Box
+                onClick={() =>
+                  handleItemClick(inspirationItems[currentInspirationIndex])
+                }
                 sx={{
                   borderRadius: 3,
                   overflow: "hidden",
                   boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
                   transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  cursor: getCategorySlug(
+                    inspirationItems[currentInspirationIndex]
+                  )
+                    ? "pointer"
+                    : "default",
                   "&:hover": {
-                    transform: "translateY(-4px)",
-                    boxShadow: "0 6px 20px rgba(0,0,0,0.12)",
+                    transform: getCategorySlug(
+                      inspirationItems[currentInspirationIndex]
+                    )
+                      ? "translateY(-4px)"
+                      : "none",
+                    boxShadow: getCategorySlug(
+                      inspirationItems[currentInspirationIndex]
+                    )
+                      ? "0 6px 20px rgba(0,0,0,0.12)"
+                      : "0 4px 20px rgba(0,0,0,0.08)",
                   },
                 }}
               >
@@ -322,6 +358,7 @@ export default function HomeInspiration() {
                     }`}
                   >
                     <Box
+                      onClick={() => handleItemClick(displayItem)}
                       sx={{
                         position: "relative",
                         overflow: "hidden",
@@ -331,6 +368,9 @@ export default function HomeInspiration() {
                         transition: "all 0.5s ease-in-out",
                         animation: i > 0 ? "slideInUp 0.6s ease-out" : "none",
                         animationDelay: `${i * 0.1}s`,
+                        cursor: getCategorySlug(displayItem)
+                          ? "pointer"
+                          : "default",
                         "@keyframes slideInUp": {
                           from: {
                             opacity: 0,
@@ -342,7 +382,9 @@ export default function HomeInspiration() {
                           },
                         },
                         "&:hover": {
-                          transform: "scale(1.02)",
+                          transform: getCategorySlug(displayItem)
+                            ? "scale(1.02)"
+                            : "scale(1)",
                           zIndex: 2,
                         },
                       }}
