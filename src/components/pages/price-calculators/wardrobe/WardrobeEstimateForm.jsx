@@ -325,7 +325,7 @@ Estimated Price: ₹${estimatePayload.estimatedPrice}
             <RedAsteriskTextField
               fullWidth
               label="Phone Number"
-              type="tel"  
+              type="tel"
               value={formData.phone}
               onChange={handleInputChange("phone")}
               required
@@ -360,9 +360,16 @@ Estimated Price: ₹${estimatePayload.estimatedPrice}
                 }}
               >
                 <Typography variant="subtitle2">Estimated Price</Typography>
-                <Typography variant="h5" sx={{ fontWeight: 700 }}>
-                  ₹{estimatedPrice.toLocaleString()}
+                <Typography
+                  variant="h5"
+                  sx={{ fontWeight: 700, color: theme.palette.primary.main }}
+                >
+                  {estimateData?.totalPrice?.toLocaleString("en-IN", {
+                    style: "currency",
+                    currency: "INR",
+                  }) || "₹0"}
                 </Typography>
+
                 <Typography variant="caption" sx={{ color: "text.secondary" }}>
                   *Final price may vary based on requirements
                 </Typography>
