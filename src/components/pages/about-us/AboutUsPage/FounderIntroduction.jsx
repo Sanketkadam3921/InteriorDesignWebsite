@@ -151,9 +151,11 @@ export default function FounderIntroduction() {
                   md: "350px",
                   lg: "550px",
                 },
-
                 mt: { xs: 4, sm: 20, md: 15, lg: 0 },
-
+                ml: {
+                  xs: 0, // applies only on mobile
+                  sm: 0, // no margin on tablets & desktops
+                },
                 "&:hover": {
                   transform: "scale(1.03)",
                   boxShadow: "0 12px 40px rgba(0,0,0,0.2)",

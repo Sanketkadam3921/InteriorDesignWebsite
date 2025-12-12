@@ -14,12 +14,7 @@ export const faqData = {
       answer:
         "Our design consultation includes a detailed discussion of your requirements, space assessment, style preferences, budget planning, and initial design recommendations. We provide a comprehensive understanding of your project scope and timeline.",
     },
-    {
-      id: "general-3",
-      question: "Do you provide 3D visualizations?",
-      answer:
-        "Yes, we provide detailed 3D visualizations and renderings so you can see exactly how your space will look before implementation. This helps in making informed decisions and ensures the final result matches your expectations.",
-    },
+
     {
       id: "general-4",
       question: "What is the typical cost range for interior design projects?",

@@ -1,6 +1,7 @@
 export const HERO_DATA = {
   title: "Dream interiors made possible",
-  subtitle: "Transform your home with beautifully designed spaces crafted to match your lifestyle.",
+  subtitle:
+    "Transform your home with beautifully designed spaces crafted to match your lifestyle.",
   buttonText: "Book Online Consultation",
   buttonLink: "/contact",
   backgroundImage:
@@ -251,7 +252,7 @@ export const FAQ_ITEMS = [
     id: 1,
     question: "What is included in a full home interior design package?",
     answer:
-      "A full home interior design package typically includes design consultation, space planning, 3D visualizations, material selection, furniture and fixture sourcing, project management, installation supervision, and post-completion support. At KalaKruti, we provide end-to-end solutions covering all aspects from design to execution.",
+      "A full home interior design package typically includes design consultation, space planning, material selection, furniture and fixture sourcing, project management, installation supervision, and post-completion support. At KalaKruti, we provide end-to-end solutions covering all aspects from design to execution.",
   },
   {
     id: 2,
@@ -285,12 +286,7 @@ export const FAQ_ITEMS = [
     answer:
       "We use premium, quality-assured materials from trusted brands. This includes high-grade plywood, laminates, hardware, paints, tiles, sanitaryware, lighting, and furniture. We offer a range of options across different price points and can source specific brands based on your preferences and budget.",
   },
-  {
-    id: 7,
-    question: "Will I be able to see 3D designs before the project starts?",
-    answer:
-      "Yes, we provide detailed 3D visualizations of your entire home before starting execution. This includes room-by-room designs, furniture layouts, color schemes, and material finishes. You can review, provide feedback, and request modifications until you're completely satisfied with the design.",
-  },
+
   {
     id: 8,
     question: "What happens if there are delays or issues during the project?",
