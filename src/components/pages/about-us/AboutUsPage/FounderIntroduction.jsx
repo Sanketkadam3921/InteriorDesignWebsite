@@ -1,6 +1,8 @@
 import React from "react";
 import { Box, Container, Typography, Grid, useTheme } from "@mui/material";
 import { FOUNDER_INTRODUCTION } from "./constants";
+// Import logo image - using ?url to tell Vite to treat it as a static asset
+import logoImage from "../../../../assets/Logo_Image.JPG?url";
 
 export default function FounderIntroduction() {
   const theme = useTheme();
@@ -41,7 +43,7 @@ export default function FounderIntroduction() {
             lg={6}
             sx={{
               width: {
-                sm: "100%",
+                sm: "390px",
                 md: "500px",
                 lg: "550px",
               },
@@ -138,19 +140,19 @@ export default function FounderIntroduction() {
                 // Responsive height + width control
                 height: {
                   xs: 300,
-                  sm: 550,
-                  md: 450,
+                  sm: 300,
+                  md: 400,
                   lg: 550,
                   xl: 610,
                 },
                 width: {
                   xs: "100%",
-                  sm: "100%",
+                  sm: "290px",
                   md: "350px",
                   lg: "550px",
                 },
 
-                mt: { xs: 4, md: 4, lg: 0 },
+                mt: { xs: 4, sm: 20, md: 15, lg: 0 },
 
                 "&:hover": {
                   transform: "scale(1.03)",
@@ -172,12 +174,12 @@ export default function FounderIntroduction() {
             >
               <Box
                 component="img"
-                src={FOUNDER_INTRODUCTION.image}
-                alt="KalaKruti Studio Founder"
+                src={logoImage}
+                alt="KalaKruti Studio Logo"
                 sx={{
                   width: "100%",
                   height: "100%",
-                  objectFit: "cover",
+                  objectFit: "contain",
                   display: "block",
                 }}
               />
@@ -188,4 +190,3 @@ export default function FounderIntroduction() {
     </Box>
   );
 }
-
