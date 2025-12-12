@@ -213,8 +213,8 @@ export default function Footer() {
                       fontSize: {
                         xs: "1 rem",
                         sm: "1rem",
-                        md: "2rem",
-                        lg: "2rem",
+                        md: "1.2rem",
+                        lg: "1.7rem",
                       },
                       letterSpacing: "0.1em",
                       mb: 1,
