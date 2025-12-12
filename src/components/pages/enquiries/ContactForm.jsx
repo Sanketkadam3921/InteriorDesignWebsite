@@ -24,6 +24,45 @@ const RedAsteriskTextField = styled(TextField)({
   "& .MuiFormLabel-asterisk": {
     color: "red",
   },
+  // Fix autofill background color
+  "& input:-webkit-autofill": {
+    WebkitBoxShadow: "0 0 0 1000px white inset !important",
+    WebkitTextFillColor: "inherit !important",
+    transition: "background-color 5000s ease-in-out 0s",
+  },
+  "& input:-webkit-autofill:hover": {
+    WebkitBoxShadow: "0 0 0 1000px white inset !important",
+  },
+  "& input:-webkit-autofill:focus": {
+    WebkitBoxShadow: "0 0 0 1000px white inset !important",
+  },
+  "& input:-webkit-autofill:active": {
+    WebkitBoxShadow: "0 0 0 1000px white inset !important",
+  },
+});
+
+// Styled TextField for regular fields (fixes autofill background)
+const StyledTextField = styled(TextField)({
+  // Fix autofill background color
+  "& input:-webkit-autofill": {
+    WebkitBoxShadow: "0 0 0 1000px white inset !important",
+    WebkitTextFillColor: "inherit !important",
+    transition: "background-color 5000s ease-in-out 0s",
+  },
+  "& input:-webkit-autofill:hover": {
+    WebkitBoxShadow: "0 0 0 1000px white inset !important",
+  },
+  "& input:-webkit-autofill:focus": {
+    WebkitBoxShadow: "0 0 0 1000px white inset !important",
+  },
+  "& input:-webkit-autofill:active": {
+    WebkitBoxShadow: "0 0 0 1000px white inset !important",
+  },
+  "& textarea:-webkit-autofill": {
+    WebkitBoxShadow: "0 0 0 1000px white inset !important",
+    WebkitTextFillColor: "inherit !important",
+    transition: "background-color 5000s ease-in-out 0s",
+  },
 });
 
 export default function ContactForm() {
@@ -285,7 +324,7 @@ export default function ContactForm() {
               fullWidth
             />
 
-            <TextField
+            <StyledTextField
               label="Your Message"
               name="message"
               rows={4}

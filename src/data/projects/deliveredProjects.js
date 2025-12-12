@@ -36,7 +36,7 @@ export const deliveredProjects = [
   {
     id: "delivered-3",
     title: "Kids’ Bedroom With Blue & Marble-Themed Storage and Study Unit",
-    location: "Pune",
+    location: "Mumbai",
     scope: "Kids Bedroom",
     bhk: "3-BHK",
     pricing: "3 - 5 Lakhs",
@@ -85,7 +85,7 @@ export const deliveredProjects = [
   {
     id: "delivered-6",
     title: "Elegant Master Bedroom With Warm Gold Accents & Textured Paneling",
-    location: "Pune",
+    location: "Mumbai",
     scope: "Master Bedroom",
     bhk: "2-BHK",
     pricing: "3 - 4 Lakhs",
@@ -153,7 +153,7 @@ export const deliveredProjects = [
   {
     id: "delivered-10",
     title: "Compact Glossy Modular Kitchen With Sleek Pantry Unit",
-    location: "Pune",
+    location: "Mumbai",
     scope: "Modular Kitchen",
     bhk: "2-BHK",
     pricing: "3.5 - 5 Lakhs",
@@ -220,7 +220,7 @@ export const deliveredProjects = [
   {
     id: "delivered-14",
     title: "Modern Master Bedroom With Built-In Wardrobe & Study Nook",
-    location: "Pune",
+    location: "Mumbai",
     scope: "Master Bedroom Interior",
     bhk: "3-BHK",
     pricing: "4.5 - 6 Lakhs",
@@ -271,7 +271,7 @@ export const deliveredProjects = [
     id: "delivered-17",
     title:
       "Modern Modular Kitchen With Glossy Grey Cabinets & Black Countertop",
-    location: "Pune",
+    location: "Mumbai",
     scope: "Modular Kitchen",
     bhk: "2-BHK",
     pricing: "3.5 - 5 Lakhs",
@@ -379,7 +379,7 @@ export const deliveredProjects = [
   {
     id: "delivered-23",
     title: "Playful Kids Bedroom With Pastel Wardrobe & Study Unit",
-    location: "Pune",
+    location: "Mumbai",
     scope: "Kids Bedroom Interior",
     bhk: "3-BHK",
     pricing: "5 - 7 Lakhs",
@@ -451,7 +451,7 @@ export const deliveredProjectsDetails = {
     title: "Kids’ Bedroom With Blue & Marble-Themed Storage and Study Unit",
     description:
       "A bright and functional kids’ bedroom featuring a marble-textured wardrobe with modern blue accents, a dedicated study zone, and an LED-lit display unit.",
-    location: "Pune",
+    location: "Mumbai",
     budget: "₹3 - ₹5 Lakhs",
     area: "140 sq ft (Kids Bedroom)",
     style: "Modern | Functional | Youthful",
@@ -503,7 +503,7 @@ export const deliveredProjectsDetails = {
     title: "Elegant Master Bedroom With Warm Gold Accents & Textured Paneling",
     description:
       "A beautifully designed master bedroom featuring rich gold accents, fluted wall paneling, ambient lighting, and a premium glossy wardrobe.",
-    location: "Pune",
+    location: "Mumbai",
     budget: "₹3 - ₹4 Lakhs",
     area: "130 sq ft (Master Bedroom)",
     style: "Modern | Elegant | Warm Luxe",
@@ -575,7 +575,7 @@ export const deliveredProjectsDetails = {
     title: "Compact Glossy Modular Kitchen With Sleek Pantry Unit",
     description:
       "A compact modern modular kitchen featuring glossy dual-tone cabinets, smart storage, and a vertical pantry.",
-    location: "Pune",
+    location: "Mumbai",
     budget: "₹3.5 - ₹5 Lakhs",
     area: "90 sq ft (Modular Kitchen)",
     style: "Modern | Minimal | High-Gloss",
@@ -646,7 +646,7 @@ export const deliveredProjectsDetails = {
     title: "Modern Master Bedroom With Built-In Wardrobe & Study Nook",
     description:
       "A calm and modern master bedroom featuring a soft upholstered bed, full-height textured wardrobe, and a compact study nook with warm ambient lighting.",
-    location: "Pune",
+    location: "Mumbai",
     budget: "₹4.5 - ₹6 Lakhs",
     area: "160 sq ft (Master Bedroom)",
     style: "Modern | Minimal | Warm Neutrals",
@@ -701,7 +701,7 @@ export const deliveredProjectsDetails = {
       "Modern Modular Kitchen With Glossy Grey Cabinets & Black Countertop",
     description:
       "A sleek modern modular kitchen featuring glossy grey cabinetry, black granite worktops, geometric tiled backsplash, and efficient L-shaped layout for maximum functionality.",
-    location: "Pune",
+    location: "Mumbai",
     budget: "₹3.5 - ₹5 Lakhs",
     area: "140 sq ft (Modular Kitchen)",
     style: "Modern | Glossy | Minimal",
@@ -815,7 +815,7 @@ export const deliveredProjectsDetails = {
     title: "Playful Kids Bedroom With Pastel Wardrobe & Study Unit",
     description:
       "A cheerful kids bedroom featuring a colorful pastel wardrobe, butterfly-themed headboard wall, integrated study desk, and warm accent lighting for a fun and cozy atmosphere.",
-    location: "Pune",
+    location: "Mumbai",
     budget: "₹5 - ₹7 Lakhs",
     area: "180 sq ft (Kids Bedroom)",
     style: "Modern | Playful | Pastel",
