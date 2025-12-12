@@ -100,3 +100,4 @@ export default function WhyChooseItem({ title, icon, iconUrl }) {
   );
 }
 
+

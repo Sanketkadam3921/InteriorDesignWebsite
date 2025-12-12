@@ -39,12 +39,7 @@ export default function DeliveredProjectDetail() {
       answer:
         "Yes! You can absolutely get a similar design inspired by this delivered project. Our design team can recreate the theme, layout, and finishes while customizing it to your budget, space, and personal preferences.",
     },
-    {
-      id: "delivered-faq-2",
-      question: "Where is this delivered project located?",
-      answer:
-        "Each delivered project is located in a specific residential area or city mentioned in the project details above. You can also contact us if you'd like to visit a nearby completed site or explore similar work in your area.",
-    },
+
     {
       id: "delivered-faq-3",
       question:
@@ -58,13 +53,6 @@ export default function DeliveredProjectDetail() {
         "Can the same design be customized for different property sizes?",
       answer:
         "Absolutely! Our design concepts are flexible. Whether your property is smaller or larger, our team can adapt the spatial layout, furniture, and décor elements to suit your floor plan and requirements.",
-    },
-    {
-      id: "delivered-faq-5",
-      question:
-        "Do you provide post-completion support or maintenance services?",
-      answer:
-        "Yes, we offer post-completion support for delivered projects. This includes assistance with minor modifications, furniture refits, and maintenance guidance to ensure your home stays beautiful and functional for years.",
     },
   ];
 
