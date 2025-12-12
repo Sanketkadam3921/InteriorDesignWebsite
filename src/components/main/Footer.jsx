@@ -272,23 +272,35 @@ export default function Footer() {
 
             {/* Offerings & Inspiration */}
             <LinkGroup title="OFFERINGS ">
-              <NavLink to="/designs" label="Interiors" />
-              <NavLink to="/designs" label="Designs" />
+              <Box
+                sx={{ display: "flex", flexDirection: "column", gap: "4px" }}
+              >
+                <NavLink to="/designs" label="Interiors" />
+                <NavLink to="/designs" label="Designs" />
+              </Box>
             </LinkGroup>
 
             {/* Tools */}
             <LinkGroup title="TOOLS">
-              <NavLink to="/#price-calculator" label="Price Calculator" />
-              <NavLink to="/enquiries/quote-form" label="Get Quote" />
+              <Box
+                sx={{ display: "flex", flexDirection: "column", gap: "4px" }}
+              >
+                <NavLink to="/#price-calculator" label="Price Calculator" />
+                <NavLink to="/enquiries/quote-form" label="Get Quote" />
+              </Box>
             </LinkGroup>
 
             {/* Company */}
             <LinkGroup title="COMPANY">
-              <NavLink to="/how-it-works" label="Process" />
-              <NavLink to="/faq" label="FAQs" />
-              <NavLink to="/aboutus" label="About Us" />
-              <NavLink to="/projects" label="Projects" />
-              <NavLink to="/contact" label="Contact Us" />
+              <Box
+                sx={{ display: "flex", flexDirection: "column", gap: "4px" }}
+              >
+                <NavLink to="/how-it-works" label="Process" />
+                <NavLink to="/faq" label="FAQs" />
+                <NavLink to="/aboutus" label="About Us" />
+                <NavLink to="/projects" label="Projects" />
+                <NavLink to="/contact" label="Contact Us" />
+              </Box>
             </LinkGroup>
 
             {/* Contact */}
