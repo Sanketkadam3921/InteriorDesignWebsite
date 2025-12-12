@@ -424,12 +424,14 @@ Estimated Price: ₹${estimatePayload.estimatedPrice}
                   >
                     Estimated Price
                   </Typography>
-
                   <Typography
                     variant="h5"
                     sx={{ fontWeight: 700, color: theme.palette.primary.main }}
                   >
-                    ₹{estimateData?.totalPrice?.toLocaleString() || 0}
+                    {estimateData?.totalPrice?.toLocaleString("en-IN", {
+                      style: "currency",
+                      currency: "INR",
+                    }) || "₹0"}
                   </Typography>
 
                   <Typography
