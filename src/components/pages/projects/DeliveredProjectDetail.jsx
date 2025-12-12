@@ -128,39 +128,177 @@ export default function DeliveredProjectDetail() {
 
         {/* ----------- ImageList Collage Section ----------- */}
         <Box sx={{ position: "relative", mb: 6 }}>
-          <ImageList
-            variant="masonry"
-            cols={3}
-            gap={8}
-            sx={{
-              borderRadius: 2,
-              overflow: "hidden",
-              boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
-            }}
-          >
-            {project.images.slice(0, 6).map((img, idx) => (
-              <ImageListItem key={idx}>
+          {project.images.length === 4 ? (
+            // Custom layout for 4 images: bottom middle, then right, then left
+            <Box
+              sx={{
+                display: "grid",
+                gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" },
+                gridTemplateRows: { xs: "repeat(4, 1fr)", md: "repeat(2, 1fr)" },
+                gap: 2,
+                borderRadius: 2,
+                overflow: "hidden",
+              }}
+            >
+              {/* Image 1: Bottom Middle (first - center column, bottom row) */}
+              <Box
+                sx={{
+                  gridColumn: { xs: "1", md: "2" },
+                  gridRow: { xs: "4", md: "2" },
+                  width: "100%",
+                  height: { xs: "300px", md: "400px" },
+                  borderRadius: "10px",
+                  overflow: "hidden",
+                  cursor: "pointer",
+                  transition: "transform 0.3s ease-in-out",
+                  "&:hover": {
+                    transform: "scale(1.02)",
+                  },
+                }}
+                onClick={() => navigate(`/projects/delivered/${id}/gallery`)}
+              >
                 <img
-                  src={`${img}?w=600&fit=crop&auto=format`}
-                  srcSet={`${img}?w=600&fit=crop&auto=format&dpr=2 2x`}
-                  alt={`${project.title}-${idx}`}
+                  src={`${project.images[0]}?w=600&fit=crop&auto=format`}
+                  srcSet={`${project.images[0]}?w=600&fit=crop&auto=format&dpr=2 2x`}
+                  alt={`${project.title}-0`}
                   loading="lazy"
                   style={{
-                    borderRadius: "10px",
-                    cursor: "pointer",
-                    transition: "transform 0.3s ease-in-out",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
                   }}
-                  onClick={() => navigate(`/projects/delivered/${id}/gallery`)}
-                  onMouseOver={(e) =>
-                    (e.currentTarget.style.transform = "scale(1.02)")
-                  }
-                  onMouseOut={(e) =>
-                    (e.currentTarget.style.transform = "scale(1)")
-                  }
                 />
-              </ImageListItem>
-            ))}
-          </ImageList>
+              </Box>
+              {/* Image 2: Right (second - right column) */}
+              <Box
+                sx={{
+                  gridColumn: { xs: "1", md: "3" },
+                  gridRow: { xs: "2", md: "1" },
+                  width: "100%",
+                  height: { xs: "300px", md: "400px" },
+                  borderRadius: "10px",
+                  overflow: "hidden",
+                  cursor: "pointer",
+                  transition: "transform 0.3s ease-in-out",
+                  "&:hover": {
+                    transform: "scale(1.02)",
+                  },
+                }}
+                onClick={() => navigate(`/projects/delivered/${id}/gallery`)}
+              >
+                <img
+                  src={`${project.images[1]}?w=600&fit=crop&auto=format`}
+                  srcSet={`${project.images[1]}?w=600&fit=crop&auto=format&dpr=2 2x`}
+                  alt={`${project.title}-1`}
+                  loading="lazy"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                />
+              </Box>
+              {/* Image 3: Left (third - left column) */}
+              <Box
+                sx={{
+                  gridColumn: { xs: "1", md: "1" },
+                  gridRow: { xs: "3", md: "1" },
+                  width: "100%",
+                  height: { xs: "300px", md: "400px" },
+                  borderRadius: "10px",
+                  overflow: "hidden",
+                  cursor: "pointer",
+                  transition: "transform 0.3s ease-in-out",
+                  "&:hover": {
+                    transform: "scale(1.02)",
+                  },
+                }}
+                onClick={() => navigate(`/projects/delivered/${id}/gallery`)}
+              >
+                <img
+                  src={`${project.images[2]}?w=600&fit=crop&auto=format`}
+                  srcSet={`${project.images[2]}?w=600&fit=crop&auto=format&dpr=2 2x`}
+                  alt={`${project.title}-2`}
+                  loading="lazy"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                />
+              </Box>
+              {/* Image 4: Top Middle (fourth - center column, top row) */}
+              <Box
+                sx={{
+                  gridColumn: { xs: "1", md: "2" },
+                  gridRow: { xs: "1", md: "1" },
+                  width: "100%",
+                  height: { xs: "300px", md: "400px" },
+                  borderRadius: "10px",
+                  overflow: "hidden",
+                  cursor: "pointer",
+                  transition: "transform 0.3s ease-in-out",
+                  "&:hover": {
+                    transform: "scale(1.02)",
+                  },
+                }}
+                onClick={() => navigate(`/projects/delivered/${id}/gallery`)}
+              >
+                <img
+                  src={`${project.images[3]}?w=600&fit=crop&auto=format`}
+                  srcSet={`${project.images[3]}?w=600&fit=crop&auto=format&dpr=2 2x`}
+                  alt={`${project.title}-3`}
+                  loading="lazy"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                />
+              </Box>
+            </Box>
+          ) : (
+            // Default masonry layout for other cases
+            <ImageList
+              variant="masonry"
+              cols={3}
+              gap={8}
+              sx={{
+                borderRadius: 2,
+                overflow: "hidden",
+                boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
+                "& .MuiImageListItem-root": {
+                  "& img": {
+                    height: "400px !important",
+                    objectFit: "cover",
+                  },
+                },
+              }}
+            >
+              {project.images.slice(0, 6).map((img, idx) => (
+                <ImageListItem key={idx}>
+                  <img
+                    src={`${img}?w=600&fit=crop&auto=format`}
+                    srcSet={`${img}?w=600&fit=crop&auto=format&dpr=2 2x`}
+                    alt={`${project.title}-${idx}`}
+                    loading="lazy"
+                    style={{
+                      borderRadius: "10px",
+                      cursor: "pointer",
+                      transition: "transform 0.3s ease-in-out",
+                    }}
+                    onClick={() => navigate(`/projects/delivered/${id}/gallery`)}
+                    onMouseOver={(e) =>
+                      (e.currentTarget.style.transform = "scale(1.02)")
+                    }
+                    onMouseOut={(e) =>
+                      (e.currentTarget.style.transform = "scale(1)")
+                    }
+                  />
+                </ImageListItem>
+              ))}
+            </ImageList>
+          )}
 
           {/* Floating "See All" Button */}
           <Button

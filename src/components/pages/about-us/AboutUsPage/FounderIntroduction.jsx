@@ -43,6 +43,7 @@ export default function FounderIntroduction() {
             lg={6}
             sx={{
               width: {
+                xs: "100%",
                 sm: "390px",
                 md: "500px",
                 lg: "550px",
@@ -192,4 +193,3 @@ export default function FounderIntroduction() {
     </Box>
   );
 }
-
