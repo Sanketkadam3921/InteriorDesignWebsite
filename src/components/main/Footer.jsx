@@ -287,7 +287,7 @@ export default function Footer() {
               <NavLink to="/how-it-works" label="Process" />
               <NavLink to="/faq" label="FAQs" />
               <NavLink to="/aboutus" label="About Us" />
-              <NavLink to="/projects" label="Our Projects" />
+              <NavLink to="/projects" label="Projects" />
               <NavLink to="/contact" label="Contact Us" />
             </LinkGroup>
 

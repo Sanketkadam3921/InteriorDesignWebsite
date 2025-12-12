@@ -119,7 +119,7 @@ export default function Header() {
     { label: "Offerings", hasDropdown: true },
     { label: "Price Calculators", dropdown: priceCalculatorsDropdown },
     // { label: "FAQs", path: "/faq" },
-    { label: "Contact", path: "/contact" },
+    { label: "Contact Us", path: "/contact" },
   ];
 
   const handleMobileNavClick = (path) => {
@@ -415,7 +415,7 @@ export default function Header() {
         {/* Modular Journey */}
 
         {/* FAQs */}
-        <ListItem disablePadding>
+        {/* <ListItem disablePadding>
           <ListItemButton
             onClick={() => handleMobileNavClick("/faq")}
             sx={{
@@ -434,7 +434,7 @@ export default function Header() {
               }}
             />
           </ListItemButton>
-        </ListItem>
+        </ListItem> */}
 
         {/* Contact */}
         <ListItem disablePadding>

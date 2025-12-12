@@ -57,9 +57,13 @@ export default function Estimate() {
   }, [location.hash]);
 
   return (
-    <Box 
+    <Box
       id="price-calculator"
-      sx={{ py: 8, backgroundColor: theme.palette.background.paper, scrollMarginTop: "80px" }}
+      sx={{
+        py: 8,
+        backgroundColor: theme.palette.background.paper,
+        scrollMarginTop: "80px",
+      }}
     >
       <Container maxWidth="lg">
         {/* Heading */}
@@ -196,7 +200,7 @@ export default function Estimate() {
                       color: theme.palette.primary.contrastText,
                       py: 1.5,
                       px: 4,
-                      borderRadius: 50,
+                      borderRadius: 2,
                       textTransform: "uppercase",
                       fontWeight: 600,
                       fontSize: "0.95rem",
