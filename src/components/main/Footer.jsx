@@ -275,6 +275,7 @@ export default function Footer() {
               <Box
                 sx={{ display: "flex", flexDirection: "column", gap: "4px" }}
               >
+                <NavLink to="/designs" label="Designs" />
                 <NavLink
                   to="/designs/modular-interiors"
                   label="Modular Interiors"
