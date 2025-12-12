@@ -17,9 +17,9 @@ export default function AboutUsPage() {
       <MissionVisionSection />
       <WhyChooseOurStudio />
       <Statistics />
-      <GrowthJourney />
+        <GrowthJourney />
       <FutureOfKalakruti />
-      <Founders />
+        <Founders />
     </Box>
   );
 }

@@ -19,15 +19,15 @@ const HowItWorks = () => {
       title: "Execution Begins",
     },
     {
-      icon: "https://cdn-icons-png.flaticon.com/128/4961/4961619.png",
+      icon: "https://cdn-icons-png.flaticon.com/128/1521/1521875.png",
       title: "Payments",
     },
     {
-      icon: "https://cdn-icons-png.flaticon.com/128/9320/9320557.png",
+      icon: "https://cdn-icons-png.flaticon.com/128/17059/17059652.png",
       title: "On-Site Work",
     },
     {
-      icon: "https://cdn-icons-png.flaticon.com/128/7164/7164002.png",
+      icon: "https://cdn-icons-png.flaticon.com/128/2590/2590393.png",
       title: "Your Perfect Space is Ready",
     },
   ];

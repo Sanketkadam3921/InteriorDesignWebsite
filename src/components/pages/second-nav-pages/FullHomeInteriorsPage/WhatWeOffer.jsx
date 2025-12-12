@@ -5,28 +5,28 @@ import { SERVICES } from './constants';
 import ServiceCard from './ServiceCard';
 
 export default function WhatWeOffer() {
-    return (
+  return (
         <Box sx={{ mt: 8, mb: 8 }}>
-            <Typography
+        <Typography
                 variant="h2"
-                component="h2"
-                sx={{
+          component="h2"
+          sx={{
                     fontSize: { xs: '1.8rem', md: '2.2rem' },
                     fontWeight: themeNeutral.typography.h2.fontWeight,
                     color: themeNeutral.palette.text.primary,
                     mb: 6,
                     textAlign: 'center'
-                }}
-            >
+          }}
+        >
                 What We Offer
-            </Typography>
+        </Typography>
 
             <Grid 
                 container 
                 spacing={4} 
                 justifyContent="center"
-            >
-                {SERVICES.map((service) => (
+        >
+          {SERVICES.map((service) => (
                     <Grid 
                         item 
                         xs={12} 
@@ -34,15 +34,15 @@ export default function WhatWeOffer() {
                         key={service.id}
                         sx={{ display: "flex", justifyContent: "center" }}
                     >
-                        <ServiceCard
-                            title={service.title}
-                            image={service.image}
-                            alt={service.alt}
-                        />
+            <ServiceCard
+              title={service.title}
+              image={service.image}
+              alt={service.alt}
+            />
                     </Grid>
-                ))}
+          ))}
             </Grid>
         </Box>
-    );
+  );
 }
 
