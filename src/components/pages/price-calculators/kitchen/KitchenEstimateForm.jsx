@@ -263,8 +263,6 @@ Estimated Price: ₹${estimatePayload.estimatedPrice}
         message: `Your kitchen estimate has been submitted successfully! Estimated Price: ₹${estimateData.totalPrice.toLocaleString()}`,
         severity: "success",
       });
-
-      setTimeout(() => navigate("/"), 10000);
     } catch (err) {
       console.error(err);
       setToast({
@@ -281,6 +279,10 @@ Estimated Price: ₹${estimatePayload.estimatedPrice}
   const handleBack = () => {
     const params = new URLSearchParams(location.search);
     navigate(`/price-calculators/kitchen/calculator/package?${params}`);
+  };
+
+  const handleBackToHome = () => {
+    navigate("/");
   };
 
   if (calculating) {
@@ -453,7 +455,7 @@ Estimated Price: ₹${estimatePayload.estimatedPrice}
       <Box
         sx={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: submitted ? "center" : "space-between",
           position: "fixed",
           bottom: 0,
           left: 0,
@@ -470,33 +472,50 @@ Estimated Price: ₹${estimatePayload.estimatedPrice}
           boxShadow: "0 -2px 8px rgba(0,0,0,0.1)",
         }}
       >
-        <Button
-          variant="outlined"
-          onClick={handleBack}
-          sx={{
-            color: theme.palette.primary.main,
-            borderColor: theme.palette.primary.main,
-            textTransform: "none",
-            fontWeight: 600,
-            fontSize: "0.9rem",
-          }}
-        >
-          Back
-        </Button>
+        {!submitted ? (
+          <>
+            <Button
+              variant="outlined"
+              onClick={handleBack}
+              sx={{
+                color: theme.palette.primary.main,
+                borderColor: theme.palette.primary.main,
+                textTransform: "none",
+                fontWeight: 600,
+                fontSize: "0.9rem",
+              }}
+            >
+              Back
+            </Button>
 
-        <Button
-          variant="contained"
-          onClick={handleSubmit}
-          disabled={!isFormValid() || loading || calculating}
-          sx={{
-            px: 3,
-            textTransform: "none",
-            fontWeight: 600,
-            fontSize: "0.9rem",
-          }}
-        >
-          {loading ? <CircularProgress size={20} /> : "Submit"}
-        </Button>
+            <Button
+              variant="contained"
+              onClick={handleSubmit}
+              disabled={!isFormValid() || loading || calculating}
+              sx={{
+                px: 3,
+                textTransform: "none",
+                fontWeight: 600,
+                fontSize: "0.9rem",
+              }}
+            >
+              {loading ? <CircularProgress size={20} /> : "Submit"}
+            </Button>
+          </>
+        ) : (
+          <Button
+            variant="contained"
+            onClick={handleBackToHome}
+            sx={{
+              px: 4,
+              textTransform: "none",
+              fontWeight: 600,
+              fontSize: "0.9rem",
+            }}
+          >
+            Back to Home
+          </Button>
+        )}
       </Box>
 
       {/* Toast */}

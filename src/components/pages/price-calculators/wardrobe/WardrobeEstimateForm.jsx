@@ -220,8 +220,6 @@ Estimated Price: ₹${estimatePayload.estimatedPrice}
         message: `Your estimate has been submitted successfully! Estimated Price: ₹${estimatedPrice.toLocaleString()}`,
         severity: "success",
       });
-
-      setTimeout(() => navigate("/"), 10000);
     } catch (error) {
       console.error(error);
       setToast({
@@ -239,6 +237,10 @@ Estimated Price: ₹${estimatePayload.estimatedPrice}
     navigate(
       `/price-calculators/wardrobe/calculator/package?${params.toString()}`
     );
+  };
+
+  const handleBackToHome = () => {
+    navigate("/");
   };
 
   if (calculating) {
@@ -389,23 +391,40 @@ Estimated Price: ₹${estimatePayload.estimatedPrice}
           maxWidth: 700,
           mx: "auto",
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: submitted ? "center" : "space-between",
           p: 3,
           borderTop: "1px solid #ddd",
           backgroundColor: "background.default",
+          zIndex: 1000,
         }}
       >
-        <Button variant="outlined" onClick={handleBack}>
-          Back
-        </Button>
+        {!submitted ? (
+          <>
+            <Button variant="outlined" onClick={handleBack}>
+              Back
+            </Button>
 
-        <Button
-          variant="contained"
-          disabled={!isFormValid() || loading || calculating}
-          onClick={handleSubmit}
-        >
-          {loading ? <CircularProgress size={20} /> : "Submit"}
-        </Button>
+            <Button
+              variant="contained"
+              disabled={!isFormValid() || loading || calculating}
+              onClick={handleSubmit}
+            >
+              {loading ? <CircularProgress size={20} /> : "Submit"}
+            </Button>
+          </>
+        ) : (
+          <Button
+            variant="contained"
+            onClick={handleBackToHome}
+            sx={{
+              px: 4,
+              textTransform: "none",
+              fontWeight: 600,
+            }}
+          >
+            Back to Home
+          </Button>
+        )}
       </Box>
 
       {/* Toast */}

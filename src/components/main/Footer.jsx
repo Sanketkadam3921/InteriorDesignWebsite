@@ -111,7 +111,7 @@ export default function Footer() {
           py: {
             xs: 8, // Mobile: padding
             sm: 8, // iPad Air/Mini: padding
-            md: 9, // iPad Pro: padding
+            md: 8, // iPad Pro: padding
             lg: 10, // Desktop: original padding
           },
           position: "relative",
@@ -174,7 +174,7 @@ export default function Footer() {
             container
             spacing={{
               xs: 5, // Mobile: larger spacing
-              sm: 2.7, // iPad Air/Mini: medium spacing
+              sm: 2.2, // iPad Air/Mini: medium spacing
               md: 3, // iPad Pro: spacing for 4 columns in row
               lg: 8, // Desktop: original spacing
             }}
@@ -275,8 +275,19 @@ export default function Footer() {
               <Box
                 sx={{ display: "flex", flexDirection: "column", gap: "4px" }}
               >
-                <NavLink to="/designs" label="Interiors" />
-                <NavLink to="/designs" label="Designs" />
+                <NavLink
+                  to="/designs/modular-interiors"
+                  label="Modular Interiors"
+                />
+                <NavLink
+                  to="/designs/full-home-interiors"
+                  label="Full Home Interiors"
+                />
+                <NavLink
+                  to="/designs/luxury-interiors"
+                  label="Luxury Interiors"
+                />
+                <NavLink to="/renovations" label="Renovations" />
               </Box>
             </LinkGroup>
 
