@@ -48,10 +48,10 @@ const inspirationItems = [
       "https://ik.imagekit.io/bowr9614/HomePage_Hero/elegant-modern-living-room-with-gray-sofa.jpg?updatedAt=1764590990093",
   },
   {
-    title: "KalaKruti Studio Designs",
-    categoryId: "homes-livspace",
+    title: "Home Office",
+    categoryId: "home-office",
     image:
-      "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/KalaKruti_Studio_Designs.jpg",
+      "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/Home_Office.jpeg",
   },
   {
     title: "Kids Bedroom",
@@ -60,10 +60,10 @@ const inspirationItems = [
       "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/Kids_Room.jpeg",
   },
   {
-    title: "Home Office",
-    categoryId: "home-office",
+    title: "KalaKruti Studio Designs",
+    categoryId: "homes-livspace",
     image:
-      "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/Home_Office.jpeg",
+      "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/KalaKruti_Studio_Designs.jpg",
   },
   {
     title: "Foyer",
