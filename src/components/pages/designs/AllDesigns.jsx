@@ -305,15 +305,14 @@ export default function AllDesigns() {
             color: theme.palette.text.primary,
           }}
         >
-          Need Help Choosing?
+          Not sure where to start?
         </Typography>
         <Typography
           variant="body1"
           color="text.secondary"
           sx={{ mb: 3, maxWidth: "600px", mx: "auto" }}
         >
-          Our design experts can help you choose the perfect style for your
-          space. Get personalized recommendations tailored to your needs.
+          Our team will help you discover a style that works perfectly for you.
         </Typography>
         <Button
           variant="contained"

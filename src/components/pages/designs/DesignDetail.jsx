@@ -890,11 +890,10 @@ export default function DesignDetail() {
           }}
         >
           <Typography variant="h6" gutterBottom fontWeight={700}>
-            Want to customize this design?
+            Your space. Your style. Your budget.
           </Typography>
           <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
-            We can adapt this design to fit your space, preferences, and budget.
-            Talk to our experts today.
+            Speak with our experts to customize this design for your needs.
           </Typography>
           <Button
             variant="contained"
@@ -902,7 +901,7 @@ export default function DesignDetail() {
             sx={{
               px: 4,
               py: 1.5,
-              borderRadius: "30px",
+              borderRadius: 2,
               fontWeight: 700,
               textTransform: "uppercase",
             }}

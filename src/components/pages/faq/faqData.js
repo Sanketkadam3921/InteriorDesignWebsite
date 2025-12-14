@@ -53,12 +53,7 @@ export const faqData = {
       answer:
         "The best layout depends on your space and cooking habits. Popular layouts include L-shaped, U-shaped, and galley kitchens. We consider your workflow, storage needs, and available space to recommend the optimal layout.",
     },
-    {
-      id: "kitchen-2",
-      question: "What materials are best for kitchen cabinets?",
-      answer:
-        "Popular materials include BWR/BWP plywood, MDF, and particle board with various finishes like laminates, acrylic, and veneers. We recommend materials based on your budget, durability needs, and aesthetic preferences.",
-    },
+
     {
       id: "kitchen-3",
       question: "How do I maximize storage in a small kitchen?",

@@ -89,7 +89,7 @@ export default function ProjectsPage() {
             fontWeight: 700,
             px: 4,
             py: 1.5,
-            borderRadius: "30px",
+            borderRadius: 2,
             textTransform: "uppercase",
             letterSpacing: "0.5px",
             backgroundColor: "rgba(255,255,255,0.15)",
@@ -238,7 +238,7 @@ export default function ProjectsPage() {
                   fontWeight: 600,
                   px: 3,
                   py: 1.5,
-                  borderRadius: "30px",
+                  borderRadius: 2,
                   textTransform: "uppercase",
                   letterSpacing: "0.5px",
                 }}
@@ -274,7 +274,7 @@ export default function ProjectsPage() {
             onClick={handleCardClick}
             sx={{
               fontWeight: 600,
-              borderRadius: "25px",
+              borderRadius: 2,
               px: 4,
               py: 1.5,
             }}

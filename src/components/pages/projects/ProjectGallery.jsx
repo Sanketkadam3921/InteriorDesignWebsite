@@ -86,18 +86,29 @@ export default function ProjectGallery() {
     }
 
     return (
-        <Container maxWidth="xl" sx={{ py: 6 }}>
+        <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 3, md: 4 }, pt: { xs: 2, sm: 3, md: 4 }, pb: 6 }}>
             {/* Back Button */}
             <Button
                 startIcon={<ArrowBack />}
                 onClick={() => navigate(backPath)}
-                sx={{ mb: 4 }}
+                sx={{
+                    mb: 4,
+                    px: 0,
+                    color: theme.palette.text.secondary,
+                    "&:hover": {
+                        backgroundColor: theme.palette.action.hover,
+                        color: theme.palette.text.primary,
+                    },
+                    fontWeight: 500,
+                    textTransform: "none",
+                    fontSize: "1rem",
+                }}
             >
                 Back to Project Details
             </Button>
 
             {/* Gallery Title */}
-            <Box sx={{ textAlign: "center", mb: 6 }}>
+            <Box sx={{ textAlign: "left", mb: 6 }}>
                 <Typography
                     variant="h3"
                     component="h1"
@@ -112,7 +123,7 @@ export default function ProjectGallery() {
                 <Typography
                     variant="h6"
                     color="text.secondary"
-                    sx={{ maxWidth: 600, mx: "auto", lineHeight: 1.6 }}
+                    sx={{ maxWidth: 600, lineHeight: 1.6 }}
                 >
                     Explore all {project.images.length} images from this project
                 </Typography>
