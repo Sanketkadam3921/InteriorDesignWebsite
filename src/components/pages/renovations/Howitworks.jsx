@@ -33,7 +33,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <Box sx={{ py: 8, backgroundColor: theme.palette.background.default }}>
+    <Box sx={{ py: 2, backgroundColor: theme.palette.background.default }}>
       <Container>
         {/* Heading */}
         <Typography
