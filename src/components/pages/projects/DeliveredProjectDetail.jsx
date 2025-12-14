@@ -129,13 +129,13 @@ export default function DeliveredProjectDetail() {
         {/* ----------- ImageList Collage Section ----------- */}
         <Box sx={{ position: "relative", mb: 6 }}>
           {project.images.length === 4 ? (
-            // Custom layout for 4 images: bottom middle, then right, then left
+            // Custom layout for 4 images: 2x2 grid on mobile, original layout on desktop
             <Box
               sx={{
                 display: "grid",
-                gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" },
-                gridTemplateRows: { xs: "repeat(4, 1fr)", md: "repeat(2, 1fr)" },
-                gap: 2,
+                gridTemplateColumns: { xs: "repeat(2, 1fr)", md: "repeat(3, 1fr)" },
+                gridTemplateRows: { xs: "repeat(2, 1fr)", md: "repeat(2, 1fr)" },
+                gap: { xs: 1, sm: 1.5, md: 2 },
                 borderRadius: 2,
                 overflow: "hidden",
               }}
@@ -144,9 +144,9 @@ export default function DeliveredProjectDetail() {
               <Box
                 sx={{
                   gridColumn: { xs: "1", md: "2" },
-                  gridRow: { xs: "4", md: "2" },
+                  gridRow: { xs: "2", md: "2" },
                   width: "100%",
-                  height: { xs: "300px", md: "400px" },
+                  height: { xs: "140px", sm: "220px", md: "400px" },
                   borderRadius: "10px",
                   overflow: "hidden",
                   cursor: "pointer",
@@ -172,10 +172,10 @@ export default function DeliveredProjectDetail() {
               {/* Image 2: Right (second - right column) */}
               <Box
                 sx={{
-                  gridColumn: { xs: "1", md: "3" },
-                  gridRow: { xs: "2", md: "1" },
+                  gridColumn: { xs: "2", md: "3" },
+                  gridRow: { xs: "1", md: "1" },
                   width: "100%",
-                  height: { xs: "300px", md: "400px" },
+                  height: { xs: "140px", sm: "220px", md: "400px" },
                   borderRadius: "10px",
                   overflow: "hidden",
                   cursor: "pointer",
@@ -202,9 +202,9 @@ export default function DeliveredProjectDetail() {
               <Box
                 sx={{
                   gridColumn: { xs: "1", md: "1" },
-                  gridRow: { xs: "3", md: "1" },
+                  gridRow: { xs: "1", md: "1" },
                   width: "100%",
-                  height: { xs: "300px", md: "400px" },
+                  height: { xs: "140px", sm: "220px", md: "400px" },
                   borderRadius: "10px",
                   overflow: "hidden",
                   cursor: "pointer",
@@ -230,10 +230,10 @@ export default function DeliveredProjectDetail() {
               {/* Image 4: Top Middle (fourth - center column, top row) */}
               <Box
                 sx={{
-                  gridColumn: { xs: "1", md: "2" },
-                  gridRow: { xs: "1", md: "1" },
+                  gridColumn: { xs: "2", md: "2" },
+                  gridRow: { xs: "2", md: "1" },
                   width: "100%",
-                  height: { xs: "300px", md: "400px" },
+                  height: { xs: "140px", sm: "220px", md: "400px" },
                   borderRadius: "10px",
                   overflow: "hidden",
                   cursor: "pointer",
@@ -258,46 +258,46 @@ export default function DeliveredProjectDetail() {
               </Box>
             </Box>
           ) : (
-            // Default masonry layout for other cases
-            <ImageList
-              variant="masonry"
-              cols={3}
-              gap={8}
+            // Default layout for other cases - Compact 2-column grid for mobile
+            <Box
               sx={{
+                display: "grid",
+                gridTemplateColumns: { xs: "repeat(2, 1fr)", md: "repeat(3, 1fr)" },
+                gap: { xs: 1, sm: 1.5, md: 2 },
                 borderRadius: 2,
                 overflow: "hidden",
-                boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
-                "& .MuiImageListItem-root": {
-                  "& img": {
-                    height: "400px !important",
-                    objectFit: "cover",
-                  },
-                },
               }}
             >
               {project.images.slice(0, 6).map((img, idx) => (
-                <ImageListItem key={idx}>
+                <Box
+                  key={idx}
+                  sx={{
+                    width: "100%",
+                    height: { xs: "140px", sm: "220px", md: "400px" },
+                    borderRadius: "10px",
+                    overflow: "hidden",
+                    cursor: "pointer",
+                    transition: "transform 0.3s ease-in-out",
+                    "&:hover": {
+                      transform: "scale(1.02)",
+                    },
+                  }}
+                  onClick={() => navigate(`/projects/delivered/${id}/gallery`)}
+                >
                   <img
                     src={`${img}?w=600&fit=crop&auto=format`}
                     srcSet={`${img}?w=600&fit=crop&auto=format&dpr=2 2x`}
                     alt={`${project.title}-${idx}`}
                     loading="lazy"
                     style={{
-                      borderRadius: "10px",
-                      cursor: "pointer",
-                      transition: "transform 0.3s ease-in-out",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
                     }}
-                    onClick={() => navigate(`/projects/delivered/${id}/gallery`)}
-                    onMouseOver={(e) =>
-                      (e.currentTarget.style.transform = "scale(1.02)")
-                    }
-                    onMouseOut={(e) =>
-                      (e.currentTarget.style.transform = "scale(1)")
-                    }
                   />
-                </ImageListItem>
+                </Box>
               ))}
-            </ImageList>
+            </Box>
           )}
 
           {/* Floating "See All" Button */}
@@ -307,17 +307,17 @@ export default function DeliveredProjectDetail() {
             onClick={() => navigate(`/projects/delivered/${id}/gallery`)}
             sx={{
               position: "absolute",
-              bottom: 20,
-              right: 30,
+              bottom: { xs: 10, md: 20 },
+              right: { xs: 15, md: 30 },
               backgroundColor: "rgba(0,0,0,0.7)",
               color: "#fff",
               borderRadius: "25px",
-              px: 3,
-              py: 1,
+              px: { xs: 2, md: 3 },
+              py: { xs: 0.5, md: 1 },
               fontWeight: 600,
               textTransform: "uppercase",
               letterSpacing: "0.5px",
-              fontSize: "0.85rem",
+              fontSize: { xs: "0.75rem", md: "0.85rem" },
               boxShadow: "0 2px 10px rgba(0,0,0,0.3)",
               "&:hover": {
                 backgroundColor: "rgba(0,0,0,0.9)",

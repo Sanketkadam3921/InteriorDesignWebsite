@@ -25,6 +25,7 @@ export default function FounderIntroduction() {
           container
           spacing={{ xs: 4, md: 6, lg: 6 }}
           alignItems={{ xs: "flex-start", md: "flex-start", lg: "center" }}
+          justifyContent={{ xs: "center", md: "flex-start", lg: "flex-start" }}
           sx={{
             opacity: 0,
             transform: "translateY(20px)",
@@ -53,6 +54,10 @@ export default function FounderIntroduction() {
                 md: "90%", // Slightly narrower on tablet
                 lg: "100%", // Proper half width on desktop
               },
+              display: "flex",
+              flexDirection: "column",
+              alignItems: { xs: "center", sm: "flex-start", md: "flex-start" },
+              textAlign: { xs: "center", sm: "left", md: "left" },
             }}
           >
             <Typography
@@ -68,7 +73,8 @@ export default function FounderIntroduction() {
                 "&::after": {
                   content: '""',
                   position: "absolute",
-                  left: 0,
+                  left: { xs: "50%", sm: 0, md: 0 },
+                  transform: { xs: "translateX(-50%)", sm: "none", md: "none" },
                   bottom: "-10px",
                   width: "60px",
                   height: "3px",
@@ -127,6 +133,7 @@ export default function FounderIntroduction() {
             sx={{
               display: "flex",
               justifyContent: "center",
+              alignItems: "center",
             }}
           >
             <Box
@@ -147,16 +154,19 @@ export default function FounderIntroduction() {
                   xl: 540,
                 },
                 width: {
-                  xs: "100%",
+                  xs: "90%",
                   sm: "290px",
                   md: "350px",
                   lg: "550px",
                 },
-                mt: { xs: 4, sm: 20, md: 15, lg: 0 },
-                ml: {
-                  xs: 0, // applies only on mobile
-                  sm: 0, // no margin on tablets & desktops
+                maxWidth: {
+                  xs: "400px",
+                  sm: "290px",
+                  md: "350px",
+                  lg: "550px",
                 },
+                mx: "auto",
+                mt: { xs: 4, sm: 20, md: 15, lg: 0 },
                 "&:hover": {
                   transform: "scale(1.03)",
                   boxShadow: "0 12px 40px rgba(0,0,0,0.2)",
