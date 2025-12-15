@@ -449,7 +449,7 @@ export default function Header() {
             }}
           >
             <ListItemText
-              primary="Contact"
+              primary="Contact Us"
               primaryTypographyProps={{
                 fontWeight: location.pathname === "/contact" ? "bold" : "500",
                 color: location.pathname === "/contact" ? "#1976d2" : "#333",
