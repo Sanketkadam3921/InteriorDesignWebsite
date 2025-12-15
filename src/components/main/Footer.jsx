@@ -257,7 +257,10 @@ export default function Footer() {
                       sx={{
                         color: theme.palette.secondary.contrastText,
                         border: "1px solid rgba(255,255,255,0.2)",
-                        ml: { xs: 5.5, md: 3, lg: 7 },
+                        ml: { xs: 3, md: 4.3, lg: 7 },
+                        "@media (max-width: 759px)": {
+                          ml: 5.5,
+                        },
                         "&:hover": {
                           backgroundColor: "rgba(255,255,255,0.1)",
                           borderColor: theme.palette.primary.main,
