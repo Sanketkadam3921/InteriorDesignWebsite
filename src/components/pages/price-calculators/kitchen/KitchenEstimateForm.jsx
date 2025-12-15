@@ -15,6 +15,11 @@ import {
 import { useNavigate, useLocation } from "react-router-dom";
 import { calculateKitchenEstimate } from "../../../../services/api/kitchenCalculatorApi";
 
+// Format number in Indian format
+const formatIndianCurrency = (amount) => {
+  return amount.toLocaleString("en-IN");
+};
+
 // 🔴 Required field styling
 const RedAsteriskTextField = styled(TextField)({
   "& .MuiFormLabel-asterisk": {
@@ -245,7 +250,7 @@ B: ${estimatePayload.B}
 C: ${estimatePayload.C}
 Package: ${estimatePayload.package}
 
-Estimated Price: ₹${estimatePayload.estimatedPrice}
+Estimated Price: ₹${formatIndianCurrency(estimatePayload.estimatedPrice)}
         `,
         }),
       });
@@ -260,7 +265,7 @@ Estimated Price: ₹${estimatePayload.estimatedPrice}
 
       setToast({
         open: true,
-        message: `Your kitchen estimate has been submitted successfully! Estimated Price: ₹${estimateData.totalPrice.toLocaleString()}`,
+        message: `Your kitchen estimate has been submitted successfully! Estimated Price: ₹${formatIndianCurrency(estimateData.totalPrice)}`,
         severity: "success",
       });
     } catch (err) {

@@ -90,7 +90,7 @@ const Hero = () => {
             },
           }}
         >
-          BOOK FREE CONSULTATION
+          Book Free Consultation
         </Button>
       </Container>
     </Box>

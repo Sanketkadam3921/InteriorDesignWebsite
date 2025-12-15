@@ -18,6 +18,11 @@ import {
   submitWardrobeEstimate,
 } from "../../../../services/api/wardrobeCalculatorApi";
 
+// Format number in Indian format
+const formatIndianCurrency = (amount) => {
+  return amount.toLocaleString("en-IN");
+};
+
 // 🔴 Red asterisk for required fields
 const RedAsteriskTextField = styled(TextField)({
   "& .MuiFormLabel-asterisk": {
@@ -202,7 +207,7 @@ Length: ${estimatePayload.length}
 Height: ${estimatePayload.height}
 Type: ${estimatePayload.type}
 Package: ${estimatePayload.package}
-Estimated Price: ₹${estimatePayload.estimatedPrice}
+Estimated Price: ₹${formatIndianCurrency(estimatePayload.estimatedPrice)}
         `,
         }),
       });
@@ -217,7 +222,7 @@ Estimated Price: ₹${estimatePayload.estimatedPrice}
 
       setToast({
         open: true,
-        message: `Your estimate has been submitted successfully! Estimated Price: ₹${estimatedPrice.toLocaleString()}`,
+        message: `Your estimate has been submitted successfully! Estimated Price: ₹${formatIndianCurrency(estimatedPrice)}`,
         severity: "success",
       });
     } catch (error) {

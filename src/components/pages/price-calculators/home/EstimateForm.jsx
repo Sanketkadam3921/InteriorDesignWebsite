@@ -19,6 +19,11 @@ import { BHK_LABELS } from "./BHKSelection";
 const getBhkLabel = (bhkId) =>
   BHK_LABELS[bhkId] || bhkId?.toUpperCase?.() || bhkId;
 
+// Format number in Indian format
+const formatIndianCurrency = (amount) => {
+  return amount.toLocaleString("en-IN");
+};
+
 // 🔴 Required field styling
 const RedAsteriskTextField = styled(TextField)({
   "& .MuiFormLabel-asterisk": {
@@ -301,7 +306,7 @@ Bedroom: ${estimateData.bedroom}
 Bathroom: ${estimateData.bathroom}
 Dining: ${estimateData.dining}
 
-Estimated Price: ₹${estimatedPrice.toLocaleString()}
+Estimated Price: ₹${formatIndianCurrency(estimatedPrice)}
 Price Range: ${priceRange?.displayRange || "N/A"}
         `,
         }),
@@ -317,7 +322,7 @@ Price Range: ${priceRange?.displayRange || "N/A"}
 
       const priceDisplay = priceRange?.displayRange
         ? priceRange.displayRange
-        : `₹${estimatedPrice.toLocaleString()}`;
+        : `₹${formatIndianCurrency(estimatedPrice)}`;
 
       setToast({
         open: true,

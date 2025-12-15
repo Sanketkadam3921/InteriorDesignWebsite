@@ -150,6 +150,13 @@ export const TIMELINE_ITEMS = [
     description:
       "We stepped into bigger design projects, blending diverse styles and creating memorable interiors for clients across different cities. Our focus shifted to bringing premium, personalized, and long-lasting home interiors to a larger audience.",
   },
+  {
+    id: 4,
+    year: "2025",
+    title: "Refinement & Brand Evolution",
+    description:
+      "We focused on refining our identity as a design studio—strengthening processes, elevating design consistency, and delivering end-to-end interior solutions. This year marked our transition from growing projects to building a recognizable brand, driven by thoughtful design, reliable execution, and lasting client relationships.",
+  },
 ];
 
 export const FUTURE_DATA = {
@@ -170,7 +177,7 @@ export const FOUNDERS = [
     borderColor: "neutral.mediumGray",
     socialLinks: [
       { platform: "linkedin", icon: "LinkedIn", url: "https://www.linkedin.com/in/rushikesh-bendal-688458364/" },
-      { platform: "instagram", icon: "Instagram", url: "https://www.instagram.com/rushi_bendal/?hl=zh-cn" },
+      { platform: "instagram", icon: "Instagram", url: "https://www.instagram.com/rushi_bendal?igsh=dmh6NjBkc203eHBj" },
     ],
   },
   {
