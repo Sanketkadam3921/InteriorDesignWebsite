@@ -437,8 +437,15 @@ Estimated Price: ₹${formatIndianCurrency(estimatePayload.estimatedPrice)}
         open={toast.open}
         autoHideDuration={3000}
         onClose={() => setToast({ ...toast, open: false })}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
       >
-        <Alert severity={toast.severity}>{toast.message}</Alert>
+        <Alert
+          onClose={() => setToast({ ...toast, open: false })}
+          severity={toast.severity}
+          sx={{ width: "100%" }}
+        >
+          {toast.message}
+        </Alert>
       </Snackbar>
     </Box>
   );
