@@ -17,8 +17,15 @@ export default function FounderCard({
   description,
   image,
   borderColor,
+  socialLinks,
 }) {
   const theme = useTheme();
+
+  const handleSocialClick = (url) => {
+    if (url) {
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+  };
 
   return (
     <Card
@@ -87,12 +94,33 @@ export default function FounderCard({
         </Typography>
 
         <Box sx={{ display: "flex", justifyContent: "center", gap: 1 }}>
-          <IconButton size="small" sx={{ color: theme.palette.primary.main }}>
-            <LinkedInIcon />
-          </IconButton>
-          <IconButton size="small" sx={{ color: theme.palette.primary.main }}>
-            <InstagramIcon />
-          </IconButton>
+          {socialLinks?.map((link, index) => {
+            if (link.platform === "linkedin" && link.url) {
+              return (
+                <IconButton
+                  key={index}
+                  size="small"
+                  sx={{ color: theme.palette.primary.main }}
+                  onClick={() => handleSocialClick(link.url)}
+                >
+                  <LinkedInIcon />
+                </IconButton>
+              );
+            }
+            if (link.platform === "instagram" && link.url) {
+              return (
+                <IconButton
+                  key={index}
+                  size="small"
+                  sx={{ color: theme.palette.primary.main }}
+                  onClick={() => handleSocialClick(link.url)}
+                >
+                  <InstagramIcon />
+                </IconButton>
+              );
+            }
+            return null;
+          })}
         </Box>
       </CardContent>
     </Card>

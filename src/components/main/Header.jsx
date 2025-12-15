@@ -170,6 +170,7 @@ export default function Header() {
               primaryTypographyProps={{
                 fontWeight: location.pathname === "/" ? "bold" : "500",
                 color: location.pathname === "/" ? "#1976d2" : "#333",
+                fontSize: "1rem",
               }}
             />
           </ListItemButton>
@@ -192,6 +193,7 @@ export default function Header() {
               primaryTypographyProps={{
                 fontWeight: location.pathname === "/aboutus" ? "bold" : "500",
                 color: location.pathname === "/aboutus" ? "#1976d2" : "#333",
+                fontSize: "1rem",
               }}
             />
           </ListItemButton>
@@ -214,6 +216,7 @@ export default function Header() {
               primaryTypographyProps={{
                 fontWeight: location.pathname === "/projects" ? "bold" : "500",
                 color: location.pathname === "/projects" ? "#1976d2" : "#333",
+                fontSize: "1rem",
               }}
             />
           </ListItemButton>
@@ -241,6 +244,7 @@ export default function Header() {
                 color: location.pathname.startsWith("/designs")
                   ? "#1976d2"
                   : "#333",
+                fontSize: "1rem",
               }}
             />
           </ListItemButton>
@@ -267,6 +271,7 @@ export default function Header() {
                   location.pathname === "/how-it-works" ? "bold" : "500",
                 color:
                   location.pathname === "/how-it-works" ? "#1976d2" : "#333",
+                fontSize: "1rem",
               }}
             />
           </ListItemButton>
@@ -298,8 +303,9 @@ export default function Header() {
             <ListItemText
               primary="Offerings"
               primaryTypographyProps={{
-                fontWeight: location.pathname === "/offerings" ? "bold" : 500,
+                fontWeight: location.pathname === "/offerings" ? "bold" : "500",
                 color: location.pathname === "/offerings" ? "#1976d2" : "#333",
+                fontSize: "1rem",
               }}
             />
             {mobileOfferingsOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
@@ -381,6 +387,7 @@ export default function Header() {
                 color: location.pathname.startsWith("/price-calculators")
                   ? "#1976d2"
                   : "#333",
+                fontSize: "1rem",
               }}
             />
             {mobilePriceCalcOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
@@ -403,7 +410,8 @@ export default function Header() {
                 <ListItemText
                   primary={item.label}
                   primaryTypographyProps={{
-                    fontSize: "0.9rem",
+                    fontSize: "1rem",
+                    fontWeight: location.pathname === item.path ? "bold" : "500",
                     color: location.pathname === item.path ? "#1976d2" : "#333",
                   }}
                 />
@@ -453,6 +461,7 @@ export default function Header() {
               primaryTypographyProps={{
                 fontWeight: location.pathname === "/contact" ? "bold" : "500",
                 color: location.pathname === "/contact" ? "#1976d2" : "#333",
+                fontSize: "1rem",
               }}
             />
           </ListItemButton>

@@ -52,6 +52,7 @@ export default function Founders() {
                 description={founder.description}
                 image={founder.image}
                 borderColor={founder.borderColor}
+                socialLinks={founder.socialLinks}
               />
             </Grid>
           ))}

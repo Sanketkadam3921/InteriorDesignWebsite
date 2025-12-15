@@ -169,8 +169,8 @@ export const FOUNDERS = [
       "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
     borderColor: "neutral.mediumGray",
     socialLinks: [
-      { platform: "linkedin", icon: "LinkedIn" },
-      { platform: "instagram", icon: "Instagram" },
+      { platform: "linkedin", icon: "LinkedIn", url: "https://www.linkedin.com/in/rushikesh-bendal-688458364/" },
+      { platform: "instagram", icon: "Instagram", url: "https://www.instagram.com/rushi_bendal/?hl=zh-cn" },
     ],
   },
   {
@@ -183,8 +183,8 @@ export const FOUNDERS = [
       "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
     borderColor: "secondary.main",
     socialLinks: [
-      { platform: "linkedin", icon: "LinkedIn" },
-      { platform: "instagram", icon: "Instagram" },
+      { platform: "linkedin", icon: "LinkedIn", url: "https://www.linkedin.com/in/shubham-chavhan-84035b168/" },
+      { platform: "instagram", icon: "Instagram", url: "https://www.instagram.com/shubham_chavhan_speaks?igsh=cHdwdGc1bmIyem04" },
     ],
   },
 ];
