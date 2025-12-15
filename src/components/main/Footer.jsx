@@ -327,8 +327,8 @@ export default function Footer() {
                   +91 8767374324
                 </Link>
               </Box>
-              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                <Email sx={{ fontSize: "1.3rem", opacity: 0.8 }} />
+              <Box sx={{ display: "flex", alignItems: "center", gap: 0.9 }}>
+                <Email sx={{ fontSize: "1.2rem", opacity: 0.8 }} />
                 <Link
                   href="mailto:kalakrutistudio.office@gmail.com"
                   sx={linkStyle(theme)}
