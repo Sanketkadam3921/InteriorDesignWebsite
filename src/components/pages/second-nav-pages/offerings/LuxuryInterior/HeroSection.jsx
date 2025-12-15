@@ -44,7 +44,8 @@ const ImageOverlay = styled(Box)({
   left: 0,
   right: 0,
   bottom: 0,
-  background: "linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%)",
+  background:
+    "linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%)",
   zIndex: 2,
 });
 
@@ -116,6 +117,19 @@ export default function HeroSection() {
         >
           {HERO_DATA.title}
         </LuxuryText>
+        <Typography
+          variant="h5"
+          sx={{
+            color: "white",
+            maxWidth: 700,
+            mb: 3,
+            lineHeight: 1.6,
+            opacity: 0.9,
+          }}
+        >
+          Thoughtfully crafted luxury interiors that balance comfort, style, and
+          the way you live every day.
+        </Typography>
         <CTAButton component={Link} to={HERO_DATA.ctaLink} size="large">
           {HERO_DATA.ctaText}
         </CTAButton>
@@ -123,15 +137,3 @@ export default function HeroSection() {
     </HeroSectionStyled>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-

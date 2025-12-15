@@ -28,10 +28,9 @@ const SectionTitle = styled(Typography)(({ theme }) => ({
 }));
 
 const QuadrantContainer = styled(Box)(({ theme }) => ({
-  position: "relative",
-  maxWidth: "1000px",
+  maxWidth: "1100px",
   margin: "0 auto",
-  padding: theme.spacing(4),
+  padding: theme.spacing(3),
   [theme.breakpoints.down("md")]: {
     padding: theme.spacing(2),
   },
@@ -39,88 +38,10 @@ const QuadrantContainer = styled(Box)(({ theme }) => ({
 
 const QuadrantGrid = styled(Box)(({ theme }) => ({
   display: "grid",
-  gridTemplateColumns: "1fr 1fr",
-  gridTemplateRows: "1fr 1fr",
-  gap: 0,
-  position: "relative",
+  gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+  gap: theme.spacing(2.5),
   [theme.breakpoints.down("sm")]: {
     gridTemplateColumns: "1fr",
-    gridTemplateRows: "repeat(4, 1fr)",
-  },
-}));
-
-const QuadrantDivider = styled(Box)(({ theme }) => ({
-  position: "absolute",
-  backgroundColor: theme.palette.primary.main,
-  zIndex: 2,
-  "&.horizontal": {
-    top: "50%",
-    left: "5%",
-    right: "5%",
-    height: "1px",
-    transform: "translateY(-50%)",
-    [theme.breakpoints.down("sm")]: {
-      display: "none",
-    },
-  },
-  "&.vertical": {
-    left: "50%",
-    top: "5%",
-    bottom: "5%",
-    width: "1px",
-    transform: "translateX(-50%)",
-    [theme.breakpoints.down("sm")]: {
-      display: "none",
-    },
-  },
-}));
-
-const GoldenDot = styled(Box)(({ theme }) => ({
-  position: "absolute",
-  width: "8px",
-  height: "8px",
-  backgroundColor: theme.palette.primary.main,
-  borderRadius: "50%",
-  zIndex: 3,
-  "&.center": {
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    [theme.breakpoints.down("sm")]: {
-      display: "none",
-    },
-  },
-  "&.horizontal-left": {
-    top: "50%",
-    left: "5%",
-    transform: "translateY(-50%)",
-    [theme.breakpoints.down("sm")]: {
-      display: "none",
-    },
-  },
-  "&.horizontal-right": {
-    top: "50%",
-    right: "5%",
-    transform: "translateY(-50%)",
-    [theme.breakpoints.down("sm")]: {
-      display: "none",
-    },
-  },
-  "&.vertical-top": {
-    left: "50%",
-    top: "5%",
-    transform: "translateX(-50%)",
-    [theme.breakpoints.down("sm")]: {
-      display: "none",
-    },
-  },
-  "&.vertical-bottom": {
-    left: "50%",
-    bottom: "5%",
-    transform: "translateX(-50%)",
-    [theme.breakpoints.down("sm")]: {
-      display: "none",
-    },
   },
 }));
 
@@ -164,19 +85,14 @@ export default function QuadrantSection() {
                 description={quadrant.description}
               />
             ))}
-
-            <QuadrantDivider className="horizontal" />
-            <QuadrantDivider className="vertical" />
-
-            <GoldenDot className="center" />
-            <GoldenDot className="horizontal-left" />
-            <GoldenDot className="horizontal-right" />
-            <GoldenDot className="vertical-top" />
-            <GoldenDot className="vertical-bottom" />
           </QuadrantGrid>
 
-          <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
-            <ConsultationButton component={Link} to={QUADRANT_DATA.ctaLink} size="large">
+          <Box sx={{ display: "flex", justifyContent: "center", mt: 5 }}>
+            <ConsultationButton
+              component={Link}
+              to={QUADRANT_DATA.ctaLink}
+              size="large"
+            >
               {QUADRANT_DATA.ctaText}
             </ConsultationButton>
           </Box>
@@ -185,15 +101,3 @@ export default function QuadrantSection() {
     </QuadrantSectionStyled>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-

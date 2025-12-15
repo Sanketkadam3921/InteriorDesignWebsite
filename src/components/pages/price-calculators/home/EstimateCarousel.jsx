@@ -15,6 +15,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { useNavigate } from "react-router-dom";
+import { BHK_LABELS } from "./BHKSelection";
 
 export default function EstimateCarousel() {
     const theme = useTheme();
@@ -53,8 +54,8 @@ export default function EstimateCarousel() {
             image: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=1200",
         },
         {
-            title: "5 BHK+",
-            description: "Give your beautiful 5 BHK+ home the interiors it deserves.",
+            title: BHK_LABELS["5bhk"],
+            description: `Give your beautiful ${BHK_LABELS["5bhk"]} home the interiors it deserves.`,
             image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200",
         },
     ];

@@ -14,6 +14,10 @@ import {
 } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
 import { calculateHomeEstimate } from "../../../../services/api/homeCalculatorApi";
+import { BHK_LABELS } from "./BHKSelection";
+
+const getBhkLabel = (bhkId) =>
+  BHK_LABELS[bhkId] || bhkId?.toUpperCase?.() || bhkId;
 
 // 🔴 Required field styling
 const RedAsteriskTextField = styled(TextField)({
@@ -287,7 +291,7 @@ export default function EstimateForm() {
           message: `
 Home Interior Estimate Details:
 
-BHK: ${estimateData.bhk}
+BHK: ${getBhkLabel(estimateData.bhk)}
 Package: ${estimateData.package}
 
 Rooms:

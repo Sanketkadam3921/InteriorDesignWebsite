@@ -2,7 +2,7 @@
 // HERO SECTION
 // =====================
 export const HERO_DATA = {
-  title: "Beautiful homes, made for you",
+  title: "Luxury Interiors",
   backgroundImage:
     "https://www.oppoliahome.com/wp-content/uploads/2023/06/australia-luxury-apartment-project-whole-house-solution-17.webp",
   ctaText: "Get started",
@@ -13,9 +13,9 @@ export const HERO_DATA = {
 // LUXURY DESCRIPTION
 // =====================
 export const LUXURY_DESCRIPTION_DATA = {
-  headline: "Smart designs, beautiful spaces,\nmade with care",
+  headline: "Designed for living,\ncrafted with purpose",
   description:
-    "We believe a home should feel warm, comfortable and truly yours. At KalaKruti, we combine thoughtful design and quality work to create spaces that fit your lifestyle.",
+    "At KalaKruti, we create interiors that feel welcoming, personal, and timeless. Every detail is thoughtfully designed to bring comfort, beauty, and functionality into your everyday life.",
   ctaText: "Contact us",
   ctaLink: "/contact",
 };
@@ -24,31 +24,31 @@ export const LUXURY_DESCRIPTION_DATA = {
 // QUADRANTS
 // =====================
 export const QUADRANT_DATA = {
-  title: "How we bring your home to life",
+  title: "Our approach to creating your perfect home",
   quadrants: [
     {
       id: 1,
-      title: "Design Consultation",
+      title: "Personalized Design Consultation",
       description:
-        "Talk to our designers to plan your home in a way that suits your taste and lifestyle.",
+        "Connect with our designers to shape a home that reflects your style, needs, and way of living.",
     },
     {
       id: 2,
-      title: "Complete Interior Solutions",
+      title: "End-to-End Interior Solutions",
       description:
-        "From layouts to materials and furniture, we handle everything from start to finish.",
+        "We manage every detail — from space planning and material selection to furniture and execution.",
     },
     {
       id: 3,
-      title: "Project Management",
+      title: "Seamless Project Management",
       description:
-        "Our team ensures your project runs smoothly with clear updates at every stage.",
+        "Our experienced team keeps everything on track with transparent communication throughout the process.",
     },
     {
       id: 4,
-      title: "Styling & Finishing",
+      title: "Final Styling & Detailing",
       description:
-        "We add the final touches to make your home look complete, stylish and comfortable.",
+        "Carefully chosen finishes and details bring together a space that feels complete, elegant, and inviting.",
     },
   ],
   ctaText: "Book a design consultation",
@@ -64,63 +64,83 @@ export const CAROUSEL_DATA = {
   images: [
     {
       id: 1,
-      central: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4448.JPG",
+      central:
+        "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4448.JPG",
       left: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_2204.JPG",
-      right: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4444.JPG",
+      right:
+        "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4444.JPG",
     },
     {
       id: 2,
-      central: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4444.JPG",
+      central:
+        "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4444.JPG",
       left: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4448.JPG",
-      right: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4421.JPG",
+      right:
+        "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4421.JPG",
     },
     {
       id: 3,
-      central: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4421.JPG",
+      central:
+        "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4421.JPG",
       left: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4444.JPG",
-      right: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4411.JPG",
+      right:
+        "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4411.JPG",
     },
     {
       id: 4,
-      central: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4411.JPG",
+      central:
+        "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4411.JPG",
       left: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4421.JPG",
-      right: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4398.JPG",
+      right:
+        "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4398.JPG",
     },
     {
       id: 5,
-      central: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4398.JPG",
+      central:
+        "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4398.JPG",
       left: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4411.JPG",
-      right: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_2674.JPG",
+      right:
+        "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_2674.JPG",
     },
     {
       id: 6,
-      central: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_2674.JPG",
+      central:
+        "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_2674.JPG",
       left: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4398.JPG",
-      right: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_2664.JPG",
+      right:
+        "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_2664.JPG",
     },
     {
       id: 7,
-      central: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_2664.JPG",
+      central:
+        "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_2664.JPG",
       left: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_2674.JPG",
-      right: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_2225.JPG",
+      right:
+        "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_2225.JPG",
     },
     {
       id: 8,
-      central: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_2225.JPG",
+      central:
+        "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_2225.JPG",
       left: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_2664.JPG",
-      right: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_1967.JPG",
+      right:
+        "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_1967.JPG",
     },
     {
       id: 9,
-      central: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_1967.JPG",
+      central:
+        "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_1967.JPG",
       left: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_2225.JPG",
-      right: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_2204.JPG",
+      right:
+        "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_2204.JPG",
     },
     {
       id: 10,
-      central: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_2204.JPG",
+      central:
+        "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_2204.JPG",
       left: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_1967.JPG",
-      right: "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4448.JPG",
+      right:
+        "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4448.JPG",
     },
   ],
 };

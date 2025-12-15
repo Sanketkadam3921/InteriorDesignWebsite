@@ -174,7 +174,7 @@ export default function Footer() {
             container
             spacing={{
               xs: 5, // Mobile: larger spacing
-              sm: 2.2, // iPad Air/Mini: medium spacing
+              sm: 1.8, // iPad Air/Mini: medium spacing
               md: 3, // iPad Pro: spacing for 4 columns in row
               lg: 8, // Desktop: original spacing
             }}

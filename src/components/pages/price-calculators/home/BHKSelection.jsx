@@ -13,30 +13,38 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
+export const BHK_LABELS = {
+  "1bhk": "1 BHK",
+  "2bhk": "2 BHK",
+  "3bhk": "3 BHK",
+  "4bhk": "4 BHK",
+  "5bhk": "5 BHK or +",
+};
+
 const bhkOptions = [
   {
     id: "1bhk",
-    title: "1 BHK",
+    title: BHK_LABELS["1bhk"],
     description: "Compact home suitable for individuals or small families.",
   },
   {
     id: "2bhk",
-    title: "2 BHK",
+    title: BHK_LABELS["2bhk"],
     description: "Perfect for small to medium-sized families.",
   },
   {
     id: "3bhk",
-    title: "3 BHK",
+    title: BHK_LABELS["3bhk"],
     description: "Spacious home for medium-sized families.",
   },
   {
     id: "4bhk",
-    title: "4 BHK",
+    title: BHK_LABELS["4bhk"],
     description: "Luxury home for large families.",
   },
   {
     id: "5bhk",
-    title: "5 BHK+",
+    title: BHK_LABELS["5bhk"],
     description: "Premium large family home.",
   },
 ];

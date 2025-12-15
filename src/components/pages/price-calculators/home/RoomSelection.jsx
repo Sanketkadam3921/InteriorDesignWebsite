@@ -13,6 +13,7 @@ import {
 import { useNavigate, useLocation } from 'react-router-dom';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import { BHK_LABELS } from './BHKSelection';
 
 const roomTypes = [
     { id: 'livingRoom', label: 'Living Room', defaultCount: 1 },
@@ -253,7 +254,7 @@ export default function RoomSelection() {
                     }}
                 >
                     You’ve reached the limit of {maxRoomsAllowed} main rooms for your{' '}
-                    {selectedBHK?.toUpperCase()} plan.
+                    {BHK_LABELS[selectedBHK] || selectedBHK?.toUpperCase()} plan.
                     You can still adjust bathrooms freely.
                 </Alert>
             )}
