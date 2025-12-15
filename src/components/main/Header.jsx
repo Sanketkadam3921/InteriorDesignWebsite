@@ -411,7 +411,8 @@ export default function Header() {
                   primary={item.label}
                   primaryTypographyProps={{
                     fontSize: "1rem",
-                    fontWeight: location.pathname === item.path ? "bold" : "500",
+                    fontWeight:
+                      location.pathname === item.path ? "bold" : "500",
                     color: location.pathname === item.path ? "#1976d2" : "#333",
                   }}
                 />
