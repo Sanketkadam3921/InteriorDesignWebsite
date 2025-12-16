@@ -74,7 +74,7 @@ export default function Header() {
 
   const priceCalculatorsDropdown = [
     {
-      label: "Home Interior Calculator",
+      label: "Home Price Calculator",
       path: "/price-calculators/home/calculator/bhk",
     },
     {

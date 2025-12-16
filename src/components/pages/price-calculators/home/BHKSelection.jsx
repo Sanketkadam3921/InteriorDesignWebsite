@@ -163,7 +163,7 @@ export default function BHKSelection() {
                     label={
                       <Box>
                         <Typography
-                          variant="subtitle1"
+                         variant="subtitle1"
                           sx={{ fontWeight: 600 }}
                         >
                           {bhk.title}
