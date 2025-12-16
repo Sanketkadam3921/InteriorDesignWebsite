@@ -10,6 +10,7 @@ export const kitchenDesigns = [
     style: "Modern",
     price: "₹4,80,000",
     area: "120 sq ft",
+    shape: "L-shaped + Island",
   },
   {
     id: "2",
@@ -21,6 +22,7 @@ export const kitchenDesigns = [
     style: "Luxury",
     price: "₹5,50,000",
     area: "130 sq ft",
+    shape: "Straight",
   },
   {
     id: "3",
@@ -32,6 +34,7 @@ export const kitchenDesigns = [
     style: "Contemporary",
     price: "₹4,60,000",
     area: "125 sq ft",
+    shape: "U-shaped",
   },
   {
     id: "4",
@@ -43,6 +46,7 @@ export const kitchenDesigns = [
     style: "Premium",
     price: "₹5,20,000",
     area: "135 sq ft",
+    shape: "Straight",
   },
   {
     id: "5",
@@ -54,6 +58,7 @@ export const kitchenDesigns = [
     style: "Minimalist",
     price: "₹4,20,000",
     area: "115 sq ft",
+    shape: "L-shaped",
   },
   {
     id: "6",
@@ -65,6 +70,7 @@ export const kitchenDesigns = [
     style: "Elegant",
     price: "₹5,00,000",
     area: "128 sq ft",
+    shape: "Parallel",
   },
   {
     id: "7",
@@ -76,6 +82,7 @@ export const kitchenDesigns = [
     style: "Modern",
     price: "₹4,90,000",
     area: "132 sq ft",
+    shape: "L-shaped",
   },
   {
     id: "8",
@@ -87,6 +94,7 @@ export const kitchenDesigns = [
     style: "Luxury",
     price: "₹5,60,000",
     area: "140 sq ft",
+    shape: "L-shaped",
   },
   {
     id: "9",
@@ -98,6 +106,7 @@ export const kitchenDesigns = [
     style: "Premium",
     price: "₹5,30,000",
     area: "138 sq ft",
+    shape: "Parallel",
   },
   {
     id: "10",
@@ -109,6 +118,7 @@ export const kitchenDesigns = [
     style: "Elegant",
     price: "₹4,70,000",
     area: "122 sq ft",
+    shape: "Straight",
   },
 ];
 
@@ -120,6 +130,7 @@ export const kitchenDesignDetails = {
     category: "kitchen",
     style: "Modern",
     price: "₹4,80,000",
+    shape: "L-shaped + Island",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Kitchen/drive-download-20251208T055141Z-1-001/IMG_4512.JPG?updatedAt=1765174520512",
     description:
@@ -171,6 +182,7 @@ export const kitchenDesignDetails = {
     category: "kitchen",
     style: "Luxury",
     price: "₹5,50,000",
+    shape: "Straight",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Kitchen/drive-download-20251208T055141Z-1-001/IMG_5549.JPG?updatedAt=1765174520403",
     description:
@@ -213,6 +225,7 @@ export const kitchenDesignDetails = {
     category: "kitchen",
     style: "Contemporary",
     price: "₹4,60,000",
+    shape: "U-shaped",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Kitchen/drive-download-20251208T055141Z-1-001/IMG_5555.JPG?updatedAt=1765174520397",
     description:
@@ -246,6 +259,7 @@ export const kitchenDesignDetails = {
     category: "kitchen",
     style: "Premium",
     price: "₹5,20,000",
+    shape: "Straight",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Kitchen/drive-download-20251208T055141Z-1-001/IMG_5547.JPG?updatedAt=1765174520323",
     description:
@@ -279,6 +293,7 @@ export const kitchenDesignDetails = {
     category: "kitchen",
     style: "Minimalist",
     price: "₹4,20,000",
+    shape: "L-shaped",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Kitchen/drive-download-20251208T055141Z-1-001/IMG_5548.JPG?updatedAt=1765174520322",
     description:
@@ -312,6 +327,7 @@ export const kitchenDesignDetails = {
     category: "kitchen",
     style: "Elegant",
     price: "₹5,00,000",
+    shape: "Parallel",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Kitchen/drive-download-20251208T055141Z-1-001/IMG_5554.JPG?updatedAt=1765174520365",
     description:
@@ -345,6 +361,7 @@ export const kitchenDesignDetails = {
     category: "kitchen",
     style: "Modern",
     price: "₹4,90,000",
+    shape: "L-shaped",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Kitchen/drive-download-20251208T055141Z-1-001/IMG_5552.JPG?updatedAt=1765174520326",
     description:
@@ -378,6 +395,7 @@ export const kitchenDesignDetails = {
     category: "kitchen",
     style: "Luxury",
     price: "₹5,60,000",
+    shape: "L-shaped",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Kitchen/drive-download-20251208T055141Z-1-001/IMG_5550.JPG?updatedAt=1765174520358",
     description:
@@ -411,6 +429,7 @@ export const kitchenDesignDetails = {
     category: "kitchen",
     style: "Premium",
     price: "₹5,30,000",
+    shape: "Parallel",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Kitchen/drive-download-20251208T055141Z-1-001/IMG_5553.JPG?updatedAt=1765174520301",
     description:
@@ -444,6 +463,7 @@ export const kitchenDesignDetails = {
     category: "kitchen",
     style: "Elegant",
     price: "₹4,70,000",
+    shape: "Straight",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Kitchen/drive-download-20251208T055141Z-1-001/IMG_5551.JPG?updatedAt=1765174520298",
     description:

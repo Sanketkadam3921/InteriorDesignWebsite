@@ -389,6 +389,33 @@ export default function DesignDetail() {
                 Object.keys(design.specifications).length > 0 && (
                   <Box sx={{ mb: 3 }}>
                     <Stack spacing={2}>
+                      {/* Kitchen Shape - Only for kitchen designs */}
+                      {category === "kitchen" && design.shape && (
+                        <Box>
+                          <Typography
+                            variant="subtitle1"
+                            sx={{
+                              fontWeight: 700,
+                              color: theme.palette.text.primary,
+                              mb: 1,
+                              fontSize: { xs: "1rem", md: "1.1rem" },
+                            }}
+                          >
+                            Shape
+                          </Typography>
+                          <Typography
+                            variant="body2"
+                            sx={{
+                              color: theme.palette.text.primary,
+                              fontWeight: 400,
+                              fontSize: { xs: "0.875rem", md: "0.9375rem" },
+                            }}
+                          >
+                            {design.shape}
+                          </Typography>
+                        </Box>
+                      )}
+
                       {/* Style */}
                       {design.specifications.style && (
                         <Box>

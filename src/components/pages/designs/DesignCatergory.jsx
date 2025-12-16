@@ -234,6 +234,17 @@ export default function DesignCategory() {
                       color: theme.palette.primary.contrastText,
                     }}
                   />
+                  {category === "kitchen" && design.shape && (
+                    <Chip
+                      label={design.shape}
+                      size="small"
+                      variant="outlined"
+                      sx={{
+                        borderColor: theme.palette.secondary.main,
+                        color: theme.palette.secondary.main,
+                      }}
+                    />
+                  )}
                 </Box>
                 <Typography
                   variant="h6"
