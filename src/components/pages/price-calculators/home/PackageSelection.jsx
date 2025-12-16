@@ -13,8 +13,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 const packages = [
   {
-    id: "basic",
-    title: "Basic",
+    id: "essentials",
+    title: "Essentials",
 
     features: ["Low cost", "Basic design", "Standard finish"],
     image:
