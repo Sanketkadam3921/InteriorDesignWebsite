@@ -114,11 +114,11 @@ export default function KitchenMeasurementsStep() {
           justifyContent: "center",
           alignItems: "center",
           mb: 4,
-          p: { xs: 2, sm: 3, md: 4 },
+          p: { xs: 3, sm: 4, md: 5 },
           backgroundColor: theme.palette.background.default,
           borderRadius: 2,
           minHeight: { xs: 200, sm: 240, md: 280 },
-          overflow: "hidden",
+          overflow: "visible",
         }}
       >
         {layout === "l-shaped" && (
@@ -164,7 +164,7 @@ export default function KitchenMeasurementsStep() {
               variant="subtitle2"
               sx={{
                 position: "absolute",
-                top: { xs: -15, sm: -18, md: -20 },
+                top: { xs: -25, sm: -28, md: -30 },
                 left: { xs: "31.25%", sm: 100 },
                 transform: "translateX(-50%)",
                 fontWeight: 700,
@@ -172,6 +172,7 @@ export default function KitchenMeasurementsStep() {
                 backgroundColor: theme.palette.background.default,
                 px: { xs: 0.5, sm: 1 },
                 fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
+                zIndex: 1,
               }}
             >
               A
@@ -182,7 +183,7 @@ export default function KitchenMeasurementsStep() {
               variant="subtitle2"
               sx={{
                 position: "absolute",
-                left: { xs: -15, sm: -18, md: -20 },
+                left: { xs: -25, sm: -28, md: -30 },
                 top: { xs: 85, sm: 110, md: 140 },
                 transform: "translateY(-50%)",
                 fontWeight: 700,
@@ -190,6 +191,7 @@ export default function KitchenMeasurementsStep() {
                 backgroundColor: theme.palette.background.default,
                 px: { xs: 0.5, sm: 1 },
                 fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
+                zIndex: 1,
               }}
             >
               B
@@ -227,7 +229,7 @@ export default function KitchenMeasurementsStep() {
               variant="subtitle2"
               sx={{
                 position: "absolute",
-                top: { xs: 5, sm: 8, md: 10 },
+                top: { xs: -25, sm: -28, md: -30 },
                 left: "50%",
                 transform: "translateX(-50%)",
                 fontWeight: 700,
@@ -235,6 +237,7 @@ export default function KitchenMeasurementsStep() {
                 backgroundColor: theme.palette.background.default,
                 px: { xs: 0.5, sm: 1 },
                 fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
+                zIndex: 1,
               }}
             >
               A
@@ -299,7 +302,7 @@ export default function KitchenMeasurementsStep() {
               variant="subtitle2"
               sx={{
                 position: "absolute",
-                left: { xs: -15, sm: -18, md: -20 },
+                left: { xs: -25, sm: -28, md: -30 },
                 top: { xs: 75, sm: 85, md: 100 },
                 transform: "translateY(-50%)",
                 fontWeight: 700,
@@ -307,6 +310,7 @@ export default function KitchenMeasurementsStep() {
                 backgroundColor: theme.palette.background.default,
                 px: { xs: 0.5, sm: 1 },
                 fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
+                zIndex: 1,
               }}
             >
               A
@@ -317,7 +321,7 @@ export default function KitchenMeasurementsStep() {
               variant="subtitle2"
               sx={{
                 position: "absolute",
-                top: { xs: -15, sm: -18, md: -20 },
+                top: { xs: -25, sm: -28, md: -30 },
                 left: { xs: "50%", sm: 160 },
                 transform: "translateX(-50%)",
                 fontWeight: 700,
@@ -325,6 +329,7 @@ export default function KitchenMeasurementsStep() {
                 backgroundColor: theme.palette.background.default,
                 px: { xs: 0.5, sm: 1 },
                 fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
+                zIndex: 1,
               }}
             >
               B
@@ -335,7 +340,7 @@ export default function KitchenMeasurementsStep() {
               variant="subtitle2"
               sx={{
                 position: "absolute",
-                right: { xs: -15, sm: -18, md: -20 },
+                right: { xs: -25, sm: -28, md: -30 },
                 top: { xs: 75, sm: 85, md: 100 },
                 transform: "translateY(-50%)",
                 fontWeight: 700,
@@ -343,6 +348,7 @@ export default function KitchenMeasurementsStep() {
                 backgroundColor: theme.palette.background.default,
                 px: { xs: 0.5, sm: 1 },
                 fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
+                zIndex: 1,
               }}
             >
               C
@@ -392,7 +398,7 @@ export default function KitchenMeasurementsStep() {
               variant="subtitle2"
               sx={{
                 position: "absolute",
-                top: { xs: -15, sm: -18, md: -20 },
+                top: { xs: -25, sm: -28, md: -30 },
                 left: "50%",
                 transform: "translateX(-50%)",
                 fontWeight: 700,
@@ -400,6 +406,7 @@ export default function KitchenMeasurementsStep() {
                 backgroundColor: theme.palette.background.default,
                 px: { xs: 0.5, sm: 1 },
                 fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
+                zIndex: 1,
               }}
             >
               A
@@ -410,7 +417,7 @@ export default function KitchenMeasurementsStep() {
               variant="subtitle2"
               sx={{
                 position: "absolute",
-                bottom: { xs: -15, sm: -18, md: -20 },
+                bottom: { xs: -25, sm: -28, md: -30 },
                 left: "50%",
                 transform: "translateX(-50%)",
                 fontWeight: 700,
@@ -418,6 +425,7 @@ export default function KitchenMeasurementsStep() {
                 backgroundColor: theme.palette.background.default,
                 px: { xs: 0.5, sm: 1 },
                 fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
+                zIndex: 1,
               }}
             >
               B
