@@ -50,7 +50,7 @@ export default function KitchenMeasurementsStep() {
   // Generate allowed values for dropdown (3 to 20 feet in 0.5 increments)
   const getAllowedValues = () => {
     const values = [];
-    for (let i = 3; i <= 20; i += 0.5) {
+    for (let i = 3; i <= 20; i += 1) {
       values.push(i);
     }
     return values;

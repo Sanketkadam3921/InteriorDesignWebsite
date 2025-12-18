@@ -23,7 +23,7 @@ export default function WardrobeLengthSelection() {
   // Generate allowed values for dropdowns
   const getAllowedLengthValues = () => {
     const values = [];
-    for (let i = 3; i <= 15; i += 0.5) {
+    for (let i = 3; i <= 15; i += 1) {
       values.push(i);
     }
     return values;
@@ -64,9 +64,9 @@ export default function WardrobeLengthSelection() {
   const handleNext = () => {
     const lengthError = validateInput(length, "Length");
     const heightError = validateInput(height, "Height");
-    
+
     setErrors({ length: lengthError, height: heightError });
-    
+
     if (!lengthError && !heightError) {
       const queryParams = new URLSearchParams({
         length: length,
@@ -79,16 +79,18 @@ export default function WardrobeLengthSelection() {
   };
 
   return (
-    <Box sx={{ 
-      maxWidth: 700, 
-      mx: "auto", 
-      p: 3,
-      display: "flex",
-      flexDirection: "column",
-      minHeight: "calc(100vh - 200px)",
-      pb: 10,
-      mb: 8,
-    }}>
+    <Box
+      sx={{
+        maxWidth: 700,
+        mx: "auto",
+        p: 3,
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "calc(100vh - 200px)",
+        pb: 10,
+        mb: 8,
+      }}
+    >
       {/* Header */}
       <Typography
         variant="h5"
@@ -115,12 +117,12 @@ export default function WardrobeLengthSelection() {
 
       <Box
         sx={{
-          backgroundColor: theme.palette.primary.light + '25',
+          backgroundColor: theme.palette.primary.light + "25",
           borderRadius: 2,
           p: 3,
           mb: 2,
-          border: '1px solid',
-          borderColor: theme.palette.primary.light + '40',
+          border: "1px solid",
+          borderColor: theme.palette.primary.light + "40",
         }}
       >
         <Card
@@ -178,7 +180,8 @@ export default function WardrobeLengthSelection() {
                   variant="caption"
                   sx={{ color: "text.secondary", mt: 0.5, ml: 1.75 }}
                 >
-                  Select the width/length of your wardrobe (Min: 3 ft, Max: 15 ft)
+                  Select the width/length of your wardrobe (Min: 3 ft, Max: 15
+                  ft)
                 </Typography>
               )}
             </FormControl>
