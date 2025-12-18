@@ -494,6 +494,22 @@ export default function KitchenMeasurementsStep() {
                     value={measurements[dim] || ""}
                     onChange={handleInputChange(dim)}
                     label={dimensionLabels[dim]}
+                    MenuProps={{
+                      anchorOrigin: {
+                        vertical: "bottom",
+                        horizontal: "left",
+                      },
+                      transformOrigin: {
+                        vertical: "top",
+                        horizontal: "left",
+                      },
+                      PaperProps: {
+                        style: {
+                          maxHeight: 300,
+                        },
+                      },
+                      disableAutoFocusItem: true,
+                    }}
                     sx={{
                       borderRadius: 2,
                     }}

@@ -5,8 +5,11 @@ import {
   Card,
   CardContent,
   Button,
-  TextField,
   useTheme,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
@@ -17,32 +20,30 @@ export default function WardrobeLengthSelection() {
   const [height, setHeight] = useState("");
   const [errors, setErrors] = useState({});
 
+  // Generate allowed values for dropdowns
+  const getAllowedLengthValues = () => {
+    const values = [];
+    for (let i = 3; i <= 15; i += 0.5) {
+      values.push(i);
+    }
+    return values;
+  };
+
+  const getAllowedHeightValues = () => {
+    const values = [];
+    for (let i = 7; i <= 15; i += 0.5) {
+      values.push(i);
+    }
+    return values;
+  };
+
+  const allowedLengthValues = getAllowedLengthValues();
+  const allowedHeightValues = getAllowedHeightValues();
+
   const validateInput = (value, field) => {
-    const numValue = parseFloat(value);
     if (!value || value.trim() === "") {
       return `${field} is required`;
     }
-    if (isNaN(numValue) || numValue <= 0) {
-      return `${field} must be a positive number`;
-    }
-    
-    // Field-specific validation
-    if (field === "Length") {
-      if (numValue < 3) {
-        return `Length must be at least 3 feet`;
-      }
-      if (numValue > 15) {
-        return `Length cannot exceed 15 feet`;
-      }
-    } else if (field === "Height") {
-      if (numValue < 7) {
-        return `Height must be at least 7 feet`;
-      }
-      if (numValue > 15) {
-        return `Height cannot exceed 15 feet`;
-      }
-    }
-    
     return "";
   };
 
@@ -132,29 +133,106 @@ export default function WardrobeLengthSelection() {
         >
           <CardContent sx={{ p: 3 }}>
             {/* Length Input */}
-            <TextField
-              fullWidth
-              label="Length (feet)"
-              type="number"
-              value={length}
-              onChange={handleLengthChange}
-              error={!!errors.length}
-              helperText={errors.length || "Enter the width/length of your wardrobe (Min: 3 ft, Max: 15 ft)"}
-              inputProps={{ min: 3, max: 15, step: 0.1 }}
-              sx={{ mb: 3 }}
-            />
+            <FormControl fullWidth error={!!errors.length} sx={{ mb: 3 }}>
+              <InputLabel>Length (feet)</InputLabel>
+              <Select
+                value={length}
+                onChange={handleLengthChange}
+                label="Length (feet)"
+                MenuProps={{
+                  anchorOrigin: {
+                    vertical: "bottom",
+                    horizontal: "left",
+                  },
+                  transformOrigin: {
+                    vertical: "top",
+                    horizontal: "left",
+                  },
+                  PaperProps: {
+                    style: {
+                      maxHeight: 300,
+                    },
+                  },
+                  disableAutoFocusItem: true,
+                }}
+                sx={{
+                  borderRadius: 2,
+                }}
+              >
+                {allowedLengthValues.map((value) => (
+                  <MenuItem key={value} value={value.toString()}>
+                    {value} ft
+                  </MenuItem>
+                ))}
+              </Select>
+              {errors.length && (
+                <Typography
+                  variant="caption"
+                  sx={{ color: "error.main", mt: 0.5, ml: 1.75 }}
+                >
+                  {errors.length}
+                </Typography>
+              )}
+              {!errors.length && (
+                <Typography
+                  variant="caption"
+                  sx={{ color: "text.secondary", mt: 0.5, ml: 1.75 }}
+                >
+                  Select the width/length of your wardrobe (Min: 3 ft, Max: 15 ft)
+                </Typography>
+              )}
+            </FormControl>
 
             {/* Height Input */}
-            <TextField
-              fullWidth
-              label="Height (feet)"
-              type="number"
-              value={height}
-              onChange={handleHeightChange}
-              error={!!errors.height}
-              helperText={errors.height || "Enter the height of your wardrobe (Min: 7 ft, Max: 15 ft)"}
-              inputProps={{ min: 7, max: 15, step: 0.1 }}
-            />
+            <FormControl fullWidth error={!!errors.height}>
+              <InputLabel>Height (feet)</InputLabel>
+              <Select
+                value={height}
+                onChange={handleHeightChange}
+                label="Height (feet)"
+                MenuProps={{
+                  anchorOrigin: {
+                    vertical: "bottom",
+                    horizontal: "left",
+                  },
+                  transformOrigin: {
+                    vertical: "top",
+                    horizontal: "left",
+                  },
+                  PaperProps: {
+                    style: {
+                      maxHeight: 300,
+                    },
+                  },
+                  disableAutoFocusItem: true,
+                }}
+                sx={{
+                  borderRadius: 2,
+                }}
+              >
+                {allowedHeightValues.map((value) => (
+                  <MenuItem key={value} value={value.toString()}>
+                    {value} ft
+                  </MenuItem>
+                ))}
+              </Select>
+              {errors.height && (
+                <Typography
+                  variant="caption"
+                  sx={{ color: "error.main", mt: 0.5, ml: 1.75 }}
+                >
+                  {errors.height}
+                </Typography>
+              )}
+              {!errors.height && (
+                <Typography
+                  variant="caption"
+                  sx={{ color: "text.secondary", mt: 0.5, ml: 1.75 }}
+                >
+                  Select the height of your wardrobe (Min: 7 ft, Max: 15 ft)
+                </Typography>
+              )}
+            </FormControl>
           </CardContent>
         </Card>
       </Box>
