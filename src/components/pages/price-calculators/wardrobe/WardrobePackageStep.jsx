@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import {
   Box,
   Typography,
@@ -11,7 +11,27 @@ import {
 } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
 
-const wardrobePackages = [
+// Image mapping based on wardrobe type
+const wardrobePackageImages = {
+  swing: {
+    basic:
+      "https://ik.imagekit.io/bowr9614/Packages/kitchen_new/SwingWardrobe/SwingBasic.jpg?updatedAt=1766046864766",
+    premium:
+      "https://ik.imagekit.io/bowr9614/Packages/kitchen_new/SwingWardrobe/SwingPremium.jpeg?updatedAt=1766046864815",
+    luxury:
+      "https://ik.imagekit.io/bowr9614/Packages/kitchen_new/SwingWardrobe/SwingLuxury.jpeg?updatedAt=1766046864716",
+  },
+  sliding: {
+    basic:
+      "https://ik.imagekit.io/bowr9614/Packages/kitchen_new/SlidingWardrobe/Slidingwardrobebasic.jpeg?updatedAt=1766046839676",
+    premium:
+      "https://ik.imagekit.io/bowr9614/Packages/kitchen_new/SlidingWardrobe/slidingwardrobepremium.jpeg?updatedAt=1766046840046",
+    luxury:
+      "https://ik.imagekit.io/bowr9614/Packages/kitchen_new/SlidingWardrobe/SlidingwwardrobeLuxury.jpeg?updatedAt=1766046840479",
+  },
+};
+
+const wardrobePackagesBase = [
   {
     id: "basic",
     title: "Essentials",
@@ -19,8 +39,6 @@ const wardrobePackages = [
     priceRangeSwing: "₹1,000 - ₹1,800",
     pricePerSqft: "per sqft",
     features: ["Low cost", "Basic units", "Standard finish"],
-    image:
-      "https://imgs.search.brave.com/LBx0oI-FT5sp6wRnDfiEGA4S1MOrAFyV_RSaY1Ui1PQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMubGl2c3BhY2Ut/Y2RuLmNvbS93OjM4/NDAvcGxhaW4vaHR0/cHM6Ly9kM2dxMm1l/cm9rOG41ci5jbG91/ZGZyb250Lm5ldC9h/YmhpbmF2L29uZC0x/NjM0MTIwMzk2LU9i/ZmRjLzEtMjAyNS0x/NzM2MDY4OTg4LU5E/UEQxL29uZC0xNzU5/NzM2MzA3LXJ2OVNW/L3dyLTE3NTk3NTEx/NzUtOU10alkvMTEt/MTc1OTc1MTE5NS1R/YUpqQy5qcGc",
   },
   {
     id: "premium",
@@ -29,8 +47,6 @@ const wardrobePackages = [
     priceRangeSwing: "₹1,800 - ₹3,000",
     pricePerSqft: "per sqft",
     features: ["Mid cost", "Premium units", "Premium finish"],
-    image:
-      "https://imgs.search.brave.com/5_H96dJeLodxy93Z_StLLSP6f5CWAD3F29KyNflbHd4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzE2LzMxLzAwLzQ0/LzM2MF9GXzE2MzEw/MDQ0NDNfYWZ0dVAw/UG1iUEtXcUZ3ejlw/Y3VZeklNeTFrSjhw/QVEuanBn",
   },
   {
     id: "luxury",
@@ -39,8 +55,6 @@ const wardrobePackages = [
     priceRangeSwing: "₹3,000 - ₹5,000",
     pricePerSqft: "per sqft",
     features: ["High cost", "Luxury units", "Elite finish"],
-    image:
-      "https://imgs.search.brave.com/NKRJVINVrf9rVjwHrUOMip2NfHXhKx_vm8lfLppKjug/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMjE1/NzA4MTc0NC9waG90/by9tb2Rlcm4tYnVp/bHQtaW4td2FyZHJv/YmUtY2xvc2V0LXdp/dGgtcGVyc29uYWwt/YWNjZXNzb3JpZXMu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PWZDNVozUzNjT211/ZGJUenZjOGZ2Szlw/aDE4TGxOQk9VWW5G/YzcwUXV5QkU9",
   },
 ];
 
@@ -51,7 +65,16 @@ export default function WardrobePackageSelection() {
   const [selectedPackage, setSelectedPackage] = useState("premium");
 
   const searchParams = new URLSearchParams(location.search);
-  const wardrobeType = searchParams.get("type"); // "sliding" or "swing"
+  const wardrobeType = searchParams.get("type") || "sliding"; // "sliding" or "swing"
+
+  // Create wardrobe packages with images based on wardrobe type
+  const wardrobePackages = useMemo(() => {
+    const images = wardrobePackageImages[wardrobeType] || wardrobePackageImages.sliding;
+    return wardrobePackagesBase.map((pkg) => ({
+      ...pkg,
+      image: images[pkg.id] || images.basic, // Fallback to basic if image not found
+    }));
+  }, [wardrobeType]);
 
   const handleNext = () => {
     const queryParams = new URLSearchParams({

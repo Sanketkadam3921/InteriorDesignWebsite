@@ -7,6 +7,10 @@ import {
   Grid,
   Card,
   useTheme,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
 } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -43,6 +47,17 @@ export default function KitchenMeasurementsStep() {
     C: "Dimension C (ft)",
   };
 
+  // Generate allowed values for dropdown (3 to 20 feet in 0.5 increments)
+  const getAllowedValues = () => {
+    const values = [];
+    for (let i = 3; i <= 20; i += 0.5) {
+      values.push(i);
+    }
+    return values;
+  };
+
+  const allowedValues = getAllowedValues();
+
   const handleInputChange = (field) => (event) => {
     const value = event.target.value;
     setMeasurements((prev) => ({
@@ -50,7 +65,7 @@ export default function KitchenMeasurementsStep() {
       [field]: value,
     }));
 
-    // Clear error as user types
+    // Clear error as user selects
     if (errors[field]) {
       setErrors((prev) => ({
         ...prev,
@@ -62,13 +77,8 @@ export default function KitchenMeasurementsStep() {
   const validateMeasurements = () => {
     const newErrors = {};
     getDimensions().forEach((dim) => {
-      const value = parseFloat(measurements[dim]);
-      if (!measurements[dim] || isNaN(value) || value <= 0) {
-        newErrors[dim] = `${dim} is required and must be greater than 0`;
-      } else if (value < 3) {
-        newErrors[dim] = `Minimum 3 feet required`;
-      } else if (value > 20) {
-        newErrors[dim] = `Maximum 20 feet allowed`;
+      if (!measurements[dim]) {
+        newErrors[dim] = `${dim} is required`;
       }
     });
     setErrors(newErrors);
@@ -104,137 +114,98 @@ export default function KitchenMeasurementsStep() {
           justifyContent: "center",
           alignItems: "center",
           mb: 4,
-          p: 4,
+          p: { xs: 2, sm: 3, md: 4 },
           backgroundColor: theme.palette.background.default,
           borderRadius: 2,
-          minHeight: 280,
+          minHeight: { xs: 200, sm: 240, md: 280 },
+          overflow: "hidden",
         }}
       >
         {layout === "l-shaped" && (
-          <Box sx={{ position: "relative", width: 320, height: 240 }}>
+          <Box
+            sx={{
+              position: "relative",
+              width: { xs: "100%", sm: 280, md: 320 },
+              maxWidth: "100%",
+              height: { xs: 180, sm: 200, md: 240 },
+            }}
+          >
             {/* L-shaped counter */}
             <Box
               sx={{
                 position: "absolute",
                 top: 0,
                 left: 0,
-                width: 200,
-                height: 80,
+                width: { xs: "62.5%", sm: 200 },
+                height: { xs: 40, sm: 60, md: 80 },
                 backgroundColor: theme.palette.primary.light,
-                border: `3px solid ${theme.palette.primary.main}`,
+                border: { xs: "2px solid", sm: "3px solid" },
+                borderColor: theme.palette.primary.main,
                 borderRadius: 1,
               }}
             />
             <Box
               sx={{
                 position: "absolute",
-                top: 80,
+                top: { xs: 40, sm: 60, md: 80 },
                 left: 0,
-                width: 80,
-                height: 120,
+                width: { xs: "25%", sm: 80 },
+                height: { xs: 90, sm: 100, md: 120 },
                 backgroundColor: theme.palette.primary.light,
-                border: `3px solid ${theme.palette.primary.main}`,
+                border: { xs: "2px solid", sm: "3px solid" },
+                borderColor: theme.palette.primary.main,
                 borderTop: "none",
                 borderRadius: 1,
               }}
             />
 
             {/* Dimension A (horizontal) */}
-            <Box
+            <Typography
+              variant="subtitle2"
               sx={{
                 position: "absolute",
-                top: -35,
-                left: 0,
-                width: 200,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                top: { xs: -15, sm: -18, md: -20 },
+                left: { xs: "31.25%", sm: 100 },
+                transform: "translateX(-50%)",
+                fontWeight: 700,
+                color: theme.palette.text.primary,
+                backgroundColor: theme.palette.background.default,
+                px: { xs: 0.5, sm: 1 },
+                fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
               }}
             >
-              <Box
-                sx={{
-                  width: "100%",
-                  height: 2,
-                  backgroundColor: theme.palette.text.secondary,
-                  position: "relative",
-                  "&::before, &::after": {
-                    content: '""',
-                    position: "absolute",
-                    width: 2,
-                    height: 12,
-                    backgroundColor: theme.palette.text.secondary,
-                    top: -5,
-                  },
-                  "&::before": { left: 0 },
-                  "&::after": { right: 0 },
-                }}
-              />
-              <Typography
-                variant="subtitle2"
-                sx={{
-                  position: "absolute",
-                  top: -20,
-                  fontWeight: 700,
-                  color: theme.palette.text.primary,
-                  backgroundColor: theme.palette.background.default,
-                  px: 1,
-                  fontSize: "1rem",
-                }}
-              >
-                A
-              </Typography>
-            </Box>
+              A
+            </Typography>
 
             {/* Dimension B (vertical) */}
-            <Box
+            <Typography
+              variant="subtitle2"
               sx={{
                 position: "absolute",
-                left: -45,
-                top: 80,
-                height: 120,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                left: { xs: -15, sm: -18, md: -20 },
+                top: { xs: 85, sm: 110, md: 140 },
+                transform: "translateY(-50%)",
+                fontWeight: 700,
+                color: theme.palette.text.primary,
+                backgroundColor: theme.palette.background.default,
+                px: { xs: 0.5, sm: 1 },
+                fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
               }}
             >
-              <Box
-                sx={{
-                  height: "100%",
-                  width: 2,
-                  backgroundColor: theme.palette.text.secondary,
-                  position: "relative",
-                  "&::before, &::after": {
-                    content: '""',
-                    position: "absolute",
-                    height: 2,
-                    width: 12,
-                    backgroundColor: theme.palette.text.secondary,
-                    left: -5,
-                  },
-                  "&::before": { top: 0 },
-                  "&::after": { bottom: 0 },
-                }}
-              />
-              <Typography
-                variant="subtitle2"
-                sx={{
-                  position: "absolute",
-                  left: -20,
-                  fontWeight: 700,
-                  color: theme.palette.text.primary,
-                  backgroundColor: theme.palette.background.default,
-                  px: 1,
-                  fontSize: "1rem",
-                }}
-              >
-                B
-              </Typography>
-            </Box>
+              B
+            </Typography>
           </Box>
         )}
 
         {layout === "straight" && (
-          <Box sx={{ position: "relative", width: 320, height: 140 }}>
+          <Box
+            sx={{
+              position: "relative",
+              width: { xs: "100%", sm: 280, md: 320 },
+              maxWidth: "100%",
+              height: { xs: 100, sm: 120, md: 140 },
+            }}
+          >
             {/* Straight counter */}
             <Box
               sx={{
@@ -243,73 +214,54 @@ export default function KitchenMeasurementsStep() {
                 left: 0,
                 transform: "translateY(-50%)",
                 width: "100%",
-                height: 80,
+                height: { xs: 50, sm: 60, md: 80 },
                 backgroundColor: theme.palette.primary.light,
-                border: `3px solid ${theme.palette.primary.main}`,
+                border: { xs: "2px solid", sm: "3px solid" },
+                borderColor: theme.palette.primary.main,
                 borderRadius: 1,
               }}
             />
 
             {/* Dimension A */}
-            <Box
+            <Typography
+              variant="subtitle2"
               sx={{
                 position: "absolute",
-                top: 10,
-                left: 0,
-                width: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                top: { xs: 5, sm: 8, md: 10 },
+                left: "50%",
+                transform: "translateX(-50%)",
+                fontWeight: 700,
+                color: theme.palette.text.primary,
+                backgroundColor: theme.palette.background.default,
+                px: { xs: 0.5, sm: 1 },
+                fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
               }}
             >
-              <Box
-                sx={{
-                  width: "100%",
-                  height: 2,
-                  backgroundColor: theme.palette.text.secondary,
-                  position: "relative",
-                  "&::before, &::after": {
-                    content: '""',
-                    position: "absolute",
-                    width: 2,
-                    height: 12,
-                    backgroundColor: theme.palette.text.secondary,
-                    top: -5,
-                  },
-                  "&::before": { left: 0 },
-                  "&::after": { right: 0 },
-                }}
-              />
-              <Typography
-                variant="subtitle2"
-                sx={{
-                  position: "absolute",
-                  top: -20,
-                  fontWeight: 700,
-                  color: theme.palette.text.primary,
-                  backgroundColor: theme.palette.background.default,
-                  px: 1,
-                  fontSize: "1rem",
-                }}
-              >
-                A
-              </Typography>
-            </Box>
+              A
+            </Typography>
           </Box>
         )}
 
         {layout === "u-shaped" && (
-          <Box sx={{ position: "relative", width: 320, height: 240 }}>
+          <Box
+            sx={{
+              position: "relative",
+              width: { xs: "100%", sm: 280, md: 320 },
+              maxWidth: "100%",
+              height: { xs: 180, sm: 200, md: 240 },
+            }}
+          >
             {/* U-shaped counter - three sections */}
             <Box
               sx={{
                 position: "absolute",
                 top: 0,
                 left: 0,
-                width: 80,
-                height: 200,
+                width: { xs: "25%", sm: 80 },
+                height: { xs: 150, sm: 170, md: 200 },
                 backgroundColor: theme.palette.primary.light,
-                border: `3px solid ${theme.palette.primary.main}`,
+                border: { xs: "2px solid", sm: "3px solid" },
+                borderColor: theme.palette.primary.main,
                 borderRadius: 1,
               }}
             />
@@ -317,11 +269,12 @@ export default function KitchenMeasurementsStep() {
               sx={{
                 position: "absolute",
                 top: 0,
-                left: 80,
-                width: 160,
-                height: 80,
+                left: { xs: "25%", sm: 80 },
+                width: { xs: "50%", sm: 160 },
+                height: { xs: 50, sm: 60, md: 80 },
                 backgroundColor: theme.palette.primary.light,
-                border: `3px solid ${theme.palette.primary.main}`,
+                border: { xs: "2px solid", sm: "3px solid" },
+                borderColor: theme.palette.primary.main,
                 borderLeft: "none",
                 borderRadius: 1,
               }}
@@ -331,155 +284,81 @@ export default function KitchenMeasurementsStep() {
                 position: "absolute",
                 top: 0,
                 right: 0,
-                width: 80,
-                height: 200,
+                width: { xs: "25%", sm: 80 },
+                height: { xs: 150, sm: 170, md: 200 },
                 backgroundColor: theme.palette.primary.light,
-                border: `3px solid ${theme.palette.primary.main}`,
+                border: { xs: "2px solid", sm: "3px solid" },
+                borderColor: theme.palette.primary.main,
                 borderLeft: "none",
                 borderRadius: 1,
               }}
             />
 
             {/* Dimension A (left) */}
-            <Box
+            <Typography
+              variant="subtitle2"
               sx={{
                 position: "absolute",
-                left: -45,
-                top: 0,
-                height: 200,
-                display: "flex",
-                alignItems: "center",
+                left: { xs: -15, sm: -18, md: -20 },
+                top: { xs: 75, sm: 85, md: 100 },
+                transform: "translateY(-50%)",
+                fontWeight: 700,
+                color: theme.palette.text.primary,
+                backgroundColor: theme.palette.background.default,
+                px: { xs: 0.5, sm: 1 },
+                fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
               }}
             >
-              <Box
-                sx={{
-                  height: "100%",
-                  width: 2,
-                  backgroundColor: theme.palette.text.secondary,
-                  position: "relative",
-                  "&::before, &::after": {
-                    content: '""',
-                    position: "absolute",
-                    height: 2,
-                    width: 12,
-                    backgroundColor: theme.palette.text.secondary,
-                    left: -5,
-                  },
-                  "&::before": { top: 0 },
-                  "&::after": { bottom: 0 },
-                }}
-              />
-              <Typography
-                variant="subtitle2"
-                sx={{
-                  position: "absolute",
-                  left: -20,
-                  fontWeight: 700,
-                  color: theme.palette.text.primary,
-                  backgroundColor: theme.palette.background.default,
-                  px: 1,
-                  fontSize: "1rem",
-                }}
-              >
-                A
-              </Typography>
-            </Box>
+              A
+            </Typography>
 
             {/* Dimension B (top) */}
-            <Box
+            <Typography
+              variant="subtitle2"
               sx={{
                 position: "absolute",
-                top: -35,
-                left: 80,
-                width: 160,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                top: { xs: -15, sm: -18, md: -20 },
+                left: { xs: "50%", sm: 160 },
+                transform: "translateX(-50%)",
+                fontWeight: 700,
+                color: theme.palette.text.primary,
+                backgroundColor: theme.palette.background.default,
+                px: { xs: 0.5, sm: 1 },
+                fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
               }}
             >
-              <Box
-                sx={{
-                  width: "100%",
-                  height: 2,
-                  backgroundColor: theme.palette.text.secondary,
-                  position: "relative",
-                  "&::before, &::after": {
-                    content: '""',
-                    position: "absolute",
-                    width: 2,
-                    height: 12,
-                    backgroundColor: theme.palette.text.secondary,
-                    top: -5,
-                  },
-                  "&::before": { left: 0 },
-                  "&::after": { right: 0 },
-                }}
-              />
-              <Typography
-                variant="subtitle2"
-                sx={{
-                  position: "absolute",
-                  top: -20,
-                  fontWeight: 700,
-                  color: theme.palette.text.primary,
-                  backgroundColor: theme.palette.background.default,
-                  px: 1,
-                  fontSize: "1rem",
-                }}
-              >
-                B
-              </Typography>
-            </Box>
+              B
+            </Typography>
 
             {/* Dimension C (right) */}
-            <Box
+            <Typography
+              variant="subtitle2"
               sx={{
                 position: "absolute",
-                right: -45,
-                top: 0,
-                height: 200,
-                display: "flex",
-                alignItems: "center",
+                right: { xs: -15, sm: -18, md: -20 },
+                top: { xs: 75, sm: 85, md: 100 },
+                transform: "translateY(-50%)",
+                fontWeight: 700,
+                color: theme.palette.text.primary,
+                backgroundColor: theme.palette.background.default,
+                px: { xs: 0.5, sm: 1 },
+                fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
               }}
             >
-              <Box
-                sx={{
-                  height: "100%",
-                  width: 2,
-                  backgroundColor: theme.palette.text.secondary,
-                  position: "relative",
-                  "&::before, &::after": {
-                    content: '""',
-                    position: "absolute",
-                    height: 2,
-                    width: 12,
-                    backgroundColor: theme.palette.text.secondary,
-                    left: -5,
-                  },
-                  "&::before": { top: 0 },
-                  "&::after": { bottom: 0 },
-                }}
-              />
-              <Typography
-                variant="subtitle2"
-                sx={{
-                  position: "absolute",
-                  left: -20,
-                  fontWeight: 700,
-                  color: theme.palette.text.primary,
-                  backgroundColor: theme.palette.background.default,
-                  px: 1,
-                  fontSize: "1rem",
-                }}
-              >
-                C
-              </Typography>
-            </Box>
+              C
+            </Typography>
           </Box>
         )}
 
         {layout === "parallel" && (
-          <Box sx={{ position: "relative", width: 320, height: 220 }}>
+          <Box
+            sx={{
+              position: "relative",
+              width: { xs: "100%", sm: 280, md: 320 },
+              maxWidth: "100%",
+              height: { xs: 160, sm: 180, md: 220 },
+            }}
+          >
             {/* Two parallel counters */}
             <Box
               sx={{
@@ -487,9 +366,10 @@ export default function KitchenMeasurementsStep() {
                 top: 0,
                 left: 0,
                 width: "100%",
-                height: 80,
+                height: { xs: 50, sm: 60, md: 80 },
                 backgroundColor: theme.palette.primary.light,
-                border: `3px solid ${theme.palette.primary.main}`,
+                border: { xs: "2px solid", sm: "3px solid" },
+                borderColor: theme.palette.primary.main,
                 borderRadius: 1,
               }}
             />
@@ -499,104 +379,49 @@ export default function KitchenMeasurementsStep() {
                 bottom: 0,
                 left: 0,
                 width: "100%",
-                height: 80,
+                height: { xs: 50, sm: 60, md: 80 },
                 backgroundColor: theme.palette.primary.light,
-                border: `3px solid ${theme.palette.primary.main}`,
+                border: { xs: "2px solid", sm: "3px solid" },
+                borderColor: theme.palette.primary.main,
                 borderRadius: 1,
               }}
             />
 
             {/* Dimension A (top) */}
-            <Box
+            <Typography
+              variant="subtitle2"
               sx={{
                 position: "absolute",
-                top: -35,
-                left: 0,
-                width: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                top: { xs: -15, sm: -18, md: -20 },
+                left: "50%",
+                transform: "translateX(-50%)",
+                fontWeight: 700,
+                color: theme.palette.text.primary,
+                backgroundColor: theme.palette.background.default,
+                px: { xs: 0.5, sm: 1 },
+                fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
               }}
             >
-              <Box
-                sx={{
-                  width: "100%",
-                  height: 2,
-                  backgroundColor: theme.palette.text.secondary,
-                  position: "relative",
-                  "&::before, &::after": {
-                    content: '""',
-                    position: "absolute",
-                    width: 2,
-                    height: 12,
-                    backgroundColor: theme.palette.text.secondary,
-                    top: -5,
-                  },
-                  "&::before": { left: 0 },
-                  "&::after": { right: 0 },
-                }}
-              />
-              <Typography
-                variant="subtitle2"
-                sx={{
-                  position: "absolute",
-                  top: -20,
-                  fontWeight: 700,
-                  color: theme.palette.text.primary,
-                  backgroundColor: theme.palette.background.default,
-                  px: 1,
-                  fontSize: "1rem",
-                }}
-              >
-                A
-              </Typography>
-            </Box>
+              A
+            </Typography>
 
             {/* Dimension B (bottom) */}
-            <Box
+            <Typography
+              variant="subtitle2"
               sx={{
                 position: "absolute",
-                bottom: -35,
-                left: 0,
-                width: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                bottom: { xs: -15, sm: -18, md: -20 },
+                left: "50%",
+                transform: "translateX(-50%)",
+                fontWeight: 700,
+                color: theme.palette.text.primary,
+                backgroundColor: theme.palette.background.default,
+                px: { xs: 0.5, sm: 1 },
+                fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
               }}
             >
-              <Box
-                sx={{
-                  width: "100%",
-                  height: 2,
-                  backgroundColor: theme.palette.text.secondary,
-                  position: "relative",
-                  "&::before, &::after": {
-                    content: '""',
-                    position: "absolute",
-                    width: 2,
-                    height: 12,
-                    backgroundColor: theme.palette.text.secondary,
-                    top: -5,
-                  },
-                  "&::before": { left: 0 },
-                  "&::after": { right: 0 },
-                }}
-              />
-              <Typography
-                variant="subtitle2"
-                sx={{
-                  position: "absolute",
-                  top: -20,
-                  fontWeight: 700,
-                  color: theme.palette.text.primary,
-                  backgroundColor: theme.palette.background.default,
-                  px: 1,
-                  fontSize: "1rem",
-                }}
-              >
-                B
-              </Typography>
-            </Box>
+              B
+            </Typography>
           </Box>
         )}
       </Box>
@@ -663,24 +488,40 @@ export default function KitchenMeasurementsStep() {
           <Grid container spacing={3} justifyContent="center">
             {getDimensions().map((dim) => (
               <Grid item xs={12} sm={6} md={4} key={dim}>
-                <TextField
-                  fullWidth
-                  label={dimensionLabels[dim]}
-                  type="number"
-                  value={measurements[dim] || ""}
-                  onChange={handleInputChange(dim)}
-                  error={!!errors[dim]}
-                  helperText={
-                    errors[dim] ||
-                    "Enter the dimension of your kitchen (Min: 3 ft, Max: 20 ft)"
-                  }
-                  inputProps={{ min: 0, step: 0.1 }}
-                  sx={{
-                    "& .MuiOutlinedInput-root": {
+                <FormControl fullWidth error={!!errors[dim]}>
+                  <InputLabel>{dimensionLabels[dim]}</InputLabel>
+                  <Select
+                    value={measurements[dim] || ""}
+                    onChange={handleInputChange(dim)}
+                    label={dimensionLabels[dim]}
+                    sx={{
                       borderRadius: 2,
-                    },
-                  }}
-                />
+                    }}
+                  >
+                    {allowedValues.map((value) => (
+                      <MenuItem key={value} value={value.toString()}>
+                        {value} ft
+                      </MenuItem>
+                    ))}
+                  </Select>
+                  {errors[dim] && (
+                    <Typography
+                      variant="caption"
+                      sx={{ color: "error.main", mt: 0.5, ml: 1.75 }}
+                    >
+                      {errors[dim]}
+                    </Typography>
+                  )}
+                  {!errors[dim] && (
+                    <Typography
+                      variant="caption"
+                      sx={{ color: "text.secondary", mt: 0.5, ml: 1.75 }}
+                    >
+                      Select the dimension of your kitchen (Min: 3 ft, Max: 20
+                      ft)
+                    </Typography>
+                  )}
+                </FormControl>
               </Grid>
             ))}
           </Grid>
