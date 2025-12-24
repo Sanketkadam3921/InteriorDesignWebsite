@@ -1,7 +1,6 @@
 export const HERO_DATA = {
   title: "Full Home Interiors",
-  subtitle:
-    "Transform your home with beautifully designed spaces crafted to match your lifestyle.",
+  subtitle: "Elegant. End-to-End. Crafted for Your Lifestyle.",
   buttonText: "Book Online Consultation",
   buttonLink: "/contact",
   backgroundImage:

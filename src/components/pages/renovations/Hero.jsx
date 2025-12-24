@@ -60,16 +60,14 @@ const Hero = () => {
           component="h2"
           sx={{
             fontSize: { xs: "1rem", md: "1.3rem", lg: "1.5rem" },
-            fontWeight: 400,
+            fontWeight: 300,
             lineHeight: 1.4,
             mb: 4,
             color: "white",
             textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
           }}
         >
-          Celebrate the special moments of life with a space that is forever
-          yours. From getting married to cherishing the joy of having a baby,
-          mark these moments by giving your home a fresh makeover it deserves.
+          Revive. Redesign. Rediscover Your Lifestyle.
         </Typography>
 
         <Button
