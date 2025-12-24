@@ -160,42 +160,42 @@ export default function KitchenMeasurementsStep() {
             />
 
             {/* Dimension A (horizontal) */}
-            <Typography
-              variant="subtitle2"
-              sx={{
-                position: "absolute",
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  position: "absolute",
                 top: { xs: -25, sm: -28, md: -30 },
                 left: { xs: "31.25%", sm: 100 },
                 transform: "translateX(-50%)",
-                fontWeight: 700,
-                color: theme.palette.text.primary,
-                backgroundColor: theme.palette.background.default,
+                  fontWeight: 700,
+                  color: theme.palette.text.primary,
+                  backgroundColor: theme.palette.background.default,
                 px: { xs: 0.5, sm: 1 },
                 fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
                 zIndex: 1,
-              }}
-            >
-              A
-            </Typography>
+                }}
+              >
+                A
+              </Typography>
 
             {/* Dimension B (vertical) */}
-            <Typography
-              variant="subtitle2"
-              sx={{
-                position: "absolute",
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  position: "absolute",
                 left: { xs: -25, sm: -28, md: -30 },
                 top: { xs: 85, sm: 110, md: 140 },
                 transform: "translateY(-50%)",
-                fontWeight: 700,
-                color: theme.palette.text.primary,
-                backgroundColor: theme.palette.background.default,
+                  fontWeight: 700,
+                  color: theme.palette.text.primary,
+                  backgroundColor: theme.palette.background.default,
                 px: { xs: 0.5, sm: 1 },
                 fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
                 zIndex: 1,
-              }}
-            >
-              B
-            </Typography>
+                }}
+              >
+                B
+              </Typography>
           </Box>
         )}
 
@@ -225,23 +225,23 @@ export default function KitchenMeasurementsStep() {
             />
 
             {/* Dimension A */}
-            <Typography
-              variant="subtitle2"
-              sx={{
-                position: "absolute",
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  position: "absolute",
                 top: { xs: -25, sm: -28, md: -30 },
                 left: "50%",
                 transform: "translateX(-50%)",
-                fontWeight: 700,
-                color: theme.palette.text.primary,
-                backgroundColor: theme.palette.background.default,
+                  fontWeight: 700,
+                  color: theme.palette.text.primary,
+                  backgroundColor: theme.palette.background.default,
                 px: { xs: 0.5, sm: 1 },
                 fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
                 zIndex: 1,
-              }}
-            >
-              A
-            </Typography>
+                }}
+              >
+                A
+              </Typography>
           </Box>
         )}
 
@@ -298,61 +298,61 @@ export default function KitchenMeasurementsStep() {
             />
 
             {/* Dimension A (left) */}
-            <Typography
-              variant="subtitle2"
-              sx={{
-                position: "absolute",
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  position: "absolute",
                 left: { xs: -25, sm: -28, md: -30 },
                 top: { xs: 75, sm: 85, md: 100 },
                 transform: "translateY(-50%)",
-                fontWeight: 700,
-                color: theme.palette.text.primary,
-                backgroundColor: theme.palette.background.default,
+                  fontWeight: 700,
+                  color: theme.palette.text.primary,
+                  backgroundColor: theme.palette.background.default,
                 px: { xs: 0.5, sm: 1 },
                 fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
                 zIndex: 1,
-              }}
-            >
-              A
-            </Typography>
+                }}
+              >
+                A
+              </Typography>
 
             {/* Dimension B (top) */}
-            <Typography
-              variant="subtitle2"
-              sx={{
-                position: "absolute",
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  position: "absolute",
                 top: { xs: -25, sm: -28, md: -30 },
                 left: { xs: "50%", sm: 160 },
                 transform: "translateX(-50%)",
-                fontWeight: 700,
-                color: theme.palette.text.primary,
-                backgroundColor: theme.palette.background.default,
+                  fontWeight: 700,
+                  color: theme.palette.text.primary,
+                  backgroundColor: theme.palette.background.default,
                 px: { xs: 0.5, sm: 1 },
                 fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
                 zIndex: 1,
-              }}
-            >
-              B
-            </Typography>
+                }}
+              >
+                B
+              </Typography>
 
             {/* Dimension C (right) */}
-            <Typography
-              variant="subtitle2"
-              sx={{
-                position: "absolute",
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  position: "absolute",
                 right: { xs: -25, sm: -28, md: -30 },
                 top: { xs: 75, sm: 85, md: 100 },
                 transform: "translateY(-50%)",
-                fontWeight: 700,
-                color: theme.palette.text.primary,
-                backgroundColor: theme.palette.background.default,
+                  fontWeight: 700,
+                  color: theme.palette.text.primary,
+                  backgroundColor: theme.palette.background.default,
                 px: { xs: 0.5, sm: 1 },
                 fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
                 zIndex: 1,
-              }}
-            >
-              C
-            </Typography>
+                }}
+              >
+                C
+              </Typography>
           </Box>
         )}
 
@@ -394,42 +394,42 @@ export default function KitchenMeasurementsStep() {
             />
 
             {/* Dimension A (top) */}
-            <Typography
-              variant="subtitle2"
-              sx={{
-                position: "absolute",
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  position: "absolute",
                 top: { xs: -25, sm: -28, md: -30 },
                 left: "50%",
                 transform: "translateX(-50%)",
-                fontWeight: 700,
-                color: theme.palette.text.primary,
-                backgroundColor: theme.palette.background.default,
+                  fontWeight: 700,
+                  color: theme.palette.text.primary,
+                  backgroundColor: theme.palette.background.default,
                 px: { xs: 0.5, sm: 1 },
                 fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
                 zIndex: 1,
-              }}
-            >
-              A
-            </Typography>
+                }}
+              >
+                A
+              </Typography>
 
             {/* Dimension B (bottom) */}
-            <Typography
-              variant="subtitle2"
-              sx={{
-                position: "absolute",
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  position: "absolute",
                 bottom: { xs: -25, sm: -28, md: -30 },
                 left: "50%",
                 transform: "translateX(-50%)",
-                fontWeight: 700,
-                color: theme.palette.text.primary,
-                backgroundColor: theme.palette.background.default,
+                  fontWeight: 700,
+                  color: theme.palette.text.primary,
+                  backgroundColor: theme.palette.background.default,
                 px: { xs: 0.5, sm: 1 },
                 fontSize: { xs: "1rem", sm: "1.1rem", md: "1.2rem" },
                 zIndex: 1,
-              }}
-            >
-              B
-            </Typography>
+                }}
+              >
+                B
+              </Typography>
           </Box>
         )}
       </Box>
@@ -499,8 +499,8 @@ export default function KitchenMeasurementsStep() {
                 <FormControl fullWidth error={!!errors[dim]}>
                   <InputLabel>{dimensionLabels[dim]}</InputLabel>
                   <Select
-                    value={measurements[dim] || ""}
-                    onChange={handleInputChange(dim)}
+                  value={measurements[dim] || ""}
+                  onChange={handleInputChange(dim)}
                     label={dimensionLabels[dim]}
                     MenuProps={{
                       anchorOrigin: {
@@ -518,7 +518,7 @@ export default function KitchenMeasurementsStep() {
                       },
                       disableAutoFocusItem: true,
                     }}
-                    sx={{
+                  sx={{
                       borderRadius: 2,
                     }}
                   >

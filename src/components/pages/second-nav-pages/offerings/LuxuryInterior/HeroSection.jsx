@@ -1,139 +1,102 @@
 import React from "react";
 import { Box, Typography, Button, styled } from "@mui/material";
 import { Link } from "react-router-dom";
+import themeNeutral from "../../../../../themeNeutral";
 import { HERO_DATA } from "./constants";
 
 const HeroSectionStyled = styled(Box)(({ theme }) => ({
   position: "relative",
   width: "100%",
-  maxWidth: "100vw",
-  height: "100vh",
-  minHeight: "600px",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  overflow: "hidden",
-  [theme.breakpoints.down("lg")]: {
-    height: "80vh",
-    minHeight: "500px",
-  },
-  [theme.breakpoints.down("md")]: {
-    height: "70vh",
-    minHeight: "400px",
-  },
-}));
-
-const ImageSection = styled(Box)({
-  position: "absolute",
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  width: "100%",
-  height: "100%",
+  height: "70vh",
+  minHeight: "500px",
   backgroundImage: `url('${HERO_DATA.backgroundImage}')`,
   backgroundSize: "cover",
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat",
-  zIndex: 1,
-});
-
-const ImageOverlay = styled(Box)({
-  position: "absolute",
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  background:
-    "linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%)",
-  zIndex: 2,
-});
-
-const TextSection = styled(Box)(({ theme }) => ({
-  position: "relative",
-  zIndex: 3,
   display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
   alignItems: "center",
-  textAlign: "center",
-  padding: theme.spacing(4),
-  maxWidth: "800px",
-  margin: "0 auto",
-  [theme.breakpoints.down("lg")]: {
-    padding: theme.spacing(3),
-    maxWidth: "700px",
+  justifyContent: "center",
+  "&::before": {
+    content: '""',
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: "rgba(0, 0, 0, 0.4)",
+    zIndex: 1,
   },
-  [theme.breakpoints.down("md")]: {
-    padding: theme.spacing(2),
-    maxWidth: "90%",
-  },
-}));
-
-const LuxuryText = styled(Typography)(({ theme }) => ({
-  fontFamily: "serif",
-  color: "white",
-  textAlign: "center",
-  lineHeight: 1.2,
-  marginBottom: theme.spacing(4),
-  textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
-  [theme.breakpoints.down("lg")]: {
-    marginBottom: theme.spacing(3),
-  },
-  [theme.breakpoints.down("md")]: {
-    fontSize: "2rem",
-    marginBottom: theme.spacing(2),
-  },
-}));
-
-const CTAButton = styled(Button)(({ theme }) => ({
-  backgroundColor: theme.palette.primary.main,
-  color: theme.palette.primary.contrastText,
-  padding: theme.spacing(2, 4),
-  borderRadius: "8px",
-  fontSize: "1.1rem",
-  fontWeight: "bold",
-  textTransform: "none",
-  "&:hover": {
-    backgroundColor: theme.palette.primary.dark,
-    transform: "translateY(-2px)",
-    boxShadow: `0 4px 12px ${theme.palette.primary.main}30`,
-  },
-  transition: "all 0.3s ease",
 }));
 
 export default function HeroSection() {
   return (
     <HeroSectionStyled>
-      <ImageSection />
-      <ImageOverlay />
-      <TextSection>
-        <LuxuryText
-          variant="h2"
+      <Box
+        sx={{
+          position: "relative",
+          zIndex: 2,
+          textAlign: "center",
+          color: "white",
+          maxWidth: { xs: "100%", md: "800px" },
+          px: { xs: 3, md: 4 },
+        }}
+      >
+        <Typography
+          variant="h1"
+          component="h1"
           sx={{
-            fontSize: { xs: "2.5rem", md: "3.5rem", lg: "4rem" },
-            fontWeight: "300",
+            fontSize: { xs: "1.8rem", md: "2.5rem", lg: "3rem" },
+            fontWeight: "bold",
+            lineHeight: 1.2,
+            mb: 2,
+            color: "white",
+            textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
           }}
         >
           {HERO_DATA.title}
-        </LuxuryText>
+        </Typography>
         <Typography
           variant="h5"
+          component="h2"
           sx={{
+            fontSize: { xs: "1rem", md: "1.3rem", lg: "1.5rem" },
+            fontWeight: 400,
+            lineHeight: 1.4,
+            mb: 4,
             color: "white",
-            maxWidth: 700,
-            mb: 3,
-            lineHeight: 1.6,
-            opacity: 0.9,
+            textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
           }}
         >
-          Thoughtfully crafted luxury interiors that balance comfort, style, and
-          the way you live every day.
+          {HERO_DATA.subtitle}
         </Typography>
-        <CTAButton component={Link} to={HERO_DATA.ctaLink} size="large">
-          {HERO_DATA.ctaText}
-        </CTAButton>
-      </TextSection>
+
+        <Button
+          component={Link}
+          to={HERO_DATA.buttonLink}
+          variant="contained"
+          size="medium"
+          sx={{
+            backgroundColor: themeNeutral.palette.primary.main,
+            color: themeNeutral.palette.primary.contrastText,
+            textTransform: "none",
+            fontWeight: themeNeutral.typography.button.fontWeight,
+            px: { xs: 3, md: 4 },
+            py: { xs: 1.5, md: 2 },
+            fontSize: { xs: "0.9rem", md: "1rem" },
+            borderRadius: "8px",
+            boxShadow: "0 4px 16px rgba(80, 91, 95, 0.3)",
+            "&:hover": {
+              backgroundColor: themeNeutral.palette.primary.dark,
+              transform: "translateY(-2px)",
+              boxShadow: "0 6px 20px rgba(80, 91, 95, 0.4)",
+            },
+            transition:
+              themeNeutral.components.MuiButton.styleOverrides.root.transition,
+          }}
+        >
+          {HERO_DATA.buttonText}
+        </Button>
+      </Box>
     </HeroSectionStyled>
   );
 }

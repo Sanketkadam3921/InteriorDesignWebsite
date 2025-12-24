@@ -3,11 +3,15 @@
 // =====================
 export const HERO_DATA = {
   title: "Luxury Interiors",
+  subtitle: "Flexible. Functional. Tailored to Your Lifestyle.",
+  buttonText: "Book Online Consultation",
+  buttonLink: "/offerings/book-online-consultation",
   backgroundImage:
     "https://www.oppoliahome.com/wp-content/uploads/2023/06/australia-luxury-apartment-project-whole-house-solution-17.webp",
-  ctaText: "Get started",
-  ctaLink: "/contact",
 };
+
+export const INTRODUCTION_TEXT =
+  "Our Luxury Interiors offering brings intelligent design and smart engineering together to create spaces that are elegant, durable, and effortlessly functional. Whether it's your home, office, or a commercial space, our luxury solutions are crafted to simplify your life while enhancing the aesthetics of every corner.";
 
 // =====================
 // LUXURY DESCRIPTION

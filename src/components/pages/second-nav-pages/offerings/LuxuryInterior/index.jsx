@@ -1,6 +1,7 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import HeroSection from "./HeroSection";
+import Introduction from "./Introduction";
 import LuxuryDescription from "./LuxuryDescription";
 import QuadrantSection from "./QuadrantSection";
 import CarouselSection from "./CarouselSection";
@@ -18,10 +19,14 @@ export default function LuxuryInterior() {
       }}
     >
       <HeroSection />
-      <LuxuryDescription />
-      <QuadrantSection />
-      <CarouselSection />
-      <UniqueFeatures />
+
+      <Container maxWidth="lg" sx={{ py: 6, px: { xs: 2, sm: 3, md: 4 } }}>
+        <Introduction />
+        {/* <LuxuryDescription /> */}
+        <QuadrantSection />
+        <CarouselSection />
+        <UniqueFeatures />
+      </Container>
     </Box>
   );
 }
