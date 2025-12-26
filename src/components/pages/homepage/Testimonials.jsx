@@ -154,20 +154,22 @@ export default function Testimonials() {
                   <Box
                     sx={{
                       position: "absolute",
-                      top: 16,
-                      right: 16,
-                      opacity: 0.1,
+                      top: { xs: 8, md: 12 },
+                      right: { xs: 8, md: 12 },
+                      opacity: 0.08,
+                      zIndex: 0,
+                      pointerEvents: "none",
                     }}
                   >
                     <FormatQuoteIcon
                       sx={{
-                        fontSize: { xs: 48, md: 64 },
+                        fontSize: { xs: 40, md: 56 },
                         color: theme.palette.primary.main,
                       }}
                     />
                   </Box>
 
-                  <CardContent sx={{ p: 0 }}>
+                  <CardContent sx={{ p: 0, position: "relative", zIndex: 1 }}>
                     <Typography
                       variant="body1"
                       sx={{
@@ -178,9 +180,11 @@ export default function Testimonials() {
                         mb: 4,
                         position: "relative",
                         zIndex: 1,
+                        pr: { xs: 2, md: 3 },
+                        pt: { xs: 0.5, md: 1 },
                       }}
                     >
-                      "{t.quote}"
+                      {t.quote}
                     </Typography>
 
                     <Box

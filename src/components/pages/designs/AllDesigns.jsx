@@ -222,6 +222,7 @@ export default function AllDesigns() {
               height: "100%",
               cursor: "pointer",
               transition: "all 0.3s ease-in-out",
+              boxShadow: theme.shadows[2],
               "&:hover": {
                 transform: "translateY(-8px)",
                 boxShadow: theme.shadows[8],
@@ -237,27 +238,52 @@ export default function AllDesigns() {
               sx={{ objectFit: "cover" }}
             />
             <CardContent
-              sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}
+              sx={{
+                flexGrow: 1,
+                display: "flex",
+                flexDirection: "column",
+                p: 3,
+              }}
             >
-              <Typography
-                variant="h6"
-                gutterBottom
-                sx={{
-                  color: theme.palette.text.primary,
-                  fontWeight: 600,
-                  fontSize: "1.1rem",
-                  minHeight: "48px",
-                }}
-              >
-                {category.title}
-              </Typography>
+              {/* Fixed Header Section */}
+              <Box sx={{ mb: 2 }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: theme.palette.text.primary,
+                    fontWeight: 600,
+                    fontSize: "1.1rem",
+                    minHeight: "48px",
+                    display: "-webkit-box",
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
+                    lineHeight: 1.3,
+                  }}
+                >
+                  {category.title}
+                </Typography>
+              </Box>
+
+              {/* Flexible Description Section */}
               <Typography
                 variant="body2"
                 color="text.secondary"
-                sx={{ mb: 2, flexGrow: 1 }}
+                sx={{
+                  flexGrow: 1,
+                  mb: 2,
+                  minHeight: "60px",
+                  display: "-webkit-box",
+                  WebkitLineClamp: 3,
+                  WebkitBoxOrient: "vertical",
+                  overflow: "hidden",
+                  lineHeight: 1.6,
+                }}
               >
                 {category.description}
               </Typography>
+
+              {/* Fixed Button at Bottom */}
               <Button
                 variant="outlined"
                 fullWidth
@@ -266,8 +292,13 @@ export default function AllDesigns() {
                   navigate(`/designs/${category.id}`);
                 }}
                 sx={{
+                  mt: "auto",
                   borderColor: theme.palette.primary.main,
                   color: theme.palette.primary.main,
+                  py: 1.2,
+                  borderRadius: "20px",
+                  textTransform: "none",
+                  fontWeight: 600,
                   "&:hover": {
                     borderColor: theme.palette.primary.dark,
                     backgroundColor: theme.palette.action.hover,

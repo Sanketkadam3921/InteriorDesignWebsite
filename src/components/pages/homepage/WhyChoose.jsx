@@ -34,7 +34,7 @@ const items = [
     icon: "https://cdn-icons-png.flaticon.com/128/6012/6012670.png", // 👩‍💻 Team icon
   },
   {
-    text: "Premium quality materials",
+    text: "Carefully selected materials",
     icon: "https://i.pinimg.com/736x/38/b0/fa/38b0fa9f2d5156973f3167e50aa515e7.jpg", // 🪵 Material icon
   },
   {

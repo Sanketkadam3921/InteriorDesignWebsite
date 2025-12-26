@@ -10,6 +10,7 @@ import {
   useTheme,
   Divider,
   styled,
+  Link,
 } from "@mui/material";
 import {
   Send as SendIcon,
@@ -154,7 +155,7 @@ export default function ContactForm() {
         "access_key",
         "1c21fc37-1fc4-4734-a82f-0a647e166aef"
       );
-      formDataToSend.append("from_name", "Kalakruti Studio Website");
+      formDataToSend.append("from_name", "KalaKruti Studio Website");
       formDataToSend.append("subject", `New Enquiry from ${formData.name}`);
 
       formDataToSend.append("name", formData.name);
@@ -386,7 +387,7 @@ export default function ContactForm() {
               textShadow: "0 2px 6px rgba(0,0,0,0.3)",
             }}
           >
-            Kalakruti Studio
+            KalaKruti Studio
           </Typography>
 
           <Typography
@@ -432,9 +433,41 @@ export default function ContactForm() {
                   <Typography sx={{ fontWeight: 600, color: "white" }}>
                     {info.title}
                   </Typography>
-                  <Typography sx={{ opacity: 0.85, color: "white" }}>
-                    {info.details}
-                  </Typography>
+                  {info.title === "Phone" ? (
+                    <Link
+                      href={`tel:${info.details.replace(/\s/g, "")}`}
+                      sx={{
+                        opacity: 0.85,
+                        color: "white",
+                        textDecoration: "none",
+                        "&:hover": {
+                          opacity: 1,
+                          textDecoration: "underline",
+                        },
+                      }}
+                    >
+                      {info.details}
+                    </Link>
+                  ) : info.title === "Email" ? (
+                    <Link
+                      href={`mailto:${info.details}`}
+                      sx={{
+                        opacity: 0.85,
+                        color: "white",
+                        textDecoration: "none",
+                        "&:hover": {
+                          opacity: 1,
+                          textDecoration: "underline",
+                        },
+                      }}
+                    >
+                      {info.details}
+                    </Link>
+                  ) : (
+                    <Typography sx={{ opacity: 0.85, color: "white" }}>
+                      {info.details}
+                    </Typography>
+                  )}
                 </Box>
               </Box>
             ))}

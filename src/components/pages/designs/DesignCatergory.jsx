@@ -194,7 +194,7 @@ export default function DesignCategory() {
             mt: 2,
             width: "100%",
             "& > *": {
-              minHeight: "400px",
+              minHeight: "500px",
             },
           }}
         >
@@ -207,6 +207,7 @@ export default function DesignCategory() {
                 flexDirection: "column",
                 cursor: "pointer",
                 transition: "all 0.3s ease-in-out",
+                boxShadow: theme.shadows[2],
                 "&:hover": {
                   transform: "translateY(-4px)",
                   boxShadow: theme.shadows[8],
@@ -223,35 +224,63 @@ export default function DesignCategory() {
                   objectFit: "cover",
                 }}
               />
-              <CardContent sx={{ flexGrow: 1, p: 3 }}>
-                <Box sx={{ display: "flex", gap: 1, mb: 2, flexWrap: "wrap" }}>
-                  <Chip
-                    label={design.style}
-                    size="small"
-                    color="primary"
+              <CardContent
+                sx={{
+                  flexGrow: 1,
+                  p: 3,
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                {/* Fixed Header Section */}
+                <Box sx={{ mb: 2 }}>
+                  <Box sx={{ display: "flex", gap: 1, mb: 1.5, flexWrap: "wrap" }}>
+                    <Chip
+                      label={design.style}
+                      size="small"
+                      color="primary"
+                      sx={{
+                        backgroundColor: theme.palette.primary.main,
+                        color: theme.palette.primary.contrastText,
+                      }}
+                    />
+                  </Box>
+                  <Typography
+                    variant="h6"
                     sx={{
-                      backgroundColor: theme.palette.primary.main,
-                      color: theme.palette.primary.contrastText,
+                      color: theme.palette.text.primary,
+                      fontWeight: 600,
+                      minHeight: "48px",
+                      display: "-webkit-box",
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                      lineHeight: 1.3,
                     }}
-                  />
+                  >
+                    {design.name}
+                  </Typography>
                 </Box>
-                <Typography
-                  variant="h6"
-                  gutterBottom
-                  sx={{
-                    color: theme.palette.text.primary,
-                    fontWeight: 600,
-                  }}
-                >
-                  {design.name}
-                </Typography>
+
+                {/* Flexible Description Section */}
                 <Typography
                   variant="body2"
                   color="text.secondary"
-                  sx={{ mb: 2, flexGrow: 1 }}
+                  sx={{
+                    flexGrow: 1,
+                    mb: 2,
+                    minHeight: "60px",
+                    display: "-webkit-box",
+                    WebkitLineClamp: 3,
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
+                    lineHeight: 1.6,
+                  }}
                 >
                   {design.description}
                 </Typography>
+
+                {/* Fixed Button at Bottom */}
                 <Button
                   variant="outlined"
                   fullWidth
@@ -260,8 +289,13 @@ export default function DesignCategory() {
                     navigate(`/designs/${category}/${design.id}`);
                   }}
                   sx={{
+                    mt: "auto",
                     borderColor: theme.palette.primary.main,
                     color: theme.palette.primary.main,
+                    py: 1.2,
+                    borderRadius: "20px",
+                    textTransform: "none",
+                    fontWeight: 600,
                     "&:hover": {
                       borderColor: theme.palette.primary.dark,
                       backgroundColor: theme.palette.action.hover,
