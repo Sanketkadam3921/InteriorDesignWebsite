@@ -7,7 +7,7 @@ const RenovationSteps = () => {
 
   const features = [
     {
-      icon: "https://cdn-icons-png.flaticon.com/128/1077/1077976.png", // Hassle-free experience
+      icon: "https://cdn-icons-png.flaticon.com/128/1521/1521875.png",
       title: "Hassle-free experience",
       description:
         "Enjoy smooth planning, quick execution, and zero stress throughout your renovation.",
