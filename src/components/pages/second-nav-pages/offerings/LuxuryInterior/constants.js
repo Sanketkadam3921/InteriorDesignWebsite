@@ -189,3 +189,45 @@ export const REFERRAL_DATA = {
   ctaText: "Refer now",
   ctaLink: "/contact",
 };
+
+// =====================
+// FAQ
+// =====================
+export const FAQ_ITEMS = [
+  {
+    id: 1,
+    question: "What makes luxury interiors different from standard interior design?",
+    answer:
+      "Luxury interiors focus on premium materials, custom craftsmanship, and personalized design solutions. We use high-end finishes like natural stone, premium wood, designer fixtures, and bespoke furniture. Every detail is carefully curated to create a space that reflects your unique style and lifestyle while ensuring exceptional quality and durability.",
+  },
+  {
+    id: 2,
+    question: "How long does a luxury interior project typically take?",
+    answer:
+      "The timeline for luxury interior projects varies based on scope and customization. A single room renovation typically takes 4-8 weeks, while a complete home interior can take 12-20 weeks. We provide a detailed project timeline during the design consultation phase, accounting for material sourcing, custom fabrication, and meticulous installation.",
+  },
+  {
+    id: 3,
+    question: "What materials and finishes are used in luxury interiors?",
+    answer:
+      "Luxury interiors feature premium materials including natural marble and granite, hardwood flooring, custom millwork, designer lighting, high-end appliances, premium fabrics, and artisanal finishes. We source materials from trusted suppliers and can accommodate specific preferences for imported or custom-made elements.",
+  },
+  {
+    id: 4,
+    question: "Can luxury interiors be customized to match my personal style?",
+    answer:
+      "Absolutely. Luxury interiors are fully customizable to reflect your personal taste and lifestyle. Our design team works closely with you to understand your preferences, from classic elegance to modern minimalism. We create bespoke solutions including custom furniture, unique color palettes, and personalized layouts that make your space truly one-of-a-kind.",
+  },
+  {
+    id: 5,
+    question: "What is included in the luxury interior design service?",
+    answer:
+      "Our luxury interior service includes comprehensive design consultation, 3D visualizations, space planning, material selection, furniture curation, lighting design, project management, and installation supervision. We handle every aspect from concept to completion, ensuring a seamless experience and exceptional results.",
+  },
+  {
+    id: 6,
+    question: "Do you provide warranty and after-sales support for luxury interiors?",
+    answer:
+      "Yes, we provide comprehensive warranties on all materials and workmanship. Our after-sales support includes regular maintenance guidance, repair services, and assistance with any adjustments or additions you may want to make in the future. We maintain long-term relationships with our clients to ensure their spaces continue to meet their evolving needs.",
+  },
+];

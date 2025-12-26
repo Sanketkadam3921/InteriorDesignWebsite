@@ -3,11 +3,13 @@ import { Accordion, AccordionSummary, AccordionDetails, Typography } from '@mui/
 import { ExpandMore } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles';
 
-export default function FAQItem({ question, answer }) {
+export default function FAQItem({ question, answer, id, expanded, onChange }) {
     const theme = useTheme();
 
     return (
         <Accordion
+            expanded={expanded}
+            onChange={onChange}
             sx={{
                 mb: 2,
                 "&:before": { display: "none" },

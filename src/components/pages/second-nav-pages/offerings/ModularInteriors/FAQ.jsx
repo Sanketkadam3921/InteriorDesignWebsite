@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Container, Typography, Chip } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { FAQ_ITEMS } from "./constants";
@@ -6,6 +6,11 @@ import FAQItem from "./FAQItem";
 
 export default function FAQ() {
   const theme = useTheme();
+  const [expanded, setExpanded] = useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
 
   return (
     <Box
@@ -36,8 +41,11 @@ export default function FAQ() {
           {FAQ_ITEMS.map((item) => (
             <FAQItem
               key={item.id}
+              id={item.id}
               question={item.question}
               answer={item.answer}
+              expanded={expanded === item.id}
+              onChange={handleChange(item.id)}
             />
           ))}
         </Box>

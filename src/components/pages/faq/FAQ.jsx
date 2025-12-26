@@ -20,6 +20,11 @@ export default function FAQ() {
   const navigate = useNavigate(); // ✅ for React Router navigation
   const theme = useTheme();
   const [selectedTab, setSelectedTab] = useState(0);
+  const [expanded, setExpanded] = useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
 
   // Get FAQs for the specific category or general FAQs
   const getFAQsForCategory = (cat) => {
@@ -36,6 +41,7 @@ export default function FAQ() {
 
   const handleTabChange = (event, newValue) => {
     setSelectedTab(newValue);
+    setExpanded(false); // Reset expanded state when tab changes
   };
 
   const currentCategory = availableCategories[selectedTab];
@@ -88,6 +94,8 @@ export default function FAQ() {
         {currentFAQs.map((faq) => (
           <Accordion
             key={faq.id}
+            expanded={expanded === faq.id}
+            onChange={handleChange(faq.id)}
             sx={{
               mb: 2,
               "&:before": { display: "none" },

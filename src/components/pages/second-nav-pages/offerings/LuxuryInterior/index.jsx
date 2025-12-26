@@ -7,6 +7,7 @@ import QuadrantSection from "./QuadrantSection";
 import CarouselSection from "./CarouselSection";
 import UniqueFeatures from "./UniqueFeatures";
 import ReferralSection from "./ReferralSection";
+import FAQ from "./FAQ";
 
 export default function LuxuryInterior() {
   return (
@@ -27,6 +28,8 @@ export default function LuxuryInterior() {
         <CarouselSection />
         <UniqueFeatures />
       </Container>
+
+      <FAQ />
     </Box>
   );
 }

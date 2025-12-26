@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Typography,
@@ -12,6 +12,11 @@ import { ExpandMore } from "@mui/icons-material";
 
 const FAQ = () => {
   const theme = useTheme();
+  const [expanded, setExpanded] = useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
 
   const renovationFAQs = [
     {
@@ -81,6 +86,8 @@ const FAQ = () => {
           {renovationFAQs.map((faq) => (
             <Accordion
               key={faq.id}
+              expanded={expanded === faq.id}
+              onChange={handleChange(faq.id)}
               sx={{
                 mb: 2,
                 "&:before": {
