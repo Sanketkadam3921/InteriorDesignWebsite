@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Box, Container, Typography, IconButton, styled } from "@mui/material";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import themeNeutral from "../../../../../themeNeutral";
 import { CAROUSEL_DATA } from "./constants";
 
 const CarouselSectionStyled = styled(Box)(({ theme }) => ({
@@ -16,7 +17,6 @@ const CarouselSectionStyled = styled(Box)(({ theme }) => ({
 }));
 
 const CarouselTitle = styled(Typography)(({ theme }) => ({
-  fontFamily: "serif",
   color: theme.palette.text.primary,
   textAlign: "center",
   marginBottom: theme.spacing(2),
@@ -185,9 +185,11 @@ export default function CarouselSection() {
       <Container maxWidth="lg">
         <CarouselTitle
           variant="h2"
+          component="h2"
           sx={{
-            fontSize: { xs: "2rem", md: "2.5rem", lg: "3rem" },
-            fontWeight: "300",
+            fontSize: { xs: "1.8rem", md: "2.2rem" },
+            fontWeight: themeNeutral.typography.h2.fontWeight,
+            color: themeNeutral.palette.text.primary,
           }}
         >
           {CAROUSEL_DATA.title}
@@ -197,7 +199,8 @@ export default function CarouselSection() {
           variant="h6"
           sx={{
             fontSize: { xs: "1rem", md: "1.1rem" },
-            fontWeight: "400",
+            fontWeight: 400,
+            color: themeNeutral.palette.text.secondary,
           }}
         >
           {CAROUSEL_DATA.subtitle}

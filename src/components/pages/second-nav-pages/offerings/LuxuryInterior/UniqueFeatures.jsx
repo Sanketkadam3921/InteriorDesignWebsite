@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Container, Typography, Button, styled } from "@mui/material";
 import { Link } from "react-router-dom";
+import themeNeutral from "../../../../../themeNeutral";
 import { UNIQUE_FEATURES_DATA } from "./constants";
 import FeatureItem from "./FeatureItem";
 
@@ -16,7 +17,6 @@ const UniqueSection = styled(Box)(({ theme }) => ({
 }));
 
 const UniqueTitle = styled(Typography)(({ theme }) => ({
-  fontFamily: "serif",
   color: theme.palette.text.primary,
   textAlign: "center",
   marginBottom: theme.spacing(6),
@@ -74,9 +74,11 @@ export default function UniqueFeatures() {
       <Container maxWidth="lg">
         <UniqueTitle
           variant="h2"
+          component="h2"
           sx={{
-            fontSize: { xs: "2rem", md: "2.5rem", lg: "3rem" },
-            fontWeight: "300",
+            fontSize: { xs: "1.8rem", md: "2.2rem" },
+            fontWeight: themeNeutral.typography.h2.fontWeight,
+            color: themeNeutral.palette.text.primary,
           }}
         >
           {UNIQUE_FEATURES_DATA.title}

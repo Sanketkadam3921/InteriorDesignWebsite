@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Typography, Button, Container, Grid, styled } from "@mui/material";
 import { Link } from "react-router-dom";
+import themeNeutral from "../../../../../themeNeutral";
 import { LUXURY_DESCRIPTION_DATA } from "./constants";
 
 const SecondSection = styled(Box)(({ theme }) => ({
@@ -40,7 +41,6 @@ const TextColumn = styled(Box)(({ theme }) => ({
 }));
 
 const LuxuryHeadline = styled(Typography)(({ theme }) => ({
-  fontFamily: "serif",
   color: theme.palette.text.primary,
   lineHeight: 1.2,
   marginBottom: theme.spacing(3),
@@ -50,12 +50,12 @@ const LuxuryHeadline = styled(Typography)(({ theme }) => ({
 }));
 
 const DescriptionText = styled(Typography)(({ theme }) => ({
-  color: theme.palette.text.primary,
-  lineHeight: 1.6,
+  color: theme.palette.text.secondary,
+  lineHeight: 1.8,
   marginBottom: theme.spacing(4),
-  [theme.breakpoints.down("md")]: {
-    fontSize: "0.95rem",
-  },
+  fontSize: { xs: "1rem", md: "1.15rem" },
+  maxWidth: { xs: "100%", md: "900px" },
+  mx: "auto",
 }));
 
 const ContactButton = styled(Button)(({ theme }) => ({
@@ -84,9 +84,11 @@ export default function LuxuryDescription() {
             <TextColumn>
               <LuxuryHeadline
                 variant="h2"
+                component="h2"
                 sx={{
-                  fontSize: { xs: "2rem", md: "2.5rem", lg: "3rem" },
-                  fontWeight: "300",
+                  fontSize: { xs: "1.8rem", md: "2.2rem" },
+                  fontWeight: themeNeutral.typography.h2.fontWeight,
+                  color: themeNeutral.palette.text.primary,
                 }}
               >
                 {LUXURY_DESCRIPTION_DATA.headline.split("\n").map((line, i) => (
@@ -99,7 +101,7 @@ export default function LuxuryDescription() {
               <DescriptionText
                 variant="body1"
                 sx={{
-                  fontSize: { xs: "0.95rem", md: "1rem" },
+                  color: themeNeutral.palette.text.secondary,
                 }}
               >
                 {LUXURY_DESCRIPTION_DATA.description}

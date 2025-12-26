@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Typography, Button, styled } from "@mui/material";
 import { Link } from "react-router-dom";
+import themeNeutral from "../../../../../themeNeutral";
 import { REFERRAL_DATA } from "./constants";
 
 const ReferralSectionStyled = styled(Box)(({ theme }) => ({
@@ -67,18 +68,11 @@ const ReferralContent = styled(Box)(({ theme }) => ({
 }));
 
 const ReferralText = styled(Typography)(({ theme }) => ({
-  fontFamily: "serif",
-  color: theme.palette.text.primary,
-  fontSize: "2.5rem",
-  fontWeight: "400",
+  color: themeNeutral.palette.text.primary,
+  fontSize: { xs: "1.5rem", md: "2rem", lg: "2.2rem" },
+  fontWeight: themeNeutral.typography.h2.fontWeight,
   lineHeight: 1.3,
   marginBottom: theme.spacing(4),
-  [theme.breakpoints.down("md")]: {
-    fontSize: "2rem",
-  },
-  [theme.breakpoints.down("sm")]: {
-    fontSize: "1.5rem",
-  },
 }));
 
 const ReferralButton = styled(Button)(({ theme }) => ({
@@ -89,7 +83,6 @@ const ReferralButton = styled(Button)(({ theme }) => ({
   fontSize: "1.1rem",
   fontWeight: "bold",
   textTransform: "none",
-  fontFamily: "sans-serif",
   "&:hover": {
     backgroundColor: theme.palette.primary.dark,
     transform: "translateY(-2px)",
