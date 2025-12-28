@@ -35,7 +35,7 @@ const items = [
   },
   {
     text: "Carefully selected materials",
-    icon: "https://i.pinimg.com/736x/38/b0/fa/38b0fa9f2d5156973f3167e50aa515e7.jpg", // 🪵 Material icon
+    icon: "https://cdn-icons-png.flaticon.com/128/2708/2708071.png", // 🪵 Material icon
   },
   {
     text: "On-time project delivery",

@@ -62,13 +62,14 @@ const FAQ = () => {
       <Container maxWidth="lg">
         <Box sx={{ textAlign: "left", mb: 4 }}>
           <Typography
-            variant="h4"
+            variant="h3"
             component="h2"
             gutterBottom
             sx={{
-              fontWeight: 600,
+              fontWeight: 700,
               color: theme.palette.text.primary,
-              fontSize: { xs: "1.75rem", md: "2.125rem" },
+              fontSize: { xs: "1.8rem", md: "2.4rem" },
+              mb: 2,
             }}
           >
             Frequently Asked Questions
@@ -76,7 +77,10 @@ const FAQ = () => {
           <Typography
             variant="h6"
             color="text.secondary"
-            sx={{ mb: 3, fontSize: { xs: "1rem", md: "1.125rem" } }}
+            sx={{
+              mb: 3,
+              fontSize: { xs: "1rem", md: "1.1rem" },
+            }}
           >
             Common questions about home renovations
           </Typography>
@@ -90,17 +94,19 @@ const FAQ = () => {
               onChange={handleChange(faq.id)}
               sx={{
                 mb: 2,
-                "&:before": {
-                  display: "none",
-                },
-                boxShadow: theme.shadows[2],
+                "&:before": { display: "none" },
+                borderRadius: 3,
+                overflow: "hidden",
+                boxShadow: "0 6px 20px rgba(0,0,0,0.05)",
+                backgroundColor: theme.palette.background.paper,
+                transition: "all 0.3s ease",
                 "&:hover": {
-                  boxShadow: theme.shadows[4],
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
                 },
               }}
             >
               <AccordionSummary
-                expandIcon={<ExpandMore />}
+                expandIcon={<ExpandMore sx={{ color: theme.palette.primary.main }} />}
                 sx={{
                   backgroundColor: theme.palette.background.paper,
                   "&:hover": {
@@ -111,8 +117,9 @@ const FAQ = () => {
                 <Typography
                   variant="h6"
                   sx={{
-                    fontWeight: 500,
-                    fontSize: { xs: "1rem", md: "1.125rem" },
+                    fontWeight: 600,
+                    color: theme.palette.text.primary,
+                    fontSize: { xs: "1rem", md: "1.1rem" },
                   }}
                 >
                   {faq.question}
@@ -126,8 +133,11 @@ const FAQ = () => {
               >
                 <Typography
                   variant="body1"
-                  color="text.secondary"
-                  sx={{ lineHeight: 1.7 }}
+                  sx={{
+                    lineHeight: 1.8,
+                    color: theme.palette.text.secondary,
+                    fontSize: { xs: "0.95rem", md: "1rem" },
+                  }}
                 >
                   {faq.answer}
                 </Typography>

@@ -22,7 +22,7 @@ export default function AllDesigns() {
       description:
         "Make a stunning first impression with elegant foyer designs",
       image:
-        "https://i.pinimg.com/736x/dc/a5/57/dca557cb74df5384a5c89b4a2dc9d199.jpg",
+        "https://ik.imagekit.io/bowr9614/AllDesigns/FoyerDesigns/drive-download-20251208T054641Z-1-001/IMG_5656.JPG?updatedAt=1765174234392",
       count: 7,
     },
     {
@@ -30,7 +30,7 @@ export default function AllDesigns() {
       title: "Living Room Designs",
       description: "Inviting living spaces for relaxation and entertainment",
       image:
-        "https://images.unsplash.com/photo-1600121848594-d8644e57abab?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470",
+        "https://ik.imagekit.io/bowr9614/AllDesigns/LivingRoom/drive-download-20251208T054515Z-1-001/IMG_5590.JPG?updatedAt=1765174414841",
       count: 10,
     },
     {
@@ -38,7 +38,7 @@ export default function AllDesigns() {
       title: "TV Unit Designs",
       description: "Stylish TV units that enhance your entertainment area",
       image:
-        "https://images.unsplash.com/photo-1586024486164-ce9b3d87e09f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=978",
+        "https://ik.imagekit.io/bowr9614/AllDesigns/TvUnitDesigns/drive-download-20251208T054315Z-1-001/IMG_5613.JPG?updatedAt=1765174366109",
       count: 10,
     },
     {
@@ -46,7 +46,7 @@ export default function AllDesigns() {
       title: "Pooja Room Designs",
       description: "Sacred spaces designed with tradition and elegance",
       image:
-        "https://i.pinimg.com/736x/c5/85/de/c585def942f5f23bc3001f1162a517de.jpg",
+        "https://ik.imagekit.io/bowr9614/AllDesigns/PoojaRoom/drive-download-20251208T055104Z-1-001/IMG_5602.JPG?updatedAt=1765174392145",
       count: 10,
     },
     {
@@ -54,7 +54,7 @@ export default function AllDesigns() {
       title: "Dining Room Designs",
       description: "Elegant dining spaces for memorable meals and gatherings",
       image:
-        "https://i.pinimg.com/1200x/4f/6f/d9/4f6fd955337c70ba16586bbe50aaa787.jpg",
+        "https://ik.imagekit.io/bowr9614/AllDesigns/DiningRoomDesigns/drive-download-20251208T055338Z-1-001/IMG_5639.JPG?updatedAt=1765174264437",
       count: 10,
     },
     {
@@ -63,7 +63,7 @@ export default function AllDesigns() {
       description:
         "Functional and beautiful kitchens with smart storage solutions",
       image:
-        "https://plus.unsplash.com/premium_photo-1683141179507-734e6157ddba?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1631",
+        "https://ik.imagekit.io/bowr9614/AllDesigns/Kitchen/drive-download-20251208T055141Z-1-001/IMG_5547.JPG?updatedAt=1765174520323",
       count: 10,
     },
     {
@@ -71,7 +71,7 @@ export default function AllDesigns() {
       title: "Crockery Unit Designs",
       description: "Display and storage solutions for your dinnerware",
       image:
-        "https://i.pinimg.com/736x/24/e0/f6/24e0f640fb8d889590458d05cdf68184.jpg",
+        "https://ik.imagekit.io/bowr9614/AllDesigns/CrockeryUnitDesigns/drive-download-20251208T054757Z-1-001/IMG_5703.JPG?updatedAt=1765173940012",
       count: 10,
     },
     {
@@ -79,7 +79,7 @@ export default function AllDesigns() {
       title: "Kids Bedroom Designs",
       description: "Fun and functional spaces for children to grow and play",
       image:
-        "https://plus.unsplash.com/premium_photo-1684164600683-6ecb6c9c0eb7?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470",
+        "https://ik.imagekit.io/bowr9614/AllDesigns/KidsBedroomDesigns/drive-download-20251208T054603Z-1-001/IMG_5630.JPG?updatedAt=1765174313647",
       count: 10,
     },
     {
@@ -87,7 +87,7 @@ export default function AllDesigns() {
       title: "Master Bedroom Designs",
       description: "Elegant master bedroom designs for peaceful rest",
       image:
-        "https://plus.unsplash.com/premium_photo-1675616563084-eadb7ee3338f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470",
+        "https://ik.imagekit.io/bowr9614/AllDesigns/MasterBedroom/drive-download-20251208T054434Z-1-001/IMG_5584.JPG?updatedAt=1765174441359",
       count: 10,
     },
     {
@@ -95,7 +95,7 @@ export default function AllDesigns() {
       title: "Wardrobe Designs",
       description: "Customized wardrobes with optimal storage and style",
       image:
-        "https://images.unsplash.com/photo-1672137233327-37b0c1049e77?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1074",
+        "https://ik.imagekit.io/bowr9614/AllDesigns/Wardrobe/drive-download-20251208T054224Z-1-001/IMG_5565.JPG?updatedAt=1765174491853",
       count: 10,
     },
     {
@@ -103,7 +103,7 @@ export default function AllDesigns() {
       title: "Study Room Designs",
       description: "Focused study spaces for learning and concentration",
       image:
-        "https://plus.unsplash.com/premium_photo-1720707755672-fa44f1711954?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1074",
+        "https://ik.imagekit.io/bowr9614/AllDesigns/StudyRoomDesigns/drive-download-20251208T054353Z-1-001/IMG_5677.JPG?updatedAt=1765174137497",
       count: 10,
     },
     {
@@ -111,7 +111,7 @@ export default function AllDesigns() {
       title: "Bathroom Designs",
       description: "Luxurious and practical bathroom designs for daily comfort",
       image:
-        "https://images.unsplash.com/photo-1651951646668-46562cfb4518?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1482",
+        "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5570.JPG?updatedAt=1765174468360",
       count: 10,
     },
     {
@@ -119,7 +119,7 @@ export default function AllDesigns() {
       title: "Home Office Designs",
       description: "Productive workspaces designed for focus and creativity",
       image:
-        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=500",
+        "https://ik.imagekit.io/bowr9614/AllDesigns/HomeOfficeDesigns/drive-download-20251208T055210Z-1-001/IMG_5658.JPG?updatedAt=1765174208162",
       count: 10,
     },
     {
@@ -127,7 +127,7 @@ export default function AllDesigns() {
       title: "False Ceiling Designs",
       description: "Modern ceiling designs that add dimension and style",
       image:
-        "https://i.pinimg.com/736x/e6/f4/ee/e6f4ee2fdb627f5b60d3e3ce6edd6419.jpg",
+        "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5618.JPG?updatedAt=1765174342449",
       count: 10,
     },
     {
@@ -135,7 +135,7 @@ export default function AllDesigns() {
       title: "Home Wallpaper Designs",
       description: "Stunning wallpaper designs to transform your walls",
       image:
-        "https://i.pinimg.com/1200x/c9/b7/3f/c9b73fa070844a55f2db06b8fc15d0fa.jpg",
+        "https://ik.imagekit.io/bowr9614/AllDesigns/HomeWallpaperDesigns/drive-download-20251208T055459Z-3-001/IMG_5681.JPG?updatedAt=1765174177705",
       count: 10,
     },
     {
@@ -143,7 +143,7 @@ export default function AllDesigns() {
       title: "Space Saving Designs",
       description: "Smart solutions to maximize your living space",
       image:
-        "https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=500",
+        "https://ik.imagekit.io/bowr9614/AllDesigns/SpaceSavingDesigns/drive-download-20251208T055034Z-1-001/IMG_5709.JPG?updatedAt=1765174015208",
       count: 10,
     },
     {
@@ -151,7 +151,7 @@ export default function AllDesigns() {
       title: "Door Designs",
       description: "Stylish door designs for every room in your home",
       image:
-        "https://i.pinimg.com/736x/ce/27/6d/ce276d9ec8bb0f071f070dbc34ca4ac7.jpg",
+        "https://ik.imagekit.io/bowr9614/AllDesigns/DoorDesigns/drive-download-20251208T054716Z-1-001/IMG_4488.JPG?updatedAt=1765173967437",
       count: 10,
     },
     {
@@ -159,7 +159,7 @@ export default function AllDesigns() {
       title: "KalaKruti Studio Designs",
       description: "Complete home interior solutions from KalaKruti Studio",
       image:
-        "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=500",
+        "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4411.JPG?updatedAt=1765185733225",
       count: 20,
     },
   ];
@@ -174,7 +174,7 @@ export default function AllDesigns() {
       {/* Header Section */}
       <Box sx={{ mb: 6, textAlign: "left" }}>
         <Typography
-          variant="h3"
+          variant="h4"
           component="h1"
           gutterBottom
           sx={{

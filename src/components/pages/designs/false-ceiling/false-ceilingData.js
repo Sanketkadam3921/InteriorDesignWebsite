@@ -7,7 +7,7 @@ export const falseceilingDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5619.JPG?updatedAt=1765174342732",
     description:
       "Modern minimalist ceiling with geometric linear LED design in soft matte white",
-    style: "Modern Minimalist Ceiling with Geometric Linear LED Design",
+    style: "Modern Minimalist ",
     price: "₹1,80,000",
     area: "Ceiling Coverage",
   },
@@ -18,7 +18,7 @@ export const falseceilingDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5620.JPG?updatedAt=1765174342707",
     description:
       "Modern minimalist ceiling with geometric linear LED design in soft warm white",
-    style: "Modern Minimalist Ceiling with Geometric Linear LED Design",
+    style: "Modern Minimalist ",
     price: "₹2,50,000",
     area: "Ceiling Coverage",
   },
@@ -29,8 +29,7 @@ export const falseceilingDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5623.JPG?updatedAt=1765174342614",
     description:
       "Modern minimalistic false ceiling with recessed center and clean geometric layout",
-    style:
-      "Modern Minimalistic False Ceiling with Recessed Center and Clean Geometric Layout",
+    style: "Modern Minimalistic ",
     price: "₹2,20,000",
     area: "Ceiling Coverage",
   },
@@ -41,7 +40,7 @@ export const falseceilingDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5618.JPG?updatedAt=1765174342449",
     description:
       "Elegant recessed false ceiling with classic trim borders in warm beige/cream",
-    style: "Elegant Recessed False Ceiling with Classic Trim Borders",
+    style: "Elegant Recessed ",
     price: "₹3,00,000",
     area: "Ceiling Coverage",
   },
@@ -52,8 +51,7 @@ export const falseceilingDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5622.JPG?updatedAt=1765174342345",
     description:
       "Modern accent ceiling with extended drop design flowing onto the wall",
-    style:
-      "Modern Accent Ceiling with Extended Drop Design Flowing onto the Wall",
+    style: "Modern Accent ",
     price: "₹1,60,000",
     area: "Ceiling Coverage",
   },
@@ -64,7 +62,7 @@ export const falseceilingDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5617.JPG?updatedAt=1765174342274",
     description:
       "Modern layered false ceiling with recessed geometric contours and wooden slat paneling",
-    style: "Modern Layered False Ceiling with Recessed Geometric Contours",
+    style: "Modern Layered ",
     price: "₹2,40,000",
     area: "Ceiling Coverage",
   },
@@ -75,8 +73,7 @@ export const falseceilingDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5621.JPG?updatedAt=1765174341859",
     description:
       "Modern minimalist recessed ceiling with sleek perimeter lighting accents",
-    style:
-      "Modern Minimalist Recessed Ceiling with Sleek Perimeter Lighting Accents",
+    style: "Modern Minimalist ",
     price: "₹2,00,000",
     area: "Ceiling Coverage",
   },
@@ -86,7 +83,7 @@ export const falseceilingDesigns = [
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5624.JPG?updatedAt=1765174341845",
     description: "Modern linear false ceiling with clean, streamlined design",
-    style: "Modern Linear False Ceiling with Clean, Streamlined Design",
+    style: "Modern Linear ",
     price: "₹2,80,000",
     area: "Ceiling Coverage",
   },
@@ -96,7 +93,7 @@ export const falseceilingDesigns = [
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5625.JPG?updatedAt=1765174341847",
     description: "Modern recessed false ceiling with stepped tray design",
-    style: "Modern Recessed False Ceiling with Stepped Tray Design",
+    style: "Modern Recessed ",
     price: "₹2,60,000",
     area: "Ceiling Coverage",
   },
@@ -107,8 +104,7 @@ export const falseceilingDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5626.JPG?updatedAt=1765174341735",
     description:
       "Classic tray ceiling with layered moulding and recessed perimeter design",
-    style:
-      "Classic Tray Ceiling with Layered Moulding and Recessed Perimeter Design",
+    style: "Classic Tray ",
     price: "₹3,20,000",
     area: "Ceiling Coverage",
   },
@@ -120,7 +116,7 @@ export const falseceilingDesignDetails = {
     id: "1",
     title: "Modern Minimalist Geometric LED Ceiling",
     category: "false-ceiling",
-    style: "Modern Minimalist Ceiling with Geometric Linear LED Design",
+    style: "Modern Minimalist ",
     price: "₹1,80,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5619.JPG?updatedAt=1765174342732",
@@ -139,7 +135,7 @@ export const falseceilingDesignDetails = {
     ],
     specifications: {
       area: "Ceiling Coverage",
-      style: "Modern Minimalist Ceiling with Geometric Linear LED Design",
+      style: "Modern Minimalist Ceiling ",
       colorScheme: "Soft Matte White",
       materials: "Gypsum False Ceiling with Integrated LED Channels",
       panelFinish: "Smooth, Seamless Finish with Clean Recessed Line Detailing",
@@ -151,7 +147,7 @@ export const falseceilingDesignDetails = {
     id: "2",
     title: "Modern Minimalist Geometric LED Ceiling",
     category: "false-ceiling",
-    style: "Modern Minimalist Ceiling with Geometric Linear LED Design",
+    style: "Modern Minimalist ",
     price: "₹2,50,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5620.JPG?updatedAt=1765174342707",
@@ -182,8 +178,7 @@ export const falseceilingDesignDetails = {
     id: "3",
     title: "Modern Minimalistic Recessed Center Ceiling",
     category: "false-ceiling",
-    style:
-      "Modern Minimalistic False Ceiling with a Recessed Center and Clean Geometric Layout",
+    style: "Modern Minimalistic False Ceiling ",
     price: "₹2,20,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5623.JPG?updatedAt=1765174342614",
@@ -216,7 +211,7 @@ export const falseceilingDesignDetails = {
     id: "4",
     title: "Elegant Recessed False Ceiling",
     category: "false-ceiling",
-    style: "Elegant Recessed False Ceiling with Classic Trim Borders",
+    style: "Elegant Recessed ",
     price: "₹3,00,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5618.JPG?updatedAt=1765174342449",
@@ -248,8 +243,7 @@ export const falseceilingDesignDetails = {
     id: "5",
     title: "Modern Accent Ceiling with Extended Drop",
     category: "false-ceiling",
-    style:
-      "Modern Accent Ceiling with an Extended Drop Design Flowing onto the Wall",
+    style: "Modern Accent ",
     price: "₹1,60,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5622.JPG?updatedAt=1765174342345",
@@ -268,8 +262,7 @@ export const falseceilingDesignDetails = {
     ],
     specifications: {
       area: "Ceiling Coverage",
-      style:
-        "Modern Accent Ceiling with an Extended Drop Design Flowing onto the Wall",
+      style: "Modern Accent ",
       colorScheme: "Soft Warm White with a Subtle Matte Texture",
       materials:
         "Gypsum False Ceiling with Integrated 3D Textured Wall-Ceiling Panel",
@@ -283,7 +276,7 @@ export const falseceilingDesignDetails = {
     id: "6",
     title: "Modern Layered False Ceiling",
     category: "false-ceiling",
-    style: "Modern Layered False Ceiling with Recessed Geometric Contours",
+    style: "Modern Layered ",
     price: "₹2,40,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5617.JPG?updatedAt=1765174342274",
@@ -317,8 +310,7 @@ export const falseceilingDesignDetails = {
     id: "7",
     title: "Modern Minimalist Recessed Ceiling",
     category: "false-ceiling",
-    style:
-      "Modern Minimalist Recessed Ceiling with Sleek Perimeter Lighting Accents",
+    style: "Modern Minimalist Recessed ",
     price: "₹2,00,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5621.JPG?updatedAt=1765174341859",
@@ -352,7 +344,7 @@ export const falseceilingDesignDetails = {
     id: "8",
     title: "Modern Linear False Ceiling",
     category: "false-ceiling",
-    style: "Modern Linear False Ceiling with Clean, Streamlined Design",
+    style: "Modern Linear ",
     price: "₹2,80,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5624.JPG?updatedAt=1765174341845",
@@ -384,7 +376,7 @@ export const falseceilingDesignDetails = {
     id: "9",
     title: "Modern Recessed Stepped Tray Ceiling",
     category: "false-ceiling",
-    style: "Modern Recessed False Ceiling with a Stepped Tray Design",
+    style: "Modern Recessed ",
     price: "₹2,60,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5625.JPG?updatedAt=1765174341847",
@@ -416,8 +408,7 @@ export const falseceilingDesignDetails = {
     id: "10",
     title: "Classic Tray Ceiling",
     category: "false-ceiling",
-    style:
-      "Classic Tray Ceiling with Layered Moulding and Recessed Perimeter Design",
+    style: "Classic Tray ",
     price: "₹3,20,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/FalseCeilingDesigns/FalseCeilingDesigns/IMG_5626.JPG?updatedAt=1765174341735",

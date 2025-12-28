@@ -13,6 +13,11 @@ import { ExpandMore } from "@mui/icons-material";
 
 export default function WardrobeEstimatorFAQs() {
     const theme = useTheme();
+    const [expanded, setExpanded] = React.useState(false);
+
+    const handleChange = (panel) => (event, isExpanded) => {
+        setExpanded(isExpanded ? panel : false);
+    };
 
     const wardrobeEstimatorFAQs = [
         {
@@ -93,6 +98,8 @@ export default function WardrobeEstimatorFAQs() {
                     {wardrobeEstimatorFAQs.map((faq) => (
                         <Accordion
                             key={faq.id}
+                            expanded={expanded === faq.id}
+                            onChange={handleChange(faq.id)}
                             sx={{
                                 mb: 2,
                                 "&:before": { display: "none" },

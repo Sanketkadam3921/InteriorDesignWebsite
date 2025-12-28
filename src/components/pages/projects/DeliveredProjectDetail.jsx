@@ -31,6 +31,11 @@ export default function DeliveredProjectDetail() {
   const navigate = useNavigate();
   const theme = useTheme();
   const project = deliveredProjectsDetails[id];
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
 
   const deliveredFAQs = [
     {
@@ -385,14 +390,26 @@ export default function DeliveredProjectDetail() {
         <Box sx={{ mt: 8 }}>
           <Box sx={{ textAlign: "left", mb: 4 }}>
             <Typography
-              variant="h4"
+              variant="h3"
               component="h2"
               gutterBottom
-              sx={{ fontWeight: 600 }}
+              sx={{
+                fontWeight: 700,
+                color: theme.palette.text.primary,
+                fontSize: { xs: "1.8rem", md: "2.4rem" },
+                mb: 2,
+              }}
             >
               Frequently Asked Questions
             </Typography>
-            <Typography variant="h6" color="text.secondary" sx={{ mb: 3 }}>
+            <Typography
+              variant="h6"
+              color="text.secondary"
+              sx={{
+                mb: 3,
+                fontSize: { xs: "1rem", md: "1.1rem" },
+              }}
+            >
               Common questions about this delivered project
             </Typography>
           </Box>
@@ -401,19 +418,23 @@ export default function DeliveredProjectDetail() {
             {deliveredFAQs.map((faq) => (
               <Accordion
                 key={faq.id}
+                expanded={expanded === faq.id}
+                onChange={handleChange(faq.id)}
                 sx={{
                   mb: 2,
-                  "&:before": {
-                    display: "none",
-                  },
-                  boxShadow: theme.shadows[2],
+                  "&:before": { display: "none" },
+                  borderRadius: 3,
+                  overflow: "hidden",
+                  boxShadow: "0 6px 20px rgba(0,0,0,0.05)",
+                  backgroundColor: theme.palette.background.paper,
+                  transition: "all 0.3s ease",
                   "&:hover": {
-                    boxShadow: theme.shadows[4],
+                    boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
                   },
                 }}
               >
                 <AccordionSummary
-                  expandIcon={<ExpandMore />}
+                  expandIcon={<ExpandMore sx={{ color: theme.palette.primary.main }} />}
                   sx={{
                     backgroundColor: theme.palette.background.paper,
                     "&:hover": {
@@ -421,7 +442,14 @@ export default function DeliveredProjectDetail() {
                     },
                   }}
                 >
-                  <Typography variant="h6" sx={{ fontWeight: 500 }}>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      fontWeight: 600,
+                      color: theme.palette.text.primary,
+                      fontSize: { xs: "1rem", md: "1.1rem" },
+                    }}
+                  >
                     {faq.question}
                   </Typography>
                 </AccordionSummary>
@@ -433,8 +461,11 @@ export default function DeliveredProjectDetail() {
                 >
                   <Typography
                     variant="body1"
-                    color="text.secondary"
-                    sx={{ lineHeight: 1.7 }}
+                    sx={{
+                      lineHeight: 1.8,
+                      color: theme.palette.text.secondary,
+                      fontSize: { xs: "0.95rem", md: "1rem" },
+                    }}
                   >
                     {faq.answer}
                   </Typography>

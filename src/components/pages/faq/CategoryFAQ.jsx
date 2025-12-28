@@ -13,6 +13,11 @@ import { faqData } from "./index";
 
 export default function CategoryFAQ({ category }) {
   const theme = useTheme();
+  const [expanded, setExpanded] = useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
 
   // Get FAQs for the specific category
   const categoryFAQs = faqData[category] || [];
@@ -32,7 +37,12 @@ export default function CategoryFAQ({ category }) {
           variant="h3"
           component="h2"
           gutterBottom
-          sx={{ mb: 3, fontWeight: 600 }}
+          sx={{
+            mb: 3,
+            fontWeight: 700,
+            color: theme.palette.text.primary,
+            fontSize: { xs: "1.8rem", md: "2.4rem" },
+          }}
         >
           Frequently Asked Questions
         </Typography>
@@ -41,19 +51,23 @@ export default function CategoryFAQ({ category }) {
           {allFAQs.map((faq) => (
             <Accordion
               key={faq.id}
+              expanded={expanded === faq.id}
+              onChange={handleChange(faq.id)}
               sx={{
                 mb: 2,
-                "&:before": {
-                  display: "none",
-                },
-                boxShadow: theme.shadows[1],
+                "&:before": { display: "none" },
+                borderRadius: 3,
+                overflow: "hidden",
+                boxShadow: "0 6px 20px rgba(0,0,0,0.05)",
+                backgroundColor: theme.palette.background.paper,
+                transition: "all 0.3s ease",
                 "&:hover": {
-                  boxShadow: theme.shadows[3],
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
                 },
               }}
             >
               <AccordionSummary
-                expandIcon={<ExpandMore />}
+                expandIcon={<ExpandMore sx={{ color: theme.palette.primary.main }} />}
                 sx={{
                   backgroundColor: theme.palette.background.paper,
                   "&:hover": {
@@ -61,7 +75,14 @@ export default function CategoryFAQ({ category }) {
                   },
                 }}
               >
-                <Typography variant="h6" sx={{ fontWeight: 500 }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontWeight: 600,
+                    color: theme.palette.text.primary,
+                    fontSize: { xs: "1rem", md: "1.1rem" },
+                  }}
+                >
                   {faq.question}
                 </Typography>
               </AccordionSummary>
@@ -73,8 +94,11 @@ export default function CategoryFAQ({ category }) {
               >
                 <Typography
                   variant="body1"
-                  color="text.secondary"
-                  sx={{ lineHeight: 1.7 }}
+                  sx={{
+                    lineHeight: 1.8,
+                    color: theme.palette.text.secondary,
+                    fontSize: { xs: "0.95rem", md: "1rem" },
+                  }}
                 >
                   {faq.answer}
                 </Typography>

@@ -171,7 +171,7 @@ export default function DesignCategory() {
 
         {/* Category Header */}
         <Box sx={{ mb: 4, textAlign: "flex-start" }}>
-          <Typography variant="h3" component="h1" gutterBottom>
+          <Typography variant="h4" component="h1" gutterBottom>
             {categoryTitle} Designs
           </Typography>
           <Typography variant="h6" color="text.secondary">
@@ -234,7 +234,9 @@ export default function DesignCategory() {
               >
                 {/* Fixed Header Section */}
                 <Box sx={{ mb: 2 }}>
-                  <Box sx={{ display: "flex", gap: 1, mb: 1.5, flexWrap: "wrap" }}>
+                  <Box
+                    sx={{ display: "flex", gap: 1, mb: 1.5, flexWrap: "wrap" }}
+                  >
                     <Chip
                       label={design.style}
                       size="small"

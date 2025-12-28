@@ -13,6 +13,11 @@ import { ExpandMore } from "@mui/icons-material";
 
 export default function KitchenEstimatorFAQs() {
     const theme = useTheme();
+    const [expanded, setExpanded] = React.useState(false);
+
+    const handleChange = (panel) => (event, isExpanded) => {
+        setExpanded(isExpanded ? panel : false);
+    };
 
     const kitchenEstimatorFAQs = [
         {
@@ -101,6 +106,8 @@ export default function KitchenEstimatorFAQs() {
                     {kitchenEstimatorFAQs.map((faq) => (
                         <Accordion
                             key={faq.id}
+                            expanded={expanded === faq.id}
+                            onChange={handleChange(faq.id)}
                             sx={{
                                 mb: 2,
                                 "&:before": { display: "none" },

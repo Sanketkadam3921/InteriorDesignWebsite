@@ -2267,6 +2267,11 @@ function KitchenStylesCarousel() {
 // Kitchen FAQs Component
 function KitchenFAQs() {
     const theme = useTheme();
+    const [expanded, setExpanded] = useState(false);
+
+    const handleChange = (panel) => (event, isExpanded) => {
+        setExpanded(isExpanded ? panel : false);
+    };
 
     const kitchenFAQs = [
         {
@@ -2311,8 +2316,8 @@ function KitchenFAQs() {
                     sx={{
                         fontWeight: 700,
                         color: theme.palette.text.primary,
-                        fontFamily: theme.typography.fontFamily,
-                        fontSize: { xs: "2rem", md: "2.5rem" }
+                        fontSize: { xs: "1.8rem", md: "2.4rem" },
+                        mb: 2,
                     }}
                 >
                     Kitchen Design FAQs
@@ -2324,12 +2329,16 @@ function KitchenFAQs() {
                 {kitchenFAQs.map((faq) => (
                     <Accordion
                         key={faq.id}
+                        expanded={expanded === faq.id}
+                        onChange={handleChange(faq.id)}
                         sx={{
                             mb: 2,
                             '&:before': { display: 'none' },
+                            borderRadius: 3,
+                            overflow: "hidden",
                             boxShadow: "0 6px 20px rgba(0,0,0,0.05)",
-                            borderRadius: 14,
                             backgroundColor: theme.palette.background.paper,
+                            transition: "all 0.3s ease",
                             '&:hover': {
                                 boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
                             },
@@ -2349,7 +2358,7 @@ function KitchenFAQs() {
                                 sx={{
                                     fontWeight: 600,
                                     color: theme.palette.text.primary,
-                                    fontFamily: theme.typography.fontFamily
+                                    fontSize: { xs: "1rem", md: "1.1rem" },
                                 }}
                             >
                                 {faq.question}
@@ -2364,9 +2373,9 @@ function KitchenFAQs() {
                             <Typography
                                 variant="body1"
                                 sx={{
-                                    lineHeight: 1.7,
+                                    lineHeight: 1.8,
                                     color: theme.palette.text.secondary,
-                                    fontFamily: theme.typography.fontFamily
+                                    fontSize: { xs: "0.95rem", md: "1rem" },
                                 }}
                             >
                                 {faq.answer}

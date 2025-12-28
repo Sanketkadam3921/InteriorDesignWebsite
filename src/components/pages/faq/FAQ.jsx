@@ -51,10 +51,27 @@ export default function FAQ() {
     <Container maxWidth="lg" sx={{ py: 4, mb: 0 }}>
       {/* Header */}
       <Box sx={{ textAlign: "left", mb: 4 }}>
-        <Typography variant="h3" component="h1" gutterBottom>
+        <Typography
+          variant="h3"
+          component="h1"
+          gutterBottom
+          sx={{
+            fontWeight: 700,
+            color: theme.palette.text.primary,
+            fontSize: { xs: "1.8rem", md: "2.4rem" },
+            mb: 2,
+          }}
+        >
           {faqConfig.title}
         </Typography>
-        <Typography variant="h6" color="text.secondary" sx={{ mb: 3 }}>
+        <Typography
+          variant="h6"
+          color="text.secondary"
+          sx={{
+            mb: 3,
+            fontSize: { xs: "1rem", md: "1.1rem" },
+          }}
+        >
           {faqConfig.description}
         </Typography>
 
@@ -92,19 +109,25 @@ export default function FAQ() {
       {/* FAQ Accordions */}
       <Box sx={{ maxWidth: 1200, mx: "auto" }}>
         {currentFAQs.map((faq) => (
-          <Accordion
+            <Accordion
             key={faq.id}
             expanded={expanded === faq.id}
             onChange={handleChange(faq.id)}
             sx={{
               mb: 2,
               "&:before": { display: "none" },
-              boxShadow: theme.shadows[2],
-              "&:hover": { boxShadow: theme.shadows[4] },
+              borderRadius: 3,
+              overflow: "hidden",
+              boxShadow: "0 6px 20px rgba(0,0,0,0.05)",
+              backgroundColor: theme.palette.background.paper,
+              transition: "all 0.3s ease",
+              "&:hover": {
+                boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+              },
             }}
           >
             <AccordionSummary
-              expandIcon={<ExpandMore />}
+              expandIcon={<ExpandMore sx={{ color: theme.palette.primary.main }} />}
               sx={{
                 backgroundColor: theme.palette.background.paper,
                 "&:hover": {
@@ -112,7 +135,14 @@ export default function FAQ() {
                 },
               }}
             >
-              <Typography variant="h6" sx={{ fontWeight: 500 }}>
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: 600,
+                  color: theme.palette.text.primary,
+                  fontSize: { xs: "1rem", md: "1.1rem" },
+                }}
+              >
                 {faq.question}
               </Typography>
             </AccordionSummary>
@@ -124,8 +154,11 @@ export default function FAQ() {
             >
               <Typography
                 variant="body1"
-                color="text.secondary"
-                sx={{ lineHeight: 1.7 }}
+                sx={{
+                  lineHeight: 1.8,
+                  color: theme.palette.text.secondary,
+                  fontSize: { xs: "0.95rem", md: "1rem" },
+                }}
               >
                 {faq.answer}
               </Typography>

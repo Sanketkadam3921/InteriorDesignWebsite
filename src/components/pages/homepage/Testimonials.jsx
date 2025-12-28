@@ -169,7 +169,16 @@ export default function Testimonials() {
                     />
                   </Box>
 
-                  <CardContent sx={{ p: 0, position: "relative", zIndex: 1 }}>
+                  <CardContent
+                    sx={{
+                      p: 0,
+                      position: "relative",
+                      zIndex: 1,
+                      display: "flex",
+                      flexDirection: "column",
+                      flex: 1,
+                    }}
+                  >
                     <Typography
                       variant="body1"
                       sx={{
@@ -182,6 +191,7 @@ export default function Testimonials() {
                         zIndex: 1,
                         pr: { xs: 2, md: 3 },
                         pt: { xs: 0.5, md: 1 },
+                        flexGrow: 1,
                       }}
                     >
                       {t.quote}
@@ -191,6 +201,7 @@ export default function Testimonials() {
                       sx={{
                         pt: 3,
                         borderTop: `1px solid ${theme.palette.divider}`,
+                        mt: "auto",
                       }}
                     >
                       <Typography

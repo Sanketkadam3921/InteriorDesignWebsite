@@ -18,10 +18,10 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 // Only include categories that exist in AllDesigns.jsx
 const inspirationItems = [
   {
-    title: "Kitchen",
-    categoryId: "kitchen",
+    title: "Master Bedroom",
+    categoryId: "master-bedroom",
     image:
-      "https://ik.imagekit.io/bowr9614/HomePage_Hero/Home%20Page%204%20Images%20Below%20Hero%20Section/modern-black-white-kitchen-interior-with-wood-countertops.jpg?updatedAt=1764912728700",
+      "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/masterbedroomniceone.JPG?updatedAt=1765360380587",
   },
   {
     title: "Wardrobe",
@@ -36,11 +36,12 @@ const inspirationItems = [
       "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/Bathroom.jpeg",
   },
   {
-    title: "Master Bedroom",
-    categoryId: "master-bedroom",
+    title: "Kitchen",
+    categoryId: "kitchen",
     image:
-      "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/masterbedroomniceone.JPG?updatedAt=1765360380587",
+      "https://ik.imagekit.io/bowr9614/HomePage_Hero/Home%20Page%204%20Images%20Below%20Hero%20Section/modern-black-white-kitchen-interior-with-wood-countertops.jpg?updatedAt=1764912728700",
   },
+
   {
     title: "Living Room",
     categoryId: "living-room",
