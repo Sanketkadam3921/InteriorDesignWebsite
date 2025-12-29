@@ -18,7 +18,7 @@ const estimateOptions = [
     id: "home",
     title: "Full Home Interior",
     description: "Know the estimated price for your full home interiors.",
-    icon: "https://cdn-icons-png.flaticon.com/128/263/263115.png", // 🏠 Home icon
+    icon: "https://cdn-icons-png.flaticon.com/128/2544/2544111.png", // 🏠 Home icon
     path: "/price-calculators/home/calculator/bhk",
   },
   {
