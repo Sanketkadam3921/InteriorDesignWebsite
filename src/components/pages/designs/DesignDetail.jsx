@@ -54,6 +54,25 @@ import { staircaseDesignDetails } from "./staircase";
 import { crockeryunitDesignDetails } from "./crockery-unit";
 import { homebarDesignDetails } from "./home-bar";
 
+// Utility function to capitalize first letter of each word
+const capitalizeWords = (text) => {
+  if (!text || typeof text !== "string") return text;
+  // Split by comma first, then process each part
+  return text
+    .split(",")
+    .map((part) =>
+      part
+        .trim()
+        .split(" ")
+        .map((word) => {
+          if (word.length === 0) return word;
+          return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        })
+        .join(" ")
+    )
+    .join(", ");
+};
+
 export default function DesignDetail() {
   const { category, id } = useParams();
   const navigate = useNavigate();
@@ -411,7 +430,7 @@ export default function DesignDetail() {
                               fontSize: { xs: "0.875rem", md: "0.9375rem" },
                             }}
                           >
-                            {design.shape}
+                            {capitalizeWords(design.shape)}
                           </Typography>
                         </Box>
                       )}
@@ -438,7 +457,7 @@ export default function DesignDetail() {
                               fontSize: { xs: "0.875rem", md: "0.9375rem" },
                             }}
                           >
-                            {design.specifications.style}
+                            {capitalizeWords(design.specifications.style)}
                           </Typography>
                         </Box>
                       )}
@@ -466,8 +485,10 @@ export default function DesignDetail() {
                               fontSize: { xs: "0.875rem", md: "0.9375rem" },
                             }}
                           >
-                            {design.specifications.colorScheme ||
-                              design.specifications.color}
+                            {capitalizeWords(
+                              design.specifications.colorScheme ||
+                                design.specifications.color
+                            )}
                           </Typography>
                         </Box>
                       )}
@@ -494,7 +515,7 @@ export default function DesignDetail() {
                               fontSize: { xs: "0.875rem", md: "0.9375rem" },
                             }}
                           >
-                            {design.specifications.materials}
+                            {capitalizeWords(design.specifications.materials)}
                           </Typography>
                         </Box>
                       )}
@@ -522,7 +543,9 @@ export default function DesignDetail() {
                                 fontSize: { xs: "0.875rem", md: "0.9375rem" },
                               }}
                             >
-                              {design.specifications.areaOfApplication}
+                              {capitalizeWords(
+                                design.specifications.areaOfApplication
+                              )}
                             </Typography>
                           </Box>
                         )}
@@ -550,7 +573,7 @@ export default function DesignDetail() {
                                 fontSize: { xs: "0.875rem", md: "0.9375rem" },
                               }}
                             >
-                              {design.specifications.hardware}
+                              {capitalizeWords(design.specifications.hardware)}
                             </Typography>
                           </Box>
                         )}
@@ -578,7 +601,7 @@ export default function DesignDetail() {
                                 fontSize: { xs: "0.875rem", md: "0.9375rem" },
                               }}
                             >
-                              {design.specifications.finish}
+                              {capitalizeWords(design.specifications.finish)}
                             </Typography>
                           </Box>
                         )}
@@ -606,7 +629,7 @@ export default function DesignDetail() {
                                 fontSize: { xs: "0.875rem", md: "0.9375rem" },
                               }}
                             >
-                              {design.specifications.panelFinish}
+                              {capitalizeWords(design.specifications.panelFinish)}
                             </Typography>
                           </Box>
                         )}
@@ -633,7 +656,7 @@ export default function DesignDetail() {
                               fontSize: { xs: "0.875rem", md: "0.9375rem" },
                             }}
                           >
-                            {design.specifications.lighting}
+                            {capitalizeWords(design.specifications.lighting)}
                           </Typography>
                         </Box>
                       )}
@@ -660,7 +683,7 @@ export default function DesignDetail() {
                               fontSize: { xs: "0.875rem", md: "0.9375rem" },
                             }}
                           >
-                            {design.specifications.furniture}
+                            {capitalizeWords(design.specifications.furniture)}
                           </Typography>
                         </Box>
                       )}
