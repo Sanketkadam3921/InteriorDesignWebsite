@@ -24,7 +24,7 @@ export default function WhatWeOffer() {
             <Grid 
                 container 
                 spacing={4} 
-                justifyContent="center"     // ⭐ FIX: centers cards on mobile
+                justifyContent="center"
             >
                 {SERVICES.map((service) => (
                     <Grid 
@@ -32,7 +32,10 @@ export default function WhatWeOffer() {
                         xs={12} 
                         md={6} 
                         key={service.id}
-                        sx={{ display: "flex", justifyContent: "center" }}  // ⭐ extra safety
+                        sx={{ 
+                            display: "flex", 
+                            justifyContent: "center",
+                        }}
                     >
                         <ServiceCard
                             title={service.title}

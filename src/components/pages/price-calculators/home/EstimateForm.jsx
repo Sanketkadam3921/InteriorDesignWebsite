@@ -323,10 +323,7 @@ export default function EstimateForm() {
         "2cc4a7da-4b04-41e6-80d9-a1ae8efb4013"
       );
       formDataToSend.append("subject", "New Home Interior Estimate Request");
-      formDataToSend.append(
-        "from_name",
-        "Home Interior Cost Calculator"
-      );
+      formDataToSend.append("from_name", "Home Interior Cost Calculator");
       formDataToSend.append("replyto", formData.email);
 
       formDataToSend.append("name", formData.name);

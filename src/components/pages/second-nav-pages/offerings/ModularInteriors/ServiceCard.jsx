@@ -7,6 +7,13 @@ export default function ServiceCard({ title, image, alt }) {
         <Card
             sx={{
                 height: '100%',
+                width: '100%',
+                maxWidth: {
+                    xs: '100%',
+                    sm: '100%',
+                    md: 380, // Fixed max-width for iPad Mini (768px) - ensures equal widths
+                },
+                margin: '0 auto', // Centers the card within Grid item
                 borderRadius: 3,
                 overflow: 'hidden',
                 boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
@@ -28,6 +35,7 @@ export default function ServiceCard({ title, image, alt }) {
                         md: 300,
                     },
                     width: '100%',
+                    maxWidth: '100%',
                     objectFit: 'cover',
                     objectPosition: 'center',
                     display: 'block',
