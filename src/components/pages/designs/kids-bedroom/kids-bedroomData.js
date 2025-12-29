@@ -68,11 +68,11 @@ export const kidsbedroomDesigns = [
   },
   {
     id: "7",
-    name: "Modern Scandinavian Kid's Study",
+    name: "Modern Scandinavian Kids Study",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/KidsBedroomDesigns/drive-download-20251208T054603Z-1-001/IMG_5635.JPG?updatedAt=1765174313479",
     description:
-      "Modern Scandinavian kid's study in white, pastel blue, and beige wood featuring laminate wardrobe, wood shelves, and matte paint",
+      "Modern Scandinavian kids study in white, pastel blue, and beige wood featuring laminate wardrobe, wood shelves, and matte paint",
     style: "Modern Scandinavian ",
     price: "₹3,10,000",
     area: "148 sq ft",
@@ -319,16 +319,16 @@ export const kidsbedroomDesignDetails = {
   },
   7: {
     id: "7",
-    title: "Modern Scandinavian Kid's Study",
+    title: "Modern Scandinavian Kids Study",
     category: "kids-bedroom",
-    style: "Modern Scandinavian Kid's Study",
+    style: "Modern Scandinavian Kids Study",
     price: "₹3,10,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/KidsBedroomDesigns/drive-download-20251208T054603Z-1-001/IMG_5635.JPG?updatedAt=1765174313479",
     description:
-      "Modern Scandinavian kid's study in white, pastel blue, and beige wood featuring laminate wardrobe, wood shelves, and matte paint.",
+      "Modern Scandinavian kids study in white, pastel blue, and beige wood featuring laminate wardrobe, wood shelves, and matte paint.",
     longDescription:
-      "This modern Scandinavian kid's study creates a calm and focused learning environment with its clean white, pastel blue, and beige wood color palette. The design features a functional laminate wardrobe that provides organized storage, beautiful wood shelves that add warmth and display space, and matte paint that creates a soft, soothing backdrop. Spotlights and hidden shelf LED lighting provide focused illumination that enhances concentration and study time. The space includes a dedicated study desk for homework and projects, open shelving for books and supplies, and a wardrobe that maximizes storage while maintaining the clean, Scandinavian aesthetic, creating an ideal space for learning and growth.",
+      "This modern Scandinavian kids study creates a calm and focused learning environment with its clean white, pastel blue, and beige wood color palette. The design features a functional laminate wardrobe that provides organized storage, beautiful wood shelves that add warmth and display space, and matte paint that creates a soft, soothing backdrop. Spotlights and hidden shelf LED lighting provide focused illumination that enhances concentration and study time. The space includes a dedicated study desk for homework and projects, open shelving for books and supplies, and a wardrobe that maximizes storage while maintaining the clean, Scandinavian aesthetic, creating an ideal space for learning and growth.",
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/KidsBedroomDesigns/drive-download-20251208T054603Z-1-001/IMG_5635.JPG?updatedAt=1765174313479",
     ],
@@ -344,7 +344,7 @@ export const kidsbedroomDesignDetails = {
     ],
     specifications: {
       area: "148 sq ft",
-      style: "Modern Scandinavian Kid's Study",
+      style: "Modern Scandinavian Kids Study",
       colorScheme: "White, Pastel Blue, Beige Wood",
       materials: "Laminate Wardrobe, Wood Shelves, Matte Paint",
       lighting: "Spotlights, Hidden Shelf LED Lighting",
