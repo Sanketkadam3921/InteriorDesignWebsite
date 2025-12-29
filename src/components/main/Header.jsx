@@ -112,7 +112,7 @@ export default function Header() {
         { label: "Home Wallpaper Designs", path: "/designs/wallpaper" },
         { label: "Space Saving Designs", path: "/designs/space-saving" },
         { label: "Door Designs", path: "/designs/door" },
-        { label: "KalaKruti Studio Designs", path: "/designs/homes-livspace" },
+        { label: "Kalakruti Studio Designs", path: "/designs/homes-livspace" },
       ],
     },
     { label: "Process", path: "/how-it-works" },
