@@ -159,12 +159,20 @@ export default function EstimateForm() {
         } else {
           const email = value.trim();
           // Basic format check: username@domain.tld
-          const basicEmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          const basicEmailRegex =
+            /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
           if (!basicEmailRegex.test(email)) {
             error = "Enter a valid email address";
           } else {
             // Check allowed TLDs
-            const allowedTLDs = [".com", ".in", ".org", ".net", ".co.in", ".gov.in"];
+            const allowedTLDs = [
+              ".com",
+              ".in",
+              ".org",
+              ".net",
+              ".co.in",
+              ".gov.in",
+            ];
             const emailLower = email.toLowerCase();
             const hasAllowedTLD = allowedTLDs.some((tld) =>
               emailLower.endsWith(tld)
@@ -308,42 +316,73 @@ export default function EstimateForm() {
         priceRange: priceRange,
       };
 
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          access_key: "2cc4a7da-4b04-41e6-80d9-a1ae8efb4013",
+      const formDataToSend = new FormData();
 
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          propertyName: formData.propertyName,
+      formDataToSend.append(
+        "access_key",
+        "2cc4a7da-4b04-41e6-80d9-a1ae8efb4013"
+      );
+      formDataToSend.append("subject", "New Home Interior Estimate Request");
+      formDataToSend.append(
+        "from_name",
+        "Home Interior Cost Calculator"
+      );
+      formDataToSend.append("replyto", formData.email);
 
-          message: `
-Home Interior Estimate Details:
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("phone", formData.phone);
+      formDataToSend.append("propertyName", formData.propertyName);
 
+      formDataToSend.append(
+        "message",
+        `
+New Home Interior Estimate Request
+
+Customer Details:
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Property Name: ${formData.propertyName}
+
+Estimate Details:
 BHK: ${getBhkLabel(estimateData.bhk)}
 Package: ${estimateData.package}
 
-Rooms:
-Living Room: ${estimateData.livingRoom}
-Kitchen: ${estimateData.kitchen}
-Bedroom: ${estimateData.bedroom}
-Bathroom: ${estimateData.bathroom}
-Dining: ${estimateData.dining}
-
 Estimated Price: ₹${formatIndianCurrency(estimatedPrice)}
 Price Range: ${priceRange?.displayRange || "N/A"}
-        `,
-        }),
+        `
+      );
+
+      console.log("Submitting form to Web3Forms...");
+      console.log("Form data:", {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        propertyName: formData.propertyName,
+        bhk: estimateData.bhk,
+        package: estimateData.package,
       });
 
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend,
+      });
+
+      console.log("Response status:", response.status, response.statusText);
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error("Response error:", errorText);
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const result = await response.json();
+      console.log("Web3Forms admin email response:", result);
 
       if (!result.success) {
-        throw new Error("Web3Forms submission failed");
+        console.error("Web3Forms submission failed:", result);
+        throw new Error(result.message || "Web3Forms submission failed");
       }
 
       setSubmitted(true);

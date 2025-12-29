@@ -216,34 +216,73 @@ export default function WardrobeEstimateForm() {
         estimatedPrice: estimateData.totalPrice,
       };
 
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          access_key: "2cc4a7da-4b04-41e6-80d9-a1ae8efb4013",
+      const formDataToSend = new FormData();
 
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          propertyName: formData.propertyName,
+      formDataToSend.append(
+        "access_key",
+        "2cc4a7da-4b04-41e6-80d9-a1ae8efb4013"
+      );
+      formDataToSend.append("subject", "New Wardrobe Estimate Request");
+      formDataToSend.append("from_name", "Wardrobe Cost Calculator");
+      formDataToSend.append("replyto", formData.email);
 
-          message: `
-Wardrobe Estimate Details:
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("phone", formData.phone);
+      formDataToSend.append("propertyName", formData.propertyName);
+
+      formDataToSend.append(
+        "message",
+        `
+New Wardrobe Estimate Request
+
+Customer Details:
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Property Name: ${formData.propertyName}
+
+Estimate Details:
 Length: ${estimatePayload.length}
 Height: ${estimatePayload.height}
 Type: ${estimatePayload.type}
 Package: ${estimatePayload.package}
+
 Estimated Price: ₹${formatIndianCurrency(estimatePayload.estimatedPrice)}
-        `,
-        }),
+        `
+      );
+
+      console.log("Submitting form to Web3Forms...");
+      console.log("Form data:", {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        propertyName: formData.propertyName,
+        length: estimatePayload.length,
+        height: estimatePayload.height,
+        type: estimatePayload.type,
+        package: estimatePayload.package,
       });
 
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend,
+      });
+
+      console.log("Response status:", response.status, response.statusText);
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error("Response error:", errorText);
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const result = await response.json();
+      console.log("Web3Forms admin email response:", result);
 
       if (!result.success) {
-        throw new Error("Form submission failed");
+        console.error("Web3Forms submission failed:", result);
+        throw new Error(result.message || "Form submission failed");
       }
 
       setSubmitted(true);
