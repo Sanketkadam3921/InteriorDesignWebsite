@@ -9,15 +9,22 @@ export default function ServiceCard({ title, image, alt }) {
                 height: '100%',
                 width: '100%',
                 maxWidth: {
-                    xs: '100%',
-                    sm: '100%',
-                    md: 380, // Fixed max-width for iPad Mini (768px) - ensures equal widths
+                    xs: 250,
+                    sm: 280,
+                    md: 300,
+                },
+                minWidth: {
+                    xs: 250,
+                    sm: 280,
+                    md: 300,
                 },
                 margin: '0 auto', // Centers the card within Grid item
                 borderRadius: 3,
                 overflow: 'hidden',
                 boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
                 transition: 'transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
+                display: 'flex',
+                flexDirection: 'column',
                 '&:hover': {
                     transform: 'translateY(-8px)',
                     boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)',
@@ -29,17 +36,41 @@ export default function ServiceCard({ title, image, alt }) {
                 image={image}
                 alt={alt}
                 sx={{ 
+                    width: {
+                        xs: 250,
+                        sm: 280,
+                        md: 300,
+                    },
                     height: {
                         xs: 250,
                         sm: 280,
                         md: 300,
                     },
-                    width: '100%',
-                    maxWidth: '100%',
+                    minWidth: {
+                        xs: 250,
+                        sm: 280,
+                        md: 300,
+                    },
+                    maxWidth: {
+                        xs: 250,
+                        sm: 280,
+                        md: 300,
+                    },
+                    minHeight: {
+                        xs: 250,
+                        sm: 280,
+                        md: 300,
+                    },
+                    maxHeight: {
+                        xs: 250,
+                        sm: 280,
+                        md: 300,
+                    },
                     objectFit: 'cover',
                     objectPosition: 'center',
                     display: 'block',
                     backgroundColor: themeNeutral.palette.grey[200],
+                    margin: '0 auto',
                 }}
             />
             <CardContent sx={{ p: 3 }}>
