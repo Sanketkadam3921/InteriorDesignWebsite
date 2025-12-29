@@ -184,32 +184,32 @@ export const WHY_CHOOSE_ITEMS = [
   {
     id: 1,
     title: "End-to-End Solutions",
-    icon: "Home", // Material-UI icon name
+    iconUrl: "https://cdn-icons-png.flaticon.com/128/340/340313.png",
   },
   {
     id: 2,
     title: "Expert Design Team",
-    icon: "DesignServices", // Material-UI icon name
+    iconUrl: "https://cdn-icons-png.flaticon.com/128/7870/7870517.png",
   },
   {
     id: 3,
-    title: "Premium Quality Materials",
-    icon: "VerifiedUser", // Material-UI icon name
+    title: "Carefully Selected Material",
+    iconUrl: "https://cdn-icons-png.flaticon.com/128/2708/2708071.png",
   },
   {
     id: 4,
     title: "Timely Project Delivery",
-    icon: "Schedule", // Material-UI icon name
+    iconUrl: "https://cdn-icons-png.flaticon.com/128/625/625125.png",
   },
   {
     id: 5,
     title: "Transparent Pricing",
-    iconUrl: "https://cdn-icons-png.flaticon.com/128/1521/1521875.png", // Custom icon URL
+    iconUrl: "https://cdn-icons-png.flaticon.com/128/1521/1521875.png",
   },
   {
     id: 6,
     title: "Comprehensive Service",
-    icon: "Build", // Material-UI icon name
+    iconUrl: "https://cdn-icons-png.flaticon.com/128/12287/12287146.png",
   },
 ];
 

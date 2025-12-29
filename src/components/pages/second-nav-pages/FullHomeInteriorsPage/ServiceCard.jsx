@@ -25,11 +25,13 @@ export default function ServiceCard({ title, image, alt }) {
                     height: 300,
                     width: 300,
                     objectFit: 'cover',
+                    objectPosition: 'center',
                     margin: '0 auto',
-                    display: 'block'
+                    display: 'block',
+                    transform: 'scale(1.15)',
                 }}
             />
-            <CardContent sx={{ p: 3 }}>
+            <CardContent sx={{ p: 3, pt: 4 }}>
           <Typography
                     variant="h5"
             component="h3"
@@ -37,7 +39,8 @@ export default function ServiceCard({ title, image, alt }) {
                         fontWeight: 'bold',
                         color: themeNeutral.palette.text.primary,
                         mb: 1.5,
-                        fontSize: '1.3rem'
+                        fontSize: '1.3rem',
+                        textAlign: 'center'
             }}
           >
             {title}

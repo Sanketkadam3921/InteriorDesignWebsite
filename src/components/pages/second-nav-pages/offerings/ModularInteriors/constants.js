@@ -51,23 +51,22 @@ export const WHY_CHOOSE_ITEMS = [
   {
     id: 1,
     title: "Tailor-Made Designs",
-    icon: "DesignServices", // Material-UI icon name
+    iconUrl: "https://cdn-icons-png.flaticon.com/128/9635/9635592.png",
   },
   {
     id: 2,
     title: "Faster Installation",
-    icon: "Speed", // Material-UI icon name
+    iconUrl: "https://cdn-icons-png.flaticon.com/128/17205/17205194.png",
   },
   {
     id: 3,
     title: "Smart Space Utilization",
-    icon: "SpaceDashboard", // Material-UI icon name
+    iconUrl: "https://cdn-icons-png.flaticon.com/128/3638/3638360.png",
   },
   {
     id: 4,
     title: "Transparent Pricing",
-    icon: "PriceCheck", // Material-UI icon name
-    iconUrl: "https://cdn-icons-png.flaticon.com/128/1521/1521875.png", // Custom icon URL
+    iconUrl: "https://cdn-icons-png.flaticon.com/128/1521/1521875.png",
   },
 ];
 

@@ -22,11 +22,16 @@ export default function ServiceCard({ title, image, alt }) {
                 image={image}
                 alt={alt}
                 sx={{ 
-                    height: 300,
-                    width: 300,
+                    height: {
+                        xs: 250,
+                        sm: 280,
+                        md: 300,
+                    },
+                    width: '100%',
                     objectFit: 'cover',
-                    margin: '0 auto',
-                    display: 'block'
+                    objectPosition: 'center',
+                    display: 'block',
+                    backgroundColor: themeNeutral.palette.grey[200],
                 }}
             />
             <CardContent sx={{ p: 3 }}>
