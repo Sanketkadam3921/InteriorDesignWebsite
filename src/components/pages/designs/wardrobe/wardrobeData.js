@@ -7,7 +7,7 @@ export const wardrobeDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/Wardrobe/drive-download-20251208T054224Z-1-001/IMG_5560.JPG?updatedAt=1765174491960",
     description:
       "Scandinavian modern wardrobe with cream matte and pastel blue finish, matte and ribbed laminate",
-    style: "Scandinavian modern",
+    style: "Scandinavian ",
     price: "₹2,80,000",
     area: "Wardrobe Unit",
   },
@@ -18,7 +18,7 @@ export const wardrobeDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/Wardrobe/drive-download-20251208T054224Z-1-001/IMG_5562.JPG?updatedAt=1765174491918",
     description:
       "Modern warm-toned wardrobe with cream matte and walnut accents, matte and wood laminate",
-    style: "Modern warm-toned",
+    style: "Modern ",
     price: "₹3,20,000",
     area: "Wardrobe Unit",
   },
@@ -29,7 +29,7 @@ export const wardrobeDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/Wardrobe/drive-download-20251208T054224Z-1-001/IMG_5559.JPG?updatedAt=1765174491852",
     description:
       "Soft modern wardrobe with beige and mauve bottom finish, matte laminate, metal handles",
-    style: "Soft modern",
+    style: "Soft ",
     price: "₹3,00,000",
     area: "Wardrobe Unit",
   },
@@ -40,7 +40,7 @@ export const wardrobeDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/Wardrobe/drive-download-20251208T054224Z-1-001/IMG_5565.JPG?updatedAt=1765174491853",
     description:
       "Modern luxury wardrobe with warm beige gloss, champagne gold trims, wood interior, high-gloss laminate",
-    style: "Modern luxury",
+    style: " Luxury",
     price: "₹3,50,000",
     area: "Wardrobe Unit",
   },
@@ -51,7 +51,7 @@ export const wardrobeDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/Wardrobe/drive-download-20251208T054224Z-1-001/IMG_5561.JPG?updatedAt=1765174491659",
     description:
       "Modern minimal wardrobe with beige matte finish, walnut frame, matte and wood laminate",
-    style: "Modern minimal",
+    style: "Modern ",
     price: "₹2,60,000",
     area: "Wardrobe Unit",
   },
@@ -62,7 +62,7 @@ export const wardrobeDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/Wardrobe/drive-download-20251208T054224Z-1-001/IMG_5558.JPG?updatedAt=1765174491667",
     description:
       "Modern minimalist wardrobe with beige and oak wood tone finish, matte and wood laminate",
-    style: "Modern minimalist",
+    style: "Modern ",
     price: "₹3,30,000",
     area: "Wardrobe Unit",
   },
@@ -73,7 +73,7 @@ export const wardrobeDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/Wardrobe/drive-download-20251208T054224Z-1-001/IMG_5556.JPG?updatedAt=1765174491588",
     description:
       "Soft modern luxury wardrobe with beige and mauve finish, matte laminate, recessed lights",
-    style: "Soft modern luxury",
+    style: "Soft ",
     price: "₹2,90,000",
     area: "Wardrobe Unit",
   },
@@ -84,7 +84,7 @@ export const wardrobeDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/Wardrobe/drive-download-20251208T054224Z-1-001/IMG_5563.JPG?updatedAt=1765174491584",
     description:
       "Minimal luxury wardrobe with cream gloss finish, gold strip accent, gloss laminate, fluted panel",
-    style: "Minimal luxury",
+    style: "Minimal ",
     price: "₹2,70,000",
     area: "Wardrobe Unit",
   },
@@ -95,7 +95,7 @@ export const wardrobeDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/Wardrobe/drive-download-20251208T054224Z-1-001/IMG_5557.JPG?updatedAt=1765174491344",
     description:
       "Modern playful wardrobe with soft beige and pastel blue finish, matte laminate, ribbed panel",
-    style: "Modern playful",
+    style: "Modern ",
     price: "₹3,40,000",
     area: "Wardrobe Unit",
   },
@@ -106,7 +106,7 @@ export const wardrobeDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/Wardrobe/drive-download-20251208T054224Z-1-001/IMG_5564.JPG?updatedAt=1765174491307",
     description:
       "Modern contemporary wardrobe with white, grey-taupe, and gold accents, gloss laminate, aluminium handles",
-    style: "Modern contemporary",
+    style: "Modern ",
     price: "₹3,60,000",
     area: "Wardrobe Unit",
   },

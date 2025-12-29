@@ -7,7 +7,7 @@ export const diningroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/DiningRoomDesigns/drive-download-20251208T055338Z-1-001/IMG_5646.JPG?updatedAt=1765174264642",
     description:
       "Modern luxury dining room in blush pink, walnut brown with gold accents featuring velvet chairs, marble tabletop, and wooden buffet",
-    style: "Modern Luxury Dining",
+    style: "Modern ",
     price: "₹3,20,000",
     area: "180 sq ft",
   },
@@ -18,7 +18,7 @@ export const diningroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/DiningRoomDesigns/drive-download-20251208T055338Z-1-001/IMG_4511.JPG?updatedAt=1765174264589",
     description:
       "Compact modern dining nook in soft pink, warm wood, and off-white featuring wood wall panel, marble top foldable table, and upholstered chairs",
-    style: "Compact Modern Dining Nook",
+    style: "Compact Modern ",
     price: "₹4,00,000",
     area: "200 sq ft",
   },
@@ -29,7 +29,7 @@ export const diningroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/DiningRoomDesigns/drive-download-20251208T055338Z-1-001/IMG_5638.JPG?updatedAt=1765174264514",
     description:
       "Warm minimal dining room in white, wood brown, and grey featuring wood table, cushioned chairs, and wall clock metal accents",
-    style: "Warm Minimal Dining",
+    style: "Warm Minimal ",
     price: "₹3,00,000",
     area: "170 sq ft",
   },
@@ -40,7 +40,7 @@ export const diningroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/DiningRoomDesigns/drive-download-20251208T055338Z-1-001/IMG_5637.JPG?updatedAt=1765174264478",
     description:
       "Cozy Scandinavian dining corner in olive green, light wood, and pastel tones featuring wood table, mixed chairs, and soft wall paint",
-    style: "Cozy Scandinavian Dining Corner",
+    style: "Cozy Scandinavian ",
     price: "₹3,50,000",
     area: "190 sq ft",
   },
@@ -51,7 +51,7 @@ export const diningroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/DiningRoomDesigns/drive-download-20251208T055338Z-1-001/IMG_5639.JPG?updatedAt=1765174264437",
     description:
       "Modern chic dining room in emerald green, gold, and cream featuring velvet chairs, metal-gold legs, marble top, and side cabinet",
-    style: "Modern Chic Dining",
+    style: "Modern ",
     price: "₹2,80,000",
     area: "160 sq ft",
   },
@@ -62,7 +62,7 @@ export const diningroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/DiningRoomDesigns/drive-download-20251208T055338Z-1-001/IMG_5642.JPG?updatedAt=1765174264264",
     description:
       "Elegant nature-themed dining room in taupe, light beige, and floral pastels featuring wallpaper panel, upholstered chairs, and wood table",
-    style: "Elegant Nature-Themed Dining",
+    style: "Elegant ",
     price: "₹3,80,000",
     area: "210 sq ft",
   },
@@ -73,7 +73,7 @@ export const diningroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/DiningRoomDesigns/drive-download-20251208T055338Z-1-001/IMG_5640.JPG?updatedAt=1765174263814",
     description:
       "Contemporary luxe dining room in white, gold, and beige featuring marble table, leather quilted chairs, and crystal chandelier",
-    style: "Contemporary Luxe Dining",
+    style: "Contemporary Luxe ",
     price: "₹3,40,000",
     area: "185 sq ft",
   },
@@ -84,7 +84,7 @@ export const diningroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/DiningRoomDesigns/drive-download-20251208T055338Z-1-001/IMG_5644.JPG?updatedAt=1765174263676",
     description:
       "Modern curve-themed dining room in beige, deep red, and wood tones featuring PU-finish cabinetry, marble table, and fabric chairs",
-    style: "Modern Curve-Themed Dining",
+    style: "Modern ",
     price: "₹3,10,000",
     area: "175 sq ft",
   },
@@ -95,7 +95,7 @@ export const diningroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/DiningRoomDesigns/drive-download-20251208T055338Z-1-001/IMG_5645.JPG?updatedAt=1765174262412",
     description:
       "Minimal contemporary dining room in soft peach, white, and warm wood featuring marble table, fabric chairs, and fluted panels",
-    style: "Minimal Contemporary Dining",
+    style: "Minimal Contemporary ",
     price: "₹3,90,000",
     area: "205 sq ft",
   },
@@ -106,7 +106,7 @@ export const diningroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/DiningRoomDesigns/drive-download-20251208T055338Z-1-001/IMG_5641.JPG?updatedAt=1765174262402",
     description:
       "Modern classic dining room in beige, medium wood tones, and gold featuring wood dining table, suede-finish chairs, and pendant lights",
-    style: "Modern Classic Dining",
+    style: "Modern Classic ",
     price: "₹3,30,000",
     area: "195 sq ft",
   },

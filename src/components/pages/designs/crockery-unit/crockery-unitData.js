@@ -29,7 +29,7 @@ export const crockeryunitDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/CrockeryUnitDesigns/drive-download-20251208T054757Z-1-001/IMG_5701.JPG?updatedAt=1765173939895",
     description:
       "Hotel-style luxury crockery unit with marble accents, glass shelves, and warm recessed lighting",
-    style: "Hotel",
+    style: "Luxury",
     price: "₹3,20,000",
     area: "90 sq ft",
   },
@@ -51,7 +51,7 @@ export const crockeryunitDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/CrockeryUnitDesigns/drive-download-20251208T054757Z-1-001/IMG_5688.JPG?updatedAt=1765173939910",
     description:
       "Luxury bar-cabinet with warm beige tones, glass display shutters, and integrated LED lighting",
-    style: "Bar",
+    style: "Contemporary",
     price: "₹3,50,000",
     area: "95 sq ft",
   },
@@ -62,7 +62,7 @@ export const crockeryunitDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/CrockeryUnitDesigns/drive-download-20251208T054757Z-1-001/IMG_5702.JPG?updatedAt=1765173939950",
     description:
       "Contemporary coffee-bar with warm wood accents, glass shelves, and integrated LED lighting",
-    style: "Coffee",
+    style: "Contemporary",
     price: "₹2,70,000",
     area: "82 sq ft",
   },
@@ -73,7 +73,7 @@ export const crockeryunitDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/CrockeryUnitDesigns/drive-download-20251208T054757Z-1-001/IMG_5699.JPG?updatedAt=1765173939873",
     description:
       "Classic arched design with natural wood, ribbed glass doors, and soft ambient lighting",
-    style: "Arches",
+    style: "Modern",
     price: "₹2,90,000",
     area: "88 sq ft",
   },
@@ -84,7 +84,7 @@ export const crockeryunitDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/CrockeryUnitDesigns/drive-download-20251208T054757Z-1-001/IMG_5698.JPG?updatedAt=1765173939568",
     description:
       "Contemporary design with arched niches, walnut-tone interiors, and warm LED accent lighting",
-    style: "Niches",
+    style: "Contemporary",
     price: "₹2,30,000",
     area: "70 sq ft",
   },
@@ -95,7 +95,7 @@ export const crockeryunitDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/CrockeryUnitDesigns/drive-download-20251208T054757Z-1-001/IMG_5691.JPG?updatedAt=1765173939518",
     description:
       "Luxury display cabinetry with marble accents, gold trim, and warm LED shelf lighting",
-    style: "Display",
+    style: "Modern",
     price: "₹3,10,000",
     area: "92 sq ft",
   },
@@ -106,7 +106,7 @@ export const crockeryunitDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/CrockeryUnitDesigns/drive-download-20251208T054757Z-1-001/IMG_5703.JPG?updatedAt=1765173940012",
     description:
       "Warm minimal dining storage with natural oak, ivory white, and under-cabinet LED lighting",
-    style: "Minimal",
+    style: "Contemporary",
     price: "₹2,60,000",
     area: "85 sq ft",
   },

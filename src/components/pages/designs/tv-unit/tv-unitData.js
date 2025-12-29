@@ -7,7 +7,7 @@ export const tvunitDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/TvUnitDesigns/drive-download-20251208T054315Z-1-001/IMG_5609.JPG?updatedAt=1765174366316",
     description:
       "Contemporary curved TV unit with curved laminate, MDF slats, backlit curved panel, and shelf LEDs",
-    style: "Contemporary Curved",
+    style: "Contemporary ",
     price: "₹2,80,000",
     area: "TV Unit",
   },
@@ -18,7 +18,7 @@ export const tvunitDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/TvUnitDesigns/drive-download-20251208T054315Z-1-001/IMG_5608.JPG?updatedAt=1765174366120",
     description:
       "Modern Scandinavian TV unit with PU matte finish, MDF slats, natural and soft LED lighting",
-    style: "Modern Scandinavian",
+    style: " Scandinavian",
     price: "₹3,20,000",
     area: "TV Unit",
   },
@@ -29,7 +29,7 @@ export const tvunitDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/TvUnitDesigns/drive-download-20251208T054315Z-1-001/IMG_5613.JPG?updatedAt=1765174366109",
     description:
       "Contemporary luxury TV unit with veneer, MDF, marble top, warm shelf LEDs, and cove lights",
-    style: "Contemporary Luxury",
+    style: "Contemporary ",
     price: "₹3,00,000",
     area: "TV Unit",
   },
@@ -40,7 +40,7 @@ export const tvunitDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/TvUnitDesigns/drive-download-20251208T054315Z-1-001/IMG_5610.JPG?updatedAt=1765174366065",
     description:
       "Premium modern TV unit with veneer, marble laminate, MDF, backlit marble, and shelf LEDs",
-    style: "Premium Modern",
+    style: "Premium ",
     price: "₹3,50,000",
     area: "TV Unit",
   },
@@ -51,7 +51,7 @@ export const tvunitDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/TvUnitDesigns/drive-download-20251208T054315Z-1-001/IMG_5607.JPG?updatedAt=1765174366051",
     description:
       "Minimal contemporary TV unit with veneer, glass, MDF, shelf LED, and lamp",
-    style: "Minimal Contemporary",
+    style: " Contemporary",
     price: "₹2,40,000",
     area: "TV Unit",
   },
@@ -62,7 +62,7 @@ export const tvunitDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/TvUnitDesigns/drive-download-20251208T054315Z-1-001/IMG_5616.JPG?updatedAt=1765174366023",
     description:
       "Modern luxury TV unit with wood laminate, marble-finish slab, fluted MDF, spotlights, and LED profiles",
-    style: "Modern Luxury",
+    style: "Modern ",
     price: "₹3,30,000",
     area: "TV Unit",
   },
@@ -73,7 +73,7 @@ export const tvunitDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/TvUnitDesigns/drive-download-20251208T054315Z-1-001/IMG_5612.JPG?updatedAt=1765174366008",
     description:
       "Soft minimal luxury TV unit with MDF, fluted panel, glass shelves, LED strips, and shelf LEDs",
-    style: "Soft Minimal Luxury",
+    style: "Soft Minimal ",
     price: "₹2,70,000",
     area: "TV Unit",
   },
@@ -84,7 +84,7 @@ export const tvunitDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/TvUnitDesigns/drive-download-20251208T054315Z-1-001/IMG_5614.JPG?updatedAt=1765174365623",
     description:
       "Scandinavian modern TV unit with laminate, fluted MDF, spotlights, and groove LEDs",
-    style: "Scandinavian Modern",
+    style: "Scandinavian ",
     price: "₹3,10,000",
     area: "TV Unit",
   },
@@ -187,12 +187,7 @@ export const tvunitDesignDetails = {
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/TvUnitDesigns/drive-download-20251208T054315Z-1-001/IMG_5613.JPG?updatedAt=1765174366109",
     ],
-    features: [
-      "Veneer Finish",
-      "Marble Top",
-      "Warm Shelf LEDs",
-      "Cove Lights",
-    ],
+    features: ["Veneer Finish", "Marble Top", "Warm Shelf LEDs", "Cove Lights"],
     specifications: {
       style: "Contemporary Luxury",
       colorScheme: "Walnut, beige, cream",
@@ -303,12 +298,7 @@ export const tvunitDesignDetails = {
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/TvUnitDesigns/drive-download-20251208T054315Z-1-001/IMG_5612.JPG?updatedAt=1765174366008",
     ],
-    features: [
-      "Fluted Panel",
-      "Glass Shelves",
-      "LED Strips",
-      "Shelf LEDs",
-    ],
+    features: ["Fluted Panel", "Glass Shelves", "LED Strips", "Shelf LEDs"],
     specifications: {
       style: "Soft Minimal Luxury",
       colorScheme: "Beige, gold, grey",
@@ -332,12 +322,7 @@ export const tvunitDesignDetails = {
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/TvUnitDesigns/drive-download-20251208T054315Z-1-001/IMG_5614.JPG?updatedAt=1765174365623",
     ],
-    features: [
-      "Laminate Finish",
-      "Fluted MDF",
-      "Spotlights",
-      "Groove LEDs",
-    ],
+    features: ["Laminate Finish", "Fluted MDF", "Spotlights", "Groove LEDs"],
     specifications: {
       style: "Scandinavian Modern",
       colorScheme: "Light oak, white, charcoal",
@@ -361,12 +346,7 @@ export const tvunitDesignDetails = {
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/TvUnitDesigns/drive-download-20251208T054315Z-1-001/IMG_5611.JPG?updatedAt=1765174365611",
     ],
-    features: [
-      "Marble Panel",
-      "Laminate Finish",
-      "Linear LEDs",
-      "Spotlights",
-    ],
+    features: ["Marble Panel", "Laminate Finish", "Linear LEDs", "Spotlights"],
     specifications: {
       style: "Modern European",
       colorScheme: "Light wood, white, cream marble",
@@ -390,12 +370,7 @@ export const tvunitDesignDetails = {
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/TvUnitDesigns/drive-download-20251208T054315Z-1-001/IMG_5615.JPG?updatedAt=1765174365607",
     ],
-    features: [
-      "Marble Panels",
-      "Fluted MDF",
-      "Backlit LEDs",
-      "Shelf LEDs",
-    ],
+    features: ["Marble Panels", "Fluted MDF", "Backlit LEDs", "Shelf LEDs"],
     specifications: {
       style: "Ultra-Modern Minimalist",
       colorScheme: "White marble, grey-blue, wood",

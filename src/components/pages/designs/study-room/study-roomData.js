@@ -7,7 +7,7 @@ export const studyroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/StudyRoomDesigns/drive-download-20251208T054353Z-1-001/IMG_5673.JPG?updatedAt=1765174137617",
     description:
       "Fresh colorful modern study room in light blue, beige, and white featuring glass-top desk, brick-texture wallpaper, and natural curtain-filtered light",
-    style: "Fresh Colorful Modern",
+    style: "Fresh  Modern",
     price: "₹2,80,000",
     area: "120 sq ft",
   },
@@ -29,7 +29,7 @@ export const studyroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/StudyRoomDesigns/drive-download-20251208T054353Z-1-001/IMG_5670.JPG?updatedAt=1765174137438",
     description:
       "Contemporary study room with soft curves in white, brown, black, and peach featuring curved wooden desk, matte cabinet, and natural window light",
-    style: "Contemporary with Soft Curves",
+    style: "Contemporary ",
     price: "₹2,20,000",
     area: "90 sq ft",
   },
@@ -51,7 +51,7 @@ export const studyroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/StudyRoomDesigns/drive-download-20251208T054353Z-1-001/IMG_5672.JPG?updatedAt=1765174137046",
     description:
       "Modern study room with pastel accents in light pink, wood, and white featuring wooden cabinets, concrete-look desk, and natural window light",
-    style: "Modern with Pastel Accents",
+    style: "Modern ",
     price: "₹2,60,000",
     area: "110 sq ft",
   },
@@ -62,7 +62,7 @@ export const studyroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/StudyRoomDesigns/drive-download-20251208T054353Z-1-001/IMG_5669.JPG?updatedAt=1765174136184",
     description:
       "Elegant modern study room in white, beige, blush pink, and warm wood featuring wood desk, matte laminate cabinets, fabric chair, and natural light",
-    style: "Elegant Modern",
+    style: "Elegant ",
     price: "₹2,40,000",
     area: "100 sq ft",
   },
@@ -73,7 +73,7 @@ export const studyroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/StudyRoomDesigns/drive-download-20251208T054353Z-1-001/IMG_5668.JPG?updatedAt=1765174136188",
     description:
       "Modern minimal study room with warm wooden tones in white, soft beige, and warm wood brown featuring wooden desk & shelves, matte laminate cabinets",
-    style: "Modern Minimal with Warm Wooden Tones",
+    style: "Modern Minimal ",
     price: "₹2,70,000",
     area: "125 sq ft",
   },

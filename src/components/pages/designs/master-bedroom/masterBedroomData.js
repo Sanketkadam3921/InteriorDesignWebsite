@@ -7,7 +7,7 @@ export const masterBedroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/MasterBedroom/drive-download-20251208T054434Z-1-001/IMG_5581.JPG?updatedAt=1765174442165",
     description:
       "Soft bohemian floral bedroom with green, beige, and natural wood tones featuring wood cabinetry, floral wallpaper, and cozy fabric bed",
-    style: "Soft Bohemian Floral",
+    style: "Soft ",
     price: "₹4,80,000",
     area: "180 sq ft",
   },
@@ -18,7 +18,7 @@ export const masterBedroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/MasterBedroom/drive-download-20251208T054434Z-1-001/IMG_5585.JPG?updatedAt=1765174442067",
     description:
       "Contemporary bedroom with warm teak wood, grey and white palette featuring wood veneer, fabric headboard, and marble texture wall panel",
-    style: "Contemporary with Warm Wood",
+    style: "Contemporary ",
     price: "₹5,50,000",
     area: "200 sq ft",
   },
@@ -29,7 +29,7 @@ export const masterBedroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/MasterBedroom/drive-download-20251208T054434Z-1-001/IMG_5577.JPG?updatedAt=1765174441815",
     description:
       "Minimal contemporary bedroom in white, marble grey with teal accents featuring marble laminate, upholstered bed, and metal pendant lights",
-    style: "Minimal Contemporary",
+    style: "Minimal ",
     price: "₹4,20,000",
     area: "170 sq ft",
   },
@@ -40,7 +40,7 @@ export const masterBedroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/MasterBedroom/drive-download-20251208T054434Z-1-001/IMG_5576.JPG?updatedAt=1765174441656",
     description:
       "Tropical resort-style bedroom with warm wood, earthy beige, and green tones featuring natural wood, fabric bedding, and indoor plants",
-    style: "Tropical Resort-Style",
+    style: "Tropical ",
     price: "₹4,90,000",
     area: "190 sq ft",
   },
@@ -51,7 +51,7 @@ export const masterBedroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/MasterBedroom/drive-download-20251208T054434Z-1-001/IMG_5582.JPG?updatedAt=1765174441630",
     description:
       "Modern tropical bedroom in soft green, beige, and warm brown featuring veneer, upholstered bed, tropical wallpaper, and wardrobe with curved panels",
-    style: "Modern Tropical",
+    style: "Modern ",
     price: "₹4,60,000",
     area: "185 sq ft",
   },
@@ -62,7 +62,7 @@ export const masterBedroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/MasterBedroom/drive-download-20251208T054434Z-1-001/IMG_5584.JPG?updatedAt=1765174441359",
     description:
       "Biophilic contemporary bedroom with earthy grey, beige, and muted greens featuring textured wall panels, fabric headboard, and wallpaper mural",
-    style: "Biophilic Contemporary",
+    style: " Contemporary",
     price: "₹5,20,000",
     area: "195 sq ft",
   },
@@ -73,7 +73,7 @@ export const masterBedroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/MasterBedroom/drive-download-20251208T054434Z-1-001/IMG_5586.JPG?updatedAt=1765174440922",
     description:
       "Modern minimal luxury bedroom in beige, white, and soft greys with light wood accents featuring upholstered headboard, laminate wardrobe, and marble/PU wall panels",
-    style: "Modern Minimal Luxury",
+    style: "Modern Minimal ",
     price: "₹5,00,000",
     area: "192 sq ft",
   },
@@ -95,7 +95,7 @@ export const masterBedroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/MasterBedroom/drive-download-20251208T054434Z-1-001/IMG_5580.JPG?updatedAt=1765174440627",
     description:
       "Elegant pastel modern bedroom in pastel blue, white with gold accents featuring upholstered bed, laminate wardrobe, and printed wall arch",
-    style: "Elegant Pastel Modern",
+    style: "Elegant Pastel ",
     price: "₹5,30,000",
     area: "198 sq ft",
   },
@@ -106,7 +106,7 @@ export const masterBedroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/MasterBedroom/drive-download-20251208T054434Z-1-001/IMG_5579.JPG?updatedAt=1765174440466",
     description:
       "Botanical luxury bedroom in green, white, and soft beige featuring fabric headboard, wallpaper, and laminate furniture",
-    style: "Botanical Luxury",
+    style: " Luxury",
     price: "₹4,70,000",
     area: "188 sq ft",
   },
@@ -277,7 +277,8 @@ export const masterBedroomDesignDetails = {
       colorScheme: "Soft Green, Beige, Warm Brown",
       materials: "Veneer, Upholstered Bed, Tropical Wallpaper",
       lighting: "Pendant Hanging Lights, Cove Lighting",
-      furniture: "Bed with Upholstery, Side Console, Wardrobe with Curved Panels",
+      furniture:
+        "Bed with Upholstery, Side Console, Wardrobe with Curved Panels",
     },
   },
   6: {
@@ -344,7 +345,8 @@ export const masterBedroomDesignDetails = {
       area: "192 sq ft",
       style: "Modern Minimal Luxury",
       colorScheme: "Beige, White, Soft Greys with Light Wood Accents",
-      materials: "Upholstered Headboard, Laminate Wardrobe, Marble/PU Wall Panels",
+      materials:
+        "Upholstered Headboard, Laminate Wardrobe, Marble/PU Wall Panels",
       lighting: "Cove Lighting, Recessed Spotlights, Pendant Reading Lights",
       furniture: "Platform Bed, Floating TV Unit, Full-Height Wardrobes",
     },

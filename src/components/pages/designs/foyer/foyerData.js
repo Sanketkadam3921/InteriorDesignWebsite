@@ -7,7 +7,7 @@ export const foyerDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FoyerDesigns/drive-download-20251208T054641Z-1-001/IMG_5647.JPG?updatedAt=1765174234999",
     description:
       "Modern entrance foyer in soft beige and warm wood tones featuring a compact pooja console, lotus wall art, veneer panels, and subtle brass accents for a calm and spiritual welcome.",
-    style: "Modern Spiritual Entrance Foyer Design",
+    style: "Modern ",
     price: "₹2,80,000",
     area: "120 sq ft",
   },
@@ -18,7 +18,7 @@ export const foyerDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FoyerDesigns/drive-download-20251208T054641Z-1-001/IMG_5652.JPG?updatedAt=1765174234922",
     description:
       "Luxury entrance foyer with full-height wooden paneling, fluted ceiling details, glass block partition, and a personalized name panel creating a grand and welcoming statement.",
-    style: "Luxury Modern Entrance Foyer Design",
+    style: "Luxury ",
     price: "₹3,50,000",
     area: "140 sq ft",
   },
@@ -29,7 +29,7 @@ export const foyerDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FoyerDesigns/drive-download-20251208T054641Z-1-001/IMG_5649.JPG?updatedAt=1765174234936",
     description:
       "Minimal entrance foyer with vertical wooden slats, circular mirror, cushioned bench seating, and clean-lined storage inspired by Scandinavian aesthetics.",
-    style: "Scandinavian Minimal Entrance Foyer Design",
+    style: "Scandinavian ",
     price: "₹2,60,000",
     area: "110 sq ft",
   },
@@ -40,7 +40,7 @@ export const foyerDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FoyerDesigns/drive-download-20251208T054641Z-1-001/IMG_5653.JPG?updatedAt=1765174234928",
     description:
       "Contemporary entrance foyer with pastel blue textured wall tiles, curved console cabinetry, floral artwork, and soft accent lighting for an artistic and elegant look.",
-    style: "Contemporary Artistic Entrance Foyer Design",
+    style: "Contemporary ",
     price: "₹3,20,000",
     area: "130 sq ft",
   },
@@ -51,7 +51,7 @@ export const foyerDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FoyerDesigns/drive-download-20251208T054641Z-1-001/IMG_5657.JPG?updatedAt=1765174234747",
     description:
       "Modern entrance foyer featuring sculptural wall detailing, soft curved edges, backlit accents, and a minimalist console paired with a statement door design.",
-    style: "Modern Sculptural Entrance Foyer Design",
+    style: "Modern ",
     price: "₹2,40,000",
     area: "100 sq ft",
   },
@@ -62,7 +62,7 @@ export const foyerDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FoyerDesigns/drive-download-20251208T054641Z-1-001/IMG_5654.JPG?updatedAt=1765174234682",
     description:
       "Compact entrance foyer with a seating bench, vertical wooden panel accent, ventilated storage shutters, and neutral finishes for everyday functionality.",
-    style: "Modern Functional Entrance Foyer Design",
+    style: "Modern ",
     price: "₹3,30,000",
     area: "135 sq ft",
   },
@@ -73,7 +73,7 @@ export const foyerDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FoyerDesigns/drive-download-20251208T054641Z-1-001/IMG_5656.JPG?updatedAt=1765174234392",
     description:
       "Fusion-style entrance foyer with traditional motifs, patterned wallpaper, wooden ceiling panels, and classic bench seating blended with modern finishes.",
-    style: "Traditional Modern Entrance Foyer Design",
+    style: "Traditional ",
     price: "₹2,90,000",
     area: "125 sq ft",
   },
@@ -84,7 +84,7 @@ export const foyerDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FoyerDesigns/drive-download-20251208T054641Z-1-001/IMG_5648.JPG?updatedAt=1765174234378",
     description:
       "Minimal entrance foyer with arched wall paint detailing, round mirror, compact storage cabinets, and open cubbies for a clean and airy feel.",
-    style: "Minimal Contemporary Entrance Foyer Design",
+    style: " Contemporary ",
     price: "₹2,70,000",
     area: "115 sq ft",
   },
@@ -95,7 +95,7 @@ export const foyerDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FoyerDesigns/drive-download-20251208T054641Z-1-001/IMG_5651.JPG?updatedAt=1765174234350",
     description:
       "Premium entrance foyer with integrated tall storage, fluted wood panels, open display shelves, and cushioned bench seating for a luxurious yet practical layout.",
-    style: "Luxury Modern Entrance Foyer Design",
+    style: "Luxury ",
     price: "₹3,10,000",
     area: "145 sq ft",
   },
@@ -106,7 +106,7 @@ export const foyerDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/FoyerDesigns/drive-download-20251208T054641Z-1-001/IMG_5650.JPG?updatedAt=1765174234187",
     description:
       "Contemporary entrance foyer with a slim shoe cabinet, cushioned seating, vertical wooden slat backdrop, mirror unit, and hanging hooks for daily convenience.",
-    style: "Contemporary Compact Entrance Foyer Design",
+    style: "Contemporary ",
     price: "₹3,40,000",
     area: "150 sq ft",
   },
@@ -144,9 +144,12 @@ export const foyerDesignDetails = {
       area: "120 sq ft",
       style: "Modern Spiritual Entrance Foyer Design",
       colorScheme: "Soft Beige, Warm Wood Browns, Matte White, Brass Accents",
-      materials: "MDF, Veneer, Laminate, Solid Surface Top, Decorative Wall Panels",
-      lighting: "Recessed Spotlights, Accent Pendant Light, Soft Ambient Lighting",
-      furniture: "Pooja Console Unit, Decorative Wall Panels, Compact Storage Cabinet",
+      materials:
+        "MDF, Veneer, Laminate, Solid Surface Top, Decorative Wall Panels",
+      lighting:
+        "Recessed Spotlights, Accent Pendant Light, Soft Ambient Lighting",
+      furniture:
+        "Pooja Console Unit, Decorative Wall Panels, Compact Storage Cabinet",
     },
   },
   2: {
@@ -183,7 +186,8 @@ export const foyerDesignDetails = {
       colorScheme: "Warm Wood Browns, Soft Greys, Matte White, Green Accents",
       materials: "MDF, Veneer, Glass Blocks, Laminate, Metal Accents",
       lighting: "Recessed Ceiling Lights, Cove Lighting, Backlit Name Panel",
-      furniture: "Shoe Storage Unit, Seating Bench, Decorative Wall Panel, Name Plate Feature",
+      furniture:
+        "Shoe Storage Unit, Seating Bench, Decorative Wall Panel, Name Plate Feature",
     },
   },
   3: {
@@ -219,7 +223,8 @@ export const foyerDesignDetails = {
       colorScheme: "Light Wood Tones, White, Soft Grey, Natural Green",
       materials: "MDF, Veneer, Fabric Upholstery, Metal Hooks, Mirror Glass",
       lighting: "Soft Ambient Lighting, Natural Light Emphasis",
-      furniture: "Bench Seating with Storage, Mirror Unit, Wall Hook Panel, Shoe Cabinet",
+      furniture:
+        "Bench Seating with Storage, Mirror Unit, Wall Hook Panel, Shoe Cabinet",
     },
   },
   4: {
@@ -254,7 +259,8 @@ export const foyerDesignDetails = {
       style: "Contemporary Artistic Entrance Foyer Design",
       colorScheme: "Pastel Blue, Warm Wood Browns, Soft White, Muted Gold",
       materials: "MDF, Veneer, Textured Tiles, Laminate, Metal Handles",
-      lighting: "Wall Washer Lights, Linear LED Light, Ambient Ceiling Lighting",
+      lighting:
+        "Wall Washer Lights, Linear LED Light, Ambient Ceiling Lighting",
       furniture: "Decorative Console Unit, Accent Chair, Wall Art Panel",
     },
   },
@@ -290,7 +296,8 @@ export const foyerDesignDetails = {
       area: "100 sq ft",
       style: "Modern Sculptural Entrance Foyer Design",
       colorScheme: "Muted Peach, Soft Beige, Matte White, Black Accents",
-      materials: "MDF, Laminate, Decorative Panels, Glass Insert Door, Solid Surface",
+      materials:
+        "MDF, Laminate, Decorative Panels, Glass Insert Door, Solid Surface",
       lighting: "Cove Lighting, Recessed Spotlights, Backlit Wall Feature",
       furniture: "Console Cabinet, Decorative Shelf, Minimal Storage Unit",
     },
@@ -435,7 +442,8 @@ export const foyerDesignDetails = {
       colorScheme: "Warm Wood Browns, Matte White, Soft Greys",
       materials: "MDF, Veneer, Laminate, Fabric Upholstery",
       lighting: "Recessed Ceiling Lights, Soft Ambient Lighting",
-      furniture: "Full-Height Storage Unit, Bench Seating, Open Display Shelves",
+      furniture:
+        "Full-Height Storage Unit, Bench Seating, Open Display Shelves",
     },
   },
   10: {

@@ -7,7 +7,7 @@ export const bathroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5572.JPG?updatedAt=1765174468561",
     description:
       "Modern luxury bathroom with premium fixtures and sophisticated design",
-    style: "Warm Scandinavian modern",
+    style: "Warm Scandinavian ",
     price: "₹3,50,000",
     area: "90 sq ft",
   },

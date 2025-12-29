@@ -7,7 +7,7 @@ export const kidsbedroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/KidsBedroomDesigns/drive-download-20251208T054603Z-1-001/IMG_5627.JPG?updatedAt=1765174313716",
     description:
       "Space-themed kids bedroom in white, beige wood, and black featuring wood paneling, laminate cabinetry, fabric bed, and study table",
-    style: "Space-Themed Kids Bedroom",
+    style: "Space-Themed ",
     price: "₹2,80,000",
     area: "140 sq ft",
   },
@@ -18,7 +18,7 @@ export const kidsbedroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/KidsBedroomDesigns/drive-download-20251208T054603Z-1-001/IMG_5636.JPG?updatedAt=1765174313702",
     description:
       "Kids playful study and sleeping corner in soft blue, beige, and mint green featuring laminate furniture, painted mural wall, and fabric chair",
-    style: "Kids Playful Study + Sleeping Corner",
+    style: " Playful ",
     price: "₹3,20,000",
     area: "150 sq ft",
   },
@@ -29,7 +29,7 @@ export const kidsbedroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/KidsBedroomDesigns/drive-download-20251208T054603Z-1-001/IMG_5632.JPG?updatedAt=1765174313660",
     description:
       "Soft luxury girl's bedroom in blush pink, beige, and gold accents featuring upholstered bed, fluted wall panels, and laminate wardrobe",
-    style: "Soft Luxury Girl's Bedroom",
+    style: "Soft Luxury ",
     price: "₹3,00,000",
     area: "145 sq ft",
   },
@@ -40,7 +40,7 @@ export const kidsbedroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/KidsBedroomDesigns/drive-download-20251208T054603Z-1-001/IMG_5633.JPG?updatedAt=1765174313649",
     description:
       "Premium soft pink kids luxury bedroom in blush pink, ivory, and warm neutrals featuring PU finish wardrobes, fluted paneling, and upholstered bed",
-    style: "Premium Soft Pink Kids Luxury Bedroom",
+    style: "Premium Soft ",
     price: "₹3,40,000",
     area: "155 sq ft",
   },
@@ -51,7 +51,7 @@ export const kidsbedroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/KidsBedroomDesigns/drive-download-20251208T054603Z-1-001/IMG_5630.JPG?updatedAt=1765174313647",
     description:
       "Soft cloud theme bedroom in white, grey, and pastel blue featuring laminate panels, upholstered bed, and wood flooring",
-    style: "Soft Cloud Theme Bedroom",
+    style: "Soft Cloud ",
     price: "₹2,60,000",
     area: "135 sq ft",
   },
@@ -62,7 +62,7 @@ export const kidsbedroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/KidsBedroomDesigns/drive-download-20251208T054603Z-1-001/IMG_5629.JPG?updatedAt=1765174313632",
     description:
       "Modern car-themed kids bedroom in grey, navy blue, and white featuring upholstered bed, painted wall panel, and laminate furniture",
-    style: "Modern Car-Themed Kids Bedroom",
+    style: "Modern ",
     price: "₹2,90,000",
     area: "142 sq ft",
   },
@@ -73,7 +73,7 @@ export const kidsbedroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/KidsBedroomDesigns/drive-download-20251208T054603Z-1-001/IMG_5635.JPG?updatedAt=1765174313479",
     description:
       "Modern Scandinavian kid's study in white, pastel blue, and beige wood featuring laminate wardrobe, wood shelves, and matte paint",
-    style: "Modern Scandinavian Kid's Study",
+    style: "Modern Scandinavian ",
     price: "₹3,10,000",
     area: "148 sq ft",
   },
@@ -84,7 +84,7 @@ export const kidsbedroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/KidsBedroomDesigns/drive-download-20251208T054603Z-1-001/IMG_5634.JPG?updatedAt=1765174313387",
     description:
       "Cute unicorn theme bedroom in soft pink, pastel blue, and white featuring PU-finish cabinetry, wallpaper mural, and laminate desk",
-    style: "Cute Unicorn Theme Bedroom",
+    style: "Cute ",
     price: "₹2,70,000",
     area: "138 sq ft",
   },
@@ -95,7 +95,7 @@ export const kidsbedroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/KidsBedroomDesigns/drive-download-20251208T054603Z-1-001/IMG_5631.JPG?updatedAt=1765174313321",
     description:
       "Calm pastel kids room in peach, white, and earthy beige featuring upholstered bed, laminate wardrobes, and printed wall panel",
-    style: "Calm Pastel Kids Room",
+    style: "Calm ",
     price: "₹3,30,000",
     area: "152 sq ft",
   },
@@ -106,7 +106,7 @@ export const kidsbedroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/KidsBedroomDesigns/drive-download-20251208T054603Z-1-001/IMG_5628.JPG?updatedAt=1765174312739",
     description:
       "Cute storybook theme bedroom in pastel peach, white, and light blue featuring fabric headboard, wallpaper, and laminate shelves",
-    style: "Cute Storybook Theme Bedroom",
+    style: "Cute ",
     price: "₹2,50,000",
     area: "130 sq ft",
   },
@@ -246,7 +246,8 @@ export const kidsbedroomDesignDetails = {
       colorScheme: "Blush Pink, Ivory, Warm Neutrals",
       materials: "PU Finish Wardrobes, Fluted Paneling, Upholstered Bed",
       lighting: "Recessed Ceiling Spots, Warm Backlit Shelves",
-      furniture: "Bed with Layered Headboard, Study Desk, Wardrobe with Rounded Panels",
+      furniture:
+        "Bed with Layered Headboard, Study Desk, Wardrobe with Rounded Panels",
     },
   },
   5: {

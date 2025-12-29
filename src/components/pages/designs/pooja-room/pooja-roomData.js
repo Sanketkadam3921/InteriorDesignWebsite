@@ -7,7 +7,7 @@ export const poojaroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/PoojaRoom/drive-download-20251208T055104Z-1-001/IMG_5598.JPG?updatedAt=1765174392380",
     description:
       "Contemporary designer pooja room featuring CNC shloka work, marble finishes, and halo backlighting",
-    style: "Contemporary Designer",
+    style: "Contemporary ",
     price: "₹2,80,000",
     area: "60 sq ft",
   },
@@ -18,7 +18,7 @@ export const poojaroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/PoojaRoom/drive-download-20251208T055104Z-1-001/IMG_5597.JPG?updatedAt=1765174392348",
     description:
       "Premium modern Indian pooja room with decorative arch, marble finishes, and LED backlit arch",
-    style: "Premium Modern Indian",
+    style: "Premium Modern ",
     price: "₹3,20,000",
     area: "65 sq ft",
   },
@@ -95,7 +95,7 @@ export const poojaroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/PoojaRoom/drive-download-20251208T055104Z-1-001/IMG_5599.JPG?updatedAt=1765174390895",
     description:
       "Modern arched mandir pooja room with arched frame, glass doors, pendant light, and shelf lights",
-    style: "Modern Arched Mandir",
+    style: "Modern Arched ",
     price: "₹3,30,000",
     area: "64 sq ft",
   },
@@ -332,12 +332,7 @@ export const poojaroomDesignDetails = {
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/PoojaRoom/drive-download-20251208T055104Z-1-001/IMG_5606.JPG?updatedAt=1765174391775",
     ],
-    features: [
-      "Wood Paneling",
-      "Marble Finishes",
-      "CNC Work",
-      "Base Storage",
-    ],
+    features: ["Wood Paneling", "Marble Finishes", "CNC Work", "Base Storage"],
     specifications: {
       style: "Minimal Modern",
       colorScheme: "White, warm wood",
