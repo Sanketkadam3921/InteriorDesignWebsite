@@ -140,7 +140,7 @@ export const kitchenDesignDetails = {
       colorScheme: "Warm wood tones, beige, white marble, black accents",
       materials: "Wood laminate, quartz/marble countertop, glass shelves",
       lighting: "Recessed lights, under-cabinet LEDs, spotlights",
-      furniture: "High-back leather bar stools",
+      furniture: "Modular base kitchen cabinets, Modular wall cabinets, Kitchen island / breakfast counter, Island base storage, Open wall shelves, Tall unit paneling",
     },
     sections: [
       {
@@ -192,7 +192,7 @@ export const kitchenDesignDetails = {
       colorScheme: "Grey + pastel green",
       materials: "Matte laminate, terrazzo backsplash",
       lighting: "Under-cabinet warm LEDs, recessed lights",
-      furniture: "None",
+      furniture: "Modular base kitchen cabinets, Modular wall cabinets, Glass display cabinets, Under-sink cabinet, Drawer storage units",
     },
     sections: [
       {
@@ -235,7 +235,7 @@ export const kitchenDesignDetails = {
       colorScheme: "Taupe-beige + wood",
       materials: "Matte laminate, wood shelves",
       lighting: "Track lights + shelf LEDs",
-      furniture: "None",
+      furniture: "Modular base kitchen cabinets, Modular wall cabinets, Open wooden wall shelves, Chimney housing unit, Corner cabinet unit",
     },
     sections: [
       {
@@ -269,7 +269,7 @@ export const kitchenDesignDetails = {
       colorScheme: "Powder blue, white, teal backsplash, black accents",
       materials: "Matte laminate cabinets, quartz countertop, ceramic herringbone tiles, wood shelves",
       lighting: "Recessed ceiling lights, natural window light, subtle under-cabinet illumination",
-      furniture: "Built-in gas hob, black chimney hood, wooden open shelves, minimal counter accessories",
+      furniture: "Modular base kitchen cabinets, Modular wall cabinets, Open niche shelves, Chimney housing unit, Corner storage unit",
     },
     sections: [
       {
@@ -303,7 +303,7 @@ export const kitchenDesignDetails = {
       colorScheme: "Mint green, white, natural wood",
       materials: "Gloss laminate, wood shelves, ceramic tiles",
       lighting: "Natural + ceiling lights",
-      furniture: "None",
+      furniture: "Modular base kitchen cabinets, Modular wall cabinets, Open spice shelf, Corner cabinet unit, Overhead loft cabinets",
     },
     sections: [
       {
@@ -337,7 +337,7 @@ export const kitchenDesignDetails = {
       colorScheme: "Beige-grey + wood + black trim",
       materials: "Matte laminate, stone countertop",
       lighting: "Pendant + LED shelf lights",
-      furniture: "Beige bar stools",
+      furniture: "Modular base kitchen cabinets, Modular wall cabinets, Kitchen island with storage, Tall glass display unit, Appliance housing units",
     },
     sections: [
       {
@@ -371,7 +371,7 @@ export const kitchenDesignDetails = {
       colorScheme: "Aqua/teal gloss, white marble backsplash, black linear accents, warm beige glass",
       materials: "High-gloss acrylic/PU cabinets, quartz countertop, frosted/tinted glass cabinets",
       lighting: "Recessed spotlights, internal glass-cabinet lighting, under-cabinet LEDs",
-      furniture: "Built-in cooktop, black sink & faucet, appliance shutter unit, handle-less drawers",
+      furniture: "Modular base kitchen cabinets, Modular wall cabinets, Glass wall cabinets, Corner cabinet unit, Chimney housing unit",
     },
     sections: [
       {
@@ -405,7 +405,7 @@ export const kitchenDesignDetails = {
       colorScheme: "Rose-mauve + white",
       materials: "Gloss laminate, glass cabinets",
       lighting: "LED strip + recessed lights",
-      furniture: "None",
+      furniture: "Modular base kitchen cabinets, Modular wall cabinets, Glass wall cabinets, Tall pantry unit, Microwave housing unit",
     },
     sections: [
       {
@@ -439,7 +439,7 @@ export const kitchenDesignDetails = {
       colorScheme: "Beige, oak wood, black",
       materials: "Wood veneer, matte laminate",
       lighting: "Warm LEDs + shelf lighting",
-      furniture: "Upholstered bar stools",
+      furniture: "Modular base kitchen cabinets, Modular wall cabinets, Kitchen island with storage, Overhead bridge cabinets, Open display niches",
     },
     sections: [
       {
@@ -473,7 +473,7 @@ export const kitchenDesignDetails = {
       colorScheme: "Mauve + white",
       materials: "Gloss laminate, marble backsplash",
       lighting: "Warm LED strips",
-      furniture: "None",
+      furniture: "Modular base kitchen cabinets, Modular wall cabinets, Glass display cabinets, Chimney housing unit, Overhead loft cabinets",
     },
     sections: [
       {

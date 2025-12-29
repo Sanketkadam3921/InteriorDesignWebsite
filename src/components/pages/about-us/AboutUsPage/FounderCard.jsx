@@ -3,7 +3,6 @@ import {
   Card,
   CardContent,
   Typography,
-  Avatar,
   Box,
   IconButton,
   useTheme,
@@ -48,17 +47,52 @@ export default function FounderCard({
       }}
     >
       <CardContent sx={{ p: 4, textAlign: "center" }}>
-        <Avatar
-          src={image}
+        <Box
           sx={{
-            width: 120,
-            height: 120,
+            width: {
+              xs: 180,
+              sm: 200,
+              md: 220,
+              lg: 250,
+            },
+            height: {
+              xs: 180,
+              sm: 200,
+              md: 220,
+              lg: 250,
+            },
             mx: "auto",
             mb: 3,
+            borderRadius: "50%",
+            overflow: "hidden",
             border: `4px solid ${borderColor || theme.palette.primary.main}`,
-            boxShadow: theme.shadows[3],
+            boxShadow: theme.shadows[4],
+            position: "relative",
+            "&::after": {
+              content: '""',
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              borderRadius: "50%",
+              border: `2px solid ${theme.palette.background.paper}`,
+              boxSizing: "border-box",
+            },
           }}
-        />
+        >
+          <Box
+            component="img"
+            src={image}
+            alt={name}
+            sx={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              display: "block",
+            }}
+          />
+        </Box>
 
         <Typography
           variant="h5"

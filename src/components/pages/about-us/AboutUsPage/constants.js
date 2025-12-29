@@ -173,7 +173,7 @@ export const FOUNDERS = [
     description:
       "A dynamic co-founder with a passion for modern design and precision. Mr. Rushikesh plays a key role in shaping the studio's creative direction. His strong leadership, problem-solving mindset, and commitment to quality help the team deliver interior designs that are both impactful and sustainable.",
     image:
-      "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+      "https://ik.imagekit.io/bowr9614/Sir/IMG_5044.JPG",
     borderColor: "neutral.mediumGray",
     socialLinks: [
       {
@@ -195,7 +195,7 @@ export const FOUNDERS = [
     description:
       "A strategic leader known for his strong organizational skills and result-driven mindset. Mr. Shubham ensures smooth coordination across all departments, keeping every project on track. His focus on planning, efficiency, and team growth guides Kalakruti Studio toward consistent excellence and long-term success.",
     image:
-      "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+      "https://ik.imagekit.io/bowr9614/Sir/IMG_4133.JPG",
     borderColor: "secondary.main",
     socialLinks: [
       {
