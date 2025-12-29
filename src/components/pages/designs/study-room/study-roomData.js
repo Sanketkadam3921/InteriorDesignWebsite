@@ -84,7 +84,7 @@ export const studyroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/StudyRoomDesigns/drive-download-20251208T054353Z-1-001/IMG_5674.JPG?updatedAt=1765174135514",
     description:
       "Luxury modern study room with bold shelving in beige, teal blue, and white featuring stone wall, wooden drawers, and spotlight shelf lighting",
-    style: "Luxury Modern with Bold Shelving",
+    style: "Luxury Modern ",
     price: "₹3,30,000",
     area: "135 sq ft",
   },
@@ -95,7 +95,7 @@ export const studyroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/StudyRoomDesigns/drive-download-20251208T054353Z-1-001/IMG_5671.JPG?updatedAt=1765174133489",
     description:
       "Minimal modern study room with elegant tones in white, beige, and grey featuring gloss laminate, wood paneling, and natural light via sheer curtains",
-    style: "Minimal Modern with Elegant Tones",
+    style: "Minimal Modern ",
     price: "₹2,50,000",
     area: "115 sq ft",
   },

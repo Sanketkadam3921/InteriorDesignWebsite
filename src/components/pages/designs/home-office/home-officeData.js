@@ -7,7 +7,7 @@ export const homeofficeDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/HomeOfficeDesigns/drive-download-20251208T055210Z-1-001/IMG_5664.JPG?updatedAt=1765174208373",
     description:
       "Compact workspace in neutral beige and light oak featuring laminate tabletop, floating shelves, and ceiling spotlight",
-    style: "Compact Workspace",
+    style: "Compact ",
     price: "₹2,80,000",
     area: "120 sq ft",
   },
@@ -18,7 +18,7 @@ export const homeofficeDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/HomeOfficeDesigns/drive-download-20251208T055210Z-1-001/IMG_5666.JPG?updatedAt=1765174208330",
     description:
       "Minimal Scandinavian office in light wood, white, and grey featuring veneer panels, lacquered cabinets, and natural daylight",
-    style: "Minimal Scandinavian Office",
+    style: "Minimal Scandinavian ",
     price: "₹3,20,000",
     area: "130 sq ft",
   },
@@ -29,7 +29,7 @@ export const homeofficeDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/HomeOfficeDesigns/drive-download-20251208T055210Z-1-001/IMG_5662.JPG?updatedAt=1765174208346",
     description:
       "Modern minimal cabin in beige, oak, and black featuring laminate and metal materials, wall-mounted sconce, and ceiling light",
-    style: "Modern Minimal Cabin",
+    style: "Modern Minimal ",
     price: "₹2,20,000",
     area: "90 sq ft",
   },
@@ -40,7 +40,7 @@ export const homeofficeDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/HomeOfficeDesigns/drive-download-20251208T055210Z-1-001/IMG_5658.JPG?updatedAt=1765174208162",
     description:
       "Warm modern cabin in grey, beige, and wood featuring laminate wood, metal legs, pendant lights, and spotlights",
-    style: "Warm Modern Cabin",
+    style: "Warm Modern ",
     price: "₹3,50,000",
     area: "140 sq ft",
   },
@@ -51,7 +51,7 @@ export const homeofficeDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/HomeOfficeDesigns/drive-download-20251208T055210Z-1-001/IMG_5660.JPG?updatedAt=1765174208134",
     description:
       "Soft luxury office in white and warm wood featuring lacquered cabinets, fabric chairs, spotlights, and shelf lighting",
-    style: "Soft Luxury Office",
+    style: "Soft Luxury ",
     price: "₹2,60,000",
     area: "110 sq ft",
   },
@@ -62,7 +62,7 @@ export const homeofficeDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/HomeOfficeDesigns/drive-download-20251208T055210Z-1-001/IMG_5665.JPG?updatedAt=1765174208144",
     description:
       "Contemporary workspace in ivory and soft wood featuring marble look top, wooden shelving, and warm LED strip lights",
-    style: "Contemporary Workspace",
+    style: "Contemporary ",
     price: "₹2,40,000",
     area: "100 sq ft",
   },
@@ -73,7 +73,7 @@ export const homeofficeDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/HomeOfficeDesigns/drive-download-20251208T055210Z-1-001/IMG_5667.JPG?updatedAt=1765174208104",
     description:
       "Modern executive office in beige, wood brown, and white featuring laminated wood, fabric chair, glass elements, and cove lighting",
-    style: "Modern Executive Office",
+    style: "Modern ",
     price: "₹2,70,000",
     area: "125 sq ft",
   },
@@ -84,7 +84,7 @@ export const homeofficeDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/HomeOfficeDesigns/drive-download-20251208T055210Z-1-001/IMG_5661.JPG?updatedAt=1765174207906",
     description:
       "Textured modern office in cream and wood brown featuring textured panels, laminate, pendant and spotlight mix",
-    style: "Textured Modern Office",
+    style: "Textured Modern ",
     price: "₹3,30,000",
     area: "135 sq ft",
   },
@@ -95,7 +95,7 @@ export const homeofficeDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/HomeOfficeDesigns/drive-download-20251208T055210Z-1-001/IMG_5659.JPG?updatedAt=1765174207900",
     description:
       "Skyline view office in light beige and wood tones featuring solid wood desk, marble console, and ceiling LED spots",
-    style: "Skyline View Office",
+    style: "Modern",
     price: "₹2,50,000",
     area: "115 sq ft",
   },
@@ -106,7 +106,7 @@ export const homeofficeDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/HomeOfficeDesigns/drive-download-20251208T055210Z-1-001/IMG_5663.JPG?updatedAt=1765174207725",
     description:
       "Muted pastel workspace in soft peach and wood featuring matte laminate, wooden shelves, and recessed ceiling lights",
-    style: "Muted Pastel Workspace",
+    style: "Luxury",
     price: "₹3,10,000",
     area: "145 sq ft",
   },

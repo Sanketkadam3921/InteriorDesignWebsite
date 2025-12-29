@@ -95,8 +95,25 @@ export default function ContactForm() {
 
   const validateEmail = (email) => {
     if (!email.trim()) return "Email is required";
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegex.test(email.trim())) return "Enter a valid email";
+    const emailValue = email.trim();
+    // Basic format check: username@domain.tld
+    const basicEmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!basicEmailRegex.test(emailValue)) {
+      return "Enter a valid email address";
+    }
+    // Check allowed TLDs
+    const allowedTLDs = [".com", ".in", ".org", ".net", ".co.in", ".gov.in"];
+    const emailLower = emailValue.toLowerCase();
+    const hasAllowedTLD = allowedTLDs.some((tld) => emailLower.endsWith(tld));
+    if (!hasAllowedTLD) {
+      return "Only .com, .in, .org, .net, .co.in, .gov.in emails are allowed";
+    }
+    // Check characters before @ (only letters, numbers, ., _, %, +, -)
+    const localPart = emailValue.split("@")[0];
+    const localPartRegex = /^[a-zA-Z0-9._%+-]+$/;
+    if (!localPartRegex.test(localPart)) {
+      return "Enter a valid email address";
+    }
     return "";
   };
 
@@ -117,7 +134,12 @@ export default function ContactForm() {
   // ---------------- HANDLE INPUT ----------------
   const handleChange = (e) => {
     const { name, value } = e.target;
-    const processedValue = name === "phone" ? value.replace(/\D/g, "") : value;
+    let processedValue = value;
+    if (name === "phone") {
+      processedValue = value.replace(/\D/g, "");
+    } else if (name === "email") {
+      processedValue = value.replace(/\s/g, ""); // Remove spaces
+    }
 
     setFormData({ ...formData, [name]: processedValue });
 
@@ -272,8 +294,13 @@ export default function ContactForm() {
             <RedAsteriskTextField
               label="Email"
               name="email"
+              type="email"
               value={formData.email}
               onChange={handleChange}
+              onBlur={() => {
+                const error = validateEmail(formData.email);
+                setErrors({ ...errors, email: error });
+              }}
               error={!!errors.email}
               helperText={errors.email}
               required

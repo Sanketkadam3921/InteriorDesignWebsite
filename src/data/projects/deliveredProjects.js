@@ -35,7 +35,7 @@ export const deliveredProjects = [
 
   {
     id: "delivered-3",
-    title: "Kids’ Bedroom With Blue & Marble-Themed Storage and Study Unit",
+    title: "Kids Bedroom With Blue & Marble-Themed Storage and Study Unit",
     location: "Mumbai",
     scope: "Kids Bedroom",
     bhk: "3-BHK",
@@ -448,9 +448,9 @@ export const deliveredProjectsDetails = {
   },
 
   "delivered-3": {
-    title: "Kids’ Bedroom With Blue & Marble-Themed Storage and Study Unit",
+    title: "Kids Bedroom With Blue & Marble-Themed Storage and Study Unit",
     description:
-      "A bright and functional kids’ bedroom featuring a marble-textured wardrobe with modern blue accents, a dedicated study zone, and an LED-lit display unit.",
+      "A bright and functional kids bedroom featuring a marble-textured wardrobe with modern blue accents, a dedicated study zone, and an LED-lit display unit.",
     location: "Mumbai",
     budget: "₹3 - ₹5 Lakhs",
     area: "140 sq ft (Kids Bedroom)",
@@ -461,7 +461,7 @@ export const deliveredProjectsDetails = {
       "/INTERIOR_DESIGN_IMAGES/Project_3/IMG_1977.JPG",
     ],
     longDescription:
-      "Designed for comfort, creativity, and functionality, this kids’ bedroom blends a soothing blue palette with a clean marble finish...",
+      "Designed for comfort, creativity, and functionality, this kids bedroom blends a soothing blue palette with a clean marble finish...",
   },
 
   "delivered-4": {
@@ -538,7 +538,7 @@ export const deliveredProjectsDetails = {
   "delivered-8": {
     title: "Pastel-Themed Kids Room & Classic Wooden Bedroom Design",
     description:
-      "A charming combination of a pastel kids' room with study unit and a warm wooden guest bedroom with patterned wardrobe.",
+      "A charming combination of a pastel kids room with study unit and a warm wooden guest bedroom with patterned wardrobe.",
     location: "Pune",
     budget: "₹3.5 - ₹5 Lakhs",
     area: "Kids Room + Guest Room",

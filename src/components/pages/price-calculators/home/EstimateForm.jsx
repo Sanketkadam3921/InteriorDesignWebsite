@@ -154,9 +154,34 @@ export default function EstimateForm() {
         break;
 
       case "email":
-        if (!value.trim()) error = "Email is required";
-        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))
-          error = "Enter a valid email address";
+        if (!value.trim()) {
+          error = "Email is required";
+        } else {
+          const email = value.trim();
+          // Basic format check: username@domain.tld
+          const basicEmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          if (!basicEmailRegex.test(email)) {
+            error = "Enter a valid email address";
+          } else {
+            // Check allowed TLDs
+            const allowedTLDs = [".com", ".in", ".org", ".net", ".co.in", ".gov.in"];
+            const emailLower = email.toLowerCase();
+            const hasAllowedTLD = allowedTLDs.some((tld) =>
+              emailLower.endsWith(tld)
+            );
+            if (!hasAllowedTLD) {
+              error =
+                "Only .com, .in, .org, .net, .co.in, .gov.in emails are allowed";
+            } else {
+              // Check characters before @ (only letters, numbers, ., _, %, +, -)
+              const localPart = email.split("@")[0];
+              const localPartRegex = /^[a-zA-Z0-9._%+-]+$/;
+              if (!localPartRegex.test(localPart)) {
+                error = "Enter a valid email address";
+              }
+            }
+          }
+        }
         break;
 
       case "phone":
@@ -185,6 +210,9 @@ export default function EstimateForm() {
     switch (field) {
       case "name":
         value = value.replace(/[^A-Za-z\s]/g, "");
+        break;
+      case "email":
+        value = value.replace(/\s/g, ""); // Remove spaces
         break;
       case "phone":
         value = value.replace(/\D/g, "").slice(0, 10);
@@ -424,6 +452,7 @@ Price Range: ${priceRange?.displayRange || "N/A"}
                 type="email"
                 value={formData.email}
                 onChange={handleInputChange("email")}
+                onBlur={() => validateField("email", formData.email)}
                 margin="normal"
                 required
                 size="small"
