@@ -115,12 +115,20 @@ export default function WardrobeEstimateForm() {
         } else {
           const email = value.trim();
           // Basic format check: username@domain.tld
-          const basicEmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          const basicEmailRegex =
+            /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
           if (!basicEmailRegex.test(email)) {
             error = "Enter a valid email address";
           } else {
             // Check allowed TLDs
-            const allowedTLDs = [".com", ".in", ".org", ".net", ".co.in", ".gov.in"];
+            const allowedTLDs = [
+              ".com",
+              ".in",
+              ".org",
+              ".net",
+              ".co.in",
+              ".gov.in",
+            ];
             const emailLower = email.toLowerCase();
             const hasAllowedTLD = allowedTLDs.some((tld) =>
               emailLower.endsWith(tld)
@@ -220,7 +228,7 @@ export default function WardrobeEstimateForm() {
 
       formDataToSend.append(
         "access_key",
-        "2cc4a7da-4b04-41e6-80d9-a1ae8efb4013"
+        "1c21fc37-1fc4-4734-a82f-0a647e166aef"
       );
       formDataToSend.append("subject", "New Wardrobe Estimate Request");
       formDataToSend.append("from_name", "Wardrobe Cost Calculator");
@@ -390,100 +398,100 @@ Estimated Price: ₹${formatIndianCurrency(estimatePayload.estimatedPrice)}
           }}
         >
           <CardContent sx={{ p: 3 }}>
-          <form onSubmit={handleSubmit} noValidate>
-            {/* Name */}
-            <RedAsteriskTextField
-              fullWidth
-              label="Name"
-              value={formData.name}
-              onChange={handleInputChange("name")}
-              required
-              margin="normal"
-              size="small"
-              error={!!errors.name}
-              helperText={errors.name}
-            />
+            <form onSubmit={handleSubmit} noValidate>
+              {/* Name */}
+              <RedAsteriskTextField
+                fullWidth
+                label="Name"
+                value={formData.name}
+                onChange={handleInputChange("name")}
+                required
+                margin="normal"
+                size="small"
+                error={!!errors.name}
+                helperText={errors.name}
+              />
 
-            {/* Email */}
-            <RedAsteriskTextField
-              fullWidth
-              label="Email Address"
-              type="email"
-              value={formData.email}
-              onChange={handleInputChange("email")}
-              onBlur={() => validateField("email", formData.email)}
-              required
-              margin="normal"
-              size="small"
-              error={!!errors.email}
-              helperText={errors.email}
-            />
+              {/* Email */}
+              <RedAsteriskTextField
+                fullWidth
+                label="Email Address"
+                type="email"
+                value={formData.email}
+                onChange={handleInputChange("email")}
+                onBlur={() => validateField("email", formData.email)}
+                required
+                margin="normal"
+                size="small"
+                error={!!errors.email}
+                helperText={errors.email}
+              />
 
-            {/* Phone */}
-            <RedAsteriskTextField
-              fullWidth
-              label="Phone Number"
-              type="tel"
-              value={formData.phone}
-              onChange={handleInputChange("phone")}
-              required
-              margin="normal"
-              size="small"
-              error={!!errors.phone}
-              helperText={errors.phone}
-            />
+              {/* Phone */}
+              <RedAsteriskTextField
+                fullWidth
+                label="Phone Number"
+                type="tel"
+                value={formData.phone}
+                onChange={handleInputChange("phone")}
+                required
+                margin="normal"
+                size="small"
+                error={!!errors.phone}
+                helperText={errors.phone}
+              />
 
-            {/* Property */}
-            <RedAsteriskTextField
-              fullWidth
-              label="Property Name"
-              value={formData.propertyName}
-              onChange={handleInputChange("propertyName")}
-              required
-              margin="normal"
-              size="small"
-              error={!!errors.propertyName}
-              helperText={errors.propertyName}
-            />
+              {/* Property */}
+              <RedAsteriskTextField
+                fullWidth
+                label="Property Name"
+                value={formData.propertyName}
+                onChange={handleInputChange("propertyName")}
+                required
+                margin="normal"
+                size="small"
+                error={!!errors.propertyName}
+                helperText={errors.propertyName}
+              />
 
-            {/* Price box - Only shown after submission */}
-            {submitted && (
-              <Box
-                sx={{
-                  textAlign: "center",
-                  p: 2,
-                  mt: 2,
-                  backgroundColor: theme.palette.primary.light + "20",
-                  borderRadius: 2,
-                }}
-              >
-                <Typography
-                  variant="subtitle2"
-                  sx={{ color: theme.palette.text.secondary }}
+              {/* Price box - Only shown after submission */}
+              {submitted && (
+                <Box
+                  sx={{
+                    textAlign: "center",
+                    p: 2,
+                    mt: 2,
+                    backgroundColor: theme.palette.primary.light + "20",
+                    borderRadius: 2,
+                  }}
                 >
-                  Estimated Price
-                </Typography>
-                <Typography
-                  variant="h5"
-                  sx={{ fontWeight: 700, color: theme.palette.primary.main }}
-                >
-                  {estimateData?.totalPrice?.toLocaleString("en-IN", {
-                    style: "currency",
-                    currency: "INR",
-                  }) || "₹0"}
-                </Typography>
+                  <Typography
+                    variant="subtitle2"
+                    sx={{ color: theme.palette.text.secondary }}
+                  >
+                    Estimated Price
+                  </Typography>
+                  <Typography
+                    variant="h5"
+                    sx={{ fontWeight: 700, color: theme.palette.primary.main }}
+                  >
+                    {estimateData?.totalPrice?.toLocaleString("en-IN", {
+                      style: "currency",
+                      currency: "INR",
+                    }) || "₹0"}
+                  </Typography>
 
-                <Typography
-                  variant="caption"
-                  sx={{ color: theme.palette.text.secondary }}
-                >
-                  *Final price may vary based on requirements
-                </Typography>
-              </Box>
-            )}
-          </form>
-        </CardContent>
-      </Card>
+                  <Typography
+                    variant="caption"
+                    sx={{ color: theme.palette.text.secondary }}
+                  >
+                    *Final price may vary based on requirements
+                  </Typography>
+                </Box>
+              )}
+            </form>
+          </CardContent>
+        </Card>
       </Box>
 
       <Box sx={{ flex: 1 }} />

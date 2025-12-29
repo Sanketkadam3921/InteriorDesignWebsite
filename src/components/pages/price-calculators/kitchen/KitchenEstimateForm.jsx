@@ -164,12 +164,20 @@ export default function KitchenEstimateForm() {
         } else {
           const email = value.trim();
           // Basic format check: username@domain.tld
-          const basicEmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          const basicEmailRegex =
+            /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
           if (!basicEmailRegex.test(email)) {
             error = "Enter a valid email address";
           } else {
             // Check allowed TLDs
-            const allowedTLDs = [".com", ".in", ".org", ".net", ".co.in", ".gov.in"];
+            const allowedTLDs = [
+              ".com",
+              ".in",
+              ".org",
+              ".net",
+              ".co.in",
+              ".gov.in",
+            ];
             const emailLower = email.toLowerCase();
             const hasAllowedTLD = allowedTLDs.some((tld) =>
               emailLower.endsWith(tld)
@@ -257,7 +265,7 @@ export default function KitchenEstimateForm() {
 
       formDataToSend.append(
         "access_key",
-        "2cc4a7da-4b04-41e6-80d9-a1ae8efb4013"
+        "1c21fc37-1fc4-4734-a82f-0a647e166aef"
       );
       formDataToSend.append("subject", "New Kitchen Estimate Request");
       formDataToSend.append("from_name", "Kitchen Cost Calculator");
