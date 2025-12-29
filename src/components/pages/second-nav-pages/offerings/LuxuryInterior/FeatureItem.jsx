@@ -60,7 +60,9 @@ const iconMap = {
 };
 
 export default function FeatureItem({ icon, text }) {
-  const iconSrc = iconMap[icon] || homeIcon;
+  // Check if icon is a URL (starts with http:// or https://)
+  const isUrl = icon && (icon.startsWith("http://") || icon.startsWith("https://"));
+  const iconSrc = isUrl ? icon : (iconMap[icon] || homeIcon);
 
   return (
     <FeatureItemStyled>

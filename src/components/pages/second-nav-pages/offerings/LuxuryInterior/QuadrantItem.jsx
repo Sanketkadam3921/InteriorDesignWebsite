@@ -2,23 +2,24 @@ import React from "react";
 import { Box, Typography, styled } from "@mui/material";
 
 const QuadrantItemStyled = styled(Box)(({ theme }) => ({
-  padding: theme.spacing(3.5),
+  padding: theme.spacing(2.5),
   display: "flex",
   flexDirection: "column",
   justifyContent: "flex-start",
   alignItems: "flex-start",
   textAlign: "left",
-  minHeight: "220px",
+  minHeight: "160px",
   position: "relative",
   backgroundColor: theme.palette.background.paper,
   borderRadius: theme.shape.borderRadius * 2,
   boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
   border: `1px solid ${theme.palette.divider}`,
   [theme.breakpoints.down("lg")]: {
-    padding: theme.spacing(3),
+    padding: theme.spacing(2),
+    minHeight: "150px",
   },
   [theme.breakpoints.down("sm")]: {
-    padding: theme.spacing(2.5),
+    padding: theme.spacing(2),
     minHeight: "unset",
   },
 }));

@@ -78,7 +78,6 @@ const SideImage = styled(Box)(({ theme }) => ({
   backgroundSize: "cover",
   backgroundPosition: "center",
   filter: "blur(2px) brightness(0.7)",
-  transition: "all 0.3s ease",
   flexShrink: 0,
   [theme.breakpoints.down("lg")]: {
     width: "160px",
@@ -101,7 +100,6 @@ const CentralImage = styled(Box)(({ theme }) => ({
   backgroundPosition: "center",
   border: `3px solid ${theme.palette.secondary.main}`,
   boxShadow: "0 8px 32px rgba(0, 0, 0, 0.15)",
-  transition: "all 0.3s ease",
   flexShrink: 0,
   [theme.breakpoints.down("lg")]: {
     width: "320px",

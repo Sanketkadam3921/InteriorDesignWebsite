@@ -188,7 +188,7 @@ export default function FounderIntroduction() {
               <Box
                 component="img"
                 src={logoImage}
-                alt="KalaKruti Studio Logo"
+                alt="Kalakruti Studio Logo"
                 sx={{
                   width: "100%",
                   height: "100%",

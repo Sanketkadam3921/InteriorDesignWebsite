@@ -157,7 +157,7 @@ export const UNIQUE_FEATURES_DATA = {
   features: [
     {
       id: 1,
-      icon: "home-1.svg",
+      icon: "https://cdn-icons-png.flaticon.com/128/263/263115.png",
       text: "Complete home interiors",
     },
     {
@@ -167,13 +167,13 @@ export const UNIQUE_FEATURES_DATA = {
     },
     {
       id: 3,
-      icon: "ModernAndStylishDesign.svg",
+      icon: "https://cdn-icons-png.flaticon.com/128/2384/2384728.png",
       text: "Modern and stylish designs",
     },
 
     {
       id: 4,
-      icon: "Ontime.svg",
+      icon: "https://cdn-icons-png.flaticon.com/128/972/972556.png",
       text: "On-time project completion",
     },
   ],

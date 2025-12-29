@@ -40,7 +40,7 @@ export default function WhyChooseOurStudio() {
             mx: "auto",
           }}
         >
-          At KalaKruti Studio, we blend creative vision with strategic thinking
+          At Kalakruti Studio, we blend creative vision with strategic thinking
           to transform every space into a meaningful interior design story.
           Here's what sets us apart:
         </Typography>

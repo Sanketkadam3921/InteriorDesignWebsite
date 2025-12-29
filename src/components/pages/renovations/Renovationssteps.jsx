@@ -47,7 +47,8 @@ const RenovationSteps = () => {
                 alignItems: "center",
                 textAlign: "center",
                 flex: { xs: "1 1 100%", sm: "1 1 45%", md: "1" },
-                maxWidth: { xs: "300px", md: "220px" },
+                maxWidth: { xs: "300px", md: "280px" },
+                width: "100%",
               }}
             >
               {/* Icon */}
@@ -61,7 +62,7 @@ const RenovationSteps = () => {
                   border: `1px solid ${theme.palette.neutral.lightGray}`,
                   boxShadow: "0 4px 10px rgba(0,0,0,0.08)",
                   p: 2,
-                  mb: 2,
+                  mb: 2.5,
                 }}
               />
 
@@ -71,8 +72,10 @@ const RenovationSteps = () => {
                 sx={{
                   fontWeight: 600,
                   color: theme.palette.text.primary,
-                  mb: 1,
+                  mb: 1.5,
                   fontFamily: theme.typography.fontFamily,
+                  fontSize: { xs: "1.1rem", md: "1.2rem" },
+                  width: "100%",
                 }}
               >
                 {feature.title}
@@ -83,10 +86,11 @@ const RenovationSteps = () => {
                 variant="body2"
                 sx={{
                   color: theme.palette.text.secondary,
-                  fontSize: "0.95rem",
-                  lineHeight: 1.5,
+                  fontSize: { xs: "0.9rem", md: "0.95rem" },
+                  lineHeight: 1.6,
                   fontFamily: theme.typography.fontFamily,
-                  maxWidth: 220,
+                  width: "100%",
+                  textAlign: "center",
                 }}
               >
                 {feature.description}

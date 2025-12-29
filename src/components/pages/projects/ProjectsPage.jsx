@@ -123,7 +123,7 @@ export default function ProjectsPage() {
               fontSize: { xs: "1rem", sm: "1.1rem" },
             }}
           >
-            At KalaKruti Studio, we believe great design begins with great
+            At Kalakruti Studio, we believe great design begins with great
             understanding. Every project we deliver tells a story — built on
             individuality, innovation, and craftsmanship. We combine modern
             materials with timeless aesthetics to create interiors that inspire
@@ -264,7 +264,7 @@ export default function ProjectsPage() {
               fontSize: { xs: "1rem", sm: "1.1rem" },
             }}
           >
-            “Working with KalaKruti Studio was a seamless experience. They
+            “Working with Kalakruti Studio was a seamless experience. They
             transformed our home into a space that truly feels like us.” —{" "}
             <strong>Rohan & Priya Deshmukh</strong>
           </Typography>
