@@ -156,8 +156,8 @@ export default function AllDesigns() {
     },
     {
       id: "homes-livspace",
-      title: "KalaKruti Studio Designs",
-      description: "Complete home interior solutions from KalaKruti Studio",
+      title: "Kalakruti Studio Designs",
+      description: "Complete home interior solutions from Kalakruti Studio",
       image:
         "https://ik.imagekit.io/bowr9614/Homes%20By%20KalaKruti/IMG_4411.JPG?updatedAt=1765185733225",
       count: 20,

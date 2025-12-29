@@ -141,7 +141,8 @@ export const homeslivspaceDesignDetails = {
       colorScheme: "Pastel Blue, Mint Green, Cream",
       materials: "Engineered Wood, MDF with Gloss Finish, Fabric Upholstery",
       lighting: "Warm White LED, Decorative Wall Light, Recessed Ceiling Light",
-      furniture: "Contemporary Kids Bed, Sliding Wardrobe, Soft Upholstered Headboard",
+      furniture:
+        "Contemporary Kids Bed, Sliding Wardrobe, Soft Upholstered Headboard",
     },
   },
   2: {
@@ -169,8 +170,10 @@ export const homeslivspaceDesignDetails = {
       area: "110 sq ft",
       style: "Modern",
       colorScheme: "Taupe, Beige, Grey, Warm White",
-      materials: "PU Finish Panels, Engineered Wood, Laminates, Fabric Upholstery",
-      lighting: "Warm LED Strip Light, Designer Wall Sconce, Recessed Spot Lights",
+      materials:
+        "PU Finish Panels, Engineered Wood, Laminates, Fabric Upholstery",
+      lighting:
+        "Warm LED Strip Light, Designer Wall Sconce, Recessed Spot Lights",
       furniture: "Modern Upholstered Bed, Bedside Table, Sliding Wardrobe",
     },
   },
@@ -199,8 +202,10 @@ export const homeslivspaceDesignDetails = {
       area: "105 sq ft",
       style: "Contemporary",
       colorScheme: "Beige, Brown, White, Soft Gold",
-      materials: "Wood Finish Panels, Marble Flooring, Fabric Upholstery, Glass",
-      lighting: "Cove LED Lighting, Recessed Ceiling Lights, Decorative Accent Strip",
+      materials:
+        "Wood Finish Panels, Marble Flooring, Fabric Upholstery, Glass",
+      lighting:
+        "Cove LED Lighting, Recessed Ceiling Lights, Decorative Accent Strip",
       furniture: "Contemporary Sofa, Floating TV Unit, Coffee Table",
     },
   },
@@ -349,7 +354,8 @@ export const homeslivspaceDesignDetails = {
       area: "95 sq ft",
       style: "Modern",
       colorScheme: "Mint Green, White, Black Accents",
-      materials: "Acrylic Finish Cabinets, Quartz Countertop, Marble Backsplash",
+      materials:
+        "Acrylic Finish Cabinets, Quartz Countertop, Marble Backsplash",
       lighting: "Under-Cabinet LED, Warm White Ceiling Lights",
       furniture: "Modular Base Cabinets, Overhead Storage Units",
     },
@@ -419,7 +425,7 @@ export const homeslivspaceDesignDetails = {
 // Homes by Livspace Category Configuration
 export const homeslivspaceConfig = {
   categoryKey: "homes-livspace",
-  displayName: "KalaKruti Studio",
+  displayName: "Kalakruti Studio",
   description:
-    "Explore our curated collection of homes by KalaKruti Studio concepts",
+    "Explore our curated collection of homes by Kalakruti Studio concepts",
 };

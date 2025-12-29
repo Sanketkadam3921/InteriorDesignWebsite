@@ -61,7 +61,7 @@ const inspirationItems = [
       "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/Kids_Room.jpeg",
   },
   {
-    title: "KalaKruti Studio Designs",
+    title: "Kalakruti Studio Designs",
     categoryId: "homes-livspace",
     image:
       "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/KalaKruti_Studio_Designs.jpg",
