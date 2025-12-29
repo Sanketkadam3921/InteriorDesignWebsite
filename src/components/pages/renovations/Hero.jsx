@@ -67,7 +67,7 @@ const Hero = () => {
             textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
           }}
         >
-          Refresh. Redesign. Rediscover Your Lifestyle.{" "}
+          Review. Redesign. Rediscover Your Lifestyle.{" "}
         </Typography>
 
         <Button

@@ -82,7 +82,7 @@ export const bathroomDesigns = [
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5567.JPG?updatedAt=1765174468381",
     description:
-      "Premium luxury bathroom with opulent finishes and sophisticated design",
+      "Modern luxury bathroom with opulent finishes and sophisticated design",
     style: "Luxury",
     price: "₹3,90,000",
     area: "98 sq ft",
@@ -138,7 +138,7 @@ export const bathroomDesignDetails = {
       area: "90 sq ft",
       style: "Warm Scandinavian modern",
       colorScheme: "Beige, warm wood",
-      materials: "Premium Tiles, Chrome, Glass",
+      materials: "Modern Tiles, Chrome, Glass",
       lighting: "Pendant lamps",
       furniture: "Floating vanity, wall-mounted toilet",
     },
@@ -161,7 +161,7 @@ export const bathroomDesignDetails = {
     features: [
       "Modern Fixtures",
       "Elegant Design",
-      "Premium Finishes",
+      "Modern Finishes",
       "Refined Space",
     ],
     specifications: {
@@ -175,21 +175,21 @@ export const bathroomDesignDetails = {
   },
   3: {
     id: "3",
-    title: "Premium Bathroom Design",
+    title: "Modern Bathroom Design",
     category: "bathroom",
-    style: "Premium",
+    style: "Modern",
     price: "₹3,80,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5568.JPG?updatedAt=1765174468460",
     description:
-      "Premium bathroom featuring elegant design and high-end fixtures.",
+      "Modern bathroom featuring elegant design and high-end fixtures.",
     longDescription:
-      "This premium bathroom features elegant design and high-end fixtures that create a sophisticated bathroom environment. The design showcases premium craftsmanship and refined aesthetics.",
+      "This modern bathroom features elegant design and high-end fixtures that create a sophisticated bathroom environment. The design showcases modern craftsmanship and refined aesthetics.",
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5568.JPG?updatedAt=1765174468460",
     ],
     features: [
-      "Premium Design",
+      "Modern Design",
       "Elegant Style",
       "High-End Fixtures",
       "Sophisticated Environment",
@@ -237,9 +237,9 @@ export const bathroomDesignDetails = {
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_4949.JPG?updatedAt=1765174468449",
     description:
-      "Luxury spa bathroom with opulent design and premium amenities.",
+      "Luxury spa bathroom with opulent design and modern amenities.",
     longDescription:
-      "This luxury spa bathroom features opulent design and premium amenities that create an extravagant spa-like experience. The design combines luxury with relaxation for the ultimate bathroom retreat.",
+      "This luxury spa bathroom features opulent design and modern amenities that create an extravagant spa-like experience. The design combines luxury with relaxation for the ultimate bathroom retreat.",
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_4949.JPG?updatedAt=1765174468449",
     ],
@@ -267,16 +267,16 @@ export const bathroomDesignDetails = {
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5574.JPG?updatedAt=1765174468442",
     description:
-      "Elegant modern bathroom with sophisticated design and premium fixtures.",
+      "Elegant modern bathroom with sophisticated design and modern fixtures.",
     longDescription:
-      "This elegant modern bathroom features sophisticated design and premium fixtures that create a refined bathroom space. The design combines elegance with modern functionality.",
+      "This elegant modern bathroom features sophisticated design and modern fixtures that create a refined bathroom space. The design combines elegance with modern functionality.",
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5574.JPG?updatedAt=1765174468442",
     ],
     features: [
       "Elegant Design",
       "Sophisticated Style",
-      "Premium Fixtures",
+      "Modern Fixtures",
       "Refined Space",
     ],
     specifications: {
@@ -320,16 +320,16 @@ export const bathroomDesignDetails = {
   },
   8: {
     id: "8",
-    title: "Premium Luxury Bathroom",
+    title: "Modern Luxury Bathroom",
     category: "bathroom",
     style: "Luxury",
     price: "₹3,90,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5567.JPG?updatedAt=1765174468381",
     description:
-      "Premium luxury bathroom with opulent finishes and sophisticated design.",
+      "Modern luxury bathroom with opulent finishes and sophisticated design.",
     longDescription:
-      "This premium luxury bathroom features opulent finishes and sophisticated design that create an extravagant bathroom environment. The design showcases luxury craftsmanship and premium styling.",
+      "This modern luxury bathroom features opulent finishes and sophisticated design that create an extravagant bathroom environment. The design showcases luxury craftsmanship and modern styling.",
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5567.JPG?updatedAt=1765174468381",
     ],
@@ -357,15 +357,15 @@ export const bathroomDesignDetails = {
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5570.JPG?updatedAt=1765174468360",
     description:
-      "Modern elegant bathroom with premium fixtures and refined aesthetics.",
+      "Modern elegant bathroom with modern fixtures and refined aesthetics.",
     longDescription:
-      "This modern elegant bathroom features premium fixtures and refined aesthetics that create a sophisticated bathroom space. The design combines modern functionality with elegant styling.",
+      "This modern elegant bathroom features modern fixtures and refined aesthetics that create a sophisticated bathroom space. The design combines modern functionality with elegant styling.",
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5570.JPG?updatedAt=1765174468360",
     ],
     features: [
       "Modern Elegant",
-      "Premium Fixtures",
+      "modern Fixtures",
       "Refined Aesthetics",
       "Sophisticated Space",
     ],
@@ -389,14 +389,14 @@ export const bathroomDesignDetails = {
     description:
       "Sophisticated bathroom with elegant design and premium styling.",
     longDescription:
-      "This sophisticated bathroom features elegant design and premium styling that create a refined bathroom environment. The design showcases sophistication while maintaining functionality.",
+      "This sophisticated bathroom features elegant design and modern styling that create a refined bathroom environment. The design showcases sophistication while maintaining functionality.",
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5573.JPG?updatedAt=1765174468277",
     ],
     features: [
       "Sophisticated Design",
       "Elegant Style",
-      "Premium Styling",
+      "Modern Styling",
       "Refined Environment",
     ],
     specifications: {
