@@ -6,7 +6,7 @@ export const bathroomDesigns = [
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5572.JPG?updatedAt=1765174468561",
     description:
-      "Modern luxury bathroom with premium fixtures and sophisticated design",
+      "Modern luxury bathroom with modern fixtures and sophisticated design",
     style: "Warm Scandinavian ",
     price: "₹3,50,000",
     area: "90 sq ft",
@@ -17,19 +17,19 @@ export const bathroomDesigns = [
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5575.JPG?updatedAt=1765174468505",
     description:
-      "Elegant contemporary bathroom with modern fixtures and premium finishes",
+      "Elegant contemporary bathroom with modern fixtures and modern finishes",
     style: "Contemporary",
     price: "₹3,20,000",
     area: "85 sq ft",
   },
   {
     id: "3",
-    name: "Premium Bathroom Design",
+    name: "Luxury Bathroom Design",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5568.JPG?updatedAt=1765174468460",
     description:
-      "Premium bathroom featuring elegant design and high-end fixtures",
-    style: "Premium",
+      "Luxury bathroom featuring elegant design and high-end fixtures",
+    style: "Luxury",
     price: "₹3,80,000",
     area: "95 sq ft",
   },
@@ -49,8 +49,7 @@ export const bathroomDesigns = [
     name: "Luxury Spa Bathroom",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_4949.JPG?updatedAt=1765174468449",
-    description:
-      "Luxury spa bathroom with opulent design and premium amenities",
+    description: "Luxury spa bathroom with opulent design and modern amenities",
     style: "Luxury",
     price: "₹4,00,000",
     area: "100 sq ft",
@@ -61,7 +60,7 @@ export const bathroomDesigns = [
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5574.JPG?updatedAt=1765174468442",
     description:
-      "Elegant modern bathroom with sophisticated design and premium fixtures",
+      "Elegant modern bathroom with sophisticated design and modern fixtures",
     style: "Elegant",
     price: "₹3,40,000",
     area: "88 sq ft",
@@ -79,7 +78,7 @@ export const bathroomDesigns = [
   },
   {
     id: "8",
-    name: "Premium Luxury Bathroom",
+    name: "Modern Luxury Bathroom",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5567.JPG?updatedAt=1765174468381",
     description:
@@ -94,7 +93,7 @@ export const bathroomDesigns = [
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5570.JPG?updatedAt=1765174468360",
     description:
-      "Modern elegant bathroom with premium fixtures and refined aesthetics",
+      "Modern elegant bathroom with modern fixtures and refined aesthetics",
     style: "Elegant",
     price: "₹3,30,000",
     area: "86 sq ft",
@@ -105,7 +104,7 @@ export const bathroomDesigns = [
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5573.JPG?updatedAt=1765174468277",
     description:
-      "Sophisticated bathroom with elegant design and premium styling",
+      "Sophisticated bathroom with elegant design and modern styling",
     style: "Modern",
     price: "₹3,60,000",
     area: "92 sq ft",
@@ -123,14 +122,14 @@ export const bathroomDesignDetails = {
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5572.JPG?updatedAt=1765174468561",
     description:
-      "Modern luxury bathroom with premium fixtures and sophisticated design.",
+      "Modern luxury bathroom with modern fixtures and sophisticated design.",
     longDescription:
-      "This modern luxury bathroom features premium fixtures and sophisticated design elements that create a spa-like atmosphere. The design combines luxury with functionality for the ultimate bathroom experience.",
+      "This modern luxury bathroom features modern fixtures and sophisticated design elements that create a spa-like atmosphere. The design combines luxury with functionality for the ultimate bathroom experience.",
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5572.JPG?updatedAt=1765174468561",
     ],
     features: [
-      "Premium Fixtures",
+      "Modern Fixtures",
       "Luxury Design",
       "Sophisticated Style",
       "Spa-like Atmosphere",
@@ -153,9 +152,9 @@ export const bathroomDesignDetails = {
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5575.JPG?updatedAt=1765174468505",
     description:
-      "Elegant contemporary bathroom with modern fixtures and premium finishes.",
+      "Elegant contemporary bathroom with modern fixtures and modern finishes.",
     longDescription:
-      "This elegant contemporary bathroom features modern fixtures and premium finishes that create a refined and comfortable space. The design balances contemporary aesthetics with elegance.",
+      "This elegant contemporary bathroom features modern fixtures and modern finishes that create a refined and comfortable space. The design balances contemporary aesthetics with elegance.",
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5575.JPG?updatedAt=1765174468505",
     ],
