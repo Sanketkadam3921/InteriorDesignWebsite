@@ -55,7 +55,7 @@ export const QUADRANT_DATA = {
         "Carefully chosen finishes and details bring together a space that feels complete, elegant, and inviting.",
     },
   ],
-  ctaText: "Book a design consultation",
+  ctaText: "Book Consultation",
   ctaLink: "/contact",
 };
 
@@ -196,7 +196,8 @@ export const REFERRAL_DATA = {
 export const FAQ_ITEMS = [
   {
     id: 1,
-    question: "What makes luxury interiors different from standard interior design?",
+    question:
+      "What makes luxury interiors different from standard interior design?",
     answer:
       "Luxury interiors focus on premium materials, custom craftsmanship, and personalized design solutions. We use high-end finishes like natural stone, premium wood, designer fixtures, and bespoke furniture. Every detail is carefully curated to create a space that reflects your unique style and lifestyle while ensuring exceptional quality and durability.",
   },
@@ -226,7 +227,8 @@ export const FAQ_ITEMS = [
   },
   {
     id: 6,
-    question: "Do you provide warranty and after-sales support for luxury interiors?",
+    question:
+      "Do you provide warranty and after-sales support for luxury interiors?",
     answer:
       "Yes, we provide comprehensive warranties on all materials and workmanship. Our after-sales support includes regular maintenance guidance, repair services, and assistance with any adjustments or additions you may want to make in the future. We maintain long-term relationships with our clients to ensure their spaces continue to meet their evolving needs.",
   },
