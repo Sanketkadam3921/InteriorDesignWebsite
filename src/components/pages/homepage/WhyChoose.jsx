@@ -19,7 +19,7 @@ const scroll = keyframes`
 const items = [
   {
     text: "Based in Pune and Mumbai",
-    icon: "https://cdn-icons-png.flaticon.com/512/535/535239.png", // 🏙️ City icon
+    icon: "https://cdn-icons-png.flaticon.com/128/927/927667.png", // 🏙️ City icon
   },
   {
     text: "Trusted by 50+ homeowners",
@@ -39,7 +39,7 @@ const items = [
   },
   {
     text: "On-time project delivery",
-    icon: "https://cdn-icons-png.flaticon.com/128/13670/13670554.png", // ⏱️ Clock/EMI icon
+    icon: "https://cdn-icons-png.flaticon.com/128/972/972556.png", // ⏱️ Clock/EMI icon
   },
 ];
 
