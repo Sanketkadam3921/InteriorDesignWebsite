@@ -56,7 +56,7 @@ const FAQ = () => {
     <Box
       sx={{
         py: 3,
-        backgroundColor: theme.palette.background.default,
+        backgroundColor: theme.palette.background.paper,
       }}
     >
       <Container maxWidth="lg">
@@ -73,16 +73,6 @@ const FAQ = () => {
             }}
           >
             Frequently Asked Questions
-          </Typography>
-          <Typography
-            variant="h6"
-            color="text.secondary"
-            sx={{
-              mb: 3,
-              fontSize: { xs: "1rem", md: "1.1rem" },
-            }}
-          >
-            Common questions about home renovations
           </Typography>
         </Box>
 
@@ -106,7 +96,9 @@ const FAQ = () => {
               }}
             >
               <AccordionSummary
-                expandIcon={<ExpandMore sx={{ color: theme.palette.primary.main }} />}
+                expandIcon={
+                  <ExpandMore sx={{ color: theme.palette.primary.main }} />
+                }
                 sx={{
                   backgroundColor: theme.palette.background.paper,
                   "&:hover": {
@@ -151,8 +143,3 @@ const FAQ = () => {
 };
 
 export default FAQ;
-
-
-
-
-
