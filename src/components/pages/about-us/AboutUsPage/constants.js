@@ -75,7 +75,7 @@ export const WHY_CHOOSE_ITEMS = [
     id: 4,
     title: "Quality & Craftsmanship",
     description:
-      "We partner with trusted craftsmen, modular manufacturers, and premium material suppliers to ensure high-quality finishes, durable interiors, and long-lasting workmanship.",
+      "We partner with trusted craftsmen, modular manufacturers, and  material suppliers to ensure high-quality finishes, durable interiors, and long-lasting workmanship.",
   },
   {
     id: 5,
@@ -148,7 +148,7 @@ export const TIMELINE_ITEMS = [
     year: "2024",
     title: "Growth & Larger Visions",
     description:
-      "We stepped into bigger design projects, blending diverse styles and creating memorable interiors for clients across different cities. Our focus shifted to bringing premium, personalized, and long-lasting home interiors to a larger audience.",
+      "We stepped into bigger design projects, blending diverse styles and creating memorable interiors for clients across different cities. Our focus shifted to bringing  personalized, and long-lasting home interiors to a larger audience.",
   },
   {
     id: 4,
@@ -162,7 +162,7 @@ export const TIMELINE_ITEMS = [
 export const FUTURE_DATA = {
   title: "Future of Kalakruti Studio",
   description:
-    "At Kalakruti Studio, we're preparing for a bold and exciting expansion. Over the next 18 months, we'll be opening new interior design studio hubs across key cities in Maharashtra, starting with Mumbai. This allows us to bring our high-touch, premium interior design experience closer to clients, no matter where they live.\n\nOur growth is rooted in creativity and collaboration. By partnering with local artisans, skilled craftsmen, and trend-forward material suppliers, we will continue delivering fresh, modern interiors that carry the signature Kalakruti look - warm, functional, and instantly recognizable.\n\nThis expansion isn't just about more locations; it's about building a cohesive brand identity that delivers the same quality, innovation, and design excellence across every studio.\n\nTo strengthen that identity, we are launching the Kalakruti Signature Collection - a curated seasonal line featuring custom finishes, bespoke lighting, modular furniture, and contemporary design elements that reflect our interior design philosophy. Each collection will help clients access unique, high-quality pieces that elevate their homes and align with the latest design trends.\n\nThis ensures every project - whether in Pune, Mumbai, or any upcoming city - feels personal, efficient, and future-ready.\n\nThrough these initiatives, Kalakruti Studio aims to set new benchmarks for modern interior design in Maharashtra, nurturing a strong, recognizable brand culture while delivering spaces that inspire, perform, and stand the test of time.",
+    "At Kalakruti Studio, we're preparing for a bold and exciting expansion. Over the next 18 months, we'll be opening new interior design studio hubs across key cities in Maharashtra, starting with Mumbai. This allows us to bring our high-touch, modern interior design experience closer to clients, no matter where they live.\n\nOur growth is rooted in creativity and collaboration. By partnering with local artisans, skilled craftsmen, and trend-forward material suppliers, we will continue delivering fresh, modern interiors that carry the signature Kalakruti look - warm, functional, and instantly recognizable.\n\nThis expansion isn't just about more locations; it's about building a cohesive brand identity that delivers the same quality, innovation, and design excellence across every studio.\n\nTo strengthen that identity, we are launching the Kalakruti Signature Collection - a curated seasonal line featuring custom finishes, bespoke lighting, modular furniture, and contemporary design elements that reflect our interior design philosophy. Each collection will help clients access unique, high-quality pieces that elevate their homes and align with the latest design trends.\n\nThis ensures every project - whether in Pune, Mumbai, or any upcoming city - feels personal, efficient, and future-ready.\n\nThrough these initiatives, Kalakruti Studio aims to set new benchmarks for modern interior design in Maharashtra, nurturing a strong, recognizable brand culture while delivering spaces that inspire, perform, and stand the test of time.",
 };
 
 export const FOUNDERS = [
