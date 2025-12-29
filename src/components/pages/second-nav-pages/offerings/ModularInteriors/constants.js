@@ -14,8 +14,7 @@ export const SERVICES = [
   {
     id: 1,
     title: "1. Modular Kitchens",
-    image:
-      "https://i.pinimg.com/1200x/b9/b9/bf/b9b9bf6728dadfab7c5a6a76cd00be68.jpg",
+    image: "https://ik.imagekit.io/bowr9614/ModularKitchenImages/IMG_6633.JPG",
     alt: "Modular Kitchens",
   },
   {

@@ -155,7 +155,7 @@ export default function ContactForm() {
         "access_key",
         "1c21fc37-1fc4-4734-a82f-0a647e166aef"
       );
-      formDataToSend.append("from_name", "KalaKruti Studio Website");
+      formDataToSend.append("from_name", "Kalakruti Studio Website");
       formDataToSend.append("subject", `New Enquiry from ${formData.name}`);
 
       formDataToSend.append("name", formData.name);
@@ -387,7 +387,7 @@ export default function ContactForm() {
               textShadow: "0 2px 6px rgba(0,0,0,0.3)",
             }}
           >
-            KalaKruti Studio
+            Kalakruti Studio
           </Typography>
 
           <Typography
@@ -411,64 +411,135 @@ export default function ContactForm() {
                 key={i}
                 sx={{ display: "flex", alignItems: "center", mb: 2 }}
               >
-                <Box
-                  sx={{
-                    mr: 2,
-                    width: 45,
-                    height: 45,
-                    borderRadius: "50%",
-                    backgroundColor: "rgba(255,255,255,0.25)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    backdropFilter: "blur(4px)",
-                  }}
-                >
-                  {React.cloneElement(info.icon, {
-                    sx: { color: "#fff", fontSize: 22 },
-                  })}
-                </Box>
-
-                <Box>
-                  <Typography sx={{ fontWeight: 600, color: "white" }}>
-                    {info.title}
-                  </Typography>
-                  {info.title === "Phone" ? (
-                    <Link
-                      href={`tel:${info.details.replace(/\s/g, "")}`}
+                {info.title === "Phone" ? (
+                  <Link
+                    href={`tel:${info.details.replace(/\s/g, "")}`}
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      textDecoration: "none",
+                      "&:hover": { opacity: 1 },
+                    }}
+                  >
+                    <Box
                       sx={{
-                        opacity: 0.85,
-                        color: "white",
-                        textDecoration: "none",
+                        mr: 2,
+                        width: 45,
+                        height: 45,
+                        borderRadius: "50%",
+                        backgroundColor: "rgba(255,255,255,0.25)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        backdropFilter: "blur(4px)",
+                        cursor: "pointer",
+                        transition: "all 0.3s ease",
                         "&:hover": {
-                          opacity: 1,
-                          textDecoration: "underline",
+                          backgroundColor: "rgba(255,255,255,0.35)",
                         },
                       }}
                     >
-                      {info.details}
-                    </Link>
-                  ) : info.title === "Email" ? (
-                    <Link
-                      href={`mailto:${info.details}`}
+                      {React.cloneElement(info.icon, {
+                        sx: { color: "#fff", fontSize: 22 },
+                      })}
+                    </Box>
+                    <Box>
+                      <Typography sx={{ fontWeight: 600, color: "white" }}>
+                        {info.title}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          opacity: 0.85,
+                          color: "white",
+                          "&:hover": {
+                            opacity: 1,
+                            textDecoration: "underline",
+                          },
+                        }}
+                      >
+                        {info.details}
+                      </Typography>
+                    </Box>
+                  </Link>
+                ) : info.title === "Email" ? (
+                  <Link
+                    href={`mailto:${info.details}`}
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      textDecoration: "none",
+                      "&:hover": { opacity: 1 },
+                    }}
+                  >
+                    <Box
                       sx={{
-                        opacity: 0.85,
-                        color: "white",
-                        textDecoration: "none",
+                        mr: 2,
+                        width: 45,
+                        height: 45,
+                        borderRadius: "50%",
+                        backgroundColor: "rgba(255,255,255,0.25)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        backdropFilter: "blur(4px)",
+                        cursor: "pointer",
+                        transition: "all 0.3s ease",
                         "&:hover": {
-                          opacity: 1,
-                          textDecoration: "underline",
+                          backgroundColor: "rgba(255,255,255,0.35)",
                         },
                       }}
                     >
-                      {info.details}
-                    </Link>
-                  ) : (
-                    <Typography sx={{ opacity: 0.85, color: "white" }}>
-                      {info.details}
-                    </Typography>
-                  )}
-                </Box>
+                      {React.cloneElement(info.icon, {
+                        sx: { color: "#fff", fontSize: 22 },
+                      })}
+                    </Box>
+                    <Box>
+                      <Typography sx={{ fontWeight: 600, color: "white" }}>
+                        {info.title}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          opacity: 0.85,
+                          color: "white",
+                          "&:hover": {
+                            opacity: 1,
+                            textDecoration: "underline",
+                          },
+                        }}
+                      >
+                        {info.details}
+                      </Typography>
+                    </Box>
+                  </Link>
+                ) : (
+                  <>
+                    <Box
+                      sx={{
+                        mr: 2,
+                        width: 45,
+                        height: 45,
+                        borderRadius: "50%",
+                        backgroundColor: "rgba(255,255,255,0.25)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        backdropFilter: "blur(4px)",
+                      }}
+                    >
+                      {React.cloneElement(info.icon, {
+                        sx: { color: "#fff", fontSize: 22 },
+                      })}
+                    </Box>
+                    <Box>
+                      <Typography sx={{ fontWeight: 600, color: "white" }}>
+                        {info.title}
+                      </Typography>
+                      <Typography sx={{ opacity: 0.85, color: "white" }}>
+                        {info.details}
+                      </Typography>
+                    </Box>
+                  </>
+                )}
               </Box>
             ))}
           </Box>

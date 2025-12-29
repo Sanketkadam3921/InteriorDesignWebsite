@@ -322,18 +322,53 @@ export default function Footer() {
             {/* Contact */}
             <LinkGroup title="CONTACT US">
               <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                <Phone sx={{ fontSize: "1.3rem", opacity: 0.8 }} />
-                <Link href="tel:+91-9876543210" sx={linkStyle(theme)}>
-                  +91 8767374324
+                <Link
+                  href="tel:+918767374324"
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 1,
+                    textDecoration: "none",
+                    "&:hover": { opacity: 1 },
+                  }}
+                >
+                  <Phone
+                    sx={{
+                      fontSize: "1.3rem",
+                      opacity: 0.8,
+                      color: theme.palette.secondary.contrastText,
+                      "&:hover": { opacity: 1 },
+                      cursor: "pointer",
+                    }}
+                  />
+                  <Box component="span" sx={linkStyle(theme)}>
+                    +91 8767374324
+                  </Box>
                 </Link>
               </Box>
               <Box sx={{ display: "flex", alignItems: "center", gap: 0.9 }}>
-                <Email sx={{ fontSize: "1.2rem", opacity: 0.8 }} />
                 <Link
                   href="mailto:kalakrutistudio.office@gmail.com"
-                  sx={linkStyle(theme)}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 0.9,
+                    textDecoration: "none",
+                    "&:hover": { opacity: 1 },
+                  }}
                 >
-                  kalakrutistudio.office@gmail.com{" "}
+                  <Email
+                    sx={{
+                      fontSize: "1.2rem",
+                      opacity: 0.8,
+                      color: theme.palette.secondary.contrastText,
+                      "&:hover": { opacity: 1 },
+                      cursor: "pointer",
+                    }}
+                  />
+                  <Box component="span" sx={linkStyle(theme)}>
+                    kalakrutistudio.office@gmail.com
+                  </Box>
                 </Link>
               </Box>
             </LinkGroup>
