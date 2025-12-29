@@ -106,7 +106,7 @@ export const bathroomDesigns = [
       "https://ik.imagekit.io/bowr9614/AllDesigns/Bathroom/drive-download-20251208T055412Z-1-001/IMG_5573.JPG?updatedAt=1765174468277",
     description:
       "Sophisticated bathroom with elegant design and premium styling",
-    style: "Sophisticated",
+    style: "Modern",
     price: "₹3,60,000",
     area: "92 sq ft",
   },
