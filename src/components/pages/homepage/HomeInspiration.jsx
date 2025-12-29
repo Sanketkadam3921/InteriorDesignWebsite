@@ -84,6 +84,12 @@ const inspirationItems = [
     image:
       "https://ik.imagekit.io/bowr9614/Home%20Inspiration/Inspiration/Dinning_Room.jpeg",
   },
+  {
+    title: "TV Unit",
+    categoryId: "tv-unit",
+    image:
+      "https://ik.imagekit.io/bowr9614/AllDesigns/TvUnitDesigns/drive-download-20251208T054315Z-1-001/IMG_5613.JPG?updatedAt=1765174366109",
+  },
 ];
 
 export default function HomeInspiration() {
