@@ -24,11 +24,11 @@ export const kidsbedroomDesigns = [
   },
   {
     id: "3",
-    name: "Soft Luxury Girl's Bedroom",
+    name: "Soft Luxury Kids Bedroom",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/KidsBedroomDesigns/drive-download-20251208T054603Z-1-001/IMG_5632.JPG?updatedAt=1765174313660",
     description:
-      "Soft luxury girl's bedroom in blush pink, beige, and gold accents featuring upholstered bed, fluted wall panels, and laminate wardrobe",
+      "Soft luxury kids bedroom in blush pink, beige, and gold accents featuring upholstered bed, fluted wall panels, and laminate wardrobe",
     style: "Soft Luxury ",
     price: "₹3,00,000",
     area: "145 sq ft",
@@ -183,16 +183,16 @@ export const kidsbedroomDesignDetails = {
   },
   3: {
     id: "3",
-    title: "Soft Luxury Girl's Bedroom",
+    title: "Soft Luxury Kids Bedroom",
     category: "kids-bedroom",
-    style: "Soft Luxury Girl's Bedroom",
+    style: "Soft Luxury Kids Bedroom",
     price: "₹3,00,000",
     image:
       "https://ik.imagekit.io/bowr9614/AllDesigns/KidsBedroomDesigns/drive-download-20251208T054603Z-1-001/IMG_5632.JPG?updatedAt=1765174313660",
     description:
-      "Soft luxury girl's bedroom in blush pink, beige, and gold accents featuring upholstered bed, fluted wall panels, and laminate wardrobe.",
+      "Soft luxury kids bedroom in blush pink, beige, and gold accents featuring upholstered bed, fluted wall panels, and laminate wardrobe.",
     longDescription:
-      "This soft luxury girl's bedroom creates a dreamy and elegant space with its sophisticated blush pink, beige, and gold accent color palette. The design features a plush upholstered bed that provides ultimate comfort, elegant fluted wall panels that add texture and sophistication, and a sleek laminate wardrobe that offers both style and functionality. Cove backlight, spotlights, and pendant lighting work together to create a warm, luxurious ambiance. The space includes a beautiful bed, elegant side tables for personal items, and a wardrobe with display shelves that showcase favorite items and treasures, creating a perfect blend of luxury and functionality for a growing girl.",
+      "This soft luxury kids bedroom creates a dreamy and elegant space with its sophisticated blush pink, beige, and gold accent color palette. The design features a plush upholstered bed that provides ultimate comfort, elegant fluted wall panels that add texture and sophistication, and a sleek laminate wardrobe that offers both style and functionality. Cove backlight, spotlights, and pendant lighting work together to create a warm, luxurious ambiance. The space includes a beautiful bed, elegant side tables for personal items, and a wardrobe with display shelves that showcase favorite items and treasures, creating a perfect blend of luxury and functionality for a growing girl.",
     images: [
       "https://ik.imagekit.io/bowr9614/AllDesigns/KidsBedroomDesigns/drive-download-20251208T054603Z-1-001/IMG_5632.JPG?updatedAt=1765174313660",
     ],
@@ -208,7 +208,7 @@ export const kidsbedroomDesignDetails = {
     ],
     specifications: {
       area: "145 sq ft",
-      style: "Soft Luxury Girl's Bedroom",
+      style: "Soft Luxury Kids Bedroom",
       colorScheme: "Blush Pink, Beige, Gold Accents",
       materials: "Upholstered Bed, Fluted Wall Panels, Laminate Wardrobe",
       lighting: "Cove Backlight, Spotlights, Pendant Lighting",

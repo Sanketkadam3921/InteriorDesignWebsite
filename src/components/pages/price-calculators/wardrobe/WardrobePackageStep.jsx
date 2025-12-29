@@ -62,7 +62,7 @@ export default function WardrobePackageSelection() {
   const theme = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
-  const [selectedPackage, setSelectedPackage] = useState("premium");
+  const [selectedPackage, setSelectedPackage] = useState("");
 
   const searchParams = new URLSearchParams(location.search);
   const wardrobeType = searchParams.get("type") || "sliding"; // "sliding" or "swing"

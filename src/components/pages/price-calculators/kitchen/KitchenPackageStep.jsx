@@ -45,7 +45,7 @@ export default function KitchenPackageSelection() {
   const theme = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
-  const [selectedPackage, setSelectedPackage] = useState("premium");
+  const [selectedPackage, setSelectedPackage] = useState("");
 
   const handleNext = () => {
     const searchParams = new URLSearchParams(location.search);

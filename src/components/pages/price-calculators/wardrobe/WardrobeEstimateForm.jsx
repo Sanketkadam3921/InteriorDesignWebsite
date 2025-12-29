@@ -282,26 +282,47 @@ Estimated Price: ₹${formatIndianCurrency(estimatePayload.estimatedPrice)}
     >
       <Typography
         variant="h5"
-        sx={{ textAlign: "center", mb: 1, fontWeight: 600 }}
+        sx={{
+          textAlign: "center",
+          mb: 1,
+          fontWeight: 600,
+          color: theme.palette.text.primary,
+        }}
       >
-        Your Estimate Is Almost Ready
+        Your Wardrobe Estimate Is Ready
       </Typography>
 
       <Typography
         variant="body2"
-        sx={{ textAlign: "center", mb: 4, color: "text.secondary" }}
+        sx={{
+          textAlign: "center",
+          mb: 4,
+          color: theme.palette.text.secondary,
+        }}
       >
         Please fill out the details below.
       </Typography>
 
-      <Card
+      {/* Form Card */}
+      <Box
         sx={{
+          backgroundColor: theme.palette.primary.light + "25",
           borderRadius: 2,
+          p: 3,
+          mb: 2,
           border: "1px solid",
-          borderColor: theme.palette.grey[300],
+          borderColor: theme.palette.primary.light + "40",
         }}
       >
-        <CardContent sx={{ p: 3 }}>
+        <Card
+          sx={{
+            borderRadius: 2,
+            border: "1px solid",
+            borderColor: theme.palette.grey[300],
+            boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
+          }}
+        >
+          <CardContent sx={{ p: 3 }}>
           <form onSubmit={handleSubmit} noValidate>
             {/* Name */}
             <RedAsteriskTextField
@@ -368,7 +389,12 @@ Estimated Price: ₹${formatIndianCurrency(estimatePayload.estimatedPrice)}
                   borderRadius: 2,
                 }}
               >
-                <Typography variant="subtitle2">Estimated Price</Typography>
+                <Typography
+                  variant="subtitle2"
+                  sx={{ color: theme.palette.text.secondary }}
+                >
+                  Estimated Price
+                </Typography>
                 <Typography
                   variant="h5"
                   sx={{ fontWeight: 700, color: theme.palette.primary.main }}
@@ -379,7 +405,10 @@ Estimated Price: ₹${formatIndianCurrency(estimatePayload.estimatedPrice)}
                   }) || "₹0"}
                 </Typography>
 
-                <Typography variant="caption" sx={{ color: "text.secondary" }}>
+                <Typography
+                  variant="caption"
+                  sx={{ color: theme.palette.text.secondary }}
+                >
                   *Final price may vary based on requirements
                 </Typography>
               </Box>
@@ -387,34 +416,57 @@ Estimated Price: ₹${formatIndianCurrency(estimatePayload.estimatedPrice)}
           </form>
         </CardContent>
       </Card>
+      </Box>
 
-      {/* Buttons */}
+      <Box sx={{ flex: 1 }} />
+
+      {/* Navigation Buttons */}
       <Box
         sx={{
+          display: "flex",
+          justifyContent: submitted ? "center" : "space-between",
           position: "fixed",
           bottom: 0,
           left: 0,
           right: 0,
           maxWidth: 700,
           mx: "auto",
-          display: "flex",
-          justifyContent: submitted ? "center" : "space-between",
-          p: 3,
-          borderTop: "1px solid #ddd",
-          backgroundColor: "background.default",
+          pt: 2,
+          pb: 2,
+          px: 3,
+          borderTop: "1px solid",
+          borderColor: "divider",
+          backgroundColor: theme.palette.background.default,
           zIndex: 1000,
+          boxShadow: "0 -2px 8px rgba(0,0,0,0.1)",
         }}
       >
         {!submitted ? (
           <>
-            <Button variant="outlined" onClick={handleBack}>
+            <Button
+              variant="outlined"
+              onClick={handleBack}
+              sx={{
+                color: theme.palette.primary.main,
+                borderColor: theme.palette.primary.main,
+                textTransform: "none",
+                fontWeight: 600,
+                fontSize: "0.9rem",
+              }}
+            >
               Back
             </Button>
 
             <Button
               variant="contained"
-              disabled={!isFormValid() || loading || calculating}
               onClick={handleSubmit}
+              disabled={!isFormValid() || loading || calculating}
+              sx={{
+                px: 3,
+                textTransform: "none",
+                fontWeight: 600,
+                fontSize: "0.9rem",
+              }}
             >
               {loading ? <CircularProgress size={20} /> : "Submit"}
             </Button>
@@ -427,6 +479,7 @@ Estimated Price: ₹${formatIndianCurrency(estimatePayload.estimatedPrice)}
               px: 4,
               textTransform: "none",
               fontWeight: 600,
+              fontSize: "0.9rem",
             }}
           >
             Back to Home
