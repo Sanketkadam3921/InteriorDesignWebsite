@@ -31,7 +31,7 @@ export default function WardrobeLengthSelection() {
 
   const getAllowedHeightValues = () => {
     const values = [];
-    for (let i = 7; i <= 15; i += 0.5) {
+    for (let i = 7; i <= 15; i += 1) {
       values.push(i);
     }
     return values;
