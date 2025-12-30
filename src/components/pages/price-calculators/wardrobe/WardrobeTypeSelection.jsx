@@ -143,9 +143,12 @@ export default function WardrobeTypeSelection() {
                     transition: "none",
                     cursor: "pointer",
                     boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
+                    minHeight: 380,
+                    display: "flex",
+                    flexDirection: "column",
                   }}
                 >
-                  <CardContent sx={{ p: 0 }}>
+                  <CardContent sx={{ p: 0, display: "flex", flexDirection: "column", height: "100%" }}>
                     {/* Radio */}
                     <FormControlLabel
                       value={type.id}
@@ -169,7 +172,7 @@ export default function WardrobeTypeSelection() {
                       }}
                     />
 
-                    <Box sx={{ p: 2.5 }}>
+                    <Box sx={{ p: 2.5, flex: 1, display: "flex", flexDirection: "column" }}>
                       <Typography
                         variant="h6"
                         sx={{
@@ -187,21 +190,23 @@ export default function WardrobeTypeSelection() {
                           mb: 2,
                           color: theme.palette.text.secondary,
                           lineHeight: 1.5,
+                          flex: 1,
                         }}
                       >
                         {type.description}
                       </Typography>
-
-                      <Box
-                        sx={{
-                          height: 140,
-                          backgroundImage: `url(${type.image})`,
-                          backgroundSize: "cover",
-                          backgroundPosition: "center",
-                          borderRadius: 2,
-                        }}
-                      />
                     </Box>
+
+                    <Box
+                      sx={{
+                        height: 200,
+                        backgroundImage: `url(${type.image})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        borderBottomLeftRadius: 8,
+                        borderBottomRightRadius: 8,
+                      }}
+                    />
                   </CardContent>
                 </Card>
               );
