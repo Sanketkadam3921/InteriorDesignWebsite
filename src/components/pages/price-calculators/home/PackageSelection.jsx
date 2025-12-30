@@ -269,6 +269,7 @@ export default function PackageSelection() {
         <Button
           variant="contained"
           onClick={handleNext}
+          disabled={!selectedPackage}
           sx={{
             px: 4,
             textTransform: "none",

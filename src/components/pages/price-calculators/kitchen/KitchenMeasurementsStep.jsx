@@ -85,6 +85,12 @@ export default function KitchenMeasurementsStep() {
     return Object.keys(newErrors).length === 0;
   };
 
+  // Check if all required dimensions are filled
+  const areAllDimensionsFilled = () => {
+    const requiredDims = getDimensions();
+    return requiredDims.every((dim) => measurements[dim] && measurements[dim].trim() !== "");
+  };
+
   const handleNext = () => {
     if (validateMeasurements()) {
       const queryParams = new URLSearchParams({ layout });
@@ -614,6 +620,7 @@ export default function KitchenMeasurementsStep() {
         <Button
           variant="contained"
           onClick={handleNext}
+          disabled={!areAllDimensionsFilled()}
           sx={{
             px: 4,
             textTransform: "none",

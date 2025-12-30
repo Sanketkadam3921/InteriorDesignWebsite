@@ -311,6 +311,7 @@ export default function WardrobePackageSelection() {
         <Button
           variant="contained"
           onClick={handleNext}
+          disabled={!selectedPackage}
           sx={{
             px: 4,
             textTransform: "none",

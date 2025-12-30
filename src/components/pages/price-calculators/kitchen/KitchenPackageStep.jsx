@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import {
   Box,
   Typography,
@@ -11,15 +11,49 @@ import {
 } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
 
-const kitchenPackages = [
+// Image mapping based on kitchen layout type
+const kitchenPackageImages = {
+  straight: {
+    essentials:
+      "https://ik.imagekit.io/bowr9614/Packages/kitchen_new/Straight/StraightKitcehnBasic.jpeg?updatedAt=1766046793989",
+    premium:
+      "https://ik.imagekit.io/bowr9614/Packages/kitchen_new/Straight/StraightKitchenPremium.jpeg?updatedAt=1766046793830",
+    luxury:
+      "https://ik.imagekit.io/bowr9614/Packages/kitchen_new/Straight/StraightKitchenLuxury.jpeg?updatedAt=1766046794450",
+  },
+  "l-shaped": {
+    essentials:
+      "https://ik.imagekit.io/bowr9614/Packages/kitchen_new/Lshaped/LshapedEssentials.jpeg?updatedAt=1766046734269",
+    premium:
+      "https://ik.imagekit.io/bowr9614/Packages/kitchen_new/Lshaped/LshapedPreimum.jpeg?updatedAt=1766046734162",
+    luxury:
+      "https://ik.imagekit.io/bowr9614/Packages/kitchen_new/Lshaped/LshapedLuxury.jpeg?updatedAt=1766046734300",
+  },
+  "u-shaped": {
+    essentials:
+      "https://ik.imagekit.io/bowr9614/Packages/kitchen_new/Ushaped/UshapedEssentials.jpeg?updatedAt=1766046819827",
+    premium:
+      "https://ik.imagekit.io/bowr9614/Packages/kitchen_new/Ushaped/UShapedPremium.jpeg?updatedAt=1766046820316",
+    luxury:
+      "https://ik.imagekit.io/bowr9614/Packages/kitchen_new/Ushaped/UshapedLuxury.jpeg?updatedAt=1766046820000",
+  },
+  parallel: {
+    essentials:
+      "https://ik.imagekit.io/bowr9614/Packages/kitchen_new/Parallel/ParalllelEssentials.jpeg?updatedAt=1766046768584",
+    premium:
+      "https://ik.imagekit.io/bowr9614/Packages/kitchen_new/Parallel/ParallelPreium.jpeg?updatedAt=1766046768851",
+    luxury:
+      "https://ik.imagekit.io/bowr9614/Packages/kitchen_new/Parallel/ParallelLuxury.jpeg?updatedAt=1766046769226",
+  },
+};
+
+const kitchenPackagesBase = [
   {
     id: "essentials",
     title: "Essentials",
     priceRange: "₹1,500 - ₹2,500",
     pricePerSqft: "per sqft",
     features: ["Low cost", "Basic units", "Standard finish"],
-    image:
-      "https://ik.imagekit.io/bowr9614/Packages/Kitchen/Basic%20Kitchen.jpg?updatedAt=1765347608500",
   },
   {
     id: "premium",
@@ -27,8 +61,6 @@ const kitchenPackages = [
     priceRange: "₹2,500 - ₹4,000",
     pricePerSqft: "per sqft",
     features: ["Mid cost", "Premium units", "Premium finish"],
-    image:
-      "https://ik.imagekit.io/bowr9614/Packages/Kitchen/Premium%20KItchen.jpg?updatedAt=1765347608878",
   },
   {
     id: "luxe",
@@ -36,8 +68,6 @@ const kitchenPackages = [
     priceRange: "₹4,000 - ₹6,000",
     pricePerSqft: "per sqft",
     features: ["High cost", "Luxury units", "Elite finish"],
-    image:
-      "https://ik.imagekit.io/bowr9614/Packages/Kitchen/Luxery%20Kitchen.jpg?updatedAt=1765347608880",
   },
 ];
 
@@ -46,6 +76,22 @@ export default function KitchenPackageSelection() {
   const navigate = useNavigate();
   const location = useLocation();
   const [selectedPackage, setSelectedPackage] = useState("");
+
+  const searchParams = new URLSearchParams(location.search);
+  const layout = searchParams.get("layout") || "straight"; // Default to straight if not found
+
+  // Create kitchen packages with images based on layout type
+  const kitchenPackages = useMemo(() => {
+    const images = kitchenPackageImages[layout] || kitchenPackageImages.straight;
+    return kitchenPackagesBase.map((pkg) => {
+      // Map package ID to image key (luxe -> luxury)
+      const imageKey = pkg.id === "luxe" ? "luxury" : pkg.id;
+      return {
+        ...pkg,
+        image: images[imageKey] || images.essentials, // Fallback to essentials if image not found
+      };
+    });
+  }, [layout]);
 
   const handleNext = () => {
     const searchParams = new URLSearchParams(location.search);
@@ -283,6 +329,7 @@ export default function KitchenPackageSelection() {
         <Button
           variant="contained"
           onClick={handleNext}
+          disabled={!selectedPackage}
           sx={{
             px: 4,
             textTransform: "none",
