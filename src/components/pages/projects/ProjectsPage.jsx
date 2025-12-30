@@ -157,6 +157,8 @@ export default function ProjectsPage() {
               <Paper
                 elevation={3}
                 sx={{
+                  maxWidth: "500px",
+                  minWidth: "350px",
                   borderRadius: "16px",
                   p: 4,
                   textAlign: "center",

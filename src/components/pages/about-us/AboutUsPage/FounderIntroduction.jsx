@@ -138,6 +138,7 @@ export default function FounderIntroduction() {
           >
             <Box
               sx={{
+                backgroundColor: "#ffffff",
                 position: "relative",
                 borderRadius: 4,
                 overflow: "hidden",

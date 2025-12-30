@@ -706,17 +706,18 @@ export default function Header() {
                     >
                       <Button
                         type="text"
+                        onClick={item.path ? () => navigate(item.path) : undefined}
                         style={{
-                          fontWeight: location.pathname.startsWith(item.path)
+                          fontWeight: item.path && location.pathname.startsWith(item.path)
                             ? "bold"
                             : "500",
-                          color: location.pathname.startsWith(item.path)
+                          color: item.path && location.pathname.startsWith(item.path)
                             ? theme.palette.primary.main
                             : theme.palette.text.primary,
                           fontSize: "1rem",
                           padding: "8px 16px",
                           borderRadius: 4,
-                          cursor: "default",
+                          cursor: item.path ? "pointer" : "default",
                         }}
                       >
                         <Space>

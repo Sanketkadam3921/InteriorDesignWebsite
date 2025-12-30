@@ -8,6 +8,7 @@ export default function HeroSection() {
       sx={{
         position: "relative",
         width: "100%",
+        backgroundColor: "#ffffff",
         height: { xs: "60vh", sm: "70vh", md: "80vh" },
         backgroundImage: `url("${HERO_DATA.backgroundImage}")`,
         backgroundSize: "cover",

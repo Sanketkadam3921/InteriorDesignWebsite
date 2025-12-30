@@ -629,7 +629,9 @@ export default function DesignDetail() {
                                 fontSize: { xs: "0.875rem", md: "0.9375rem" },
                               }}
                             >
-                              {capitalizeWords(design.specifications.panelFinish)}
+                              {capitalizeWords(
+                                design.specifications.panelFinish
+                              )}
                             </Typography>
                           </Box>
                         )}
@@ -935,7 +937,7 @@ export default function DesignDetail() {
             // Reduce padding for iPad Pro
             "@media (min-width: 900px) and (max-width: 1200px)": {
               p: 3,
-              mb: 0,
+              mb: 5,
             },
           }}
         >
