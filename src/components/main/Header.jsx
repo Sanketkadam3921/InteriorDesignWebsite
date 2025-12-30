@@ -706,7 +706,6 @@ export default function Header() {
                     >
                       <Button
                         type="text"
-                        onClick={() => navigate(item.path)}
                         style={{
                           fontWeight: location.pathname.startsWith(item.path)
                             ? "bold"
@@ -717,6 +716,7 @@ export default function Header() {
                           fontSize: "1rem",
                           padding: "8px 16px",
                           borderRadius: 4,
+                          cursor: "default",
                         }}
                       >
                         <Space>
@@ -810,7 +810,6 @@ export default function Header() {
                     >
                       <Button
                         type="text"
-                        onClick={() => navigate(item.path)}
                         style={{
                           fontWeight: location.pathname.startsWith(item.path)
                             ? "bold"
@@ -821,6 +820,7 @@ export default function Header() {
                           fontSize: "1rem",
                           padding: "8px 16px",
                           borderRadius: 4,
+                          cursor: "default",
                         }}
                       >
                         <Space>
