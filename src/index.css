@@ -1,17 +1,25 @@
-/* Embla Carousel CSS */
+/* Embla Carousel */
 .embla {
   overflow: hidden;
   width: 100%;
+  touch-action: pan-y;
 }
 
 .embla__container {
   display: flex;
-  will-change: transform; /* improves precision */
+  will-change: transform;
 }
 
 .embla__slide {
   flex: 0 0 100%;
   min-width: 100%;
+}
+
+/* Global safety */
+html,
+body {
+  overflow-x: hidden;
+  overscroll-behavior: none;
 }
 
 /* Reset any conflicting styles */
