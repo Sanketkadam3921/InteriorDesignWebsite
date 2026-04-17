@@ -18,8 +18,8 @@
 /* Global safety */
 html,
 body {
-  overflow-x: hidden;
-  overscroll-behavior: none;
+  overflow-x: hidden; /* only prevent horizontal scroll */
+  /* REMOVED overscroll-behavior: none; */
 }
 
 /* Reset any conflicting styles */
@@ -39,4 +39,9 @@ img[alt="Kalakruti Logo"] {
   background-color: transparent !important;
   border: none !important;
   outline: none !important;
+}
+
+/* Ensure vertical scrolling works */
+body {
+  overflow-y: auto;
 }
